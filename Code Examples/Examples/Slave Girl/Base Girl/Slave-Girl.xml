@@ -1,0 +1,135 @@
+﻿<Language>
+	<Slave>
+		<Version>2</Version>
+		<Credits>Developed originally by Pooloka, continued by cmacleod</Credits>
+		
+		<Name>Akane</Name>
+		<Description>the angry girl</Description>
+		
+		<TrainingTime>60</TrainingTime>
+
+		<Gender>2</Gender>
+		<Bust>85</Bust>
+		<Waist>55</Waist>
+		<Hips>87</Hips>
+		<Age>19</Age>
+		<BloodType>AB</BloodType>
+		<Weight>50</Weight>
+		<Height>163</Height>
+		
+		<Milkable>true</Milkable>
+		<FairyXF>0</FairyXF>
+		<CustomFlag>0</CustomFlag>
+		<CustomFlag1>0</CustomFlag1>
+		<NobleLoveType>8</NobleLoveType>
+		<Attitude>2</Attitude>
+		<SlaveLikeServant>false</SlaveLikeServant>
+		
+		<IntroPages>2</IntroPages>
+		
+		<Statistics>
+			<Charisma>10</Charisma>
+			<Sensibility>10</Sensibility>
+			<Refinement>10</Refinement>
+			<Intelligence>5</Intelligence>
+			<Morality>0</Morality>
+			<Constitution>30</Constitution>
+			<Cooking>0</Cooking>
+			<Cleaning>10</Cleaning>
+			<Conversation>10</Conversation>
+			<Fitness>20</Fitness>
+			<BlowJob>15</BlowJob>
+			<Fuck>20</Fuck>
+			<Temperament>20</Temperament>
+			<Nymphomania>15</Nymphomania>
+			<Obedience>0</Obedience>
+			<Lust>0</Lust>
+			<Reputation>0</Reputation>
+			<Fatigue>0</Fatigue>
+			<Joy>0</Joy>
+			<Special>45</Special>
+			<MaxObedience>80</MaxObedience>
+		</Statistics>
+		
+		<Difficulties>
+			<Anal>0</Anal>
+			<Blowjob>12</Blowjob>
+			<Bondage>65</Bondage>
+			<Brothel>75</Brothel>
+			<Dildo>25</Dildo>
+			<Expose>40</Expose>
+			<Fuck>10</Fuck>
+			<GangBang>75</GangBang>
+			<LendHer>90</LendHer>
+			<Lesbian>50</Lesbian>
+			<Lick>5</Lick>
+			<Master>65</Master>
+			<Masturbate>0</Masturbate>
+			<Naked>65</Naked>
+			<Plug>50</Plug>
+			<Ponygirl>65</Ponygirl>
+			<SleazyBar>25</SleazyBar>
+			<Spanking>30</Spanking>
+			<Threesome>20</Threesome>
+			<TitsFuck>12</TitsFuck>
+			<Touch>0</Touch>
+			<XXX>30</XXX>
+			<XXXContest>35</XXXContest>
+		</Difficulties>
+					
+		<SpecialParticipants>
+			<Participant>
+				<Name>Miss N</Name>
+				<Folder>Images/Miss N</Folder>
+				<Description>Renowned Prostitute</Description>
+				<Image>Images/Miss N/People - Prostitute 2.png</Image>
+				<Gender>2</Gender>
+				<Bust>84</Bust>
+				<Waist>53</Waist>
+				<Hips>85</Hips>
+				<Age>25</Age>
+				<BloodType>A</BloodType>
+				<Weight>47</Weight>
+				<Height>170</Height>
+				<Statistics>
+					<Charisma>50</Charisma>
+					<Sensibility>20</Sensibility>
+					<Refinement>30</Refinement>
+					<Intelligence>45</Intelligence>
+					<Morality>0</Morality>
+					<Constitution>60</Constitution>
+					<Cooking>0</Cooking>
+					<Cleaning>0</Cleaning>
+					<Conversation>35</Conversation>
+					<Fitness>50</Fitness>
+					<BlowJob>80</BlowJob>
+					<Fuck>80</Fuck>
+					<Temperament>50</Temperament>
+					<Nymphomania>50</Nymphomania>
+					<Obedience>20</Obedience>
+					<Lust>50</Lust>
+					<Reputation>40</Reputation>
+					<Fatigue>0</Fatigue>
+					<Joy>50</Joy>
+				</Statistics>
+				
+				<Images>
+					<Fuck>
+						<Normal>1</Normal>
+						<Lesbian>1</Lesbian>
+					</Fuck>
+					<Discuss>
+						<Normal>1</Normal>
+					</Discuss>
+				</Images>
+				
+			</Participant>
+		</SpecialParticipants>
+		
+	</Slave>
+	
+	<Assistant>
+		<AssistantDescription>A violent girl with a taste for bondage, and hammers...\rBondage actions are easier for slaves she assists with. Spanking is more effective.</AssistantDescription>
+	</Assistant>
+
+</Language>

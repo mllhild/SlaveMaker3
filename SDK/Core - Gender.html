@@ -1,0 +1,811 @@
+<u style="font-family: Arial;"><b><span style="font-size: 18pt;">
+
+
+</span></b></u><span style="font-size: 12pt; font-family: Arial;">
+
+</span><table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;" border="1" cellpadding="2" cellspacing="2"><tbody><tr><td style="vertical-align: top;"><font size="+2"><span style="font-weight: bold;"></span></font><table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2"><tbody><tr><td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">Gender</span></font></td><td style="vertical-align: top;"><br></td></tr><tr><td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td><td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Updated for version 3.4.02</font><br></td></tr></tbody></table><font size="+2"><span style="font-weight: bold;"></span></font></td></tr></tbody></table><span style="font-size: 12pt; font-family: Arial;"><br>
+
+There are a series of functions and variables that are involved with the gender of your slave maker, slaves and assistant<br>
+
+<br><br></span><span style="font-weight: bold; font-family: Arial;">Table of Contents</span><ul style="font-family: Arial;" id="mozToc"><!--mozToc h1 1 h2 2 h5 3 h6 4--><li><a href="#mozTocId532181">Gender Concepts</a><ul><li><a href="#mozTocId698066">XML</a></li><li><a href="#mozTocId716142">Gender Identity</a><ul><li><a href="#mozTocId92666">Effiminate Characters</a></li><li><a href="#mozTocId978905">Gender Identory
+</a></li></ul></li></ul></li><li><a href="#mozTocId746192">Variables</a><ul><li><a href="#mozTocId672678">Slave Variables</a><ul><li><a href="#mozTocId103891">SlaveGender</a></li><li><a href="#mozTocId787501">SlaveGenderBorn</a></li><li><a href="#mozTocId522506">GenderIdentity</a></li></ul></li><li><a href="#mozTocId724458">Assistant Variables</a><ul><li><a href="#mozTocId778190">ServantGender (READ ONLY)</a></li></ul></li><li><a href="#mozTocId338083">Slave Maker Variables</a><ul><li><a href="#mozTocId86428">Gender </a></li><li><a href="#mozTocId543851">OldGender </a></li></ul></li><li><a href="#mozTocId151389">Core Variables</a><ul><li><a href="#mozTocId350870">Owner.PersonGender </a></li><li><a href="#mozTocId366670">PersonGender (READ ONLY) </a></li><li><a href="#mozTocId340962">PersonOtherGender (READ ONLY) </a></li></ul></li></ul></li><li><a href="#mozTocId86356">Core Functions</a><ul><li><a href="#mozTocId283040">Gender Changes</a><ul><li><a href="#mozTocId903238">ChangeSlaveGender</a></li><li><a href="#mozTocId491889">ChangeSlaveMakerGender</a></li><li><a href="#mozTocId621486">ChangeAssistantGender</a></li></ul></li><li><a href="#mozTocId608880">Gender Testing</a><ul><li><a href="#mozTocId156462">IsDickgirl</a></li><li><a href="#mozTocId366375">IsFemale</a></li><li><a href="#mozTocId58093">IsMale</a></li><li><a href="#mozTocId490831">IsTwins</a></li><li><a href="#mozTocId19515">IsWoman</a></li></ul></li><li><a href="#mozTocId644541">Other Gender Functions</a><ul><li><a href="#mozTocId685641">GetSlaveInformation</a></li><li><a href="#mozTocId89019">GetOtherSlaveInformation</a></li></ul></li><li><a href="#mozTocId331251">Dickgirl</a></li></ul></li><li><a href="#mozTocId955815">He/She/His/Her</a></li></ul><span style="font-size: 12pt; font-family: Arial;"><br></span><hr style="width: 100%; height: 2px;"><span style="font-size: 12pt; font-family: Arial;"></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId532181"></a>Gender Concepts</h1><span style="font-family: Arial;">All slaves, assistants and your slave maker have a gender (well clearly) and these are specified by a number <br></span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><br></span></span><div style="margin-left: 40px; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">0 = no gender/neutral gender</span></span><br><span style="font-size: 12pt;"><span style="font-size: 12pt;">1 = male</span></span><br><span style="font-size: 12pt;"><span style="font-size: 12pt;">2 = female</span></span><br><span style="font-size: 12pt;"><span style="font-size: 12pt;">3 = dickgirl</span></span><br><span style="font-size: 12pt;"><span style="font-size: 12pt;">4 = male twins</span></span><br><span style="font-size: 12pt;"><span style="font-size: 12pt;">5 = female twins</span></span><br><span style="font-size: 12pt;"><span style="font-size: 12pt;">6 = dickgirl twins</span></span><br><span style="font-size: 12pt;"><span style="font-size: 12pt;">7 = mixed twins</span></span><br><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></div><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;">
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br><span style="font-family: Arial;">As you see there is a general pattern, values &gt; 3 are twins, and for those the value - 3 is the standard male, female, dickgirl. Note the value 7 for mixed twins breaks this pattern though. Note that Slave Makers are only allowed values of 1, 2 ,3, twins are not permitted.</span></span></span><font style="font-family: Arial;" face="Arial"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br><br style="font-family: Arial;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></font><font size="+1"><span style="font-family: Arial;">All slaves and your slave maker have a current gender and the gender they were when they were born.</span><br style="font-family: Arial;"><br style="font-family: Arial;"><span style="font-family: Arial;">Dickgirls or hermaphrodites can be disabled by a game option.<br><br></span></font><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId698066"></a>XML</h2>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-family: Arial;">Using XML the following text can be used as well as the numbers to test or set any gender variable<br>
+</span></span></span><font style="font-family: Arial;" face="Arial"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">
+&nbsp;&nbsp;&nbsp; "none"</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></font><br>
+<font style="font-family: Arial;" face="Arial"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">
+&nbsp;&nbsp;&nbsp; "male"<br>
+&nbsp;&nbsp;&nbsp; "female"<br>
+&nbsp;&nbsp;&nbsp; "dickgirl" or "hermaphrodite" or "futanari"<br>&nbsp;&nbsp;&nbsp; "maletwins"<br>
+&nbsp;&nbsp;&nbsp; "femaletwins"<br>
+&nbsp;&nbsp;&nbsp; "dickgirltwins"<br>
+<br>
+When testing in a conditional you can additionally use<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></font><font style="font-family: Arial;" face="Arial"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">
+&nbsp;&nbsp;&nbsp; "feminine"&nbsp; - a female or dickgirl<br style="font-family: Arial;">
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></font><font style="font-family: Arial;" face="Arial"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">
+&nbsp;&nbsp;&nbsp; "masculine"&nbsp; - a male or dickgirl<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></font><font style="font-family: Arial;" face="Arial"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">
+&nbsp;&nbsp;&nbsp; "twins"&nbsp; - any of the types of twins, numbers 4+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></font><br><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId716142"></a>Gender Identity<br></h2><span style="font-family: Arial;">Some slaves can choose to refer to themselves as a different gender. For instance a male 'trap' who refers to themselves as 'she'. Similarly a tomboy referring to themselfs as 'he'. The last is a bit more common in Japanese culture.<br><br>There are two game options to cover this<br></span><span style="font-family: Arial;"></span><h5><a class="mozTocH4" name="mozTocId92666"></a><big><span style="font-family: Arial;">Effiminate Characters</span></big><br></h5>There are some characters who appear to be female but are actually cross-dressing males,. In this case the game has a flag, BitFlag1, flag 62 that means the game will descibe them as female and act decriptions will use the female version of descriptions<br><h5><a class="mozTocH4" name="mozTocId978905"></a><big><span style="font-family: Arial;">Gender Identory</span></big><br>
+</h5><span style="font-family: Arial;">Each slave has a variable which is the gender they identify with. When using termis like he/she/his/her the game will use this identity, not their actual gender. This identity defaults to their actual gender, but can be changed at start of game or during game play.</span><br><br><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId746192"></a>Variables</h1><h2><a class="mozTocH4" name="mozTocId672678"></a><span style="font-family: Arial;">Slave Variables</span></h2><span style="font-family: Arial;">The following variables are valid for all slaves, assistants amd minor slaves in the game. For the current slave in training the variables are copied into global scope.<br><br>Note for XML, the following lists<br>XML Variable - the variable you use the access or change during gameplay<br>XML Initialisor - The node you add to &lt;Slave&gt; node to initialis the variable when the slave is created<br>eg</span><br><table style="text-align: left; width: 907px; height: 60px; background-color: rgb(239, 239, 239); font-family: Arial;" border="0" cellpadding="2" cellspacing="2"><tbody><tr><td style="vertical-align: top; background-color: rgb(244, 244, 244);"><font size="-1">&lt;if slavegender='1'&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;!-- slave is male --&gt;<br>
+&lt;/if&gt;<br><br>
+In the slaves xml<br>
+&lt;Slave&gt;<br>
+&nbsp;&nbsp;&nbsp; ....<br>
+&nbsp;&nbsp;&nbsp; &lt;Gender&gt;male&lt;/Gender&gt;<br>
+&lt;/Slave&gt;</font>
+
+      </td>
+    </tr>
+  </tbody>
+</table><span style="font-family: Arial;"><br></span><br><table style="text-align: left; width: 939px; height: 649px; background-color: rgb(242, 255, 255); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: rgb(229, 229, 229);"><span style="font-weight: bold;">Actionscript Variable</span></td>
+            <td style="vertical-align: top; width: 50%; background-color: rgb(229, 229, 229);"><span style="font-weight: bold;">XML Variable<br>XML Initialisor<br></span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 926px; height: 25px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white; height: 21px;">
+            <h5 style="height: 0px;"><a class="mozTocH5" name="mozTocId103891"></a><big><span style="font-weight: bold;">SlaveGender</span></big></h5>
+            <font size="-2"><span style="font-weight: bold;">implemented
+in:</span> _root, class </font><font size="-2"><a href="Common%20Scripts/Classes/Slave.as">Slave</a> via <a href="Common%20Scripts/Classes/SlaveStatistics.as">SlaveStatistics</a></font><br>
+            </td>
+            <td style="vertical-align: top; width: 50%; background-color: white; height: 21px;"><span style="font-weight: bold;">slavegender<br>&lt;Gender&gt;</span><font size="-1"><span style="font-style: italic;"></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><br>
+            </font></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <table style="text-align: left; width: 924px; height: 228px;" border="0" cellpadding="6" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"><span style="font-style: italic;"><font size="-1">(Number) </font></span><font size="+1">The gender of the slave (NOT for Slave Makers), default 2. See <a href="#mozTocId532181">Gender Concepts</a> for details of values.</font><br>
+            <span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+            </span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"> Please use <a href="Slave%20-%20Trainings%20-%20Cumslut.html#mozTocId73243">ChangeSlaveGender()</a>
+or the xml version to change a slaves gender.<br></span></span><span style="font-size: 12pt;"><font size="-1"><br>eg<br>
+      </font></span> <span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">actionscript:</span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;">if (_root.SlaveGender == 2) {<br>&nbsp;&nbsp; // current slave is female<br>}<br>var sd:Slave = _root.SMData.GetSlaveDetails("Tifa");<br>if (sd.SlaveGender == 2) {<br>&nbsp;&nbsp;&nbsp; // slave Tifa is female<br>}<br></span></span></span></span></span></font></font></font></font></font></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;">
+      <br>
+      </span></span></span></span></span></span></span></span></span> <span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">xml:</span></span><br>
+      <font size="-1">&lt;if slavegender='2'&gt;<br>&nbsp;&nbsp;&nbsp; &lt;!-- current slave is female --&gt;<br>&lt;/if&gt;<br></font><font size="-1">&lt;if slavegender='male'&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;!-- current slave is male --&gt;<br>
+&lt;/if&gt;<br></font><font size="-1">&lt;if slavegender-ranma='2'&gt;<br>&nbsp;&nbsp;&nbsp; &lt;!-- slave Ranma is female --&gt;<br>&lt;/if&gt;</font><br><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 30px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white; height: 29px;">
+            <h5 style="height: 0px;"><a class="mozTocH5" name="mozTocId787501"></a><big>SlaveGenderBorn</big></h5>
+            <font size="-2"><span style="font-weight: bold;">implemented
+in:</span> _root, classes <a href="Common%20Scripts/Classes/SlaveMaker.as">SlaveMaker</a> and <a href="Common%20Scripts/Classes/Slave.as">Slave</a> via</font><a href="Common%20Scripts/Classes/SlaveMakerSkills.as"><font size="-2"> </font></a><font size="-2"><a href="Common%20Scripts/Classes/SlaveStatistics.as">SlaveStatistics</a></font>
+            </td>
+            <td style="vertical-align: top; width: 50%; background-color: white; height: 100%;"><span style="font-weight: bold;">slavegenderborn<br>&lt;GenderBorn&gt;<br>
+            </span></td>
+          </tr>
+        </tbody>
+      </table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"><span style="font-style: italic;">(Number)</span></font></span></span> <span style="font-size: 12pt;"><span style="font-size: 12pt;">The slave's gender at birth. Same values and usage as SlaveGender<br><br></span></span></td>
+    </tr>
+    
+    <tr><td style="vertical-align: top;"><table style="text-align: left; width: 924px; height: 30px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white; height: 29px;">
+            <h5 style="height: 0px;"><a class="mozTocH5" name="mozTocId522506"></a><big>GenderIdentity</big></h5>
+            <font size="-2"><span style="font-weight: bold;">implemented
+in:</span> _root, classes <a href="Common%20Scripts/Classes/SlaveMaker.as">SlaveMaker</a> and <a href="Common%20Scripts/Classes/Slave.as">Slave</a> via</font><a href="Common%20Scripts/Classes/SlaveMakerSkills.as"><font size="-2"> </font></a><font size="-2"><a href="Common%20Scripts/Classes/SlaveStatistics.as">SlaveStatistics</a></font>
+            </td>
+            <td style="vertical-align: top; width: 50%; background-color: white; height: 100%;"><span style="font-weight: bold;">genderidentity<br>&lt;GenderIdentity&gt;<br>
+            </span></td>
+          </tr>
+        </tbody>
+      </table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"><span style="font-style: italic;">(Number)</span></font></span></span> <span style="font-size: 12pt;"><span style="font-size: 12pt;">The gender the slave identifies with.</span></span><br><br></td></tr><tr>
+      <td style="vertical-align: top;">
+      <hr style="width: 100%; height: 2px;"> </td>
+    </tr>
+  </tbody>
+</table><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><b>
+</b></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><br></span></span><h2><a class="mozTocH4" name="mozTocId724458"></a><span style="font-family: Arial;">Assistant Variables</span></h2><span style="font-family: Arial;">The assistant has all Slave variables above in the _root.AssistantData object, but for general use the following variables are also defined in global scope.</span><br><br><table style="text-align: left; width: 939px; height: 62px; background-color: rgb(242, 255, 255); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: rgb(229, 229, 229);"><span style="font-weight: bold;">Actionscript Variable</span></td>
+            <td style="vertical-align: top; width: 50%; background-color: rgb(229, 229, 229);"><span style="font-weight: bold;">XML Variable</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    
+    
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 925px; height: 47px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white; height: 18px;">
+            <h5 style="height: 0px;"><a class="mozTocH5" name="mozTocId778190"></a><big>ServantGender</big> <font size="-1"><span style="font-style: italic;">(</span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080">READ ONLY)</font></span></span></h5>
+            
+            <font size="-2"><span style="font-weight: bold;">implemented
+in:</span> _root</font><br>
+            </td>
+            <td style="vertical-align: top; width: 50%; background-color: white; height: 18px;"><font size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;">assistantgender<br>
+            </span></span></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <font size="-1"><span style="font-style: italic;">(Number)</span></font> <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000000">Your current assistant's gender</font></font></font></font></font></span></span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;">, default 2, their actual, permanent gender, </span></span>See <a href="Core%20-%20Gender.html#mozTocId532181">Gender Concepts</a><font size="+1"> for the standard values..</font><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"><br><br></font>Do not alter the actionscript variable ServantGender, it is a read only variable. </span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"> Please use <a href="Slave%20-%20Trainings%20-%20Cumslut.html#mozTocId73243">ChangeSlaveGender()</a>&nbsp; or the XML equivallent to change an assistants gender.<br><br> </span></span>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <hr style="width: 100%; height: 2px;"> </td>
+    </tr>
+  </tbody>
+</table><br><h2><a class="mozTocH4" name="mozTocId338083"></a><span style="font-family: Arial;">Slave Maker Variables</span></h2><span style="font-family: Arial;">These variables are in the SMData object and copied into global scope</span><br><br>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"></span></span><table style="text-align: left; width: 939px; height: 229px; background-color: rgb(242, 255, 255); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: rgb(229, 229, 229);"><span style="font-weight: bold;">Actionscript Variable</span></td>
+            <td style="vertical-align: top; width: 50%; background-color: rgb(229, 229, 229);"><span style="font-weight: bold;">XML Variable</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    
+    
+    
+    <tr><td style="vertical-align: top;"><table style="text-align: left; width: 925px; height: 47px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white; height: 18px;">
+            
+      <h5 style="height: 0px;"><a class="mozTocH5" name="mozTocId86428"></a><big>Gender</big> <font size="-1"><span style="font-style: italic;"></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h5>
+
+            
+            <font size="-2"><span style="font-weight: bold;">implemented
+in:</span> _root and </font><font size="-2">class <a href="Common%20Scripts/Classes/SlaveMaker.as">SlaveMaker</a> </font>
+            </td>
+            <td style="vertical-align: top; width: 50%; background-color: white; height: 18px;"><font size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;">gender<br>
+            </span></span></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></span></td>
+          </tr>
+        </tbody>
+      </table><font size="+1">Your Slave Maker's gender, as noted only 0-3 are valid values, see  <a href="Core%20-%20Gender.html#mozTocId532181">Gender Concepts</a> for more details.</font><br><br></td></tr><tr><td style="vertical-align: top;"><table style="text-align: left; width: 925px; height: 47px;" border="1" cellpadding="2" cellspacing="2">
+
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white; height: 18px;">
+            
+      <h5 style="height: 0px;"><a class="mozTocH5" name="mozTocId543851"></a><big>OldGender</big> <font size="-1"><span style="font-style: italic;"></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h5>
+
+            
+            <font size="-2"><span style="font-weight: bold;">implemented
+in:</span> _root and </font><font size="-2">class <a href="Common%20Scripts/Classes/SlaveMaker.as">SlaveMaker</a> </font>
+            </td>
+            <td style="vertical-align: top; width: 50%; background-color: white; height: 18px;"><font size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;">oldgender<br>
+            </span></span></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></span></td>
+          </tr>
+        </tbody>
+      
+</table><font size="+1">
+Your Slave Maker's gender at the start of their career.</font><br><br></td></tr><tr>
+      <td style="vertical-align: top;">
+      <hr style="width: 100%; height: 2px;"> </td>
+    </tr>
+  </tbody>
+</table><br><h2><a class="mozTocH4" name="mozTocId151389"></a><span style="font-family: Arial;">Core Variables</span></h2>
+<table style="text-align: left; width: 939px; height: 101px; background-color: rgb(242, 255, 255); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: rgb(229, 229, 229);"><span style="font-weight: bold;">Actionscript Variable</span></td>
+            <td style="vertical-align: top; width: 50%; background-color: rgb(229, 229, 229);"><span style="font-weight: bold;">XML Variable</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    
+    
+    
+    <tr><td style="vertical-align: top;"><table style="text-align: left; width: 925px; height: 47px;" border="1" cellpadding="2" cellspacing="2">
+
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white; height: 18px;">
+            
+      <h5 style="height: 0px;"><a class="mozTocH5" name="mozTocId350870"></a><big>Owner.PersonGender</big> <font size="-1"><span style="font-style: italic;"></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h5>
+
+            
+            <font size="-2"><span style="font-weight: bold;">implemented
+in:</span> _root and </font><font size="-2">class <a href="Common%20Scripts/Classes/PersonOwner.as">PersonOwner</a> </font>
+            </td>
+            <td style="vertical-align: top; width: 50%; background-color: white; height: 18px;"><font size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;">ownergender<br>
+            </span></span></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></span></td>
+          </tr>
+        </tbody>
+      
+</table><font size="+1">
+The gender of the current slave's owner. Defaults to 1.</font><br><br></td></tr><tr><td style="vertical-align: top;"><table style="text-align: left; width: 925px; height: 0px;" border="1" cellpadding="2" cellspacing="2">
+
+
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white; height: 7px;">
+            
+      
+<h5 style="height: 0px;"><a class="mozTocH5" name="mozTocId366670"></a><big>PersonGender</big> <font size="-1"><span style="font-style: italic;">(</span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080">READ ONLY)</font></span></span> <font size="-1"><span style="font-style: italic;"></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h5>
+
+            
+            <font size="-2"><span style="font-weight: bold;">implemented
+in:</span> _root and </font><font size="-2">class <a href="Common%20Scripts/Classes/Person.as">Personr</a> </font>
+            </td>
+            <td style="vertical-align: top; width: 50%; background-color: white; height: 7px;"><font size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;">persongender<br>partnergender<span style="color: rgb(0, 0, 153);"></span><br>
+            </span></span></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></span></td>
+          </tr>
+        </tbody>
+      
+</table><font size="+1">
+During events or sex acts where another person is present this variable
+is set to the gender of the other person. This includes cases like
+Owner Testing and End Game, where it is set to the gender of the slaves
+owner. If the other person is your Slave Maker or assistant it is set
+to their gender.<br><br>So
+for example in the sex act 69. If you select to do it with the slave
+and your Slave Maker it will be set to your Slave Makers gender. If you
+select a slave, then it is set to the slave's gender.<br><br>In xml you
+may interchangably use persongender or partnergender, the different
+names for context, a partner is used for sex acts for instance.</font><br></td></tr><tr><td style="vertical-align: top;"><table style="text-align: left; width: 925px; height: 12px;" border="1" cellpadding="2" cellspacing="2">
+
+
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white; height: 7px;">
+            
+      
+      <h5 style="height: 0px;"><a class="mozTocH5" name="mozTocId340962"></a><big>PersonOtherGender</big> <font size="-1"><span style="font-style: italic;">(</span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080">READ ONLY)</font></span></span> <font size="-1"><span style="font-style: italic;"></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h5>
+
+
+            
+            <font size="-2"><span style="font-weight: bold;">implemented
+in:</span> _root and </font><font size="-2">class <a href="Common%20Scripts/Classes/Person.as">Personr</a> </font>
+            </td>
+            <td style="vertical-align: top; width: 50%; background-color: white; height: 7px;"><font size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;">personothergender<br><span style="color: rgb(0, 0, 153);"></span><br>
+            </span></span></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></span></td>
+          </tr>
+        </tbody>
+      
+</table><br><br></td></tr><tr>
+      <td style="vertical-align: top;">
+      <hr style="width: 100%; height: 2px;"> </td>
+    </tr>
+  </tbody>
+</table><br><font style="font-family: Arial;" face="Arial"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></font><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId86356"></a>Core Functions<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;">
+
+</span></span></span></span><h2><a class="mozTocH4" name="mozTocId283040"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span><span style="font-family: Arial;">Gender Changes</span></h2><table style="text-align: left; width: 1449px; height: 489px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 100%; height: 11px;" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;">
+            <h5 style="height: 4px;"><a class="mozTocH3" name="mozTocId903238"></a><span class="mozTocH3"></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">ChangeSlaveGender</span></b></span></span></span></span></span></span></h5>
+            </td>
+            <td style="vertical-align: top; width: 50%; text-align: right;"><font size="-1"><span style="font-weight: bold;">implemented in:</span>
+_root and <a href="Common%20Scripts/Classes/Slave.as">Slave</a> class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">
+function ChangeSlaveGender(gnd:Number)<br>&nbsp;&nbsp; gnd only accepts the numeric gender values.</span></i></span></span></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;SetVar slavegender-slave='gender'/&gt;<br>&nbsp;&nbsp; -slave is optional, see below for details
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">Change your slave's gender to the specified value. Updates all game areas and displays for the change</span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+          <br></span></span></span></span> <span style="font-size: 12pt;"><font size="-1">eg<br></font></span> <span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">actionscript:</span></span><br>
+          <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;">eg<br>
+
+_root.ChangeSlaveGender(3);<span style="font-size: 12pt;"><br>
+
+<br>
+
+Class Slave version (for an arbitrary slave, say a minor slave)<u><br>
+
+</u><span style="font-size: 10pt;">var sd:Slave = _root.GetSlaveDetails("Maran");<br>
+
+sd.ChangeSlaveGender(3);<br><br></span></span></span></span></span></span></span></span></span> <span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">xml:</span></span><br>
+          <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1">
+&lt;SetVar slavegender='male'./&gt;<br>
+&lt;SetVar slavegender='3'/&gt;<br>
+&lt;SetVar slavegender-Maran='dickgirl/&gt;<br>note: -Maran means change the gender of the slave Maran.</font></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-weight: bold;"></span></span></span></span></span></span></font></font></font></font></font></span></span><span style="font-weight: bold;"></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      </span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"></span></span></span></span></span></font></font></font></font></font></span></span>
+      </td>
+    </tr>
+  </tbody>
+</table><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;"></span></b></u></span></span></span></span></span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><br>
+
+</span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span><table style="text-align: left; width: 95%; height: 259px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+<tbody><tr><td style="background-color: rgb(249, 249, 249);">
+          <h5><a class="mozTocH3" name="mozTocId491889"></a><span class="mozTocH3"></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">ChangeSlaveMakerGender</span></b></span></span></span></span></span></span></span></span></span></span></h5><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+
+          <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;">function ChangeSlaveMakerGender(gnd:Number)<br>&nbsp;&nbsp; gnd only accepts the numeric gender values 1, 2, 3<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+</span></i></span></span></span></span></span></span></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br></span></span></span></span></span></span></span>
+
+          <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;">
+&lt;SetVar&nbsp;gender='gender'/&gt;</span></span></span></span></span></span></span></span></span></span><font size="+1">
+</font></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br></span></i></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;">Change the Slave Maker's gender to the specified value, values 4+ are converted to a value 0-3</span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+          <br></span></span></span></span> <span style="font-size: 12pt;"><font size="-1">eg<br></font></span> <span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">actionscript:</span></span><br>
+          <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;">eg<br>
+
+_root.ChangeSlaveMakerGender(3);<span style="font-size: 12pt;"><br>
+
+<span style="font-size: 10pt;"><br>
+</span></span></span></span></span></span></span></span></span> <span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">xml:</span></span><br>
+          <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1">
+&lt;SetVar&nbsp;gender='male'./&gt;</font></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1"><br>
+</font></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"></span></span>
+        </td></tr></tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+</span></span></span></span></span></span>
+<table style="text-align: left; width: 1449px; height: 446px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+<tbody><tr><td style="background-color: rgb(249, 249, 249);">
+          <h5><a class="mozTocH3" name="mozTocId621486"></a><span class="mozTocH3"></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">ChangeAssistantGender</span></b></span></span></span></span></span></span></span></span></span></span></h5><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+
+          <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function ChangeAssistantGender(gender:Number)</span></i></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>&nbsp;&nbsp; gnd only accepts the numeric gender values.<br>
+</span></i></span></span></span></span></span></span></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br></span></span></span></span></span></span></span>
+
+          <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;">&lt;SetVar slavegender-assistant='gender'/&gt;<br>or<br>&lt;SetVar assistantgender='gender'/&gt;<font size="+1"><br>
+</font></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br></span></i></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">Change your slave's gender to the specified value. Updates all game areas and displays for the change</span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+          <br></span></span></span></span> <span style="font-size: 12pt;"><font size="-1">eg<br></font></span> <span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">actionscript:</span></span><br>
+          <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;">eg<br>
+
+_root.ChangeAssistantGender(3);<span style="font-size: 12pt;"><br>
+
+<font size="-1">equivallent to</font><u><br>
+
+</u><span style="font-size: 10pt;">_root.AssistantData.ChangeSlaveGender(3);<br>
+      <br>
+</span></span></span></span></span></span></span></span></span> <span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">xml:</span></span><br>
+          <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1">
+&lt;SetVar assistantgender='male'/&gt;</font></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1"><br>
+</font></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"></span></span>
+        </td></tr></tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1"><br><br></font></span></span></span></span></span></span></span></span></span></span><h2><a class="mozTocH4" name="mozTocId608880"></a><span style="font-family: Arial;">Gender Testing</span></h2><span style="font-family: Arial;">These functions can be used as a simple check for the gender of a slave. All of these are present in global scope or _root for the current slave in training. Also present as member functions of the Slave and SlaveMaker classes<br><br></span><table style="text-align: left; width: 95%; height: 112px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+<tbody><tr><td style="background-color: rgb(249, 249, 249);">
+          <h5><a class="mozTocH5" name="mozTocId156462"></a><span class="mozTocH3"></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">IsDickgirl</span></b></span></span></span></span></span></span></span></span></span></span></h5><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+
+          <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function IsDickgirl() : Boolean</span></i></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+</span></i></span></span></span></span></span></span></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br></span></span></span></span></span></span></span>
+
+          <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;">&lt;if slavegender='dickgirl'&gt;<br></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br></span></i></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">Return true if the slave is permanently or temporarily a dickgirl or dickgirl twins</span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1"><br>
+</font></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"></span></span>
+        </td></tr></tbody>
+</table><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1">&nbsp;&nbsp;&nbsp; <br></font></span></span></span></span></span></span></span></span></span></span><table style="text-align: left; width: 95%; height: 112px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+
+<tbody><tr><td style="background-color: rgb(249, 249, 249);">
+          <h5><a class="mozTocH5" name="mozTocId366375"></a><span class="mozTocH3"></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">IsFemale</span></b></span></span></span></span></span></span></span></span></span></span></h5><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+
+          <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function IsFemale() : Boolean</span></i></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+</span></i></span></span></span></span></span></span></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br></span></span></span></span></span></span></span>
+
+          <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;">&lt;if slavegender='female'&gt;<br></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br></span></i></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">Return true if the slave is female or female twins</span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1"><br>
+</font></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"></span></span>
+        </td></tr></tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1"><br></font></span></span></span></span></span></span></span></span></span></span><table style="text-align: left; width: 95%; height: 112px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+
+
+<tbody><tr><td style="background-color: rgb(249, 249, 249);">
+          <h5><a class="mozTocH5" name="mozTocId58093"></a><span class="mozTocH3"></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">IsMale</span></b></span></span></span></span></span></span></span></span></span></span></h5><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+
+          <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function IsMale() : Boolean</span></i></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+</span></i></span></span></span></span></span></span></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br></span></span></span></span></span></span></span>
+
+          <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;">&lt;if slavegender='male'&gt;<br></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br></span></i></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">Return true if the slave is male or mae twins</span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1"><br>
+</font></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"></span></span>
+        </td></tr></tbody>
+</table>
+<br><table style="text-align: left; width: 95%; height: 112px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+
+
+<tbody><tr><td style="background-color: rgb(249, 249, 249);">
+          <h5><a class="mozTocH5" name="mozTocId490831"></a><span class="mozTocH3"></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">IsTwins</span></b></span></span></span></span></span></span></span></span></span></span></h5><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+
+          <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function IsTwins() : Boolean</span></i></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+</span></i></span></span></span></span></span></span></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br></span></span></span></span></span></span></span>
+
+          <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;">&lt;if slavegender='twins'&gt;<br></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br></span></i></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">Return true if the slave is any kind of twins</span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1"><br>
+</font></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"></span></span>
+        </td></tr></tbody>
+</table>
+<br><table style="text-align: left; width: 95%; height: 112px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+
+
+
+<tbody><tr><td style="background-color: rgb(249, 249, 249);">
+          <h5><a class="mozTocH5" name="mozTocId19515"></a><span class="mozTocH3"></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">IsWoman</span></b></span></span></span></span></span></span></span></span></span></span></h5><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+
+          <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function IsWoman() : Boolean</span></i></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+</span></i></span></span></span></span></span></span></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br></span></span></span></span></span></span></span>
+
+          <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;">&lt;if slavegender='feminine'&gt;<br></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br></span></i></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">Return true if the slave female or dickgirl or female or diskgirl twins</span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1"><br>
+</font></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"></span></span>
+        </td></tr></tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1"><span style="font-weight: bold;"></span></font></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><br></span></span></span></span></span></span></span></span></span></span><h2><a class="mozTocH4" name="mozTocId644541"></a><span style="font-family: Arial;">Other Gender Functions</span></h2><table style="text-align: left; width: 95%; height: 599px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+<tbody><tr><td style="background-color: rgb(249, 249, 249);">
+          <h5><a class="mozTocH5" name="mozTocId685641"></a><span class="mozTocH3"></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">GetSlaveInformation</span></b></span></span></span></span></span></span></span></span></span></span></h5><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+
+          <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function GetSlaveInformation(sdo) : Object</span></i></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+</span></i></span></span></span></span></span></span></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br></span></span></span></span></span></span></span>
+
+          <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;"><font size="+1">&lt;getslavedetails slave='name'/&gt;<br></font><font size="+1">&lt;getparticipantdetails&gt;id&lt;/getparticipantdetails&gt;</font><br></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br></span></i></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">This function is used to set a group of variables<br></span></span></span></span></span></span><table style="text-align: left; width: 66%; height: 180px; background-color: rgb(242, 255, 255); font-family: Arial;" border="1" cellpadding="2" cellspacing="2"><tbody><tr><td style="vertical-align: top;"><table style="text-align: left; width: 925px; height: 1px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white; height: 18px;">
+            
+      <span style="font-weight: bold;">PersonGender </span><font size="-1"><span style="font-style: italic;"></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span><br>
+
+            
+            <font size="-2"><span style="font-weight: bold;"></span></font><font size="-2"> </font>
+            </td>
+            <td style="vertical-align: top; width: 50%; background-color: white; height: 18px;"><font size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;">persongender<br>
+            </span></span></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>The persons gender<br></td></tr><tr><td style="vertical-align: top;"><table style="text-align: left; width: 925px; height: 34px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white; height: 18px;">
+            
+      <span style="font-weight: bold;">PersonName</span> <font size="-1"><span style="font-style: italic;"></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span><br>
+
+            
+            <font size="-2"><span style="font-weight: bold;"></span></font><font size="-2"> </font>
+            </td>
+            <td style="vertical-align: top; width: 50%; background-color: white; height: 18px;"><font size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;">person<br>
+            </span></span></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>The name of the person<br></td></tr><tr><td style="vertical-align: top;"><table style="text-align: left; width: 925px; height: 34px;" border="1" cellpadding="2" cellspacing="2">
+
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white; height: 18px;">
+            
+      <span style="font-weight: bold;">PersonHeShe</span> <font size="-1"><span style="font-style: italic;"></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span><br>
+
+            
+            <font size="-2"><span style="font-weight: bold;"></span></font><font size="-2"> </font>
+            </td>
+            <td style="vertical-align: top; width: 50%; background-color: white; height: 18px;"><font size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;">personheshe<br>
+            </span></span></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></span></td>
+          </tr>
+        </tbody>
+      
+</table>
+"He", "she" or "them", depending on the persons gender<br></td></tr><tr><td style="vertical-align: top;"><table style="text-align: left; width: 925px; height: 34px;" border="1" cellpadding="2" cellspacing="2">
+
+
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white; height: 18px;">
+            
+      <span style="font-weight: bold;">PersonHisHer</span> <font size="-1"><span style="font-style: italic;"></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span><br>
+
+            
+            <font size="-2"><span style="font-weight: bold;"></span></font><font size="-2"> </font>
+            </td>
+            <td style="vertical-align: top; width: 50%; background-color: white; height: 18px;"><font size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;">personhisher<br>
+            </span></span></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></span></td>
+          </tr>
+        </tbody>
+      
+</table>
+his. her or them, depending on the persons gender<br></td></tr><tr><td style="vertical-align: top;"><table style="text-align: left; width: 925px; height: 34px;" border="1" cellpadding="2" cellspacing="2">
+
+
+
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white; height: 18px;">
+            
+      <span style="font-weight: bold;">PersonHimHer</span> <font size="-1"><span style="font-style: italic;"></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span><br>
+
+            
+            <font size="-2"><span style="font-weight: bold;"></span></font><font size="-2"> </font>
+            </td>
+            <td style="vertical-align: top; width: 50%; background-color: white; height: 18px;"><font size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;">personhimher<br>
+            </span></span></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></span></td>
+          </tr>
+        </tbody>
+      
+</table>
+Him, Her, Them, depending on the persons gender<br></td></tr><tr><td style="vertical-align: top;"><table style="text-align: left; width: 925px; height: 34px;" border="1" cellpadding="2" cellspacing="2">
+
+
+
+
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white; height: 18px;">
+            
+      <span style="font-weight: bold;">PersonMaster</span> <font size="-1"><span style="font-style: italic;"></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span><br>
+
+            
+            <font size="-2"><span style="font-weight: bold;"></span></font><font size="-2"> </font>
+            </td>
+            <td style="vertical-align: top; width: 50%; background-color: white; height: 18px;"><font size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;">personmaster<br>
+            </span></span></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></span></td>
+          </tr>
+        </tbody>
+      
+</table>
+Master or Mistress, depending on your Slave Makers gender. <br></td></tr></tbody></table><br><span style="font-size: 12pt;"></span> <span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">actionscript:<br></span></span>The parameter sdo is either the Slave class reference for the slave or an index for the slave<span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;"><br></span></span>
+          <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;">eg<br>var sd:Slave = _root.GetSlaveDetails("Tifa");<br>_root.GetSlaveInformation();<br>_root.SetText("#person, points #personhisher.......");<span style="font-size: 12pt;"></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1"><br>
+</font></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"></span></span>
+        </td></tr></tbody>
+</table><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><br></span></span></span></span></span></span></span></span></span></span><table style="text-align: left; width: 95%; height: 112px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+<tbody><tr><td style="background-color: rgb(249, 249, 249);">
+          <h5><a class="mozTocH5" name="mozTocId89019"></a><span class="mozTocH3"></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">GetOtherSlaveInformation</span></b></span></span></span></span></span></span></span></span></span></span></h5><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+
+          <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function GetOtherSlaveInformation(sdo) : Object</span></i></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+</span></i></span></span></span></span></span></span></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br></span></span></span></span></span></span></span>
+
+          <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;"><font size="+1">&lt;getotherslavedetails slave='name'/&gt;</font><br></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br></span></i></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">This is idential to GetSlaveInformation but populates a separate set of variables. PersonOtherGender, PersonOtherName, PersonOtherHeShe, PersonOtherHisHer, PersonOtherMaster, and for XML personother, personotherhesh, personotherhisher, personothermaster</span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1"><br>
+</font></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"></span></span>
+        </td></tr></tbody>
+</table><br><br><h2><a class="mozTocH4" name="mozTocId331251"></a><span style="font-family: Arial;">Dickgirl</span></h2><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1"><span style="font-weight: bold;"></span></font></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;">See <a href="Slave%20-%20Transformation%20-%20Dickgirl.html">Slave - Transformation - Dickgirl.html</a> for more information on temporary dickgirl changes<br>
+
+</span></span></span></span></span></span></span></span></span></span><br><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId955815"></a>He/She/His/Her<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;">
+
+<span style="font-size: 12pt;">To allow a single set of text to be used for all slaves of all genders the game has several sets of variables thar define terms like he/she, his/her and similar concepts for a given slave.<br><br>The currrent slave has a set<br>_root.SlaveHeShe<br>for instamce. Your assistant and slave maker have another set. There are also two sets for general people or slaves during events. There are a set of actionscript variables for these, but they are essentiall obsolete<br></span></span></span></span></span></span></span></span></span></span></span><font size="-2"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br></span></span></span></span></span></span></span></span></span></span></span></font><table style="text-align: left; width: 95%; height: 159px; font-family: Arial;" border="1" cellpadding="2" cellspacing="2"><tbody><tr><td style="vertical-align: top;"><font size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span><span style="font-weight: bold;">Slave</span></font></td><td style="vertical-align: top;"><font size="-1"><span style="font-weight: bold;">Assistant</span></font></td><td style="vertical-align: top;"><font size="-1"><span style="font-weight: bold;">SlaveMaker</span></font></td><td style="vertical-align: top;"><font size="-1"><span style="font-weight: bold;">General Person, commonly the partner in a sex act</span></font></td></tr><tr><td style="vertical-align: top;"><font size="-1">
+
+var SlaveHeShe:String;<br>
+
+
+var SlaveHeSheSingle:String;<br>
+
+
+var SlaveHeSheIs:String;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+eg she is or they are or he is<br>
+
+
+var SlaveHeSheHas:String;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; eg she has<br>
+
+
+var SlaveHimHer:String;<br>
+
+
+var SlaveHisHer:String;<br>
+
+
+var SlaveHisHerSingle:String; for female twins her, male twins his, otherwise his/her<br>
+
+
+var SlaveHimHerSingle:String;<br>
+
+
+var SlaveGirlGirls:String;<br>
+
+
+var SlaveBoyGirl:String;<br>
+
+
+var SlaveHeSheUC:String;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; eg He or She (ie uppercase first letter)<br>
+
+
+var SlaveFemale:Boolean;<br>
+
+
+var SlaveMeet:String;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; eg Ranma meets     or  Mara &amp; Nara meet<br>
+
+
+var SlaveSee:String;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; eg Ranma sees&nbsp;&nbsp;&nbsp;
+or Mara &amp; Nara see<br>
+
+
+var SlaveIs:String;    &nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; eg Ranma is<br>
+
+
+var SlaveHas:String;</font></td><td style="vertical-align: top;"><font size="-1">
+
+var ServantHeSheSingle:String;<br>
+
+
+var ServantHeShe:String;<br>
+
+
+var ServantHeSheIs:String;<br>
+
+
+var ServantHeSheHas:String;<br>
+
+
+var ServantHimHer:String;<br>
+
+
+var ServantGirlGirls:String;<br>
+
+
+var ServantHeSheUC:String;<br>
+
+
+var ServantFemale:Boolean;<br>
+
+
+var ServantWoman:Boolean;<br>
+
+
+var ServantIs:String;</font></td><td style="vertical-align: top;"><font size="-1">var SlaveMakerHeShe:String;<br>
+var SlaveMakerHimHer:String;</font></td><td style="vertical-align: top;"><font size="-1">var PersonHeShe:String;<br>var PersonHimHer:String;<br>var PersonHisHer:String;<br>var PersonGender:Number;<br>var PersonName:String;</font></td></tr></tbody></table><font size="-2"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span><span style="font-weight: bold;"></span><br></font><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+
+In preference use the text macros<br><a href="Core%20-%20Functions%20-%20Text.html#mozTocId112190">Functions - Text.html</a><br>
+
+<br>eg<br>#slave looks at #slavehisher hand and tells #assistant&nbsp; to take #slavehisher hand.<br><br>
+
+</span></span></span></span></span></span></span></span></span></span></span>

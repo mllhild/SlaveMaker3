@@ -1,0 +1,87 @@
+﻿<Language>
+	<Assistant>
+		<Name>Hild</Name>
+		<Folder>Images/Assistants/Hild</Folder>
+		<AssistantDescription>A wild, erratic woman with arcane abilities and maybe demonic ties.\r\rNymphomania + 5, Lust +2 per day. Fearsome when crossed.</AssistantDescription>
+		<Cost>400</Cost>
+		<AssistantTentacleSex>false</AssistantTentacleSex>
+		<Vanilla>false</Vanilla>
+		
+		<Credits>cmacleod</Credits>
+		<Version>1.3</Version>
+		
+		<Bust>88</Bust>
+		<Waist>59</Waist>
+		<Hips>89</Hips>
+		<Age>?</Age>
+		<BloodType>O</BloodType>
+		<Weight>50</Weight>
+		<Height>180</Height>
+	
+		<Statistics>
+			<Charisma>60</Charisma>
+			<Sensibility>40</Sensibility>
+			<Refinement>40</Refinement>
+			<Intelligence>50</Intelligence>
+			<Morality>0</Morality>
+			<Constitution>30</Constitution>
+			<Cooking>0</Cooking>
+			<Cleaning>0</Cleaning>
+			<Conversation>40</Conversation>
+			<Fitness>30</Fitness>
+			<BlowJob>100</BlowJob>
+			<Fuck>100</Fuck>
+			<Temperament>80</Temperament>
+			<Nymphomania>80</Nymphomania>
+			<Obedience>0</Obedience>
+			<Lust>80</Lust>
+			<Reputation>40</Reputation>
+			<Fatigue>0</Fatigue>
+			<Joy>55</Joy>
+			
+			<TotalFuck>1000</TotalFuck>
+			<LevelFuck>5</LevelFuck>
+			<TotalBlowJob>1000</TotalBlowJob>
+			<LevelBlowJob>5</LevelBlowJob>
+			
+		</Statistics>
+		
+		<Skills>
+			<SlutTrainer>1</SlutTrainer>
+			<SuccubusTrainer>2</SuccubusTrainer>
+			<WhipSkill>80</WhipSkill>
+			<Leadership>1</Leadership>
+		</Skills>
+		
+		<Introduction>
+			<Background colour='black'/>
+			<ShowImage image="#assfolder/Hild 2.png" place='4' align='3'/>
+			<SetText>Hild talks to you before training starts
+			
+			"I wish to play with your little slave here
+			and make #slavehimher realise how much of a slut
+			they are.
+			
+			I will do <b>anything</b> except I will not ever
+			supervise your slave working as an acolyte
+			or taking Theology lessons.
+			<i>Take</i> #slavehimher yourself and I mean that in every way!
+			I am <i>very</i> familiar with things and
+			beings you call 'demonic' and I can help to
+			improve any such dealings."</SetText>
+		</Introduction>
+
+		<Images>
+			<LoveConfession>1</LoveConfession>
+			<LoveConfessionAccepted>1</LoveConfessionAccepted>
+			<LoveConfessionRefused>1</LoveConfessionRefused>
+			<PregnancyReveal>
+				<Normal>
+					<Image1 align='2'/>
+					<Count>1</Count>
+				</Normal>
+			</PregnancyReveal>
+		</Images>
+		
+	</Assistant>
+</Language>

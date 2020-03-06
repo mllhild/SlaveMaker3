@@ -1,0 +1,251 @@
+<table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">Participants of Sex Acts<br>
+            </span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Version
+8</font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<u style="font-family: Arial;"><b><span style="font-size: 18pt;">
+</span></b></u><span style="font-size: 12pt; font-family: Arial;"><br>
+<br>
+For each sex act the game allows you to select the participants for the sex act from your current slaves, assistants and yourself.<br><br><span style="font-weight: bold;">Table of Contents</span><br></span><ul style="font-family: Arial;" id="mozToc"><li><a href="#mozTocId994413">Variables</a></li><li><a href="#mozTocId560500">Functions</a></li><li><a href="#mozTocId191134">Adding/Removing Participants</a></li></ul><span style="font-size: 12pt; font-family: Arial;">
+<br></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId994413"></a>Variables<span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;">
+The primary container for the participants is the array<br>
+<b>_root.Participants</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+This contains an index value for each slave/person assigned to the act. Each is of type Number. The values are<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-100 &nbsp;&nbsp;&nbsp;
+- your Slave Maker<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-99 &nbsp;&nbsp;&nbsp;&nbsp;
+- your assistant<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- an index of the slave in the array SlavesArray<br>
+<br>
+<span style="font-size: 10pt;">eg<span style="font-size: 12pt;"><br>
+<span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for (var i:Number = 0; i &lt; _root.Participants.length; i++) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// slave is _root.Participants[i]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<span style="font-size: 12pt;"><br>
+<br>
+<b>_root.SlavesArray</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+This is a list of all slaves you own or CAN own, including all assistants you have used. Each array entry is an instance of the class Slave (see the classes provided in Examples/Common Scipts/Classes<br>
+<br>
+So for the Participants Array you can<br>
+<br>
+<span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for (var i:Number = 0; i &lt; _root.Participants.length; i++) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+var pi:Number = [_root.Participants[i];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (pi == -100) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// slave maker<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (pi == -99) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// assistant<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               &nbsp;
+var sd:Slave = _root.SlavesArray[pi];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// see the class but for example<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+sd.SlaveName = their name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+sd.SlaveGender = gender<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+sd.VarConstitution = constitution stat etc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<span style="font-size: 12pt;"><br>
+<br>
+<u>Notes:<br>
+</u>You can access the SlavesArray at anytime, To determine the type of the slave check the property SlaveType<br>
+&nbsp;-100 = untrained slave<br>
+-20 = special participant<br>
+-10 = slave in training<br>
+-3 = sold slave<br>
+-2 = special (not in use)<br>
+-1 = slave maker assistant<br>
+0 = minor slave<br>
+1 = trained slave<br>
+<br>
+<span style="font-size: 10pt;">eg<span style="font-size: 12pt;"><br>
+<span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for (var i:Number = 0; i &lt; _root.SlavesArray.length; i++) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+var sd:Slave = _root.SlavesArray[i];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (sd.SlaveType == 0) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// minor (purchased) slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (sd.SlaveType == 1 &amp;&amp; sd.CanAssist) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// a bought back slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (sd.SlaveType == -20) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// a special participant, like Kiyone when training Mihoshi. Only has a value -20 when valid as a participant<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (sd.SlaveType == -1 &amp;&amp; _root.IsAssistant(sd.SlaveName) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// your current assistant<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<span style="font-size: 12pt;"><br>
+<br>
+<br>
+<b>_root.PersonIndex   <br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For a one-on-one sex act (like fuck, touch etc) this is the index for the other participant (note -100, -99 apply). It is also _root.Participants[0];<br>
+<br>
+<b>_root.PersonName<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For a one-on-one sex act (like fuck, touch etc) this is the name for the other participant. <br>
+<br>
+<b>_root.PersonGender<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For a one-on-one sex act (like fuck, touch etc) this is the gender for the other participant. <br>
+<br>
+Similarly<br>
+<b>PersonHeShe<br>
+PersonHimHer<br>
+PersonHisHer</b><br>
+<br>
+<b><span style="font-size: 14pt;">Important Note:<br>
+<span style="font-size: 12pt;">_root.LastActionDone</span></span></b><br>
+<b>_root.Action<br>
+</b>If you select participants these values will always be integral.<br>
+ie for the Touch act these can have the values<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.0 = touch by male slave maker (female slave)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.1 = handjob or touch by female/dickgirl slavemaker (all slave genders)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.2 = handjob or touch by female slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.3 = touch by male slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.4 = handjob or touch by assistant<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.5 = handjob or touch by dickgirl slave<br>
+But selecting the participants it will always be 2.0<br>
+<br></span></span></span></span></span></span></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId560500"></a>Functions<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;"></span></b></u></span></span></span></span></span></span></span></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;">
+</span></b></u><span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">IsParticipant<br>
+</span></b><span style="font-size: 12pt;">Rerturns true is a particular index value is a participant<br>
+<b><span style="font-size: 14pt;"><br>
+</span></b><i><span style="font-size: 12pt;">function IsParticipant(idx:Number) : Boolean<br>
+</span></i><br>
+<u>Notes<br>
+</u>No difficulty level to do this act. No skill level for this act<br>
+_root.TotalNothing = times the act has been done, BEFORE this time<br>
+Stats<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Needing Sex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Points(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, int(VarLibidoRounded/5), 0, rest, 0, 0, 0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Not Needing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Points(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, rest, 0, 0, 0);<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">CountParticipantGenders<br>
+</span></b><span style="font-size: 12pt;">counts the genders of all participants and sets the PersonIndex, PersonName etc variables<br>
+<i><br>
+function CountParticipantGenders() <br>
+</i><br>
+The following variables are set by this<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PersonIndex <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PersonGender <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PersonName <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+totmales - total male participants<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+totfemales - total female participants<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+totdickgirls - total dickgirl participants<br>
+<br>
+<u>Note:<br>
+</u>This function is automatically called before all sex acts are performed<br><br>
+<br>
+<b><span style="font-size: 14pt;">GetParticipantDetails<br>
+</span></b><span style="font-size: 12pt;">Sets dependent variables for a given index value<br>
+<i><br>
+function GetParticipantDetails(idx:Number)<br>
+</i><br>
+Sets the variables<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PersonIndex <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PersonGender <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PersonName <br>
+also<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+sdata:Slave<br>
+<br>
+for the particular slave. sdata is the entry in SlavesArray for the slave in question. Note not valid for Slave Maker but is valid for your assistant.<br>
+<br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId191134"></a>Adding/Removing Participants<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;"></span></b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">
+</span></b><span style="font-size: 12pt;">The simplest way is to add/remove array entries from the Participants array, but this only applies for the current act.<br>
+<br>
+If someone needs to know how to manipulate default participants or acts in the traing queue I'll document then.<u><br>
+<br>
+</u></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>

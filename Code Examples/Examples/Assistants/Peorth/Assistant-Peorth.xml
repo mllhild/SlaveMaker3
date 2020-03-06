@@ -1,0 +1,115 @@
+﻿<Language>
+	<Assistant>
+		<Name>Peorth</Name>
+		<Folder>Images/Assistants/Peorth</Folder>
+		<AssistantDescription>A calm, seductive woman, expert in all arcane powers.\r\rShe can control arcane powers, Morality and Nymphomania increase faster.</AssistantDescription>
+		<Cost>400</Cost>
+		<Fertility>20</Fertility>
+		<Vanilla>false</Vanilla>
+		
+		<Introduction>
+			<SetText>Peorth speaks to you privately before training starts,
+			
+			"I am...a follower of the New Gods and obey their ways.
+			This means there are a few things I will not help with,
+			mainly I will not aid you in prostituting #slave
+			and will not accompany #slavehimher to the &lt;b&gt;brothel&lt;/b&gt;.
+			This does not mean I disapprove of passion,
+			I encourage it in all ways, I completely approve
+			of exotic entertainment, but &lt;b&gt;not&lt;/b&gt; paid sexuality.
+			
+			Despite some things you may of heard,
+			the gods give us freedom and understand
+			passion so I will joyfully help in training
+			#slave's erotic nature.
+			
+			I am &lt;i&gt;very&lt;/i&gt; familiar with the holy and
+			Angelic and I can help to enhance
+			any such blessings."</SetText>
+		</Introduction>
+
+		
+		<Version>1.2</Version>
+		
+		<Bust>85</Bust>
+		<Waist>54</Waist>
+		<Hips>87</Hips>
+		<Age>?</Age>
+		<BloodType>O</BloodType>
+		<Weight>51</Weight>
+		<Height>177</Height>
+	
+		<Statistics>
+			<Charisma>60</Charisma>
+			<Sensibility>60</Sensibility>
+			<Refinement>60</Refinement>
+			<Intelligence>45</Intelligence>
+			<Morality>85</Morality>
+			<Constitution>30</Constitution>
+			<Cooking>25</Cooking>
+			<Cleaning>25</Cleaning>
+			<Conversation>50</Conversation>
+			<Fitness>30</Fitness>
+			<BlowJob>50</BlowJob>
+			<Fuck>50</Fuck>
+			<Temperament>40</Temperament>
+			<Nymphomania>30</Nymphomania>
+			<Obedience>50</Obedience>
+			<Lust>30</Lust>
+			<Reputation>30</Reputation>
+			<Fatigue>0</Fatigue>
+			<Joy>5</Joy>
+		</Statistics>
+		
+		<Planning><DoPlanning>
+			<SlaveIntimacy>
+				<if loveaccepted-Peorth='0'>
+					<SetText>I am sorry, that is not my wish at this time. Passion is only natural and I will help training your slaves in the ways of sex. I choose my lovers and at this time you are not my lover.
+					
+					Instead, let us talk for a time.</SetText>
+					<SetVar appendacttext='false'/>
+					<DoXMLAct>SlaveTalk</DoXMLAct>
+					<HideImages/>
+					<ShowSlaveMaker/>
+					<callassistantfunction>ShowSlaveTalk</callassistantfunction>
+				</if>
+			</SlaveIntimacy>
+		</DoPlanning></Planning>
+		
+		<Other>
+			<LoveConfession>
+				<SetText>Peorth has just enthusiastically and forcefully confessed her love to you. You get the impression she will not take no for an answer.
+				
+				Will you accept her love?</SetText>
+				<SetVar appendacttext='false'/>
+				<Backgrounds colour='0'/>
+			</LoveConfession>
+			<LoveConfessionAccepted>
+				<SetText>Peorth is very, very happy, and promises you every blessing.</SetText>
+				<SetVar slavetype-peorth='2'/>
+				<ShowSlave person='Peorth'/>
+				<Backgrounds colour='0'/>
+			</LoveConfessionAccepted>
+			<LoveConfessionRefused>
+				<HideImages/>
+				<SetText>Peorth smiles but tells you that your answer does not change her feelings.</SetText>
+				<SetVar loveaccepted-Peorth='1'/>
+				<SetVar appendacttext='false'/>
+				<SetVar slavetype-peorth='2'/>
+				<SetVar usegeneric='false'/>
+				<ShowSlave person='Peorth'/>
+				<Backgrounds colour='0'/>
+			</LoveConfessionRefused>
+			<LoveConfessionTooManyLovers>
+				<SetText>Peorth has just enthusiastically and forcefully confessed her love to you. You get the impression she will not take no for an answer.
+				
+				She does mention your other lovers, but explains that does not matter at all to her.</SetText>
+				<SetVar appendacttext='false'/>
+				<SetVar loveaccepted-Peorth='1'/>
+				<SetVar slavetype-peorth='2'/>
+				<YesNoQuestion event='3'>Will you accept her love?</YesNoQuestion>
+			</LoveConfessionTooManyLovers>
+		</Other>
+
+	</Assistant>
+</Language>

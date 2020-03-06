@@ -1,0 +1,231 @@
+<u style="font-family: Arial;"><b><span style="font-size: 18pt;">
+</span></b></u><table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top;">
+          <table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">XML Actionscript Functions<br></span></font></td>
+
+                <td style="vertical-align: top;"><br></td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3
+                SDK</span></a></td>
+
+                <td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Updated to version 3.4</font><br></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table><span style="font-size: 12pt; font-family: Arial;"></span><br style="font-family: Arial;"><ul style="font-family: Arial;" id="mozToc"><!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6--><li><a href="#mozTocId512017">General Concepts</a><ul><li><a href="#mozTocId762182">Node References</a></li><li><a href="#mozTocId326790">Node Searching</a></li></ul></li><li><a href="#mozTocId646036">Functions</a><ul><li><a href="#mozTocId100447">DoXMLAct</a></li><li><a href="#mozTocId733193">XMLEvent
+</a></li><li><a href="#mozTocId278513">XMLGeneral
+</a></li><li><a href="#mozTocId396170">PickAndDoXMLEvent
+</a></li></ul></li></ul><br style="font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId512017"></a>General Concepts</h1><span style="font-size: 12pt; font-family: Arial;">The following documents the functions you can use to access the XML functions for the game. These can be used to execute xml statemes for a nominated xml node<br><br>All functions are in a class instance<br>
+<b>_root.XMLData<br>
+</b></span><span style="font-family: Arial;"></span><span style="font-weight: bold; font-family: Arial;"></span><br style="font-family: Arial;"><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId762182"></a>Node References</h2><span style="font-size: 12pt; font-family: Arial;">All functions take a parameter of the node and or subnode. This is the name of the xml node to process<br><br>eg<br>&lt;Events&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;MyEvent1&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- various statements --&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;SetText&gt;testing, testing&lt;/SetText&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp; &lt;/MyEvent1&gt;<br>&lt;/Events&gt;<br><br>To reference this<br>_root.XMLData.XMLGeneral("Events/MyEvent1");<br><br>The game uses a path like format of parent node, child node, child node of child node etc. The root node &lt;Language&gt; must be omitted.<br><br></span><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId326790"></a>Node Searching</h2><span style="font-size: 12pt; font-family: Arial;">When you refer to a node the game searches for the xml node if you do not specify an explicit path as discussed above. The game searches<br><br>1. If the node referenced is a child node of the parent node from the location the xml is called. This is not done for the Actionscript functions but is always done for xml statements like &lt;DoXML&gt;<br><br>2. Seaches in &lt;Events&gt; node<br><br>When using &lt;DoXMLAct&gt; the game also tries<br><br>3. Planning/DoPlanning<br><br>4. Planning/Acts/DoPlanning<br><br></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId646036"></a>Functions<span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;"></span></b></u></span></h1><br style="font-family: Arial;"><table style="text-align: left; width: 90%; height: 445px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 100%; height: 6px;" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 6px;">
+            <h2 style="height: 11px;"><a class="mozTocH2" name="mozTocId100447"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">DoXMLAct<br></span></b></span></span></span></span></span></h2>
+            </td>
+            <td style="vertical-align: top; width: 50%; text-align: right; height: 6px;"><font size="-1"><span style="font-weight: bold;">implemented in:</span> GameXML class instance XMLData<br></font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><i><span style="font-size: 12pt;">function DoXMLAct(act:String) : Boolean</span></i></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;DoXMLAct&gt;act&lt;/DoXMLAct&gt;<br>and/or<br>&lt;if doxmlact='act'&gt;<br><font size="+1">
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;">Perform the XML for a training the xml is seached for in &lt;Planning&gt;&lt;Acts&gt;&lt;DoPlanning&gt;. The function returns true if any xml statements are processed <span style="font-weight: bold;">excluding</span> any conditionals like &lt;if&gt;<br>ie<br></span></span></span></span></span></span></span></font></font></span></span></span>&lt;Library&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp; &lt;if elapsed='11'&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;AddText&gt;do something&lt;/AddText&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp; &lt;/if&gt;<br>&lt;/Library&gt;<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><br>So if training is before day 11 then DoXMLAct("Library") will return false as the if statement is false<br></span></span></span></span></span></span></span></font></font></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">
+      <br>
+      </span></span></span></span> <span style="font-size: 12pt;"><font size="-1">eg<br>
+      </font></span> <span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">actionscript:</span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span> <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;">_root.DoXMLAct("Library");<br>
+      </span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span></span></span> <span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">xml:</span></span><br>
+      &lt;DoXMLAct&gt;Library&lt;/DoXMLAct&gt;<br>
+      </td>
+    </tr>
+  </tbody>
+</table><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 14pt;">
+<i><span style="font-size: 12pt;"><br></span></i></span></span><table style="text-align: left; width: 90%; height: 348px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 100%; height: 6px;" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 6px;">
+            <h2 style="height: 13px;"><a class="mozTocH2" name="mozTocId733193"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">XMLEvent<br>
+</span></b></span></span></span></span></span></h2>
+            </td>
+            <td style="vertical-align: top; width: 50%; text-align: right; height: 6px;"><font size="-1"><span style="font-weight: bold;">implemented in:</span> GameXML class instance XMLData<br>
+</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><i><span style="font-size: 12pt;">function XMLEvent(node:String, sett:Boolean) : Boolean</span></i></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;DoXMLEvent&gt;event&lt;/DoXMLEvent&gt;<br>
+and/or<br>
+&lt;if doxmlevent='event'&gt;<br>
+<font size="+1">
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;">Perform an XML event in the &lt;Events&gt; node . As for DoXMLAct() it returns true if any non-conditional statements are executed.<br>The sett parameter means that if any text is displayed in the event then any existing text will first be cleared (ie use SetText()). Defaults to false. No equivallent for &lt;DoXMLEvent&gt; implementation<br></span></span></span></span></span></span></span></font></font></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">
+      </span></span></span></span> <span style="font-size: 12pt;"><font size="-1"><br>eg<br>
+      </font></span> <span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">actionscript:</span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span> <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;">_root.DoXMLEvent("MyEvent1", true);<br>
+      </span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span></span></span> <span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">xml:</span></span><br>
+      &lt;DoXMLEvent&gt;MyEvent1&lt;/DoXMLEvent&gt;<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;"><table style="text-align: left; width: 90%; height: 270px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+
+
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 100%; height: 6px;" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 6px;">
+            <h2 style="height: 16px;"><a class="mozTocH2" name="mozTocId278513"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">XMLGeneral<br>
+</span></b></span></span></span></span></span></h2>
+            </td>
+            <td style="vertical-align: top; width: 50%; text-align: right; height: 6px;"><font size="-1"><span style="font-weight: bold;">implemented in:</span> GameXML class instance XMLData<br>
+</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><i><span style="font-size: 12pt;">function XMLGeneral(node:String, sett:Boolean) : Boolean</span></i></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">no implementation<br>
+<font size="+1">
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;">Perform
+an XML node, node where it will search for the tag<br>1. in &lt;Events&gt;<br>2. starting at the root, ie the children of &lt;Language&gt;<br>
+The sett parameter means that if any text is displayed in the event
+then any existing text will first be cleared (ie use SetText()).
+Defaults to false.<br>
+</span></span></span></span></span></span></span></font></font></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">
+      </span></span></span></span> <span style="font-size: 12pt;"><font size="-1"><br>
+eg<br>
+      </font></span> <span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">actionscript:</span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span> <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;">_root.DoXMLGeneral("Other/LoveConfession", true);<br>
+      </span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;"><table style="text-align: left; width: 90%; height: 304px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+
+
+
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 100%; height: 6px;" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 6px;">
+            <h2 style="height: 17px;"><a class="mozTocH2" name="mozTocId396170"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">PickAndDoXMLEvent<br>
+</span></b></span></span></span></span></span></h2>
+            </td>
+            <td style="vertical-align: top; width: 50%; text-align: right; height: 6px;"><font size="-1"><span style="font-weight: bold;">implemented in:</span> GameXML class instance XMLData<br>
+</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><i><span style="font-size: 12pt;">function PickAndDoXMLEvent(node:String, sett:Boolean) : Boolean</span></i></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;PickAndDoXMLEvent&gt;event&lt;/PickAndDoXMLEvent&gt;<br>
+and/or<br>
+&lt;if pickanddoxmlevent='event'&gt;
+<font size="+1">
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;">Looks through an XML Node like<br>&lt;Events&gt;&lt;Daily&gt;<br>That has a list of nodes with conditionals. It will check all child nodes until one of the nodes conditionals evaluate to true. It will then perform the xml statements for the node</span></span></span></span></span></span></span></font></font></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 14pt;">
+<b><span style="font-size: 14pt;"></span></b><i><span style="font-size: 12pt;"></span></i><span style="font-size: 14pt;"><i><span style="font-size: 12pt;"></span></i><span style="font-size: 14pt;"><span style="font-size: 14pt;"><font color="#000000"><font color="#000000"><br>
+</font></font></span></span></span></span></span>

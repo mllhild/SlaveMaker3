@@ -1,0 +1,1 @@
+girlname=[YOUR_SLAVES_NAME]&girldesc=[YOUR_SLAVES_DESC]&image=Slave-[YOUR_SLAVES_NAME].png&gamefile=Slave-GenericSlave.swf&Folder=./Images/[YOUR_SLAVES_NAME]

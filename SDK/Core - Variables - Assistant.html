@@ -1,0 +1,140 @@
+<u style="font-family: Arial;"><b><span style="font-size: 18pt;">
+</span></b></u><table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;" border="1" cellpadding="2" cellspacing="2"><tbody><tr><td style="vertical-align: top;"><font size="+2"><span style="font-weight: bold;"></span></font><table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2"><tbody><tr><td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">Variables - Assistant</span></font><br></td><td style="vertical-align: top;"><br></td></tr><tr><td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td><td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Version 8</font><br></td></tr></tbody></table><font size="+2"><span style="font-weight: bold;"></span></font></td></tr></tbody></table><span style="font-size: 12pt; font-family: Arial;">
+<br></span><span style="font-weight: bold; font-family: Arial;">Table of Contents<br></span><ul style="font-family: Arial;" id="mozToc"><!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6--><li><a href="#mozTocId349391">General Information</a></li><li><a href="#mozTocId770612">Assistant Object
+</a></li><li><a href="#mozTocId778259">Global Variables</a><ul><li><a href="#mozTocId704909">Saved</a><ul><li><a href="#mozTocId622538">ServantName</a></li><li><a href="#mozTocId250117">ServantName1</a></li><li><a href="#mozTocId809084">ServantName2</a></li></ul></li><li><a href="#mozTocId18989">Not Saved</a></li></ul></li></ul><span style="font-weight: bold; font-family: Arial;"><br></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-weight: bold; font-family: Arial;"></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId349391"></a>General Information<span style="font-weight: bold; text-decoration: underline;"></span><br></h1><span style="font-size: 12pt; font-family: Arial;">1) Your current assistant is either a trained slave or a fellow slavemaker you hire. Trained slaves are free to use and fellow slavemakers have to be hired. Internally these are identical except for some flags. Both are stored as an instance of the class Slave in the array _root.SlavesArray/ A reference to this is kept in the variable AssistantData<br><br>2) Other data is held in global assistant variables in
+_root scope. These are generic flags and text related variables. <br>eg<br>_root.ServantName<br>
+Mostly I will leave off the _root from now on.<br><br>3) Also you will see some variables named Servantxxxxx and some Assistantxxxxxx, this is a legacy from older versions. The standard usage now is Assistantxxxxxxxx.<br><br><br></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId770612"></a>Assistant Object<span style="font-size: 12pt;"><i>
+</i></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br style="font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;">A reference object holds the current assistants statistics, items, dresses, skills and the such. This is <br><br><span style="font-weight: bold;">var AssistantData:Slave</span><br><br><span style="font-size: 12pt;">A copy of the class, and it's dependencies is included in this SDK<br>
+  <a href="Common%20Scripts/Classes/Slave.as">Common Scripts/Classes/Slave.as</a><br><br>This object is available at any time<br><font size="-1">eg<br>if (_root.AssistantData.VarIntelligence &gt; 50) _root.ServantSpeak("I do not think she will do that.");<br><br></font></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:</span></span></span></span></span></span></span><br style="font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"></span><span style="font-size: 12pt;">For XML this object is automatically used when needed and no explicit reference is needed. Any variable of flag can refer to your assistant using -assistant<br><font size="-1">eg<br>&lt;if charisma-assistant='50+'&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp; &lt;PersonSpeak person='assistant'&gt;I do not think she will do that&lt;/PersonSpeak&gt;<br>&lt;/if&gt;<br></font></span><span style="font-size: 12pt;">If preferred you can also explicitly refer to the assistant by name as you can for any slave<br></span><span style="font-size: 12pt;"><font size="-1">eg where Shampoo is your assistant<br>
+&lt;if customflag2-Shampoo='1'&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;SetVar customflag2-shampoo='2'/&gt;<br>
+&lt;/if&gt;</font></span><i><br><span style="font-style: italic;"></span><br></i></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId778259"></a>Global Variables</h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 14pt;">
+<b><span style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></b><span style="font-size: 12pt;">The remaining variables are generic ones used, often for historical reasons over the development of the game. A number of these are also stored in the AssistantData object, notably ServantName<br><br></span></span><span style="font-size: 14pt;"><span style="font-size: 12pt;"></span></span></span><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId704909"></a>Saved<br></h2><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><font size="+1"><br></font></span></span></span><span style="font-family: Arial;">The following variables are saved/loaded by the game, so any changes are tracked by the game.</span><br style="font-family: Arial;"><br style="font-family: Arial;"><table style="text-align: left; width: 948px; height: 75px; background-color: rgb(242, 255, 255); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top;">
+          <table style="text-align: left; width: 936px; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="vertical-align: top; background-color: rgb(229, 229, 229); width: 33%;"><span style="font-weight: bold;">Actionscript Variable</span></td>
+
+                <td style="vertical-align: top; width: 33%; background-color: rgb(229, 229, 229);"><span style="font-weight: bold;">XML Variable</span></td><td style="vertical-align: top; background-color: rgb(220, 220, 220); width: 20%;"><span style="font-weight: bold;">Text Macro</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <tr>
+        <td style="vertical-align: top;">
+          <table style="text-align: left; width: 936px; height: 35px;" border="1" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="vertical-align: top; background-color: white; height: 31px; width: 33%;">
+                  <h3 style="height: 2px;"><a class="mozTocH3" name="mozTocId622538"></a><span style="font-weight: bold;">ServantName</span></h3><span style="font-size: 12pt; font-weight: bold;"><span style="font-size: 12pt;"><font size="-1"><span style="font-style: italic;">(Slave class)</span></font> SlaveName</span></span><br>
+                </td>
+
+                <td style="vertical-align: top; width: 33%; background-color: white; height: 31px;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b>none directly but can change using<br></b></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span><font size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;"><span style="font-style: italic;"></span>&lt;SetVar slavename-assistant='newname'&gt;<br></span></span></span></font></td><td style="vertical-align: top; background-color: white; width: 20%; height: 31px;"><span style="font-weight: bold;">#assistant</span><font size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></span></font></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"><span style="font-style: italic;">(String)</span></font></span></span> <span style="font-size: 12pt;"><span style="font-size: 12pt;">The name of your assistant. For twins this is the full name like 'Manya &amp; Minea'<font size="-1"><span style="font-style: italic;"></span></font><br><br></span></span><span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">actionscript:</span></span><br>You can also be reference this variable using<br>_root.AssistantData.SlaveName<br>BUT if you change one of these variables the other is not changed, so always change both in actionscript. Note the game synchronises these variables when you save/load a game but not at any other time.<br><font size="-1">eg<br>_root.ServantName = "Lady Shampoo";<br>_root.AssistantData.SlaveName = ServantName;<br><br></font><span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">xml:</span></span><br>When using xml the &lt;SetVar&gt; noted will automatically change both.<br><br><span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">xml initialisation:</span></span><br>Initialise in &lt;Assistant&gt; node using<br>&lt;Name&gt;their name&lt;/Name&gt;<br><br><span style="font-weight: bold;">Macro:<br></span>This macro will be substituted with your assistants full name<br><span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">actionscript:</span></span><br>_root.SetText("#assistant will take your slave....");<br><span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">xml:</span></span><br>&lt;SetText&gt;#assistant takes a walk&lt;/SetText&gt;<br>
+        </td>
+      </tr>
+
+      <tr>
+        <td style="vertical-align: top;"><table style="text-align: left; width: 936px; height: 39px;" border="1" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="vertical-align: top; background-color: white; height: 10px; width: 33%;">
+                  
+      <h3 style="height: 0px;"><a class="mozTocH3" name="mozTocId250117"></a><span style="font-weight: bold;">ServantName1</span></h3><h3 style="height: 2px;"><a class="mozTocH3" name="mozTocId809084"></a><span style="font-weight: bold;">ServantName2</span></h3>
+      <span style="font-size: 12pt; font-weight: bold;"><span style="font-size: 12pt;"><font size="-1"><span style="font-style: italic;">(Slave class)</span></font> SlaveName1 </span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;">&amp;</span></span><span style="font-size: 12pt; font-weight: bold;"><span style="font-size: 12pt;"> SlaveName2</span></span><br>
+
+                </td>
+
+                <td style="vertical-align: top; width: 33%; background-color: white; height: 10px;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b>none directly but can change using<br>
+</b></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span><font size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;"><span style="font-style: italic;"></span>&lt;SetVar slavename1-assistant='newname'&gt;<br></span></span></span></font><font size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;">&lt;SetVar slavename2-assistant='newname'&gt;</span></span></span></font><br></td><td style="vertical-align: top; background-color: white; width: 20%;"><span style="font-weight: bold;">#assistantA<br>#assistantB</span><font size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></span></font></td>
+
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"><span style="font-style: italic;">(String)</span></font></span></span> <span style="font-size: 12pt;"><span style="font-size: 12pt;">These are meant for the case of twins, they are the name of one of the twins<font size="-1"><span style="font-style: italic;"></span></font><br><br>Otherwise access and use similarly to ServantName.<br><br></span></span><span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">xml initialisation:</span></span><br>Initialise in &lt;Assistant&gt; node using<br>
+&lt;Name1&gt;twin 1 name&lt;/Name1&gt;<br>
+&lt;Name2&gt;twin 2 name&lt;/Name2&gt;<br><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"><span style="font-style: italic;"></span></font></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></td>
+      </tr>
+
+      <tr>
+        <td style="vertical-align: top;">
+          <hr style="width: 100%; height: 2px;">
+        </td>
+      </tr>
+    </tbody>
+  </table><span style="font-family: Arial;"><span style="font-weight: bold;"></span><br></span><br style="font-family: Arial;"><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId18989"></a>Not Saved<br></h2><span style="font-family: Arial;">
+The following servant variables are NOT saved and should be set when initialising the assistant (or slave when used as an assistant)</span><br style="font-family: Arial;"><br style="font-family: Arial;"><span style="font-family: Arial;"><span style="font-weight: bold;">AssistantDescription</span>  - a description of the assistant and a summary of any effects he/she gives</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+eg</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+_root.AssistantDescription = "A wild, erratic woman with arcane abilities and maybe demonic ties.\r\rNymphomania + 5, Fearful when crossed.";</span><br style="font-family: Arial;"><br style="font-family: Arial;"><span style="font-family: Arial;"><span style="font-weight: bold;">AssistantCost</span> - cost in GP to hire as an assistant, defaults to 0</span><br style="font-family: Arial;"><span style="font-family: Arial;"><span style="font-weight: bold;">ServantPronoun</span>  - Pronoun, default "I", for Shampoo it is "Shampoo" so she speaks in the third person</span><br style="font-family: Arial;"><span style="font-family: Arial;"><span style="font-weight: bold;">ServantGender</span> - servants gender, default 2</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = male</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = female</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = dickgirl</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 = male twins</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 = female twins</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 = dickgirl twins</span><br style="font-family: Arial;"><span style="font-family: Arial;"><span style="font-weight: bold;">AssistantTentacleSex</span> - can your assistant be tentacle fucked, default true</span><br style="font-family: Arial;"><span style="font-family: Arial;"><span style="font-weight: bold;">AssistantRape</span> - can your assistant be raped, default true</span><br style="font-family: Arial;"><span style="font-family: Arial;"><span style="font-weight: bold;">SlaveLikeServant</span> - misleading name, does the servant like the slave, default true (will rename in a later version)</span><br style="font-family: Arial;"><span style="font-family: Arial;"></span><br style="font-family: Arial;"><span style="font-family: Arial;">Special Assistant Max Values</span><br style="font-family: Arial;">
+<span style="font-family: Arial;">You can change these to alter the max value of a stat. These are intended for assistant use for the case where an assistant can raise her max stat value. These are here too to handle what happens if you change assistants</span><br style="font-family: Arial;"><br style="font-family: Arial;">
+<span style="font-family: Arial; font-weight: bold;">AssistantMaxCharisma</span><br style="font-family: Arial; font-weight: bold;"><span style="font-family: Arial; font-weight: bold;">
+AssistantMaxRefinement </span><br style="font-family: Arial; font-weight: bold;"><span style="font-family: Arial; font-weight: bold;">
+AssistantMaxIntelligence </span><br style="font-family: Arial; font-weight: bold;"><span style="font-family: Arial; font-weight: bold;">
+AssistantMaxMorality </span><br style="font-family: Arial; font-weight: bold;"><span style="font-family: Arial; font-weight: bold;">
+AssistantMaxConstitution </span><br style="font-family: Arial; font-weight: bold;"><span style="font-family: Arial; font-weight: bold;">
+AssistantMaxCooking </span><br style="font-family: Arial; font-weight: bold;"><span style="font-family: Arial; font-weight: bold;">
+AssistantMaxCleaning </span><br style="font-family: Arial; font-weight: bold;"><span style="font-family: Arial; font-weight: bold;">
+AssistantMaxConversation </span><br style="font-family: Arial; font-weight: bold;"><span style="font-family: Arial; font-weight: bold;">
+AssistantMaxFuck</span><br style="font-family: Arial; font-weight: bold;"><span style="font-family: Arial; font-weight: bold;">
+AssistantMaxBlowJob</span><br style="font-family: Arial; font-weight: bold;"><span style="font-family: Arial; font-weight: bold;">
+AssistantMaxTemperament </span><br style="font-family: Arial; font-weight: bold;"><span style="font-family: Arial; font-weight: bold;">
+AssistantMaxNymphomania </span><br style="font-family: Arial; font-weight: bold;"><span style="font-family: Arial; font-weight: bold;">
+AssistantMaxObedience </span><br style="font-family: Arial; font-weight: bold;"><span style="font-family: Arial; font-weight: bold;">
+AssistantMaxLibido </span><br style="font-family: Arial; font-weight: bold;"><span style="font-family: Arial; font-weight: bold;">
+AssistantMaxJoy </span><br style="font-family: Arial; font-weight: bold;"><span style="font-family: Arial; font-weight: bold;">
+AssistantMaxSpecial </span><br style="font-family: Arial;">
+<br style="font-family: Arial;">
+
+
+<span style="font-family: Arial;">The following are derived from SlaveGender, do not set yourself they will be overridden<br><br><span style="font-weight: bold;">ServantHimHer</span></span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"him" or "her", "their", default "her", automatically set based on ServantGender, READ ONLY</span><br style="font-family: Arial;"><span style="font-family: Arial; font-weight: bold;">ServantHisHer</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"his", "hers", "their" automatically set based on ServantGender, READ ONLY</span><br style="font-family: Arial;"><span style="font-family: Arial; font-weight: bold;">ServantHeShe</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"he" or "she", "they" default "she", automatically set based on ServantGender, READ ONLY</span><br style="font-family: Arial;"><span style="font-family: Arial; font-weight: bold;">ServantHeSheIs</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"he is", "she is", "they are", automatically set based on ServantGender, READ ONLY</span><br style="font-family: Arial;"><span style="font-family: Arial; font-weight: bold;">ServantHeSheHas</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"he has", "she has", "they have", automatically set based on ServantGender, READ ONLY</span><br style="font-family: Arial;"><span style="font-family: Arial; font-weight: bold;">ServantHeSheUC</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"He", "She", They",  automatically set based on ServantGender, READ ONLY</span><br style="font-family: Arial;"><span style="font-family: Arial;"><span style="font-weight: bold;">ServantFemale</span> - true if Gender = 2, 3, 5, 6
+
+
+
+
+</span>
+<br style="font-family: Arial;"><br style="font-family: Arial;">
+
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 14pt;"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><br>
+</font></font></font></font></span></span>

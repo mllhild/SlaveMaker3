@@ -1,0 +1,520 @@
+﻿// Core Game Class
+// Translation status: COMPLETE
+
+import Scripts.Classes.*;
+import flash.geom.ColorTransform;
+import flash.geom.Transform;
+import flash.geom.Matrix;
+
+class CoreGame {
+	
+	// Assistant
+	public var CurrentAssistant:SlaveModule;
+	public var AssistantData:Slave;	// reference
+	
+	// base movie clip container
+	public var mcBase:MovieClip;
+	
+	// commom array for general use
+	public var arGeneralArray:Array;
+	public var arGeneralArray2:Array;
+	
+	// Core Game
+	//TODO remove
+	public var coreGame:Object;
+	
+	// current configuration
+	public var config:Configuration;
+	
+	// xml
+	public var XMLData:GameXML;
+	
+	// core game images
+	public var coreImages:ActInfoList;
+	
+	// temporary variables
+	public var temp:Number;
+	public var i:Number;
+		
+	// Slave Maker information
+	public var SMAvatar:Avatar;
+		
+	// Slave Information
+	public var slaveData:Slave;		// current slave in training
+	public var ActInfoCurrent:ActInfoList;		// reference
+	public var strDefPronoun:String;
+	public var SlaveList:TrainableSlaves;
+	
+	// Dialogs
+	public var currentDialog:DialogBase;		// reference to a shop instance
+
+	// Shops
+	//		saved
+	public var currentShop:Shop;		// reference to a shop instance
+	public var Armoury:Shop;
+	public var Dealer:ShopDealer;
+	public var ItemSalesman:ShopItemSalesman;
+	public var Stables:ShopStables;
+	public var SlaveMarketAuction:ShopSlaveMarketMinor;
+	public var Tailors:ShopTailor;
+	
+	// Dialogs
+	public var EndGameMenu:DialogEndGameMenu;
+	public var Potions:GamePotions;
+	public var SelectEquipment:DialogEquipmentSlave;
+	public var SelectSMEquipment:DialogEquipmentSlaveMaker;
+	public var SystemMenu:DialogSystem;
+	public var LoadSave:GameLoadSave;
+	public var TitleScreen:DialogTitleScreen;
+	public var Hints:DisplayHints;
+	public var Information:DisplayInformation;
+
+	public var Icons:DisplayIcons;
+
+	// Events
+	public var nLastAllocatedEvent:Number;
+	
+	// Images
+	public var loadednum:Number;
+	
+	// Rules
+	var Rules:TrainingRules;
+	
+	// The city
+	public var citiesList:CityList;
+	public var currentCity:City;
+		
+	public var Timers:TimerList;
+	
+	public var SMData:SlaveMaker;
+	
+	// references to SMData objects
+	public var BitFlagSM:BitFlags;
+	public var SMInitialItems:BitFlags;
+	public var SMSkills:BitFlags;
+	public var SMAdvantages:BitFlags;
+	public var Home:HouseDetails;
+	public var SlavesArray:Array;
+	public var PotionsOwned:Array;
+	public var Diary:TrainingLog;
+		
+	public var SlaveImage:String;
+	
+	// Slave reference objects
+	public var SlaveData:Slave;		// reference - to slaveData object
+	public var sdata:Object;			// reference - common for any slave
+	public var BitFlag1:BitFlags;
+	public var BitFlag2:BitFlags;
+	public var DemonFlags:BitFlags;
+	public var Owner:PersonOwner;
+		
+	// Participants
+	public var Participants:Array;
+	
+	public var SpecialIndex:Number;
+	public var PersonIndex:Number;
+	public var PersonShown:Number;
+	
+	// Modules
+	public var modulesList:LoadedModules;
+	public var People:PeopleModule;
+	public var Generic:GenericModule;
+	public var Backgrounds:BackgroundModule;
+	public var Parties:PartiesModule;
+	public var Faeries:FaeriesModule;
+	public var Furries:FurriesModule;
+	public var HouseEvents:HousesModule;
+	public var Catgirls:CatgirlTraining;
+	public var Tentacles:TentaclesModule;
+	public var Contests:ContestsModule;
+		
+	// The places instances
+	public var DocksPort:PlaceDocksPort;
+	public var DocksSlavePens:PlaceDocksSlavePens;
+	public var DocksSlavePensSecure:PlaceDocksSlavePensSecure;
+	public var TownCenter:PlaceTownCenter;
+	public var Slums:PlaceSlums;
+	public var Farm:PlaceFarm;
+	public var Palace:PlacePalace;
+	public var Forest:PlaceForest;
+	public var Lake:PlaceLake;
+	public var RuinedTemple:PlaceRuins;
+	public var DeepForest:PlaceDeepForest;
+	public var BeachWalk:PlaceBeachWalk;
+	public var BeachSwim:PlaceBeachSwim;
+	public var BeachRocks:PlaceBeachRocks;
+	public var BeachPrivate:PlaceBeachPrivate;
+	public var SlaveMarket:PlaceSlaveMarket;
+	
+	// People instances and other variables
+	public var LadyFarun:PersonLadyFarun;
+	public var Knight:Person;
+	public var Lord:Person;
+	public var Prostitute:Person;
+	public var HighClassProstitute:Person;
+	public var Barmaid:Person;
+	public var Maid:Person;
+	public var Merchant:Person;
+	public var Count:Person;
+	public var CuteLesbian:Person;
+	public var BountyHunter:Person;
+	public var PonyMistress:Person;
+	public var Dancer:Person;
+	public var SwimInstructor:Person;
+	public var SleazyBarOwner:Person;
+	public var Singer:Person;
+	public var Natsu:Person;
+	public var Tachiba:Person;
+	public var Astrid:Person;
+		
+	// General variables, not saved
+	public var dmod:Number;
+	
+	public var TentacleChoice:Number;
+	public var TentacleHaunt:Number;
+	public var TentacleFrequency:Number;
+	
+	public var ActionChoice:Number;
+	public var DemonChoice:Number;
+	
+	public var UseGeneric:Boolean;
+	public var StandardPlugText:Boolean;
+	public var AppendActText:Boolean;
+	public var UseImages:Boolean;
+	
+	public var SlaveVersion:String;
+	public var SlaveCredits:String
+	
+	// Events
+	// 		internal variables for events, not saved
+	public var NumEvent:Number;
+	public var OldNumEvent:Number;
+	public var StrEvent:String;
+	public var OldStrEvent:String;
+	public var EventTotal:Number;
+	public var tempstr:String;
+	public var eventLoop:Number;
+	
+	// Images
+	public var arAutoLoadedMovieArray:Array;
+	public var arLoadedMovieArray:Array;
+	public var mcLoaderImage:MovieClipLoader;
+	public var mcLoaderImage2:MovieClipLoader;
+	public var loadListenerImage:Object;
+	public var mcLoader:MovieClipLoader;
+	
+	public var colorTrans:ColorTransform;
+	public var trans:Transform;
+	public var mclListener:Object;
+	
+	// Options
+	public var TentaclesOn:Number = 1;
+	public var Difficulty:Number = 0;
+	public var CombatDifficulty:Number = 0;
+	public var BDSMOn:Boolean = true;
+	public var RapeOn:Boolean = true;
+	public var GlobalTentacleFrequency:Number = 15;
+	public var BadEndsOn:Boolean = false;
+	public var IncestOn:Boolean = true;
+	public var TutorialOn:Boolean = true;
+	public var FurriesOn:Boolean = true;
+	public var NonHumansOn:Boolean = true;
+	public var SandboxOn:Boolean = false;
+	public var SandboxMode:Boolean;
+	public var Clock24On:Boolean = false;
+	public var FullscreenOn:Boolean = true;
+	public var LastUpdateCheck:Number;
+	public var StatIcons:Boolean = true;
+	public var StatImagesOn:Boolean = true;
+	public var SoundsOn:Boolean = true;
+	public var MetricOn:Boolean = true;
+	public var LimitSavesOn:Boolean = false;
+	public var bShowVanillaOn:Boolean = true;
+	
+	// Current game version
+	private var GameVersion:Number = 3.04;
+	private var BugVersion:String = "f";
+
+	public var initialised:Boolean;
+
+	
+	// Constructor
+	public function CoreGame(mv:MovieClip)
+	{
+		super(mv);
+	}
+	
+	public function Start(mv:MovieClip)
+	{		
+		trace("CoreGame Start");
+		initialised = true;
+		mv.stop();
+		mcBase = mv;
+		
+		coreGame = this;
+		
+		StopWait();		
+		
+		arGeneralArray = new Array();
+		arGeneralArray2 = new Array();
+		
+		// timers
+		Timers = new TimerList();
+		
+		// initialise versions
+		if ((GameVersion - Math.floor(GameVersion)) == 0) mcBase.IntroTitle.Version.text = "v3." + Math.floor(GameVersion) + ".0" + BugVersion;
+		else if ((Math.round((100 * GameVersion) + 10) % 10) == 0) mcBase.IntroTitle.Version.text = "v3." + Math.floor(GameVersion) + "0" + BugVersion;
+		else mcBase.IntroTitle.Version.text = "v3." + GameVersion + BugVersion;
+		mcBase.IntroTitle.NewVersion.text = mcBase.IntroTitle.Version.text;
+		
+		// configuration
+		config = new Configuration(mv);
+		
+		// xml
+		XMLData = new XMLSlave(this);
+		
+		// core images
+		coreImages = new ActInfoList(new Slave(this), "", mv);
+		
+		// Slave Maker base details
+		SMAvatar = new Avatar(this);
+		
+		// city
+		citiesList = new CityList(this);
+		
+		// slaves
+		SlaveList = new TrainableSlaves(this);
+		
+		// rules
+		Rules = new TrainingRules(this);	
+		
+		// other modules
+		var Rules:TrainingRules = new TrainingRules(coreGame);
+		var OtherSlave:OtherSlaveClass;
+		var LoadedSlaves:LoadedSlavesClass;
+		
+		// utilities loaders
+		mcLoaderImage = new MovieClipLoader();
+		mcLoaderImage2 = new MovieClipLoader();
+		loadListenerImage = new Object();
+		mcLoader = new MovieClipLoader();
+		
+		arAutoLoadedMovieArray = new Array();
+		arLoadedMovieArray = new Array();
+
+		colorTrans = new ColorTransform();
+		trans = new Transform(mcBase.DressOverlay);
+		mclListener = new Object();
+
+		trans.colorTransform = colorTrans;
+		
+		mcLoaderImage.addListener(loadListenerImage);
+		mcLoaderImage2.addListener(loadListenerImage);
+		
+		// Shopping
+		Dealer = new ShopDealer(mcBase.DealerMenu, this);
+		ItemSalesman = new ShopItemSalesman(mcBase.ItemSalesmanMenu, this);
+		Stables = new ShopStables(mcBase.StablesMenu, this);
+		SlaveMarketAuction = new ShopSlaveMarketMinor(mcBase.SlavePurchase, this);
+		Tailors = new ShopTailor(mcBase.TailorMenu, this);
+		
+		// Dialogs
+		EndGameMenu = null;
+		Potions = new DialogPotions(this);
+		SelectEquipment = new DialogEquipmentSlave(this);
+		SelectSMEquipment = new DialogEquipmentSlaveMaker(this);
+		SystemMenu = new DialogSystem(this);
+		LoadSave = new GameLoadSave(this);
+		TitleScreen = new DialogTitleScreen(this);
+		Hints = new DisplayHints(this);
+		Information = new DisplayInformation(this);
+		
+		Icons = new DisplayIcons(this);
+		
+		Rules = new TrainingRules(this);
+		
+		currentCity = null;
+		
+		// Options
+		TentaclesOn = 1;
+		Difficulty = 0;
+		CombatDifficulty = 0;
+		BDSMOn = true;
+		RapeOn = true;
+		GlobalTentacleFrequency = 15;
+		BadEndsOn = false;
+		IncestOn = true;
+		TutorialOn = true;
+		FurriesOn = true;
+		NonHumansOn = true;
+		SandboxOn = false;
+		SandboxMode;
+		Clock24On = false;
+		FullscreenOn = true;
+		LastUpdateCheck;
+		StatIcons = true;
+		StatImagesOn = true;
+		SoundsOn = true;
+		MetricOn = true;
+		LimitSavesOn = false;
+		bShowVanillaOn = true;
+
+		nLastAllocatedEvent = 99999;
+		loadednum = 0;
+		
+		Reset();
+		
+		modulesList = new LoadedModules(this);
+		
+		strLOG = "";
+		
+		trace("...started");
+	}
+	
+	public function Reset()
+	{
+		super.Reset();
+		
+		currentCity = null;
+		citiesList.Reset();
+		
+		currentDialog = null;
+	}
+	
+	/*
+    * The main method to launch the application.
+    * @param target The MovieClip basic target reference (default use the _root).
+    */
+    public static function main(target:MovieClip) : CoreGame
+    {
+        return new CoreGame(target); 
+    }
+	
+		// Save Data
+	public function GetSaveData(so:String) : SharedObject
+	{
+		return _parent.GetSaveData(so);
+	}
+	
+
+	// Waiting
+	public function ShowWait(bDark:Boolean)
+	{
+		if (mcBase.WaitingClip._visible) return;
+		mcBase.WaitingClip._x = 207;
+		if (bDark == true) mcBase.WaitingClip.blendMode = "subtract";
+		else mcBase.WaitingClip.blendMode = "lighten";
+		mcBase.WaitingClip._visible = true;
+		mcBase.WaitingClip.Clip.play();
+	}
+	public function StopWait()
+	{
+		mcBase.WaitingClip._visible = false;
+		mcBase.WaitingClip.Clip.stop();
+		mcBase.WaitingClip._x = 1207;
+	}
+	
+	// General use array, mostly contains movieclips
+	function ClearGeneralArray()
+	{
+		var mc:MovieClip;
+		var obj:Object;
+		var i:Number = arGeneralArray.length;
+		if (i == undefined) return;
+		while (--i >= 0) {
+			obj = arGeneralArray.pop();
+			if (typeof(obj) == "movieclip") {
+				mc = MovieClip(obj);
+				mc.removeMovieClip();
+				delete obj;
+			}
+		}
+		delete arGeneralArray;
+		arGeneralArray = new Array();
+	}
+	function ClearGeneralArray2()
+	{
+		var mc:MovieClip;
+		var obj:Object;
+		var i:Number = arGeneralArray2.length;
+		while (--i >= 0) {
+			obj = arGeneralArray2.pop();
+			if (typeof(obj) == "movieclip") {
+				mc = MovieClip(obj);
+				mc.removeMovieClip();
+				delete obj;
+			}
+		}
+		delete arGeneralArray2;
+		arGeneralArray2 = new Array();
+	}
+	
+	// Creatures
+	public function ShowMonster(str:String,  place:Number, align:Number, frame:Number, dg:Boolean)
+	{
+		var dge:Boolean = _root.IsDickgirlEvent() ? true : dg == true;
+		coreImages.slaveData.SlaveGender = dge == true ? 3 : 2;
+		
+		var act:ActInfo = coreImages.GetActByName(str);
+		if (act == null) act = coreImages.GetActByName(str + "s");
+		coreImages.ShowActImage(act.Act, place, align, frame);
+	}
+	
+	// random numbers
+	// 1 to rnd
+	public function slrandom(rnd:Number) : Number
+	{
+		return int(Math.random()*rnd) + 1;	// int is faster
+	}
+	
+	public function PercentChance(chance:Number) : Boolean
+	{
+		return (Math.random()*100) < chance;
+	}
+	
+	
+	// Images
+	public function StopSubMovie(mcs:MovieClip)
+	{
+		mcs._visible = true;
+		var mc:MovieClip;
+		for (var mv:String in mcs) {
+			if (typeof(mcs[mv]) == "movieclip") {
+				mc = mcs[mv];
+				if (mc != _root) {
+					mc.gotoAndStop(1);
+					mc._visible = false;
+				}
+			}
+		}
+		mcs._visible = false;
+	}
+	
+	public function GetFreeEvent() : Number
+	{
+		return ++nLastAllocatedEvent;
+	}
+	
+	
+	private function GetUTCMSElapsed(start:Boolean) : Number
+	{
+		if (start == true) utclast = 0;
+		var today_date:Date = new Date();
+		var diff:Number = today_date.valueOf() - utclast;
+		if (utclast == 0) diff = 0;
+		utclast = today_date.valueOf();
+		return diff;
+	}
+
+	// Tracing
+	private var strLOG:String;
+	
+	function SMTRACE(s:Object)
+	{
+		trace(s);
+		
+		if (!mcBase.DebuggingMenu._visible) return;
+		strLOG += s + "\r";
+	}
+
+}

@@ -1,0 +1,1 @@
+girlname=Momo Velia Deviluke&girldesc=Daughter of a fallen demon lord with the ability to talk with plants. She has shady character. - XMLSlaveCreator Test Slave&image=Momo Velia Deviluke.png&gamefile=Slave-GenericSlave.swf&mode=&Folder=/Images/Momo Velia Deviluke

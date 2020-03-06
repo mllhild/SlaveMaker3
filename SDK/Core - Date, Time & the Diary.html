@@ -1,0 +1,2995 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html;charset=ISO-8859-1" http-equiv="Content-Type">
+  <meta name="generator"
+ content="HTML Tidy for Windows (vers 22 March 2008), see www.w3.org">
+  <title>Date Time &amp; the Diary</title>
+</head>
+<body>
+<table
+ style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;"
+ border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font
+ size="+3"><span style="font-weight: bold;">Date
+Time &amp; the Diary<br>
+            </span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td
+ style="vertical-align: top; width: 80%; text-align: left;"><a
+ href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font
+ style="font-weight: bold;" size="-1">Version
+8</font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><br>
+There are a series of functions and variables that control the passage
+of time in the game.<br>
+</span>
+<ul style="font-family: Arial;" id="mozToc">
+<!--mozToc h1 1 h4 2-->
+  <li><a href="#mozTocId188739">Concepts</a></li>
+  <li><a href="#mozTocId841805">Core
+Variables</a>
+    <ul>
+      <li><a href="#mozTocId115843">Day (READ ONLY)</a></li>
+      <li><a href="#mozTocId329898">GameDate</a></li>
+      <li><a href="#mozTocId747055">GameTimeMins</a></li>
+      <li><a href="#mozTocId224840">nDayofWeek</a></li>
+      <li><a href="#mozTocId68239">strDayName</a></li>
+      <li><a href="#mozTocId46493">Plannings.PlanningTime</a></li>
+      <li><a href="#mozTocId778991">MoonPhaseDate</a></li>
+      <li><a href="#mozTocId693579">TrainingStart (READ ONLY)</a></li>
+      <li><a href="#mozTocId799209">Elapsed (READ ONLY)</a></li>
+      <li><a href="#mozTocId837356">TrainingTime</a></li>
+      <li><a href="#mozTocId216167">Prostitute.CustomFlag</a></li>
+      <li><a href="#mozTocId136262">HighClassProstitute.CustomFlag</a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId85366">Core
+Functions</a>
+    <ul>
+      <li><a href="#mozTocId963869">AddTime/AddTimeMins</a></li>
+      <li><a href="#mozTocId76981">SetTime/SetTimeMins</a></li>
+      <li><a href="#mozTocId899089">NewDay</a></li>
+      <li><a href="#mozTocId561931">StartNewDay</a></li>
+      <li><a href="#mozTocId574670">DecodeDate</a></li>
+      <li><a href="#mozTocId446176">DecodeTime</a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId17802">Diary Functions</a>
+    <ul>
+      <li><a href="#mozTocId505821">AddEntry</a></li>
+      <li><a href="#mozTocId432494">AddEntryFull</a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId640200">Events</a></li>
+  <li><a href="#mozTocId408385">Slave
+Interface Functions</a>
+    <ul>
+      <li><a href="#mozTocId812685">UpdateDateAndItems</a></li>
+      <li><a href="#mozTocId211324">UpdateDateAndItemsAsAssistant
+(assistants and events) </a></li>
+      <li><a href="#mozTocId362575">PreEvent</a></li>
+      <li><a href="#mozTocId133945">PreEventAsAssistant (assistants and
+events) </a></li>
+      <li><a href="#mozTocId606485">StartMorning</a></li>
+      <li><a href="#mozTocId71187">StartMorningAsAssistant (assistants
+and events) </a></li>
+      <li><a href="#mozTocId359072">Events</a></li>
+      <li><a href="#mozTocId623922">EventsAsAssistant (assistants and
+events) </a></li>
+      <li><a href="#mozTocId554891">StartDay</a></li>
+      <li><a href="#mozTocId847528">StartDayAsAssistant (assistants and
+events) </a></li>
+      <li><a href="#mozTocId252173">StartEvening</a></li>
+      <li><a href="#mozTocId395415">StartEveningAsAssistant (assistants
+and events) </a></li>
+      <li><a href="#mozTocId957304">StartNight</a></li>
+      <li><a href="#mozTocId375158">StartNighyAsAssistant (assistants
+and events) </a></li>
+      <li><a href="#mozTocId595019">AfterNight</a></li>
+      <li><a href="#mozTocId915819">AfterNightAsAssistant (assistants
+and events) </a></li>
+    </ul>
+  </li>
+</ul>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId188739"></a>Concepts</h1>
+<span style="font-family: Arial;">A year is 400 days long and it is
+divided into 10 months of 40 days.
+Each month consists of 5 weeks of 8 days. The world of Talyan has a
+moon that orbits every 29 days, this creates a little discrepancy
+between a lunar month and a calendar month, the same as in the real
+world. The date in the lunar month is held in a variable </span><a
+ style="font-family: Arial;" href="#mozTocId778991">MoonPhaseDate</a><span
+ style="font-family: Arial;">.</span><br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-family: Arial;">Internally the game has dates that
+represent the number of days that
+have elapsed from the start of the year 1252 (after the fall). This is
+always an integer number.</span><br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-family: Arial;">Time is internally stored as a number
+of minutes that have elapsed
+since midnight. In the earlier versions of the game this was stored as
+the number of hours since midnight, so there are two noted times, </span><a
+ style="font-family: Arial;" href="#mozTocId747055">GameTime</a><span
+ style="font-family: Arial;"> (number of hours) and </span><a
+ style="font-family: Arial;" href="#mozTocId747055">GameTimeMins</a><span
+ style="font-family: Arial;"> (number of minutes).
+Internally </span><a style="font-family: Arial;" href="#mozTocId747055">GameTime</a><span
+ style="font-family: Arial;"> is calculated from </span><a
+ style="font-family: Arial;" href="#mozTocId747055">GameTimeMins</a><span
+ style="font-family: Arial;">.</span><br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId841805"></a>Core
+Variables</h1>
+<span style="font-family: Arial;">Variables noted <font size="-1"><span
+ style="font-style: italic;">(</span></font></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><font color="#000080">READ ONLY) <span
+ style="color: black;">cannot be modified. In actionscript you can
+change their value but the change will be lost. In xml no method is
+provided to change them and any attempt to alter using &lt;SetVar&gt;
+or &lt;ChangeVar&gt; will have no effect.<br>
+<br>
+Note: all the actionscript variables should be considered read only but
+they can be changed but in very limited situations. In almost all cases
+use the functions provided below. XML is a bit more flexible and using
+the noted statements and changing the variable have the same effect.<br>
+<font size="-1">eg<br>
+&lt;ChangeVar date='1'/&gt;<br>
+is the same as<br>
+&lt;ChangeDate&gt;1&lt;/ChangeDate&gt;<br>
+both advance the current game day by 1.<br>
+<br>
+<br>
+</font></span></font></span></span>&nbsp;&nbsp;&nbsp; if (str ==
+"weekday") return nDayOfWeek;<br>
+&nbsp;&nbsp;&nbsp; if (str == "weekdayname") return strDayName;<br>
+&nbsp;&nbsp;&nbsp; if (str == "planningtime") return
+Plannings.PlanningTime;<span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><font color="#000080"><span
+ style="color: black;"><font size="-1"><br>
+</font></span></font></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><font color="#000080"><span
+ style="color: black;"><font size="-1"><br>
+&nbsp;&nbsp;&nbsp; <br>
+<br>
+<br>
+</font></span></font></span></span>
+<table
+ style="text-align: left; width: 936px; height: 2620px; background-color: rgb(242, 255, 255); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: rgb(229, 229, 229);"><span
+ style="font-weight: bold;">Actionscript Variable</span></td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: rgb(229, 229, 229);"><span
+ style="font-weight: bold;">XML Variable</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 8px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 4px;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId115843" id="mozTocId115843"></a><span
+ style="font-weight: bold;">Day</span> <font size="-1"><span
+ style="font-style: italic;">(</span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080">READ ONLY)</font></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 4px;"><span
+ style="font-weight: bold;">day</span> <font size="-1"><span
+ style="font-style: italic;">(</span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080">READ ONLY)</font></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <table style="text-align: left; width: 100%; height: 100%;"
+ border="0" cellpadding="6" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"> <span
+ style="font-style: italic;"><font size="-1">(Boolean)</font></span> Is
+it currently daytime, true if it
+is.<br>
+            <span style="font-size: 12pt;"><font size="-1"><br>
+eg<br>
+            </font></span>
+            <table style="text-align: left; width: 896px; height: 92px;"
+ border="0" cellpadding="0" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td style="vertical-align: top; width: 50%;"><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span></td>
+                  <td style="vertical-align: top;"><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span></td>
+                </tr>
+                <tr>
+                  <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">if (_root.Day)
+{<br>
+&nbsp;&nbsp; // daytime<br>
+} else {<br>
+&nbsp;&nbsp; // night<br>
+}</span></span></span></span></span></font></font></span></span></span></td>
+                  <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1">&lt;if
+day='true'&gt;<br>
+&nbsp;&nbsp; &lt;!-- daytime --&gt;<br>
+&lt;else&gt;if&lt;/else&gt;<br>
+&nbsp;&nbsp; &lt;!-- night --&gt;<br>
+&lt;/if&gt;</font></span></span></span></span></span></span></span></span></span></span></td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white;">
+            <h4><a class="mozTocH4" name="mozTocId329898"
+ id="mozTocId329898"></a><span style="font-weight: bold;">GameDate</span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white;"><span
+ style="font-weight: bold;">date<br>
+displaydate</span> (date in format like 1252/1) <font size="-1"><span
+ style="font-style: italic;">(</span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080">READ ONLY)</font></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <table style="text-align: left; width: 912px; height: 209px;"
+ border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"><span
+ style="font-style: italic;">(Number)</span></font> the current date,
+starts from 1 and increase 1 per day, continues increasing for the
+duration of your slave makers career.<br>
+            </span></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">1252/1 is GameDate 1<br>
+            <br>
+Please use ChangeDate() or &lt;ChangeDate&gt; in preference to directly
+altering these variables.<br>
+            <br>
+XML provides special values to test 'contest' and 'ownertesting' to
+check if the current day is the day of a contest or owner testing.<br>
+            </span></span> <br>
+            <span style="font-size: 12pt;"><font size="-1">eg<br>
+            </font></span>
+            <table style="text-align: left; width: 896px; height: 86px;"
+ border="0" cellpadding="0" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td style="vertical-align: top; width: 50%;"><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span></td>
+                  <td style="vertical-align: top;"><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span></td>
+                </tr>
+                <tr>
+                  <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">if
+((_root.GameDate % 8) == 0) {<br>
+&nbsp;&nbsp; // contest today<br>
+}</span></span></span></span></span></font></font></span></span></span></td>
+                  <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1">&lt;SetText&gt;The
+date is
+#displaydate&lt;/SetText&gt;<br>
+&lt;if date='20+&gt;<br>
+&nbsp;&nbsp; &lt;!-- 20 days from start of career --&gt;<br>
+&lt;/if&gt;<br>
+&lt;if date='contest'&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- today is the day for contests --&gt;<br>
+&lt;if&gt;<br>
+&lt;if date='ownertesting'&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;!-- today the owner will test your slave --&gt;<br>
+&lt;/if&gt;<br>
+                  </font></span></span></span></span></span></span></span></span></span></span></td>
+                </tr>
+              </tbody>
+            </table>
+            <br>
+            <span style="font-size: 12pt;"><span
+ style="font-weight: bold;">note</span>: tests like _root.GameDate % 8
+cannot be done in xml at this time. There are some special conditionals
+for checking contests, full/new moon and similar.<br>
+            <span style="font-weight: bold;">note</span>: displaydate
+is equivalent to DecodeDate(GameDate)<font size="-1"><br>
+            </font></span> </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 24px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 20px;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId747055" id="mozTocId747055"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b>GameTimeMins</b></span></span></h4>
+            <span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b>GameTime</b></span></span> <font size="-1"><span
+ style="font-style: italic;">(</span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080">READ ONLY)(OBSOLETE)</font></span></span> </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 20px;"><span
+ style="font-weight: bold;">timemins<br>
+time</span><br>
+            <span style="font-weight: bold;">displaytime</span> <font
+ size="-1"><span style="font-style: italic;">(</span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080">READ ONLY)</font></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ size="-1"><span style="font-style: italic;">(Number)</span></font></span></span>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;">time
+of day, 24hr clock, in the number of
+minutes since midnight.<br>
+90 = 1:30 am, 1320 = 10pm</span></span><br>
+      <br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;">Please
+use AddTimeMins() or
+&lt;AddTimeMins&gt;</span></span> <span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">in preference to directly
+altering these variables.</span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      </span></span><span style="font-size: 12pt;"><font size="-1">eg<br>
+      </font></span>
+      <table style="text-align: left; width: 912px; height: 77px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; width: 50%;"><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span></td>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span></td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">if
+(_root.GameTimeMins == 360) {<br>
+&nbsp;&nbsp; // 6 am<br>
+}<br>
+            </span></span></span></span></span></font></font></span></span></span></td>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1">&lt;if
+time='360''&gt;<br>
+&nbsp;&nbsp; &lt;!-- 6am --&gt;<br>
+&lt;/if&gt;</font></span></span></span></span></span></span></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-weight: bold;">note</span>:
+this replaces GameTime as was previously used in the game. It is more
+accurate if you wish to change the time by small increments like 5
+minutes.<br>
+The variable GameTime still exists and can be used but DO NOT change
+it. It is always set to GameTimeMins / 60. In xml you can use time as a
+variable.<br>
+      </span></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-weight: bold;">note</span>:
+displaytime is for showing
+time in an xml &lt;SetText&gt; &lt;AddText&gt;<br>
+ie<br>
+&lt;SetText&gt;You notice the time is #displaytime&lt;/SetText&gt;<br>
+      <br>
+      </span></span> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white;">
+            <h4 style="height: 1px;"><a class="mozTocH4"
+ name="mozTocId224840"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b>nDayofWeek</b></span></span></h4>
+            <h4 style="height: 1px;"><a class="mozTocH4"
+ name="mozTocId68239"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">strDayName</span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white;"><span
+ style="font-weight: bold;">weekday</span> <font size="-1"><span
+ style="font-style: italic;">(</span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080">READ ONLY)</font></span></span><br>
+            <span style="font-weight: bold;">weekdayname<br>
+            </span></td>
+          </tr>
+        </tbody>
+      </table>
+The day of the week (1-8) and the name of the day of the week like
+Caturday<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 25px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h4 style="height: 4px;"><a class="mozTocH4"
+ name="mozTocId46493"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b>Plannings.PlanningTime<br>
+            </b></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 21px;"><span
+ style="font-weight: bold;">planningtime</span> <font size="-1"><span
+ style="font-style: italic;">(</span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080">READ ONLY)</font></span></span><span
+ style="font-weight: bold;"><br>
+            </span></td>
+          </tr>
+        </tbody>
+      </table>
+The time of day the current training is being done. Only useful while
+performing a training like a job, sex act etc<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white;">
+            <h4><a class="mozTocH4" name="mozTocId778991"
+ id="mozTocId778991"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b>MoonPhaseDate</b></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white;"><span
+ style="font-weight: bold;">fullmoon</span> <font size="-1"><span
+ style="font-style: italic;">(</span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080">READ ONLY)</font></span></span><br>
+            <span style="font-weight: bold;">newmoon<br>
+            </span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ size="-1"><span style="font-style: italic;">(Number)</span></font></span></span>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;">day
+of moon cycle, where there are 29 days in
+a month<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; New moon = 15, but
+tentacles more active 14, 15, 16<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Full moon&nbsp; = 0,1<br>
+      </span></span><br>
+Note: XML does not directly expose MoonPhashDate, instead it makes
+available a pair of conditionals to tell when the new/full moon is.
+These are true when it is the new/full moon or 'close' on the day
+before/after and during<br>
+      <span style="font-size: 12pt;"><font size="-1">eg<br>
+      </font></span>
+      <table style="text-align: left; width: 100%; height: 110px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; width: 50%;"><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span></td>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span></td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">if
+(_root.MoonPhasDate &lt; 2) {<br>
+&nbsp;&nbsp; // new moon<br>
+}<br>
+            </span></span></span></span></span></font></font></span></span></span></td>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1">&lt;if
+fullmoon='true'&gt;<br>
+&nbsp;&nbsp; &lt;!-- today is a fullmoon --&gt;<br>
+&lt;/if&gt;<br>
+            </font></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1">&lt;if
+newmoon='close'&gt;<br>
+&nbsp;&nbsp; &lt;!-- today is near a new moon --&gt;<br>
+&lt;/if&gt;</font></span></span></span></span></span></span></span></span></span></span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId693579" id="mozTocId693579"></a><span
+ style="font-weight: bold;">TrainingStart</span> <font size="-1"><span
+ style="font-style: italic;">(</span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080">READ ONLY)</font></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white;"><span
+ style="font-weight: bold;">trainingstart</span> <font size="-1"><span
+ style="font-style: italic;">(</span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080">READ ONLY)</font></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <font size="-1"><span style="font-style: italic;">(</span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080">READ ONLY)</font></span></span><font size="-1"><span
+ style="font-style: italic;">(Number)</span></font> <span
+ style="font-size: 12pt; color: black;"><span style="font-size: 12pt;">date
+your slave started training.<br>
+      <br>
+Very few places you would ever use this, instead use Elapsed/elapsed to
+check time since start of training.<br>
+      <br>
+      </span></span> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 16px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId799209" id="mozTocId799209"></a><span
+ style="font-weight: bold;">Elapsed</span> <font size="-1"><span
+ style="font-style: italic;">(</span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080">READ ONLY)</font></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white;"><span
+ style="font-weight: bold;">elapsed</span> <font size="-1"><span
+ style="font-style: italic;">(</span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080">READ ONLY)</font></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <font size="-1"><span style="font-style: italic;">(Number)</span></font>
+The number of days
+elapsed since the start of training, On the first day of training this
+is 1 (ie day 1 of training)<br>
+      <br>
+      <span style="font-size: 12pt;"><font size="-1">eg<br>
+      </font></span>
+      <table style="text-align: left; width: 912px; height: 81px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; width: 50%;"><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span></td>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span></td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">if
+(_root.Elapsed &gt; 10) {<br>
+&nbsp;&nbsp; // 10 days or more since training started<br>
+}</span></span></span></span></span></font></font></span></span></span></td>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">&lt;if
+elapsed='10+'&gt;<br>
+&nbsp;&nbsp; &lt;!--10 days or more since training started--&gt;<br>
+&lt;/if&gt;<br>
+            </span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white;">
+            <h4><a class="mozTocH4" name="mozTocId837356"
+ id="mozTocId837356"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000080"><font color="#000000"><font color="#000000"><b>TrainingTime</b></font></font></font></font></font></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white;"><span
+ style="font-weight: bold;">trainingtime<br>
+timeremaining</span> <font size="-1"><span style="font-style: italic;">(</span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080">READ ONLY)</font></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <font size="-1"><span style="font-style: italic;">(Number)</span></font>
+Total number of
+days to train your current slave. NOT the remaining days, that is
+calculated as TrainingTime - Elapsed.<br>
+For xml the read only variable timeremaining is the days remaining
+(TrainingTime
+- Elapsed)<br>
+      <br>
+Very few situations where you may wish to change this variable, but it
+is allowable, say to extend the training time, or shorten it.<br>
+      <br>
+      <span style="font-size: 12pt;"><font size="-1">eg<br>
+      </font></span>
+      <table style="text-align: left; width: 912px; height: 71px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; width: 50%;"><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span></td>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span></td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">if
+((_root.TrainingTime - _root.Elapsed) &lt; 5) {<br>
+&nbsp;&nbsp; // 5 days remaining to train your slave<br>
+}</span></span></span></span></span></font></font></span></span></span></td>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1">&lt;if
+timeremaining='5-'&gt;<br>
+&nbsp;&nbsp; &lt;!--</font></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">5 days
+remaining to train your slave</span></span></span></span></span></font></font></span></span></span>
+            <span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><font size="-1">--&gt;<br>
+&lt;/if&gt;</font></span></span></span></span></span></span></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table
+ style="text-align: left; width: 924px; height: 142px; background-color: rgb(242, 255, 255);"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;">
+            <table style="text-align: left; width: 912px; height: 21px;"
+ border="1" cellpadding="2" cellspacing="2">
+              <tbody>
+                <tr>
+                  <td
+ style="vertical-align: top; background-color: white;">
+                  <h4><a class="mozTocH4" name="mozTocId216167"
+ id="mozTocId216167"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000080"><font color="#000000"><font color="#000000"><b>Prostitute.CustomFlag</b></font></font></font></font></font></span></span></h4>
+                  </td>
+                  <td
+ style="vertical-align: top; width: 50%; background-color: white;"><font
+ size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-weight: bold;">flag-missn-custom<br>
+flag-prostitute-custom<br>
+                  </span></span></span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-weight: bold;">(also can
+use custom1, eg</span></span></span> <span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-weight: bold;">flag-prostitute-custom1)</span></span></span></td>
+                </tr>
+              </tbody>
+            </table>
+            <font size="-1"><span style="font-style: italic;">(Number)</span></font>
+            <span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000080"><font color="#000000"><font color="#000000">days
+remaining to the party with Miss.N. Only valid if
+_root.Prostitute.CheckBitFlag(32) == true</font></font></font></font></font></span></span>
+            <br>
+            <br>
+            <span style="font-size: 12pt;"><font size="-1">eg<br>
+            </font></span>
+            <table style="text-align: left; width: 912px; height: 71px;"
+ border="0" cellpadding="0" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td style="vertical-align: top; width: 50%;"><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span></td>
+                  <td style="vertical-align: top;"><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span></td>
+                </tr>
+                <tr>
+                  <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;">if
+(_root.Prostitute.CheckBitFlag(32)) {<br>
+&nbsp; &nbsp; _root.SetText("You remember the party with Miss.N is in "
++ _root.Prostitute.CustomFlag + " days time");<br>
+}</span></font></font></font></font></font></span></span></td>
+                  <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1">&lt;if
+flag-prostitute-32='true'&gt;<br>
+&nbsp;&nbsp; &lt;SetText&gt;The party is dues in
+#flag-prostitute-custom days&lt;/SetText&gt;</font></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1"><br>
+&lt;/if&gt;</font></span></span></span></span></span></span></span></span></span></span></td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table
+ style="text-align: left; width: 924px; height: 142px; background-color: rgb(242, 255, 255);"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;">
+            <table style="text-align: left; width: 912px; height: 21px;"
+ border="1" cellpadding="2" cellspacing="2">
+              <tbody>
+                <tr>
+                  <td
+ style="vertical-align: top; background-color: white;">
+                  <h4><a class="mozTocH4" name="mozTocId136262"
+ id="mozTocId136262"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000080"><font color="#000000"><font color="#000000"><b>HighClassProstitute.CustomFlag</b></font></font></font></font></font></span></span></h4>
+                  </td>
+                  <td
+ style="vertical-align: top; width: 50%; background-color: white;"><font
+ size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-weight: bold;">flag-ladyokyanu-custom<br>
+flag-highclassprostitute-custom<br>
+                  </span></span></span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-weight: bold;">(also can
+use custom1, eg</span></span></span> <span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-weight: bold;">flag-ladyokyanu-custom1)</span></span></span></td>
+                </tr>
+              </tbody>
+            </table>
+            <font size="-1"><span style="font-style: italic;">(Number)</span></font>
+            <span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000080"><font color="#000000"><font color="#000000">days
+remaining to the party with Lady Okyanu. Only valid if
+_root.HighClassProstitute.CheckBitFlag(32) == true</font></font></font></font></font></span></span>
+            <br>
+            <br>
+            <span style="font-size: 12pt;"><font size="-1">eg<br>
+            </font></span>
+            <table style="text-align: left; width: 912px; height: 71px;"
+ border="0" cellpadding="0" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td style="vertical-align: top; width: 50%;"><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span></td>
+                  <td style="vertical-align: top;"><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span></td>
+                </tr>
+                <tr>
+                  <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;">if
+(_root.HighClassProstitute.CheckBitFlag(32)) {<br>
+&nbsp; &nbsp; _root.SetText("You remember the party with Lady Okyanu is
+in " + _root.HighClassProstitute.CustomFlag + " days time");<br>
+}</span></font></font></font></font></font></span></span></td>
+                  <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1">&lt;if
+flag-highclassprostitute-32='true'&gt;<br>
+&nbsp;&nbsp; &lt;SetText&gt;The party is dues in
+#flag-highclassprostitute-custom days&lt;/SetText&gt;</font></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1"><br>
+&lt;/if&gt;</font></span></span></span></span></span></span></span></span></span></span></td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <hr style="width: 100%; height: 2px;"> </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000080"><font color="#000000"><font color="#000000"><span
+ style="font-size: 10pt;"><br>
+Also see <a href="Slave%20&amp;%20Slave%20Maker%20-%20Pregnancy.html">Slave
+&amp; Slave Maker - Pregnancy</a> for details on time taken for
+pregnancies<br>
+<br>
+</span></font></font></font></font></font></span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId85366"
+ id="mozTocId85366"></a>Core
+Functions</h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000080"><font color="#000000"><font color="#000000"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">These
+functions are used to control the time and date.<br>
+</span></span></font></font></font></font></font></span><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000080"><font color="#000000"><font color="#000000"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span>
+<table
+ style="text-align: left; width: 95%; height: 457px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4><a class="mozTocH4" name="mozTocId963869" id="mozTocId963869"></a><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><b>AddTime/AddTimeMins</b></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;">function
+AddTime(hrs:Number)<br>
+            </span></i></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;">function
+AddTimeMins(mins:Number)</span></i></span></span></span></span></font></font></font></font></font></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;AddTime&gt;hrs&lt;/AddTime&gt;<br>
+&lt;AddTimeMins&gt;mins&lt;/AddTimeMins&gt;<br>
+or interchangably<br>
+&lt;ChangeTime&gt;hrs&lt;/ChangeTime&gt;<br>
+&lt;ChangeTimeMins&gt;mins&lt;/ChangeTimeMins&gt;<br>
+or<br>
+&lt;ChangeVar time='val'/&gt;<br>
+&lt;ChangeVar timemins='val'/&gt;<font size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">Change the
+current time of day by a number of
+hours or minutes.<br>
+hrs</span></span></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">- number of
+hours to change<br>
+mins - number of minutes to change</span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      <br>
+      </span></span></span></span> <span style="font-size: 12pt;"><font
+ size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;">function
+Events()<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (_root.GameDate =
+21) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetText(SlaveName + "'s owner borrows her for a few hours to
+introduce her to his family.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _root.AddTime(4);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _root.DoEvent(9999);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+}</span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      <br>
+      </span></span></span></span></span></span></span></span></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:<br>
+      </span></span><font size="-1">add 5 minutes</font><br>
+      <font size="-1">&lt;AddTime</font><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000080"><font color="#000000"><font color="#000000"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">Mins&gt;5</span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><font
+ size="-1">&lt;/AddTimeMins&gt;<br>
+add 2 hrs to current time<br>
+&lt;ChangeVar time='2'/&gt;<br>
+add 5 minutes<br>
+&lt;SetVar timemins='timemins + 5'/&gt;</font><font size="-1"><br>
+      </font> </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000080"><font color="#000000"><font color="#000000"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span>
+<table
+ style="text-align: left; width: 95%; height: 245px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4><a class="mozTocH4" name="mozTocId76981" id="mozTocId76981"></a><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><b>SetTime/SetTimeMins</b></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;">function
+SetTime(val:Number)<br>
+            </span></i></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;">function
+SetTimeMins(val:Number)</span></i></span></span></span></span></font></font></font></font></font></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;SetVar
+time='val'/&gt;<br>
+&lt;SetVar timemins='val'/&gt;<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">Change the
+current time to a specific hour of
+the day. Note: use cautiously, time travel is possible....<br>
+The Mins versions sets the time in number of minutes since midnight,</span></span></span></span></span></span>
+      <font size="-1"><br>
+      </font> </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000080"><font color="#000000"><font color="#000000"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span>
+<table
+ style="text-align: left; width: 95%; height: 336px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4><a class="mozTocH4" name="mozTocId899089" id="mozTocId899089"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">NewDay</span></b></span></span></span></span></span></span></font></font></font></font></font></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;"> </span></b></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;">function
+NewDay(NumDays:Number,
+NewTime:Number, free:Boolean, tired:Boolean)</span></i></span></span></span></span></span></span></font></font></font></font></font></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;NewDay&gt;val&lt;/NewDay&gt;<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Use this to
+start a new day or to skip some days and start a new day. The game will
+end all planning/events and return you to standard main screen.<br>
+      <br>
+      </span></span></span></span></span></span></font></font></font></font></font></span></span>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">NumDays -
+update the date by this many days<br>
+NewTime - the time at the start of the new day, default 6<br>
+free - if your slave has escaped and not in your house or under
+supervision then set to true, default false<br>
+tired - set to true to prevent any morning events<br>
+      <br>
+      </span></span></span></span></span></span></font></font></font></font></font></span></span>
+      <span style="font-size: 12pt;"><font size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;">NewDay(2);</span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      <br>
+      </span></span></span></span></span></span></span></span></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;">&lt;NewDay&gt;2&lt;/NewDay&gt;</span></span></span></span></span></span></span></font></font></font></font></font></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000080"><font color="#000000"><font color="#000000"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span>
+<table
+ style="text-align: left; width: 95%; height: 200px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4><a class="mozTocH4" name="mozTocId561931" id="mozTocId561931"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">StartNewDay</span></b></span></span></span></span></span></span></font></font></font></font></font></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;">function
+StartNewDay(NumDays:Number)</span></i></span></span></span></span></span></span></font></font></font></font></font></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;ChangeDate&gt;val&lt;/ChangeDate&gt;<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Use this to
+start a new day but still continue an event, adding custom messages,
+images, and even triggering new events. Any planning will stop and the
+time will reset to 6am on the new day.</span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><br>
+      <br>
+      </span></span></span></span></span></span></font></font></font></font></font></span></span>
+      <span style="font-size: 12pt;"><font size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;">StartNewDay(2);</span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      <br>
+      </span></span></span></span></span></span></span></span></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;">&lt;ChangeDate&gt;2&lt;/ChangeDate&gt;</span></span></span></span></span></span></span></font></font></font></font></font></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000080"><font color="#000000"><font color="#000000"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span>
+<table
+ style="text-align: left; width: 95%; height: 239px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4><a class="mozTocH4" name="mozTocId574670" id="mozTocId574670"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">DecodeDate</span></b></span></span></span></span></span></span></font></font></font></font></font></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;">function
+DecodeDate(gdate:Number) : String</span></i></span></span></font></font></font></font></font></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">none - but variable
+displaydate uses it<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Decodes a date
+in units of GameDate to a display calendar date. Note a year is 400
+days long.<br>
+&nbsp;gdate defaults to the current day</span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><br>
+      <br>
+      </span></span></span></span></span></span></font></font></font></font></font></span></span>
+      <span style="font-size: 12pt;"><font size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;">_root.SetText("The
+party is due on " +
+_root.DecodeDate(_root.GameDate + _root.Prostitute.CustomFlag);<br>
+shows<br>
+The party is due on 1252/42<br>
+      <br>
+_root.SetText("Today is " + _root.DecodeDate());</span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      <br>
+      </span></span></span></span></span></span></span></span></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;">&lt;SetText&gt;Topday
+is
+#displaydate&lt;/SetText&gt;</span></span></span></span></span></span></span></font></font></font></font></font></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000080"><font color="#000000"><font color="#000000"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span>
+<table
+ style="text-align: left; width: 95%; height: 143px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4><a class="mozTocH4" name="mozTocId446176" id="mozTocId446176"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">DecodeTime</span></b></span></span></span></span></span></span></font></font></font></font></font></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;">function
+DecodeTime(gtime:Number) : String</span></i></span></span></span></span></font></font></font></font></font></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">none - but the
+variable displaytime uses it<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Decodes a time
+in units of GameTime to a display a time of day. Uses the 12/24hr clock
+setting from options. Noon returns "Midday" and Midnight returns
+"Midnight"</span></span></font></font></font></font></font></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000080"><font color="#000000"><font color="#000000"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId17802"
+ id="mozTocId17802"></a>Diary Functions</h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000080"><font color="#000000"><font color="#000000"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">The Diary or Training Log is stored in an
+object in _root scope<br>
+<br>
+<b>var Diary:TrainingLog;<br>
+</b><br>
+This object has a number of functions to allow you to add entries to
+the diary. There are no provided methods to remove or alter existing
+entries.<br>
+<br>
+</span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-weight: bold; font-family: Arial;">SlaveModule Notes</span><font
+ style="font-family: Arial;" size="-1"><br>
+</font><span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"> Using events or slaves based on the
+SlaveModule class, a reference is provided to the Diary object so _root
+is optional<br>
+<br>
+<font size="-1">eg<br>
+Diary.AddEntry("something happened");<br>
+</font></span></span></span></span></span></span><br
+ style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000080"><font color="#000000"><font color="#000000"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span>
+<table
+ style="text-align: left; width: 95%; height: 304px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4><a class="mozTocH4" name="mozTocId505821" id="mozTocId505821"></a><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><b>AddEntry</b></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>function
+AddEntry(desc:String, tent:Boolean, win:Number, test:Boolean)</i></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Diary
+tentacles=''boolean' winner='boolean'
+ownertest='boolean'&gt;desc&lt;/Diary&gt;<font size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">Add an entry
+to the diary for the current day<br>
+      </span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">desc - text
+description of the event<br>
+tent - true if tentacle monsters were involved, default false<br>
+win - if your slave won a contest, 1 first place, 2 second, 3 third,
+default 0<br>
+test - true if your slaves owner tested her, default false</span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      <br>
+      </span></span></span></span> <span style="font-size: 12pt;"><font
+ size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;">_root.Diary.AddEntry(SlaveName
++ " met a nun
+and was given a holy item.");<br>
+_root.Diary.AddEntry(SlaveName + " was assaulted by a tentacle monster
+and after found a glowing stone.", true);</span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      <br>
+      </span></span></span></span></span></span></span></span></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span><br>
+      <font size="-1">&lt;Diary tentacles='true'&gt;</font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;">#slave was
+assaulted by a tentacle monster
+and after found a glowing stone.</span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><font
+ size="-1">&lt;/Diary&gt;</font><font size="-1"><br>
+      </font> </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 95%; height: 197px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4><a class="mozTocH4" name="mozTocId432494" id="mozTocId432494"></a><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><b>AddEntryFull</b></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>function
+AddEntryFull(desc:String, date:Number, tent:Boolean, win:Number,
+test:Boolean)</i></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Diary
+tentacles='boolean' winner='boolean' ownertest='boolean'
+date='number'&gt;desc&lt;/Diary&gt;<font size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">As above but
+adds an entry to an arbitrary date, gdate is the date to add the entry
+to</span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      <br>
+      </span></span></span></span> <span style="font-size: 12pt;"><font
+ size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;">_root.Diary.AddEntryFull(SlaveName
++ " has an
+appointment with the Lord.", _root.GameDate + 14);</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      <br>
+      </span></span></span></span></span></span></span></span></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span><br>
+      <font size="-1">&lt;Diary tentacles='true' date='#date + 14'&gt;</font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;">#slave was
+assaulted by a tentacle monster
+and after found a glowing stone.</span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><font
+ size="-1">&lt;/Diary&gt;</font><font size="-1"><br>
+      </font> </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"></span><span style="font-size: 12pt;"><b><br>
+</b></span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId640200"></a><span style="font-weight: bold;">Events</span></h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">Each day a
+series of events are triggered at the start end end of phases of the
+day.<br>
+<br>
+The days is divided as<br>
+</span></span></span>
+<ul style="font-family: Arial;">
+  <li>6am - Early Morning</li>
+  <li>8am - Morning Events (if any happen)<br>
+  </li>
+  <li>8am - Breakfast and Planning (can be later if an Event happens
+above)</li>
+  <li>9am - start chores/jobs..schools etc ie Planning</li>
+  <li>6pm - finish Planning</li>
+  <li>8pm - Dinner and schedule evening training</li>
+  <li>9pm - sex training</li>
+  <li>late - end sex training<br>
+  </li>
+</ul>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+</span><u><span style="font-size: 12pt;"><span
+ style="font-weight: bold;">\Next</span><br>
+</span></u>254 - end the current nights planning and start the new day.
+Can only be intercepted in limited cases when an event is triggered in
+AfterNight processing<br>
+251 - early morning 'PreEvent', no effect on time/date, standardly at
+6am. If no early morning events then the game falls through and does
+event 251<br>
+250 - Start a new morning and trigger morning events. Time is increased
+by 1 hour, date is not affected (notmally these are reset before this)<br>
+<br>
+252, 253 are used for special cases of selected events<br>
+252 - show basic early morning message/greeting by your servant and
+fall through to 253<br>
+254 - trigger the morning events, if no events the main game dicplay is
+shown and planning can be done for the day<br>
+<u><br>
+</u></span></span><br style="font-family: Arial;">
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId408385"></a><span style="font-weight: bold;">Slave
+Interface Functions</span></h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">These
+functions can be implemented/overloaded for a slave for date/time
+specific events<br>
+</span></span></span></span></span><br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 95%; height: 221px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 0px;"><a class="mozTocH4" name="mozTocId812685"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">UpdateDateAndItems</span></b></span></span></span></span></span></h4>
+      <h4 style="height: 0px;"><a class="mozTocH4" name="mozTocId211324"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">UpdateDateAndItemsAsAssistant</span></b><span
+ style="font-size: 14pt;"> </span></span></span></span></span></span><span
+ style="font-weight: normal;">(assistants and events)</span><br
+ style="font-weight: normal;">
+      </h4>
+      <br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table
+ style="text-align: left; width: 66%; height: 32px; font-style: italic;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">public function
+UpdateDateAndItems(NumDays:Number)<br>
+public function UpdateDateAndItemsAsAssistant(NumDays:Number)<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Events&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;UpdateDateAndItems&gt;<br>
+xml variable <span style="font-weight: bold;">general</span> is set to
+the number of days (NumDays above)<br>
+            <br>
+NO specific assistant version, as assistants &lt;Events&gt; node will
+be merged with the core version so any assistant version will be
+handled in the core version<br>
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;">This function
+is called every new day to allow any stat effects to be applied to your
+slave. DO NOT trigger events in this function, or show images or text.<br>
+      <br>
+      </span></span></span></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;">This is called for the current slave, your
+current assistant and the xml node is processed.</span></span></span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"> <br>
+This function cal be called for a multiple day persion, for instance if
+your slave runs away or is kidnapped etc. In this case the
+NumDays/general parameter will be the number of days that passed,
+otherwise it will be 1.<br>
+      <br>
+      </span></span></span></span><span style="font-size: 12pt;"><font
+ size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><small><br>
+      </small></span></span></span></span></span></font></font></font></font></font></span></span><font
+ size="-1">public function UpdateDateAndItems(NumDays:Number)<br>
+{ <br>
+&nbsp;&nbsp;&nbsp; _root.VarObedience -= NumDays;<br>
+&nbsp;&nbsp;&nbsp; if (_root.MilkInfluence &gt; 1) _root.MilkInfluence
+-= NumDays;<br>
+}<br>
+      <br>
+      </font><span style="font-weight: bold;"></span><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:<br>
+      </span></span><font size="-1">&lt;Events&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;UpdateDateAndItems&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Narry&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Points slave='Narry'&gt;0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+20, 0, 0, 1, 0, 0&lt;/Points&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/Narry&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/UpdateDateAndItems&gt;<br>
+&lt;/Events&gt;<br>
+      <br>
+      </font><span style="font-weight: bold;">XML
+Notes</span><font size="-1"><br>
+      </font><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">XML merges nodes when the xml files are
+loaded into the game. To prevents problems always include xml for this
+node in a slave specific subnode. In the above example the Narry
+specific changes are included in a sub-node &lt;Narry&gt;<br>
+If you fail to do this then it is possible your code will be
+overwritten by other slaves xml that also fail to do this.<br>
+      <br>
+All xml in the &lt;UpdateAndItems&gt; node is processed, but &lt;if&gt;
+and similar statements can be used to limit functionality as needed.<br>
+      </span></span></span></span></span></span> </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;"></span></b></span></span></span></span></span></span><br
+ style="font-family: Arial;">
+<table
+ style="text-align: left; width: 95%; height: 922px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 1px;"><a class="mozTocH4" name="mozTocId362575"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">PreEvent</span></b></span></span></span></span></span></h4>
+      <h4 style="height: 0px;"><a class="mozTocH4" name="mozTocId133945"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">PreEventAsAssistant</span></b><span
+ style="font-size: 14pt;"> </span></span></span></span></span></span><span
+ style="font-weight: normal;">(assistants and events)</span><br
+ style="font-weight: normal;">
+      </h4>
+      <br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"></span></span></span></span></span></span></span><br>
+      <table
+ style="text-align: left; width: 66%; height: 32px; font-style: italic;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">public function
+PreEvent() : Boolean<br>
+public function PreEventAsAssistant() : Boolean<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Events&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;EarlyMorning&gt;<br>
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;">This
+function is called every new day at 6am to indicate a morning event
+that happens before most of the household rises from bed.<br>
+      <br>
+      </span></span></span></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;">This is called for the current slave, your
+current assistant and the xml node is processed.</span></span></span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"> <br>
+You may trigger events and show text/images if an event if triggered.
+If you do so you should terminate the event with event 250 or 9999. The
+first is for short events and will continue to standard morning events.
+The second is for a long event and skips other events, including
+contests, owner testing etc.<br>
+      <br>
+For actionscript, return true if an event happens. You should end the
+event with a question or DoEvent() call to ensure a Next button or
+other prompt is shown,<br>
+      <br>
+For xml the &lt;EarlyMorning&gt; node is a Picker node, like the
+&lt;Walk&gt; &lt;Daily&gt; &lt;Events&gt; nodes. It is a list of
+discrete events, each with a conditional to determine if the event
+should happen. These are sequentially checked until one of their
+conditionals evaluates to true. Then the node is processed and it is
+treated as returning true for actionscript. If no sub-event is
+processed then it is treated as returning false.<br>
+      <br>
+      </span></span></span></span><span style="font-size: 12pt;"><font
+ size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><small><br>
+      </small></span></span></span></span></span></font></font></font></font></font></span></span><font
+ size="-1">public function PreEvent() : Boolean<br>
+{<br>
+&nbsp;&nbsp; if (_root.GameDate == 4) {<br>
+&nbsp;&nbsp;&nbsp; _root.SetText("You have a visitor in the
+morning....");<br>
+&nbsp;&nbsp;&nbsp; _root.DoEvent(250);<br>
+&nbsp;&nbsp;&nbsp; return true;<br>
+&nbsp; }<br>
+&nbsp; return false;<br>
+}<br>
+      <br>
+      </font><span style="font-weight: bold;"></span><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:<br>
+      </span></span><font size="-1">&lt;Events&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;EarlyMorning&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;NarryMorning chance='5%'
+flag2-narry-5='false'&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</font><font
+ size="-1">SetText&gt;You have a visitor in the morning who wants to
+see Narry&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;SetFlag flag2-narry-5='true'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;DoEvent&gt;250&lt;/DoEvent&gt;<br>
+      </font><font size="-1">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;/NarryMorning&gt;</font><font size="-1"></font><br>
+      <font size="-1">&nbsp;&nbsp;&nbsp; &lt;/</font><font size="-1">EarlyMorning</font><font
+ size="-1">&gt;<br>
+&lt;/Events&gt;<br>
+      <br>
+      </font><span style="font-weight: bold;">Notes</span><font
+ size="-1"><br>
+      </font><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">Try to add uniquely named events or qualify
+the name with the slave's name<br>
+eg<br>
+&lt;NarryEvent1&gt;<br>
+etc<br>
+      </span></span></span></span></span></span><font size="-1"> </font>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-family: Arial;"></span><br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 95%; height: 896px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 1px;"><a class="mozTocH4" name="mozTocId606485"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">StartMorning</span></b></span></span></span></span></span></h4>
+      <h4 style="height: 0px;"><a class="mozTocH4" name="mozTocId71187"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">StartMorningAsAssistant</span></b><span
+ style="font-size: 14pt;"> </span></span></span></span></span></span><span
+ style="font-weight: normal;">(assistants and events)</span><br
+ style="font-weight: normal;">
+      </h4>
+      <br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"></span></span></span></span></span></span></span><br>
+      <table
+ style="text-align: left; width: 66%; height: 32px; font-style: italic;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">public function
+StartMorning() : Boolean<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Events&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;StartMorning&gt;<br>
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;">This
+function is called every new day after the early morning 'PreEvents'
+but before the morning Events.<br>
+      <br>
+      </span></span></span></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;">This is called for the current slave, your
+current assistant and the xml node is processed.</span></span></span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"> <br>
+You may trigger events and show text/images if an event if triggered.
+If you do so you should terminate the event with event 9999.<br>
+      <br>
+For actionscript, return true if you wish to disable the standard text
+or greeting from your assistant. <br>
+      <br>
+For xml the &lt;StartMorning&gt; is a Picker node, like the
+&lt;Walk&gt; &lt;Daily&gt; &lt;PreEvent&gt; nodes. It is a list of
+discrete events, each with a conditional to determine if the event
+should happen. These are sequentially checked until one of their
+conditionals evaluates to true. Then the node is processed and it is
+treated as returning true for actionscript. If no sub-event is
+processed then it is treated as returning false.<br>
+      <br>
+      </span></span></span></span><span style="font-size: 12pt;"><font
+ size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><small><br>
+      </small></span></span></span></span></span></font></font></font></font></font></span></span><font
+ size="-1">public function StartMorning() : Boolean<br>
+{<br>
+&nbsp;&nbsp; if (_root.GameDate == 4) {<br>
+&nbsp;&nbsp;&nbsp; _root.SetText("You have a visitor in the
+morning....");<br>
+&nbsp;&nbsp;&nbsp; _root.DoEvent(9999);<br>
+}<br>
+      <br>
+      </font><span style="font-weight: bold;"></span><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:<br>
+      </span></span><font size="-1">&lt;Events&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;StartMorning&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;NarryMorning chance='5%'
+flag2-narry-5='false'&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</font><font
+ size="-1">SetText&gt;You have a visitor in the morning who wants to
+see Narry&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;SetFlag flag2-narry-5='true'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;DoEvent&gt;9999&lt;/DoEvent&gt;<br>
+      </font><font size="-1">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;/NarryMorning&gt;<br>
+      <br>
+      </font><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;NarryMorning2 chance='5%'&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;SetText&gt;Once again Narry has a visitor&lt;/SetText&gt;<br>
+      </font><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;DoEvent&gt;9999&lt;/DoEvent&gt;</font><br>
+      <font size="-1">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;/NarryMorning2&gt;</font><br>
+      <font size="-1">&nbsp;&nbsp;&nbsp; &lt;/</font><font size="-1">StartMorning</font><font
+ size="-1">&gt;<br>
+&lt;/Events&gt;<br>
+      <br>
+      </font><span style="font-weight: bold;">Notes</span><font
+ size="-1"><br>
+      </font><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">XML
+merges nodes when the xml files are loaded into the game. To prevents
+problems always include xml for this node in a slave specific subnode.
+In the above example the Nayy specific changes are included in a
+sub-node &lt;Narry&gt;<br>
+If you fail to do this then it is possible your code will be
+overwritten by other slaves xml that also do this.</span></span></span></span></span></span><font
+ size="-1"><br>
+      </font> </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 95%; height: 709px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 1px;"><a class="mozTocH4" name="mozTocId359072"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">Events</span></b></span></span></span></span></span></h4>
+      <h4 style="height: 0px;"><a class="mozTocH4" name="mozTocId623922"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">EventsAsAssistant</span></b><span
+ style="font-size: 14pt;"> </span></span></span></span></span></span><span
+ style="font-weight: normal;">(assistants and events)</span><br
+ style="font-weight: normal;">
+      </h4>
+      <br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"></span></span></span></span></span></span></span><br>
+      <table
+ style="text-align: left; width: 66%; height: 32px; font-style: italic;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">public function
+Events(cando:Boolean)<br>
+public function EventsAsAssistant()<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Events&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;Daily&gt;<br>
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;">This
+function is called every new day at 8am to indicate a morning event
+that happens at about breakfast time.<br>
+      <br>
+      </span></span></span></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;">This is called for the current slave, your
+current assistant and the xml node is processed.</span></span></span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"> <br>
+You
+may trigger events and show text/images if an event if triggered.
+If you do so you should terminate the event with&nbsp; event 9999.<br>
+      <br>
+For actionscript the cando parameter indicates if an other events (core
+game standard ones) have already been triggered. Normally do nothing if
+false, but you can choose to override or replace these standard events
+if you wish.<br>
+      <br>
+For both xml and actionscript make sure to call DoEvent, AskQuestions
+etc to trigger an event. At least just call DoEvent(9999) for a simple
+event.<br>
+      <br>
+For xml the &lt;Daily&gt; node is a Picker node, like the
+&lt;Walk&gt; &lt;EarlyMorning&gt; nodes. It is a list of
+discrete events, each with a conditional to determine if the event
+should happen. These are sequentially checked until one of their
+conditionals evaluates to true. Then the node is processed and it is
+treated as returning true for actionscript. If no sub-event is
+processed then it is treated as returning false.<br>
+      <br>
+      </span></span></span></span><span style="font-size: 12pt;"><font
+ size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><small><br>
+      </small></span></span></span></span></span></font></font></font></font></font></span></span><font
+ size="-1">public function Events(cando:Boolean) <br>
+{<br>
+&nbsp;&nbsp; if (!cando) return;<br>
+&nbsp;&nbsp; if (_root.GameDate == 4) {<br>
+&nbsp;&nbsp;&nbsp; _root.SetText("You have a visitor in the
+morning....");<br>
+&nbsp;&nbsp;&nbsp; _root.DoEvent(250);<br>
+&nbsp; }<br>
+}<br>
+      <br>
+      </font><span style="font-weight: bold;"></span><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:<br>
+      </span></span><font size="-1">&lt;Events&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;Daily&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;NarryMorning chance='5%'
+flag2-narry-5='false'&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</font><font
+ size="-1">SetText&gt;You have a visitor in the morning who wants to
+see Narry&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;SetFlag flag2-narry-5='true'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;DoEvent&gt;250&lt;/DoEvent&gt;<br>
+      </font><font size="-1">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;/NarryMorning&gt;</font><br>
+      <font size="-1">&nbsp;&nbsp;&nbsp; &lt;/</font><font size="-1">Daily</font><font
+ size="-1">&gt;<br>
+&lt;/Events&gt;<br>
+      <br>
+      </font><span style="font-weight: bold;">Notes</span><font
+ size="-1"><br>
+      </font><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">Try to add uniquely named events or qualify
+the name with the slave's name<br>
+      <font size="-1">eg<br>
+&lt;NarryEvent1&gt;</font><br>
+      </span></span></span></span></span></span><font size="-1"> </font>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 95%; height: 675px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 1px;"><a class="mozTocH4" name="mozTocId554891"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">StartDay</span></b></span></span></span></span></span></h4>
+      <h4 style="height: 0px;"><a class="mozTocH4" name="mozTocId847528"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">StartDayAsAssistant</span></b><span
+ style="font-size: 14pt;"> </span></span></span></span></span></span><span
+ style="font-weight: normal;">(assistants and events)</span><br
+ style="font-weight: normal;">
+      </h4>
+      <br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"></span></span></span></span></span></span></span><br>
+      <table
+ style="text-align: left; width: 66%; height: 32px; font-style: italic;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">public function
+StartDay() : Boolean<br>
+public function StartDayAsAssistant() : Boolean<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Events&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;StartDay&gt;<br>
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;">This
+function is called when you first enter the planning screen for daytime
+planning. It is not called every time, just the first time on a given
+day.<br>
+      <br>
+      </span></span></span></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;">This is called for the current slave, your
+current assistant and the xml node is processed.</span></span></span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"> <br>
+You
+may trigger events and show text/images if an event if triggered.
+If you do return true from the function and you should terminate the
+event with event 9902 to continue into the planning screen, or in a
+seocndary event for actionscript call<br>
+_root.DoPlanning();.<br>
+      <br>
+For both xml and actionscript make sure to call DoEvent, AskQuestions
+etc to trigger an event. At least just call DoEvent(9902) for a simple
+event.<br>
+      <br>
+For xml the &lt;StartDay&gt; node is a Picker node, like the
+&lt;Walk&gt; &lt;EarlyMorning&gt; nodes. It is a list of
+discrete events, each with a conditional to determine if the event
+should happen. These are sequentially checked until one of their
+conditionals evaluates to true. Then the node is processed and it is
+treated as returning true for actionscript. If no sub-event is
+processed then it is treated as returning false.<br>
+      <br>
+      </span></span></span></span><span style="font-size: 12pt;"><font
+ size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><small><br>
+      </small></span></span></span></span></span></font></font></font></font></font></span></span><font
+ size="-1">public function StartDay() : Boolean <br>
+{<br>
+&nbsp;&nbsp; if (_root.GameDate == 4) {<br>
+&nbsp;&nbsp;&nbsp; _root.SetText("You have a visitor in the
+morning....");<br>
+&nbsp;&nbsp;&nbsp; _root.DoEvent(9902);<br>
+&nbsp; }<br>
+}<br>
+      <br>
+      </font><span style="font-weight: bold;"></span><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:<br>
+      </span></span><font size="-1">&lt;Events&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;StartDay&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;NarryDay chance='5%'
+flag2-narry-5='false'&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</font><font
+ size="-1">SetText&gt;You have a visitor in the morning who wants to
+see Narry&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;SetFlag flag2-narry-5='true'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;DoEvent&gt;9902&lt;/DoEvent&gt;<br>
+      </font><font size="-1">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;/</font><font size="-1">NarryDay</font><font size="-1">&gt;</font><br>
+      <font size="-1">&nbsp;&nbsp;&nbsp; &lt;/</font><font size="-1">Daily</font><font
+ size="-1">&gt;<br>
+&lt;/Events&gt;<br>
+      <br>
+      </font><span style="font-weight: bold;">Notes</span><font
+ size="-1"><br>
+      </font><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">Try to add uniquely named events or qualify
+the name with the slave's name<br>
+      <font size="-1">eg<br>
+&lt;</font></span></span></span></span></span></span><font size="-1">NarryDay</font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1">&gt;</font><br>
+      </span></span></span></span></span></span><font size="-1"> </font>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 95%; height: 247px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 1px;"><a class="mozTocH4" name="mozTocId252173"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">StartEvening</span></b></span></span></span></span></span></h4>
+      <h4 style="height: 0px;"><a class="mozTocH4" name="mozTocId395415"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">StartEveningAsAssistant</span></b><span
+ style="font-size: 14pt;"> </span></span></span></span></span></span><span
+ style="font-weight: normal;">(assistants and events)</span><br
+ style="font-weight: normal;">
+      </h4>
+      <br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"></span></span></span></span></span></span></span><br>
+      <table
+ style="text-align: left; width: 66%; height: 32px; font-style: italic;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">public function
+StartEvening() : Boolean<br>
+public function StartEveningAsAssistant() : Boolean<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Events&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;StartEvening&gt;<br>
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;">This
+function is called after daytime planning is complete but before you
+return from the planning, ie before the main screen is shown where you
+can enter the evening/planning screens. Logically this is "AfterDay"
+processing,<br>
+      <br>
+This is called for the current slave, your current assistant and the
+xml node is processed.<br>
+      <br>
+Otherwise works identically to <a href="#mozTocId554891">StartDay()</a></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"></font><br>
+      </span></span></span></span></span></span><font size="-1"> </font>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-family: Arial;"></span><br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 95%; height: 528px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 1px;"><a class="mozTocH4" name="mozTocId957304"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">StartNight</span></b></span></span></span></span></span></h4>
+      <h4 style="height: 0px;"><a class="mozTocH4" name="mozTocId375158"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">StartNighyAsAssistant</span></b><span
+ style="font-size: 14pt;"> </span></span></span></span></span></span><span
+ style="font-weight: normal;">(assistants and events)</span><br
+ style="font-weight: normal;">
+      </h4>
+      <br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"></span></span></span></span></span></span></span><br>
+      <table
+ style="text-align: left; width: 66%; height: 32px; font-style: italic;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">public function
+StartNight() : Boolean<br>
+public function StartNightAsAssistant(beginning:Boolean) : Boolean<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Events&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;StartNight&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;StartNightBeginning&gt;<br>
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;">This
+function is called when you first enter the planning screen for
+nighttime
+planning. It is not called every time, just the first time on a given
+day.<br>
+      <br>
+      </span></span></span></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;">This is called for the current slave, your
+current assistant and the xml node is processed.</span></span></span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"> <br>
+You
+may trigger events and show text/images if an event if triggered.
+If you do return true from the function and you should terminate the
+event with event 9902 to continue into the planning screen, or in a
+seocndary event for actionscript call<br>
+_root.DoPlanning();.<br>
+      <br>
+For both xml and actionscript make sure to call DoEvent, AskQuestions
+etc to trigger an event. At least just call DoEvent(9902) for a simple
+event.<br>
+      <br>
+For xml the &lt;StartNight&gt; node is a Picker node, like the
+&lt;Walk&gt; &lt;EarlyMorning&gt; nodes. It is a list of
+discrete events, each with a conditional to determine if the event
+should happen. These are sequentially checked until one of their
+conditionals evaluates to true. Then the node is processed and it is
+treated as returning true for actionscript. If no sub-event is
+processed then it is treated as returning false.<br>
+      <br>
+For your assistant there is a parameter to indicate when in the process
+the function is called. The function is called twice<br>
+StartNightAsAssistant(true);<br>
+- here your assistant has started telling you about the trainings and
+time restictions for the night. This allows you to alter the message
+and insert something custom<br>
+- StartNightAsAssistant(false); called at the end as for slaves<br>
+      <br>
+      </span></span></span></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;">Otherwise works identically to <a
+ href="Core%20-%20Date,%20Time%20&amp;%20the%20Diary.html#mozTocId554891">StartDay()</a></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"></font><br>
+      </span></span></span></span></span></span><font size="-1"> </font>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 95%; height: 247px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 1px;"><a class="mozTocH4" name="mozTocId595019"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">AfterNight</span></b></span></span></span></span></span></h4>
+      <h4 style="height: 0px;"><a class="mozTocH4" name="mozTocId915819"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">AfterNightAsAssistant</span></b><span
+ style="font-size: 14pt;"> </span></span></span></span></span></span><span
+ style="font-weight: normal;">(assistants and events)</span><br
+ style="font-weight: normal;">
+      </h4>
+      <br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"></span></span></span></span></span></span></span><br>
+      <table
+ style="text-align: left; width: 66%; height: 32px; font-style: italic;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">public function
+AfterNight() : Boolean<br>
+public function AfterNightAsAssistant() : Boolean<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Events&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;AfterNight&gt;<br>
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;">This
+function is called after the night time trainings (mostly sex
+trainings) have been completed to allow events to be triggered before
+retiring for the night.<br>
+      <br>
+      </span></span></span></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;">This is called for the current slave, your
+current assistant and the xml node is processed.</span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><br>
+      <br>
+Otherwise works identically to <a href="#mozTocId554891">StartDay()</a></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      </span></span></span></span></span></span><font size="-1"> </font>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000080"><font color="#000000"><font color="#000000"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><b><i><span style="font-size: 12pt;"></span></i></b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span>
+</body>
+</html>

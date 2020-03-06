@@ -1,0 +1,937 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html;charset=ISO-8859-1" http-equiv="Content-Type">
+  <meta name="generator"
+ content="HTML Tidy for Windows (vers 22 March 2008), see www.w3.org">
+  <title>Sound Effects</title>
+</head>
+<body>
+<table
+ style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;"
+ border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font
+ size="+3"><span style="font-weight: bold;">Sound
+Effects<br>
+            </span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td
+ style="vertical-align: top; width: 80%; text-align: left;"><a
+ href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font
+ style="font-weight: bold;" size="-1">Updated
+to version 3.4.02</font> </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<center style="font-family: Arial;"> <u><b><span
+ style="font-size: 18pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 16pt;"><span style="font-size: 14pt;"><br>
+</span></span></span></span></b></u> </center>
+<span style="font-size: 12pt; font-family: Arial;">The
+game has a number of built-in sound effects, and a number of mp3 files
+included. Developers can also play any arbitrary mp3 audio file when
+desired.</span><br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-weight: bold; font-family: Arial;">Table of Contents</span>
+<ul style="font-family: Arial;" id="mozToc">
+<!--mozToc h1 1 h3 2 h4 3-->
+  <li><a href="#mozTocId895898">Core
+Variables</a>
+    <ul>
+      <li><a href="#mozTocId660741">SoundsOn</a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId739383">Core Functions</a>
+    <ul>
+      <li><a href="#mozTocId697698">StartMoaning</a></li>
+      <li><a href="#mozTocId189178">StartFucking</a></li>
+      <li><a href="#mozTocId380077">Beep</a></li>
+      <li><a href="#mozTocId699458">Bloop</a></li>
+      <li><a href="#mozTocId136879">PlaySound</a></li>
+      <li><a href="#mozTocId758129">StopSounds</a></li>
+      <li><a href="#mozTocId758129">StopAndFadeSounds</a></li>
+      <li><a href="#mozTocId591819">SlaveModule Notes</a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId909023">Standard
+Sound Effects </a></li>
+</ul>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId895898" id="mozTocId895898"></a>Core
+Variables</h1>
+<span style="font-weight: bold; font-family: Arial;"></span><span
+ style="font-size: 12pt; font-family: Arial;">Sound effects are enabled
+in options. Enabled by the
+setting SoundOn<br>
+<br>
+</span>
+<table
+ style="text-align: left; width: 948px; height: 148px; background-color: rgb(242, 255, 255); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: rgb(229, 229, 229);"><span
+ style="font-weight: bold;">Actionscript Variable</span></td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: rgb(229, 229, 229);"><span
+ style="font-weight: bold;">XML Variable</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId660741"></a><span style="font-size: 12pt;"><b>SoundsOn</b></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 21px;"><span
+ style="font-size: 12pt;"><b>soundson</b></span><span
+ style="font-weight: bold;"></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <table style="text-align: left; width: 936px; height: 28px;"
+ border="0" cellpadding="6" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"><span
+ style="font-style: italic;"><font size="-1">(Boolean) </font></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">true if sound
+effects are on <br>
+            </span></span><span style="font-size: 12pt;"><font size="-1">eg<br>
+&lt;if soundson='true'&gt;<br>
+&nbsp;&nbsp; &lt;!-- sound effects are enabled --&gt;<br>
+&lt;/if&gt;<br>
+            <br>
+            </font></span><span style="font-size: 12pt;"><span
+ style="font-weight: bold;">Note:</span><br>
+In practice you will very seldom, if ever, need to use this variable.
+The standard game functions below all internally test it and do not
+play any sound if false.</span><span style="font-style: italic;"></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><span style="color: black;"></span><font size="-1"><span
+ style="color: black;"></span></font></font></span></span> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <hr style="width: 100%; height: 2px;"> </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"></span>
+<ul style="font-family: Arial;" id="mozToc">
+</ul>
+<span style="font-size: 12pt; font-family: Arial;">
+</span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId739383"></a><span style="text-decoration: underline;"><span
+ style="font-weight: bold;"><span style="text-decoration: underline;"><span
+ style="font-weight: bold;"></span></span></span></span>Core Functions</h1>
+<span style="font-size: 12pt; font-family: Arial;">All actionscript
+functions are contained in a class instance Sounds of the class
+SoundsModule.<br>
+eg<br>
+_root.Sounds.Beep();<br>
+<br>
+For legacy reasons most can be accessed without the Sounds. reference.
+but please do not.<br>
+<br>
+All functions internally test SoundsOn, so you do not need to check it
+before calling any of these functions.<br>
+<br>
+<span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></span></span></span></span>
+<table
+ style="text-align: left; width: 1375px; height: 256px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h3 style="height: 11px;"><a class="mozTocH3"
+ name="mozTocId697698" id="mozTocId697698"></a><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><b>StartMoaning</b></span></span></h3>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">function
+Sounds.StartMoaning(count:Number)<br>
+            </span></i></span></span></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;PlaySound
+count='number'&gt;Moaning&lt;/PlaySound&gt;<font size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">Play the sound
+of one or more women
+passionately moaning</span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">, count is the
+number playing in parallel,
+default 1.</span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      <br>
+      </span></span></span></span> <span style="font-size: 12pt;"><font
+ size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 10pt;">_root.Sounds.StartMoaning(2);</span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      <br>
+      </span></span></span></span></span></span></span></span></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span><br>
+      <font size="-1">&lt;PlaySound
+count='2''&gt;Moaning&lt;/PlaySound&gt;<br>
+      <br>
+      </font><span style="font-weight: bold;">Note:</span><br>
+can play simultaneously with
+StartFucking()<font size="-1"><br>
+      </font> </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><br>
+</span></span></span></span></span></span>
+<table
+ style="text-align: left; width: 1375px; height: 205px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h3 style="height: 11px;"><a class="mozTocH3"
+ name="mozTocId189178" id="mozTocId189178"></a><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><b>StartFucking</b></span></span></h3>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">function
+Sounds.StartFucking(count:Number)<br>
+            </span></i></span></span></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;PlaySound
+count='number'&gt;Fucking&lt;/PlaySound&gt;<font size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">Play the sound
+of rythmic fucking, one or
+more sounds, count is the number playing in parallel, default 1.</span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      <br>
+      </span></span></span></span> <span style="font-size: 12pt;"><font
+ size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 10pt;">_root.Sounds.StartFucking(2);</span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      <br>
+      </span></span></span></span></span></span></span></span></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span><br>
+      <font size="-1">&lt;PlaySound
+count='2''&gt;Fucking&lt;/PlaySound&gt;<br>
+      <br>
+      </font><span style="font-weight: bold;">Note:</span><br>
+can play simultaneously with
+StartMoaning()<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><br>
+</span></span></span></span></span></span>
+<table
+ style="text-align: left; width: 1375px; height: 167px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h3 style="height: 11px;"><a class="mozTocH3"
+ name="mozTocId380077" id="mozTocId380077"></a><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><b>Beep</b></span></span></h3>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">function
+Sounds.Beep()<br>
+            </span></i></span></span></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;PlaySound&gt;Beep&lt;/PlaySound&gt;<font
+ size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">Play a Beep
+sound</span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      <br>
+      </span></span></span></span> <span style="font-size: 12pt;"><font
+ size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">_root.Sounds.Beep();</span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      <br>
+      </span></span></span></span></span></span></span></span></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span><br>
+      <font size="-1">&lt;PlaySound&gt;Beep&lt;/PlaySound&gt;</font><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><br>
+</span></span></span></span></span></span>
+<table
+ style="text-align: left; width: 1375px; height: 179px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h3 style="height: 11px;"><a class="mozTocH3"
+ name="mozTocId699458" id="mozTocId699458"></a><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><b>Bloop</b></span></span></h3>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">function
+Sounds.Bloop()<br>
+            </span></i></span></span></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;PlaySound&gt;Bloop&lt;/PlaySound&gt;<font
+ size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">Play a Bloop
+sound</span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      <br>
+      </span></span></span></span> <span style="font-size: 12pt;"><font
+ size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">_root.Sounds.Bloop();</span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      <br>
+      </span></span></span></span></span></span></span></span></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span><br>
+      <font size="-1">&lt;PlaySound&gt;Bloop&lt;/PlaySound&gt;</font><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><br>
+</span></span></span></span></span></span>
+<table
+ style="text-align: left; width: 1375px; height: 428px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h3 style="height: 11px;"><a class="mozTocH3"
+ name="mozTocId136879" id="mozTocId136879"></a><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><b>PlaySound</b></span></span></h3>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i>function
+Sounds.PlaySound(snd:String,
+repeats:Number, count:Number, volume:Number, delay:Number)</i></span></span></span></span></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;PlaySound
+repeats='number' count='number'
+vol='number' delay='number'&gt;snd&lt;/PlaySound&gt;<font size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">Play a
+standard sound or an external
+mp3 file<br>
+      <br>
+      </span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>
+      <span style="font-weight: bold;">snd</span> - either<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a path to an mp3 file
+to play (eg "Sounds/Circus.mp3")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the name of a standard
+sound effect, see <a href="#mozTocId909023">below</a> (eg "DoorClang")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+ style="font-weight: bold;">repeats</span> - the number
+of times to sound effect will play, only applies for mp3 files and
+selected sound effects<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+ style="font-weight: bold;">count</span> - special
+parameter for "Moaning" and "Fucking" it is the number of similtaneous
+effects, ignored otherwise<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+ style="font-weight: bold;">volume</span> - the volume
+level, 0-100. Note does not always work, and it is a global level, it
+cannot be set for individual sounds if you play them simultaneously<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+ style="font-weight: bold;">delay</span> - a delay in milliseconds
+before the sound plays<br>
+      <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Note: pass
+undefined for a parameter you do not wish to use in actionscript. In
+xml just omit the attribute.<br>
+      </span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      </span></span></span></span> <span style="font-size: 12pt;"><font
+ size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span><small>_root.Sounds.PlaySound("Sounds/Circus.mp3",
+1000);<br>
+_root.Sounds.PlaySound("Frying");</small> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      <br>
+      </span></span></span></span></span></span></span></span></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span><br>
+      <small>&lt;PlaySound&gt;Sounds/Circus.mp3&lt;/PlaySound&gt;</small><big><span
+ style="font-weight: bold;"></span></big>;<font size="-1"><br>
+      </font> </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><br>
+</span></span></span></span></span></span>
+<table
+ style="text-align: left; width: 1375px; height: 383px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h3 style="height: 11px;"><a class="mozTocH3"
+ name="mozTocId758129" id="mozTocId758129"></a><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><b>StopSounds</b></span></span></h3>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">function
+Sounds.StopSounds()<br>
+            </span></i></span></span></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;PlaySound
+stop='true'/&gt;<font size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">Stops the
+playback of all sound effects</span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      <br>
+      </span></span></span></span> <span style="font-size: 12pt;"><font
+ size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">_root.Sounds.StopSounds();</span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      <br>
+      </span></span></span></span></span></span></span></span></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span><br>
+      <font size="-1">&lt;PlaySound stop='true'&gt;<br>
+      <br>
+      </font><span style="font-weight: bold;">Note:</span><br>
+Automatically called by the
+game after each act/training and by calling _root.HideImages(); or
+&lt;HideImages/&gt;<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 14pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></span></span></span></span>
+<table
+ style="text-align: left; width: 1375px; height: 357px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h3 style="height: 11px;"><a class="mozTocH3"
+ name="mozTocId758129" id="mozTocId758129"></a><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><b>StopAndFadeSounds</b></span></span></h3>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">function
+Sounds.StopAndFadeSounds()<br>
+            </span></i></span></span></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;PlaySound
+stopandfade='true'/&gt;<font size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">Stops the
+playback of all sound effects but fades them out instead of stopping
+abruptly.</span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      <br>
+      </span></span></span></span> <span style="font-size: 12pt;"><font
+ size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">_root.Sounds.StopAndFadeSounds();</span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      <br>
+      </span></span></span></span></span></span></span></span></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span><br>
+      <font size="-1">&lt;PlaySound stopandfade='true'&gt;</font><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<h3 style="font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId591819"></a>SlaveModule Notes</h3>
+<font style="font-family: Arial;" size="-1"> </font><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"> Using events or slaves based on the
+SlaveModule class, several versions are provided to simplify usage. You
+can use<br>
+PlaySound<br>
+Beep<br>
+Bloop<br>
+without _root, or _root.Sounds<br>
+</span></span></span></span></span></span><span
+ style="font-family: Arial;">eg</span><br style="font-family: Arial;">
+<span style="font-family: Arial;">Beep()</span><br
+ style="font-family: Arial;">
+<br style="font-family: Arial;">
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId909023" id="mozTocId909023"></a>Standard
+Sound Effects<span style="font-size: 12pt;"><font><b><font><b><span
+ style="font-size: 14pt;"><font size="+2"><br>
+</font></span></b></font></b></font></span></h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 14pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">These are embedded sounds that can be used
+with PlaySound function above.<br>
+<br>
+</span></span></span></span></span></span></span></span></span><span
+ style="font-size: 14pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;">eg.<br>
+_root.PlaySound("Frying");</span></span></span></span></span></span></span></span></span><br
+ style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 14pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></span></span></span></span><span
+ style="font-family: Arial;">Some play once, some loop permanently. The
+game will stop them
+automatically when you/the game calls _root.HideImages(), which is
+automatically done at the end of an act/training, commonly when the
+Next
+button is pressed. You can explicitly stop the sound effects with
+<a href="#mozTocId758129">StopSounds()</a></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 14pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><br>
+<br>
+<span style="font-weight: bold;">Effects:</span><br>
+Whispers<br>
+MuffledCry<br>
+WhipCrack<br>
+Spank<br>
+Whipping<br>
+Punch<br>
+Miss<br>
+Ahhh<br>
+BreakIn<br>
+Breathing<br>
+Chains<br>
+Cheering<br>
+Clack<br>
+Clang<br>
+ClipClop<br>
+Clothes<br>
+Coins<br>
+DoorBell<br>
+DoorClang<br>
+DoorCreak<br>
+Footsteps<br>
+Frying<br>
+Giggle<br>
+GrowlPained<br>
+Gurgle<br>
+HurtMe<br>
+Unarmed<br>
+WhipHit<br>
+Zombie<br>
+Bells<br>
+Alleluia<br>
+GhostLaugh<br>
+<br>
+There are additional mp3 files in the Sounds folder of the game
+installation that can be used any time.<br>
+<br>
+<br>
+</span></span></span></span></span></span></span></span></span></span>
+</body>
+</html>

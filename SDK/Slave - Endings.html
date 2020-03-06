@@ -1,0 +1,1046 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html;charset=ISO-8859-1" http-equiv="Content-Type">
+  <title>Slave Endings</title>
+</head>
+<body>
+<u style="font-family: Arial;"><b><span style="font-size: 18pt;">
+<center>
+<table
+ style="text-align: left; width: 100%; background-color: rgb(239, 239, 239);"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;"
+ border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font
+ size="+3"><span style="font-weight: bold;">Endings<br>
+            </span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td
+ style="vertical-align: top; width: 80%; text-align: left;"><a
+ href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font
+ style="font-weight: bold;" size="-1">Updated for version 3.4.03</font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 16pt;"></span></center>
+</span></b></u><span style="font-size: 12pt; font-family: Arial;"></span><br
+ style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-weight: bold; font-family: Arial;">Table of Contents</span>
+<ul style="font-family: Arial;" id="mozToc">
+<!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6-->
+  <li><a href="#mozTocId984764">Checking for End Game</a>
+    <ul>
+      <li><a href="#mozTocId763347">Guild Members</a></li>
+      <li><a href="#mozTocId298983">Freelancers</a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId931818">General Process Once the Game Ends
+    </a></li>
+  <li><a href="#mozTocId789028">Slave Variables</a></li>
+  <li><a href="#mozTocId499477">Core Variables</a>
+    <ul>
+      <li><a href="#mozTocId251837">NumFin</a></li>
+      <li><a href="#mozTocId525149">Score</a></li>
+      <li><a href="#mozTocId333555">Pay </a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId742152">SlaveGirl Override Functions</a></li>
+  <li><a href="#mozTocId874328">Common Endings</a></li>
+  <li><a href="#mozTocId873090">Other Functions</a>
+    <ul>
+      <li><a href="#mozTocId957865">SetEnding</a></li>
+      <li><a href="#mozTocId201137">TrainingComplete</a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId196228">Bad Endings</a></li>
+</ul>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId984764"></a>Checking for End Game<span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;">The way endings work is<br>
+</span></span>
+<h2 style="height: 14px;"><a class="mozTocH2" name="mozTocId763347"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;">Guild Members</span></span></h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;">a) At the start of each day the game checks
+if <br>
+_root.Elapsed (total days in training) is greater than or equal to
+_root.TrainingTime (scheduled traning time)&nbsp;<br>
+If so training is over and the end end game starts<br>
+<br>
+b) In an event a developer can call the function <a
+ href="#mozTocId201137">TrainingComplete</a> to stop training
+immediately (see below for details)<br>
+<br>
+c) the player chooses to end the training early and selects the
+"Complete" button.<br>
+</span></span>
+<h2><a class="mozTocH2" name="mozTocId298983"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;">Freelancers</span></span></h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"></span></span><span
+ style="font-family: Arial;">If
+the slave is unsold then the game will only end if the player chooses
+to end using the "Complete" button in the System menu. If the slave has
+been sold the the end process works as for Guild Members above.<br>
+<br>
+If
+a free lancer has a slave on commission, or some special cases llike
+Shampoo or Ayane, then the end processing will usually work as for
+Guild Members.<br>
+<br>
+Similarly an event by the slave's developer can end tthe game at any
+time.</span><span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><br>
+<br>
+</span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;"><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"></span></span>
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId931818"></a>General Process Once the Game Ends<span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">
+</span></span></span></h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">a) The game
+checks the special cases<br>
+Cowgirl<br>
+Tentacle Slave<br>
+&nbsp;Lesbian Slave<br>
+Cumslut<br>
+<br>
+These happen and then you get the other endings. Some slave girls can
+bypass or alter these, based on story<br>
+<br>
+b) The game checks any custom endings, like Minako's Cat Savior,
+Belldandy's Angel etc<br>
+<br>
+c) If no custom ending applies it then checks the standard endings in
+this order<br>
+<br>
+Cowgirl<br>
+Catgirl<br>
+Ponygirl<br>
+Courtesan<br>
+Dickgirl<br>
+S&amp;M<br>
+Drug Addict<br>
+Rich<br>
+Marriage<br>
+Sex Maniac<br>
+Sex Addict<br>
+Rebel<br>
+Maid<br>
+Normal +<br>
+Normal -<br>
+Normal<br>
+Prostitute<br>
+<br>
+Again a slave girl can alter or bypass these as story dictates<br>
+<br>
+Also note the ending dickgirl will be converted to a special case<br>
+<br>
+Also some endings like Courtesan can have qualifiers like 'Dickgirl
+Courtesan'<br>
+<br>
+d) Then applies the revised endings<br>
+Love<br>
+Bought Back<br>
+<br>
+Again a slave girl can alter or bypass these as story dictates, for
+instance Belldandy does not get Bought Back for her Angel or Demon
+endings (she is gone and heaven or hell aren't open to negotiations).
+Similarly Rei never gets it, Daruna is too possessive.<br>
+<br>
+e) Lastly the Slave Maker endings<br>
+Demon Slave Maker<br>
+Tentacle Impregnated<br>
+<br>
+Slave girls can add additional ones like Rei's Demon Lover <br>
+<br>
+</span></span></span>
+<hr style="width: 100%; height: 2px;"><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span>
+<h1><a class="mozTocH1" name="mozTocId789028"></a><span
+ style="font-family: Arial;">Slave Variables</span></h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b>_root.slaveData - </b>This is an instance
+of the Slave class that
+holds all data for the slave. Only valid in EndingStart/EndingFinish
+functions below. One member to consider<br>
+<br>
+_root.SlaveData.CanAssist = true;<b><br>
+</b><br>
+If you set this then the slave will ALWAYS be available as an assistant</span></span></span></span><br>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+</span></span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId499477"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span>Core
+Variables<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><u><b><span style="font-size: 14pt;"></span></b></u></span></span></span></h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span
+ style="font-size: 14pt;"></span></b></u><span style="font-size: 12pt;">There
+are a series of functions and variables to control the end of game<br>
+<br>
+</span></span></span></span>
+<table
+ style="text-align: left; width: 936px; height: 532px; background-color: rgb(242, 255, 255); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: rgb(229, 229, 229);"><span
+ style="font-weight: bold;">Actionscript Variable</span></td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: rgb(229, 229, 229);"><span
+ style="font-weight: bold;">XML Variable</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 6px;">
+            <h2 style="height: 0px;"><a class="mozTocH2"
+ name="mozTocId251837"></a><font size="-1">NumFin</font></h2>
+            <font size="-2"><span style="font-weight: bold;">implemented
+in:</span> _root<a href="Common%20Scripts/Classes/SlaveMakerSkills.as"></a></font><br>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 6px;"><span
+ style="font-weight: bold;">ending<br>
+            </span></td>
+          </tr>
+        </tbody>
+      </table>
+      <small><span style="font-style: italic;">(Number)</span></small> <span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">The game ending selected. Note these are in
+the order the game will check them in<br>
+      </span></span></span></span>
+      <table style="text-align: left; width: 100%; height: 70px;"
+ border="0" cellpadding="6" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+20 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Tentacle Slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+24&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Heterosexual Slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+25 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Lesbian Slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+These will happen as well as the following endings<br>
+            <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+21&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Cowgirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Catgirl<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 4 &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp; - Puppygirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+18 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Ponygirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+26&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Courtesan<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+19 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Dickgirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- S&amp;M<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+12 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Drug Addict<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Rich<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Marriage<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Sex Maniac<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Sex Addict<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+13 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Rebel<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Maid<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+14 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Normal +<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+16 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Normal -<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+15 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Normal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+17 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Prostitute</span></span></span></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;</span></span> </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">Values 30-69 are reserved for Slave Girl use<br>
+Values 70-99 are reserved for Assistant use<br>
+      <br>
+There are additional special values, see EndingFinish below.</span></span></span></span></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 29px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr style="height: 0px;">
+            <td
+ style="vertical-align: top; background-color: white; height: 31px;">
+            <h2 style="height: 0px;"><a class="mozTocH2"
+ name="mozTocId525149"></a><font size="-1">Score<br>
+            </font></h2>
+            <font size="-2"><span style="font-weight: bold;">implemented
+in:</span> _root</font><font size="-2"></font><br>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 31px;"><span
+ style="font-weight: bold;">score<br>
+            </span></td>
+          </tr>
+        </tbody>
+      </table>
+      <small><span style="font-style: italic;">(Number)</span></small> <span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">the calculated score for the slave<br>
+      <br>
+      </span></span></span></span> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 29px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr style="height: 0px;">
+            <td
+ style="vertical-align: top; background-color: white; height: 31px;">
+            <h2 style="height: 0px;"><a class="mozTocH2"
+ name="mozTocId333555"></a><font size="-1">Pay<br>
+            </font></h2>
+            <font size="-2"><span style="font-weight: bold;">implemented
+in:</span> _root</font><br>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 31px;"><span
+ style="font-weight: bold;">pay<br>
+            </span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ size="-1"><span style="font-style: italic;">(Number)</span></font></span></span>
+The pay your Slave Maker will receive for training the slave (not
+received if you personally own the slave)<br>
+      <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><br>
+<br>
+</span></span></span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId742152"></a>SlaveGirl Override Functions<span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></span></span></span></h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">These
+functions can be overridden for a Slave Girl to control her endings<br>
+<br>
+<u><i><span style="font-size: 16pt;">Mandatory<span
+ style="font-size: 12pt;"><br>
+</span></span></i></u><br>
+<b><span style="font-size: 14pt;">NumCustomEndings</span></b><br>
+<i><span style="font-size: 12pt;">function NumCustomEndings() : Number</span></i><br>
+Return the number of custom endings for this girl. For instance Riesz
+returns 3 for Tentacle Queen, Wolfgirl, Dickgirl Toy<br>
+If there are no custom endings return 0<br>
+<br>
+<u><i><span style="font-size: 16pt;">Optional</span></i><span
+ style="font-size: 12pt;"><br>
+</span></u><br>
+<b><span style="font-size: 14pt;">ShowEndings</span></b><br>
+<i><span style="font-size: 12pt;">function ShowEndings(ending:Number)</span></i><br>
+ending - the custom ending, from 0 to the value returned by
+NumCustomEndings - 1<br>
+<br>
+Shows a text description of a custom ending. Note use AddText, do not
+use SetText<br>
+<br>
+eg<br>
+&nbsp;from Kasumi, who has only 1 ending<br>
+<span style="font-size: 10pt;">function ShowEndings(ending:Number)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText("To get the ending 'Winner', train " + _root.SlaveName +
+" and finish with Combat Skill more than 80, Constitution more than 80,
+Temperament more than 70 and a score above 75.");<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+eg<br>
+for Riesz<br>
+<span style="font-size: 10pt;">function ShowEndings(ending:Number)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+switch (ending) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+case 0:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText("To get the ending 'Wolf Knight', have " +
+_root.SlaveName + " wear the 'Wolf Girl' dress and then visit the
+Knight and complete the tasks set.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+break;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+case 1:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText("To get the ending 'Dickgirl Toy', sell " +
+_root.SlaveName + " to the dickgirl buyer and have her do 20+ brothel
+and sleazy bar actions.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+break;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+case 2:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText("To get the ending 'Tentacle Queen', have " +
+_root.SlaveName + " voluntarily submit to tentacle beasts at least 5
+times, and have her recruit 3 other girls for the creatures.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+break;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">EndingStart</span></b><br>
+<i><span style="font-size: 12pt;">function EndingStart(total:Number) :
+Boolean</span></i><br>
+total - calculated score for your training<br>
+<br>
+This function is used to specify a custom ending. Return true to
+disable the normal messages about a letter from her owner, else return
+false. Set _root.NumFin to a custom value (30-99) for the selected
+custom ending or call SetEnding(). You should also display the graphic
+for the ending<br>
+Normally if _root.NumFin == 20 then return false unless you wish to do
+special processing for Tentacle Slave<br>
+<br>
+eg from Kasumi <br>
+<span style="font-size: 10pt;">function EndingStart(total:Number) :
+Boolean<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.NumFin == 20) return false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.VarSpecialRounded &gt;= 80 &amp;&amp;
+_root.VarConstitutionRounded &gt;= 80 &amp;&amp;
+_root.VarTemperamentRounded &gt;= 70 &amp;&amp; total &gt;= 75)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.HideImages();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.HideEndings();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.IsDickgirl()) _root.SetEnding(30, "Dickgirl Winner");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else __root.SetEnding(30, "Winner");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Backgrounds.ShowSky();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+EndingWinner._visible = true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return false;<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">EndingFinish</span></b><br>
+<i><span style="font-size: 12pt;">function EndingFinish(total:Number) :
+Boolean</span></i><br>
+total - calculated score<br>
+<br>
+This function is used to display the text and graphics for the custom
+ending<br>
+return true to handle the ending, false if you did not. NOTE you can
+handle the standard ending numbers if you want<br>
+<br>
+eg<br>
+from Kasumi<br>
+<br>
+<span style="font-size: 10pt;">function EndingFinish(total:Number) :
+Boolean<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.NumFin == 30)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetText("\"I'm impressed by your job. This young girl is a
+supremely skilled fighter.\r\rOddly willful and obedient");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.DickgirlXF &gt; 0) _root.AddText("\r\rI am little troubled by
+the fact she is a hermaphrodite, since she is so strong I sometime
+wonder if she may...but she is very self controlled.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText("\"\r\rSometime later you hear she won the martial
+tournament that enslaved her, with her owners permission.");<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.NumFin = 1000;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return false;<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<b>Note</b> you if you return true you must set _root.NumFin to another
+value, either another of your custom values (say 31 for a several stage
+ending). The following are then handled sequentially, but you can
+bypass them by setting _root.NumFin appropriately<br>
+<br>
+1000 - assessment by Slave Maker Guild, report score, and get final
+payment<br>
+1001 - Bought Back Ending<br>
+1002 - Love Ending<br>
+9002 - skill increases - guild representative path<br>
+9003 - skill increases - no guild representative present (ie Shampoo,
+Naru)<br>
+9004 - handle Slave Maker special endings - guild representative path<br>
+9005 - handle Slave Maker special endings - no guild representative
+present (ie Shampoo, Naru)<br>
+9100 - hints and visit slave market - guild representative path<br>
+9101 - hints and visit slave market - no guild representative present
+(ie Shampoo, Naru)<br>
+<br>
+Note <br>
+to bypass completely the standard ening sequence do your processing in
+EndingStart and Ending Finish and then set _root.NumFin to 9003. This
+will handle skill increases and then you will visit the slave market.
+You will have to handle love/bought back endings yourself.<br>
+<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId874328"></a>Common Endings<span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">The following functions are overloaded to
+display the graphics for the
+standard endings. Do NOT show any text. All of these are mandatory.<br>
+Consider showing a background image too, or a solid colour using
+ShowOverlay<br>
+<br>
+function ShowEndingCatgirl() <br>
+<br>
+function ShowEndingCourtesan()<br>
+<br>
+function ShowEndingCowgirl() <br>
+<br>
+function ShowEndingBoughtBack()<br>
+<br>
+function ShowEndingDickgirl()<br>
+<br>
+function ShowEndingDrugAddict()<br>
+<br>
+function ShowEndingLesbianSlave()<br>
+<br>
+function ShowEndingMaid()<br>
+<br>
+function ShowEndingMarriage()<br>
+<br>
+function ShowEndingNormal()<br>
+<br>
+function ShowEndingNormalMinus()<br>
+<br>
+function ShowEndingNormalPlus()<br>
+<br>
+function ShowEndingProstitute()<br>
+<br>
+function ShowEndingRebel()<br>
+<br>
+function ShowEndingRich()<br>
+<br>
+function ShowEndingSexAddict()<br>
+<br>
+function ShowEndingSexManiac()<br>
+<br>
+function ShowEndingSM()<br>
+<br>
+function ShowEndingTentacleSlave()<br>
+<b><br>
+</b>function EndingCatgirl()<br>
+<br>
+<b><br>
+</b>eg<br>
+<span style="font-size: 10pt;">function ShowEndingDickgirl()<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+EndingDickgirl._visible = true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.ShowOverlay(0);<br>
+}<br>
+<br>
+function ShowEndingDrugAddict()<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Backgrounds.ShowSlums();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+EndingDrugAddict._visible = true;<br>
+}<br>
+<br>
+<br>
+<span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId873090"></a>Other Functions<span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><u><b><span
+ style="font-size: 14pt;"></span></b></u></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></h1>
+<br>
+<table
+ style="text-align: left; font-family: Arial; width: 1127px; height: 109px;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h2 style="height: 22px;"><a class="mozTocH2"
+ name="mozTocId957865"></a>SetEnding</h2>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><i><span style="font-size: 12pt;">function
+SetEnding(fin:Number, endstr:String)</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"> </span></i></span></span></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;SetEnding
+ending='fin'&gt;endstr&lt;/SetEnding&gt;<br>
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>fin
+- Ending number, just sets _root.NumFin to this value<br>
+endstr - the text name of the ending. Shown on the end screen<span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><br>
+      <br>
+      </span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>Generally
+call this in EndingStart()<span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 10pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      <br>
+      </span></span></span></span> <span style="font-size: 12pt;"><font
+ size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 10pt;">_root.SetEnding(35,
+"Running away");</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"></font></span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"> <br>
+      </span></span></span></span></span></span></span></span></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1">&lt;SetEnding
+ending='36'&gt;Running Away&lt;/SetEnding&gt;<br>
+      </font></span></span></span></span></span></span></span></span></span></span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 10pt;"><br>
+<u><b><span style="font-size: 16pt;"></span></b></u></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><br>
+<table
+ style="text-align: left; font-family: Arial; width: 1127px; height: 232px;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h2 style="height: 22px;"><a class="mozTocH2"
+ name="mozTocId201137"></a>TrainingComplete</h2>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i>function
+TrainingComplete(fulltime:Boolean, ending:Number, endstr:String)</i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"> </span></i></span></span></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;TrainingComplete
+full='true' now='true' ending='fin'&gt;endstr&lt;/TrainingComplete&gt;<font
+ size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">End the game
+and start the end of training sequence. Say use this to early end the
+game in an event etc<i><br>
+      </i>If fulltime is true then the game assumes the full training
+time has elapsed, otherwise calculated based on the current day<br>
+      <br>
+This &nbsp;must be called LAST in any event you use it in.</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 10pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      <br>
+      </span></span></span></span> <span style="font-size: 12pt;"><font
+ size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 10pt;">_root.TrainingComplete(false);</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"> <br>
+      </span></span></span></span></span></span></span></span></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1">&lt;TrainingComplete
+ending='36'&gt;Running Away&lt;/</font></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1">TrainingComplete</font></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1">&gt;<br>
+      </font></span></span></span></span></span></span></span></span></span></span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 10pt;"><u><b><span
+ style="font-size: 16pt;"></span></b></u><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><br>
+<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<hr style="width: 100%; height: 2px;"><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId196228"></a>Bad Endings</h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i></i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+</body>
+</html>

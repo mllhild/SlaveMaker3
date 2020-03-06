@@ -1,0 +1,376 @@
+<u><b><font face="Arial"><span style="font-size: 18pt;">
+</span></font></b></u><table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top;">
+          <table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">XML Event Parser<br></span></font></td>
+
+                <td style="vertical-align: top;"><br></td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3
+                SDK</span></a></td>
+
+                <td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Version 8</font><br></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table><span style="font-size: 12pt;"><font face="Arial">
+<br></font></span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">
+Each value is defined as an XML Tag with value<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;Name&gt;Mihoshi&lt;/Name&gt;<span style="font-size: 12pt;"><br>
+<br>
+This is the tag Name and defines the slave's name.<br>
+<br>
+Each will have attributes of element data. Some have special meaning<br>
+<br>
+<b>conditionals </b>- a set of &lt;if&gt; attributes<br>
+<br>
+expression - a calculated expression, <br>
+<span style="font-size: 10pt;">eg <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+constitution + charisma<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-1 * smlust<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10<br>
+<span style="font-size: 12pt;"><br>
+<b>string </b>- a single line string, leading and trailing whitespace is removed<br>
+<br>
+<b>boolean </b>- values of true or false<br>
+<span style="font-size: 10pt;">eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;VirginOral&gt;true&lt;/VirginOral&gt;<br>
+<br>
+<b><span style="font-size: 12pt;">number </span></b>- a constant number<br>
+<span style="font-size: 10pt;">eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Price&gt;200&lt;/Price&gt;<br>
+<span style="font-size: 12pt;"><br>
+<b>NOTE:<br>
+</b>most of these tags/variables are optional. If they are not present
+then they will be set to their default values. Mandatory ones are noted.<br>
+<br>
+<font color="#0000ff"><b>MANDATORY for pure XML slaves -</b> <font color="#000000">this
+means the variable is manfatory for a slave like Mai or Mihoshi where
+all image and functionality is in the xml, and they use the generic swf
+file Slave-GenericSlave.swf.</font></font></span></span></span></span></span></span></span></span></span></span><br><span style="font-size: 12pt;"><font face="Arial">
+There is an event parser that allows events to be processed without any flash coding. These can be considered in several broad categories<br>
+<br>
+<font face="Symbol">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>Slave Initialisation and Images - see <b>Core - XML Slaves.rtf</b>, but first read this document for fundamental things like conditionals and file structure<br>
+<font face="Symbol">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>Assistant Initialisation - as above see <b>Core - XML Slaves.rtf</b><br>
+<font face="Symbol">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>Pure text fields used for on screen messages and labels<br>
+<font face="Symbol">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>Events that occur during walk events, visits, actions like chores, schools, sex acts. Also daily and morning events.<br>
+<br>
+<br>
+A quick note on terminology<br>
+<font color="#000080">&lt;Events&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Daily&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;FortuneTellerVisit&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;AttachMovie movie='ClipFortuneTelling' place='1' align='0'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;ShowPerson person='Fortune Teller' place='0' align='2'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;PersonSpeak person='Fortune Teller'&gt;I can predict the future of #slave and do a reading for you for just 10GP.&lt;/PersonSpeak&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;YesNoQuestion eventno='8'&gt;Do you want to see the future?&lt;/YesNoQuestion&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/FortuneTellerVisit&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/Daily&gt;<br>
+&lt;/Events&gt;<font color="#000000"><br>
+<br>
+<font face="Symbol">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>In the above &lt;Event&gt; is referred to as a <b>node</b> and &lt;Daily&gt; is a <b>subnode </b>of &lt;Event&gt; (and is a node as well). The text Events is called a <b>tag</b><br>
+<font color="#000080"><font face="Symbol">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>movie='ClipFortuneTelling'  <font color="#000000">movie is an <b>attribute </b>and<font color="#000080"> ClipFortuneTelling <font color="#000000">is it's <b>value</b><br>
+<font face="Symbol">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>the text <font color="#000080">Do you want to see the future? <font color="#000000">is effectively a subnode of &lt;YesNoQuestion&gt; but it is also referred to as <b>element data </b>or as a <b>text node<br>
+</b><font face="Symbol">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>you may optionally use ' or " at all times but you must pair them appropriately<br>
+<font face="Symbol">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>You cannot use a number of characters in element data (or text nodes). Basically any xml markup like &lt;&gt; for instance. Instead use terms like &amp;lt; for &lt; and &amp;gt; for &gt; &amp;apos; for '. There are more but you would seldom need them.<br>
+<font color="#000080"><font face="Symbol">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>&lt;!-- used in #assistantis and #assistanthas --&gt; <font color="#000000">this is a comment and is ignored by the parser as all comments are.<br>
+<font face="Symbol">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>in most cases the parser is case insensitive, with the exception of pure text nodes. For almost all cases in the event parser you may use AttachMovie or attachmovie. Just make sure the opening and closing tags match<br>
+<br>
+Any typos or mismatched tags will result in the entire XML file failing to load. To verify your changes open the xml file in your browser. It will report any errors in the file. There are also a lot of other programs to edit and validate XML.<br>
+<br>
+The meta nodes like &lt;xml&gt; are not required here.<br>
+<br>
+Lastly in general save all xml files using UTF-8<br><br></font></font></font></font></font></font></font></font></font></font></font></span><ul id="mozToc"><!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6--><li><a href="#mozTocId985519">XML Files in the game</a></li><li><a href="#mozTocId342624">Pure Text Nodes</a></li><li><a href="#mozTocId125776">Event Nodes</a></li></ul><span style="font-size: 12pt;"><font face="Arial"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000">
+<br></font></font></font></font></font></font></font></font></font></font></font></span><hr style="width: 100%; height: 2px;"><h1><a class="mozTocH1" name="mozTocId985519"></a>XML Files in the game<span style="font-size: 12pt;"><font face="Arial"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><u><b><span style="font-size: 16pt;"></span></b></u></font></font></font></font></font></font></font></font></font></font></font></span></h1><span style="font-size: 12pt;"><font face="Arial"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><u><b><span style="font-size: 16pt;">
+</span></b></u><span style="font-size: 12pt;">All XML files used by the game are in several locations<br>
+<br>
+<b>Language/English</b><br>
+This folder contains all events and pure text fields<br>
+<font face="Symbol">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>Base.xml - pure text used by the game, no event code. General messages<br>
+<font face="Symbol">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>SlaveMaker.xml - Slave Maker specific pure text<br>
+<font face="Symbol">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>Slaves.xml - minor slaves in the game, format detailed in <b>Core - XML Slaves.rtf</b><br>
+<br>
+Translations are stored in folders like<br>
+<b>Language/Russian<br>
+</b><br>
+Twins have special files like Base (Twins).xml. These files should be exact copies of their non-twin version altered so text makes sense for a set of twins. Only the nodes that differ need to be present the the xml. All other nodes can be deleted.<br>
+<br>
+<b>Slaves<br>
+</b>All slave specific xml is stored in files like<br>
+Slave-Aeris.xml<br>
+These files are optional.<br>
+<br>
+For translation copy this file and create for Russian<br>
+Slave-Aeris-Russian.xml<br>
+and similarly for other languages. Note these are in the same folder, not a subfolder like above.<br>
+<br>
+Note for translations you again do not need to repeat nodes that are not changed, like stats or other numeric nodes. These can be deleted from the translated version.<br>
+<br>
+<b>Assistants<br>
+</b>As for slaves but instead for slave maker assistants,<br>
+Assistant-Hild.xml<br>
+<br>
+Note:<br>
+All xml files are logically loaded into the one xml tree and are merged at runtime. The base node in <br>
+&lt;Language&gt;<br>
+with major subnodes<br>
+&lt;Gender&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+gender differences like he/she<br>
+&lt;Statistics&gt;&nbsp;&nbsp;&nbsp;&nbsp;
+slave statictics<br>
+&lt;Equipment&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+equipment names and decriptions, and text when wearing/removing them<br>
+&lt;Shopping&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+messages with shopping&nbsp;&nbsp;
+<br>
+&lt;Other&gt;&nbsp;
+miscellaneous<br>
+&lt;SlaveMaker&gt;&nbsp;&nbsp;&nbsp;&nbsp;
+slave maker specific messages, including advantages etc<br>
+&lt;Slaves&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+minor slaves statistics<br>
+&lt;Slave&gt;&nbsp;
+your current slave (optional)<br>
+&lt;Assistant&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+assistant specific messages<br>
+&lt;Events&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+event nodes<br>
+and other lesser nodes<br>
+<br>
+The system allows you to overwrite/replace standard messages in your slave/assistant xml, and thus customise messages. This is detailed in <b>Core - XML Slaves.rtf</b><br>
+<br></span></font></font></font></font></font></font></font></font></font></font></font></span><hr style="width: 100%; height: 2px;"><h1><a class="mozTocH1" name="mozTocId342624"></a>Pure Text Nodes<span style="font-size: 12pt;"><font face="Arial"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;"></span></b></u></span></font></font></font></font></font></font></font></font></font></font></font></span></h1><span style="font-size: 12pt;"><font face="Arial"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;">
+</span></b></u><span style="font-size: 12pt;">These nodes are stored in Base.xml, SlaveMaker.xml and are detailed in Guide to translating.rtf<br>
+<br>
+These contain various nodes broken into categories like &lt;Shopping&gt; and have nodes like<br>
+<br>
+<font color="#000080">&lt;AlreadyOwnDress&gt;You already own this article of clothing.&lt;/AlreadyOwnDress&gt;<br>
+<font color="#000000"><br>
+Note<br>
+1) DO NOT add new nodes to these files, they are for core game use. To use text nodes for your slave add them to your slave's xml file<br>
+eg<br>
+Slave-Aeris.xml<br>
+into the &lt;Slave&gt; node<br>
+<br>
+2) the node's tags are case sensitive. but they should NEVER be changed<br>
+<br>
+<br></font></font></span></span></font></font></font></font></font></font></font></font></font></font></font></span><hr style="width: 100%; height: 2px;"><h1><a class="mozTocH1" name="mozTocId125776"></a>Event Nodes<span style="font-size: 12pt;"><font face="Arial"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><u><b><span style="font-size: 16pt;"></span></b></u></font></font></span></span></font></font></font></font></font></font></font></font></font></font></font></span></h1><span style="font-size: 12pt;"><font face="Arial"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><u><b><span style="font-size: 16pt;">
+</span></b></u><span style="font-size: 12pt;">All events are stored in the <br>
+&lt;Events&gt;<br>
+node and this is stored in the file<br>
+<b>Language/English/Events.xml<br>
+<br>
+</b>All nodes are parsed event nodes, but some will appear to be pure text like<br>
+<br>
+<font color="#000080">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;InhumanAncestryPray&gt;For some reason you are uncomfortable praying with her and for no reason think of your father.&lt;/InhumanAncestryPray&gt;<br>
+<font color="#000000"><br>
+This is still a full event node but in this case it only displays text<br>
+<br>
+<b><span style="font-size: 14pt;">General Structure of the Events Node<br>
+</span></b><span style="font-size: 12pt;">There are a series of standard events used by the core game and are explicitly used in code (see functions list below)<br>
+eg<br>
+<font color="#000080">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;InhumanAncestryPray&gt;For some reason you are uncomfortable praying with her and for no reason think of your father.&lt;/InhumanAncestryPray&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;FellSick&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Diary&gt;#slave fell ill due to exhaustion&lt;/Diary&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;AddText&gt;#slave fell sick because of exhaustion, and #slaveheshe will need one day to rest and get better.&lt;/AddText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;DoEvent&gt;9900&lt;/DoEvent&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/FellSick&gt;<br>
+<br>
+<font color="#000000">The remaining nodes are collections of events the game will choose when certain events happen. Your custom events are added as new nodes, you may specify any name, as long as it is unique for the current node. <br>
+<br>
+<u><span style="font-size: 14pt;">Catgeories<br>
+</span></u><span style="font-size: 12pt;"><br>
+<b>&lt;EarlyMorning&gt;<br>
+&lt;/EarlyMorning&gt;</b><br>
+These are events that happen early in the morning. In the standard methods, this is equivallent to the<br>
+<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+function PreEvent()<br>
+</b>see <b>Slave Girl - Events - Common.rtf</b>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<br>
+<br>
+<b>&lt;Daily&gt;<br>
+&lt;/Daily&gt;</b><br>
+These are events that happen at the start of the day. In the standard methods, this is equivallent to the<br>
+<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+function Events()<br>
+</b>see <b>Slave Girl - Events - Common.rtf</b>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<b>&lt;Walk&gt;<br>
+&lt;/Walk&gt;</b><br>
+These are events that happen when you send your slave (or take them) for a walk to a city/country location using the 'Take A Walk' action.<br>
+<br>
+Each location has specific subnodes<br>
+<br>
+Forest<br>
+Lake<br>
+TownCenter<br>
+Slums<br>
+Palace<br>
+DocksPort<br>
+DocksSlavePens<br>
+DocksSlavePensSecure<br>
+Farm<br>
+Ruins<br>
+BeachSwim<br>
+BeachWalk<br>
+BeachPrivate<br>
+BeachRocks<br>
+SlaveMarket<br>
+<br>
+eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;DocksSlavePens&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/DocksSlavePens&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<b>&lt;StartDay&gt;<br>
+&lt;/StartDay&gt;</b><br>
+Happens when you leave the morning screen and start daily planning <br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<b>&lt;StartNight&gt;<br>
+&lt;/StartNight&gt;</b><br>
+Happens when you start night time planning <br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<b>&lt;Acts&gt;<br>
+&lt;/Acts&gt;<br>
+</b><br>
+<br>
+<u><span style="font-size: 14pt;">General usage<br>
+</span></u><span style="font-size: 12pt;">All events are added as nodes in one one the above nodes like &lt;EarlyMorning&gt;. <br>
+<br>
+The general structure<br>
+<br>
+<font color="#000080">&lt;EarlyMorning&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;<i>nodename1 [conditional]&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.....<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/nodename1&gt;<br>
+</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;<i>nodename2 [conditional]&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.....<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/nodename2&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;<i>nodenamen [conditional]&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.....<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/nodenamen&gt;</i><br>
+&lt;/EarlyMorning&gt;<font color="#000000"><b><br>
+</b><br>
+Where .... is more xml statements and nodename1..n is your chosen name. See below for valid conditionals.<br>
+<br>
+The game will scan this list from the first to last and will pick an event based on the supplied conditionals. All conditional are optional and in that case the event will never happen randomly but you can still invoke it using code or xml statements (ie call it from another event)<br>
+<span style="font-size: 10pt;">eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;MitotoMorning chance="10%"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;SetText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.....<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/MitotoMorning&gt;<span style="font-size: 12pt;"><br>
+<br>
+This uses the conditional chance (a percentage chance of the event happening). If the conditionals are met then the statements of the node are executed. See below for a list of the valid statements and conditionals<br>
+<br>
+For your node names make sure they are unique for it's parent node (ie in EarlyMorning). Case does not matter but you must be consistent in it's usage.<br>
+<br>
+<u><span style="font-size: 14pt;">Naming<br>
+</span></u><span style="font-size: 12pt;">There are some special namings<br>
+&lt;Day-xxxxxxxxxxx&gt;<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;Day-PedlerVisit&gt;<br>
+<span style="font-size: 12pt;">Events with the Day- prefix will only happen in the daytime and will be ignored otherwise.<br>
+<br>
+&lt;Night-xxxxxxxxxxx&gt;<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;Night-WolfHowl&gt;<br>
+<span style="font-size: 12pt;">Events with the Night- prefix will only happen in the nighttime and will be ignored in the daytime.<br>
+<br>
+<br>
+<font color="#000000"><br>
+</font></span></span></span></span></span></span></span></font></font></span><font color="#000080"><font color="#000000"></font></font></span></font></font></span></font></font></span></font></font></span><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"></font></font></font></font></font></font></span></font></font></font></font></font></font></font></font></font></font></font></span>

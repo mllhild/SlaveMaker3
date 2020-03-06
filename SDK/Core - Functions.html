@@ -1,0 +1,730 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Function</title>
+</head>
+<body>
+<table
+ style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;"
+ border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font
+ size="+3"><span style="font-weight: bold;">Core Support Functions<br>
+            </span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td
+ style="vertical-align: top; width: 80%; text-align: left;"><a
+ href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font
+ style="font-weight: bold;" size="-1">Version
+8</font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<u><b><font face="Arial"><span style="font-size: 18pt;"></span></font></b></u><span
+ style="font-size: 12pt;"><font face="Arial"><br>
+These functions in _root scope<br>
+<br>
+If a parameter is noted to have a default, then the parameter can be
+omitted<br>
+eg<br>
+<span style="font-size: 10pt;">_root.ShowSlaveMaker(true);<br>
+_root.ShowSlaveMaker();<span style="font-size: 12pt;"><br>
+<span style="font-size: 10pt;"><br>
+_root.PersonSpeak("Cow Girl", "Moo!");<br>
+_root.PersonSpeak("Puppy Girl", Woof", true);<span
+ style="font-size: 12pt;"><br>
+<br>
+Note if you omit a parameter you must also omit all following
+parameters. If you wish to only default a parameter and not the
+following then pass the value undefined.<br>
+<br>
+<br>
+See<br>
+<a href="Core%20-%20Functions%20-%20Text.html">Core - Functions -
+Text.html</a> for text functions<br>
+<a href="Core%20-%20Functions%20-%20Images.html">Core - Functions -
+Images.html</a> for image/graphics functions<br>
+<a href="Core%20-%20Functions%20-%20Bit%20Flags.html">Core - Functions
+- BitFlags.html</a> for bitflag functions<br>
+<span style="font-size: 10pt;"><br>
+</span></span></span></span></span></font></span>
+<ul id="mozToc">
+</ul>
+<span style="font-weight: bold; font-family: Arial;">Table of Contents</span>
+<ul id="mozToc">
+  <li><a href="#mozTocId681570">Statistics</a></li>
+  <li><a href="#mozTocId727942">Event and Image Selection</a></li>
+  <li><a href="#mozTocId781890">Money</a></li>
+  <li><a href="#mozTocId677234">Skills</a></li>
+</ul>
+<span style="font-size: 12pt;"><font face="Arial"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><i><br>
+</i><span style="font-size: 12pt;"></span></span></span></span></span></span></font></span>
+<hr style="width: 100%; height: 2px;">
+<h1><a class="mozTocH1" name="mozTocId681570"></a>Statistics<span
+ style="font-size: 12pt;"><font face="Arial"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><u><b><span
+ style="font-size: 16pt;"></span></b></u></span></span></span></span></span></span></font></span></h1>
+<span style="font-size: 12pt;"><font face="Arial"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><u><b><span
+ style="font-size: 16pt;"></span></b></u><span style="font-size: 12pt;">
+<b><span style="font-size: 14pt;">Points<br>
+</span></b><span style="font-size: 12pt;">Increase or decrease the
+slavegirl stats<br>
+<span style="color: rgb(153, 0, 0); font-weight: bold;">actionscript:</span><br>
+<i>function Points(Charisma:Number, Sensibility:Number,
+Refinement:Number, Intelligence:Number, Morality:Number,
+Constitution:Number, Cooking:Number, Cleaning:Number,
+Conversation:Number, BlowJob:Number, Fuck:Number, Temperament:Number,
+Nymphomania:Number, Obedience:Number, Libido:Number, Reputation:Number,
+Fatigue:Number, Joy:Number, Love:Number, Special:Number)<br>
+</i><span style="font-weight: bold; color: rgb(102, 0, 0);">xml:</span><br>
+</span></span></span></span></span></span></span></span></font></span><span
+ style="font-size: 12pt;"><font face="Arial"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i>&lt;Points&gt;Charisma,
+Sensibility, Refinement,
+Intelligence, Morality, Constitution,
+Cooking, Cleaning, Conversation, BlowJob,
+Fuck, Temperament, Nymphomania, Obedience,
+Libido, Reputation, Fatigue, Joy,
+Love, Special&lt;/Points&gt;<br>
+<br>
+</i></span></span></span></span></span></span></span></span></font></span><span
+ style="font-size: 12pt;"><font face="Arial"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">each value is
+the number of points to change the stat by, 0 for no
+change, negative to decrease, fractional values like 0.5 are fine<br>
+Stats are automatically capped based on their Max values and limited to
+0 to 300 (based on Slave Trainer skill), so you could do a value like
+1000 to max out a stat<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">Points(1, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0,
+0, 2, 1, 3, 0, 0, 0, 0, 0);<br>
+<br>
+<b><span style="font-size: 14pt;">PointsIndexed<br>
+</span></b><span style="font-size: 12pt;">Increase or decrease a
+slavegirl/slave makers stats<br>
+<i>function PointsIndexed(Charisma:Number, Sensibility:Number,
+Refinement:Number, Intelligence:Number, Morality:Number,
+Constitution:Number, Cooking:Number, Cleaning:Number,
+Conversation:Number, BlowJob:Number, Fuck:Number, Temperament:Number,
+Nymphomania:Number, Obedience:Number, Libido:Number, Reputation:Number,
+Fatigue:Number, Joy:Number, Love:Number, Special:Number)<br>
+</i><br>
+Updates the slave indexed by <br>
+_root.PersonIndex<br>
+where this value<br>
+-100&nbsp;&nbsp;&nbsp;&nbsp;
+- Slave Maker<br>
+-99 &nbsp;&nbsp;&nbsp;&nbsp;
+- assistant<br>
+0+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- index value into SlavesArray<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+PersonIndex = -99;<br>
+Points(1, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 2, 1, 3, 0, 0, 0, 0, 0);<br>
+PersonIndex = 2;<br>
+Points(1, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 2, 1, 3, 0, 0, 0, 0, 0);<br>
+<br>
+<b><span style="font-size: 14pt;">PointsAssistant<br>
+</span></b><span style="font-size: 12pt;">Increase or decrease your
+assistants stats<br>
+<i>function PointsAssistant(Charisma:Number, Sensibility:Number,
+Refinement:Number, Intelligence:Number, Morality:Number,
+Constitution:Number, Cooking:Number, Cleaning:Number,
+Conversation:Number, BlowJob:Number, Fuck:Number, Temperament:Number,
+Nymphomania:Number, Obedience:Number, Libido:Number, Reputation:Number,
+Fatigue:Number, Joy:Number, Love:Number, Special:Number)<br>
+</i><br>
+otherwise as for Points()<br>
+<br>
+<b><span style="font-size: 14pt;">PointsMod</span></b> <br>
+<span style="font-size: 12pt;">Increase or decrease the slavegirl stats
+modifier (generally used when wearing dresses or items)<br>
+<i>function PointsMod(Charisma:Number, Sensibility:Number,
+Refinement:Number, Intelligence:Number, Morality:Number,
+Constitution:Number, Cooking:Number, Cleaning:Number,
+Conversation:Number, BlowJob:Number, Fuck:Number, Temperament:Number,
+Nymphomania:Number, Obedience:Number, Libido:Number, Reputation:Number,
+Joy:Number, Special:Number) <br>
+</i><br>
+<br>
+<b><span style="font-size: 14pt;">PointsExact<br>
+</span></b><span style="font-size: 12pt;">Increase or decrease the
+slavegirl stats ignoring difficulty or slave girl limitations effects<br>
+<i>function PointsExact(Charisma:Number, Sensibility:Number,
+Refinement:Number, Intelligence:Number, Morality:Number,
+Constitution:Number, Cooking:Number, Cleaning:Number,
+Conversation:Number, BlowJob:Number, Fuck:Number, Temperament:Number,
+Nymphomania:Number, Obedience:Number, Libido:Number, Reputation:Number,
+Fatigue:Number, Joy:Number, Love:Number, Special:Number)<br>
+</i><br>
+<br>
+<b><span style="font-size: 14pt;">NoTalentPoints<br>
+</span></b><span style="font-size: 12pt;">Increase or decrease the
+slavegirl stats ignoring slave maker talent effects<br>
+<i>function NoTalentPoints(Charisma:Number, Sensibility:Number,
+Refinement:Number, Intelligence:Number, Morality:Number,
+Constitution:Number, Cooking:Number, Cleaning:Number,
+Conversation:Number, BlowJob:Number, Fuck:Number, Temperament:Number,
+Nymphomania:Number, Obedience:Number, Libido:Number, Reputation:Number,
+Fatigue:Number, Joy:Number, Love:Number, Special:Number) <br>
+</i><br>
+<br>
+<b><span style="font-size: 14pt;">SMPoints<br>
+</span></b><span style="font-size: 12pt;">Increase or decrease the
+slavemaker's stats<br>
+<i>function SMPoints(attack:Number, defence:Number, arousaldef:Number,
+constitution:Number, conversation:Number, libido:Number,
+corrupt:Number, renown:Number, dominance:Number)<br>
+</i><br>
+<br>
+<b><span style="font-size: 14pt;">ShowSpecialStat<br>
+</span></b><span style="font-size: 12pt;">show a custom stat for the
+girl<b><br>
+</b><i>function ShowSpecialStat(slabel:String)<br>
+</i>slabel - the short label of the stat<br>
+eg<br>
+_root.ShowSpecialStat("Femininity :");<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ChangeSpecial<br>
+</span></b><i><span style="font-size: 12pt;">function
+ChangeSpecial(num:Number)<br>
+</span></i>Simple function to only change the girls special stat<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ChangePath<br>
+</span></b><i><span style="font-size: 12pt;">function ChangePath(path1,
+path2, path3)<br>
+</span></i>Change her three path values (see variables Path1, Path2,
+Path3, MaxPath)<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">UpdateCurrentPath<br>
+</span></b><i><span style="font-size: 12pt;">function
+UpdateCurrentPath()<br>
+</span></i>Updates CurrentPath based on Path1, Path2, Path3<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">AlterSexuality <br>
+</span></b><i><span style="font-size: 12pt;">function
+AlterSexuality(sex:Number)<br>
+</span></i>sex = amount to change (postive or negative value)<br>
+Alters her sexuality up or down, lesbian = 0, straight = 100. This
+function will not change from bi-sexual to lesbian or straight. Special
+intervention needed. Internally use SetSexuality to set an arbitray
+value<br>
+Note &lt; 25 = lesbian/gay, &gt; 75 = straight<br>
+Note default sexuality 100<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">SetSexuality<br>
+</span></b><i><span style="font-size: 12pt;">function
+SetSexuality(newsexuality:Number)<br>
+</span></i>newsexuality - the new value<br>
+Changes the slaves sexuality to any value, generally use in your slaves
+StartGame() function to make them something other than straight (100)<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">SetGirlsVitals<br>
+</span></b><i><span style="font-size: 12pt;">function
+SetGirlsVitals(sname:String, desc:String, bust:Number, waist:Number,
+hips:Number, age:Number, bloodtype:String, tall:Number, weight:Number,
+clitcock:Number)<br>
+</span></i>sname = the girls name (stored in to _root.SlaveName)<br>
+desc = a short description (2-3 words) of the slave "abandoned
+daughter", "cursed dickgirl"<br>
+bust = bust size in centimeters. - Note the values shown in the
+statistics screen will vary if she has taken the milk drug<br>
+waist = waist in centimeters<br>
+hips = hips in centimeters<br>
+age = age in years - note not bothering with birthdays so this is
+constant<br>
+bloodtype = "O" "A" "B" "AB"<br>
+tall = height in centimeters<br>
+weight = weight in kilograms<br>
+clitcock = size in cm of her clit, when they have a cock it is clitcock
+* 33 in cm<br>
+NOTE: this is optional and some default values will be given if not
+called, but PLEASE do use this<br>
+NOTE: you can call this again to alter values, for bust there is a
+separate function. All the paramters are optional, the values are not
+altered if not passed or you pass undefined<br>
+Call this in StartGame() to initialse her stats<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">SetBustSize<br>
+</span></b><i><span style="font-size: 12pt;">function
+SetBustSize(bust:Number)<br>
+</span></i>bust = new bust size in centimeters<br>
+Arbitrarily change her bust size<br>
+<br>
+<span style="font-size: 10pt;">eg set to 93cm<br>
+_root.SetBustSize(93);<span style="font-size: 12pt;"><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ChangeBustSize<br>
+</span></b><i><span style="font-size: 12pt;">function
+ChangeBustSize(val:Number)<br>
+</span></i>val = bust is multiplied by val<br>
+<br>
+<span style="font-size: 10pt;">eg a 5% increase<br>
+_root.ChangeBustSize(1.05);<span style="font-size: 12pt;"><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">SetClitCockSize<br>
+</span></b><i><span style="font-size: 12pt;">function
+SetClitCockSize(clitcock:Number)<br>
+</span></i>clitcock = new size in centimeters<br>
+Arbitrarily change her cock size or clit size<br>
+<br>
+<span style="font-size: 10pt;">eg set to 0.9 cm<br>
+_root.SetClitCockSize(0.9);<span style="font-size: 12pt;"><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ChangeClitCockSize<br>
+</span></b><i><span style="font-size: 12pt;">function
+ChangeClitCockSize(val:Number)<br>
+</span></i>val = size is multiplied by this value<br>
+<br>
+<span style="font-size: 10pt;">eg 10% increase<br>
+_root.ChangeClitCockSize(1.1);<span style="font-size: 12pt;"><br>
+<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span>
+<hr style="width: 100%; height: 2px;">
+<h1><a class="mozTocH1" name="mozTocId727942"></a>Event and Image
+Selection<span style="font-size: 12pt;"><font face="Arial"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></h1>
+<span style="font-size: 12pt;"><font face="Arial"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">
+<b><span style="font-size: 14pt;">IsCatgirl</span></b><br>
+<i><span style="font-size: 12pt;">function IsCatgirl() : Boolean</span></i><br>
+Is she a cat slave<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">IsPonygirl</span></b><br>
+<i><span style="font-size: 12pt;">function IsPonygirl() : Boolean</span></i><br>
+Is she a ponygirl<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">IsDickgirl</span></b><br>
+<i><span style="font-size: 12pt;">function IsDickgirl() : Boolean<br>
+</span></i>Is she permanently or temporarily a dickgirl<br>
+basically does<br>
+return SlaveGirl.IsDickgirl() || DickgirlXF &gt; 0 || SlaveGender == 3
+|| SlaveGender == 6 || DickgirlChanged<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">IsPermanentDickgirl</span></b><br>
+<i><span style="font-size: 12pt;">function IsPermanentDickgirl() :
+Boolean<br>
+</span></i>Is she permanently a dickgirl<br>
+basically does<br>
+return DickgirlXF &gt; 0 || SlaveGender == 3 || SlaveGender == 6<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">IsDickgirlEvent<br>
+</span></b><i><span style="font-size: 12pt;">function IsDickgirlEvent()
+: Boolean<br>
+</span></i>If an event has a dickgirl option and a non-dickgirl option,
+use this fuction to choose which happens. This takes the options
+dickgirl settings into account<br>
+returns true to show the dickgirl verision, false for the non-dickgirl<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">DoDickgirlChange<br>
+</span></b><span style="font-size: 12pt;">handles temporary dickgirl
+changes and also generic images<br>
+<i>function DoDickgirlChange(chance:Number) : Boolean </i><br>
+chance - chance a generic dickgirl image will be shown, 0 for never,
+100 for always<br>
+returns true if she spontaneously changes to a dickgirl.<br>
+Remember to check after if _root.UseGeneric == true <br>
+_root.IsDickgirl()) will be true if she has spontanously changed or is
+permanently changed. In that case show an appropriate graphic<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.DoDickgirlChange(40)) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.UseGeneric) return;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.IsDickgirl()) AnalClip.gotoAndStop(4);<span
+ style="font-size: 12pt;"><br>
+<br>
+She will spontaneously change based on _root.DickgirlRate and this
+function will make her change based on that. If she does then 40% of
+the time use a generic image. <br>
+If she is permanently a dickgirl 40% of the time use a generic image. <br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">DoDickgirlChangeGeneric</span></b> <br>
+<span style="font-size: 12pt;">handles temporary dickgirl changes and
+also generic images<br>
+<i>function DoDickgirlChangeGeneric(chance:Number) : Boolean </i><br>
+as above but returns true if she spontaneously changes and a generic
+image is to be used<br>
+after you can check _root.DickgirlChanged == true or just use
+_root.IsDickgirl() to se eif she spontaneously changed but will use a
+custom graphic<br>
+eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.DoDickgirlChangeGeneric(30)) return;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.IsDickgirl()) AnalClip.gotoAndStop(4);<br>
+<br>
+or <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.DoDickgirlChangeGeneric(30)) return;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.DickgirlChanged) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AnalClip.gotoAndStop(4);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText("Amazingly you see a cock grow from her clit as you fuck
+her ass.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">DefaultDickgirl<br>
+</span></b><span style="font-size: 12pt;">if permanently changed to a
+dickgirl use generic graphics chance% of the time. Ignores spontaneous
+changes.<i><br>
+function DefaultDickgirl(chance:Number) : Boolean</i><br>
+chance - chance a generic dickgirl image will be shown, 0 for never,
+100 for always<br>
+returns true if generic image is used<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">DefaultLesbian<br>
+</span></b><span style="font-size: 12pt;">if under lesbian training use
+generic graphics chance% of the time.<br>
+<i>function DefaultLesbian(chance:Number) : Boolean</i><br>
+chance - chance a generic lesbian image will be shown, 0 for never, 100
+for always<br>
+returns true if generic image is used<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">DefaultGeneric<br>
+</span></b><span style="font-size: 12pt;">use generic graphics chance%
+of the time. Normally 20% but use this the change, say to 100 or 0 to
+suppress<br>
+<i>function DefaultGeneric(chance:Number) : Boolean</i><br>
+chance - chance a generic image will be shown, 0 for never, 100 for
+always<br>
+returns true if generic image is used<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ChoiceNaked<br>
+</span></b><span style="font-size: 12pt;">sets the variable
+_root.NakeChoice to a random value to set the naked image shown. If a
+naked image is already chosen this function does nothing<br>
+<i>function ChoiceNaked(range:Number, offset:Number) : Number<br>
+</i>range - number of values<br>
+offset - base number<br>
+calculates offset + (random number between 0 and range - 1)<br>
+eg<br>
+_root.ChoiceNaked(4, 1);<br>
+generate a number from 1 to 4 and save into _root.NakedChoice<br>
+<br>
+<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span>
+<hr style="width: 100%; height: 2px;">
+<h1><a class="mozTocH1" name="mozTocId781890"></a>Money<span
+ style="font-size: 12pt;"><font face="Arial"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span
+ style="font-size: 16pt;"></span></b></u></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></h1>
+<span style="font-size: 12pt;"><font face="Arial"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span
+ style="font-size: 16pt;"></span></b></u><span style="font-size: 12pt;">
+<b><span style="font-size: 14pt;">Money<br>
+</span></b><span style="font-size: 12pt;">Update the amount of gold
+your slave has,<br>
+<i>function Money(diff:Number, quiet:Boolean, nodebt:Boolean)<br>
+</i>diff = amount to add (can be negative to decrease<br>
+quiet - true = no sound effect, default true<br>
+nodebt - true = will not go into debt, default false (can go into
+debt), As much money as possible is deducted<br>
+<br>
+<span style="font-size: 10pt;">eg<span style="font-size: 12pt;"><br>
+<span style="font-size: 10pt;">_root.Money(100); //add 100 GP, with
+sound effect <br>
+_root.Money(-500); // spend 500GP, sound effect and will go into debt<br>
+_root.Money(-100, false, false); //pay 100 GP, with no sound effect,
+will not go into debt<span style="font-size: 12pt;"><br>
+<br>
+If there is insufficient money in your slaves gold, it is then deducted
+from your personal gold, depending on the nodebt parameter<br>
+<br>
+<b><span style="font-size: 14pt;">SMMoney<br>
+</span></b><span style="font-size: 12pt;">Update the amount of gold you
+personally has,<br>
+<i>function SMMoney(diff:Number, quiet:Boolean, nodebt:Boolean)<br>
+</i>diff = amount to add (can be negative to decrease<br>
+quiet - true = no sound effect, default true<br>
+nodebt - true = will not go into debt, default false (can go into debt)<br>
+<span style="font-size: 10pt;"><br>
+eg<span style="font-size: 12pt;"><br>
+<span style="font-size: 10pt;">_root.SMMoney(100); //add 100 GP, with
+sound effect <br>
+_root.SMMoney(-500); // spend 500GP, sound effect and will go into debt<span
+ style="font-size: 12pt;"><br>
+&nbsp;<br>
+Note will never affect your slaves gold<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">EarnMoney<br>
+</span></b><i><span style="font-size: 12pt;">function
+EarnMoney(income:Number) : Number<br>
+</span></i>When your slave works a job (say a custom job) this function
+applies effects to their income like the salary cap, background
+effects, doubling for twins.<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">SMEarnMoney<br>
+</span></b><i><span style="font-size: 12pt;">function
+SMEarnMoney(income:Number) : Number<br>
+</span></i>When you work a job this function applies effects to their
+income like the salary cap, background effects. Income added to your
+personal gold.<br>
+<br>
+<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span>
+<hr style="width: 100%; height: 2px;">
+<h1><a class="mozTocH1" name="mozTocId677234"></a>Skills<span
+ style="font-size: 12pt;"><font face="Arial"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 16pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></h1>
+<span style="font-size: 12pt;"><font face="Arial"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 16pt;"><u><b></b></u><span
+ style="font-size: 12pt;">
+<b><span style="font-size: 14pt;">AddSlaveSkill<br>
+</span></b><i><span style="font-size: 12pt;">function
+AddSlaveSkill(sname:String, desc:String) : Number<br>
+</span></i>Adds a custom skill, returns an index number for use in
+UpdateSlaveSkill<br>
+<br>
+Note: call this in Initialise() or later functions, do not call in
+StartGame()<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+flowerindex = _root.AddSlaveSkill("Flower Arranging", "basic ability")<br>
+<i><span style="font-size: 12pt;"><br>
+<br>
+<b></b></span></i><span style="font-size: 14pt;"><b>UpdateSlaveSkill<br>
+</b><i><span style="font-size: 12pt;">function
+UpdateSlaveSkill(num:Number, slevel:String)<br>
+</span></i>Updates a custom skill<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+_root.UpdateSlaveSkill(flowerindex, "skilled");<i><span
+ style="font-size: 12pt;"><br>
+<br>
+<br>
+<b></b></span></i><span style="font-size: 14pt;"><b>SetSlaveCombatSkill<br>
+</b><i><span style="font-size: 12pt;">function
+SetSlaveCombatSkill(desc:String)</span></i><br>
+Initialises your slaves combat skill, naming it<br>
+<br>
+Note call in Initialise()<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+_root.SetSlaveCombatSkill("Ninjitsu");<br>
+_root.slCombat = 20;<br>
+<span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">SlaveSkillHintRollOver<br>
+</span></b><i><span style="font-size: 12pt;">SlaveSkillHintRollOver(num:Number)
+: Boolean<br>
+</span></i>Displays the skill hint for a custom skill when you mouse
+over the skill. Similar to the stat hint rollover<br>
+&nbsp;return true to override the default description<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+function ShowSkillHint(skill:Number) : Boolean<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (skill == flowerindex) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetText("&lt;b&gt;Flower Arranging:&lt;/b&gt; Her skill arranging
+flowers");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return false;<br>
+}<br>
+<br>
+<b><span style="font-size: 14pt;">ChangeFairyXF<br>
+</span></b><i><span style="font-size: 12pt;">function
+ChangeFairyXF(val:Number)<br>
+</span></i>alter (increase or decrease) her fairy transformation by val
+points. No effect if the transformation has not started or is complete<br>
+<br>
+<b><span style="font-size: 14pt;">SetFairyXF<br>
+</span></b><i><span style="font-size: 12pt;">function
+SetFairyXF(val:Number)<br>
+</span></i>Set the transformation to an arbitrary value. Can be used
+anytime, take care<br>
+<br>
+<b><span style="font-size: 14pt;">ChangeCatTraining<br>
+</span></b><i><span style="font-size: 12pt;">function
+ChangeCatTraining(val:Number)<br>
+</span></i>Change catgirl training by val points<br>
+<i><br>
+<u></u></i><u>Similarly<br>
+</u><br>
+function ChangePonyTraining(val:Number)<br>
+<br>
+function ChangeDancing(val:Number)<br>
+<br>
+function ChangeSinging(val:Number)<br>
+<br>
+function ChangeSwimming(val:Number)<br>
+<br>
+function ChangeCombat(val:Number)<br>
+<br>
+function ChangeSlutTraining(val:Number)<br>
+<br>
+function ChangeCourtesan(val:Number)<i><br>
+<br>
+</i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span>
+</body>
+</html>

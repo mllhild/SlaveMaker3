@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 sp1 (http://www.altova.com) by End User (free.org) -->
+<Language>
+	<City>
+		<Name>Мардукан</Name>
+		<Initialise>
+			<!-- any city specific initialisations -->
+		</Initialise>
+	</City>
+	<People>
+		<Person1>Ринно, торговец</Person1>
+		<Person2>Сора, барменша</Person2>
+		<Person3>Мисс N.</Person3>
+		<Person4>Леди Окяну</Person4>
+		<Person5>Суми, горничная</Person5>
+		<Person6>Рыцарь Сян</Person6>
+		<Person7>Граф Госсэм</Person7>
+		<Person8>Владыка</Person8>
+		<Person9>Леди Фарун</Person9>
+		<Person10>Тэна</Person10>
+		<Person11>Госпожа Эпона</Person11>
+		<Person12>Ирина, охотник за головами</Person12>
+		<Person13>Главный библиотекарь Лиллана</Person13>
+		<Person15>Скульд</Person15>
+		<Person16>Астрид</Person16>
+		<Person17>Ался, инструктор</Person17>
+		<Person18>Спасатель</Person18>
+		<Person19>Сноу</Person19>
+		<Person20>Мэйгура</Person20>
+		<Person21>Эллара, оружейник</Person21>
+		<Person22>Мээс, тренер</Person22>
+		<Person37>Верховная жрица Даруна</Person37>
+		<Person39>Нарана</Person39>
+		<Person40>Торговец Когин</Person40>
+		<Person41>Леди Адзурэ, владелец горячего источника</Person41>
+		<Person43>Медиум Мисана</Person43>
+		<Person46>Стражница Сола</Person46>
+		<Person47>Горничная леди Фарун</Person47>
+		<Person48>Тама</Person48>
+		<Person51>Мина</Person51>
+		<Person52>Лара, горничная Астрид</Person52>
+		<Person61>Нацу</Person61>
+		<Person65>Марна</Person65>
+		<Person67>Леди Кэт</Person67>
+		<Person68>Адзана</Person68>
+		<Person69>Леонтас</Person69>
+		<Person72>Посол Тачиба</Person72>
+	</People>
+	<Places>
+		<!-- список локаций этого города. nodeid уникальный идентефикатор локации, и используется в большинстве xml -->
+		<Place nodeid='Slums'>
+			<Name>Трущобы</Name>
+			<Description>Трущобы расположены вдали от безопасности городских стен, поэтому тут не действуют обычные законы. Здесь живут одни бедняки.</Description>
+			<CloseUpImage align="right">Images/Cities/Mardukane/Places/Map - Slums.jpg</CloseUpImage>
+			<!-- specific places to visit when walking -->
+			<WhereVisit>Куда #slaveheshe пойдет в Трущобах?</WhereVisit>
+			<Locations>
+				<Location flagpuppygirltraining-0='true'>
+					<Position xpos="283" ypos="260"/>
+					<Name>Питомник</Name>
+					<Event>VisitKennels</Event>
+				</Location>
+			</Locations>
+		</Place>
+		<Place nodeid='Docks' wingquest='false'>
+			<Name>Доки</Name>
+			<Description>Через речные доки проходит большая часть торговых путей. Деньги, вырученные от торговли рабами, составляют основную часть городского бюджета, поэтому в доках повсюду можно встретить клетки с рабынями, которых готовят к транспортировке.</Description>
+			<CloseUpImage align='left'>Images/Cities/Mardukane/Places/Map - Docks.jpg</CloseUpImage>
+			<DocksListBasic>&lt;b&gt;Доки&lt;/b&gt;
+		Есть две главных зоны:
+		 - Пристань - где загружаются и обслуживаются корабли
+		 - Клетки для рабов - где рабы временно содержатся перед транспортировкой</DocksListBasic>
+			<DocksListFull>&lt;b&gt;Доки&lt;/b&gt;
+		Есть три главных зоны:
+		 - Пристань - где загружаются и обслуживаются корабли
+		 - Главная Зона - где содержат и обучают рабов, она довольно велика
+		 - Охраняемая Зона - где находятся экзотические и опасные рабы</DocksListFull>
+			<WhereVisit>Куда #slaveheshe пойдет?</WhereVisit>
+		</Place>
+		<Place nodeid='DocksPort'>
+			<Name>Портовая Зона</Name>
+		</Place>
+		<Place nodeid='DocksSlavePens'>
+			<Name>Главная Зона Рабов</Name>
+		</Place>
+		<Place nodeid='DocksSecureSlavePens'>
+			<Name>Охраняемая Зона Рабов</Name>
+		</Place>
+		<Place nodeid='Forest'>
+			<Name>Лес</Name>
+			<CloseUpImage align='left'>Images/Cities/Mardukane/Places/Map - Forest.jpg</CloseUpImage>
+			<Description>Дремучий лес. Лишь немногие осмелятся войти в него, ведь в нём обитают не только дикие твари, но и нелюди. Только настоящие безумцы отваживаются поселиться здесь.</Description>
+		</Place>
+		<Place nodeid='Lake'>
+			<Name>Озеро</Name>
+			<CloseUpImage align='left'>Images/Cities/Mardukane/Places/Map - Lake.jpg</CloseUpImage>
+			<Description>Пресное озеро потрясающей красоты. Его воды не раз упоминаются в священных писаниях.</Description>
+		</Place>
+		<Place nodeid='Beach' wingquest='false'>
+			<Name>Пляж</Name>
+			<CloseUpImage align='right'>Images/Cities/Mardukane/Places/Map - Beach.jpg</CloseUpImage>
+			<Description>Зона отдыха недавно открылась для общего использования. Детская площадка для богатых и благородных, но могут приходить играть все..</Description>
+			<Description2>
+				<b>Пляж</b>
+		Есть четыре вещи которыми можно занятся на пляже:
+		\rпоплавать и полежать в воде,
+		прогулятся по песку и побеседавать с другими,
+		посетить приватную зону, и
+		поднятся по опасным скалам.</Description2>
+			<BeachChoice>Куда отправятся #super и #slave?</BeachChoice>
+			<BeachClosed>Насколько #slave видит, все проходы к пляжу закрыты. В далеке виден некто, гуляющий по пляжу, а значит должен быть какой-то другой путь. Но #slave решает, что было бы лучше вернутся днем.</BeachClosed>
+		</Place>
+		<Place nodeid='BeachSwim' wingquest='false'>
+			<Name>Поплавать</Name>
+		</Place>
+		<Place nodeid='BeachWalk'>
+			<Name>Прогуляться по пляжу</Name>
+		</Place>
+		<Place nodeid='BeachPrivate' wingquest='false'>
+			<Name>Приватная зона</Name>
+		</Place>
+		<Place nodeid='BeachRocks' wingquest='false'>
+			<Name>Скалы</Name>
+		</Place>
+		<Place nodeid='Palace'>
+			<Name>Дворец</Name>
+			<CloseUpImage align='left'>Images/Cities/Mardukane/Places/Map - Palace.jpg</CloseUpImage>
+			<PalaceInaccessible>Вам нельзя во Дворец! Убирайтесь!</PalaceInaccessible>
+			<Description>Дворец, принадлежащий правителю Мардукан и всего королевства Миоя. Множество общественных мест доступно для знати и тех, кто имеет с ней дело. В отдельных строениях размещено несколько школ.</Description>
+		</Place>
+		<Place nodeid='TownCenter'>
+			<Name>Центр города</Name>
+			<Description>В центре города можно найти как большие рынки, так и множество мелких лавочек. Центр города постоянно патрулируется городской охраной, поскольку рядом расположен дворец.</Description>
+			<CloseUpImage align='left'>Images/Cities/Mardukane/Places/Map - Town Center.jpg</CloseUpImage>
+			<!-- specific places to visit when walking once discovered -->
+			<WhereVisit>Куда #slaveheshe пойдет в Центре города?</WhereVisit>
+			<Locations>
+				<Location day='true' flagtowncenter-0='true'>
+					<Position xpos='163' ypos='260'/>
+					<Name>Цветочный магазин</Name>
+					<Event>Day-FlowerShop</Event>
+				</Location>
+			</Locations>
+		</Place>
+		<Place nodeid='Farm'>
+			<Name>Фермы</Name>
+			<CloseUpImage align='left'>Images/Cities/Mardukane/Places/Map - Farm.jpg</CloseUpImage>
+			<Description>Сельскохозяйственные угодья. Большинство людей выращивает обычные продукты питания. Тем не менее, некоторые фермеры ожидают весьма экзотический урожай.</Description>
+		</Place>
+		<Place nodeid='RuinedTemple' wingquest='false'>
+			<Name>Руины</Name>
+			<Description>Разрушенный храм Древних Богов. Никто не навещает это место. Странные вещи происходят здесь, и не менее странные личности бродят вокруг этого места.</Description>
+		</Place>
+		<Place nodeid='SlaveMarket' wingquest='false'>
+			<Name>Рынок Рабов</Name>
+			<Description>Посетить рынок, чтобы купить новых рабынь и похвастать своей #slave.</Description>
+			<DescriptionAssistant>Мне нет смысла отводить туда #slave, Вы должны сами сопровождать #slavehimher.</DescriptionAssistant>
+		</Place>
+	</Places>
+	
+	<Shopping>
+	
+		<!-- Mardukane specific shops -->
+		<Shops>
+
+			<!-- the armoury -->
+			<Armoury>
+				<ShowArmourWeaponHint>Посмотреть другие варианты для продажи</ShowArmourWeaponHint>
+				<ShowWeapons fontsize="-3">Показать Оружие</ShowWeapons>
+				<ShowArmour fontsize="-3">Показать Броню</ShowArmour>
+				
+				<InitialVisit>
+					<SetText>Вы посетили небольшой магазин по продаже оружия и брони, принадлежащий привлекательной Элларе, женщине из другой страны. Она говорит и ведет себя как местная, так что вероятно она прожила здесь долгое время. Помимо продажи своих товаров она расказывает о своих приключениях и многочисленных сражениях. Вы поражены ее насыщенной жизнью.</SetText>
+					<PersonSpeak person="Эллара">Добро пожаловать в мою оружейную. В отличие от некоторых мест, я не ограничиваюсь продажей оружия или брони для определенного пола. Например, нагинатой обычно пользуются женщины, но я не вижу причин мешающих мужчине использовать её.</PersonSpeak>
+				</InitialVisit>
+				
+				<LaterVisits>Приветствую, чем могу вам помочь?</LaterVisits>
+
+			</Armoury>
+			
+			<!-- Debug Beauty Salon -->
+			<Salon>
+				<Title>Салон красоты</Title>
+				<SalonItems>Товары</SalonItems>
+				<SalonServices>Услуги</SalonServices>
+				<SalonHairStyling>&lt;font size='-1'&gt;Сделать&lt;br&gt;причёску&lt;/font&gt;</SalonHairStyling>
+				<SalonSkinCare>Уход за кожей</SalonSkinCare>
+				<SalonMakeUp>&lt;font size='-3'&gt;Профессиональный&lt;br&gt;макияж&lt;/font&gt;</SalonMakeUp>
+				
+				<LaterVisits>Добро пожаловать!</LaterVisits>
+			
+			</Salon>
+			
+			<RinnosShop>				
+				<InitialVisit>
+					<SetText>Вы посетили известный магазин, чтобы купить вещи, которые могут помочь в подготовке #slave. Это небольшой магазинчик в центре города, очень тесный и с большим выбором странных вещей.</SetText>
+					<PersonSpeak person="Ринно">Добро пожаловать в мой магазин. У меня в продаже много товаров: зелья, книги, а так же ювелирные изделия. Есть даже некоторые... узкоспециализированные вещи.</PersonSpeak>
+				</InitialVisit>
+				
+				<LaterVisits>
+					<PersonSpeak person='Ринно'>Добро пожаловать!</PersonSpeak>
+				</LaterVisits>
+				
+			</RinnosShop>
+			
+			
+		</Shops>
+						
+	</Shopping>
+	
+	<Planning>
+		<Acts>
+			<!-- secific descrption for this city for the general 'Shop' act for slaves -->
+			<ShopDescription>Вы отведёте #slavehimher в магизин Ринно, где прикупите для #slave всякой всячины.</ShopDescription>			
+
+			<!-- City specific act -->
+			<CockMilking>Дойка члена</CockMilking>
+			<CockMilkingDescription>Взять #slave к Астрид чтобы подоить, пока вас тоже доят. Причём доят в основном вашу сперму...</CockMilkingDescription>
+
+			<!-- secific descrption for this city for the general 'martial training' act for slave makers -->
+			<MartialTrainingDescription>Вы будет отрабатывать боевые приемы на площадке вблизи дворца.</MartialTrainingDescription>
+
+			<!-- secific descrption for this city for the general 'attend court' act for slave makers -->
+			<AttendCourtDescription>Вы посетите Королевский Двор, где встретитесь с влиятельными людьми, и обзаведётесь связями.</AttendCourtDescription>
+		
+			<DoPlanning>
+			
+				<!-- ask what your slave makers wants to do when visiting court -->
+				<AttendCourt append='true'>
+					<AddText>Вы посетили Королевский Дворец и поговорили с некоторыми чиновниками и мелкими дворянами некоторое время, в перерывах между разговорами у вас есть достаточно времени, чтобы заняться чем-нибудь еще.</AddText>
+					<AskQuestions caption='Чем вы хотити заняться?'>
+						<Question event='11001'>Попробовать поговорить с Лордом.</Question>
+						<ifor flagladyfarun-met='true' flagladyfarun-accessible='true'>
+							<Question event='11002'>Попробовать найти Леди Фарун.</Question>
+						</ifor>
+						<Question event='11003'>Поговорить с некоторыми иностранными послами.</Question>
+						<if guildmember='true'>
+							<Question event='11004'>Поговорить с другими членами Гильдии.</Question>
+						</if>
+						<Question event='11005'>Поговорить с другими дворянами во Дворце.</Question>
+					</AskQuestions>
+				</AttendCourt>
+				
+			</DoPlanning>
+		
+		</Acts>
+	</Planning>
+	
+</Language>

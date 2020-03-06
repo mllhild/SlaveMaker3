@@ -1,0 +1,391 @@
+<u style="font-family: Arial;"><b><span style="font-size: 18pt;">
+</span></b></u><span style="font-size: 12pt; font-family: Arial;">
+</span><table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top;">
+          <table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">Faeries<br></span></font></td>
+
+                <td style="vertical-align: top;"><br></td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3
+                SDK</span></a></td>
+
+                <td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Updated for 3.4.02</font><br></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table><br style="font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;">There are a series of functions and variables that control faerie events in the game. These are all slave specific, they reset for each new slave being trained. Additionally there are variables and functions to represent the transformation of the slave into a faerie.<br><br>Note: in the game text I always use the term faerie not fairy, but function names and variables differ.<br><br></span><span style="font-weight: bold; font-family: Arial;">Table of Contents</span><ul style="font-family: Arial;" id="mozToc"><!--mozToc h1 1 h4 2 h5 3 h6 4--><li><a href="#mozTocId176771">Core Variables</a><ul><li><a href="#mozTocId660741">FairyXF</a></li><li><a href="#mozTocId357540">FaeriesRingOK</a></li><li><a href="#mozTocId381637">FaeriesRingWorn</a></li><li><a href="#mozTocId325625">FairyMeeting</a></li></ul></li><li><a href="#mozTocId279133">Core Functions</a><ul><li><a href="#mozTocId177333">Transformation functions</a><ul><li><a href="#mozTocId627419">IsFairy</a></li><li><a href="#mozTocId612014">IsFairyComplete</a></li><li><a href="#mozTocId587036">ChangeFairyXF</a></li><li><a href="#mozTocId572725">SetFairyXF</a></li></ul></li><li><a href="#mozTocId423479">Dress Item positioning functions</a><ul><li><a href="#mozTocId618527">PositionWings</a></li><li><a href="#mozTocId231697">PositionWingLeft</a></li><li><a href="#mozTocId478218">PositionWingRight</a></li><li><a href="#mozTocId232198">PositionWingsOver</a></li><li><a href="#mozTocId551819">PositionWingLeftOver</a></li><li><a href="#mozTocId899938">PositionWingRightOver</a></li></ul></li></ul></li><li><a href="#mozTocId5971">Slave Interface Functions</a><ul><li><a href="#mozTocId46966">ShowFaerieTransformation</a></li></ul></li></ul><span style="font-size: 12pt; font-family: Arial;"><br></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId176771"></a>Core Variables</h1>All variables below are slave specific and are implemented in: _root and <a href="Common%20Scripts/Classes/Slave.as">Slave</a> class. The _root version is for the current slave in training. The others can be accessed using the GetSlaveDetails() function<br><font size="-1">eg<br></font><span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">actionscript:</span></span><br><font size="-1">if (_root.FairyXF &gt; 50) {<br>&nbsp; // current slave transformation 50+<br>}<br>var sd:Slave = _root.GetSlaveDetails("Aeris");<br>if (sd.FairyXF &gt; 50) {<br>&nbsp;&nbsp; // Aeris's fiary trainsformation is 50+<br>}<br></font><span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">xml:</span></span><br><font size="-1">&lt;if fairyxf-aeris='50+&gt;<br>&nbsp;&nbsp; &lt;!-- </font><font size="-1">Aeris's fairy trainsformation is 50+ --&gt;<br>&lt;/if&gt;<br></font><font size="-1"><br><br></font><span style="font-size: 12pt; font-family: Arial;"><u><b><span style="font-size: 14pt;">
+</span></b></u><span style="font-size: 12pt;"><span style="font-size: 10pt;"></span></span><span style="font-size: 12pt;"></span></span><table style="text-align: left; width: 948px; height: 573px; background-color: rgb(242, 255, 255); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top;">
+          <table style="text-align: left; width: 936px; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="vertical-align: top; background-color: rgb(229, 229, 229);"><span style="font-weight: bold;">Actionscript Variable</span></td>
+
+                <td style="vertical-align: top; width: 50%; background-color: rgb(229, 229, 229);"><span style="font-weight: bold;">XML Variable</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td style="vertical-align: top;">
+          <table style="text-align: left; width: 936px; height: 21px;" border="1" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="vertical-align: top; background-color: white; height: 21px;">
+                  <h4 style="height: 0px;"><a class="mozTocH4" name="mozTocId660741"></a><span style="font-size: 12pt;"><font><b><span style="font-size: 12pt;"><b>FairyXF</b></span></b></font></span></h4>
+                </td>
+
+                <td style="vertical-align: top; width: 50%; background-color: white; height: 21px;"><span style="font-weight: bold;">fairytransformation<br>fairyxf</span><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table style="text-align: left; width: 100%; height: 70px;" border="0" cellpadding="6" cellspacing="0">
+            <tbody>
+              <tr>
+                <td style="vertical-align: top;"><span style="font-style: italic;"><font size="-1">(Number) </font></span><span style="font-size: 12pt;"><span style="font-size: 12pt;">stage of her transformation into a fairy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = will never transform<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= not started<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1-99 &nbsp;&nbsp;&nbsp;
+= partial<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2000 &nbsp;&nbsp; = fully transformed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style="font-style: italic;"></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span><br></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><span style="color: black;"><span style="font-weight: bold;">Note:</span> generally you should never modify this variable, use the transformation functions <a href="#mozTocId627419">IsFairy()</a> <a href="#mozTocId587036">ChangeFairyXF()</a>, but this is provided mainly for xml use to check the transformation of an arbitrary slave (see <a href="#mozTocId627419">IsFairy()</a> below)<br><br></span><font size="-1"><span style="color: black;"></span></font></font></span></span>
+        </td>
+      </tr>
+
+      <tr>
+        <td style="vertical-align: top;">
+          <table style="text-align: left; width: 936px; height: 24px;" border="1" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="vertical-align: top; background-color: white;">
+                  <h4 style="height: 0px;"><a class="mozTocH4" name="mozTocId357540"></a><span style="font-size: 12pt;"><font><b><span style="font-size: 12pt;"><b>FaeriesRingOK</b></span></b></font></span></h4>
+                </td>
+
+                <td style="vertical-align: top; width: 50%; background-color: white;"><font size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;">itemowned-16='true'</span></span></span></font><br></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table style="text-align: left; width: 936px; height: 31px;" border="0" cellpadding="6" cellspacing="0">
+            <tbody>
+              <tr>
+                <td style="vertical-align: top;"><span style="font-style: italic;"><font size="-1">(Number)</font></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"> Does your slave own the faeries ring, 1 for yes, 0 for no.<br><br></span></span><span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">xml:</span></span><br><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1">Use the conditional listed<br>&lt;if itemowned='16'&gt;<br>&nbsp;&nbsp;&nbsp; &lt;!-- own the faeries ring --&gt;<br>&lt;/if&gt;<br></font></span></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td style="vertical-align: top;">
+          <table style="text-align: left; width: 936px; height: 21px;" border="1" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="vertical-align: top; background-color: white; height: 29px;">
+                  <h4 style="height: 0px;"><a class="mozTocH4" name="mozTocId381637"></a><span style="font-size: 12pt;"><font><b><span style="font-size: 12pt;"><b>FaeriesRingWorn</b></span></b></font></span></h4>
+                </td>
+
+                <td style="vertical-align: top; width: 50%; background-color: white; height: 100%;"><span style="font-weight: bold;">itemworn-16='true'<br></span></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"><span style="font-style: italic;">(Number)</span></font></span></span> Is the slave wearing the faeries ring. Note this is an essential prerequisite for the faerie transformation.<br><br>
+        </td>
+      </tr>
+
+      <tr>
+        <td style="vertical-align: top;">
+          <table style="text-align: left; width: 100%; height: 33px;" border="1" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="vertical-align: top; background-color: white;">
+                  <h4 style="height: 0px;"><a class="mozTocH4" name="mozTocId325625"></a><span style="font-size: 12pt;"><font><b><span style="font-size: 12pt;"><b>FairyMeeting</b></span></b></font></span></h4>
+                </td>
+
+                <td style="vertical-align: top; width: 50%; background-color: white;"><font size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;">fairymeeting</span></span></span></font><br></td>
+              </tr>
+            </tbody>
+          </table><font size="-1"><span style="font-style: italic;">(Number)</span></font> <span style="font-size: 12pt;"><span style="font-size: 12pt;">the progress of the fairy rescue event, generally a sequential number, but varies depending on choices.<br><br>Very seldom would you need to check this variable.<br><br></span></span>
+        </td>
+      </tr>
+
+      
+
+      
+
+      
+
+      
+
+      <tr>
+        <td style="vertical-align: top;">
+          <hr style="width: 100%; height: 2px;">
+        </td>
+      </tr>
+    </tbody>
+  </table><br style="font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;">
+<br>
+<span style="font-size: 12pt;"></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId279133"></a>Core Functions<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></h1><h4 style="font-family: Arial;"><a class="mozTocH4" name="mozTocId177333"></a><span style="font-size: 12pt;"><font><u><b><font><u><b><font><u><b><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;">Transformation functions</span></b></u></span></span></span></b></u></font></b></u></font></b></u></font></span></h4>All the transformation functions are slave specific and are implemented in: _root and <a href="Common%20Scripts/Classes/Slave.as">Slave</a> class. The _root version is for the current slave in training. The others can be accessed using the GetSlaveDetails() function<br>
+<font size="-1">eg<br>
+</font><span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">actionscript:</span></span><br>
+<font size="-1">_root.ChangeFairyXF(5);&nbsp;&nbsp; //current slave<br>var sd:Slave = _root.GetSlaveDetails("Aeris"); <br>
+sd.ChangeFairyXF(4);&nbsp;&nbsp; //slave Areis<br><br>
+</font><span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">xml:</span></span><br><font size="-1">&lt;ChangeFairyXF&gt;4&lt;/ChangeFairyXF&gt;</font><br><font size="-1">&lt;ChangeFairyXF slave='aeris'&gt;4&lt;/ChangeFairyXF&gt;</font><font size="-1"><br><br></font>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"></span></span></span></span>
+
+  <table style="text-align: left; width: 95%; height: 118px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="background-color: rgb(249, 249, 249);">
+          <table style="text-align: left; width: 100%; height: 18px;" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td style="vertical-align: top;"><h5 style="height: 8px;"><a class="mozTocH4" name="mozTocId627419"></a><span style="font-size: 12pt;"><font><b><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">IsFairy</span></b></span></span></span></span></b></font></span></h5></td><td style="vertical-align: top; width: 50%; text-align: right;"><font size="-1"><span style="font-weight: bold;">implemented in:</span> _root and <a href="Common%20Scripts/Classes/Slave.as">Slave</a> class</font></td></tr></tbody></table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+
+          <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function IsFairy() : Boolean</span></i></span></span></span></span></span></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br></span></span></span></span></span></span></span>
+
+          <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;">isfairy<br>isfaerie<br></td>
+              </tr>
+            </tbody>
+          </table><br><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">returns true if the slave is partially or fully transformed</span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></span></span></span></font></font></font></font></span></span> into a faerie.<span style="font-weight: bold;"></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></font></font></font></font></span></span><br>
+        </td>
+      </tr>
+    </tbody>
+  </table><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></font></font></font></font></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span><br><table style="text-align: left; width: 95%; height: 118px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="background-color: rgb(249, 249, 249);">
+          <table style="text-align: left; width: 100%; height: 18px;" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td style="vertical-align: top;"><h5 style="height: 8px;"><a class="mozTocH5" name="mozTocId612014"></a><span style="font-size: 12pt;"><font><b><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">IsFairyComplete</span></b></span></span></span></span></b></font></span></h5></td><td style="vertical-align: top; width: 50%; text-align: right;"><font size="-1"><span style="font-weight: bold;">implemented in:</span> _root and <a href="Common%20Scripts/Classes/Slave.as">Slave</a> class</font></td></tr></tbody></table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+
+          <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function IsFairyComplete() : Boolean</span></i></span></span></span></span></span></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br></span></span></span></span></span></span></span>
+
+          <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;">isfairycomplete<br>isfaeriecomplete<br></td>
+              </tr>
+            </tbody>
+          </table><br><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">returns true if the slave is fully transformed</span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></span></span></span></font></font></font></font></span></span> into a faerie.<span style="font-weight: bold;"></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></font></font></font></font></span></span><br>
+        </td>
+      </tr>
+    </tbody>
+  </table><br style="font-family: Arial;"><table style="text-align: left; width: 95%; height: 305px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+
+    <tbody>
+      <tr>
+        <td style="background-color: rgb(249, 249, 249);">
+          
+      <table style="text-align: left; width: 100%; height: 20px;" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;">
+            <h5 style="height: 11px;"><a class="mozTocH4" name="mozTocId587036"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">ChangeFairyXF</span></b></span></span></span></span></span></h5>
+            </td>
+            <td style="vertical-align: top; width: 50%; text-align: right;"><font size="-1"><span style="font-weight: bold;">implemented in:</span> _root and <a href="Common%20Scripts/Classes/Slave.as">Slave</a> class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+
+          <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function ChangeFairyXF(val:Number)<br>or<br></span></i></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function ChangeFaerieXF(val:Number)</span></i></span></span></span></span></span><br></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br></span></span></span></span></span></span></span>
+
+          <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;">&lt;ChangeFairyXF slave='slavename'&gt;val&lt;/ChangeFairyXF&gt;<br>&lt;ChangeFaerieXF slave='slavename'&gt;val&lt;/ChangeFaerieXF&gt;<br>slave attribute defaults to the current slave in training if not specified<br>
+</td>
+              </tr>
+            </tbody>
+          </table><br><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">alter
+(increase or decrease) her fairy transformation by val points. No
+effect if the transformation has not started or is complete.<br><br><font size="-1">eg</font><br></span></span></span></span></span><span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">actionscript:</span></span><br><font style="font-family: Arial;" size="-1">// current slave<br>_root.ChangeFairyXF(1);</font><font style="font-family: Arial;" size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br></span></span></span></span></span>// arbitrary slave<br>var sd:Slave = _root.GetSlaveDetails("Maran");<br>sd.ChangeFairyXF(1);</font>
+      <br><br><span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">xml:<br></span></span><font size="-1">current slave<br>&lt;ChangeFairyXF&gt;1&lt;/ChangeFairyXF&gt;<br>arbitrary slave<br></font><font size="-1">&lt;ChangeFairyXF slave='Maran'&gt;1&lt;/ChangeFairyXF&gt;</font><br>
+      <span style="font-weight: bold;"></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></font></font></font></font></span></span>
+        </td>
+      </tr>
+    </tbody>
+  
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">
+<b><span style="font-size: 14pt;"></span></b></span></span></span></span></span><br style="font-family: Arial;">
+<table style="text-align: left; width: 95%; height: 165px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+
+
+    <tbody>
+      <tr>
+        <td style="background-color: rgb(249, 249, 249);">
+          
+      <table style="text-align: left; width: 100%; height: 23px;" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;">
+            <h5 style="height: 13px;"><a class="mozTocH4" name="mozTocId572725"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">SetFairyXF</span></b></span></span></span></span></span></h5>
+            </td>
+            <td style="vertical-align: top; width: 50%; text-align: right;"><font size="-1"><span style="font-weight: bold;">implemented in:</span> _root and <a href="Common%20Scripts/Classes/Slave.as">Slave</a> class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+
+          <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function SetFairyXF(val:Number)<br>
+or<br>
+</span></i></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function SetFaerieXF(val:Number)</span></i></span></span></span></span></span><br>
+</td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br></span></span></span></span></span></span></span>
+
+          <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;">&lt;SetFairyXF slave='slavename'&gt;val&lt;/ChangeFairyXF&gt;<br>
+&lt;SetFaerieXF slave='slavename'&gt;val&lt;/ChangeFaerieXF&gt;<br>
+slave attribute defaults to the current slave in training if not specified<br>
+
+</td>
+              </tr>
+            </tbody>
+          </table><br><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">Set the transformation to an arbitrary value. Can be used anytime, take care</span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span><br>
+      <span style="font-weight: bold;"></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></font></font></font></font></span></span>
+        </td>
+      </tr>
+    </tbody>
+  
+</table>
+
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">
+</span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br></span></span></span></span></span><h4 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId423479"></a><span style="font-size: 12pt;"><font><u><b><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;">Dress Item positioning functions<br></span></b></u></span></span></span></b></u></font></span></h4><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">These functions are used to position the faerie wings in the main window for the dress images of the slave. <br><br>Note: these functions position all types of wings for the slave, including demon wings etc.<br><br><span style="color: rgb(153, 51, 0); font-weight: bold;">XML:</span><br>each will list a node, these are implemented in the Dress nodes for the slave<br><font size="-1">eg</font><br></span></span></span></span></span><font style="font-family: Arial;" size="-1">&lt;Dresses&gt;<br>&nbsp;&nbsp;&nbsp; &lt;Dress0&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Halo x='229.5' y='30.95' rotation='0' width='150' height='54'/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Leash x='177.6' y='57' rotation='0' width='-80' height='120' over='true'/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;BitGag frame='4' x='220' y='79' rotation='-10' width='55' height='40'/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;NymphsTiara x='216' y='47' rotation='-10' width='50' height='45'/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;CatEars frame='1' x='222.25' y='52.55' rotation='0' width='50' height='25' over='true'/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Tail x='152' y='226' rotation='0' width='-150' height='80'/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Wings x='217' y='150' rotation='10' width='-300' height='200'/&gt;<br>&nbsp;&nbsp;&nbsp; &lt;/Dress0&gt;<br>&lt;/Dresses&gt;</font><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br><br></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br></span></span></span></span></span>
+
+  <table style="text-align: left; width: 95%; height: 248px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="background-color: rgb(249, 249, 249);">
+          <h5 style="height: 1px;"><a class="mozTocH4" name="mozTocId618527"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">PositionWings</span></b></span></span></span></span></span></h5><h5 style="height: 2px;"><a class="mozTocH4" name="mozTocId231697"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">PositionWingLeft</span></b></span></span></span></span></span></h5><h5 style="height: 16px;"><a class="mozTocH4" name="mozTocId478218"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">PositionWingRight</span></b></span></span></span></span></span></h5><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;"></span></b></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+
+          <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function PositionWings(xpos:Number, ypos:Number, rot:Number, wid:Number, hei:Number)<br></span></i></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function PositionWingLeft(xpos:Number, ypos:Number, rot:Number, wid:Number, hei:Number)<br></span></i></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function PositionWingRight(xpos:Number, ypos:Number, rot:Number, wid:Number, hei:Number)</span></i></span></span></span></span></span><br></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br></span></span></span></span></span></span></span>
+
+          <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;"> &lt;Wings x='xpos' y='ypos' rotation='rot' width='wid' height='hei'/&gt;<br>&lt;WingLeft x='xpos' y='ypos' rotation='rot' width='wid' height='hei'/&gt;<br>&lt;WingRight x='xpos' y='ypos' rotation='rot' width='wid' height='hei'/&gt;<br></td>
+              </tr>
+            </tbody>
+          </table><br><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">Position a set of Faerie wings behind the slave's image in the main window. The dress image must have a transparent background for the wings to be seen. PositionWings places a pair of wings, and the others a left or right wing only.<br></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></span></span></span></font></font></font></font></span><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></font></font></font></font></span></span><br>xpos = horizontal position in the main window, 0-480, but you can exceed these limits to have the image partially out of the window<br>ypos = vertical position in the main window, 0-336, but you can exceed these limits to have the image partially out of the window<br>rot = rotate the image clockwise in degrees, &lt; 0 for counter-clockwise<br>wid = width of the image. Will resize the image, will not preserve aspect ratio<br>hei = height  of the image. Will resize the image, will not preserve aspect ratio<br><br>Note: the debugging menu can create these parameters for both actionscript and xml<br>
+        </td>
+      </tr>
+    </tbody>
+  </table><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"></span></span></span></span></span></font></font></font></font></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;"></span></b></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br></span></span></span></span></span>
+
+  <table style="text-align: left; width: 95%; height: 248px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="background-color: rgb(249, 249, 249);">
+          <h5 style="height: 4px;"><a class="mozTocH4" name="mozTocId232198"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">PositionWingsOver</span></b></span></span></span></span></span></h5><h5 style="height: 6px;"><a class="mozTocH4" name="mozTocId551819"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">PositionWingLeftOver</span></b></span></span></span></span></span></h5><h5 style="height: 8px;"><a class="mozTocH4" name="mozTocId899938"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">PositionWingRightOver</span></b></span></span></span></span></span></h5><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;"></span></b></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+
+          <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function PositionWingsOver(xpos:Number, ypos:Number, rot:Number, wid:Number, hei:Number)<br>
+</span></i></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function PositionWingLeftOver(xpos:Number, ypos:Number, rot:Number, wid:Number, hei:Number)<br>
+</span></i></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function PositionWingRightOver(xpos:Number, ypos:Number, rot:Number, wid:Number, hei:Number)</span></i></span></span></span></span></span><br>
+</td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br></span></span></span></span></span></span></span>
+
+          <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;"> &lt;Wings x='xpos' y='ypos' rotation='rot' width='wid' height='hei' <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"> over='true'</span></i></span></span></span></span></span>/ &gt;<br>
+&lt;WingLeft x='xpos' y='ypos' rotation='rot' width='wid' height='hei' <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"> over='true'</span></i></span></span></span></span></span>/&gt;<br>
+            &lt;WingRight x='xpos' y='ypos' rotation='rot' width='wid' height='hei' <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"> over='true'</span></i></span></span></span></span></span>/&gt;<br>
+</td>
+              </tr>
+            </tbody>
+          </table><br><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">Position
+a set of Faerie wings over top of the slave's image in the main window. </span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></span></span></span></font></font></font></font></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></font></font></font></font></span></span><br>Otherwise identical to <a href="#mozTocId618527">PositionWings</a>.<br>
+        </td>
+      </tr>
+    </tbody>
+  </table><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"></span></span></span></span></span></font></font></font></font></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;"></span></b></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;"></span></b><br>
+<br></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId5971"></a>Slave Interface Functions</h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;">
+</span></b></u><span style="font-size: 12pt;">These functions can be overloaded / implemented for a slave to control their changes. This function is only ever use for the current slave in training. It is never called for assistants, owned slaves or minor slaves.<br><br><span style="font-weight: bold; text-decoration: underline;">These are optional to implement</span><br>
+</span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br></span></span></span></span></span>
+
+  <table style="text-align: left; width: 95%; height: 137px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="background-color: rgb(249, 249, 249);">
+          <h4><a class="mozTocH4" name="mozTocId46966"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">ShowFaerieTransformation</span></b></span></span></span></span></span></span></h4><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+
+          <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i>function ShowFaerieTransformation() : Boolean</i></span></span></span></span></span></span></span></td>
+              </tr>
+            </tbody>
+          </table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br></span></span></span></span></span></span></span>
+
+          <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="background-color: white;">&lt;Other&gt;<br>
+                &nbsp;&nbsp; &lt;ShowFaerieTransformation&gt;<br>
+                No return type implemented here. <br><span style="font-weight: bold;">Note:</span> when this is called the default images + text are already shown. Use &lt;HideImages&gt; and/or &lt;SetText&gt; to replace if desired.<br><span style="font-weight: bold;">Note:</span> not called if the actionscript ShowFaerieTranformation() returns true<br></td>
+              </tr>
+            </tbody>
+          </table><br><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">Show an image and/or text when the fairy transformation completes.</span></span></span></span></span></span></span><br><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">return true if you show an image.</span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></span></span></span></font></font></font></font></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></font></font></font></font></span></span><br>
+        </td>
+      </tr>
+    </tbody>
+  </table><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"></span></span></span></span></span></font></font></font></font></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></span>

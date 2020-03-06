@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project version="2">
+  <!-- Output SWF options -->
+  <output>
+    <movie outputType="Application" />
+    <movie input="" />
+    <movie path=".\Install\Slaves\Slave-Mai.swf" />
+    <movie fps="24" />
+    <movie width="800" />
+    <movie height="600" />
+    <movie version="9" />
+    <movie minorVersion="0" />
+    <movie platform="Flash Player" />
+    <movie background="#FFFFFF" />
+  </output>
+  <!-- Other classes to be compiled into your SWF -->
+  <classpaths>
+    <class path="." />
+    <class path="..\SDK\Common Scripts\Classes" />
+  </classpaths>
+  <!-- Build options -->
+  <build>
+    <option verbose="True" />
+    <option strict="False" />
+    <option infer="False" />
+    <option useMain="False" />
+    <option useMX="False" />
+    <option warnUnusedImports="False" />
+    <option traceMode="Disable" />
+    <option traceFunction="" />
+    <option libraryPrefix="" />
+    <option excludeFile="" />
+    <option groupClasses="False" />
+    <option frame="1" />
+    <option keep="True" />
+  </build>
+  <!-- Class files to compile (other referenced classes will automatically be included) -->
+  <compileTargets>
+    <compile path="FD-Genma.as" />
+    <compile path="Slave-Mai.as" />
+    <compile path="Slave-Mai-Images.as" />
+    <compile path="SlaveMaiImages.as" />
+    <compile path="MaiImages.as" />
+    <compile path="GenericImages.as" />
+    <compile path="GenericSlave.as" />
+    <compile path="GenericSlaveImages.as" />
+    <compile path="SlaveMai.as" />
+    <compile path="Mai.as" />
+  </compileTargets>
+  <!-- Assets to embed into the output SWF -->
+  <library>
+    <asset path="Assistant - Genma - Runaway.jpg" bitmap="False" />
+  </library>
+  <!-- Paths to exclude from the Project Explorer tree -->
+  <hiddenPaths>
+    <hidden path="Assistant-Genma.as" />
+    <hidden path="Assistant-Genma.fla" />
+    <hidden path="Genma.as" />
+    <hidden path="Assistant-Hild.fla" />
+    <hidden path="Source Images" />
+    <hidden path="Source Files" />
+    <hidden path="Pictures" />
+    <hidden path="Break (As Dickgirl 1).jpg" />
+    <hidden path="Break 1.jpg" />
+    <hidden path="Break 2.jpg" />
+    <hidden path="Chore - Cooking (Naked 1).jpg" />
+    <hidden path="Chore - Discuss (As Dickgirl 1).jpg" />
+    <hidden path="Chore - Discuss (Naked 1).jpg" />
+    <hidden path="Chore - Discuss 1.jpg" />
+    <hidden path="Chore - Discuss 2.jpg" />
+    <hidden path="Chore - Discuss 3.jpg" />
+    <hidden path="Chore - Exercise (As Dickgirl 1).jpg" />
+    <hidden path="Chore - Exercise 1.jpg" />
+    <hidden path="Chore - Exercise 2.gif" />
+    <hidden path="Chore - Exercise 2.swf" />
+    <hidden path="Chore - Expose Herself (As Dickgirl 1).jpg" />
+    <hidden path="Chore - Expose Herself 1.jpg" />
+    <hidden path="Chore - Expose Herself 2.jpg" />
+    <hidden path="Chore - Make Up 1.jpg" />
+    <hidden path="Chore - Make Up 2.jpg" />
+    <hidden path="Contest - Beauty 1.jpg" />
+    <hidden path="Contest - Court 1.jpg" />
+    <hidden path="Contest - Housework 1.jpg" />
+    <hidden path="Contest - XXX 1.jpg" />
+    <hidden path="Dating 1.jpg" />
+    <hidden path="Dickgirl 1.jpg" />
+    <hidden path="Dickgirl 2.jpg" />
+    <hidden path="Dress 1.png" />
+    <hidden path="Dress 2.png" />
+    <hidden path="Dress 3.png" />
+    <hidden path="Dress 4.png" />
+    <hidden path="Dress 5.png" />
+    <hidden path="Dress 6.png" />
+    <hidden path="Dress Plain.png" />
+    <hidden path="Ending - Bought Back.jpg" />
+    <hidden path="Ending - Cowgirl.jpg" />
+    <hidden path="Ending - Marriage.jpg" />
+    <hidden path="Ending - Ponygirl.jpg" />
+    <hidden path="Ending - Rebel.jpg" />
+    <hidden path="Ending - S&amp;M.jpg" />
+    <hidden path="Ending - Sex Addict.jpg" />
+    <hidden path="Ending - Sex Maniac.jpg" />
+    <hidden path="Ending - Tentacle Slave.jpg" />
+    <hidden path="Event - Milk - Accident 1.jpg" />
+    <hidden path="Event - Milk - End 1.jpg" />
+    <hidden path="Event - Milk - Milked 1.jpg" />
+    <hidden path="Event - Naked Apron 1.jpg" />
+    <hidden path="Event - Raped 1.jpg" />
+    <hidden path="Event - Slave Retrieved 1.jpg" />
+    <hidden path="Introduction.jpg" />
+    <hidden path="Job - Acolyte 1.jpg" />
+    <hidden path="Job - Bar 1.jpg" />
+    <hidden path="Job - Brothel 1.jpg" />
+    <hidden path="Job - Brothel 2.jpg" />
+    <hidden path="Job - Brothel 3.jpg" />
+    <hidden path="Job - Restaurant 1.jpg" />
+    <hidden path="Love Confession.jpg" />
+    <hidden path="Propositions a guy and they have sex.jpg" />
+    <hidden path="School - Dance (Naked 1).jpg" />
+    <hidden path="School - Dance 1.jpg" />
+    <hidden path="School - Refinement 1.jpg" />
+    <hidden path="School - Refinement 2.jpg" />
+    <hidden path="School - XXX (As Dickgirl 1).jpg" />
+    <hidden path="School - XXX 1.jpg" />
+    <hidden path="School - XXX 2.jpg" />
+    <hidden path="Sex Act - 69 1.jpg" />
+    <hidden path="Sex Act - 69 2.jpg" />
+    <hidden path="Sex Act - Anal 1.jpg" />
+    <hidden path="Sex Act - Anal 2.jpg" />
+    <hidden path="Sex Act - Anal 3.jpg" />
+    <hidden path="Sex Act - Anal 4.jpg" />
+    <hidden path="Sex Act - Blowjob (As Dickgirl 1).jpg" />
+    <hidden path="Sex Act - Blowjob (For Dickgirl).jpg" />
+    <hidden path="Sex Act - Blowjob 1.jpg" />
+    <hidden path="Sex Act - Blowjob 2.jpg" />
+    <hidden path="Sex Act - Blowjob 3.jpg" />
+    <hidden path="Sex Act - Blowjob 4.jpg" />
+    <hidden path="Sex Act - Bondage 1.jpg" />
+    <hidden path="Sex Act - Bondage 2.jpg" />
+    <hidden path="Sex Act - Bondage 3.jpg" />
+    <hidden path="Sex Act - Brothel 1.jpg" />
+    <hidden path="Sex Act - Dildo (As Dickgirl 1).jpg" />
+    <hidden path="Sex Act - Dildo 1.jpg" />
+    <hidden path="Sex Act - Fuck 1.jpg" />
+    <hidden path="Sex Act - Fuck 2.jpg" />
+    <hidden path="Sex Act - Fuck 3.jpg" />
+    <hidden path="Sex Act - Fuck 4.jpg" />
+    <hidden path="Sex Act - Gang-Bang (As Dickgirl 1).jpg" />
+    <hidden path="Sex Act - Gang-Bang 1.jpg" />
+    <hidden path="Sex Act - Gang-Bang 1b.jpg" />
+    <hidden path="Sex Act - Gang-Bang 2.jpg" />
+    <hidden path="Sex Act - Gang-Bang 3.jpg" />
+    <hidden path="Sex Act - Lend Her (As Dickgirl 1).jpg" />
+    <hidden path="Sex Act - Lend Her 1.jpg" />
+    <hidden path="Sex Act - Lend Her 2.jpg" />
+    <hidden path="Sex Act - Lesbian (As Dickgirl 1).jpg" />
+    <hidden path="Sex Act - Lesbian (As Dickgirl 2).jpg" />
+    <hidden path="Sex Act - Lesbian 1.jpg" />
+    <hidden path="Sex Act - Lick (As Dickgirl 1).jpg" />
+    <hidden path="Sex Act - Lick 1.jpg" />
+    <hidden path="Sex Act - Lick 2.jpg" />
+    <hidden path="Sex Act - Master 1.jpg" />
+    <hidden path="Sex Act - Masturbate (As Dickgirl 1).jpg" />
+    <hidden path="Sex Act - Masturbate (As Dickgirl 2).swf" />
+    <hidden path="Sex Act - Masturbate 1.jpg" />
+    <hidden path="Sex Act - Masturbate 2.jpg" />
+    <hidden path="Sex Act - Masturbate 3.jpg" />
+    <hidden path="Sex Act - Naked (As Dickgirl 1).jpg" />
+    <hidden path="Sex Act - Naked 1.jpg" />
+    <hidden path="Sex Act - Naked 2.jpg" />
+    <hidden path="Sex Act - Nothing (As Dickgirl).jpg" />
+    <hidden path="Sex Act - Nothing 1.jpg" />
+    <hidden path="Sex Act - Nothing 2.jpg" />
+    <hidden path="Sex Act - Nothing 3.jpg" />
+    <hidden path="Sex Act - Orgy (As Dickgirl 1).jpg" />
+    <hidden path="Sex Act - Orgy 1.jpg" />
+    <hidden path="Sex Act - Plug 1.jpg" />
+    <hidden path="Sex Act - Ponygirl 1.jpg" />
+    <hidden path="Sex Act - Spanking 1.jpg" />
+    <hidden path="Sex Act - Threesome (Lesbian 1).jpg" />
+    <hidden path="Sex Act - Threesome 1.jpg" />
+    <hidden path="Sex Act - Tits Fuck 1.jpg" />
+    <hidden path="Sex Act - Tits Fuck 2.jpg" />
+    <hidden path="Sex Act - Tits Fuck 3.jpg" />
+    <hidden path="Sex Act - Tits Fuck 4.jpg" />
+    <hidden path="Sex Act - Touch 1.jpg" />
+    <hidden path="Sex Act - Touch 1b.jpg" />
+    <hidden path="Sex Act - Touch 2.jpg" />
+    <hidden path="Tentacle Sex 1.jpg" />
+    <hidden path="Tentacle Sex 2.jpg" />
+    <hidden path="Tentacle Sex 3.jpg" />
+    <hidden path="Tentacle Sex 4.jpg" />
+    <hidden path="Tentacle Sex 5.jpg" />
+    <hidden path="Thumbs.db" />
+    <hidden path="Tired 1.jpg" />
+    <hidden path="Tired 2.jpg" />
+    <hidden path="Refused 1.jpg" />
+    <hidden path="Sex Act - Cum Bath 1.jpg" />
+    <hidden path="Sex Act - Cum Bath 2.jpg" />
+    <hidden path="Sex Act - Cum Bath 3.jpg" />
+    <hidden path="Sex Act - Fuck (Lesbian 1).jpg" />
+    <hidden path="Sex Act - Lick (Lesbian 1).jpg" />
+    <hidden path="Sex Act - Lick 3.jpg" />
+    <hidden path="Sex Act - Naked 3.jpg" />
+    <hidden path="Sex Act - Threesome 2.jpg" />
+    <hidden path="Propostions a guy and is refused.jpg" />
+    <hidden path="Chore - Read 1.jpg" />
+    <hidden path="Ending - Drug Addict.jpg" />
+    <hidden path="Ending - Lesbian Slave.jpg" />
+    <hidden path="Ending - Normal.jpg" />
+    <hidden path="Ending - Normal-.jpg" />
+    <hidden path="Ending - Prostitute.jpg" />
+    <hidden path="Event - Morning Mouthfull.jpg" />
+    <hidden path="Event - Tentacle Pregnancy Reveal.jpg" />
+    <hidden path="Love Confession Accepted.jpg" />
+    <hidden path="Love Confession Refused.jpg" />
+    <hidden path="Sex Act - Naked 3.png" />
+    <hidden path="Contest - Dance 1.jpg" />
+    <hidden path="Contest - General Knowledge 1.jpg" />
+    <hidden path="Contest - Ponygirl 1.jpg" />
+    <hidden path="Dickgirl 3.jpg" />
+    <hidden path="Sex Act - Naked 2.png" />
+    <hidden path="Sex Act - Naked 4.png" />
+    <hidden path="Ending - Rich.jpg" />
+    <hidden path="Event - Giga BE 1.jpg" />
+    <hidden path="Event - Milk - Milked 2.jpg" />
+    <hidden path="Job - Sleazy Bar 1.jpg" />
+    <hidden path="Sex Act - Bondage (Naked 1).jpg" />
+    <hidden path="Sex Act - Lesbian (As Dickgirl 3).jpg" />
+    <hidden path="Chore - Expose Herself 3.jpg" />
+    <hidden path="Break 3.jpg" />
+    <hidden path="Sex Act - Naked (As Dickgirl 1).png" />
+    <hidden path="Sex Act - Naked 1.png" />
+    <hidden path="Tentacle Sex 6.jpg" />
+    <hidden path="obj" />
+  </hiddenPaths>
+  <!-- Executed before build -->
+  <preBuildCommand />
+  <!-- Executed after build -->
+  <postBuildCommand alwaysRun="False" />
+  <!-- Other project options -->
+  <options>
+    <option showHiddenPaths="False" />
+    <option testMovie="Default" />
+    <option testMovieCommand="" />
+  </options>
+  <!-- Plugin storage -->
+  <storage />
+</project>

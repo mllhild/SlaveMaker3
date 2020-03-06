@@ -1,0 +1,1340 @@
+
+<u><b><font face="Arial"><span style="font-size: 18pt;">
+</span></font></b></u><span style="font-size: 12pt;"><font face="Arial">
+</font></span><table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top;">
+          <table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">XML Conditionals and Variables<br></span></font></td>
+
+                <td style="vertical-align: top;"><br></td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3
+                SDK</span></a></td>
+
+                <td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Version 8</font><br></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table><br><ul id="mozToc"><!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6--><li><a href="#mozTocId636778">Conditionals</a></li><li><a href="#mozTocId616835">Variables</a></li></ul><br><span style="font-size: 12pt;"><font face="Arial">
+<br></font></span><hr style="width: 100%; height: 2px;"><span style="font-size: 12pt;"><font face="Arial"></font></span><h1><a class="mozTocH1" name="mozTocId636778"></a>Conditionals<span style="font-size: 12pt;"><font face="Arial"><u><b><span style="font-size: 16pt;"></span></b></u></font></span></h1><span style="font-size: 12pt;"><font face="Arial"><u><b><span style="font-size: 16pt;">
+</span></b></u><span style="font-size: 12pt;"><font color="#000000">These are tests used in &lt;if&gt; nodes and events to check if something should happen<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;if supervise="slavemaker"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!-- slavemaker is supervising the act --&gt; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;SetText&gt;You watch as #slave .....&lt;/SetText&gt;<br>
+&lt;else/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!-- assistant is supervising the act --&gt; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;SetText&gt;#assistant watches as #slave .....&lt;/SetText&gt;<br>
+&lt;/if&gt;<br>
+<br>
+&lt;Events&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Walk&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Lake&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;SwimmingFurry chance="5%" time="11-" furries="true"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;SetText&gt;#slave sees a furry girl swimming in the lake&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/SwimmingFurry&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/Lake&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/Walk&gt;<br>
+&lt;/Events&gt;<span style="font-size: 12pt;"><br>
+<br>
+By default all terms in a conditional are ANDed together, ie the conditional is true if and only if all terms are true. To OR terms together use &lt;ifor&gt; for if statements or the or atribute<br>
+<br>
+&lt;if time="11-" or="true" time="13+"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!-- before 11am or 1pm or later --&gt; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;SetText&gt;.....&lt;/SetText&gt;<br>
+&lt;/if&gt;<br>
+<br>
+Notes:<br>
+<font face="Symbol">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>all attribute values MUST be enclosed in "" or '', eg time="11+"<br>
+<font face="Symbol">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>an attribute cannot be repeated so<br>
+&lt;if time="11-" or="true" time="13+"&gt;<br>
+is invalid. In this case (a rather awkward one) you would need to use a subevent<br>
+&lt;if time="13+"&gt;&lt;DoEvent now="true"&gt;MyEvent&lt;/DoEventNext&gt;&lt;/if&gt;<br>
+&lt;if time="11-"&gt;&lt;DoEvent now="true"&gt;MyEvent&lt;/DoEventNext&gt;&lt;/if&gt;<br>
+<br>
+<u><span style="font-size: 14pt;">Numeric Expressions<br>
+</span></u><span style="font-size: 12pt;">For many conditionals and statements you can specify an expression to be calculated at runtime and there are several special cases<br>
+<br>
+<b>%</b><br>
+&lt;if chance="50%"&gt;<br>
+....<br>
+&lt;/if&gt;<br>
+In all cases the % symbol is ignored. You may use it for clarity.<br>
+<br>
+<b>randomx<br>
+</b>this is evaluated to a random number between 1 and x,<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;if customflag="random5"&gt;<br>
+means is _root.CustomFlag == a random number from 1 to 5<br>
+<br>
+&lt;if time="random5 + 10"&gt;<span style="font-size: 12pt;"><br>
+<span style="font-size: 10pt;">mean is the time randomly from 11:00 to 15:00<span style="font-size: 12pt;"><br>
+<br>
+<b>negative/positive values<br>
+</b>use standardly<br>
+eg<br>
+&lt;Money&gt;-1 * charisma  + constitution + nymphomania divide 3&lt;/Money&gt;<br>
+<br>
+<b>x + y * 5 or any expression<br>
+</b>There are a list of standard variables (see below) that can be used in expressions, like yous slave's statistics. Calculations can be done but are a little basic so far, partially for efficiency and partially for ease of coding.<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;Money&gt;charisma * 2 + constitution + nymphomania divide 3&lt;/Money&gt;<br>
+<span style="font-size: 12pt;"><br>
+This uses left to right evalaution, with two special cases multiply and divide. This is evaluated as<br>
+<br>
+(((charisma * 2) + constutution) + nymphomania) / 3<br>
+<br>
+Note:<br>
+&lt;Money&gt;charisma * 2 + constitution + nymphomania / 3&lt;/Money&gt;<br>
+<br>
+evaluates as<br>
+<br>
+(((charisma * 2) + constutution) + (nymphomania / 3)<br>
+<br>
+Precendence order<br>
+divide<br>
+multiply<br>
++<br>
+-<br>
+*<br>
+/<br>
+where <br>
+<br>
+<u>divide <br>
+</u>evaluates <br>
+expression / expression<br>
+eg<br>
+charisma * 2 + constitution + nymphomania divide 3<br>
+is<br>
+(charisma * 2 + constitution + nymphomania) / 3<br>
+<br>
+Similarly for multiply<br>
+<br>
+All other operators evaluate left to right<br>
+<br>
+Note this is all a bit awkward and maybe revised later<br>
+<br>
+<br>
+<u><span style="font-size: 14pt;">Conditional Attributes<br>
+</span></u><span style="font-size: 12pt;">There are a set of standard conditional attributes that can be used and a set of standard variables available.<br>
+<br>
+The standard format for a conditional is<br>
+<br>
+<i>left-expression</i>="<i>right-expression"<br>
+<br>
+</i>Where an expression (both left and right) can be a numeric expression calculated value based on standard variables (see below)<br>
+<br>
+A left-expression can also consist of a set of high level keywords like<br>
+eg<br>
+&lt;if furries="true"&gt;<br>
+Here furries is an abstraction and represents the internal variable _root.FurriesOn. It cannot be used as an attribute or in a numeric expression.<br>
+<br>
+A right-expression can be a numeric expression and for some asbstraction can have the value "true" or "false" as you see above. The values "true" and "false" may not be used in numeric expressions.<br>
+<br>
+<br>
+<u><span style="font-size: 14pt;">Keywords<br>
+</span></u><span style="font-size: 12pt;">In general these are used to check options in the game or particular state of the game. For instance, is the current night a full moon, are there dickgirls in the world etc<br>
+They may only appear as a left expression (ie may not appear as an attribute or in an expression)<br>
+<br>
+In General these are used as either<br>
+&lt;if fullmoon="true&gt;<br>
+or<br>
+&lt;if fullmoon="false"&gt;<br>
+or<br>
+&lt;if elapsed="8+&gt;<br>
+where the right is either "true", "false" or an expression. Below lists the valid values for each<br>
+<br>
+<b><span style="font-size: 14pt;">chance<br>
+</span></b><span style="font-size: 12pt;">A percentage chance (that will be true)<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;if chance=50%&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;SetText&gt;something happens&lt;/SetText&gt;<br>
+&lt;/if&gt;<br>
+<span style="font-size: 12pt;">This means that 50% of the time the conditional will be true and it's subnodes are processed. A value of 100+ will always be true. Note the % is optional but recommended.<br>
+<br>
+<b><span style="font-size: 14pt;">supervise<br>
+</span></b><span style="font-size: 12pt;">This is the person who is supervising your slave, and is equivallent to the variable _root.Supervise<br>
+Valid values:<br>
+"slavemaker" - slave maker supervision<br>
+&nbsp;"assistant"&nbsp;&nbsp;&nbsp;&nbsp;
+- assistant supervision<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;if supervise="slavemaker"&gt;<span style="font-size: 12pt;"><br>
+<span style="font-size: 10pt;">...<br>
+&lt;/if&gt;<span style="font-size: 12pt;"><br>
+<b><br>
+<span style="font-size: 14pt;">slavegender</span></b><span style="font-size: 12pt;"><br>
+This is the gender of your current slave. It can alse be used as a variable, see below, but as a left-expression has a special case<br>
+Values<br>
+1,2,3,4,5,6 - standard gender values<br>
+"twins" - true for value 4,5,6<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;if slavegender="twins"&gt;<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">assistantgender</span></b><span style="font-size: 12pt;"><br>
+as for slavegender but for your assistant's gender<br>
+<br>
+<span style="font-size: 10pt;">Note: your slave makers gender is always a variable below as it does not have "twins" as an option.<br>
+<span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">lactating</span></b><span style="font-size: 12pt;"><br>
+Returns true if your slave is lactating (female or dickgirl slaves only)<br>
+Values "true" or "false"<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;if lactating="false"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;SetText&gt;She is not lactating&lt;/SetText&gt;<br>
+&lt;/if&gt;<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">naked<span style="font-size: 12pt;"><br>
+</span></span></b>Is your slave currently naked? This is equivallent to the variable _root.Naked or _root.DressWorn=-1<br>
+Values "true" or "false"<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;if naked="true"&gt;<span style="font-size: 12pt;"><br>
+<span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;SetText&gt;The wind is cold on #slavehisher bare skin&lt;/SetText&gt;<br>
+&lt;/if&gt;<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">day</span></b><br>
+<span style="font-size: 12pt;">Is it daytime?<br>
+Equivallent to the variable _root.Day<br>
+Values "true" or "false"<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;if day="false"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;addtext&gt; it is nighttime&lt;/addtext&gt;<br>
+&lt;/if&gt;<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">guildmember</span></b><br>
+<span style="font-size: 12pt;">Are you a member of the slavemaker guild. This is equivallent to the variable _root.GuildMember<br>
+Values "true" or "false"<br>
+<br>
+<b><span style="font-size: 14pt;">furries</span></b><br>
+<span style="font-size: 12pt;">Are furries in the game. This is equivallent to the variable _root.FurriesOn, and the setting in Options<br>
+Values "true" or "false"<br>
+<br>
+<b><span style="font-size: 14pt;">nonhumans</span></b><br>
+<span style="font-size: 12pt;">Is non-human sex in the game. This is equivallent to the variable _root.FurriesOn, and the setting in Options<br>
+Values "true" or "false"<br>
+<br>
+<b><span style="font-size: 14pt;">usegeneric</span></b><br>
+<span style="font-size: 12pt;">Is a generic image being shown. This is equivallent to the variable _root.UseGeneric<br>
+Values "true" or "false"<br>
+<br>
+<b><span style="font-size: 14pt;">milkable</span></b><br>
+<span style="font-size: 12pt;">Is the current slave milkable at the farm . This is equivallent to the variable _root.Milkable<br>
+Values "true" or "false"<br>
+<br>
+<b><span style="font-size: 14pt;">badends</span></b><br>
+<span style="font-size: 12pt;">Are bad ends enabled in the game. This is equivallent to the variable _root.BadEndsOn, and the setting in Options<br>
+Values "true" or "false"<br>
+<br>
+<b><span style="font-size: 14pt;">incest<br>
+</span></b><span style="font-size: 12pt;">Are events involving inces in the game. Equivalent to _root.IncestOn <br>
+Values "true" or "false"<br>
+<br>
+<b><span style="font-size: 14pt;">bdsm<br>
+</span></b><span style="font-size: 12pt;">Are events involving bondage/domination in the game. Equivalent to _root.BDSMOn <br>
+Values "true" or "false"<br>
+<br>
+<b><span style="font-size: 14pt;">rape<br>
+</span></b><span style="font-size: 12pt;">Are events involving rape in the game. Equivalent to _root.RapeOn <br>
+Values "true" or "false"<br>
+<br>
+<b><span style="font-size: 14pt;">pregnancy<br>
+</span></b><span style="font-size: 12pt;">Are events involving pregnancy in the game. Equivalent to _root.PregnancyOn <br>
+Values "true" or "false"<br>
+<br>
+<b><span style="font-size: 14pt;">hascock</span></b><span style="font-size: 12pt;"><br>
+Does your slave have a cock? This is equivallent to the variable _root.HasCock, and true if your slave is a male or dickgirl<br>
+Values "true" or "false"<br>
+<br>
+<b><span style="font-size: 14pt;">isfairy</span></b><br>
+<span style="font-size: 12pt;">Has your slave completed transforming into a fairy. This is equivallent to the function _root.IsFairy()<br>
+Values "true" or "false"<br>
+<br>
+<b><span style="font-size: 14pt;">iscatgirl</span></b><br>
+<span style="font-size: 12pt;">Is your slave training as a catgirl or has completed her training? This is equivallent to the function _root.IsCatgirl()<br>
+Values "true" or "false"<br>
+<br>
+<b><span style="font-size: 14pt;">isponygirl</span></b><br>
+<span style="font-size: 12pt;">Is your slave a ponygirl? This is equivallent to the function _root.IsPonygirl()<br>
+Values "true" or "false"<br>
+<br>
+<b><span style="font-size: 14pt;">isdickgirl</span></b><br>
+<span style="font-size: 12pt;">Is your slave a dickgirl? This is equivallent to the function _root.IsDickgirl()<br>
+Values "true" or "false"<br>
+<br>
+<b><span style="font-size: 14pt;">itemowned<span style="font-size: 12pt;"><br>
+</span></span></b>Does your slave have item x. See <b>Core - Items + Dresses.rtf </b>for item numbers. Equivallent to IsItemAvailable(x)<br>
+Values: a number<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;if itemowned="1"&gt;<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">itemworn<span style="font-size: 12pt;"><br>
+</span></span></b>Is you slave wearing item x. See <b>Core - Items + Dresses.rtf </b>for item numbers. Equivallent to IsItemWorn(x)<br>
+Values: a number<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;if itemworn="1"&gt;<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">weaponowned<span style="font-size: 12pt;"><br>
+</span></span></b>Do you own this weapon<br>
+Values: a number, see <b>Core - Combat.rtf</b><br>
+<br>
+<b><span style="font-size: 14pt;">armourowned<span style="font-size: 12pt;"><br>
+</span></span></b>Do you own the peice of armour<br>
+Values: a number, see <b>Core - Combat.rtf</b><br>
+<br>
+<b><span style="font-size: 14pt;">displaydate<span style="font-size: 12pt;"><br>
+</span></span></b>What date is it, formatted for readability, mainly for use as #displaydate<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;AddText&gt;The date is #displaydate&lt;/AddText&gt;<br>
+<span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">time<span style="font-size: 12pt;"><br>
+</span></span></b>What time of day is it (0-23.99), Equivalent to _root.GameTime<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;if time="12+"&gt;<br>
+<br>
+<b><span style="font-size: 14pt;">displaytime<span style="font-size: 12pt;"><br>
+</span></span></b>What the time of day, formatted for readability, mainly for use as #displaytime<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;AddText&gt;The time is #displaytime&lt;/AddText&gt;<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">elapsed</span></b><span style="font-size: 12pt;"><br>
+How many days have elapsed since training started. Equivalent to _root.Elapsed<br>
+<br>
+<b><span style="font-size: 14pt;">specialevent</span></b><span style="font-size: 12pt;"><br>
+What special event has affected your Slave Makers past. Equivalent to _root.SMSpecialEvent<br>
+Values as for the variable<br>
+<font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = Ex-Milk Slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = Tentacle Hybrid<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = Converted by Tentacles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 = Ex-Cowgirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 = Demonic Cock<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 = Inhuman Ancestry<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7 = Succubus<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 = Demon<br>
+<font color="#000000"><br>
+<b><span style="font-size: 14pt;">hometown</span></b><span style="font-size: 12pt;"><br>
+Where was your Slave Maker born, equivalient to _root.SMHomeTown<br>
+Values as for the variable<br>
+<font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = Coutry Town<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = Old Faith Stronghold<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = Amazon Tribe<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = Mardukane<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 = Caravan<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 = Elven Forest<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 = Dark Elven Capital<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7 = True Catgirl Tribe<br>
+<font color="#000000"><br>
+<b><span style="font-size: 14pt;">smadvantage</span></b><span style="font-size: 12pt;"><br>
+Does your Slave Maker have a particular advantage. Equivalent to _root.SMAdvantages.CheckBitFlag(x)<br>
+Values, see Core - Variables.rtf<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;if smadvantage="5"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;SetText&gt;Being a wealthy person.....&lt;/SetText&gt;<br>
+&lt;/if&gt;<span style="font-size: 12pt;"><br>
+<br>
+values<br>
+<br>
+<b><span style="font-size: 14pt;">slave</span></b><span style="font-size: 12pt;"><br>
+Is the named person your current slave. Do not use their quilified name like 'Cumslut Ranma' just Ranma. Equivalent to the function IsSlave<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;if slave="ranma"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;SetText&gt;You ask Ranma about the curse she had in the past. Was she really born a boy?&lt;/SetText&gt;<br>
+&lt;/if&gt;<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">assistant</span></b><span style="font-size: 12pt;"><br>
+Is the named person currently your assistant Equivalent to the fucntion IsAssistant<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;if assistant="naru"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;SetText&gt;You suggest to Naru that your slave is not enough of a slut...&lt;/SetText&gt;<br>
+&lt;/if&gt;<br>
+<span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">slaveavailable<br>
+</span></b><span style="font-size: 12pt;">Is the named slave available for training, or is already trained. Equivalent to the function IsSlaveAvailable<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;ifnot slaveavailable="tifa"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;SetText&gt;You see a slave bound nearby, she is named Tifa...&lt;/SetText&gt;<br>
+&lt;/ifnot&gt;<br>
+<span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">slaveowned<br>
+</span></b><span style="font-size: 12pt;">Is the named slave owned by you, or is already trained. Equivalent to the function IsSlaveOwned<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;if slaveowned="tifa"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;SetText&gt;You ask your slave Tifa to....&lt;/SetText&gt;<br>
+&lt;/if&gt;<br>
+<span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">tentacleevent</span></b><span style="font-size: 12pt;"><br>
+True if the game decides that a tentacle event should happen, based on the rate specified in Options and time of the month. Always returns false if tentacles are not enabled. Equivalient to  Tentacles.IsTentacleEvent()<br>
+Values "true" or "false"<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;if tentacleevent="true"&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;SetText&gt;#slave notices a slithering, tentacled shape...&lt;/SetText&gt;<br>
+&lt;else&gt;if&lt;/else&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;SetText&gt;#slave hears a ghostly moan....&lt;/SetText&gt;<br>
+&lt;/if&gt;<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">dickgirlevent</span></b><span style="font-size: 12pt;"><br>
+Same as tentacleevent above, but for dickgirl versions of encounters<br>
+Values "true" or "false"<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;if tentacleevent="true"&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;SetText&gt;The woman is a hermphrodite, and she part her dress revealing her cock...&lt;/SetText&gt;<br>
+&lt;else&gt;if&lt;/else&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;SetText&gt;The woman mentions her pussy is rather wet...&lt;/SetText&gt;<br>
+&lt;/if&gt;<br>
+<span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">fullmoon</span></b><span style="font-size: 12pt;"><br>
+Is today a full moon?<br>
+Values "true" or "false" or "close"<br>
+<br>
+<b><span style="font-size: 14pt;">newmoon</span></b><span style="font-size: 12pt;"><br>
+Is today a new moon<br>
+Values "true" or "false" or "close"<br>
+<br>
+<b><span style="font-size: 14pt;">lesbiantraining</span></b><span style="font-size: 12pt;"><br>
+Is your slave currently under going lesbian training<br>
+Values "true" or "false"<br>
+<br>
+<b><span style="font-size: 14pt;">lesbian</span></b><span style="font-size: 12pt;"><br>
+Is the current sex act a lesbian event (ie only women participants or dickgirls depending on an Option)<br>
+Values "true" or "false"<br>
+<br>
+<b><span style="font-size: 14pt;">roomexplored</span></b><span style="font-size: 12pt;"><br>
+Has the current room been explored, equivalent to HouseEvents.IsCurrentRoomExplored()<br>
+see <b>Core - House Exploration.rtf </b>for more details<br>
+Values "true" or "false"<br>
+<br>
+<b><span style="font-size: 14pt;">dickgirls<span style="font-size: 12pt;"><br>
+</span></span></b>Are dickgirls present in the current game. equivalent to _root.DickgirlOn == 1<br>
+Values "true" or "false"<br>
+<br>
+<b><span style="font-size: 14pt;">tentacles<span style="font-size: 12pt;"><br>
+</span></span></b>Are tentacles present in the current game. Normally just use tentacleevent. Equivalent to _root.TentaclesOn == 1 <br>
+Values "true" or "false"<br>
+<br>
+<b><span style="font-size: 14pt;">ponygirls<span style="font-size: 12pt;"><br>
+</span></span></b>Are ponygirls present in the current game. Equivalent to _root.PonygirlsOn<br>
+Values "true" or "false"<br>
+<br>
+<b><span style="font-size: 14pt;">pregnancytype | pregnancytype-xxxxxxx<br>
+</span></b><span style="font-size: 12pt;">What is the slave pregnant with. Defaults to checking your current slave. Check slaves or NPCs by name. Also supports 'slavemaker' and 'assistant'<br>
+Values "Tentacles" or slave developer specific<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;if pregnancytype="Tentacles"&gt;<br>
+eg<br>
+&lt;if pregnancytype-ladyfarun="Tentacles"&gt;<span style="font-size: 12pt;"><br>
+<span style="font-size: 10pt;">eg<br>
+&lt;if pregnancytype-slavemaker="Human"&gt;<br>
+eg<br>
+&lt;if pregnancytype-Tifa="Orc"&gt;<br>
+<span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">ispregnant<br>
+</span></b><span style="font-size: 12pt;">Is the slave pregnant. Defaults to checking your current slave. Check slaves or NPCs by name. Also supports 'slavemaker' and 'assistant'<br>
+Values "true" or "false"<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;if ipregnant="true"&gt;<br>
+eg<br>
+&lt;if ipregnant-ladyfarun="true"&gt;<span style="font-size: 12pt;"><br>
+<span style="font-size: 10pt;">eg<br>
+&lt;if ipregnant-slavemaker="false"&gt;<br>
+eg<br>
+&lt;if ipregnant-Tifa="true"&gt;<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">slavefemale<br>
+</span></b><span style="font-size: 12pt;">Is your current slave female. This includes dickgirls.<br>
+Values "true" or "false"<br>
+<br>
+<b><span style="font-size: 14pt;">assistantfemale<br>
+</span></b><span style="font-size: 12pt;">Is your current assustant female. This includes dickgirls.<br>
+Values "true" or "false"<br>
+<br>
+<b><span style="font-size: 14pt;">isdickgirlchangable<br>
+</span></b><span style="font-size: 12pt;">DickgirlChangable<br>
+<br>
+<b><span style="font-size: 14pt;">islevelup<br>
+</span></b><span style="font-size: 12pt;">LevelUp<br>
+<br>
+<b><span style="font-size: 14pt;">isdating<br>
+</span></b><span style="font-size: 12pt;">(EventBoyfriend == 1) <br>
+<br>
+<b><span style="font-size: 14pt;">iscourtesan<br>
+</span></b><span style="font-size: 12pt;">DoneCourtesan <br>
+<br>
+<b><span style="font-size: 14pt;">ispluginserted<br>
+</span></b><span style="font-size: 12pt;">(PlugInserted  &gt; 0)<br>
+<br>
+<b><span style="font-size: 14pt;">tentacleevent<br>
+</span></b><span style="font-size: 12pt;">Tentacles.IsTentacleEvent() <br>
+<br>
+<b><span style="font-size: 14pt;">dickgirlevent<br>
+</span></b><span style="font-size: 12pt;">IsDickgirlEvent() <br>
+<br>
+<b><span style="font-size: 14pt;">firsttimetoday<br>
+</span></b><span style="font-size: 12pt;">FirstTimeToday;<br>
+<br>
+<b><span style="font-size: 14pt;">lastevent<br>
+</span></b><span style="font-size: 12pt;">(OldStrEvent.toLowerCase() <br>
+<br>
+<b><span style="font-size: 14pt;">currentevent<br>
+</span></b><span style="font-size: 12pt;">(StrEvent.toLowerCase()<br>
+<br>
+<b><span style="font-size: 14pt;">iseventallowable<br>
+</span></b><span style="font-size: 12pt;">IsEventAllowable() <br>
+<br>
+<b><span style="font-size: 14pt;">partner<span style="font-size: 12pt;"><br>
+</span></span></b>Is the named slave a partner in the current sex act, only valid for 1 on 1 sex acts.<br>
+Values "true" or "false"<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;if partner="Kiyone"&gt;<br>
+<span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">anypartner<span style="font-size: 12pt;"><br>
+</span></span></b>Is the names slave one of the people in a multiperson sex act<br>
+Values "true" or "false"<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;if anypartner="Kiyone"&gt;<br>
+<span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">isdressswimsuit<br>
+</span></b><span style="font-size: 12pt;">IsDressSwimsuit();<br>
+<br>
+<b><span style="font-size: 14pt;">isdresscourtly<br>
+</span></b><span style="font-size: 12pt;">IsDressCourtly();<br>
+<br>
+<b><span style="font-size: 14pt;">isdressmaid<br>
+</span></b><span style="font-size: 12pt;">IsDressMaid();<br>
+<br>
+<b><span style="font-size: 14pt;">isdresseasy<br>
+</span></b><span style="font-size: 12pt;">IsDressEasy();<br>
+<br>
+<b><span style="font-size: 14pt;">isdresssleazybar<br>
+</span></b><span style="font-size: 12pt;">IsDressSleazyBar();<br>
+<br>
+<b><span style="font-size: 14pt;">isdressslutty<br>
+</span></b><span style="font-size: 12pt;">IsDressSlutty();<br>
+<br>
+<b><span style="font-size: 14pt;">isdressdancing<br>
+</span></b><span style="font-size: 12pt;">IsDressDancing();<br>
+<br>
+<b><span style="font-size: 14pt;">isdresslingerie<br>
+</span></b><span style="font-size: 12pt;">IsDressLingerie();<br>
+<br>
+<b><span style="font-size: 14pt;">isdresscatears<br>
+</span></b><span style="font-size: 12pt;">IsDressCatEars();<br>
+<br>
+<b><span style="font-size: 14pt;">isdresscattail<br>
+</span></b><span style="font-size: 12pt;">IsDressCatTail();<br>
+<br>
+<b><span style="font-size: 14pt;">isdressmiko<br>
+</span></b><span style="font-size: 12pt;">IsDressMiko();<br>
+<br>
+<b><span style="font-size: 14pt;">isdresswaitress<br>
+</span></b><span style="font-size: 12pt;">IsDressWaitress();<br>
+<br>
+<b><span style="font-size: 14pt;">isdressholy<br>
+</span></b><span style="font-size: 12pt;">IsDressHoly();<br>
+<br>
+<b><span style="font-size: 14pt;">isdressdemonic<br>
+</span></b><span style="font-size: 12pt;">IsDressDemonic();<br>
+<br>
+<b><span style="font-size: 14pt;">flagxxxxxxx<span style="font-size: 12pt;"><br>
+</span></span></b>Is the particular bit flag true/false<br>
+The xxxx part is the name of the flag. Valid values<br>
+flag1<br>
+flag2<br>
+flagsm<br>
+flagdemon<br>
+flagfairy<br>
+flagppppppp, where ppppp is a person<br>
+flag<i>eventname </i>where eventname is the name of a custom event. The event must implement GetEventFlag function<br>
+eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+flagcount<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+flagladyfarun<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Values are (note a number of alternates like miss n missn prostitute<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+rinno<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ merchant <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+sora<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+barmaid <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+missn<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+miss.n<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+prostitute<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ladyokyanu<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+highclassprostitute <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+sumi<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+maid <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+shan<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+knightshan<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+knight <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+countgossem<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+count <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+lord <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+farun<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ladyfarun <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+tena<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+cutelesbian <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+epona<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+mistressepona<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ponymistress <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+irina<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+bountyhunter <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+headlibrarianlillana<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+lillana<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+librarian <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+dancer <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+alsha<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+swiminstructor <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+sleazybarowner <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+mina<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+singer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+natsu&nbsp;&nbsp;&nbsp;
+<br>
+flagplace, where place is a location<br>
+eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+flagforest<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Values are<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+forest <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+deepforest <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+lake <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+towncenter &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+slums <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+palace <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+docks<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+docksport <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+docksslavepens <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+docksslavepenssecure <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+farm <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ruinedtemple<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ruins <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+beach<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+beachswim <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+beachwalk <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+beachprivate <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+beachrocks <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+slavemarket <br>
+Values "true" or "false"<br>
+<br>
+Usage then is to append the particular flag after a -<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+flag1-5="true"<br>
+tests if flag1, bit 5 is true<br>
+or<br>
+CheckBitFlag1(5) == true<br>
+<br>
+eg<br>
+&lt;if flagcount-0="true"&gt;<br>
+<span style="font-size: 12pt;"><br>
+<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></font></span><hr style="width: 100%; height: 2px;"><span style="font-size: 12pt;"><font face="Arial"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></font></span><h1><a class="mozTocH1" name="mozTocId616835"></a>Variables<span style="font-size: 12pt;"><font face="Arial"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></font></span></h1><span style="font-size: 12pt;"><font face="Arial"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;">
+note these are all case-insensitive, and listed is the core variable they correspond to. Note there are some alternate variables for some and are listed<br>
+action | lastaction<br>
+which means action and lastaction can be used interchangeably<br>
+&lt;if action="1"&gt;<br>
+is the same as<br>
+&lt;if lastaction="1"&gt;<br>
+<br>
+These maybe use as left or right parts of an if or in an expression<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">&lt;if faith="1"&gt;<br>
+<br>
+&lt;if constitution="80-"&gt;<br>
+<br>
+&lt;if chance="intelligence"&gt;<br>
+<br>
+&lt;Money&gt;constitution + charisma divide 2&lt;/Money&gt;<span style="font-size: 12pt;"><br>
+<br>
+<u>misc<br>
+</u><b>customflag</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.CustomFlag<br>
+<b>customflag1</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.CustomFlag1<br>
+<b>customflag2</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.CustomFlag2<br>
+<b>customflag3</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.CustomFlag3<br>
+<b>customflag4</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.CustomFlag4<br>
+<b>customflag5</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.CustomFlag5<br>
+<b>customflag6</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.CustomFlag6<br>
+<b>customflag7</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.CustomFlag7<br>
+<b>customflag8</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.CustomFlag8<br>
+<b>customflag9</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.CustomFlag9<br>
+<b>action | lastactiondone</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.LastActionDone<br>
+<b>lastnumevent</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.OldNumEvent<br>
+<b>currentnumevent</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.NumEvent<br>
+<b>currframe | currentframe</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.currFrame<br>
+<b>date</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.GameDate<br>
+<b>time</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.GameTime<br>
+<b>elapsed</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Elapsed<br>
+<b>money</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarGold + SMGold<br>
+<b>debt</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SMDebt<br>
+<b>difficulty</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Difficulty<br>
+<b>walkhome<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.TotalWalkHouse<br>
+<b>walkcustomhome<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.TotalWalkCustom<br>
+<b>specialevent<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SMSpecialEvent<br>
+<b>hometown<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SMHomeTown<br>
+<b>rulestalk<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.RulesTalk<br>
+<b>rulesfuck<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.RulesFuck<br>
+<b>rulesgoout<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.RulesGoOut<br>
+<b>rulestouchherself</b> | <b>rulesmasturbate</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.RulesTouchHerself<br>
+<b>ruleswriteletters</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.RulesWriteLetters<br>
+<b>rulespocketmoney</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.RulesPocketMoney<br>
+<b>rulespray</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.RulesPray<br>
+<b>ending</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.NumFin<br>
+<b>buyer</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SoldSlave<br>
+<b>score</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Score<br>
+<b>pay</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Pay<br>
+<b>loveaccepted</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.LoveAccepted<br>
+<b>weapontype</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.WeaponType<br>
+<b>armourtype</b> | <b>armortype</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.ArmourType<br>
+<b>fairytransformation</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.FairyXF<br>
+<b>tentaclepregnancy</b> | <b>pregnancygestation</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PregnancyGestation<br>
+<b>pregnancycount</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PregnancyCount<br>
+<b>fairymeeting</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.FairyMeeting<br>
+<b>tentaclehaunt</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.TentacleHaunt<br>
+<b>noblelove</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.NobleLoveType<br>
+<b>trainingtime</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.TrainingTime<br>
+<b>dressframe </b>| <b>nakedchoice</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if your slave is naked then _root.NakedChoice<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else _root.DressFrame<br>
+<b>talentprogress</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.TalentProgress<br>
+<b>badgirl</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.BadGirl<br>
+<b>participanttotal<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Participants.length<br>
+<b>loop<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.loopvar<br>
+<b>virginvaginal<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VirginVaginal<br>
+<b>virginanal<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VirginAnal<br>
+<b>virginoral<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VirginOral<br>
+<b>totalmales<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.totmales<br>
+<b>totalfemales<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.totfemales<br>
+<b>totaldickgirls<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.totdickgirls<br>
+<b>ishinaieffecting<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.IshinaiEffecting<br>
+<b>doreieffecting<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DoreiEffecting<br>
+<b>weapon<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.GetWeaponName(WeaponType)<br>
+<b>armour || armor<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.GetArmourName(WeaponType)<br>
+<br>
+<br>
+<u>stats<br>
+</u><b>charisma</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarCharismaRounded<br>
+<b>sensibility</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarSensibilityRounded<br>
+<b>refinement</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarRefinementRounded<br>
+<b>intelligence</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarIntelligenceRounded<br>
+<b>morality</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarMoralityRounded<br>
+<b>constitution</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarConstitutionRounded<br>
+<b>cooking</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarCookingRounded<br>
+<b>cleaning</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarCleaningRounded<br>
+<b>conversation</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarCharismaRounded<br>
+<b>blowjob | blowjobs</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarBlowJobRounded<br>
+<b>fuck | fucking<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarFuckRounded<br>
+<b>temperament</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarTemperamentRounded<br>
+<b>nymphomania</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarNymphomaniaRounded<br>
+<b>obedience</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarObedienceRounded<br>
+<b>lust</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarLibidoRounded<br>
+<b>fatigue | tiredness<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarFatigueRounded<br>
+<b>joy</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarCharismaRounded<br>
+<b>reputation</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarReputationRounded<br>
+<b>special</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarSpecialRounded<br>
+<b>fitness</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.FatigueBonus<br>
+<b>slutiness</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Slutiness<br>
+<b>sexuality</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Sexuality<br>
+<b>bust</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.vitalsBust<br>
+<b>clit</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.ClitCockSize<br>
+<b>cock</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.ClitCockSize<br>
+<b>lactation</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Lactation<br>
+<b>breastfixation</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.BreastFixation<br>
+<b>milkinfluence</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.MilkInfluence<br>
+<b>maxfuck<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.MaxFuck<br>
+<b>maxcharisma<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.MaxCharisma<br>
+<b>maxrefinement<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.MaxRefinement<br>
+<b>maxsensibility<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.MaxSensibility<br>
+<b>maxintelligence<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.MaxIntelligence<br>
+<b>maxmorality<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.MaxMorality<br>
+<b>maxconstitution<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.MaxConstitution<br>
+<b>maxcooking<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.MaxCooking<br>
+<b>maxcleaning<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.MaxCleaning<br>
+<b>maxconversation<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.MaxConversation<br>
+<b>maxblowJob<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.MaxBlowJob<br>
+<b>maxtemperament<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.MaxTemperament<br>
+<b>maxnymphomania<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.MaxNymphomania<br>
+<b>maxobedience<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.MaxObediance<br>
+<b>maxlibido<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.MaxLibido<br>
+<b>maxjoy<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.MaxJoy;<br>
+<b>maxspecial<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.MaxSpecial<br>
+<b>daysunavailable<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DaysUnavailable<br>
+<br>
+<b>smattack</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SMAttack<br>
+<b>smdefence</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SMDefence<br>
+<b>corruption</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Corruption<br>
+<b>smconstitution</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SMConstitution<br>
+<b>smconversation</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SMConversation<br>
+<b>smreputation</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SMReputation<br>
+<b>smlust</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SMLust<br>
+<b>smdominiance</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SMDominiance<br>
+<b>smcharisma</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SMCharisma<br>
+<b>smrefinement</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SMRefinement<br>
+<b>smnymphomania</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SMNymphomania<br>
+<b>smtiredness</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SMTiredness<br>
+<b>smdaysunavailable<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SMDaysUnavailable<br>
+<br>
+<u>skills<br>
+</u><b>SlaveTraining<br>
+Leadership<br>
+LesbianTrainer<br>
+ExpertTrader<br>
+Alchemy<br>
+PonygirlTrainer<br>
+CatslaveTrainer<br>
+SuccubusTrainer<br>
+SlutTrainer<br>
+OrgasmDenialTrainer<br>
+Refined<br>
+Nobility<br>
+TentacleExpert&nbsp;&nbsp;
+<br>
+SwordSkill<br>
+WhipSkill<br>
+BowSkill<br>
+HammerSkill<br>
+NaginataSkill<br>
+DaggerSkill<br>
+CrossbowSkill<br>
+UnarmedCombat<br>
+Dancing<br>
+SingingSwimming<br>
+CourtesanTraining<br>
+PonyTraining<br>
+CatslaveTraining<br>
+SlutTraining<br>
+FairyAffinity<br>
+Seduction<br>
+<br>
+<u></u></b><u>special cases<br>
+</u><b>eventtotal | visittotal </b>| <b>lendtotal</b><br>
+When taking a walk this represents the number of times the event has happened, 1 for the first time. When visiting a person, or lending to a person it is the number of times the person has been visited/loaned to.<br>
+It has no meaning for other events and will return 0 then.<br>
+<br>
+<b>totalxxxxxx</b><br>
+When doing a training like a chore/job/sex act it is the number of times the act has been done.<br>
+use as<br>
+&lt;if totalmasturbate="1"&gt;<br>
+&lt;if totalbrothel="3"&gt;<br>
+or use the act numbers, see <b>Slave Girl - Plannings - Common.rtf</b><br>
+&lt;if total9="1"&gt;<br>
+<br>
+<b>levelxxxxxx<br>
+</b>as for total above it returns the level of mastery for a sex act. No meaning for non-sex acts.<br>
+<br>
+<b>potionusedxxxxx<br>
+</b>This is the number of times a potion has been used. See <b>Slave Girl - Override Functions.rtf</b>, DrinkPotion function for the potion numbers<br>
+<br>
+<span style="font-size: 10pt;">eg<span style="font-size: 12pt;"><br>
+<span style="font-size: 10pt;">&lt;if potionused1="1"&gt;<br>
+<span style="font-size: 12pt;"><br>
+<b>isaccessible-xxxxxxxxxx<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Is the person or place accessible (ie can be visited). See flagxxxxxxx for the range of values<br>
+<span style="font-size: 10pt;">eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;if isaccessible-ladyfarun&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;if isaccessible-palace&gt;<span style="font-size: 12pt;"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<b>ismet-xxxxxxxxxxx<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+As for isaccessible, but is the person met<br>
+<br>
+<b>deficiency<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Does the slave have a deficiency in the stat (ie increases at 50% normal rate)<br>
+<br>
+Valid values are the slave stats plus the special values<br>
+sex &nbsp;&nbsp;&nbsp;&nbsp;
+- fuck and blowjob<br>
+slut&nbsp;&nbsp;&nbsp;&nbsp;
+- nymphomania and lust<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;if deficiency="constitution"&gt;<span style="font-size: 12pt;"><br>
+<br>
+<b>naturaltalent<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Does the slave have a particular talent in the stat (ie increases at 150% normal rate)<br>
+<br>
+Valid values are the slave stats plus the special values<br>
+sex &nbsp;&nbsp;&nbsp;&nbsp;
+- fuck and blowjob<br>
+slut&nbsp;&nbsp;&nbsp;&nbsp;
+- nymphomania and lust<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;if naturaltalent="constitution"&gt;<span style="font-size: 12pt;"><br>
+<br>
+<b>var1<br>
+var2<br>
+...<br>
+varn<br>
+</b>These are general purpose variables used for the event(s) being handled. There is no limit to how many you may use or set. Set the statement &lt;SetVar&gt; below for setting.<br>
+In a conditional  these return the current value of the variable<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;var1="3+&gt;<br>
+&lt;/if&gt;<br>
+<br>
+<b><span style="font-size: 12pt;">eventx</span></b><br>
+For custom events you can access custom varaibles in the format<br>
+<i>eventname</i>nnnnn<br>
+<br>
+The custom event has to implement GetVariable function for this to work<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;if tentacleraid1="5"&gt;<span style="font-size: 12pt;"><br>
+<br>
+<br>
+<u><span style="font-size: 14pt;">Less than or Greater than Tests<br>
+</span></u><b><span style="font-size: 12pt;">x+</span></b><br>
+&lt;if time="13+"&gt;&nbsp;
+<br>
+...<br>
+&lt;/if&gt;<br>
+This means is the time 13 or greater, ie time &gt;= 13<br>
+<br>
+<b>x-</b><br>
+&lt;if time="11-"&gt;&nbsp;
+<br>
+...<br>
+&lt;/if&gt;<br>
+This means if the time less than or equal to 11, ie time &lt;= 11<br>
+<br>
+<u><span style="font-size: 14pt;">Other Modifiers<br>
+</span></u><b>OR Tests</b><span style="font-size: 12pt;"><br>
+&lt;if time="13+" or="true" furries="true" badends=true&gt;&nbsp;&nbsp;&nbsp;
+<br>
+all terms after or="true" are or'd<br>
+ie<br>
+time&gt;=13 || furries=true || badends=true<br>
+<br>
+eg<br>
+&lt;if time="13+" or="true" furries="true" or="false" badends=true&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+time&gt;=13 || furries=true &amp;&amp; badends=true<br>
+<br>
+<b><span style="font-size: 14pt;">AND Tests</span></b><span style="font-size: 12pt;"><br>
+&lt;if time="13+" and="true" furries="true&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+all terms after and="true" are and'd<br>
+<br>
+<br>
+<b>NOT Tests</b><br>
+&lt;if not="true" time="11-"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+means<br>
+if !(time&lt;=11)<br>
+or<br>
+if (time&gt;11)<br>
+<br>
+<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"></font></font></font></font></span></span><font color="#000000"><font color="#000000"></font></font></span></span></font></span></font></span>

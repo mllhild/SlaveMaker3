@@ -1,0 +1,1321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html;charset=ISO-8859-1" http-equiv="Content-Type">
+  <meta name="generator"
+ content="HTML Tidy for Windows (vers 22 March 2008), see www.w3.org">
+  <title>Ponygirl Training</title>
+</head>
+<body>
+<table
+ style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;"
+ border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font
+ size="+3"><span style="font-weight: bold;">Ponygirl Training<br>
+            </span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td
+ style="vertical-align: top; width: 80%; text-align: left;"><a
+ href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font
+ style="font-weight: bold;" size="-1">Version 8</font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><br>
+There are a series of functions and variables that control your slaves
+training as a ponygirl. Note males slaves can become ponyboys but this
+document will just refer to ponygirls<br>
+<br>
+</span><span style="font-weight: bold; font-family: Arial;">Table of
+Contents</span><br style="font-family: Arial;">
+<ul style="font-family: Arial;" id="mozToc">
+  <li><a href="#mozTocId675584">Ponygirls in the Game </a></li>
+  <li><a href="#mozTocId470815">Act Variations </a></li>
+  <li><a href="#mozTocId788139">Core
+Variables</a>
+    <ul>
+      <li><a href="#mozTocId139445">PonygirlsOn</a></li>
+      <li><a href="#mozTocId901948">PonygirlAware</a></li>
+      <li><a href="#mozTocId881421">slPonygirlTraining </a></li>
+      <li><a href="#mozTocId7304">PonygirlInterest</a></li>
+      <li><a href="#mozTocId787501">sPonyTrainer</a></li>
+      <li><a href="#mozTocId719154">TotalPony</a></li>
+      <li><a href="#mozTocId839303">WinPonygirl</a></li>
+      <li><a href="#mozTocId270240">TotalContestPonygirl</a></li>
+      <li><a href="#mozTocId543573">DifficultyPonygirl</a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId460056">BitFlags</a></li>
+  <li><a href="#mozTocId102796">Ending</a></li>
+  <li><a href="#mozTocId196866">Core
+Functions</a>
+    <ul>
+      <li><a href="#mozTocId967680">IsPonygirl</a></li>
+      <li><a href="#mozTocId344305">ChangePonyTraining</a></li>
+      <li><a href="#mozTocId773613">Dress
+Item positioning functions </a>
+        <ul>
+          <li><a href="#mozTocId450667">PositionTail</a></li>
+          <li><a href="#mozTocId57967">PositionTailOver</a></li>
+          <li><a href="#mozTocId457572">PositionGag</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId333546">Slave Girl Interface
+Functions</a>
+    <ul>
+      <li><a href="#mozTocId832336">ShowEndingPonygirl</a></li>
+      <li><a href="#mozTocId90566">ShowSexActPonygirl</a></li>
+    </ul>
+  </li>
+</ul>
+<br style="font-family: Arial;">
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId675584" id="mozTocId675584"></a>Ponygirls in the Game<span
+ style="font-size: 12pt;"><font><u><b><u><b><span
+ style="font-size: 14pt;"><br>
+</span></b></u></b></u></font></span></h1>
+<span style="font-family: Arial;">Ponygirls
+are uncommon in Mioya and most Slave Makers have no experience with
+them, and many have never even heard of them. By default Slave Makers
+are not familiar with ponygirls.<br>
+<br>
+The variable <a href="#mozTocId901948">PonygirlAware</a> controls the
+slave maker's awareness of ponygirls in the game.<br>
+<br>
+There is an invitation only ponygirl race held in the game, it is not
+publicised and by default a Slave Maker does not know it exists but
+will learn of it when they learn of ponygirls..<br>
+<br>
+Your slave makers skill <a href="#mozTocId787501">sPonyTrainer</a>
+controls how good a ponygirl they can train. The skill limits the
+slave's ponytraining level <a href="#mozTocId881421">slPonyTraining</a><br>
+</span><br style="font-family: Arial;">
+<span style="font-family: Arial;">Ponygirls are optional in the game
+and can be disabled in Options. If
+they are disabled then <a
+ href="Slave%20-%20Trainings%20-%20Ponygirl.html#mozTocId901948">PonygirlAware</a>
+will be -1 and the setting <a href="#mozTocId139445">PonygirlsOn</a>
+will be false.<br>
+<br>
+</span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId470815"></a>Act Variations<span style="font-size: 12pt;"><font><u><b><u><b><span
+ style="font-size: 14pt;"><br>
+</span></b></u></b></u></font></span></h1>
+<span style="font-family: Arial;">Some acts/trainings in the game
+differ if your slave is a ponygirl. Their name and images vary, as do
+their effects. <br>
+<br>
+</span>
+<table
+ style="text-align: left; width: 66%; height: 85px; font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 50%;">Make Up<br>
+      </td>
+      <td style="vertical-align: top;">Grooming<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Exercise<br>
+      </td>
+      <td style="vertical-align: top;">Ride Her/Ride Him<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">School - Dance<br>
+      </td>
+      <td style="vertical-align: top;">School - Prancing<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-family: Arial;"><br>
+</span><br style="font-family: Arial;">
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId788139" id="mozTocId788139"></a>Core
+Variables</h1>
+<table
+ style="text-align: left; width: 948px; height: 1004px; background-color: rgb(242, 255, 255); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: rgb(229, 229, 229);"><span
+ style="font-weight: bold;">Actionscript Variable</span></td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: rgb(229, 229, 229);"><span
+ style="font-weight: bold;">XML Variable</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 15px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 26px;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId139445"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><b><span
+ style="font-size: 12pt;">PonygirlsOn</span></b></span></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 26px;"><span
+ style="font-weight: bold;">ponygirls </span></td>
+          </tr>
+        </tbody>
+      </table>
+Option to enable ponygirls in the game. Applies to all slaves and
+slavemakers. Default true which means they are present<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 34px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId901948" id="mozTocId901948"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b>PonygirlAwar</b>e</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 21px;"><span
+ style="font-weight: bold;">ponygirlaware</span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <table style="text-align: left; width: 100%; height: 70px;"
+ border="0" cellpadding="6" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"><span
+ style="font-style: italic;"><font size="-1">(Number) </font></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">awareness of
+ponygirls<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-1 = no ponygirls in game<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = not aware (default)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = aware</span></span><span style="font-style: italic;"></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><span style="color: black;"><span
+ style="font-weight: bold;">Note:</span> generally you should never
+modify this variable, let the game set based on the standard events.<br>
+      <br>
+      </span><font size="-1"><span style="color: black;"> </span></font></font></span></span>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 34px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId881421" id="mozTocId881421"></a>slPonygirlTraining<br>
+            </h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white;"><font
+ size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-weight: bold;">ponygirltraining</span></span></span></font></td>
+          </tr>
+        </tbody>
+      </table>
+      <table style="text-align: left; width: 936px; height: 31px;"
+ border="0" cellpadding="6" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"><span
+ style="font-style: italic;"><font size="-1">(Number)</font></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"> The progress
+of your slaves training (0-100).<br>
+            <br>
+            </span></span> </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 54px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 29px;">
+            <h4><a class="mozTocH4" name="mozTocId7304"
+ id="mozTocId7304"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><b><span
+ style="font-size: 12pt;">PonygirlInterest</span></b></span></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 100%;"><span
+ style="font-weight: bold;">ponygirlinterest<br>
+initialise using &lt;PonygirlInterest&gt;<br>
+            </span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ size="-1"><span style="font-style: italic;">(Number)</span></font></span></span>
+The
+level of interest your slave has in being a ponygirl. This is the skill
+level of sPonyTrainer needed to start training. It is NOT saved so you
+must set it in Initialise() or UpdateSlave() functions and when it
+changes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = always will train if sPonyTrainer is 1 or more<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = will train is sPonyTrainer is 1 or more<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = will train is sPonyTrainer is 2 or more<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = will train is sPonyTrainer is 3 or more<br>
+Special case<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 = will never train. Preferably do not use this value, generally set
+to 3 to indicate high resistance. Only for special cases<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 33px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId787501" id="mozTocId787501"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b>sPonyTrainer</b></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white;"><font
+ size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-weight: bold;">ponytrainer</span></span></span></font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <font size="-1"><span style="font-style: italic;">(Number)</span></font>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;">your
+ability to train ponygirl, 0-3<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = do not know how to train them<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = can train girls except those hostile to the idea. They are willing
+but not perfect ponygirls and can only get the ending Pony Slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = can train girls except those hostile to the idea. They are fully
+submissive ponygirls and can get the ending Ponygirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = can convince any girl to become a ponygirl and love it. They are
+truly the ideal ponygirl and can get the ending Perfect Ponygirl<br>
+      <br>
+      </span></span> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 34px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 10px;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId719154" id="mozTocId719154"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b>TotalPony</b></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 10px;"><font
+ size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-weight: bold;">total-ponygirl<br>
+totalponygirl-<span style="font-style: italic;">slavename</span><br>
+            </span></span></span></font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-style: italic;"><font size="-1">(Number)</font></span>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;">Total
+times your slave became a ponygirl/boy (almost always 0 or 1).<br>
+      <br>
+      </span></span> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 34px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 10px;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId839303" id="mozTocId839303"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b>WinPonygirl</b></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 10px;"><font
+ size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-weight: bold;">winpony<br>
+            </span></span></span></font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ size="-1"><span style="font-style: italic;">(Number)</span></font></span></span>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;">how
+many times your slave has won a ponygirl race.<br>
+      <br>
+      </span></span> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 52px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 10px;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId270240" id="mozTocId270240"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b>TotalContestPonygirl</b></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 10px;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b>totalcontestponygirl</b></span></span><br>
+            <span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b>totalcontestponygirl</b></span></span><font
+ size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-weight: bold;">-<span style="font-style: italic;">slavename</span><br>
+            </span></span></span></font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ size="-1"><span style="font-style: italic;">(Number)</span></font></span></span>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;">Total
+times your slave competed in a ponygirl race.<br>
+      <br>
+      </span></span> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 52px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 10px;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId543573" id="mozTocId543573"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b>DifficultyPonygirl</b></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 10px;"><font
+ size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-weight: bold;">difficulty-ponygirl<br>
+difficultyponygirl-<span style="font-style: italic;">slavename</span><br>
+            </span></span></span></font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ size="-1"><span style="font-style: italic;">(Number)</span></font></span></span>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;">Obedience
+needed to be a ponygirl.<br>
+      <br>
+      </span></span> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <hr style="width: 100%; height: 2px;"> </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"></span><span style="font-size: 12pt;"><br>
+</span><span style="font-size: 12pt;">
+Ponygirl related items</span></span><br style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;">
+<b>_root.PonyCartOK<br>
+_root.PonyBootsOK</b><br>
+<b>_root.BitGagOK<br>
+_root.PonyTailOK<br>
+_root.HarnessOK<br>
+_root.BitGagWorn<br>
+_root.HarnessWorn<br>
+_root.PonyTailWorn</b><br>
+<span style="font-size: 10pt;"></span></span></span><br
+ style="font-family: Arial;">
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId460056"></a>BitFlags<span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000000"><font color="#000000"><span style="font-weight: bold;"></span></font></font></font></font></span></span></h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000000"><font color="#000000"><span style="font-weight: bold;">BitFlag1</span><br>
+<span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+21 &nbsp;&nbsp;&nbsp; = </span></font></font></font></font></span></span><span
+ style="font-family: Arial;">bondage warning for ponygirls. First time
+you fail to do a bondage action for a ponygirl you are warned and this
+flag is set</span><br style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><br>
+<span style="font-weight: bold;">BitFlagSM (Slave Maker)</span><br>
+</span></font></font></font></font></span><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000000"><font
+ color="#000000"><span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = you </span></font></font></font></font></span></span><span
+ style="font-family: Arial;">asked about Ponygirls and Epona</span><br
+ style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><br>
+</span></font></font></font></font></span></span><br
+ style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><u><span
+ style="font-size: 12pt;"></span></u></span></span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId102796" id="mozTocId102796"></a>Ending</h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-weight: bold;">Ending
+Number:</span> 18<br>
+<span style="font-weight: bold;">Condition:</span>&nbsp;
+&nbsp;&nbsp;&nbsp; IsPonygirl() &amp;&amp; Score &gt; 50 &amp;&amp;
+BitGagWorn == 1 &amp;&amp; HarnessWorn == 1 &amp;&amp; (PonyTailWorn ==
+1 || HasTail) &amp;&amp; slPonyTraining == (40 + (sPonyTrainer * 20))<br>
+<br>
+Images are shown using the interface function <a href="#mozTocId832336">ShowEndingPonygirl</a>,
+see below.<br>
+<br>
+The condition means 'must be a ponygirl, wearing all gear, maximum
+ponygirl training and a score of 50+'<br>
+<br>
+</span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId196866" id="mozTocId196866"></a>Core
+Functions</h1>
+<table
+ style="text-align: left; width: 1375px; height: 247px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 11px;"><a class="mozTocH4"
+ name="mozTocId967680" id="mozTocId967680"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">IsPonygirl</span></b></span></span></span></font></font></span></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;">function
+IsPonygirl() : Boolean</span></i></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">isponygirl<font
+ size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000000"><font
+ color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">returns true if your slave is a ponygirl/boy</span></span></font></font></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      <br>
+      </span></span></span></span> <span style="font-size: 12pt;"><font
+ size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;">if
+(IsPonyGirl()) {<br>
+&nbsp;&nbsp; // ponygirl<br>
+}<br>
+      <br>
+      </span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;">&lt;if
+isponygirl='true'&gt;<br>
+&nbsp;&nbsp; &lt;!-- ponygirl --&gt;<br>
+&lt;/if&gt;<br>
+      <br>
+      </span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-weight: bold;">Note: </span>This function internally uses
+the variable<br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><b>_root.DonePonygirl<br>
+      </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = she is a ponygirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = not yet agreed<br>
+You can directly change this in actionscript but generally do not.<br>
+      </span></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000080"><font color="#000000"><font color="#000000"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"></span></span></span></span></span></font></font></font></font></font></span></span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+</span></span></span></span></span>
+<table
+ style="text-align: left; width: 1375px; height: 93px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 10px;"><a class="mozTocH4"
+ name="mozTocId344305"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">ChangePonyTraining</span></b></span></span></span></font></font></span></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>f</i></span></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;">unction
+ChangePonyTraining(val:Number)</span></i></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;ChangePonyTraining&gt;val&lt;/ChangePonyTraining&gt;<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">alter (increase or decrease) your slave's
+pony training by val
+points.</span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000000"><font
+ color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></span></span></font></font></font></font></span></span><font
+ size="-1"><br>
+      </font> </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"></span></span></span></span></span></font></font></font></font></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+</span></span></span></span></span>
+<h4 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId773613"></a><font size="+2">Dress
+Item positioning functions</font><span style="font-size: 12pt;"><font><u><b><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><u><b><span style="font-size: 14pt;"><br>
+</span></b></u></span></span></span></b></u></font></span></h4>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">These
+functions are used to position pony tail in the main window for the
+dress images of the slave. <br>
+<br>
+Note: these functions position all types of tails for the slave,
+including cat, puppy and demon.<br>
+<br>
+<span style="color: rgb(153, 51, 0); font-weight: bold;">XML:</span><br>
+each will list a node, these are implemented in the Dress nodes for the
+slave<br>
+<font size="-1">eg</font><br>
+</span></span></span></span></span><font style="font-family: Arial;"
+ size="-1">&lt;Dresses&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;Dress0&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Halo
+x='229.5' y='30.95' rotation='0' width='150' height='54'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Leash
+x='177.6' y='57' rotation='0' width='-80' height='120' over='true'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;BitGag
+frame='4' x='220' y='79' rotation='-10' width='55' height='40'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;NymphsTiara
+x='216' y='47' rotation='-10' width='50' height='45'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;CatEars
+frame='1' x='222.25' y='52.55' rotation='0' width='50' height='25'
+over='true'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Tail
+x='152' y='226' rotation='0' width='-150' height='80'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Wings
+x='217' y='150' rotation='10' width='-300' height='200'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/Dress0&gt;<br>
+&lt;/Dresses&gt;</font><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+<br>
+</span></span></span></span><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><br>
+</span></span></span></span></span>
+<table
+ style="text-align: left; width: 1375px; height: 242px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h5 style="height: 1px;"><a class="mozTocH5" name="mozTocId450667"></a><font
+ size="+1">PositionTail</font></h5>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"><br>
+actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;">function
+PositionTail(xpos:Number, ypos:Number, rot:Number, wid:Number,
+hei:Number, cr:Boolean, frame:Number)</span></i></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"> &lt;Tail x='xpos'
+y='ypos' rotation='rot' width='wid' height='hei' frame='frame'/&gt;<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">Position
+a tail behind the slave's image in the main window. The
+dress image must have a transparent background for the tail to be
+seen. This one function shows either a Pony tail, a Cat Tail, a Demon
+Tail or a Puppy Tail. Depending on the current training for your slave
+the particular type of tail is shown. Except that, the demon tail is
+shown WITH one of the other tails.<br>
+      </span></span></span></span><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000000"><font
+ color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></span></span></span></font></font></font></font></span><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></span></span></font></font></font></font></span></span><br>
+xpos
+= horizontal position in the main window, 0-480, but you can exceed
+these limits to have the image partially out of the window<br>
+ypos =
+vertical position in the main window, 0-336, but you can exceed these
+limits to have the image partially out of the window<br>
+rot = rotate the image clockwise in degrees, &lt; 0 for
+counter-clockwise<br>
+wid = width of the image. Will resize the image, will not preserve
+aspect ratio. Use a negative value to flip the image horizontally.<br>
+hei = height of the image. Will resize the image, will not preserve
+aspect ratio Use a negative value to flip the image vertically.<br>
+      <span style="color: rgb(0, 0, 153);">following parameters are
+optional</span><br>
+cr = legacy, always use <span style="font-weight: bold;">true</span>,
+not supported by xml. Defaults to true<br>
+gframe = the particular version of the tail. Not used for pony tails.
+Defaults to 1<br>
+      <br>
+Note: the debugging menu can create these parameters for both
+actionscript and xml<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"></span></span></span></span></span></font></font></font></font></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;"></span></b></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+</span></span></span></span></span>
+<table
+ style="text-align: left; width: 1375px; height: 82px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h5 style="height: 4px;"><a class="mozTocH5" name="mozTocId57967"></a><font
+ size="+1">PositionTailOver</font></h5>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"><br>
+actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;">function
+PositionTailOver</span></i></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;">(xpos:Number,
+ypos:Number, rot:Number, wid:Number, hei:Number, cr:Boolean,
+gframe:Number)</span></i></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"> &lt;Tail x='xpos'
+y='ypos' rotation='rot' width='wid' height='hei' <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;"> over='true'</span></i></span></span></span></span></span>/
+&gt;<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">Position
+a tail over top of the slave's image in the main window. </span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000000"><font
+ color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></span></span></span></font></font></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000000"><font
+ color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></span></span></font></font></font></font></span></span><br>
+Otherwise identical to <a href="#mozTocId450667">PositionTail</a>.<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"></span></span></span></span></span></font></font></font></font></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;"></span></b></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+</span></span></span></span></span>
+<table
+ style="text-align: left; width: 1375px; height: 259px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h5 style="height: 1px;"><a class="mozTocH5" name="mozTocId457572"></a><font
+ size="+1">PositionGag</font></h5>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"><br>
+actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;">function
+PositionGag(gframe:Number, xpos:Number, ypos:Number, rot:Number,
+wid:Number, hei:Number, cr:Boolean)</span></i></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"> &lt;BitGag x='xpos'
+y='ypos' rotation='rot' width='wid' height='hei' frame='frame'/&gt;<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">Position
+a gag over the slave's image in the main window.<br>
+      </span></span></span></span><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000000"><font
+ color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-weight: bold;"></span></span></span></span></span></font></font></font></font></span><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></span></span></font></font></font></font></span></span><br>
+gframe = the particular version of the gag. Values 1-5 but can vary if
+more are added to the game. The x,y,wid,hei parameters will vary based
+on this selection.<br>
+xpos
+= horizontal position in the main window, 0-480, but you can exceed
+these limits to have the image partially out of the window<br>
+ypos =
+vertical position in the main window, 0-336, but you can exceed these
+limits to have the image partially out of the window<br>
+rot = rotate the image clockwise in degrees, &lt; 0 for
+counter-clockwise<br>
+wid = width of the image. Will resize the image, will not preserve
+aspect ratio. Use a negative value to flip the image horizontally.<br>
+hei = height of the image. Will resize the image, will not preserve
+aspect ratio Use a negative value to flip the image vertically.<br>
+      <span style="color: rgb(0, 0, 153);">following parameter is
+optional</span><br>
+cr = legacy, always use <span style="font-weight: bold;">true</span>,
+not supported by xml. Defaults to true<br>
+      <br>
+Note: the debugging menu can create these parameters for both
+actionscript and xml<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"></span></span></span></span></span></font></font></font></font></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;"></span></b></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"></span></span></span></span></span></font></font></font></font></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;"></span></b></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;"></span></b></span></span></span></span></span><br
+ style="font-family: Arial;">
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId333546" id="mozTocId333546"></a>Slave Girl Interface
+Functions</h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">These
+functions can be implemented / overloaded for a slave to control their
+ponygirl/ponyboy training.<br>
+<br>
+Both of the following function are optional and a generic image is
+shown if they are not implemented.<br>
+<br>
+</span></span></span></span></span>
+<table
+ style="text-align: left; width: 1375px; height: 99px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 13px;"><a class="mozTocH4"
+ name="mozTocId832336" id="mozTocId832336"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">ShowEndingPonygirl</span></b></span></span></span></span></span></font></font></span></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i>function
+ShowEndingPonygirl() : Boolean</i></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">no specific
+implementation, the game calls <span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i>ShowSexActPonygirl()</i></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">Show an image
+from the ending ponygirl. Return true if you show an image, otherwise
+the game will call ShowSexActPonygirl()<br>
+      </span></span></span></span></span></span></font></font></span></span></span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+</span></span></span></span></span>
+<table
+ style="text-align: left; width: 1375px; height: 384px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 6px;"><a class="mozTocH4" name="mozTocId90566"
+ id="mozTocId90566"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">ShowSexActPonygirl</span></b></span></span></span></span></font></font></span></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"><font
+ size="-2"><br>
+      </font>actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>function ShowSexActPonygirl()</i></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">images defined<br>
+&lt;Images&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;Ponygirl&gt;<br>
+            <br>
+actual act<br>
+&lt;DoPlanning&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;Acts&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Ponygirl&gt;<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">Show an image and/or text when your slave
+becomes a ponygirl/ponyboy</span></span></span></span></span></font></font></span></span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000000"><font
+ color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"> <br>
+      <span style="font-weight: bold;">Note</span>: for xml training
+implement in the slaves xml file OUTSIDE of the &lt;Slave&gt; node<br>
+&lt;</span></span></span></span></font></font></font></font></span></span>DoPlanning<span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000000"><font
+ color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;</span></span></span></span></font></font></font></font></span></span>Acts<span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000000"><font
+ color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Ponygirl&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+put your custom text or code here<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Ponygirl&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/Acts&gt;<br>
+&lt;/DoPlanning&gt;</span></span></span></span></font></font></font></font></span></span><font
+ size="-1"><br>
+      </font> </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"></span></span></span></span></span></font></font></font></font></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+</span></span></span></font></font></span></span><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"></span></span></span></span></span></font></font></font></font></span></span><br
+ style="font-family: Arial;">
+</body>
+</html>

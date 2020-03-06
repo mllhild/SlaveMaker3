@@ -1,0 +1,952 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta name="generator"
+ content="HTML Tidy for Windows (vers 22 March 2008), see www.w3.org">
+  <title></title>
+</head>
+<body>
+<table
+ style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;"
+ border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font
+ size="+3"><span style="font-weight: bold;">Slave's Owners<br>
+            </span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td
+ style="vertical-align: top; width: 80%; text-align: left;"><a
+ href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font
+ style="font-weight: bold;" size="-1">Updated for version 3.4.02</font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;">Each slave has an
+owner, this is either another person, or your current slave maker.
+Assistants also can be sort of 'owned'.<br>
+<br>
+Assistants, Minor Slaves and Slaves all handle this concept differently
+and will be discussed separately.<br>
+<br>
+In all cases the core function SMData.IsSlaveOwned() will return true
+if the
+slave is owned, and false if they are not.<br>
+<span style="font-weight: bold;"></span><br>
+<span style="font-weight: bold;">Table of Contents</span><br>
+</span>
+<ul style="font-family: Arial;" id="mozToc">
+  <li><a href="#mozTocId471959">Assistants</a></li>
+  <li><a href="#mozTocId715522">Minor Slaves</a></li>
+  <li><a href="#mozTocId846299">Slaves</a>
+    <ul>
+      <li><a href="#mozTocId690192">Owner
+Ids </a></li>
+      <li><a href="#mozTocId934518">Owner &amp; StartOwner</a>
+        <ul>
+          <li><a href="#mozTocId855192">Variables</a>
+            <ul>
+              <li><a href="#mozTocId70114">Owner</a></li>
+              <li><a href="#mozTocId145233">StartOwner</a></li>
+              <li><a href="#mozTocId395859">Obsolete:
+SoldSlave </a></li>
+            </ul>
+          </li>
+          <li><a href="#mozTocId401358">Methods</a>
+            <ul>
+              <li><a href="#mozTocId229581">ChangeOwner</a></li>
+              <li><a href="#mozTocId971269">GetOwner</a></li>
+              <li><a href="#mozTocId264102">GetOwnerName</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#mozTocId876944">Changing
+Owners </a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId599673">Events</a>
+    <ul>
+      <li><a href="#mozTocId921310">Start
+Training </a></li>
+      <li><a href="#mozTocId969817">Owner Testing </a></li>
+      <li><a href="#mozTocId519587">Visiting Buyers</a></li>
+      <li><a href="#mozTocId79817">Exhibition and Sale at
+the Slave Market </a></li>
+      <li><a href="#mozTocId494536">Selling Owned Slaves </a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId969991">Ending</a></li>
+  <li><a href="#mozTocId896721">Slave
+Interface Functions</a>
+    <ul>
+      <li><a href="#mozTocId184728">OwnerTest &amp; OwnerTestSpecial</a></li>
+      <li><a href="#mozTocId353846">EventBuyer</a></li>
+    </ul>
+  </li>
+</ul>
+<br style="font-family: Arial;">
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId471959"></a>Assistants</h1>
+<span style="font-family: Arial;">Assistants are not owned as such,
+they are free people, commonly fellow
+Slave Makers. If they work with you long enough they may fall in love
+with your Slave Maker and confess their love. If you accept their love
+they will move in and live with you.</span><br
+ style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-family: Arial;">In this situation their variable
+SlaveType (in their instance of the
+class </span><a style="font-family: Arial;"
+ href="Common%20Scripts/Classes/Slave.as">Slave</a><span
+ style="font-family: Arial;">) will be
+set to a value of 2, and the function IsSlaveOwned() will return true.</span><br
+ style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-family: Arial;">For assistants the member Owner and
+StartOwner (see Slaves below) are
+set to null as they are not relevant.</span><br
+ style="font-family: Arial;">
+<br style="font-family: Arial;">
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId715522"></a>Minor Slaves</h1>
+<span style="font-family: Arial;">The ownership of a minor slave is
+also controlled by the SlaveType
+member variable once they have been purchased. Before purchase they
+have no entry in the </span><a style="font-family: Arial;"
+ href="Core%20-%20Slaves%20Array.html">Slaves
+Array</a><span style="font-family: Arial;"> (except for one special
+case). Otherwise the member SlaveType will contain</span><br
+ style="font-family: Arial;">
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 907px; height: 22px; font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 20%;">0<br>
+      </td>
+      <td style="vertical-align: top;">Owned by yourself<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">-3<br>
+      </td>
+      <td style="vertical-align: top;">Sold to another (and
+IsSlaveOwned() will return false)<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">-200<br>
+      </td>
+      <td style="vertical-align: top;">Minor slave that is not yet
+owned. A very limited case in the game, currently only happens for Arak<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<span style="font-family: Arial;">For minor slaves the member Owner and
+StartOwner (see Slaves below) are
+set to null as they are not relevant.</span><br
+ style="font-family: Arial;">
+<br style="font-family: Arial;">
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId846299"></a>Slaves</h1>
+<h2 style="height: 13px; font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId690192"></a>Owner
+Ids<br>
+</h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;">The slave's owner has a numeric id that the
+game uses to determine who they are. This value can be the following
+values<br>
+<br>
+</span></span>
+<table
+ style="text-align: left; width: 66%; height: 196px; font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="0">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">0<br>
+      </td>
+      <td style="vertical-align: top;">unowned, for Freelancer Slave
+Makers - <span style="font-weight: bold;">default for Freelance Slave
+Makers</span></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; width: 20%;">1-999<br>
+      </td>
+      <td style="vertical-align: top;">one of the standard NPC's, see <a
+ href="Core%20-%20People.html">Core - People.html</a><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">1001<br>
+      </td>
+      <td style="vertical-align: top;">a generic male owner<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">1002<br>
+      </td>
+      <td style="vertical-align: top;">a generic female owner<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">1003<br>
+      </td>
+      <td style="vertical-align: top;">a generic dickgirl owner<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">1999<br>
+      </td>
+      <td style="vertical-align: top;">a generic owner, commissioned by
+the Slave Maker guild - <span style="font-weight: bold;">default for
+Guild Members</span><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">3000<br>
+      </td>
+      <td style="vertical-align: top;">your Slave Maker<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><br>
+This value is accessed using the GetOwner() method of the </span></span><a
+ style="font-family: Arial;"
+ href="Common%20Scripts/Classes/PersonOwner.as">PersonOwner</a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;">
+class<br>
+<font size="-1"><br>
+eg<br>
+</font></span></span><font style="font-family: Arial;" size="-1"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"><small>actionscript:</small></span></span></span></span></span></span></span></font><font
+ style="font-family: Arial;" size="-1"><br>
+if (_root.Owner.GetOwner() == 8) {<br>
+&nbsp;&nbsp; // Lord owns slave<br>
+}</font><font style="font-family: Arial;" size="-1"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+</span></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"><small>xml:</small><br>
+</span></span></span></span></span></span></span>&lt;if
+owner='8'&gt;<br>
+&nbsp;&nbsp; &lt;!-- owner is the lord--&gt;<br>
+&lt;/if&gt;<br>
+<br>
+</font>
+<h2 style="height: 10px; font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId934518"></a>Owner &amp; StartOwner</h2>
+<span style="font-family: Arial;">Each slave has member
+variables defining their Owner. This is an instance of the class </span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"></span></span><span
+ style="font-family: Arial;"></span><a style="font-family: Arial;"
+ href="Common%20Scripts/Classes/PersonOwner.as">PersonOwner</a><span
+ style="font-family: Arial;"> which inherits from the class BaseMofule.
+The
+class is
+simplified below with the significant members listed.</span><br
+ style="font-family: Arial;">
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 907px; height: 204px; font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><a name="personowner"></a>Class <span
+ style="font-weight: bold;">PersonOwner </span><font size="-1">(simplified)</font><br>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="vertical-align: top; background-color: rgb(239, 255, 255);"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">class PersonOwner extends BaseModule {<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; var Id:Number;<br>
+      <br>
+&nbsp;&nbsp;&nbsp; public function PersonOwner(slave:Object, cg:Object);<br>
+&nbsp;&nbsp;&nbsp; public function Load(lo:Object);<br>
+&nbsp;&nbsp;&nbsp; public function Save(so:Object)<br>
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; public function ChangeOwner(id:Number,
+gender:Number, pname:String) : Number;<br>
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; function GetOwner() : Number;<br>
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; function GetOwnerName() : String;<br>
+}<br>
+      </span></span></span></td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<span style="font-family: Arial;">For each major slave (see the class <a
+ href="Common%20Scripts/Classes/Slave.as">Slave</a>) there are the
+following member variables</span><br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-family: Arial;">&nbsp;&nbsp;&nbsp; public var
+Owner:PersonOwner;</span><br style="font-family: Arial;">
+<span style="font-family: Arial;">&nbsp;&nbsp;&nbsp; public var
+StartOwner:PersonOwner;</span><br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-family: Arial;">These variables are initially set to
+null, and are set to a class
+instance once the slave starts training. The variable Owner is the
+current owner of the slave. The variable StartOwner is the slave's
+owner when training starts. These can be compared to tell if your slave
+has changed owner.</span><br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<h3 style="font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId855192"></a>Variables<br>
+</h3>
+<span style="font-family: Arial;">To access these use the following
+variables</span><br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"> </span>
+<table
+ style="text-align: left; width: 939px; height: 274px; background-color: rgb(242, 255, 255); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: rgb(229, 229, 229);"><span
+ style="font-weight: bold;">Actionscript Variable</span></td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: rgb(229, 229, 229);"><span
+ style="font-weight: bold;">XML Variable</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 926px; height: 25px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h4 style="height: 1px;"><a class="mozTocH3"
+ name="mozTocId70114"></a>Owner<span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 21px;"><font
+ size="+1"><span style="font-weight: bold;">owner</span></font><font
+ size="-1"><span style="font-style: italic;"></span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><br>
+            </font></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <table style="text-align: left; width: 924px; height: 126px;"
+ border="0" cellpadding="6" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"><span
+ style="font-style: italic;"><font size="-1">(PersonOwner) </font></span>Class
+instance to access the owner details. For actionscript it can be
+accessed either using _root.Owner or using the instance of the Slave
+class. As noted above these do not apply for Assistants or Minor Slaves<br>
+            <font size="-1">_root.Owner<br>
+or for a slave(already trained)<br>
+var sd:Slave = _root.GetSlaveDetails("Ranma");<br>
+if (sd.Owner.GetOwner() == 8) {<br>
+&nbsp;&nbsp; // slave was purchased by the Lord<br>
+}<br>
+            </font>For XML this will return the numeric id for the owner<br>
+            <font size="-1">eg<br>
+&lt;if owner='8'&gt;<br>
+&lt;/if&gt;</font><br>
+            <span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span> </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 21px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 29px;">
+            <h4 style="height: 0px;"><a class="mozTocH3"
+ name="mozTocId145233"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b>StartOwner</b></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 100%;"><span
+ style="font-weight: bold;">startowner<br>
+            </span></td>
+          </tr>
+        </tbody>
+      </table>
+      <table style="text-align: left; width: 924px; height: 22px;"
+ border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"><span
+ style="font-style: italic;">(PersonOwner)</span></font></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">As for Owner
+this is the slave's owner at the start of training. It is set after
+StartGame() or &lt;StartGame&gt; is called.<br>
+            </span></span> <span style="font-size: 12pt;"><font
+ size="-1"><br>
+            </font></span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <hr style="width: 100%; height: 2px;"> </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b><br>
+</b></span></span>
+<h4 style="height: 5px; font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId395859"></a>Obsolete:
+SoldSlave<span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><br>
+</b></span></span></h4>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;">There was in previous versions a
+variable<br>
+_root.SoldSlave<br>
+defining who the slave was sold to, default 0. For legacy reasons this
+variable will still be set and will be the same as the <a
+ href="#mozTocId459708">owner id</a>.<br>
+<br>
+DO NOT use this variable anymore.<br>
+</span><span style="font-size: 12pt;"></span></span>
+<h3 style="height: 6px; font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId401358"></a>Methods</h3>
+<span style="font-family: Arial;">The class has the following methods
+that can be used</span><br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 95%; height: 291px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 12px;"><a class="mozTocH4"
+ name="mozTocId229581"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">ChangeOwner</span></b></span></span></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table
+ style="text-align: left; width: 66%; height: 32px; font-style: italic;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">function
+ChangeOwner(id:Number,
+gender:Number, pname:String) : Number</td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;ChangeOwner
+slave='slave' number='id' name='pname'
+gender='gender'&gt;val&lt;/ChangeOwner&gt;<font size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;">Changes the
+owner of the slave. See below for the id/number or </span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><a
+ href="Slave%20-%20Owner.html#mozTocId459708">owner id</a>. Gender uses
+the standard gender numbers/names as used in other xml statements. The
+name is the actual name of the owner.<br>
+      <br>
+You can only use this for the current slave or a previously trained
+slave. If you try this for a minor slave or assistant then nothing will
+happen.<br>
+      </span></span><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"> <br>
+      </span></span></span></span> <span style="font-size: 12pt;"><font
+ size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;">_root.Owner.ChangeOwner(2050,
+2, "Mistress Payne");<br>
+or<br>
+var sd:Slave = _root.GetSlaveDetails("Ranma");<br>
+sd.Owmer.ChangeOwner(2060, 1, "Genma");<br>
+      </span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"> <br>
+      </span></span></span></span></span></span></span></span></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span><br>
+      <font size="-1">&lt;ChangeOwner name='Genma' gender='1'
+number='2060'</font>/<font size="-1">&gt;<br>
+or<br>
+      </font><font size="-1">&lt;ChangeOwner slave='Tifa' name='Genma'
+gender='1' number='2060'</font>/<font size="-1">&gt;</font><br>
+      <font size="-1"> </font> </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 95%; height: 287px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 12px;"><a class="mozTocH4"
+ name="mozTocId971269"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">GetOwner</span></b></span></span></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table
+ style="text-align: left; width: 66%; height: 32px; font-style: italic;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">function GetOwner() :
+Number</td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">see <a
+ href="#mozTocId70114">owner</a> xml variable above<font size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;">Returns the
+owner id for the current owner</span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      </span></span><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"> <br>
+      </span></span></span></span> <span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><font size="-1">eg<br>
+      </font></span></span><font size="-1"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"><small>actionscript:</small></span></span></span></span></span></span></span></font><font
+ size="-1"><br>
+if (_root.Owner.GetOwner() == 8) {<br>
+&nbsp;&nbsp; // Lord owns slave<br>
+}</font><font size="-1"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><br>
+      </span></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"><small>xml:</small><br>
+      </span></span></span></span></span></span></span>&lt;if
+owner='8'&gt;<br>
+&nbsp;&nbsp; &lt;!-- owner is the lord--&gt;<br>
+&lt;/if&gt;</font><br>
+      <font size="-1"> </font> </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 95%; height: 158px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 12px;"><a class="mozTocH4"
+ name="mozTocId264102"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">GetOwnerName</span></b></span></span></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table
+ style="text-align: left; width: 66%; height: 32px; font-style: italic;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">function
+GetOwnerName() : String<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">#ownername<font
+ size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;">Returns the
+name of the owner. For the general numbers 1000-1999 it will just
+return "Owner", For yourself (id 3000) it will return "You". Otherwise
+the name of the owner.</span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      </span></span><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"> </span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span><br>
+      <font size="-1"> </font> </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;">
+</span></span><br style="font-family: Arial;">
+<h2 style="height: 13px; font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId876944"></a>Changing
+Owners<br>
+</h2>
+<span style="font-family: Arial;">To change the owner of a slave you
+can use the </span><a style="font-family: Arial;"
+ href="#mozTocId229581">ChangeOwner()</a><span
+ style="font-family: Arial;"> method of
+the </span><a style="font-family: Arial;" href="#personowner">PersonOwner</a><span
+ style="font-family: Arial;"> class or the</span><a
+ style="font-family: Arial;" href="#mozTocId229581">
+&lt;ChangeOwner&gt;</a><span style="font-family: Arial;"> xml
+statement, see
+below.</span><br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-family: Arial;">If you wish to override the owner of
+the slave at the start of the
+game, then call these methods in the StartGame() function or
+&lt;StartGame&gt; node. This will also set StartOwner to the same value.</span><br
+ style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><br>
+</span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId599673"></a>Events</h1>
+<h2 style="height: 15px; font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId921310"></a>Start
+Training<br>
+</h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><u><span style="font-size: 12pt;"></span></u><span
+ style="font-size: 12pt;">See <a href="#mozTocId459708">Owner Ids</a>
+for the default owner for all slaves at the start of training<br>
+<br>
+</span></span></span>
+<h2 style="height: 14px; font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId969817"></a>Owner
+Testing<br>
+</h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">To be written</span></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+<br style="font-family: Arial;">
+</span></span></span><span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span>
+<h2 style="height: 9px; font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId519587"></a>Visiting
+Buyers</h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">To be written</span></span></span><br
+ style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span>
+<h2 style="height: 7px; font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId79817"></a>Exhibition
+and Sale at
+the Slave Market<br>
+</h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">To be written</span></span></span><span
+ style="font-family: Arial;"><br>
+<br>
+</span><span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"></span><span style="font-size: 12pt;"></span></span>
+<h2 style="height: 16px; font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId494536"></a>Selling
+Owned Slaves<br>
+</h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">If you sell a
+slave the SlaveType variable for the slave will be set to -3 to reflect
+the slave has been sold. </span></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"></span></span><span
+ style="font-family: Arial;"></span><br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<hr style="width: 100%; height: 2px; font-family: Arial;"><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000080"><font color="#000000"><font color="#000000"><span
+ style="font-size: 10pt;"></span></font></font></font></font></font></span><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"></span></span></span>
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId969991"></a>Ending</h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-weight: bold;">Ending
+Number:</span> N/A<span style="font-weight: bold;"></span><br>
+<br>
+The Owner name is shown in the ending screens. If you see the slave to
+a NPC like the Lord then the normal end process is bypassed and you get
+some special text reflecting the sale.<br>
+</span><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><br>
+</span></span></span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId896721"></a>Slave
+Interface Functions</h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">These
+functions can be implemented/overloaded for a slave to control their
+cumslut training.<br>
+</span></span></span></span></span><br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 95%; height: 257px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h2 style="height: 20px;"><a class="mozTocH2"
+ name="mozTocId184728"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">OwnerTest &amp; OwnerTestSpecial<br>
+      </span></b></span></span></span></span></span></h2>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i>function
+OwnerTest() : Boolean<br>
+            </i></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i>function
+OwnerTestSpecial() : Boolean</i></span></span></span></span></span></span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Events&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;OwnerTest&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;OwnerTestSpecial&gt;<br>
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;">Called on days
+when the slave will be tested (every 7 days of training). Return true
+to override and replace the standard event.</span></span></span></span><span
+ style="font-size: 12pt;"></span><font size="-1"></font><span
+ style="font-weight: bold;"></span><font size="-1"><br>
+      </font> </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;"></span></b></span></span></span></span></span></span><br
+ style="font-family: Arial;">
+<table
+ style="text-align: left; width: 95%; height: 175px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h2 style="height: 20px;"><a class="mozTocH2"
+ name="mozTocId353846"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">EventBuyer</span></b></span></span></span></span></span></h2>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-weight: bold;">slave</span><br>
+function EventBuyer() : Boolean<br>
+            <span style="font-weight: bold;">assistant/event</span><br>
+            </i></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i>function
+EventBuyerAsAssistant() : Boolean</i></span></span></span></span></span></span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Events&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;EventBuyer&gt;<br>
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;">Called when a
+buyer approaches to purchase the slave. Return true to overide and
+replace the standard event.</span></span></span></span><font size="-1"></font><span
+ style="font-weight: bold;"></span><font size="-1"><br>
+      </font> </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+</body>
+</html>

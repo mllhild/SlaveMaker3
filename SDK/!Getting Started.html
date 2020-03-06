@@ -1,0 +1,250 @@
+<u><b><font face="Arial"><span style="font-size: 18pt;">
+
+
+
+</span></font></b></u><span style="font-size: 12pt;"></span><table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239);" border="1" cellpadding="2" cellspacing="2"><tbody><tr><td style="vertical-align: top;"><font size="+2"><span style="font-weight: bold;"><span style="font-family: Arial;"></span></span></font><table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2"><tbody><tr><td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold; font-family: Arial;">SDK for SlaveMaker 3.3</span></font><br></td><td style="vertical-align: top;"><br></td></tr><tr><td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;"><span style="font-family: Arial;">Slave Maker 3 SDK</span></span></a></td><td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1"><span style="font-family: Arial;">Version 8</span></font><br></td></tr></tbody></table><font size="+2"><span style="font-weight: bold;"></span></font></td></tr></tbody></table><br><span style="font-size: 12pt;"><font face="Arial">
+<a href="index.html">List of all documents in this SDK</a><br><br></font></span><ul id="mozToc"><!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6--><li><a href="#mozTocId315768">Requirements</a></li><li><a href="#mozTocId424229">Basic Concepts</a></li><li><a href="#mozTocId570491">
+
+
+Developing a Slave</a></li><li><a href="#mozTocId260742">Global/Core Variables</a></li><li><a href="#mozTocId888369">Support Functions</a></li><li><a href="#mozTocId526367">Slavegirl Override Functions</a></li></ul><span style="font-size: 12pt;"><font face="Arial">
+<br></font></span><hr style="width: 100%; height: 2px;"><span style="font-size: 12pt;"><font face="Arial"></font></span><h1><a class="mozTocH1" name="mozTocId315768"></a><span style="font-size: 12pt;"><font face="Arial"><u><b><span style="font-size: 14pt;">Requirements<span style="font-size: 12pt;"></span></span></b></u></font></span></h1><span style="font-size: 12pt;"><font face="Arial"><u><b><span style="font-size: 14pt;"><span style="font-size: 12pt;">
+
+
+</span></span></b></u></font></span><span style="font-size: 12pt;"><font face="Arial"><font size="+1"><span style="color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></font></font></span><br><span style="font-size: 12pt;"><font face="Arial">Adobe Flash CS3 or later<br>OR<br>FlashDevelop<br><br></font></span><span style="font-size: 12pt;"><font face="Arial"><font size="+1"><span style="color: rgb(153, 51, 0); font-weight: bold;">XML:<br></span></font></font></span><span style="font-size: 12pt;"><font face="Arial">
+
+
+Any text editor, preferably one capable of saving UTF-8 files. WordPad that is freely part of Windows can do this.<br><br><span style="font-weight: bold;">Additionally</span><br>Graphic editing program, I use ImageJ and Paint.Net, two quite good free editors.<br>
+
+
+<br>
+
+
+</font></span><hr style="width: 100%; height: 2px;"><span style="font-size: 12pt;"><font face="Arial"></font></span><h1><a class="mozTocH1" name="mozTocId424229"></a><span style="font-size: 12pt;"><font face="Arial"><u><b><span style="font-size: 14pt;">Basic Concepts<span style="font-size: 12pt;"></span></span></b></u></font></span></h1><span style="font-size: 12pt;"><font face="Arial"><u><b><span style="font-size: 14pt;"><span style="font-size: 12pt;">
+
+
+</span></span></b></u>The game works on this structure<br></font></span><p><span style="font-size: 12pt;"><font face="Arial">
+
+
+</font></span></p><table style="font-family: Arial; width: 1376px; height: 108px;" border="0" cellpadding="6" cellspacing="0">
+<tbody><tr><td style="background-color: rgb(244, 244, 244);">a) <b>Core game engine</b><br>handles all game-play and common events
+and images. This is contained mainly in SlaveMaker3.swf (or SlaveMaker3.exe) but also others
+like Tentacles.swf, Contests.swf. These additional files are discrete
+parts of the game, separated to simplify game development but mainly to
+lessen resource use when programming, I have reach times with 4+Gb of
+memory being used Additionally there are images in the subfolder Images and xml code in the Languages subfolder.<br><br>The core game contains many support functions that can be used by developers using actionscript or the built-in xml language.</td></tr>
+</tbody></table>
+<br><table style="font-family: Arial; width: 1376px; height: 337px;" border="0" cellpadding="6" cellspacing="0">
+
+<tbody><tr><td style="background-color: rgb(244, 244, 244);"><span style="font-size: 12pt;"><font face="Arial">
+
+
+b) <b>SlaveGirl files</b><br>All slavegirl specific images and code is present in a set of files.
+There are two primary types of slaves, actionscript slaves and xml
+slaves.<br>
+<br>
+<font size="+1"><span style="color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></font></font></span><big><font style="font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"></span></span></span></span></span></span></span></font></big><br>
+
+<ul><li><span style="font-family: Arial;">an image to be shown in the slave market, must be named Slave-<span style="font-style: italic;">slavename</span>.png</span></li><li><span style="font-family: Arial;">a control text file SlaveGirlXX.txt that is used by the game to define if the slave is present</span></li><li><span style="font-family: Arial;">code and images are compiled
+into a swf file using Adobe Flash or FlashDevelop. This must be
+developed for Actionscript 2, an older version of the language. This
+language is close to java in syntax. <br>
+    </span></li><li><span style="font-family: Arial;">optionally you can also have
+separate images in jpg, png, gif, swf format. These can be dynamically
+loaded for a particular event or scene.</span></li><li><span style="font-family: Arial;">optionally an xml file named Slave-<span style="font-style: italic;">slavename</span>.xml that can be used for initialisation, events or other. This file is easily translatable.<br>
+    </span></li></ul>
+<span style="font-size: 12pt;"><font face="Arial"><span style="font-size: 12pt;">
+
+<span style="font-size: 10pt;"></span></span></font></span><span style="font-size: 12pt;"><font face="Arial"><font size="+1"><span style="color: rgb(153, 51, 0); font-weight: bold;">XML:</span></font></font></span><br>
+<span style="font-size: 12pt;"><font face="Arial">
+
+
+</font></span>
+<ul><li><span style="font-family: Arial;">the image and control text for actionscript are also used. Some slightly different fields are required for the control text file</span></li><li><span style="font-family: Arial;">an xml file named Slave - <span style="font-style: italic;">slavename</span>.xml that contains all initialisation and code for the slave.</span></li><li><span style="font-family: Arial;">a folder of images with a set structure of filenames for the various images the game requires.</span></li></ul>Slave files are stored in the folder Slave. Any external images are stored in the folder<br>Images/Slaves/<span style="font-style: italic;">slavename</span><br>
+</td></tr>
+</tbody>
+</table>
+<span style="font-size: 12pt;"><span style="font-family: Arial;"><br></span></span><table style="font-family: Arial; width: 1376px; height: 172px;" border="0" cellpadding="6" cellspacing="0">
+
+<tbody><tr><td style="background-color: rgb(244, 244, 244);"><span style="font-size: 12pt;"><font face="Arial">c) <span style="font-weight: bold;">Assistant</span><b> files</b><br>During training you pick an assistant to aid you. An assistant is
+either a pre-trained slave, or a simplified version of a slave,
+developed using actionscript or xml. A slave maker assistants files are named<br>Assistant-<span style="font-style: italic;">assistantname</span>.swf<br>Assistant-<span style="font-style: italic;">assistantname</span>.xml<br></font></span><span style="font-size: 12pt;"><font face="Arial">There is no slave market image or SlaveGirlXX.txt file. </font></span><span style="font-size: 12pt;"><font face="Arial">These are stored in the folder Assistant.<br><br>For xml assistants their images are held in the folder<br>Images/Assistants/<span style="font-style: italic;">assistantname</span> <br></font></span><span style="font-size: 12pt;"><font face="Arial"><font size="+1"><span style="color: rgb(153, 51, 0); font-weight: bold;"></span></font></font></span></td></tr>
+</tbody>
+</table><span style="font-size: 12pt;"><font face="Arial"></font></span><span style="font-size: 12pt;"><font face="Arial"><br></font></span><table style="font-family: Arial; width: 1376px; height: 145px;" border="0" cellpadding="6" cellspacing="0">
+
+
+<tbody><tr><td style="background-color: rgb(244, 244, 244);"><span style="font-size: 12pt;"><font face="Arial"><span style="font-weight: bold;"></span></font></span><span style="font-size: 12pt;"><font face="Arial">d) <span style="font-weight: bold;">Minor Slaves</span><br>Your slave maker can purchase slave to assist in training. They are
+generally lesser slaves with lower potential and limited training,
+often with a single good feature, for instance a cook, a nurse etc. These are developed similarly to xml
+slaves, and cannot be developed using actionscript. They require<br></font></span><ul><li><span style="font-family: Arial;">an image to be shown in the slave market, must be named Slave-<span style="font-style: italic;">slavename</span>.png</span></li><li><span style="font-family: Arial;">optionally
+2 or more images when talking to the slave or having sex. More optional
+images for other events, notably love confessions and pregnancy.</span></li><li><span style="font-family: Arial;">some xml code similar to xml slaves.</span></li></ul><span style="font-size: 12pt;"><font face="Arial">
+      </font></span><span style="font-size: 12pt;"><font face="Arial"><font size="+1"><span style="color: rgb(153, 51, 0); font-weight: bold;"></span></font></font></span></td></tr>
+</tbody>
+</table>
+<br><table style="font-family: Arial; width: 1376px; height: 145px;" border="0" cellpadding="6" cellspacing="0">
+
+
+
+<tbody><tr><td style="background-color: rgb(244, 244, 244);"><span style="font-size: 12pt;"><font face="Arial"><span style="font-weight: bold;"></span></font></span><span style="font-size: 12pt;"></span><span style="font-size: 12pt;"><font face="Arial">e) <b>Interface Functions</b></font></span><br><span style="font-size: 12pt;"><font face="Arial">A slave interacts with the core game through a set of interface functions. During trainings or events the core game will call these functions. Both actionscript and xml use this logical process but differ in implementation.<br><br></font></span><span style="font-size: 12pt;"><font face="Arial"><font size="+1"><span style="color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></font></font></span><br><span style="font-size: 12pt;"><font face="Arial">For instance to show the dance school image the game calls<br>
+
+
+SlaveGirl.ShowSchoolDance()<br>
+
+
+where SlaveGirl is the general movieclip the slavegirl is loaded into.<br>
+
+
+<br>
+
+Many slavegirl functions are optional, but many need to be defined,
+also referred here are overridden (they are not class members now, but
+I am a c++ programmer, and they may become members eventually)<br>
+
+
+<br>
+
+
+Most commonly for a slave girl there are a series of movieclips, one for each sex act, school, event etc<br>
+
+
+In the function the movieclip is shown and an appropriate alternative is selected. <br>
+
+
+I generally make each clip with several frames, one per alternative and show say<br>
+
+
+<br><font size="-1">
+
+
+function ShowSexActTitFuck()<br>
+
+
+{<br>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.DickgirlXF &gt; 0) TitsFuckClip.gotoAndStop(2);<br>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if (_root.Lesbian) TitsFuckClip.gotoAndStop(3);<br>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else TitsFuckClip.gotoAndStop(1);<br>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TitsFuckClip._visible = true;<br>
+
+
+}</font><br>
+
+
+Remember naked versions where possible<br>
+
+
+<br><font size="-1"></font>Please check the class SlaveModule for the full list of interface functions<br><a href="Common%20Scripts/Classes/SlaveModule.as">Common Scripts/Classes/SlaveModule.as</a><br><br></font></span><span style="font-size: 12pt;"><font face="Arial"><font size="+1"><span style="color: rgb(153, 51, 0); font-weight: bold;">XML:</span></font></font></span><br><span style="font-size: 12pt;"><font face="Arial">In your slave's xml you implement the &lt;Images&gt; node to define the images automatically shown for an act or event. The game automatically picks a random image and shows standard text.<br><br>You can customise this by implementing nodes in &lt;DoPlanning&gt;&lt;Acts&gt; to change text, select images and trigger events.<br><br></font></span><span style="font-size: 12pt;"><font face="Arial"><font size="+1"><span style="color: rgb(153, 51, 0); font-weight: bold;"></span></font></font></span>A number of events actually call specific nodes and execute the xml code that you optionally implement for them.<br><span style="font-size: 12pt;"><font face="Arial"><br></font></span><span style="font-size: 12pt;"><font face="Arial"></font></span><span style="font-size: 12pt;"><font face="Arial"><font size="+1"><span style="color: rgb(153, 51, 0); font-weight: bold;"></span></font></font></span></td></tr>
+</tbody>
+</table>
+<span style="font-size: 12pt;"><font face="Arial"><br></font></span><table style="font-family: Arial; width: 1376px; height: 145px;" border="0" cellpadding="6" cellspacing="0">
+
+
+
+<tbody><tr><td style="background-color: rgb(244, 244, 244);"><span style="font-size: 12pt;"><font face="Arial"><span style="font-weight: bold;"></span></font></span><span style="font-size: 12pt;"><font face="Arial"><span style="font-weight: bold;"></span></font></span><span style="font-size: 12pt;"><font face="Arial">f) <b>Screen and Text Areas<br>
+
+
+</b>Images and text are shown in 4 areas<br>
+
+
+<br>
+
+
+1) Main Window - the large window, upper left. It is 4x3 aspect ratio and is 448x336 pixels now<br>
+
+
+<br>
+
+2) People Window - the smaller window on the lower left. It is square
+1x1 aspect ratio, 153x153 pixels, and is used to show people, your
+assistant etc<br>
+
+
+<br>
+
+
+3) General Text field - the central text area, about 18 lines<br>
+
+
+<br>
+
+4) Larger Text field - the area that can replace the statistics box, as
+of version 16/Slave Maker 3 it is scrollable and unlimited in length</font></span><span style="font-size: 12pt;"><font face="Arial"></font></span><span style="font-size: 12pt;"><font face="Arial"><font size="+1"><span style="color: rgb(153, 51, 0); font-weight: bold;"></span></font></font></span></td></tr>
+</tbody>
+</table>
+<br><hr style="width: 100%; height: 2px;"><span style="font-size: 12pt;"><font face="Arial"><u><b></b></u></font></span><h1><a class="mozTocH1" name="mozTocId570491"></a><font size="+1"><span style="font-family: Arial; font-weight: bold; text-decoration: underline;">
+
+
+Developing a Slave</span></font><span style="font-size: 12pt;"><font face="Arial"><u><b><span style="font-size: 14pt;"><span style="font-size: 12pt;"></span></span></b></u></font></span></h1><span style="font-size: 12pt;"><font face="Arial"><u><b><span style="font-size: 14pt;"><span style="font-size: 12pt;">
+
+
+</span></span></b></u></font></span><span style="font-size: 12pt;"><font face="Arial"><font size="+1"><span style="color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></font></font></span><span style="font-size: 12pt;"><font face="Arial"><span style="font-weight: bold;"></span><br><a href="Building%20-%20Actionscript%20Slaves.html">Building - Actionscript Slaves.html</a><br><br><span style="font-weight: bold;"></span></font></span><span style="font-size: 12pt;"><font face="Arial"><font size="+1"><span style="color: rgb(153, 51, 0); font-weight: bold;">XML:</span></font></font></span><span style="font-size: 12pt;"><font face="Arial"><span style="font-weight: bold;"></span><br><a href="Building%20-%20XML%20Slaves.html">Building - XML Slaves.html</a><br>
+
+
+<br>
+
+
+</font></span><hr style="width: 100%; height: 2px;"><span style="font-size: 12pt;"><font face="Arial"></font></span><h1><a class="mozTocH1" name="mozTocId260742"></a><span style="font-size: 12pt;"><font face="Arial"><u><b><span style="font-size: 14pt;">Global/Core Variables<span style="font-size: 12pt;"></span></span></b></u></font></span></h1><span style="font-size: 12pt;"><font face="Arial"><u><b><span style="font-size: 14pt;"><span style="font-size: 12pt;">
+
+
+</span></span></b></u>Actually root stage variables, use as
+_root.SlaveName etc. I will leave off the _root from now on. Almost all
+are of type Number but a few are Boolean or String and these should be obvious by context<br>
+
+
+<br>
+
+
+See <br><a href="Core%20-%20Variables%20-%20Assistant.html">Core - Variables - Assistant.html</a><br>
+<a href="Core%20-%20Variables%20-%20Game.html">Core - Variables - Game.html</a><br>
+</font></span><span style="font-size: 12pt;"><font face="Arial"><a href="Core%20-%20Variables%20-%20Slave.html">Core - Variables - Slave.html</a><br>
+</font></span><span style="font-size: 12pt;"><font face="Arial"><a href="Core%20-%20Variables%20-%20Slave%20Maker.html">Core - Variables - Slave Maker.html</a><br>
+</font></span><a href="Core%20-%20XML%20Events%20-%20Conditionals%20&amp;%20Variables.html"><span style="font-size: 12pt;"><font face="Arial">Core - XML Events - Conditionals &amp; Variables.html</font></span></a><br>
+<span style="font-size: 12pt;"><font face="Arial">&nbsp;for more details<br>
+
+
+<br>
+
+
+</font></span><hr style="width: 100%; height: 2px;"><span style="font-size: 12pt;"><font face="Arial"></font></span><h1><a class="mozTocH1" name="mozTocId888369"></a><span style="font-size: 12pt;"><font face="Arial"><u><b><span style="font-size: 14pt;">Support Functions<span style="font-size: 12pt;"></span></span></b></u></font></span></h1><span style="font-size: 12pt;"><font face="Arial"><u><b><span style="font-size: 14pt;"><span style="font-size: 12pt;">
+
+
+</span></span></b></u>also in _root scope<br>
+
+
+<br></font></span><span style="font-size: 12pt;"><font face="Arial">
+
+
+See </font></span><span style="font-size: 12pt;"><font face="Arial"><a href="Core%20-%20Functions.html">Core - Functions.html</a> for more details<br>
+
+
+<br>
+
+
+</font></span><hr style="width: 100%; height: 2px;"><span style="font-size: 12pt;"><font face="Arial"></font></span><h1><a class="mozTocH1" name="mozTocId526367"></a><span style="font-size: 12pt;"><font face="Arial"><u><b><span style="font-size: 14pt;">Slavegirl Override Functions<span style="font-size: 12pt;"></span></span></b></u></font></span></h1><span style="font-size: 12pt;"><font face="Arial"><u><b><span style="font-size: 14pt;"><span style="font-size: 12pt;">
+
+
+</span></span></b></u>These functions an be defined in the Slave Girl
+actionscript and are called by the main engine when certain actions are
+taken. Most of these are duplicated in _root scope and call these. To
+prevent infinite loops do not call say _root.HideImages() from within a
+local override of HideImages()<br>
+
+
+<br>
+
+
+See <a href="Slave%20-%20Override%20Functions.html">Slave - Override Functions.html</a> for more details<br>
+
+
+</font></span>

@@ -1,0 +1,446 @@
+<u style="font-family: Arial;"><b><span style="font-size: 18pt;"><center><table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239);" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">Dickgirl Transformation<br>
+            </span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Version
+8</font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table><span style="font-size: 16pt;">
+</span></center>
+</span></b></u><span style="font-size: 12pt; font-family: Arial;"><br>
+<br>Female slaves and slave makers can undergo a transformation where they become a hermaphrodite or dickgirl, a female with a penis and a vagina.<br>
+<br></span><span style="font-weight: bold; font-family: Arial;">Table of Contents</span><img style="font-family: Arial;" src="chrome://editor/content/images/tag-comment.gif"><ul style="font-family: Arial;" id="mozToc"><li><a href="#mozTocId531124">Core Variables</a></li><li><a href="#mozTocId884754">Core Functions</a></li><li><a href="#mozTocId586058">Slave Interface Functions</a></li></ul><span style="font-size: 12pt; font-family: Arial;"><br></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId531124"></a>Core Variables</h1><span style="font-family: Arial;">All variables below are slave specific and are implemented in: _root and </span><a style="font-family: Arial;" href="Common%20Scripts/Classes/Slave.as">Slave</a><span style="font-family: Arial;"> class. The _root version is for the current slave in training. The others can be accessed using the GetSlaveDetails() function</span><br style="font-family: Arial;"><font style="font-family: Arial;" size="-1">eg<br></font><span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0); font-family: Arial;"><span style="font-size: 10pt;">actionscript:</span></span><br style="font-family: Arial;"><font style="font-family: Arial;" size="-1">if (_rootDickgirlXF == 1) {<br>&nbsp; // current slave is temporarily a dickgirl<br>}<br>var sd:Slave = _root.GetSlaveDetails("Aeris");<br>if (sd.DickgirlXF &gt; 0) {<br>&nbsp;&nbsp; // Aeris's is a dickgirl<br>}<br></font><span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0); font-family: Arial;"><span style="font-size: 10pt;">xml:</span></span><br style="font-family: Arial;"><font style="font-family: Arial;" size="-1">&lt;if dickgirlxf-aeris='2+&gt;<br>&nbsp;&nbsp; &lt;!--&nbsp;</font><font style="font-family: Arial;" size="-1">Aeris's is a dickgirl</font><font style="font-family: Arial;" size="-1"> --&gt;<br>&lt;/if&gt;<br></font><font style="font-family: Arial;" size="-1"><br></font><span style="font-size: 12pt; font-family: Arial;">
+<u><b><span style="font-size: 14pt;"><br>
+</span></b></u><span style="font-size: 12pt;"><b>_root.DickgirlOn</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = dickgirls in game<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = not in game<br>
+<br>
+<b>_root.AllDickgirlXFOn</b> = true if all girls can dickgirl transform<br>
+<br>
+<b>_root.DickgirlXF</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 0 = normal girl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = permanent dickgirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = permanent and refused to be cured<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-1 = will never be a dickgirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+note if cured it resets to 0<br>
+<br>
+Generally test to tell if she is a dickgirl at the moment use the root function IsDickgirl()<br>
+eg<br>
+<span style="font-size: 10pt;">if (_root.IsDickgirl()) {<br>
+}<span style="font-size: 12pt;"><br>
+This function is aware of spontaneous changes and should normally be used, unless to just want to know her transformation status<br>
+eg<br>
+<span style="font-size: 10pt;">if (_root.DickgirlXF == 2) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// she is a permanent dickgirl who refused the cure<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<b>_root.DickgirlRate</b> - %chance she will spontaneously grow a cock for a single act<br>
+<b>_root.DickgirlChangable</b> - true she <b>can</b> spontaneously change for a single act (randomly set by the game based on DickgirlRate)<br>
+<b>_root.DickgirlChanged</b> - set to true if she <b>has</b> spontaneously changed for a single sex act<br>
+<b>_root.PotionsUsed[0]</b> - the number of times she has drunk the Priapus draft<br>
+<br>
+<b>_root.DickgirlTesticles<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ true = dickgirls can have testicles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false = dickgirls will not have testicles<br>
+<b><br>
+_root.DickgirlStartOn<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true = all female slaves start as a dickgirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false = only slave so programmed start as a dickgirl<br>
+<b><br>
+_root.DickgirlLesbians</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true = lesbians can love dickgirls, and dickgirls count as female for lesbian acts<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false = lesbians do not love dickgirls, and dickgirls do not count for lesbian acts<br>
+<br></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId884754"></a>Core Functions</h1>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;">
+<span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">IsDickgirl</span></b><br>
+<i><span style="font-size: 12pt;">function IsDickgirl() : Boolean<br>
+</span></i>Is she permanently or temporarily a dickgirl<br>
+basically does<br>
+return SlaveGirl.IsDickgirl() || DickgirlXF &gt; 0 || SlaveGender == 3 || SlaveGender == 6 || DickgirlChanged<br>
+<br>
+<b><span style="font-size: 14pt;">IsPermanentDickgirl</span></b><br>
+<i><span style="font-size: 12pt;">function IsPermanentDickgirl() : Boolean<br>
+</span></i>Is she permanently a dickgirl<br>
+basically does<br>
+return DickgirlXF &gt; 0 || SlaveGender == 3 || SlaveGender == 6<br>
+<br>
+<b><span style="font-size: 14pt;">DickgirlTransform<span style="font-size: 12pt;"><br>
+</span></span></b><i>function DickgirlTransform(xf:Number)<br>
+</i>xf = new value for DickgirlXF. If 2 then it is a permanent change and SlaveGender changes to 3 and DickgirlXF = 0<br>
+Transform a girl, use this instead of directly changing DickgirlXF. Also handles item removal.<br>
+<br>
+<b><span style="font-size: 14pt;">CureDickgirlTransform<span style="font-size: 12pt;"><br>
+</span></span></b><i>function CureDickgirlTransform()<br>
+</i>Cure her of the Priapus draft, resets DickgirlXF = 0, same as calling DickgirlTransform(0); </span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><br>
+<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><h2 style="font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-weight: bold;">Repeated from</span> <a href="Core%20-%20Functions.html">Core - Functions.html</a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></h2><h2 style="font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></h2><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;">
+<span style="font-size: 12pt;">These are root functions, do not override for your slave girl<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">IsDickgirlEvent<span style="font-size: 12pt;"><br>
+</span></span></b><i>function IsDickgirlEvent() : Boolean<br>
+</i>If an event has a dickgirl option and a non-dickgirl option, use
+this fuction to choose which happens. This takes options dickgirl
+settings into account<br>
+returns true to show the dickgirl verision, false for the non-dickgirl<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">IsDickgirl</span></b><span style="font-size: 12pt;"><br>
+<i>function IsDickgirl() : Boolean</i> - is she permanently or temporarily a dickgirl<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">DoDickgirlChange</span></b> <br>
+<span style="font-size: 12pt;">handles temporary dickgirl changes and also generic images<br>
+<i>function DoDickgirlChange(chance:Number) : Boolean </i><br>
+chance - chance a generic dickgirl image will be shown, 0 for never, 100 for always<br>
+returns true if she spontaneously changes to a dickgirl.<br>
+Remember to check after if _root.UseGeneric == true <br>
+_root.IsDickgirl()) will be true if she has spontanously changed or is
+permanently changed. In that case show an appropriate graphic<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.DoDickgirlChange(40)) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.UseGeneric) return;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.IsDickgirl())  AnalClip.gotoAndStop(4);<span style="font-size: 12pt;"><br>
+<br>
+She will spontaneously change based on _root.DickgirlRate and this
+function will make her change based on that. If she does then 40% of
+the time use a generic image. <br>
+If she is permanently a dickgirl 40% of the time use a generic image. <br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">DoDickgirlChangeGeneric</span></b><span style="font-size: 12pt;"><br>
+handles temporary dickgirl changes and also generic images<br>
+<i>function DoDickgirlChangeGeneric(chance:Number) : Boolean </i><br>
+as above but returns true if she spontaneously changes and a generic image is to be used<br>
+after you can check _root.DickgirlChanged == true or just use
+_root.IsDickgirl() to se eif she spontaneously changed but will use a
+custom graphic<br>
+eg<br>
+<span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.DoDickgirlChangeGeneric(30)) return;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.IsDickgirl())  AnalClip.gotoAndStop(4);<span style="font-size: 12pt;"><br>
+<br>
+or <br>
+<span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.DoDickgirlChangeGeneric(30)) return;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.DickgirlChanged) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AnalClip.gotoAndStop(4);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText("Amazingly you see a cock grow from her clit as you fuck her ass.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<span style="font-size: 12pt;"><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">DefaultDickgirl<span style="font-size: 12pt;"><br>
+</span></span></b>if permanently changed to a dickgirl use generic graphics chance% of the time. Ignores spontaneous changes.<br>
+<i>function DefaultDickgirl(chance:Number) : Boolean<br>
+</i>chance - chance a generic dickgirl image will be shown,  0 for never, 100 for always<br>
+returns true if generic image is used<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><br style="font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">
+<br></span></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId586058"></a>Slave Interface Functions
+<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;">
+</span></b></u><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></h1><h1 style="font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">These functions can be overloaded for a slave&nbsp; to control her changes<br>
+<br>
+<b><span style="font-size: 14pt;">DrinkPotion<span style="font-size: 12pt;"><br>
+</span></span></b>called as she drinks a potion - NOTE you must overload this function for potion == 0 to show a dickgirl transformation scene<br>
+<i>function DrinkPotion(potion:Number, price:Number, say:String) : Boolean<br>
+</i>potion<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 - Priapus Draft<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 - Uninhibitor potion<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 - Aphrodisiac<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 - Soothing Potion<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 - Energy Drink<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 - Dorei<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 - Zodai<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7 - Gaman<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 - Biyaku<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9 - Ishinai<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10 - Lust Draft<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+11 - Odd Pill<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+12 - Nymph's Tears<br>
+price - cost of potion<br>
+say - standard message on drinking<br>
+return true to prevent standard message on drinking<br>
+<br>
+eg<br>
+See the Slave-Girl.as for one example. Below is the code from Ranma<br>
+<br>
+<span style="font-size: 10pt;">function DrinkPotion(potion:Number, price:Number, pname:String, say:String) : Boolean<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (potion == 0) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// Dickgirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+temp = int(Math.random()*4) + 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ClipDickgirl.gotoAndStop(temp);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+switch(temp) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+case 1:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Points(0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, -2, 0, 4, 0, 0, -15);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetText(_root.SlaveName + " starts joyfully rubbing her cock, after a time she comes with a scream of ecstasy.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+break;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+case 2:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Points(0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 2, 0, 0, 0, 4, 0, 0, -15);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetText(_root.ServantName + " is mesmerised by " + _root.SlaveName + "'s cock. She strips off her clothing and they start exploring the cock, and then fucking.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+break;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+case 3:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+case 4:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Points(0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 2, 0, 0, 0, 4, 0, 0, -15);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetText("Astrid also gives " + _root.ServantName + " a dose of the potion and they start experimenting and enjoying their cocks.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+break;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ClipDickgirl._visible = true;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return false;<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+Note you can update stats if you so desire as you see above<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">IsDickgirl</span></b><span style="font-size: 12pt;"><br>
+Use this function for exceptional cases where she is temporarily a dickgirl for a time, but DickgirlXF is still 0<br>
+<i>function IsDickgirl() : Boolean<br>
+</i>normally return false to indicate she is not a dickgirl in the special case. The game will still be aware of DickgirlXF<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">DickgirlPotionOffer<span style="font-size: 12pt;"><br>
+</span></span></b>This function is called the second and later times she is offered the Priapus Draft<br>
+<i>function DickgirlPotionOffer()<br>
+</i>Most commonly display a message noting her interest in the draft<br>
+Note root.PotionsUsed[0]  == 1 for the second, root.PotionsUsed[0]  == 2 for the third, it is the times she has actually drunk it.<br>
+<br>
+Note the text _root.SlaveName is already displayed at this time<br>
+ie<br>
+Ranma<br>
+<br>
+Most commonly<br>
+function DickgirlPotionOffer()<br>
+<span style="font-size: 10pt;">{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText(" is willing to experience the potion again.");<br>
+}<span style="font-size: 12pt;"><br>
+to show<br>
+Ranma is willing to experience the potion again<br>
+<br>
+To have her refuse the Draft set _root.NumEvent = 0;<br>
+see the Slave-Girl.as<br>
+eg<br>
+<span style="font-size: 10pt;">function DickgirlPotionOffer()<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText(" looks unhappy\r\r");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SlaveSpeak("No! not again, I am a girl, it does not matter how nice it felt.", true); <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText("\r\rAs " + _root.SlaveName + " turns to leave she notices " + _root.ServantName + " whispering to Astrid and they both laugh.\r\r" + _root.SlaveName + " is a little annoyed they did not share their joke.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.NumEvent = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetBitFlag2(2);<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+To have her always accept do this<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DoEvent(201);<br>
+<br>
+eg from Ranma on the <br>
+<span style="font-size: 10pt;">function DickgirlPotionOffer()<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.PotionsUsed[0] == 1) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText(" is eager to have a powerful cock again.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Points(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, -2);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Points(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, -2);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText(" immediately grabs the potion and drinks it...");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DoEvent(201);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowDickgirlTransform<span style="font-size: 12pt;"><br>
+</span></span></b><i>function ShowDickgirlTransform() : Boolean<br>
+</i>This function is called when she dickgirl transforms, the actual transformation as she grows a cock, not the after scene as she plays with her cock<br>
+Return false to do the standard transformation , else return true for a custom transformation<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">function ShowDickgirlTransform() : Boolean<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return false;<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+In one limited case you may wish to change _root.NumEvent. For Ranma drinking the potion has will not cause a permanent transformation, everything happens otherwise via the nun. So to disable permanent transformations completely set _root.NumEvent = 200;<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">function ShowDickgirlTransform() : Boolean<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.NumEvent = 200;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return false;<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+NOTE return type changed<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowDickgirlPermanent<span style="font-size: 12pt;"><br>
+</span></span></b><i>function ShowDickgirlPermanent() : Boolean<br>
+</i>This function is used to customise the scene where she permanently transforms. Return true to use your own custom graphics, return false for the standard graphics.<br>
+If you set any text (using SetText, AddText) then the standard text will not be shown and only your custom text shown. If you show no text then the standard text is shown<br>
+<br>
+Commonly<br>
+<span style="font-size: 10pt;">function ShowDickgirlPermanent() : Boolean<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return false;<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+To use a custom graphic<br>
+<span style="font-size: 10pt;">function ShowDickgirlPermanent() : Boolean<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DickgirlTransform._visible = true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return true;<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">AfterDickgirlPotion<span style="font-size: 12pt;"><br>
+</span></span></b><i>function AfterDickgirlPotion(num:Number)<br>
+</i>num = the number of current transformation (1 = first time)<br>
+This function is called after the dickgirl transformation wears off. It is not called when she permanently changes.<br>
+<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>

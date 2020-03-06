@@ -1,0 +1,133 @@
+<u style="font-family: Arial;"><b><span style="font-size: 18pt;">
+</span></b></u><span style="font-size: 12pt; font-family: Arial;">
+</span><table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top;">
+          <table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">Milking<br></span></font></td>
+
+                <td style="vertical-align: top;"><br></td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3
+                SDK</span></a></td>
+
+                <td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Version 8</font><br></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table><br style="font-family: Arial;"><br style="font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;">
+There are a series of functions and variables that control milking your slave girl. Note there are no versions of this event for male slaves.<br><br></span><span style="font-weight: bold; font-family: Arial;">Table of Contents</span><ul style="font-family: Arial;" id="mozToc"><li><a href="#mozTocId686765">Core Variables</a></li><li><a href="#mozTocId54123">BitFlags</a></li><li><a href="#mozTocId10666">
+Events</a></li><li><a href="#mozTocId148390">Endings</a></li><li><a href="#mozTocId164913">Core Functions</a></li><li><a href="#mozTocId110727">Slave Interface Functions</a></li></ul><span style="font-size: 12pt; font-family: Arial;">
+<br></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><u><b><span style="font-size: 14pt;">
+</span></b></u></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId686765"></a>Core Variables<span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><b>_root.Milkable</b> - this is not saved, so set it in her Initialise() function<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true = she can be milked<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false = she cannot, default, also should be set for male slaves<br>
+<br>
+<b>_root.MilkInfluence</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = she has not taken the milk drug<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &gt; 0 under the influence of the milk drug, and the days remaining until she realises she is under the influence, increases each time she is milked<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ -1 = cured<br>
+Also some transitory values -2, -3 but these are not saved<br>
+<br>
+<b>_root.TotalMilked</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+number times she has been milked, initially 0<br>
+<br><span style="font-weight: bold;">_root.Lactation</span><br><br><span style="font-weight: bold;">_root.BreastFixation</span><br><br><span style="font-weight: bold;">_root.MilkBuildUp</span><br><br><span style="font-weight: bold;">_root.RulesMilkHerself</span><br>
+<br><br><span style="text-decoration: underline;"><span style="font-weight: bold;"></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;">
+</span></b></u></span></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId54123"></a>BitFlags</h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+<b>Bit Flag 1</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;&nbsp;&nbsp;
+= First Milk Event<br>
+&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;&nbsp;&nbsp;
+= Milk Accident<br>
+&nbsp;&nbsp;&nbsp;&nbsp;11&nbsp;&nbsp;
+= Milk Drug offered<br>
+&nbsp;&nbsp;&nbsp;&nbsp;25  = Count owns farm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;26  = cowgirls removed from farm<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">if (_root.BitFlag1.CheckBitFlag(25)) {<br>
+&nbsp;&nbsp;&nbsp;_root.AddText("You talk to the Count about the cowgirls...");<br>
+}<span style="font-size: 12pt;"></span></span></span></span><span style="font-size: 12pt;"><span style="font-style: italic;"><br></span>
+</span></span><br style="font-family: Arial;"><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId10666"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;">
+</span></b></u></span></span></span></span></span>Events</h1>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">Theses are event numbers used in the game. You have intercept them using DoNextEvent() if desired<br>
+<br><span style="text-decoration: underline;">Next</span><br>
+4080 - First Milking <br>
+4081 - End of First Milking <br>
+4082 - Milk Drug Confront Farmer - Punch farmer<br>
+4083 - Milk Drug Confront Farmer - promise to tell lord, questions asked for 4088, 4087<br>
+4084 - Milk Drug Confront Farmer - Male SlaveMaker - next morning, I have breasts, female gender change<br>
+4085 - Milk Drug Confront Farmer - Male SlaveMaker - next morning, I am a woman?, dickgirl gender change<br>
+4086 - Milk Drug Confront Farmer - rescued and go to Lord<br>
+4087 - Milk Drug Confront Farmer - refuse to wait and go to Lord<br>
+4088 - Milk Drug Confront Farmer - agree to wait<br>
+<br></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId148390"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;"></span></b></u></span></span></span></span></span>Endings</h1>
+
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-weight: bold;">Ending Name: </span>Cowgirl<br><span style="font-weight: bold;">Ending
+  Number:</span> 21<br>
+  <span style="font-weight: bold;">Condition:</span>&nbsp;
+&nbsp;&nbsp; MilkInfluence &gt; 0 &amp;&amp; MilkInfluence &lt; 1000 &amp;&amp; TotalMilked &gt;= 6<br>
+<br>
+  Images are shown using the interface function </span></span><span style="font-family: Arial;">ShowEndingCowgirl,</span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"> see below.<br>
+<br></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"></span></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId164913"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"></span></span></span></span>Core Functions<br></h1>
+
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><br>
+</span></span></span></span><span style="font-size: 12pt;"><span style="font-style: italic;">function SetMilkEffects(lact:Number, bf:Number, md:Number, bu:Number)</span><br style="font-style: italic;"><br>
+<br><span style="font-style: italic;">
+function ChangeMilkEffects(lact:Number, bf:Number, md:Number, bu:Number)<br><br></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId110727"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;"></span></b></u></span></span></span></span></span>Slave Interface Functions<br></h1>
+
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;">
+</span></b></u><span style="font-size: 12pt;">These functions can be overloaded for a Slave girl to control her milking. if you set _root.Milkable = false do not bother override these, they will never be called.<br>
+<br>
+<br>
+<u><b><span style="font-size: 14pt;">These are mandatory</span></b></u><br>
+<span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">ShowMilking<br>
+</span></b><i><span style="font-size: 12pt;">function ShowMilking()<br>
+</span></i>Show her being milked, and she should be in bondage. If you do not have an image a generic image can be shown<br>
+<br>
+eg just show generic milking image<br>
+<span style="font-size: 10pt;">function ShowMilking()<br>
+{&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.UseGeneric = true;<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowMilkAccident<br>
+</span></b><i><span style="font-size: 12pt;">function ShowMilkAccident()<br>
+</span></i>Show her lactating, preferably with her dress slipped down<br>
+<br>
+No generic image is available, so always show something, say her holding her breasts if no lactating images are available<br>
+<br>
+<br>
+<u><b><span style="font-size: 14pt;">These are optional, but please implement</span></b></u><br>
+<span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">ShowMilkFall<br>
+</span></b><i><span style="font-size: 12pt;">function ShowMilkFall() : Boolean<br>
+</span></i>Show her fallen over, preferably with larger than normal breasts leaking milk<br>
+return true if you show a graphic, otherwise return false and ShowTired() is called<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowMilkEnd<br>
+</span></b><i><span style="font-size: 12pt;">function ShowMilkEnd() : Boolean<br>
+</span></i>Show a graphic when she is cured of the milk drug<br>
+return true if you show a graphic, otherwise return false and ShowBreak() is called<br><br><span style="font-weight: bold;"><font size="+1">ShowEndingCowgirl</font><br></span></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function ShowEndingCowgirl()<br>
+</span></i>Show a graphic when the cowgirl ending is reached</span></span></span></span></span></span></span></span></span></span></span><br style="font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-weight: bold;"></span><br>
+<b><br>
+</b></span></span></span></span></span></span></span></span></span></span></span>

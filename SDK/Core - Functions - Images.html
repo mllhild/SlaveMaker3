@@ -1,0 +1,512 @@
+<u style="font-family: Arial;"><b><span style="font-size: 18pt;"><u><b><span style="font-size: 18pt;"><table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239);" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">Image Functions<br>
+            </span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Version
+8</font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table></span></b></u></span></b></u><span style="font-size: 12pt; font-family: Arial;"><br>
+These are the functions for displaying or manipluating images. Standard Flash functions can of course still be used.<span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><br><br><span style="font-weight: bold;">Table of Contents</span>
+</span></span></span></span></span></span></span></span></span><ul style="font-family: Arial;" id="mozToc"><!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6--><li><a href="#mozTocId958953">Basic Concepts</a><ul><li><a href="#mozTocId342750">Display areas</a><ul><li><a href="#mozTocId507480">Main Window</a></li><li><a href="#mozTocId874512">People Window</a></li><li><a href="#mozTocId75432">Full Window</a></li></ul></li><li><a href="#mozTocId634395">Supported Image Formats</a></li><li><a href="#mozTocId443663">Image Resolutions</a></li></ul></li><li><a href="#mozTocId518578">Core Image Functions</a></li><li><a href="#mozTocId183922">Simple Animations</a></li><li><a href="#mozTocId707846">Dynamic Images</a></li></ul><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><br></span></span></span></span></span></span></span></span></span><hr style="width: 100%; height: 2px;"><h1><a class="mozTocH1" name="mozTocId958953"></a><span style="font-family: Arial;">Basic Concepts</span></h1><h2><a class="mozTocH2" name="mozTocId342750"></a><span style="font-family: Arial;">Display areas</span></h2>
+<h3 style="height: 5px; margin-left: 40px; font-family: Arial;"><a class="mozTocH3" name="mozTocId507480"></a>Main Window</h3><div style="margin-left: 40px; font-family: Arial;">&nbsp;the large window, upper left. It is 4x3 aspect ratio and is 448x336 pixels now. In XML functions this is referred to as "main"<br></div><h3 style="height: 6px; margin-left: 40px; font-family: Arial;"><a class="mozTocH3" name="mozTocId874512"></a>People Window</h3><div style="margin-left: 40px; font-family: Arial;">&nbsp;the smaller window on the lower left. It is square
+1x1 aspect ratio, 153x153 pixels, and is used to show people, your
+assistant etc. In XML functions this is referred to as "people" or "small" or "person"<br></div><h3 style="height: 6px; margin-left: 40px; font-family: Arial;"><a class="mozTocH3" name="mozTocId75432"></a>Full Window</h3>
+<div style="margin-left: 40px; font-family: Arial;">The entire window used by the game, 800x600 pixels, used for certain background images. In XML this is referred to as "full"<br></div><br style="font-family: Arial;"><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId634395"></a>Supported Image Formats<br></h2>
+<div style="margin-left: 40px; font-family: Arial;">The game supports a set of image file formats for dynamic loading at play rime. These are<br></div><ul style="margin-left: 40px; font-family: Arial;"><li>.jpg - do not use extension .jpeg, but the game allows for it, but it is slower to load<br></li><li>.png</li><li>.gif - does not support animated gif's. they will only show the first frame.<br></li><li>.swf<br></li></ul><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId443663"></a>Image Resolutions<br></h2>
+<div style="margin-left: 40px;"><span style="font-family: Arial;">The version of Flash the game uses supports a maximum resolution of 2880x2880 pixels, any larger and the image will not show.</span><br style="font-family: Arial;"><br style="font-family: Arial;"><span style="font-family: Arial;">I recommend images of resolution between 1024x768 to 640x480, smaller can yeild artifacts. Larger are not needed and do not really give a better quality.</span><br><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></div><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><br></span></span></span></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId518578"></a><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span>Core Image Functions<span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><i>
+</i><u><b>
+</b></u><i><span style="font-size: 12pt;"><br>
+</span></i><span style="font-size: 14pt;"><b>ShowMovie<br>
+</b><span style="font-size: 12pt;">Show a movie in the main window or small people/item window. The image will be made visible and resized as needed<br>
+<span style="font-size: 8pt;"><br>
+<i><span style="font-size: 12pt;">function ShowMovie(movie:MovieClip, position:Number, align:Number, gframe:Number)<br>
+</span></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>movie </i>= the MovieClip to be positioned<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>position </i>= the areas of the screen to position the image in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = People Window. Any assistant or slave maker image will be hidden first<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = Main Window<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = entire stage<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = assistant selection<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 = girls introduction area used when the girls training starts<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 = item selection window<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 = slave picker<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7 = assistant selection, fixed size<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 = slave maker profile<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10 same as 0<br>
+<span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Note this is changed: originally this was a Boolean where true = Main Window, false was People Window. In Flash false == 0 and true == 1 in this case so it is backwardly compatible<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Please discontinue the use of true/false<span style="font-size: 12pt;"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>align</i><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = fill entire area<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = center horizontally, fill the area so the image fills the available height<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = fill height and position at the left of the widow<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = right align<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 = bottom right<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 = top left (at full size), designed to hide part of the image/person (see Astrid)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 = center (large size)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7 = fill entire width of window and align to top of the window<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 = fill entire width of the window, center vertically<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9 = center vertically (use 1 or 8 depending on aspect ratio of the target movie)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10 = same as 0 (mainly for using -10)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+11 = fill image to the entire stage (800x600 at 0,0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+12 = (internal use) position in the assistant selection area<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+13 = fill width and position at the bottom of the window<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+14 = center horizontally (use 1 or 3 depending or aspect ratio)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &gt; 100 = flip horizontal and treat as align - 100<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &lt; 0 = do not make visible, and treat as a positive value of align<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>gframe </i>= frame of movie to gotoAndStop to, optional will not change the movie clip frame if not specified<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+If gframe is negative (ie -1) it will start playback of the MovieClip from the specified frame, ie gotoAndPlay(gframe * -1);<br>
+<br>
+NOTES: <br>
+1) any frames in a movie clip you wish to use this function with must be postioned at x=0, y=0 interally in the MovieClip. <br>
+ie<br>
+when you edit the movieclip and add the frame make sure the frame is at position x=0, y=0, it does not matter where the movieclip itself is positioned<br>
+<br>
+2) Any colour transform on the image is reset when this function is called<br>
+<br>
+eg<span style="font-size: 10pt;"><br>
+ShowMovie(_root.ClipTrial, 1, 0);<br>
+ShowMovie(ClipSpank, 1, 1, Math.floor(Math.random()*2) + 1);<span style="font-size: 12pt;"><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">HideImages<br>
+</span></b><i><span style="font-size: 12pt;">function HideImages()<br>
+</span></i>hide general/common images<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">HideSlaveActions<br>
+</span></b><i><span style="font-size: 12pt;">function HideSlaveActions()<br>
+</span></i>hide slave actions (ie fuck, cleaning etc) + generic versions<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">HideBackgrounds</span></b><br>
+<i><span style="font-size: 12pt;">function HideBackgrounds()</span></i><br>
+hide all places like docks, forest etc<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">HideStatChangeIcons<br>
+</span></b><i><span style="font-size: 12pt;">function HideStatChangeIcons()</span></i><b><br>
+</b>Hide the statistics icons/text for both you and your slave<b><br>
+</b><br>
+<br>
+<b><span style="font-size: 14pt;">ShowSlaveMaker</span></b> <br>
+<span style="font-size: 12pt;">will show the slave makers image<br>
+<i>function ShowSlaveMaker(profile:Boolean)<br>
+</i>profile - optional will show the image in the people window. Otherwise can show for Seer/Intro screens if true. Default false<br>
+Will hide any people or assistants if profile = false<br>
+eg<span style="font-size: 10pt;"><br>
+ShowSlaveMaker();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// show in people window<span style="font-size: 12pt;"><br>
+<br>
+Note: remember ShowAssistant<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSupervisor<br>
+</span></b><span style="font-size: 12pt;">will show the person (assistant or slavemaker) who is supervising<br>
+<i>function ShowSupervisor() : Boolean<br>
+</i>return - true if your slave maker is supervising<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">if (_root.ShowSupervisor()) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// slave maker image shown<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText("You take your slave....");<br>
+}&nbsp;else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// assistant image shown<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText(_root.ServantName + " takes your slave...");<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">HideSupervisor<br>
+</span></b><span style="font-size: 12pt;">will hide the person (assistant or slavemaker) who is supervising<br>
+<i>function HideSupervisor()<br>
+</i><br>
+<br>
+<b><span style="font-size: 14pt;">ShowMainButtons<br>
+</span></b><span style="font-size: 12pt;">Show the Morning/Planning/Slave Market buttons<br>
+<i>function ShowMainButtons(hideb:Boolean)<br>
+</i>hideb - true - hide buttons, false = show buttons, defaults to false<i><br>
+</i>Generally avoid using this<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowOverlay</span></b> <br>
+<span style="font-size: 12pt;">show a solid background colour in the main window<br>
+<i>function ShowOverlay(colour:Number)<br>
+</i>colour - hex value like 0xff1010 (rgb format)<br>
+eg<span style="font-size: 10pt;"><br>
+_root.ShowOverlay(0);&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// solid black<br>
+_root.ShowOverlay(0xFF0000);&nbsp;&nbsp;&nbsp;&nbsp;
+// solid red<br>
+_root.ShowOverlay(0xFFFFFF);&nbsp;&nbsp;&nbsp;&nbsp;
+// solid white, but it is the default so not particularly needed<span style="font-size: 12pt;"><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">SetMovieColour<br>
+</span></b><span style="font-size: 12pt;">colours temporarily a movie adding to its red, green, blue, alpha channels<br>
+<i>function SetMovieColour(target_mc:MovieClip, red:Number, green:Number, blue:Number, alphao:Number, redmul:Number, greenmul:Number, bluemul:Number, alphamul:Number)<br>
+</i>red, green, blue, alphao - 0-255 for red channel, blue and alpha (tranparency), alphao defaults to 0 (solid)<br>
+redmul, greenmul, bluemul, alphamul - 0-1 a mutiplier applied to the channel (defaults to 1)<br>
+<br>
+Note ShowMovie resets the colour transform when it is next called on this image<br>
+<span style="font-size: 10pt;"><br>
+<span style="font-size: 12pt;">eg<span style="font-size: 10pt;"><br>
+_root.SetMovieColour(_root.PlaceTentacles, 0, 0, 110);<i><span style="font-size: 12pt;"><br>
+</span></i><br>
+Note<br>
+standard backgrounds are darkened at night with<br>
+<span style="font-size: 10pt;">_root.SetLastMovieColour(-200, -70, 0);<span style="font-size: 12pt;"><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">SetLastMovieColour<br>
+</span></b><span style="font-size: 12pt;">colours temporarily the last movie shown using ShowMovie adding to its red, green, blue channels<br>
+<i>function SetMovieColour(red:Number, green:Number, blue:Number, alphao:Number, redmul:Number, greenmul:Number, bluemul:Number, alphamul:Number)<br>
+</i>red, green, blue, alphao - 0-255 for red channel, blue and alpha (tranparency), alphao defaults to 0 (solid)<br>
+redmul, greenmul, bluemul, alphamul - 0-1 a mutiplier applied to the channel (defaults to 1)<br>
+<i><br>
+</i>Note ShowMovie resets the colour transform when it is next called on this image<br>
+<br>
+Note<br>
+standard backgrounds are darkened at night with<br>
+<span style="font-size: 10pt;">_root.SetLastMovieColour(-200, -70, 0);<br>
+<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">ShowDividerPercentage</span></b><br>
+<i><span style="font-size: 12pt;">function ShowDividerPercentage(xperc:Number)<br>
+</span></i>Show a vertical divider down the main window<br>
+xperc - percent of the way across the window, remember Number is floating point<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowDividerX</span></b><br>
+<i><span style="font-size: 12pt;">function ShowDividerX(xpos:Number)<br>
+</span></i>As above but pixels used. Left of main window = 7<br>
+<br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId183922"></a><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>Simple Animations<span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;"></span></b></u></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;">
+</span></b></u><span style="font-size: 14pt;"><b><br>
+</b><span style="font-size: 12pt;">Note all times are in milliseconds and ideally should be multiples of 1/24 of a second<br>
+<span style="font-size: 14pt;"><br>
+<b>StartFadeImage<br>
+</b><span style="font-size: 12pt;">fade a movie clip to invisible (varies alpha channel)<br>
+<i>function StartFadeImage(duration:Number, mc:MovieClip, say:String)<br>
+</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+duration&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- time in milliseconds between changes to alpha channel<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+mc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- movieclip to fade<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+say&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- once full hidden say will be shown (ie AddText(say))<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">StartFuckIt<br>
+</span></b><span style="font-size: 12pt;">Show the image with a simple fucking like motion<b><span style="font-size: 14pt;"><br>
+</span></b><i><span style="font-size: 12pt;">function StartFuckIt(mc:MovieClip, lockx:Boolean, left:Boolean)<br>
+</span></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+mc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- movieclip to fuck<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+lockx&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- x position will stay fixed if true<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+left&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- at left of main window, else right<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">StartShakeIt<br>
+</span></b><span style="font-size: 12pt;">Shake the image from side to side a couple of times<b><span style="font-size: 14pt;"><br>
+</span></b><i><span style="font-size: 12pt;">function StartShakeIt(mc:MovieClip, inittime:Number, comment:String) <br>
+</span></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+mc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- movieclip to shake<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+inittime&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- time before shaking starts, defualt 0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+comment&nbsp;
+- when shaking done will display this text using AddText if not "" or undefined<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">StartChangeImage<br>
+</span></b><span style="font-size: 12pt;">After a time change a movie clip to a new frame, optionally hiding and showing other clips<br>
+<i>function StartChangeImage(duration:Number, mc:MovieClip, newpos:Number, say:String, hide_mc:MovieClip, show_mc:MovieClip) </i><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+duration&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- time to change happening<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+mc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- clp to change<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+newpos&nbsp;&nbsp;
+- will do mc.gotoAndStop(newpos);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+say&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- after change AddText(say) (if present and not "")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+hide_mc&nbsp;
+- after change this clip will be hidden (hide_mc._visible = false) - optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+show_mc&nbsp;
+- after change this clip will be shown (hide_mc._visible = true) - optional<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">StartZoomImage<br>
+</span></b><span style="font-size: 12pt;">Zoom in on a part of an image (as used in the take a walk action)<i><br>
+function StartZoomImage(mc:MovieClip, duration:Number, steps:Number, endscale:Number, xpos:Number, ypos:Number, hideimage:Boolean) {<br>
+</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+mc - movieclip to zomm in on<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+duration - time between changes of the zoom<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+steps - how many moves/changes in the zoom process<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+endscale - ending magnification (eg 300 for 3x)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+xpos - x position to zoom in on the base image<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ypos - y poaition to zoon in on<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+hideimage - true and the image will be hidden when the zoom in finished<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">StartZoomImage(WalkZoom, 42, 12, 400, 440, 40);&nbsp;
+<br>
+<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">StartMoveImage<br>
+</span></b><span style="font-size: 12pt;">Move an image from one point to another<i><br>
+function StartMoveImage(mc:MovieClip, duration:Number, steps:Number, startxpos:Number, startypos:Number, endxpos:Number, endypos:Number, hidemc:MovieClip)</i><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+mc - the movieclip to move<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+duration - time between moves<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+steps - number of moves<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+startxpos - the starting x position of the movie clip<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+startypos - the starting y position of the movie clip<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+endxpos - the ending x position of the movie clip<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+endypos - the ending y position of the movie clip<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+hideimage - true and the image will be hidden when the zoom in finished<br>
+<b><span style="font-size: 14pt;"><br>
+<br>
+StartAlternateImage<br>
+</span></b><span style="font-size: 12pt;">Alternate two frames of am image<b><span style="font-size: 14pt;"><br>
+</span></b><i><span style="font-size: 12pt;">function StartAlternateImage(duration:Number, mc:MovieClip, newpos:Number, oldpos:Number)<br>
+</span></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+mc - the movieclip to move<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+duration - time between moves<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+newpos - the second frame to gotoAndStop(newpos) to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+oldpos - the first frame to gotoAndStop(oldpos)<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">StartCumSplatter</span></b><span style="font-size: 12pt;"><br>
+Shows a white flash and then a splatter of cum over the main window<i><br>
+function StartCumSplatter(delay:Number, mc:MovieClip, align:Number, frame:Number, moveonly:Boolean)<br>
+</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+delay - wait before white flash<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+mc - the movieclip show after the white flash<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+align - &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+as in ShowMovie, applied to mc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+frame - frame of mc to show<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+moveonly - legacy, will just use gotoAndStop not ShowMovie<br>
+<i><br>
+</i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId707846"></a>Dynamic Images<span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;"></span></b></u></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;">
+</span></b></u><span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">AttachMovie<br>
+</span></b><i><span style="font-size: 12pt;">function AttachMovie(movie:String) : MovieClip</span></i><br>
+Creates a movieclip and loads a movie from an exported movieclip in your project. <br>
+When you no longer need the image either use removeMovieClip or <b>RemoveAttachedMovie</b> below<br>
+Parameters<br>
+movie - name of the exported movie<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">var mc:MovieClip = AttachMovie("Event Milking");<br>
+<span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">AttachAndShowMovie<br>
+</span></b><i><span style="font-size: 12pt;">function AttachAndShowMovie(movie:String, main:Number, align:Number, gframe:Number) : MovieClip</span></i><br>
+Creates a movieclip and loads a movie from an exported movieclip in your project. <br>
+When you no longer need the image either use removeMovieClip or <b>RemoveAttachedMovie</b> below<br>
+Parameters<br>
+movie - name of the exported movie<br>
+all others the same as for <b>ShowMovie</b><br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">var mc:MovieClip = AttachAndShowMovie("Event Milking", 1, 0);<br>
+<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">RemoveAttachedMovie<br>
+</span></b><i><span style="font-size: 12pt;">function RemoveAttachedMovie(movie:MovieClip)<br>
+</span></i>Removes a movieclip created by <b>AttachAndShowMovie</b><br>
+simply does<br>
+movie.removeMovieClip();<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">AutoAttachAndShowMovie<br>
+</span></b><i><span style="font-size: 12pt;">function AutoAttachAndShowMovie(movie:String, main:Number, align:Number, gframe:Number) : MovieClip<br>
+</span></i>As <b>AttachAndShowMovie </b>but the engine will automatically remove the movieclip next time HideImages() is called. Useful for images shown on a one-off basis, say an event etc.<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">AttachBitmap<br>
+</span></b><i><span style="font-size: 12pt;">function AttachBitmap(movie:String) : MovieClip</span></i><br>
+Creates a movieclip and loads a bitmap from the library into it. <br>
+When you no longer need the image either use removeMovieClip or <b>RemoveAttachedMovie</b> below<br>
+Parameters<br>
+movie - name of the exported movie<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">var mc:MovieClip = AttachBitmap("Event Milking");<br>
+<span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">AttachAndShowBitmap<br>
+</span></b><i><span style="font-size: 12pt;">function AttachAndShowBitmap(movie:String, main:Number, align:Number, gframe:Number) : MovieClip</span></i><br>
+Creates a movieclip and loads a bitap from an exported bitmap in your project. <br>
+When you no longer need the image either use removeMovieClip or <b>RemoveAttachedMovie</b> below<br>
+Parameters<br>
+movie - name of the exported movie<br>
+all others the same as for <b>ShowMovie</b><br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">var mc:MovieClip = AttachAndShowBitmap("Event Milking", 1, 0);<span style="font-size: 12pt;"><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">AutoAttachAndShowBitmap<br>
+</span></b><i><span style="font-size: 12pt;">function AutoAttachAndShowBitmap(movie:String, main:Number, align:Number, gframe:Number) : MovieClip<br>
+</span></i>As <b>AttachAndShowBitmap </b>but the engine will automatically remove the movieclip next time HideImages() is called. Useful for images shown on a one-off basis, say an event etc.<br>
+<br>
+<b><span style="font-size: 14pt;">LoadImageAndShowMovie<br>
+</span></b><i><span style="font-size: 12pt;">function LoadImageAndShowMovie(movie:String, main:Number, align:Number, gframe:Number) : MovieClip<br>
+</span></i>Creates a movieclip and loads a movie from a filename, say a jpg, png or gif file. <br>
+When you no longer need the image either use unloadMovie or <b>RemoveLoadedImage </b>below<br>
+Parameters<br>
+movie - name of the exported movie<br>
+all others the same as for <b>ShowMovie<br>
+<br>
+Note</b> filenames are relative to the swf file. Do not use absolute paths, it will fail at runtime for other people<br>
+Also the image takes a small amount of time to load, maybe 0.5 seconds, so do not use the MovieClip object immediately after calling as any changes will be lost when the image actually loads<b><br>
+</b><br>
+eg<br>
+<span style="font-size: 10pt;">var mc:MovieClip = LoadImageAndShowMovie("Milking.jpg", 1, 0);<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">RemoveLoadedImage<br>
+</span></b><i><span style="font-size: 12pt;">function RemoveLoadedImage(movie:MovieClip)<br>
+</span></i>Removes a movieclip created by <b>LoadImageAndShowMovie</b><br>
+simply does<i><br>
+</i>movie.unloadMovie();<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">_root.RemoveLoadedImage(mc);<br>
+<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">AutoLoadImageAndShowMovie<br>
+</span></b><span style="font-size: 12pt;">function AutoLoadImageAndShowMovie(movie:String, main:Number, align:Number, gframe:Number) : MovieClip<br>
+As <b>LoadImageAndShowMovie </b>but the engine will automatically remove and unload the movieclip next time HideImages() is called. Useful for images shown on a one-off basis, say an event etc. Can be used for planning actions but be aware of the small delay in loading<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">AutoLoadImageAndShowMovie("Milking.jpg", 1, 0);<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">LoadImage<br>
+</span></b><i><span style="font-size: 12pt;">function LoadImage(image:MovieClip, movie:String, target:MovieClip) : MovieClip</span></i><span style="font-size: 10pt;"><br>
+<span style="font-size: 12pt;">Loads an image into a movieclip, it is not shown. Otherwise the same as <b>LoadImageAndShowMovie</b><br>
+<span style="font-size: 10pt;"><br>
+<u><b><span style="font-size: 16pt;"><br>
+</span></b></u></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>

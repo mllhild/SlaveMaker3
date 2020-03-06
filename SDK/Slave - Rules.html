@@ -1,0 +1,1018 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html;charset=ISO-8859-1" http-equiv="Content-Type">
+  <meta name="generator"
+ content="HTML Tidy for Windows (vers 22 March 2008), see www.w3.org">
+  <title>Rules</title>
+</head>
+<body>
+<table
+ style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;"
+ border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font
+ size="+3"><span style="font-weight: bold;">Rules<br>
+            </span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td
+ style="vertical-align: top; width: 80%; text-align: left;"><a
+ href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font
+ style="font-weight: bold;" size="-1">Updated for Version 3.4</font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;">There are rules that
+affect your slave's training. These are not hard and fast rules and can
+be breached by your slave.<br>
+</span><span style="font-weight: bold; font-family: Arial;"></span><span
+ style="font-family: Arial;"></span><span
+ style="font-weight: bold; font-family: Arial;"><br>
+</span><span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-weight: bold;">Table of Contents</span></span><br
+ style="font-family: Arial;">
+<ul style="font-family: Arial;" id="mozToc">
+<!--mozToc h1 1 h4 2-->
+  <li><a href="#mozTocId68264">General Concepts</a>
+    <ul>
+      <li><a href="#mozTocId509073">Rule Numbers</a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId391332">Core Variables</a>
+    <ul>
+      <li><a href="#mozTocId360272">Rules.RulesTalk </a></li>
+      <li><a href="#mozTocId865356">Rules.RulesPray </a></li>
+      <li><a href="#mozTocId360272">Rules.RulesGoOut </a></li>
+      <li><a href="#mozTocId536138">Rules.RulesFuck </a></li>
+      <li><a href="#mozTocId417359">Rules.RulesTouchHerself </a></li>
+      <li><a href="#mozTocId523206">Rules.RulesWriteLetters </a></li>
+      <li><a href="#mozTocId772614">Rules.RulesPocketMoney </a></li>
+      <li><a href="#mozTocId711247">Rules.RulesMilkHerself </a></li>
+      <li><a href="#mozTocId95326">Rules.RulesArmed </a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId587716">Core Functions</a>
+    <ul>
+      <li><a href="#mozTocId406993">ChangeRuleTo</a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId191731">Breaking Rules</a>
+    <ul>
+      <li><a href="#mozTocId180072">BadGirl </a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId821639">Slave Interface Functions</a>
+    <ul>
+      <li><a href="#mozTocId142891">SetRule</a></li>
+      <li><a href="#mozTocId628141">ClearRule</a></li>
+    </ul>
+  </li>
+</ul>
+<span style="font-size: 12pt; font-family: Arial;"><b><br>
+</b></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId68264"></a>General
+Concepts</h1>
+<span style="font-family: Arial;">Rules affects a slaves training and
+generally apply a stat change on a
+daily basis.</span><br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<h4 style="font-family: Arial;"><a class="mozTocH4"
+ name="mozTocId509073"></a><big><font size="+1"><big>Rule
+Numbers</big></font></big></h4>
+<span style="font-family: Arial;">All rules have an associated number
+that is used in the functions
+below.. See the column ID for the variabled below for that identifier</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;"></span><span
+ style="font-family: Arial;"></span><br style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><b></b></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId391332"></a>Core Variables</h1>
+<font style="font-family: Arial;" size="+1">All the following variables
+are
+implemented in a class TrainingRules with an instance<br>
+Rules<br>
+in global scope. For legacy support all variables are copied to global
+scope<br>
+ie<br>
+_root.Rules.RulesTalk<br>
+can also be referred to as<br>
+_root.RulesTalk<br>
+In actionscript please use the <a href="#mozTocId406993">ChangeRuleTo()</a>
+function to alter the
+setting of a rule<br>
+</font><font style="font-family: Arial;" size="+1"><br>
+</font><br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 936px; height: 1790px; background-color: rgb(242, 255, 255); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: rgb(229, 229, 229); width: 47%;"><span
+ style="font-weight: bold;">Actionscript Variable</span></td>
+            <td
+ style="vertical-align: top; width: 47%; background-color: rgb(229, 229, 229);"><span
+ style="font-weight: bold;">XML Variable</span></td>
+            <td
+ style="vertical-align: top; background-color: rgb(229, 229, 229); width: 6%;">ID<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 29px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 25px; width: 47%;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId360272"></a><span style="font-weight: bold;">Rules.RulesTalk</span>
+            <font size="-1"><span style="font-style: italic;"></span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h4>
+            <font size="-2"><span style="font-weight: bold;"></span></font>
+            </td>
+            <td
+ style="vertical-align: top; width: 47%; background-color: white; height: 25px;"><span
+ style="font-weight: bold;">rulestalk</span> <span
+ style="font-weight: bold;"><font size="-1"><span
+ style="font-style: italic;"></span></font></span><span
+ style="font-size: 12pt; font-weight: bold;"><span
+ style="font-size: 12pt;"></span></span></td>
+            <td style="vertical-align: top; background-color: white;">0<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ size="-1"><span style="font-style: italic;">(Number)</span></font> Can
+your slave talk without being spoken to first<br>
+      </span></span>
+      <table style="text-align: left; width: 924px; height: 26px;"
+ border="0" cellpadding="6" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 &nbsp; = No<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp; = Yes</span></span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+Effects <span style="font-weight: bold;">On</span>:<br>
+&nbsp;&nbsp; Allows Dating to take place, see <a
+ href="Slave%20-%20Events%20-%20Love%20&amp;%20Dating.html">Slave - Events
+- Love &amp; Dating.html</a>.<br>
+Effects <span style="font-weight: bold;">Off</span>:<br>
+&nbsp;&nbsp; Per Day: Conversation -1, Sensibility +1<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 29px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 25px; width: 47%;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId865356"></a><span style="font-weight: bold;">Rules.RulesPray</span>
+            <font size="-1"><span style="font-style: italic;"></span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h4>
+            <font size="-2"><span style="font-weight: bold;"></span></font>
+            </td>
+            <td
+ style="vertical-align: top; width: 47%; background-color: white; height: 25px;"><span
+ style="font-weight: bold;">rulespray</span> <span
+ style="font-weight: bold;"><font size="-1"><span
+ style="font-style: italic;"></span></font></span><span
+ style="font-size: 12pt; font-weight: bold;"><span
+ style="font-size: 12pt;"></span></span></td>
+            <td style="vertical-align: top; background-color: white;">1<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <font size="-1"><span style="font-style: italic;">(Number)</span></font>
+Can your slave pray to their gods whenever they wish<br>
+      <table style="text-align: left; width: 924px; height: 26px;"
+ border="0" cellpadding="6" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 &nbsp; = No<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp; = Yes</span></span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+Effects <span style="font-weight: bold;">On</span>:<br>
+&nbsp;&nbsp; Per Day: if Morality &gt; 50: Morality +1, Lust -3,
+Nymphomania -3<br>
+&nbsp;&nbsp; Per Day: if Morality 50 or less: Lust -1<br>
+Effects <span style="font-weight: bold;">Off</span>:<br>
+&nbsp;&nbsp; Per Day: Conversation -1, Sensibility +1<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 29px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 25px; width: 47%;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId360272"></a><span style="font-weight: bold;">Rules.RulesGoOut</span>
+            <font size="-1"><span style="font-style: italic;"></span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h4>
+            <font size="-2"><span style="font-weight: bold;"></span></font>
+            </td>
+            <td
+ style="vertical-align: top; width: 47%; background-color: white; height: 25px;"><span
+ style="font-weight: bold;">rulesgoout</span> <span
+ style="font-weight: bold;"><font size="-1"><span
+ style="font-style: italic;"></span></font></span><span
+ style="font-size: 12pt; font-weight: bold;"><span
+ style="font-size: 12pt;"></span></span></td>
+            <td style="vertical-align: top; background-color: white;">2<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ size="-1"><span style="font-style: italic;">(Number)</span></font> Can
+your slave go out of your home unsupervised.<br>
+      </span></span>
+      <table style="text-align: left; width: 924px; height: 26px;"
+ border="0" cellpadding="6" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 &nbsp; = No<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp; = Yes</span></span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+Effects <span style="font-weight: bold;">On</span>:<br>
+&nbsp;&nbsp; Allows Dating to take place, see <a
+ href="Slave%20-%20Events%20-%20Love%20&amp;%20Dating.html">Slave - Events
+- Love &amp; Dating.html</a>.<br>
+&nbsp;&nbsp; Allows random fucking, see <a href="#mozTocId135749">RulesFuck</a><br>
+Effects <span style="font-weight: bold;">Off</span>:<br>
+&nbsp;&nbsp; Per Day: Sensibility -1, Reputation -1, Constitution -1,
+Joy -3<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 29px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 25px; width: 47%;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId536138"></a><span style="font-weight: bold;">Rules.RulesFuck</span>
+            <font size="-1"><span style="font-style: italic;"></span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h4>
+            <font size="-2"><span style="font-weight: bold;"></span></font>
+            </td>
+            <td
+ style="vertical-align: top; width: 47%; background-color: white; height: 25px;"><span
+ style="font-weight: bold;">rulesfuck</span> <span
+ style="font-weight: bold;"><font size="-1"><span
+ style="font-style: italic;"></span></font></span><span
+ style="font-size: 12pt; font-weight: bold;"><span
+ style="font-size: 12pt;"></span></span></td>
+            <td style="vertical-align: top; background-color: white;">3<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <small><span style="font-style: italic;">(Number)</span></small>&nbsp;
+Can your slave have sex without permission<br>
+      <table style="text-align: left; width: 924px; height: 26px;"
+ border="0" cellpadding="6" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 &nbsp; = No<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp; = Yes</span></span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+Effects <span style="font-weight: bold;">On</span>:<br>
+&nbsp;&nbsp; Allows random fucking, in a daily event where Fuck and
+BlowJob increase proportional to the slave's Slutiness<br>
+&nbsp;&nbsp; Allows slave to have sex in the Sleazy Bar<br>
+&nbsp;&nbsp; Allows slave to take an Older Lover, see <a
+ href="Slave%20-%20Events%20-%20Love%20&amp;%20Dating.html">Slave - Events
+- Love &amp; Dating.html</a>.<br>
+Effects <span style="font-weight: bold;">Off</span>:<br>
+&nbsp;&nbsp; If Dating happens then BadGirl is set<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 29px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 25px; width: 47%;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId417359"></a><span style="font-weight: bold;">Rules.RulesTouchHerself</span>
+            <font size="-1"><span style="font-style: italic;"></span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h4>
+            <font size="-2"><span style="font-weight: bold;"></span></font>
+            </td>
+            <td
+ style="vertical-align: top; width: 47%; background-color: white; height: 25px;"><span
+ style="font-weight: bold;">rulestouchherself<br>
+rulesmasturbate</span> <span style="font-weight: bold;"><font size="-1"><span
+ style="font-style: italic;"></span></font></span><span
+ style="font-size: 12pt; font-weight: bold;"><span
+ style="font-size: 12pt;"></span></span></td>
+            <td style="vertical-align: top; background-color: white;">4<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ size="-1"><span style="font-style: italic;">(Number)</span></font></span></span>
+Can your slave masturbate without permission<br>
+      <table style="text-align: left; width: 924px; height: 26px;"
+ border="0" cellpadding="6" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 &nbsp; = No<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp; = Yes</span></span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+Effects <span style="font-weight: bold;">On</span>:<br>
+&nbsp;&nbsp; Per Day: if Lust &gt; 60: Lust -1, Temperament -1<br>
+Effects <span style="font-weight: bold;">Off</span>:<br>
+&nbsp;&nbsp; Per Day: Lust + 0.5<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 29px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 25px; width: 47%;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId523206"></a><span style="font-weight: bold;">Rules.RulesWriteLetters</span>
+            <font size="-1"><span style="font-style: italic;"></span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h4>
+            <font size="-2"><span style="font-weight: bold;"></span></font>
+            </td>
+            <td
+ style="vertical-align: top; width: 47%; background-color: white; height: 25px;"><span
+ style="font-weight: bold;">ruleswriteletters</span> <span
+ style="font-weight: bold;"><font size="-1"><span
+ style="font-style: italic;"></span></font></span><span
+ style="font-size: 12pt; font-weight: bold;"><span
+ style="font-size: 12pt;"></span></span></td>
+            <td style="vertical-align: top; background-color: white;">5<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ size="-1"><span style="font-style: italic;">(Number)</span></font></span></span>
+Can your slave write letters to family and friends<br>
+      <table style="text-align: left; width: 924px; height: 26px;"
+ border="0" cellpadding="6" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 &nbsp; = No<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp; = Yes</span></span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+Effects <span style="font-weight: bold;">On</span>:<br>
+&nbsp;&nbsp; Per Day: Joy -1, Sensibility +1<br>
+Effects <span style="font-weight: bold;">Off</span>:<br>
+&nbsp;&nbsp; none<br>
+      <span style="font-size: 12pt;"><font size="-1"><br>
+      </font></span> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><font size="-1"></font>
+      <table style="text-align: left; width: 924px; height: 29px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 25px; width: 47%;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId772614"></a><span style="font-weight: bold;">Rules.RulesPocketMoney</span>
+            <font size="-1"><span style="font-style: italic;"></span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h4>
+            <font size="-2"><span style="font-weight: bold;"></span></font>
+            </td>
+            <td
+ style="vertical-align: top; width: 47%; background-color: white; height: 25px;"><span
+ style="font-weight: bold;">rulespocketmoney</span> <span
+ style="font-weight: bold;"><font size="-1"><span
+ style="font-style: italic;"></span></font></span><span
+ style="font-size: 12pt; font-weight: bold;"><span
+ style="font-size: 12pt;"></span></span></td>
+            <td style="vertical-align: top; background-color: white;">6<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <font size="-1"><span style="font-style: italic;">(Number)</span></font>
+Will you give your slave some money to spend as they like<br>
+      <table style="text-align: left; width: 924px; height: 26px;"
+ border="0" cellpadding="6" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 &nbsp; = No<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp; = Yes</span></span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+Effects <span style="font-weight: bold;">On</span>: <span
+ style="font-weight: bold;">only happens if you have 2 or more GP</span><br>
+&nbsp;&nbsp; Per Day: Joy +1, Sensibility -1, Gold -2GP<br>
+Effects <span style="font-weight: bold;">Off</span>:<br>
+&nbsp;&nbsp; none<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 29px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 25px; width: 47%;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId711247"></a><span style="font-weight: bold;">Rules.RulesMilkHerself</span>
+            <font size="-1"><span style="font-style: italic;"></span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h4>
+            <font size="-2"><span style="font-weight: bold;"></span></font>
+            </td>
+            <td
+ style="vertical-align: top; width: 47%; background-color: white; height: 25px;"><span
+ style="font-weight: bold;">rulesmilkherself</span> <span
+ style="font-weight: bold;"><font size="-1"><span
+ style="font-style: italic;"></span></font></span><span
+ style="font-size: 12pt; font-weight: bold;"><span
+ style="font-size: 12pt;"></span></span></td>
+            <td style="vertical-align: top; background-color: white;">7<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <font size="-1"><span style="font-style: italic;">(Number)</span></font>
+Can your slave milk her breasts when she wishes. This rule is only
+shown if the slave's variable Lactation is &gt; 0.
+      <table style="text-align: left; width: 924px; height: 26px;"
+ border="0" cellpadding="6" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 &nbsp; = No<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp; = Yes</span></span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+No effects.<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 29px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 25px; width: 47%;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId95326"></a><span style="font-weight: bold;">Rules.RulesArmed</span>
+            <font size="-1"><span style="font-style: italic;"></span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h4>
+            <font size="-2"><span style="font-weight: bold;"></span></font>
+            </td>
+            <td
+ style="vertical-align: top; width: 47%; background-color: white; height: 25px;"><span
+ style="font-weight: bold;">rulesarmed</span> <span
+ style="font-weight: bold;"><font size="-1"><span
+ style="font-style: italic;"></span></font></span><span
+ style="font-size: 12pt; font-weight: bold;"><span
+ style="font-size: 12pt;"></span></span></td>
+            <td style="vertical-align: top; background-color: white;">8<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <font size="-1"><span style="font-style: italic;">(Number)</span></font>
+Can your slave bear arms<br>
+      <table style="text-align: left; width: 924px; height: 26px;"
+ border="0" cellpadding="6" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-1&nbsp;&nbsp; = Rule is not shown<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 &nbsp; = No<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp; = Yes</span></span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+This rule has no effect, it is for the slave developer to check to show
+different images or trigger events.<br>
+      <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"></span></span><span
+ style="font-size: 12pt;"></span><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><br>
+</span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;"><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;"></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span>
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId587716"></a>Core Functions</h1>
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 95%; height: 208px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4><a class="mozTocH4" name="mozTocId406993"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">ChangeRuleTo</span></b></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-style: italic;">function ChangeRuleTo(rule:Number,
+val:Number)</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">no equivallent, just
+change the listed variable above<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span>Use
+this to change a rule, <br>
+      <br>
+eg<br>
+_root.Rules.ChangeRuleTo(1, 1);<br>
+to set the rule to allow the slave to pray<span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"><br>
+      </span></span></span></span></span></span></span><font size="-1"></font>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId191731"></a>Breaking Rules</h1>
+<span style="font-family: Arial;">There are events that can happen and
+in them your slave will break one
+of these rules. Notably the fuck, talk rules. When this happens the
+game sets a variable</span><br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 936px; height: 179px; background-color: rgb(242, 255, 255); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: rgb(229, 229, 229);"><span
+ style="font-weight: bold;">Actionscript Variable</span></td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: rgb(229, 229, 229);"><span
+ style="font-weight: bold;">XML Variable</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 29px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 25px;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId180072"></a><span style="font-weight: bold;">BadGirl</span>
+            <font size="-1"><span style="font-style: italic;"></span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h4>
+            <font size="-2"><span style="font-weight: bold;">implemented
+in:</span> _root</font> </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 25px;"><span
+ style="font-weight: bold;">badgirl</span><span
+ style="font-weight: bold;"><font size="-1"><span
+ style="font-style: italic;"></span></font></span><span
+ style="font-size: 12pt; font-weight: bold;"><span
+ style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ size="-1"><span style="font-style: italic;">(Number)</span></font> Has
+your slave broken a rule<br>
+      </span></span>
+      <table style="text-align: left; width: 924px; height: 26px;"
+ border="0" cellpadding="6" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 &nbsp; = No<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp; = Yes</span></span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<span style="font-family: Arial;">If this variable is set then the
+obedience effects of the sex act
+Spanking is increased.</span><br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-weight: bold; font-family: Arial;">Note:</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;">this is a very minimal mechanic at
+this time.</span><br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;"></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId821639" id="mozTocId821639"></a>Slave Interface Functions</h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;">These functions so you can affect the turning
+on or off of a rule. It only affects when you use the Rules screen, it
+has no effect if you programaticaly change the rules variables.<br>
+<br>
+<u><b><span style="font-size: 14pt;">These are optional</span></b></u><br>
+<span style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span>
+<table
+ style="text-align: left; width: 95%; height: 367px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4><a class="mozTocH4" name="mozTocId142891"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">SetRule</span></b></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i>function
+SetRule(rule:Number) : Boolean</i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Events&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;SetRule&gt;<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span>Called
+when you turn on a rule. The parameter is the number refered to in the
+variable definitiions (eg 1 for RulesTalk). <br>
+      <br>
+Return false to prevent the rule being set. Return true and the rule is
+set as normal. If you want to trigger a complex event then terminate
+the event with event 9708 to return you back to the rules screen. Do
+not bother to do so to just disable setting a rule.<br>
+      <br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:</span></span></span></span></span></span></span><br>
+The variable general is set to the rule number. If you execute any
+non-conditional statement then this will be treated as retuning true.
+Otherwise false<br>
+      <font size="-1">eg prevent Rule Pray being set<br>
+&lt;Events&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .....<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;SetRule&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;if
+general='2''&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;SetText&gt;#slave says #slaveheshe has no interest in
+praying!&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/if&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/SetRule&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .....<br>
+&lt;/Events&gt;</font><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 95%; height: 353px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4><a class="mozTocH4" name="mozTocId628141"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">ClearRule</span></b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>function
+ClearRule(rule:Number) : Boolean</i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Events&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;ClearRule&gt;<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span>Called
+when you turn off a rule. The parameter is the number referred to in
+the
+variable definitions (eg 1 for RulesTalk). <br>
+      <br>
+Return false to prevent the rule being set. Return true and the rule is
+set as normal. If you want to trigger a complex event then terminate
+the event with
+event 9708 to return you back to the rules screen. Do not bother to do
+so to just disable setting a rule.<br>
+      <br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:</span></span></span></span></span></span></span><br>
+The variable general is set to the rule number. If you execute any
+non-conditional statement then this will be treated as retuning true.
+Otherwise false<br>
+      <font size="-1">eg prevent rule Talk being turned off<br>
+&lt;Events&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .....<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ClearRule&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;if
+general='1' obedience='90-'&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;SetText&gt;#slave irefuses to shut up!&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/if&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/ClearRule&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .....<br>
+&lt;/Events&gt;</font><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;"><br>
+</span></b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span>
+</body>
+</html>

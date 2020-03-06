@@ -1,0 +1,514 @@
+<u style="font-family: Arial;"><b><span style="font-size: 18pt;"><center><u><b><span style="font-size: 18pt;"><u><b><span style="font-size: 18pt;"><table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239);" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">Variables - Slave Maker<br>
+            </span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Version
+8</font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table></span></b></u></span></b></u><span style="font-size: 14pt;"><span style="font-size: 16pt;"></span></span></center>
+</span></b></u><span style="font-size: 12pt; font-family: Arial;"><br></span><span style="font-weight: bold; font-family: Arial;">Table of Contents<br></span><ul style="font-family: Arial;" id="mozToc"><!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6--><li><a href="#mozTocId565077">SlaveMaker Class</a></li><li><a href="#mozTocId964389">
+Background</a></li><li><a href="#mozTocId755300">Items</a></li><li><a href="#mozTocId828934">Stats</a></li><li><a href="#mozTocId32707">Skills</a></li><li><a href="#mozTocId819328">XML</a></li></ul><span style="font-weight: bold; font-family: Arial;"><br><br></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-weight: bold; font-family: Arial;"></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId565077"></a>SlaveMaker Class<br></h1><span style="font-weight: bold; font-family: Arial;"></span><span style="font-size: 12pt; font-family: Arial;">
+All these are present in as members of the class <a href="Common%20Scripts/Classes/SlaveMaker.as">SlaveMaker</a> and it's interited classes. This class has an instance<br>SMData<br>eg<br>
+_root.SMData<br>If you are using a slave or event based on the SlaveModule class then there is a reference variable so you can omit the _root<br>
+<br>
+</span><hr style="width: 100%; height: 2px; font-family: Arial;"><br style="font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId964389"></a>
+Background<span style="font-size: 12pt;"></span></h1><span style="font-size: 12pt; font-family: Arial;">
+<b>SlaveMakerName</b> - your name<br>
+<b>Gender</b> - your gender<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = male<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = female<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = dickgirl<br>
+<b>GuildMember </b>- true if you are a member of the slave maker guild<br>
+<font color="#808080"><b>Talent</b> - selected talent/background (OBSOLETE DO NOT USE)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = none<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = Wealthy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = Leader<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = Trader<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 = Inhuman Ancestry<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 = Dominatrix<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 = Lesbian Trainer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7 = Witch<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 = Unusual Cum<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9 = Amazon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10 = Demonic Cock<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+11 = Pagan<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+12 = Pony Master<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+13 = Warrior<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+14 = Tentacle Hybrid?<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+15 = Demon Consort<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+16 = Brothel Madam<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+17 = Lady In Waiting<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+18 = Slut Maker<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+19 = Converted by Tentacles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+20 = Ex Cowgirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+21 = Mistress Cock<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+22 = Court Manipulator<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+23 = Succubus (advanced Demonic Cock)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+24 = Demon (advanced Inhuman Ancestry)<br>
+<font color="#000000"><b>SMFaith</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = New Gods<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = Old Faith<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = No gods<br>
+<font color="#000000"><b>SMSpecialEvent</b> - The special event that affected your Slave Maker's past<font color="#000000"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = Ex-Milk Slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = Tentacle Hybrid<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = Converted by Tentacles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 = Ex-Cowgirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 = Demonic Cock<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 = Inhuman Ancestry<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7 = Succubus<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 = Demon<br>
+<b>SMHomeTown</b> - where was your Slave Maker born<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = Coutry Town<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = Old Faith Stronghold<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = Amazon Tribe<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = Mardukane<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 = Caravan<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 = Elven Forest<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 = Dark Elven Capital<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7 = True Catgirl Tribe<br>
+<b>SMAdvantages </b>- a list of bitflags that note what advantages your slave maker has<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = Minor Noble <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = Noble <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = Experienced Trader <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = Weapon Master <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 = Sex Addict<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 = Wealthy <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 = Unnatural Cum <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7 = Pagan/Witch <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 = Brothel Madam <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9 = Cruel Dominatrix/Master <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10 = Dominatrix/Master <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+11 = Pony Expert <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+12 = Catgirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+13 = Vampire<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+14 = Furry<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+15 = Secret Old Faith Worshipper<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+16 = Attractive to Tentacles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+17 = Blunt<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+18 = Inept Warrior <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+19 = Fangs &amp; Claws <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+20 = Chauvinist <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+21 = Holy <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+22 = Convincing <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+23 = Ex-brothel slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+24 =Submissive<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+25 = Masochist<br>
+<br>
+<span style="font-size: 10pt;">eg are you furry<br>
+if (SMAdvantages.CheckBitFlag(14)) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// furry slave maker<br>
+}<br>
+<br>
+eg become wealthy<br>
+SMAdvantages.SetBitFlag(5);<br>
+<br>
+eg become not wealthy<br>
+SMAdvantages.ClearBitFlag(5);<span style="font-size: 12pt;"><br>
+<br>
+<b>SMInitialSkills </b>- the skills you start playing the game with, in addition to Slave Trainer 1. No real point in testing or changing these<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = Slave Trainer 2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = Lesbian Trainer 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = Refined 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = Catgirl Trainer 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 = Alchemy 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 = Trader 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 = Pony Trainer 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7 = Leadership 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 = Slut Trainer 1<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+if (SMInitialSkills.CheckBitFlag(6)) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// pony trainer<br>
+}<br><br><span style="font-size: 12pt;">
+</span></span></span></span></font></font></font></font></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></font></font></font></font></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId755300"></a>Items<span style="font-size: 12pt;"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></font></font></font></font></span></h1><span style="font-size: 12pt; font-family: Arial;"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><u>
+</u><b>SMInitialItems </b>- what initial items does your slave maker have, either start of game, or start of each slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = Sex Items, all slaves<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = Ponygirl items, first slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = Ponygirl items, all slaves<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = catgirl items, first slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 = catgirl items, all slaves<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 = 1 dress<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 = sword<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7 = leash<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 = 300GP per slave<br>
+<br>
+<b>Home.HouseType</b> - the house you live in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = Castle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = Forest<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = Farm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 = Mansion<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 = Apartment<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 = Temple<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7 = Onsen<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 = Brothel<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9 = Eerie<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10 = Galley<br>
+<br>
+<b>ArmourType</b> - worn armour<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 - Leather Armour<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 - Chain Mail<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 - Scale Mail<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 - Plate Armour<br>
+<br>
+<b>WeaponType</b> - equipped weapon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 - Sword<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 - Bow<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 - Whip<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 - Hammer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 - Naginata<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 - Dagger<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7 - Crossbow<br>
+<br>
+<b>SMPiercingsType </b>- same as slave version<br>
+<br>
+<b>SMVanityCaseOK </b>- own a vanity case<br>
+<br>
+<b>SMNippleRingsOK </b>- own nipple rings<br><br>
+</span></span></span></span></font></font></font></font></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></font></font></font></font></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId828934"></a>Stats</h1><span style="font-size: 12pt; font-family: Arial;"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;">
+<b>SMLust</b> - stat 0 -100<br>
+<b>SMConstitution</b> - stat 0 -100<br>
+<b>SMAttack</b> - stat 0 -100<br>
+<b>SMDefence</b> - stat 0 -100<br>
+<b>SMConversation</b> - stat 0 -100<br>
+<b>SMReputation</b> - stat 0 -100<br>
+<b>ArousalDefence</b> - basically unused<br>
+<b>Corruption</b> - stat 0 -100<br>
+<b>SMDominance</b> - 100 - dominant, 0 - submissive (for Bad Ends)<br>
+<b>SMMinLust</b> - 0-100<br>
+<b>SMMinCorruption </b>- 0-100<br>
+<b>SMCharisma </b>- 0-100<br>
+<b>SMRefinement </b>- 0-100<br>
+<b>SMNymphomania </b>- 0-100<br>
+<b>SMTiredness </b>- 0-100<br>
+<br>
+<u>Others<br></u></span></span></span></span></font></font></font></font><font color="#000080"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b>PonygirlAwar</b>e - awareness of ponygirls<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-1 = no ponygirls in game<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = not aware<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = aware</span></span></span></span></span></font></font></span><br style="font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;">
+<b>GirlsTrained</b> - count of girls you have <u>finished</u> training, SHOULD be read only<br>
+<b>SMDebt</b> - debt (a positive number)<br>
+<b>SMGold</b> - total personal money in GP<br>
+<b>SMGoldSpent</b> - personal money spent on current slave girl training, Should be READ ONLY (but you can change if you really want) <br>
+<b>TotalSMCourt</b> - total court actions<br>
+<b>TotalSMBar</b> - total normal bar actions<br>
+<b>TotalSMSleazyBar</b> - total sleazy bar actions<br>
+<b>TotalSMMartial</b> - total martial training<br>
+<b>TotalSMPray</b> - total pray actions<br>
+<b>TotalSMJob</b> - total times worked at a job<br>
+<b>TotalSMNun </b>- total times your slave maker has met a nun<br>
+<b>NumMerchant</b> - total times travelling merchant visited<br>
+<b>NumDealer </b>- total times drug dealer visited<br>
+<br>
+<b>vitalsBustSM<br>
+vitalsBustStartSM<br>
+vitalsWaistSM<br>
+vitalsHipsSM<br>
+vitalsBloodTypeSM:String;<br>
+vitalsWeightSM<br>
+vitalsHeightSM<br>
+ClitCockSizeSM</b><br>
+<br>
+The following are calculated by the game based on other variables<br>
+<br>
+<font color="#000080"><b>Master</b> - "Master" or "Mistress" depending on your gender, READ ONLY<br>
+<b>Supervise</b> - Boolean, true if you are supervising the current action, READ ONLY<br>
+<b>SlaveMakerHimHer<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"him" or "her, automatically set based on Gender, READ ONLY<br>
+<b>SlaveMakerHeShe<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"he" or "she", automatically set based on Gender, READ ONLY<br><br><font color="#000000">
+</font></font></span></span></span></span></font></font></font></font></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></font></font></font></font></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId32707"></a>Skills<span style="font-size: 12pt;"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></font></font></font></font></span></h1><span style="font-size: 12pt; font-family: Arial;"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><u>
+</u><b>SkillPoints - </b>unspent experience points for your slave maker's skills<br>
+<br>
+Note for the following, fractional values also exist. sSlaveTrainer 1.2 = skill level 1 with 1 skill point assigned (0.2 per point)<br>
+&nbsp;<br>
+<b>sSlaveTrainer</b> - skill as a slave maker 1-5<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = talented and can train your slaves at a normal rate (1x) and to a good degree of skill (max 80)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = very talented and can train your slaves at a faster rate (1.2x) and to a fine degree of skill (max 100)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = highly talented and can train your slaves at an accelerated rate (1.5x) and to an excellent degree of skill (max 150)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 = famously talented and can train your slaves at an impressive rate (2x) and to an superb degree of skill (max 200)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 = supremely talented and can train your slaves at an amazing rate (3x) and to an supreme degree of skill (max 300)<br>
+<br>
+<b>sLeadership</b> - skill as a leader, 0-4<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = not a leader<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = a natural leader of people. Your slaves will obey more (+0.25 per day) and when treated well will grow to love you quicker. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Love ending is a little less of a problem and you can have two slaves in love with you at once, excluding Shampoo<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = a charismatic leader. Your slaves like obeying you (+0.5 per day) and will come to love you quickly. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Love Ending is a minor problem, and you may have 4 slaves in love with you at once, excluding Shampoo<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = an inspiring leader, loved by your follwers. You slaves want to obey you (+0.75 per day) and will rapidly come to love you. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+There is no penalty for Love Ending and you may have 6 slaves in love with you at once, excluding Shampoo<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 = the greatest leader you can be. Your slaves enthusiatically obey you (+1 per day) and love you almost from the start. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+You may have all slaves in love with you, including those owned by others<br>
+<br>
+<b>sLesbianTrainer</b> - skill as a lesbian trainer 0-3<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = cannot train lesbian slaves<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = can train girls who are not hostile to lesbians or religiously opposed. Their lesbian skills are limited to 100 and they will only get the Bi-sexual Ending<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = can train most girls, except those with strong objections. Their lesbian skills are limited to 200 and but they can get the Lesbian Ending<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = can convince any girl to become a lesbian slave and love it. Their lesbian skills are unlimited and they can get the Joyfull Lesbian Ending<br>
+<br>
+<b>sTrader</b> - ability as a trader 0-3<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = not a trader<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = a skilled trader and get a 5% discount purchasing items and a 5% bonus to final payments for slave training. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+You also befriend fellow traders and merchants.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = an expert trader and get a 10% discount purchasing items and a 10% bonus to final payments for slave training. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+You also befriend fellow traders and merchants<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = a superb trader and get a 15% discount purchasing items and a 15% bonus to final payments for slave training. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+You also befriend fellow traders and merchants<br>
+<br>
+<b>sAlchemy</b> - skill as an alchemist 0-3<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = not an alchemist<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = a skilled alchemist and get a 20% discount purchasing potions. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+You have a detailed knowledge of potions and drugs, but there are many, many drugs out there<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = an expert alchemist and get a 40% discount purchasing potions. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+You know about all potions and drugs, but do not know the recipes for all."); break;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = a master of alchemy and get a 60% discount purchasing potions. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+You know all potions, drugs and poisons and can make all except the most rare or obscure<br>
+<br>
+<b>sPonyTrainer</b> - your ability to train ponygirl, 0-3<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = do not know how to train them<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = can train girls except those hostile to the idea. They are willing but not perfect ponygirls and can only get the ending Pony Slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = can train girls except those hostile to the idea. They are fully submissive ponygirls and can get the ending Ponygirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = can convince any girl to become a ponygirl and love it. They are truly the ideal ponygirl and can get the ending Perfect Ponygirl<br>
+<br>
+<b>sCatTrainer</b> - your ability to train cat slaves, 0-2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = do not know how to train cat slaves<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = can train all girls but generally they act like a cat. They can get the ending Cat Slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = can train all girls to become truly catlike. They can get the ending Catgirl<br>
+<br>
+<b>sSuccubusTrainer</b> - your skill in training seductive succubus girls, 0-2 (UNUSED)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = you cannot<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = can slowly train all girls except those pure of heart<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = can quickly train most girls and slowly train those pure of heart<br>
+<br>
+<b>sSlutTrainer</b> - abilty yo train happy sex slaves, 0-1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = you cannot<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = know how to train a girl to happily accept the slut in her heart and pussy<br>
+<br>
+<b>sOrgasmDenialTraining</b> - knowledge of orgasm denial techniques, 0-2 (UNUSED)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = you do not know them<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = you can mostly control their orgasms and they will obey you more, for a time until they get too frustrated<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = you can completely control their orgasms and can judge their frustration perfectly. They will obey you more<br>
+<br>
+<b>sRefined</b> - you are expecially refined, 0-4<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = not especially so<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = you are elegant and your slaves learn etiquette faster (1.5x)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = you are very elegant and your slaves learn etiquette faster still (2x)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = you are a model of elegance and your slaves learn etiquette much faster (2.5x)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 = you are a beacon of elegance and your slaves learn etiquette a lot faster (3x)<br>
+<br>
+<b>sNoble</b> - you are an actual noble, 0-3<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = You are not noble<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = you are a minor noble. Your slaves get +2 Refinement bonus<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = you are a significant noble of some power. Your slaves get +5 Refinement bonus<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = you are a major noble of power and influence. Your slaves get +10 Refinement bonus<br>
+<br>
+<b>sSwordExpertise </b>- your skill bonus with a sword<br>
+<b>sWhipExpertise </b>- your skill bonus with a whip<br>
+<b>sBowExpertise </b>- your skill bonus with a bow<br>
+<b>sHammerExpertise </b>- your skill bonus with a hammer<br>
+<b>sNaginataExpertise </b>- your skill bonus with a naginata<br>
+<b>sDaggerExpertise </b>- your skill bonus with a dagger<br>
+<b>sCrossbowExpertise </b>- your skill bonus with a crossbow<br>
+<b>sUnarmedExpertise </b>- unarmed combat training for your slave maker<br>
+<br></font></font></span></span></span></span></font></font></font></font></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></font></font></font></font></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId819328"></a>XML<span style="font-size: 12pt;"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></font></font></font></font></span></h1><span style="font-size: 12pt; font-family: Arial;"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000">gender<br>smattack<br>smdefence<br>corruption<br>smmincorruption<br>smconstitution<br>smconversation<br>smreputation<br>smlust<br>smminlust<br>smdominance<br>smcharisma<br>smrefinement<br>smnymphomania<br>smtiredness<br>smbust<br>smclit or smcock<br>smtotalchildren<br>smfertility<br>smsexualenergy<br>faith<br>smhealth<br>smpregnancygestation<br>smpregnancycount<br>smpregnancytype<br><br>
+</font></font></span></span></span></span></font></font></font></font></span>

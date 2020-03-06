@@ -1,0 +1,565 @@
+<table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+
+    <tbody>
+      <tr>
+        <td style="vertical-align: top;">
+          <table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">Slave Interface Functions<br></span></font></td>
+
+                <td style="vertical-align: top;"><br></td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3
+                SDK</span></a></td>
+
+                <td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Version 8</font><br></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  
+</table><u style="font-family: Arial;"><b><span style="font-size: 18pt;"></span></b></u><span style="font-size: 12pt; font-family: Arial;"><br>
+<u><b><span style="font-size: 16pt;">Functions a Slave can Override</span></b></u><span style="font-size: 14pt;"><br>
+<span style="font-size: 12pt;">These functions can be defined in the Slave's swf file and are called by the main engine when certain actions are taken. Most of these are duplicated in _root scope and call these. To prevent infinite loops do not call say _root.HideImages() from within a local override of HideImages()<br>
+<br>
+The game engine will call these functions when certain events happen.<br>
+<br>
+Note in examples a line<br>
+..<br>
+means there is more but I have cut it out for brevity.<br><br></span></span></span><span style="font-weight: bold; font-family: Arial;">Table of Contents</span><ul style="font-family: Arial;" id="mozToc"><li><a href="#mozTocId686640">Mandatory Functions</a></li><li><a href="#mozTocId276251">Optional Functions</a></li><li><a href="#mozTocId27912">When the Slave Visits People</a></li><li><a href="#mozTocId379682">The Slave As An Assistant</a></li></ul><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 14pt;"><span style="font-size: 12pt;">
+<br></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId686640"></a>Mandatory Functions</h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 14pt;"><span style="font-size: 12pt;">
+
+<u><span style="font-size: 14pt;">You must implement the following functions</span></u><br>
+<span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">StartGame()<br>
+</span></b><span style="font-size: 12pt;">called at the start of a new game. You initialise her stats and difficulties here. You set things here for start of game only, This function is not called when a saved game is loaded.<br>
+<br>
+Note: all initialisation can be done in XML if desired, see <br>
+Slaves/Slave-Ranma.xml<br>
+for an example<br>
+<br>
+<b><span style="font-size: 14pt;">Initialise()</span></b><br>
+<span style="font-size: 12pt;">called after StartGame() or when a game is loaded - Used to initialise buttons, and other variaibles needed for both cases. For instance providing dress names etc. Also used for any changes to non-saved variables. For instance if you wish to rename your slavegirl<br>
+<br>
+Note: all initialisation can be done in XML if desired, see <br>
+Slaves/Slave-Ranma.xml<br>
+for an example<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">function Initialise() {<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressDetails(1, "Long Dress");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressDetails(2, "Short Dress");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressDetails(3, "Country Dress", "Refinement + 10\rSensibility + 5\rEnjoys walks more.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressDetails(4, "Kimono");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressDetails(5, "Gym Clothes", "Refinement + 10\rCharisma + 10\rConstitution + 15");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressDetails(6, "Mini Skirt", "Charisma + 35, Obedience + 10\rLibido + 15, Nymphomania + 15\rSensibility + 15, Joy + 15\rShe is carefree and energetic.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressCourtly(4);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressEasy(5);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressEasy(6);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.NobleLoveType = 8;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Milkable = true;<br>
+}<br>
+<br>
+<span style="font-size: 12pt;">NOTE: SetGirlsVital has moved from Initialise() to StartGame() to allow changes to be remembered<br>
+<br>
+<b><span style="font-size: 14pt;">Showxxxxxxx</span></b><br>
+<span style="font-size: 12pt;">All functions Showxxxxxxx are called to display the image and optionally text<br>
+eg<br>
+ShowNaked() - shows the girl naked in the main screen<br>
+ShowDress() - shows the girl wearing her dress<br>
+ShowSexActFuck() - show the image of her being fucked usually for night time fuck action, but sometimes from elsewhere<br>
+<br>
+See Slave Girl - Plannings - General Actions.rtf and Slave Girl - Plannings - Sex Actions.rtf for more details<br>
+<br>
+<b><span style="font-size: 14pt;">HideImages()<br>
+</span></b><span style="font-size: 12pt;">hide slavegirl specific images, events, like contests, love confession etc<br>
+Make sure to hide any image you show in any function, except sex/day act images. Do not alter core images, they are hidden automatically<br>
+eg<br>
+<span style="font-size: 10pt;">function HideImages() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ClipContestsBeauty._visible = false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ClipContestsCourt._visible = false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ClipContestsXXX._visible = false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+... <br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">HideSlaveActions()</span></b><br>
+<span style="font-size: 12pt;">hide slave actions (ie fuck, cleaning etc)<br>
+Make sure to hide all sex, day actions that are shown<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">function HideSlaveActions() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+BondageClip._visible = false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AnalClip.Anal3.gotoAndStop(1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AnalClip.gotoAndStop(1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AnalClip._visible = false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+FuckClip._visible = false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+...<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">HideEndings()<br>
+</span></b><span style="font-size: 12pt;">Hide all ending graphics, including standard and custom endings.<br>
+see SlaveGirl - Endings.rtf for more details<br>
+<br>
+<b><span style="font-size: 14pt;">HideDresses()<br>
+</span></b><span style="font-size: 12pt;">Hide any dress images or naked images<br>
+<br>
+<b><span style="font-size: 14pt;">WearDress<br>
+</span></b><i><span style="font-size: 12pt;">function WearDress() <br>
+</span></i>Here you apply the effect of wearing a dress, generally by calling the PointsMod function<br>
+You may apply other effects, like increasing her Slutiness (Reisz when she wears her wolf dress or teddy) or loyalty etc<br>
+<br>
+<u>NOTE: this function is optional if you define the dress details using XML. In that case do not implement this function or you may apply the dress effects twice<br>
+</u><br>
+eg<br>
+<span style="font-size: 10pt;">function WearDress() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.DressWorn == 1) _root.PointsMod(0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if (_root.DressWorn == 2) _root.PointsMod(10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if (_root.DressWorn == 3) _root.PointsMod(0, 5, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if (_root.DressWorn == 4) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Slutiness = _root.Slutiness + 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PointsMod(10, 10, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (_root.DressWorn == 5) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PointsMod(10, 0, 10, 10, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (_root.DressWorn == 6) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Slutiness = _root.Slutiness + 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PointsMod(35, 0, 15, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 15, 35);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">RemoveDress<br>
+</span></b><i><span style="font-size: 12pt;">function RemoveDress() <br>
+</span></i>Here you remove the effect of wearing a dress, generally by calling the PointsMod function. Generally a reverse of the effects of WearDress.<br>
+Remember to reverse any other effects<br>
+<br>
+<u>NOTE: this function is optional if you define the dress details using XML. In that case do not implement this function or you may apply the dress effects twice<br>
+</u><br>
+eg<br>
+<span style="font-size: 10pt;">function RemoveDress() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.DressWorn == 1) _root.PointsMod(0, 0, -5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if (_root.DressWorn == 2) _root.PointsMod(-10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if (_root.DressWorn == 3) _root.PointsMod(0, -5, -10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if (_root.DressWorn == 4) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Slutiness = _root.Slutiness - 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PointsMod(-10, -10, -10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (_root.DressWorn == 5) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PointsMod(-10, 0, -10, -10, 0, -5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -10);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (_root.DressWorn == 6) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Slutiness = _root.Slutiness - 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PointsMod(-35, 0, -15, 0, 0, -15, 0, 0, 0, 0, 0, 0, 0, 0, -15, 0, -15, -35);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">ShowNaked<br>
+</span></b><i><span style="font-size: 12pt;">function ShowNaked()<br>
+</span></i>Here you show the graphic in the main window of your slave girl naked. Remember dickgirl state, and MilkInfluence if you have a larger breast version. Consider the function ChoiceNaked.<br>
+You also position items like leash, halo etc<i><br>
+</i><b><br>
+</b>eg<br>
+<span style="font-size: 10pt;">function ShowNaked() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.DickgirlXF &gt; 0) NakedClip.gotoAndStop(_root.ChoiceNaked(2, 4));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else NakedClip.gotoAndStop(_root.ChoiceNaked(3, 1));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+switch(_root.NakedChoice) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+case 1:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionHalo(218, 18, 10, 100, 40);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionGag(2, 228, 66);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionLeash(1, 252, 40, 0, 70, 120);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionNymphsTiara(240, 18, 0, 60, 60);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionTail(250, 145, 0, 110, -65);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+break;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+case 2:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionHalo(220, 20);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionGag(2, 230, 78);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionLeash(1, 262, 30, 0, 80, 145);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionNymphsTiara(235, 20, 0, 60, 60);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionTail(180, 224, 210, 110, 65);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+break;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+case 3:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+case 5:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionHalo(220, 20, 20, 100, 40);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionGag(1, 230, 59, 0, 30, 30);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionLeash(1, 252, 25, 0, 70, 100);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionNymphsTiara(225, 20, 0, 60, 60);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionTail(175, 160, 0, -110, -65);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+break;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+NakedClip._visible = true;<br>
+}<span style="font-size: 12pt;"><br>
+<b><br>
+</b><br>
+<b><span style="font-size: 14pt;">ShowDress<br>
+</span></b><i><span style="font-size: 12pt;">function ShowDress()<br>
+</span></i>Here you show the graphic in the main window of your slave girl wearing a dress. Remember dickgirl state, and MilkInfluence if you have a larger breast version<br>
+You also position items like leash, halo etc<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">function ShowDress() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+var dress:Number = _root.DressWorn;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.CurrentPath == 3 &amp;&amp; dress == 6) dress = 7;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if (_root.CurrentPath == 2 &amp;&amp; dress == 6) dress = 8;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (dress == 0) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionGag(2, 254, 67, 20, 30, 30);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionLeash(1, 280, 30, 0, 70, 100);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionNymphsTiara(250, 15, 0, 40, 40);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionTail(225, 210, 90, 110, 65);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+RobePlainClip._visible = true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (dress == 1) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionHalo(265, 18, 20);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionGag(2, 256, 96, 20, 50, 50);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionLeash(2, 365, 70, 25, 90, 140);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionNymphsTiara(265, 20, 20, 60, 60);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionTail(175, 240, 0, -110, -65);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Robe1Clip.gotoAndStop(_root.MilkInfluence &gt; 0 ? 2 : 1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Robe1Clip._visible = true;.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ...<br>
+}<br>
+<b><span style="font-size: 12pt;"><br>
+</span></b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><hr style="width: 100%; height: 2px;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><h1><a class="mozTocH1" name="mozTocId276251"></a>Optional Functions</h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 14pt;"><u>You do not have to override any of the following, default actions will happen if you do not</u><br>
+<span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">StartMessage<br>
+</span></b><i><span style="font-size: 12pt;">function StartMessage() : Boolean<br>
+</span></i>Show text at the start of the game<br>
+return true to disable the standard message<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">from Ranma<br>
+function StartMessage() : Boolean<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.ServantSpeak("The training of " + _root.SlaveName + " will last for " + _root.TrainingTime + " days, and then she will unfortunately be delivered to her owner.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return true;<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">Isxxxxxxxxx</span></b><br>
+<span style="font-size: 12pt;">Isxxxxxxxxx functions tell if the girl is in a particular state<br>
+eg<br>
+IsDickgirl() - a special case of dickgirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+please ignore this normally, used for some cases where she spontaneously changes to a dickgirl for the entire day<br>
+IsCatgirl() - is she a catgirl<br>
+<b><span style="font-size: 14pt;"></span></b><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">DrinkPotion<span style="font-size: 12pt;"> - </span></span></b>called as she drinks a potion<br>
+<i>function DrinkPotion(potion:Number, price:Number, say:String) : Boolean<br>
+</i>potion<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 - Priapus Draft<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 - Uninhibitor potion<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 - Aphrodisiac<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 - Soothing Potion<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 - Energy Drink<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 - Dorei<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 - Zodai<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7 - Gaman<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 - Biyaku<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9 - Ishinai<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10 - Lust Draft<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+11 - Odd Pill<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+12 - Nymph's Tears<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+13 - Jukens Orgasm Potion<br>
+price - cost of potion<br>
+say - standard message on drinking the potion<br>
+return true to prevent standard message on drinking<br>
+<br>
+Most commonly here for potion == 0 display the dickgirl transformation graphic and text and return false, see SlaveGirl - Dickgirl Transformation.rtf<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">UpdateSlave</span></b><span style="font-size: 12pt;"> - called when something changes (stats, skill, training) for your slave. Can be called several times per act<br>
+<i>function UpdateSlave()<br>
+</i>override do special effects, for instance button changes, or some stat limitations. Usage varies a lot.<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">UpdateDateAndItems</span></b><span style="font-size: 12pt;"> - called when the game advances to a new day<br>
+<i>function UpdateDateAndItems(NumDays:Number)<br>
+</i>NumDays - number of days advanced<br>
+override to carryout custom processing in new day, say changing stats, but it will not change the standard effects, just use to add more effects<br>
+<br>
+<b><span style="font-size: 14pt;">ShowTentacleRumour<span style="font-size: 12pt;"><br>
+</span></span></b><i>function ShowTentacleRumour()<br>
+</i>Called after standard text and graphics are shown for tentacle rumous. This allows you to append/replace the text or graphics. You can completely disable the event too<br>
+<br>
+eg disable the rumour<br>
+<span style="font-size: 10pt;">function ShowTentacleRumour()<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DoneEvent = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetText("");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.HideImages();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.HideBackgrounds();<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+eg add text<br>
+<span style="font-size: 10pt;">function ShowTentacleRumour()<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText("\r\r" + _root.SlaveName + " wonders what it would feel like to be.....");<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">TempleHouseRent<br>
+</span></b><i><span style="font-size: 12pt;">function TempleHouseRent() : Boolean<br>
+</span></i>Show text and graphics for when the rent for the temple house is due<br>
+return true to disable standard message, graphics and events show your own<br>
+eg<br>
+To totally remove the rent<br>
+<span style="font-size: 10pt;">function TempleHouseRent() : Boolean<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return true;<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">ShowStatHint</span></b><br>
+<i><span style="font-size: 12pt;">function ShowStatHint(stat:Number) : Boolean<br>
+</span></i>&nbsp;shows the hint for a stat (count from top of screen, 18 = special)<br>
+&nbsp;return true to override the default description<br>
+<br>
+eg from Ranma<br>
+<span style="font-size: 10pt;">function ShowStatHint(stat:Number) : Boolean<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (stat == 18) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetText("&lt;b&gt;Femininity:&lt;/b&gt; How womanly or tomboyish she acts.\r\rShe is &lt;b&gt;");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.VarSpecialRounded &lt; 25) _root.AddText("a tomboy");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if (_root.VarSpecialRounded &lt; 50) _root.AddText("a little unwomanly");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if (_root.VarSpecialRounded &lt; 75) _root.AddText("feminine");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else _root.AddText("a paragon of women");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText("&lt;/b&gt;\nwhich is " + _root.VarSpecialRounded + " in a range of 0 to 100.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return false;<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">SaveGame</span></b><br>
+<i><span style="font-size: 12pt;">function SaveGame(savedata:Object)<br>
+</span></i>Allows you to save any arbitrary variables for recording the state of training or any special cases. Allows you to use realistically named variables instead of the standard CustomFlag1 and so on. You should initialise the variables in StartGame()<br>
+Note the variables here should be class members or local variables. ie do not use _root<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+var FurryState:Number;<br>
+<span style="font-size: 12pt;"><br>
+<span style="font-size: 10pt;">function SaveGame(savedata:Object)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+savedata.FurryState = FurryState;<br>
+}<br>
+<br>
+<b><span style="font-size: 14pt;">LoadGame</span></b><br>
+<i><span style="font-size: 12pt;">function LoadGame(savedata:Object)<br>
+</span></i>Allows you to load any arbitrary variables saved in SaveGame<br>
+Note this loading takes place after Initialise() is called so you cannot use these variables there. If needed do additional initialisation here<br>
+Note the variables here should be class members or local variables. ie do not use _root<br>
+Remember a variable has a value undefined if it has not been saved before. If you are upgrading or adding this for an existing save game then also initialise the variable here<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+<span style="font-size: 12pt;"><br>
+<span style="font-size: 10pt;">function LoadGame(savedata:Object)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+FurryState = savedata.FurryState;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (FurryState == undefined) FurryState = 0;<br>
+}<br>
+<span style="font-size: 12pt;"><br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId27912"></a>When the Slave Visits People<span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">
+Please see <a href="Core%20-%20People.html">Core - People.html</a><i><span style="font-size: 10pt;"><br>
+<br>
+<br>
+</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId379682"></a>The Slave As An Assistant<span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><u><b>
+</b></u><span style="font-size: 12pt;">Please see <a href="Building%20-%20Assistants.html">Building Assistants.html</a><br>
+<i><span style="font-size: 10pt;"><br>
+</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>

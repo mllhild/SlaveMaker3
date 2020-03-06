@@ -1,0 +1,864 @@
+<u style="font-family: Arial;"><b><span style="font-size: 18pt;">
+</span></b></u><table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top;">
+          <table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">Building an Actionscript based Assistant<br></span></font></td>
+
+                <td style="vertical-align: top;"><br></td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3
+                SDK</span></a></td>
+
+                <td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Version 8</font><br></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table><font style="font-family: Arial;" face="Arial"><br>There are two types of assistants available:<br>
+<br>
+1) a <b>Slave Maker Assistant </b>that is hired. These simplified slaves are contained in a separate swf file<br>
+eg<br>
+Peorth in Assistant-Peorth.swf<br>
+<br>
+2) a <b>Trained Slave</b>, after having finished her training.<br>
+eg<br>
+Ranma<br><br>This document will discuss how to develop both types of assistants<br><br><br><span style="font-weight: bold;">Table of Contents</span><br></font><ul style="font-family: Arial;" id="mozToc"><!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6--><li><a href="#mozTocId691876">Slave Maker Assistants</a></li><li><a href="#mozTocId498052">Trained Slave Assistants</a></li><li><a href="#mozTocId445208">Core Functions For Assistants</a></li><li><a href="#mozTocId68722">Assistant Endings</a></li></ul><font style="font-family: Arial;" face="Arial">
+<br></font><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId691876"></a>Slave Maker Assistants<u><b><span style="font-size: 16pt;"><span style="font-size: 14pt;"></span></span></b></u></h1><font style="font-family: Arial;" face="Arial"><u><b><span style="font-size: 16pt;"><span style="font-size: 14pt;">
+</span></span></b></u><span style="font-size: 12pt;">An example assistant, Peorth, is included with the SDK. You can create your own assistant by:<br>
+<br>
+<font color="#000080"><b><i><span style="font-size: 14pt;">1) Rename the Files</span></i></b><span style="font-size: 12pt;"><font color="#000000"><br>
+`Assistant-Peorth.fla' and `Assistant-Peorth.as' need to be renamed to match the name of your new assistant. The guide from now on will assume the new girl will be named Ifurita. So rename the files to `Assistant-Ifurita.fla' and `Assistant-Ifurita.as'.<b><i><br>
+<br>
+<br>
+<font color="#000080"><span style="font-size: 14pt;">2) Open the fla file using Adobe Flash.</span></font></i></b><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><br>
+Please note this will not be a tutorial on how to program flash. On the top layer in the timeline (labelled ActionLayer) edit the actions of frame 1 and change the #include statement to match your new .as file.<br>
+eg<br>
+#include "Assistant-Ifurita.as";<br>
+<br>
+<br>
+<font color="#000080"><b><i><span style="font-size: 14pt;">3) General Notes</span></i></b><span style="font-size: 12pt;"><font color="#000000"><br>
+The .fla file uses Actionscript 2 and is set to only publish  visible layers. Any hidden layers are not saved into the swf file. Only the layers `ActionLayer' and `Assistant' should be visible when publishing.<br>
+<br>
+By default the .fla file will publish only a .swf file into the folder your work files are located in. Go to the publish settings and rename the published .swf file to `Assistant-Ifurita.swf'. You can also specify a location to publish to.<br>
+<br>
+The layers `Background Grid' and `Background' are provided for layout purposes only. They are a mock-up of the main screen of the game. They must be hidden when publishing.<br>
+<br>
+<br>
+<font color="#000080"><b><i><span style="font-size: 14pt;">4) Replace the Images</span></i></b><font color="#000000"><span style="font-size: 12pt;"><br>
+For a basic assistant, you will need to provide suitable images for:<br>
+<b>Normal view</b> - the basic display image. (small)<br>
+<b>Wet</b> - she falls in some water. (small)<br>
+<b>Sad or Worried</b> - for when the slave runs away. (large)<br>
+<br>
+<i>Optionally also provide:</i><br>
+<b>Tentacle Sex</b> - for when the assistant is tentacle raped. (both small and large)<br>
+<b>Raped</b>  for when the assistant is raped (small)<br>
+<b>Anal Sex </b>(large)<b><br>
+Spanking </b>(large)<b><br>
+</b><br>
+Small sized images should be square (recommended 400x400) and will display in the box on the bottom left. Large sized images are recommended to fit inside 800x600 and will display in the larger box on the top left.<br>
+<br>
+To update the images in the .fla file:<br>
+<br>
+a) Locate the image you want to update in the Library, right click on it and choose Properties, then Import. Select your new image to replace it.<br>
+<br>
+b) Check the layout and placement of your image on the stage. It will be located in a frame of the MovieClip Assistant. If you plan to use the ShowMovie function in your ActionScript, then you must position the image at x=0, y=0. Otherwise just make sure the image is positioned correctly relevant to the `Background Grid'.<br>
+<br>
+<br>
+<font color="#000080"><b><i><span style="font-size: 14pt;">5) Edit the actionscript (.as) file</span></i></b><span style="font-size: 12pt;"><font color="#000000"><br>
+<br>
+<b><span style="font-size: 14pt;">a) Update her details in InitialiseAsAssistant.</span></b><span style="font-size: 12pt;"><br>
+<br>
+<u>This function is mandatory and must be present<br>
+</u><br>
+<font color="#000000"><b><span style="font-size: 14pt;">InitialiseAsAssistant<br>
+</span></b><i><span style="font-size: 12pt;">function InitialiseAsAssistant(firstuse:Boolean) : MovieClip<br>
+</span></i>firstuse - id true this is a Slave Maker assistant and it is the first time they have been employed. false for second or later employments<br>
+<br>
+returns - the movieclip to show on the assistant selection screen. You can position it using gotoAndStop or even play it if you like.<font color="#000000"><br>
+<br>
+There are a variety of variables to set for her/his details. Repeated here from Core - Variables.rtf<br>
+<br>
+<b>_root.ServantName</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ - your servant's name "Genma" "Mara &amp; Nara"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>Do not set this for a trained slave, it will default from when they were trained<br>
+</u><br>
+<b>root.ServantName1</b> (OPTIONAL)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ - For a servant that is a set of twins (say "Mara &amp; Nara") this is the name of the first twin.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- if not specified defaults to _root.SlaveName<br>
+<br>
+<b>root.ServantName2</b> (OPTIONAL)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ - as above, the name of the second twin <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- no default<br>
+<br>
+<b>_root.AssistantDescription<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ - a description of the assistant and a summary of any effects he/she gives<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- default "A Slave Maker available for hire."<br>
+eg<br>
+_root.AssistantDescription = "A wild, erratic woman with arcane abilities and maybe demonic ties.\r\rNymphomania + 5, Fearful when crossed.";<br>
+<br>
+<b>_root.AssistantCost<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b> - cost in GP to hire as an assistant, defaults to 100<br>
+<br>
+<b>_root.ServantPronoun<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Pronoun used in conversation, default "I", for Shampoo it is "Shampoo" so she speaks in the third person. For twins use "we"<br>
+<br>
+<b>_root.ServantGender</b> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- servants gender, default 2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = male<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = female<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = dickgirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 = male twins<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 = female twins<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 = dickgirl twins<br>
+<br>
+<b>_root.AssistantTentacleSex<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b>- can your assistant be tentacle fucked (default true)<br>
+<br>
+<b>_root.AssistantRape<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- can your assistant be raped, default true<br>
+<br>
+<b>_root.SlaveLikeServant</b> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- misleading name, does the servant like the slave, default true (will rename in a later version)<br>
+<br>
+<b>_root.AssistantFurryNeeded<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Furries need to be enabled for the assistant. If they are not then the assistant is hidden (default false)<br>
+<b><br>
+_root.AssistantTentaclesNeeded<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Tentacles need to be enabled for the assistant. If they are not then the assistant is hidden (default false)<br>
+<br>
+<b>_root.AssistantReputation<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- The minimum reputation needed to hire the assistant (0 - 100, default 0)<br>
+<br>
+<br>
+<u><b>First Use Slave Maker Assistants</b></u><b><br>
+</b>When a Slave Maker assistant is first employed they are created as a standard slave girl, with all slave girls variables initialised. You can define variables and bitflags. There is a variation on accessing these variables. Instead of<br>
+_root.CustomFlag<br>
+use<br>
+_root.AssistantData.CustomFlag<br>
+<br>
+The standard bitflags are also available<br>
+if (_root.AssistantData.CheckBitFlag2(2)) {<br>
+&nbsp;&nbsp;&nbsp;....<br>
+}<br>
+<br>
+Please note a number of training specific variables are not available. Some stat variaibles like<br>
+VarIntelligenceRounded <br>
+are not present, but most are present.<br>
+<br>
+These variables persist across trained slaves and are saved.<br>
+<br>
+<br>
+<u><b>Examples</b></u><b><br>
+</b><span style="font-size: 10pt;">function InitialiseAsAssistant(firsttime:Boolean) : MovieClip {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.ServantName = "Peorth";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AssistantDescription = "A calm, seductive woman, expert in all arcane powers.\r\rShe can control arcane powers, Morality and Nymphomania increases faster.";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AssistantCost = 400;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (firsttime) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AssistantData.VarIntelligence = 70;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AssistantData.VarNymphomania = 70;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AssistantData.CustomFlag = 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return Assistant;<br>
+}<br>
+<br>
+function InitialiseAsAssistant() : MovieClip {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HideAsAssistant();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.ServantName = "Genma";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.ServantGender = 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AssistantTentacleSex = false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AssistantRape = false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AssistantDescription = "A Slave Maker with odd techniques, often involving humiliation. He is a trained martial artist, but a bit cowardly.\rHe can be used to train any girl and increases her Maximum Obedience by 10%.";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AssistantCost = 200;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Assistant.gotoAndStop(1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return Assistant;<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">b) Update the show/hide image functions.</span></b><span style="font-size: 12pt;"><br>
+<br>
+<u>These functions are mandatory and must be present<br>
+</u><br>
+<b><span style="font-size: 14pt;">ShowAsAssistant<br>
+</span></b><i><span style="font-size: 12pt;">function ShowAsAssistant(type:Number) : Boolean<br>
+</span></i>type - the type of image to show<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = normal view in small rectangle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = tentacle sex (small version shown when slave girl raped)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = raped<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 = ignore this (shown when assistant is absent)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 = wet - she falls in some water<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 = large graphic shown when your slave runs away<br>
+<br>
+return - true is the image is shown, false and a generic image will be shown<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">HideAsAssistant<br>
+</span></b><i><span style="font-size: 12pt;">function HideAsAssistant()<br>
+</span></i>Hide any and all graphics you show ever, in any function<br>
+<br>
+<u>The following functions are optional.<br>
+</u>They are also obsolete. The game also calls the Slave girl versions of the functions if they are not present (eg ShowSexActAnal). In said function you can restrict images using the Assisting boolean variable if you like<br>
+<br>
+<b><span style="font-size: 14pt;">ShowAsAssistantTentacleSex<span style="font-size: 12pt;"><br>
+</span></span></b>show her being tentacle assaulted<b><br>
+</b><i>function ShowAsAssistantTentacleSex() : Boolean<br>
+</i>return true if you show a graphic, return false for a generic graphic<br>
+<br>
+You can display custom text for the event also here if you like. When this function is called the standard text is already shown. You can replace it and show your own using SetText and then AddText<br>
+<br>
+<b><span style="font-size: 14pt;">ShowAsAssistantAnal <br>
+</span></b><span style="font-size: 12pt;">show her being anal fucked<b><br>
+</b><i>function ShowAsAssistantAnal() : Boolean<br>
+</i>return <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true if you show a graphic<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return false to show normal anal graphic for this girl<br>
+<br>
+<b><span style="font-size: 14pt;">ShowAsAssistantSpanking</span></b> <b><br>
+</b><span style="font-size: 12pt;">show her being anal fucked<br>
+<i>function ShowAsAssistantSpanking() : Boolean<br>
+</i>return <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true if you show a graphic<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return false to show normal spank graphic for this girl<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">c) Effects on employment and during gameplay</span></b><span style="font-size: 12pt;"><br>
+An assistant can alter the slaves stats both at start of training and can increase the effect of their training<br>
+<br>
+<u>When training starts<br>
+<br>
+</u><b><span style="font-size: 14pt;">EmployAsAssistant<br>
+</span></b><span style="font-size: 12pt;">function EmployAsAssistant()<br>
+<br>
+eg From Hild<br>
+function EmployAsAssistant() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarNymphomania += 5;<br>
+}<br>
+<br>
+<br>
+<u>During Training there are several functions<br>
+</u><br>
+<b><span style="font-size: 14pt;">ApplyDifficultyAsAssistant<br>
+</span></b><i><span style="font-size: 12pt;">function ApplyDifficultyAsAssistant(Charisma:Number, Sensibility:Number, Refinement:Number, Intelligence:Number, Morality:Number, Constitution:Number, Cooking:Number, Cleaning:Number, Conversation:Number, BlowJob:Number, Fuck:Number, Temperament:Number, Nymphomania:Number, Obedience:Number, Lust:Number, Fatigue:Number, Joy:Number, Special:Number)<br>
+</span></i>Each time a stat increases this function is called first. The parameters are the amount of the stat(s) change. Note these variables are local to the function, so you can change them but when you return from this function any change is lost. Mainly they are here so you can vary the factor changes for stat increases and decreases (eg Fatigue changes)<br>
+<br>
+Primarily here you change the various factors, see Core - Variables.rtf<br>
+BlowjobFactor<br>
+FuckFactor<br>
+NymphomaniaFactor<br>
+LibidoFactor<br>
+CharismaFactor<br>
+MoralityFactor<br>
+CookingFactor<br>
+CleaningFactor<br>
+ConversationFactor<br>
+FatigueFactor<br>
+SensibilityFactor<br>
+RefinementFactor<br>
+IntelligenceFactor<br>
+ConstitutionFactor<br>
+TemperamentFactor<br>
+ObedienceFactor<br>
+SpecialFactor<br>
+<br>
+or the maximum value of stats<br>
+AssistantMaxCharisma<br>
+AssistantMaxRefinement <br>
+AssistantMaxIntelligence <br>
+AssistantMaxMorality <br>
+AssistantMaxConstitution <br>
+AssistantMaxCooking <br>
+AssistantMaxCleaning <br>
+AssistantMaxConversation <br>
+AssistantMaxFuck<br>
+AssistantMaxBlowJob<br>
+AssistantMaxTemperament <br>
+AssistantMaxNymphomania <br>
+AssistantMaxObedience <br>
+AssistantMaxLibido <br>
+AssistantMaxJoy <br>
+AssistantMaxSpecial <br>
+<br>
+eg Urd is erudite and helps your slave talk better<br>
+<span style="font-size: 10pt;">function ApplyDifficultyAsAssistant(Charisma:Number, Sensibility:Number, Refinement:Number, Intelligence:Number, Morality:Number, Constitution:Number, Cooking:Number, Cleaning:Number, Conversation:number, BlowJob:Number, Fuck:Number, Temperament:Number, Nymphomania:Number, Obedience:Number, Lust:Number, Fatigue:Number, Joy:Number) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.ConversationFactor = _root.ConversationFactor * 1.2;    // 20% faster increase in conversation skills<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+Naru is a slut so increases max stat values<br>
+<span style="font-size: 10pt;">function ApplyDifficultyAsAssistant(Charisma:Number, Sensibility:Number, Refinement:Number, Intelligence:Number, Morality:Number, Constitution:Number, Cooking:Number, Cleaning:Number, Conversation:number, BlowJob:Number, Fuck:Number, Temperament:Number, Nymphomania:Number, Obedience:Number, Lust:Number, Fatigue:Number, Joy:Number) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AssistantMaxFuck = 300;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AssistantMaxBlowJob = 300;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AssistantMaxNymphomania = 300;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AssistantMaxLibido = 300;<br>
+}<span style="font-size: 12pt;"><br>
+<i><br>
+<br>
+</i><span style="font-size: 14pt;"><b>UpdateDateAndItemsAsAssistant<br>
+</b><i><span style="font-size: 12pt;">function UpdateDateAndItemsAsAssistant(NumDays:Number)<br>
+</span></i>Called every time the date changes, NumDays is the number of days it change by. Apply any daily stat changes etc<br>
+<i><br>
+eg Naru is a slut and arouses your slaves<br>
+</i><span style="font-size: 10pt;">function UpdateDateAndItemsAsAssistant(NumDays:Number)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarLibido += 5;<br>
+}<span style="font-size: 12pt;"><br>
+<i><br>
+<br>
+</i><span style="font-size: 14pt;"><b>UpdateSlaveAsAssistant<br>
+</b><i><span style="font-size: 12pt;">function UpdateSlaveAsAssistant()<br>
+</span></i>Called everytime a slave's variable and other things are changed. Mainly here limit you can limit the girls stats<br>
+<br>
+<i>eg Ayane is amoral and limits your slaves morality<br>
+</i><span style="font-size: 10pt;">function UpdateSlaveAsAssistant(NumDays:Number)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.VarMorality &gt; 50) _root.VarMorality = 50;<br>
+}<span style="font-size: 12pt;"><br>
+<i><br>
+<br>
+</i><span style="font-size: 14pt;"><b>c) Start of Training Screens and Messages</b><span style="font-size: 12pt;"><br>
+At the start of training your assistant can show a custom introduction screen and a custom message. These functions are optional<br>
+<i><br>
+<br>
+</i><span style="font-size: 14pt;"><b>IntroductionAsAssistant()<br>
+</b><i><span style="font-size: 12pt;">function IntroductionAsAssistant()</span></i><br>
+Show a single movieclip (could be animated though) that is shown after the standard introduction screen(s) for the slave girl. Works the same as the slave introduction screen/screen.<br>
+<br>
+Ideally intended for introducing a custom story/ending between the slave and the assistant, like Shampoo's fondness for Ranma. Standarly just show an inage in the introduction area<br>
+<i><br>
+<br>
+</i><span style="font-size: 14pt;"><b>StartMessageAsAssistant<br>
+</b><i><span style="font-size: 12pt;">function StartMessageAsAssistant(sgmessage:Boolean) : Boolean<br>
+</span></i>sgmessage - true if the slave girl has shown a message first. Normally return false if it is true, but you can replace or add to it if desired<br>
+return true if you show a message<br>
+<br>
+To replace the standard message<br>
+"The training of this girl will last for 60 days, and then she will be delivered to her owner."<br>
+If the slave girl overries her version <b>StartMessage </b>this function will not get called<br>
+<br>
+eg from Hild<br>
+<span style="font-size: 10pt;">function StartMessageAsAssistant(sgmessage:Boolean) : Boolean<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (sgmMessage) return false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.ServantSpeak("The training of this slut will last for " + _root.TrainingTime + " days, and then " + _root.SlaveHeShe + " will be delivered to " + _root.SlaveHisHer + " owner's cock.", true);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return true;<br>
+}<span style="font-size: 12pt;"><br>
+<i><br>
+<br>
+<font color="#000080"><b><span style="font-size: 14pt;">6) Publish<br>
+</span></b></font></i><span style="font-size: 12pt;"><font color="#000080"><font color="#000000">&nbsp;Publish the swf file<br>
+<i><br>
+<br>
+<font color="#000080"><b><span style="font-size: 14pt;">7) Create/Add to Assistantsx.txt<br>
+</span></b></font></i><span style="font-size: 12pt;"><font color="#000080"><font color="#000000">There are a series of files Assistants.txt, Assistants1.txt to Assistants9.txt. These contain a list of the available Slave Maker Assistants, and is an &amp; delimited list of the swf file names for the assistants<br>
+eg<br>
+Assistants.txt<br>
+Assistant-Genma.swf&amp;Assistant-Hild.swf&amp;Assistant-Peorth.swf<br>
+<br>
+Assistant.txt is intended for the core assistants. Assistants1-9.txt are meant for third party use. <br>
+<br>
+Pick an unused one and add your swf file to it<br>
+<br>
+<br>
+<font color="#000080"><b><i><span style="font-size: 14pt;">8) Install<br>
+</span></i></b><span style="font-size: 12pt;"><font color="#000000">&nbsp;Copy the swf file and Assistantx.txt file into your installation folder and into Assistants subfolder<br>
+<br>
+<br></font></span></font></font></font></span></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></font></span></font></span></font></font></font></span></font></font></font></span></font></span></font></span></font><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId498052"></a><span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><span style="font-size: 12pt;"></span></font></font></font></span></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></font></span></font></span></font></font></font></span></font></font></font></span></font></span></font></span>Trained Slave Assistants<span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><u><b><span style="font-size: 16pt;"></span></b></u></font></span></font></font></font></span></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></font></span></font></span></font></font></font></span></font></font></font></span></font></span></font></span></h1><font style="font-family: Arial;" face="Arial"><span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><u><b><span style="font-size: 16pt;">
+</span></b></u><span style="font-size: 12pt;">These assitsants work the same as a Slave Makers assistant. In your slave girl code just add the images as in 4 above (or use existing images) and implement the functions in 5 above.<br>
+<br>
+In InitialiseAsAssistant the firstuse parameter will always be false. You also should not set ServantName, ServantName1, ServantName2, ServantGender. These have been remember from when the slave girl was trained.<br>
+<br>
+You also have access to a variable (type Number)<br>
+_root.AssistantData.LastEnding<br>
+This is the last ending obtained when she was trained. See Slave - Endings.rtf for values, it is the same as NumFin but values of 20 or 25 will not be present.<br>
+<br>
+Note EmployAsAssistant is still relevant and called for a trained slave.<br>
+<br>
+<br></span></font></span></font></font></font></span></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></font></span></font></span></font></font></font></span></font></font></font></span></font></span></font></span></font><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId445208"></a>Core Functions For Assistants<span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;"></span></b></u></span></font></span></font></font></font></span></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></font></span></font></span></font></font></font></span></font></font></font></span></font></span></font></span></h1><font style="font-family: Arial;" face="Arial"><span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;">
+</span></b></u><span style="font-size: 12pt;">There are several functions for showing, changing assistants<br>
+<br>
+<b><span style="font-size: 14pt;">ShowAssistant<span style="font-size: 12pt;"><br>
+</span></span></b><i>function ShowAssistant(type:Number)<br>
+</i>type - same as ShowAsAssistant above<br>
+Whill show the assistant image<br>
+<br>
+Note generally call ShowSupervisor() to show the person accompanying your slave, but if you want to explicitly show your assistant then call thus<br>
+<br>
+<b><span style="font-size: 14pt;">HideAssistant<br>
+</span></b><i><span style="font-size: 12pt;">function ShowAssistant()<br>
+</span></i>Hide all assistant images<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowAssistant<br>
+</span></b><i><span style="font-size: 12pt;">function ShowAssistant(type:Number)<br>
+</span></i>type - same as ShowAsAssistant above<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ChangeAssistant<br>
+</span></b><i><span style="font-size: 12pt;">function ChangeAssistant(assistant:String)<br>
+</span></i>assistant - name of the new assistant "Ranma", "Genma" <br>
+Change the current assistant to the named assistant. If you specify an invalid one then Shampoo is loaded<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">_root.ChangeAssistant("Genma");<span style="font-size: 12pt;"><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ChangeAssistantGender<br>
+</span></b><i><span style="font-size: 12pt;">function ChangeAssistantGender(gender:Number)<br>
+</span></i>Change the current assistants gender to the specified value<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">IsAssistant<br>
+</span></b><i><span style="font-size: 12pt;">function IsAssistant(name:String)<br>
+</span></i>Is the named person your current assistant. Simplified telling where their name can change (ie Cumslut Kasumi or Kasumi)<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+if (_root.IsAssistant("Kasumi")) {<br>
+&nbsp;&nbsp;&nbsp;// she is your assistant<br>
+}<u><b><span style="font-size: 16pt;"><br>
+<br>
+<br>
+</span></b></u><span style="font-size: 12pt;">_______________________________________________________________<br>
+<u><b><span style="font-size: 16pt;"><br>
+<br>
+Personalised Greetings<br>
+<br>
+</span></b></u><span style="font-size: 14pt;"><b>StartDayAsAssistant<u><br>
+</u></b><i><span style="font-size: 12pt;">function StartDayAsAssistant() : Boolean <br>
+</span></i>return true to disable the standard greeting<br>
+<br>
+At the start of the day planning this allows the assistant to do something, or say a standard greeting.<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">StartMorningAsAssistant<br>
+</span></b><i><span style="font-size: 12pt;">function StartMorningAsAssistant() : Boolean <br>
+</span></i>return true to disable the standard greeting<br>
+<br>
+At the start of the morning this allows the assistant to do something, or say a standard greeting.<br>
+<br>
+eg From Hild<br>
+<span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+public function StartMorningAsAssistant(intro:Boolean) : Boolean <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.ServantSpeakStart("Good morning " + _root.SlaveMakerName + ". I have &lt;i&gt;aroused&lt;/i&gt; " + _root.SlaveName + " and " + _root.SlaveHeSheIs + " ready to be played with.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<span style="font-size: 12pt;"><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<b><span style="font-size: 14pt;">StartNightAsAssistant<br>
+</span></b><i><span style="font-size: 12pt;">function StartNightAsAssistant(intro:Boolean) : Boolean<br>
+</span></i>return true to disable the standard greeting<br>
+<br>
+At the start of the night planning this allows the assistant to do something, or say a standard greeting. Note called twice with intro true and then false. First to replace the standard into message, second to append any desired text.<br>
+<br>
+Note always use ServantSpeakStart when intro = true<br>
+<br>
+eg from Hild (note FlashDevelop code so the public qualifier)<br>
+<span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+public function StartNightAsAssistant(intro:Boolean) : Boolean {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (intro) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.ServantSpeakStart("Good evening " + _root.SlaveMakerName + "! It is now time for us to fuck " + _root.SlaveName + " hard and make " + _root.SlaveHimHer + " submit to our desires.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">StartEveningAsAssistant<br>
+</span></b><i><span style="font-size: 12pt;">function StartEveningAsAssistant() : Boolean<br>
+</span></i>return true to disable the standard greeting<br>
+<br>
+At the end of day planning this allows the assistant to do something, or say a standard greeting.<br>
+<br>
+eg From Hild<br>
+<span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+public function StartEveningAsAssistant() : Boolean {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.ServantSpeak(_root.SlaveMakerName + ", good evening. We have finished playing with " + _root.SlaveName + " for the daytime and it is now time for " + _root.SlaveHimHer + " to eat food. Later, eat other things...");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<u><b><span style="font-size: 16pt;"><br>
+<br>
+</span></b></u><span style="font-size: 12pt;">_______________________________________________________________<u><b><span style="font-size: 16pt;"><br>
+<br>
+<br>
+Assistant Events<br>
+</span></b></u><span style="font-size: 12pt;">As of version 16 an assistant can trigger and modify events during game play.<br>
+<br>
+<font color="#000080"><b><i><span style="font-size: 14pt;">1) Variables<br>
+</span></i></b><span style="font-size: 12pt;"><font color="#000000">These slave variables replicated for your assistant that do not require _root<br>
+SlaveName<br>
+Elapsed<br>
+<br>
+Other local variables<br>
+<b>Assisting </b>- true if being an assistant, intended to differentiate in image selection etc between being a slave or assistant<br>
+<br>
+<font color="#000080"><b><i><span style="font-size: 14pt;">2) Functions<br>
+</span></i></b><span style="font-size: 12pt;"><i><font color="#000000"><br>
+</font></i><font color="#000000">The following work the same as the equivallent slave girl fuction (generally without the AsAssistant at the end of the function name)<i><br>
+</i><b>EventsAsAssistant<i><br>
+</i></b><i>function EventsAsAssistant()<br>
+</i><br>
+<b>DoEventNextAsAssistant<br>
+</b><i>function DoEventNextAsAssistant() : Boolean<br>
+</i><br>
+<b>AfterEventNextAsAssistant<br>
+</b><i>function AfterEventNextAsAssistant()<br>
+</i><br>
+<b>PreEventAsAssistant<br>
+</b><i>function PreEventAsAssistant() : Boolean<br>
+</i><br>
+<b>AfterEventYesAsAssistant<br>
+</b><i>function AfterEventYesAsAssistant() <br>
+</i><br>
+<b>AfterEventNoAsAssistant<br>
+</b><i>function AfterEventNoAsAssistant() <br>
+</i><br>
+<b>AfterNewPlanningYesAsAssistant<br>
+</b><i>function AfterNewPlanningYesAsAssistant()<br>
+</i><br>
+<b>AfterNewPlanningNoAsAssistant<br>
+</b><i>function AfterNewPlanningNoAsAssistant()<br>
+</i><br>
+<b>StartDayAsAssistant<br>
+</b><i>function StartDayAsAssistant()<br>
+<br>
+</i><b>StartNightAsAssistant<br>
+</b><i>function StartNightAsAssistant()<br>
+<br>
+</i><b>NewPlanningActionAsAssistant<br>
+</b><i>function NewPlanningActionAsAssistant()<br>
+</i><br>
+<b>AfterNewPlanningActionAsAssistant<br>
+</b><i>function AfterNewPlanningActionAsAssistant()<br>
+<br>
+</i><b>AfterPlanningActionAsAssistant<br>
+</b><i>function AfterPlanningActionAsAssistant()<br>
+<br>
+</i><b>PurchaseItemAsAssistant<br>
+</b><i>function PurchaseItemAsAssistant(item:Number, hint:Boolean)<br>
+<br>
+</i><b>PurchaseDrugAsAssistant<br>
+</b><i>function PurchaseDrugAsAssistant(item:Number, hint:Boolean)<br>
+<br>
+</i><b>DoTailorYesAsAssistant<br>
+</b><i>function DoTailorYesAsAssistant()<br>
+<br>
+<br>
+</i><u>Walking<br>
+</u><i>Note the parmeter present means the asssitant is supervising the walk, otherwise the Slave Maker is. normally return false if present is true. Having this parameters allows the assistant to still affect events, even 'stalk' the slave and slave maker. Note present == !_root.Supervise<br>
+</i><span style="font-size: 10pt;">function DoWalkDocksPortAsAssistant(NumEvent:Number, present:Boolean) : Boolean<br>
+{&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (!present) return false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.. handle events<br>
+}<span style="font-size: 12pt;"><br>
+<i><br>
+<br>
+</i><b>AfterWalkAsAssistant<br>
+</b><i>function AfterWalkAsAssistant()<br>
+<br>
+</i><b>DoWalkDocksPortAsAssistant<br>
+</b><i>function DoWalkDocksPortAsAssistant(NumEvent:Number, present:Boolean) : Boolean<br>
+<br>
+</i><b>DoWalkDocksSlavePensAsAssistant<br>
+</b><i>function DoWalkDocksSlavePensAsAssistant(NumEvent:Number, present:Boolean) : Boolean<br>
+<br>
+</i><b>DoWalkDocksSlavePensSecureAsAssistant<br>
+</b><i>function DoWalkDocksSlavePensSecureAsAssistant(NumEvent:Number, present:Boolean) : Boolean<br>
+<br>
+</i><b>DoWalkFarmAsAssistant<br>
+</b><i>function DoWalkFarmAsAssistant(NumEvent:Number, present:Boolean) : Boolean<br>
+<br>
+</i><b>DoWalkForestAsAssistant<br>
+</b><i>function DoWalkForestAsAssistant(NumEvent:Number, present:Boolean) : Boolean<br>
+<br>
+</i><b>DoWalkLakeAsAssistant<br>
+</b><i>function DoWalkLakeAsAssistant(NumEvent:Number, present:Boolean) : Boolean<br>
+<br>
+</i><b>DoWalkPalaceAsAssistant<br>
+</b><i>function DoWalkPalaceAsAssistant(NumEvent:Number, present:Boolean) : Boolean<br>
+<br>
+</i><b>DoWalkRuinsAsAssistant<br>
+</b><i>function DoWalkRuinsAsAssistant(NumEvent:Number, present:Boolean) : Boolean<br>
+<br>
+</i><b>DoWalkSlumsAsAssistant<br>
+</b><i>function DoWalkSlumsAsAssistant(NumEvent:Number, present:Boolean) : Boolean<br>
+<br>
+</i><b>DoWalkTownCenterAsAssistant<br>
+</b><i>function DoWalkTownCenterAsAssistant(NumEvent:Number, present:Boolean) : Boolean<br>
+<br>
+</i><b>DoWalkBeachAsAssistant<br>
+</b><i>function DoWalkBeachAsAssistant(NumEvent:Number), present:Boolean : Boolean<br>
+<font color="#000080"><br>
+<br>
+</font></i><font color="#000080"><font color="#000000"><u><b><span style="font-size: 16pt;"></span></b></u></font></font></span></span></font></span></font></font></span></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></font></font></font></span></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></font></span></font></span></font></font></font></span></font></font></font></span></font></span></font></span></font><hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId68722"></a>Assistant Endings<span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><u><b><span style="font-size: 16pt;"></span></b></u></font></font></span></span></font></span></font></font></span></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></font></font></font></span></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></font></span></font></span></font></font></font></span></font></font></font></span></font></span></font></span></h1><font style="font-family: Arial;" face="Arial"><span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><u><b><span style="font-size: 16pt;">
+
+</span></b></u><span style="font-size: 12pt;">An assistant can give an ending for your slaves, for instance Cumslut Kasumi can give the ending 'Cumslut' to a slave she assists with<br>
+<br>
+The same functions as a slaves custom endings are used (except for a suffix AsAssistant)<br>
+<br>
+Notes:<br>
+_root.AssistantData.LastEnding  - the last ending the trained slave got, for Kasumi this is 31 for cumslut<br>
+Values of _root.NumFin &gt;= 70 are reserved for these special endings<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">function EndingStartAsAssistant(total:Number) : Boolean<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.AssistantData.LastEnding != 31) return false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.NumFin == 20 || _root.NumFin == 25) return false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.AssistantData.CustomFlag1 == 1) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.HideImages();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.HideBackgrounds();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.HideEndings();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.HideSlaveActions();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.IsDickgirl()) _root.SetEnding(71, "Dickgirl Cumslut");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else _root.SetEnding(71, "Cumslut");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SlaveGirl.ShowMorningMouthfull();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return false;<br>
+}<br>
+<br>
+function EndingFinishAsAssistant(total:Number) : Boolean<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.AssistantData.LastEnding != 31) return false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.NumFin == 71 &amp;&amp; _root.AssistantData.CustomFlag1 == 1){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetText("You come to visit " + SlaveName + "'s owner and when you enter through the door you find her kneeling, but with the robes askew, revealing her tits.\r\rShe is surrounded by men, many of whom have their cocks out. " + _root.SlaveIs + " already in the middle of giving one of them a blowjob, sucking him off eagerly, almost greedily. The man moans in pleasure and cums into her mouth. A moment later another cums and she eagerly licks up his cum as well. One after another the men cum into her mouth, leaving when done, eventually leaving you alone with " + SlaveName + ".\r\r");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SlaveSpeak("Thank you for coming to visit me, " + _root.SlaveMakerName + ". My master knows that I am a cumslut and a martial artist, and so allows me to work here as both instructor and whore.", true);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText("\r\rA moment later the owner comes through the door, carrying a small jar of white fluid, obviously more cum. Kasumi stares at it longingly, and quickly kneels on the floor. The owner greets you, then turns to " + SlaveName + ".\r\r");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PersonSpeak("Owner", "Alright cumslut, drink up.", true);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText("\r\rThe owner presents the jar and a thick straw. " + SlaveName + " takes the straw into her mouth and sips at the cum, looking thankfully at her owner as he addresses you.\r\r");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PersonSpeakStart("Owner", "I was a bit surprised by your job. This young girl is skilled, but her hunger for cum is so strong that I doubt she'll ever amount to more than what she is now.", true);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.IsDickgirl()) _root.PersonSpeakEnd(" She'll drink anyone's cum, even her ownshow him, slut!");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else _root.PersonSpeakEnd();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.BlankLine();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.IsDickgirl()) _root.AddText(SlaveName + " obediently lifts her robes revealing her erect cock, and bends over to take its tip into her mouth. Moments later she is swallowing, a look of bliss on her face. ");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText("You watch " + SlaveName + " with interest as she licks a stray glob of semen from her lips. You think she'll do just fine as a cumslut.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_root.NumFin = 1000;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return false;<br>
+}<br>
+<br>
+// How many special endings this assistant gives<br>
+function NumCustomEndingsAsAssistant() : Number<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.AssistantData.LastEnding != 31) return 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return 1;<br>
+}<br>
+<br>
+// Show a description of the special ending<br>
+function ShowEndingsAsAssistant(ending:Number)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText("To get the ending 'Cumslut', train " + SlaveName + " and have " + _root.SlaveHimHer + " drink a lot of cum, then call " + _root.SlaveHimHer + " a cumslut when " + _root.SlaveHeShe + " confesses " + _root.SlaveHisHer + " taste for it.");<br>
+}<u><b><br>
+</b></u><font color="#000080"><i><br>
+<br>
+</i><font color="#000000"><span style="font-size: 12pt;">_______________________________________________________________<u><b><span style="font-size: 16pt;"><br>
+<br>
+<br>
+Assistant Skills<br>
+</span></b></u><span style="font-size: 12pt;"><br>
+An assistant can give the benefit of skills to your slave maker. These can have a lesser effect or full effect<br>
+<br>
+To set the skill for the assistant in InitialiseAsAssistant set the values in the AssistantData member variables<br>
+<font color="#000080"><i><span style="font-size: 10pt;"><br>
+</span></i><font color="#000000">function InitialiseAsAssistant(firsttime:Boolean) : MovieClip {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.ServantName = "Peorth";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AssistantDescription = "A calm, seductive woman, expert in all arcane powers.\r\rShe can control arcane powers, Morality and Nymphomania increases faster.";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AssistantCost = 400;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (firsttime) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AssistantData.VarIntelligence = 70;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AssistantData.VarNymphomania = 70;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AssistantData.CustomFlag = 1;<br>
+<font color="#ff0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AssistantData.sNoble = 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AssistantData.sSlaveTrainer = 3;<font color="#000000"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return Assistant;<br>
+}<br>
+<br>
+<span style="font-size: 12pt;">The following skills have the following effects, generally the higher of you or your assistant applies<br>
+<br>
+sTrader&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Full discount purchasing<br>
+sAlchemy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Full discount purchasing drugs<br>
+sNoble&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Full Effect, but no initial bonus to refinement for your slave<br>
+sRefined&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Full Effect<br>
+sSlaveTrainer&nbsp;&nbsp;&nbsp;
+- if their skill is greater than yours then you get an effective bonus + 1, max of their skill<br>
+sLesbianTrainer&nbsp;
+- full effect<br>
+<br>
+No other skills for your assistant give any effect. I am open to requests<br>
+<br>
+So far they do not help with slave skills like slDancing but they could if desired.<br>
+<br>
+<font color="#000080"><i><span style="font-size: 10pt;"><br>
+</span></i></font></span></font></font></font></font></span></span></font></font></span></span></font></font></span></span></font></span></font></font></span></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></font></font></font></span></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></font></span></font></span></font></font></font></span></font></font></font></span></font></span></font></span></font>

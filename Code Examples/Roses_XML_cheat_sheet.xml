@@ -1,0 +1,69 @@
+<Language>
+    
+<!-- How to make An event this can be used with Both Flags and stats to make and event happen -->
+    <Eventname chance='40'>
+        <Showimage image="Images/Slaves/Slavenamehere/" />
+        <SetText></SetText>
+        <DoEvent>9999</DoEvent>
+    </Eventname>
+
+<!--if You Wish to place a Flag it most go before do events -->
+
+
+
+<!-- Any Events that take more then one if can be shortened using this -->
+    <Choices>
+        <Choice>
+        </Choice>
+    </Choices>
+
+<!-- Add more choices with what you want to trigger the event.
+     Say, you want one to be if she is good at cleaning. Do this: -->
+    <Choices>
+        <Choice Cleaning='10'>
+        </Choice>
+        <Choice Fitness='10'>
+        </Choice>
+    </Choices> 
+
+<!-- use this to change what happens in the Event and depends  -->
+    <if>
+        <!-- do something -->
+    <else>if</else>
+        <!-- do something else -->
+    </if>
+
+<!-- what an <if> may look like when used -->
+    <TestEvent flag2-20='true' flag2-21='true' flag2-22='true' chance='90'>
+        <Showimage image="Images/Slaves/Blake/"/>
+        
+        <if flag2-1='true'>
+            <SetText>Blake checks the Flags</SetText>
+            <PersonSpeak person='Blake'>yes the flag is set this gets to happen</PersonSpeak>
+            <Setflag flag2-24='true'/>
+        <else>if</else>
+            <SetText></SetText>
+            <PersonSpeak person='Blake'>O no Flag 1 is not set what ever will I do.</PersonSpeak>
+        </if>
+        
+        <DoEvent>9999</DoEvent>
+    </TestEvent>
+
+<!-- Calls her pic to the event -->
+    <ShowImage image='Images/Slaves/NameofSlave/picname.whatever/ '/>
+
+<!-- this will be what you put at the start of a new event -->
+    <SetText>    </SetText>
+
+<!-- Any line after the Settxt one use  AddText to make Or <Personspeak to do stuff or it will make the other text clear -->
+    <AddText>    </AddText>
+
+<!-- Makes who ever talk you put in the Person Talk -->
+    <PersonSpeak person='persontalking'></PersonSpeak>
+
+<!-- This will make it so the next appeares at the bottom -->
+    <DoEvent>9999</DoEvent>
+<!-- This one is for end of day events so any event that falls into the after night -->
+    <DoEvent>254</DoEvent>
+
+</Language>

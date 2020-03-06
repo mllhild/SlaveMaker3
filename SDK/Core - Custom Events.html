@@ -1,0 +1,72 @@
+<table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">Custom Events<br>
+            </span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Version
+8</font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<u style="font-family: Arial;"><b><span style="font-size: 18pt;">
+</span></b></u><span style="font-size: 12pt; font-family: Arial;"><br>
+</span><h1 style="font-family: Arial;">Custom Events for the Core Game<span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;"></span></b></u></span></h1><h1 style="font-family: Arial;"><span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;"></span></b></u></span></h1><span style="font-size: 12pt; font-family: Arial;"><u><b><span style="font-size: 14pt;">
+</span></b></u><span style="font-size: 12pt;">There are a series of standard events in the game, detailed in SlaveGirl - Events.rtf. Additional events can be added by the developer of a new slave girl and this is documented elsewhere.<br>
+<br>
+You can also add a custom event that will happen for all slaves<br>
+a) you can submit it to be added to the core game. This is the most efficient way but is slower to get put in<br>
+<br>
+b) you can write your own, using a similar system to Assistants and Slaves<br>
+</span></span><br style="font-family: Arial;">
+<h1 style="font-family: Arial;">Create The Event or Events<span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h1><h1 style="font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><u>
+</u>In the SDK in the Examples/Events folders are examples for events, using both Adobe Flash and FlashDevelop. These are simplified slavegirl/assistants using only the class structure, derived from the SlaveModule class.<br>
+<br>
+a) rename the class to a unique name, and set flash to export a swf file<br>
+Event-<i>classname</i>.swf<br>
+into the folder<br>
+Events <br>
+<br>
+b) change the main function to use the new class name, just rename nothing else needed. Also if using the fla file edit the actionscript in the top layer to rename the class<br>
+<br>
+c) These files use the assistant interfaces so now implement functions like<br>
+<br>
+DoWalkLakeAsAssistant<br>
+EventsAsAssistant<br>
+DoEventNextAsAssistant<br>
+<br>
+and so on.<br>
+<br>
+Please note event numbers 10000-10999 are reserved for these custom events, but care should be taken, if another custom event uses the same number then conflicts can happen. Ideally you should post the numbers you want to use so other developers will not conflict with them.<br>
+<br>
+d) if you need to save information to remember the state of an event, to allow progressive events, implement LoadGame() , SaveGame() and StartEvent() methods<br>
+<br>
+Note<br>
+Implement StartGame() to reset/set variables when a new slave is trained<br>
+implement StartSlaveMaker() to reset/set variables at the start of the campaign<br>
+For the first slave trained BOTH will be called<br>
+<br>
+e) lastly create a file like<br>
+Events/Events1.txt<br>
+and add the name of your swf file (no folder, just the filename). Multiple can be added with an &amp; between them<br>
+<span style="font-size: 10pt;">eg<br>
+Event-Furrysesh1.swf&amp;Event-NaginataChallenge.swf<span style="font-size: 12pt;"><br>
+The game supports Events.txt, Events1.txt to Events9.txt<br>
+<br>
+Otherwise everything works the same as for an assistant. Most of the same functions can be overridden. Some are not implemented at this time, notably<br>
+- custom endings<br>
+<br>
+</span></span></span></span>

@@ -1,0 +1,1374 @@
+<u style="font-family: Arial;"><b><span style="font-size: 18pt;"><center><u><b><span style="font-size: 18pt;"><u><b><span style="font-size: 18pt;"><table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239);" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">Items and Dresses<br>
+            </span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Version
+8</font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table></span></b></u></span></b></u><span style="font-size: 16pt;">
+</span></center>
+</span></b></u><span style="font-size: 12pt; font-family: Arial;"><br>
+<br>
+<u><b><span style="font-size: 16pt;">Core Item/Dress Functions</span></b></u><i><br>
+</i><span style="font-size: 12pt;">These Core functions are used to show, wear, remove or otherwise affect items. All are core functions in _root scope. Some have Slave Girl overrides, see Slave Girl - Functions.rtf<br>
+<br><br><span style="font-weight: bold;">Table of Contents</span><br></span></span><ul style="font-family: Arial;" id="mozToc"><li><a href="#mozTocId41368">Dresses</a></li><li><a href="#mozTocId501360">Items</a></li><li><a href="#mozTocId982743">Slave Interface functions</a></li><li><a href="#mozTocId930300">Custom Equipment</a></li></ul><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><br></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId41368"></a>Dresses<span style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;"></span></b></u></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;">
+</span></b></u><span style="font-size: 12pt;"><br>
+<u>Dress Attributes<br>
+</u>For the following functions the parameter dress has the values<br>
+-1 - Naked (only a few functions use this value, like WearDress)<br>
+0 - plain dress<br>
+1 - first dress<br>
+...<br>
+6 - most expensive dress<br>
+<br>
+If the parameter is omitted then the current dress worn is checked/set<br>
+<u><br>
+</u><b><br>
+</b><u>Check Ownership<br>
+<br>
+</u><b><span style="font-size: 14pt;">IsDressOwned<u><br>
+</u></span></b><i><span style="font-size: 12pt;">function IsDressOwned(dress:Number) : Boolean<br>
+</span></i>return true if the dress is owned (note -1 and 0 return true)<br>
+<i><br>
+</i><span style="font-size: 14pt;"><b>SetDressOwned<br>
+</b><i><span style="font-size: 12pt;">function SetDressOwned(dress:Number)<br>
+</span></i>Own the dress, values of 0 and -1 are ignored<i><br>
+</i><br>
+<br>
+<b><span style="font-size: 14pt;">IsDressCourtlyOwned<u><br>
+</u></span></b><i><span style="font-size: 12pt;">function IsDressCourtlyOwned() : Number<br>
+</span></i>returns the number of an owned courtly dress, or -1 if none are owned<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+var dress:Number = IsDressCourtlyOwned();<br>
+if (dress != -1) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AddText(SlaveName + " looks at her " +  GetDressName(dress));<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+rest are similar<br>
+<br>
+<b><span style="font-size: 14pt;">IsDressEasyOwned<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressEasyOwned() : Number<br>
+</span></i><br>
+<b><span style="font-size: 14pt;">IsDressSwimsuitOwned<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressSwimsuitOwned() : Number<br>
+</span></i><br>
+<b><span style="font-size: 14pt;">IsDressSleazyBarOwned<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressSleazyBar() : Number<br>
+</span></i><br>
+<b><span style="font-size: 14pt;">IsDressSluttyOwned<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressSlutty() : Number<br>
+</span></i><br>
+<b><span style="font-size: 14pt;">IsDressDancingOwned<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressDancing() : Number<br>
+</span></i><br>
+<b><span style="font-size: 14pt;">IsDressMaidOwned<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressMaid() : Number<br>
+</span></i><br>
+<b><span style="font-size: 14pt;">IsDressLingerieOwned<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressLingerie() : Number<br>
+</span></i><br>
+<b><span style="font-size: 14pt;">IsDressCatEarsOwned<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressCatEars() : Number<br>
+</span></i><br>
+<b><span style="font-size: 14pt;">IsDressCatTailOwned<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressCatTail() : Number<br>
+</span></i><br>
+<b><span style="font-size: 14pt;">IsDressMikoOwned<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressMiko() : Number<br>
+</span></i><br>
+<b><span style="font-size: 14pt;">IsDressWaitressOwned<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressWaitress() : Number<br>
+</span></i><br>
+<b><span style="font-size: 14pt;">IsDressHolyOwned<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressHoly() : Number<br>
+</span></i><br>
+<b><span style="font-size: 14pt;">IsDressDemonicOwned<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressDemonic() : Number<br>
+</span></i><br>
+<br>
+<u>Dress Attributes</u><br>
+<b><span style="font-size: 14pt;"><br>
+IsDressCourtly<u><br>
+</u></span></b><i><span style="font-size: 12pt;">function IsDressCourtly(dress:Number) : Boolean<br>
+</span></i>return true is the dress is suitable for court use, or for accompanying Lady Okyanu to her functions<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+if (_root.IsDressCourtly()) _AddText("Lady Okyanu compliments " + SlaveName + "'s dress as being just right for court.");<br>
+<span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">IsDressEasy<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressEasy(dress:Number) : Boolean<br>
+</span></i>return true if the dress is easy to move in and she gets less fatigued wearing it<br>
+<br>
+<b><span style="font-size: 14pt;">IsDressSwimsuit<span style="font-size: 12pt;"><br>
+</span></span></b><i>function IsDressSwimsuit(dress:Number) : Boolean<br>
+</i>return true if the dress is a swimsuit<br>
+<br>
+<b><span style="font-size: 14pt;">IsDressSleazyBar<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressSleazyBar(dress:Number) : Boolean<br>
+</span></i>return true if the dress is suitable for work in the sleazy bar<br>
+<br>
+<b><span style="font-size: 14pt;">IsDressSlutty<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressSlutty(dress:Number) : Boolean<br>
+</span></i>return true if the dress is a bit slutty (low cut, revealing etc) and makes her feel more of a slut<br>
+<br>
+<b><span style="font-size: 14pt;">IsDressDancing<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressDancing(dress:Number) : Boolean<br>
+</span></i>return true if the dress is a dance dress, and helps dancing<br>
+<br>
+<b><span style="font-size: 14pt;">IsDressMaid<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressMaid(dress:Number) : Boolean<br>
+</span></i>returns true if the dress is a maid uniform, small bonus working at the restaurant<br>
+<br>
+<b><span style="font-size: 14pt;">IsDressLingerie<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressLingerie(dress:Number) : Boolean<br>
+</span></i>returns true if the dress counts as lingerie<br>
+<br>
+<b><span style="font-size: 14pt;">IsDressCatEars<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressCatEars(dress:Number) : Boolean<br>
+</span></i>returns true if the dress has cat ears as part of the dress<br>
+<br>
+<b><span style="font-size: 14pt;">IsDressCatTail<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressCatTail(dress:Number) : Boolean<br>
+</span></i>returns true if the dress has a cat tail as part of the dress<br>
+<br>
+<b><span style="font-size: 14pt;">IsDressMiko<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressMiko(dress:Number) : Boolean<br>
+</span></i>returns true if the dress is appropriate for work as an acolyte, small bonus working as an acolyte<br>
+<br>
+<b><span style="font-size: 14pt;">IsDressWaitress<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressWaitress(dress:Number) : Boolean<br>
+</span></i>returns true if the dress is a uniform for working as a waitress, small bonus working at the restaurant<br>
+<br>
+<b><span style="font-size: 14pt;">IsDressHoly<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressHoly(dress:Number) : Boolean<br>
+</span></i>returns true if the dress is holy, blessed by the gods, bonus working as an acolyte<br>
+<br>
+<b><span style="font-size: 14pt;">IsDressDemonic<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressDemonic(dress:Number) : Boolean<br>
+</span></i>returns true if the dress is demonic, blessed or cursed by demons. Cannot work as an acolyte when wearing it, or attend theology school<br>
+<b><span style="font-size: 14pt;"><br>
+<br>
+SetDressCourtly<br>
+</span></b><i><span style="font-size: 12pt;">function SetDressCourtly(dress:Number)<br>
+</span></i>Makes the selected dress appropriate for court use, only values 0-6 are valid<br>
+Note the game automatically adds a description of this in the tailors and equipment screens<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+_root.SetDressCourtly(6);<span style="font-size: 12pt;"><br>
+<br>
+rest are similar<br>
+<br>
+<b><span style="font-size: 14pt;">SetDressEasy<br>
+</span></b><i><span style="font-size: 12pt;">function SetDressEasy(dress:Number)<br>
+</span></i><br>
+<b><span style="font-size: 14pt;">SetDressSwimsuit<br>
+</span></b><i><span style="font-size: 12pt;">function SetDressSwimsuit(dress:Number)<br>
+</span></i><br>
+<b><span style="font-size: 14pt;">SetDressSleazyBar<br>
+</span></b><i><span style="font-size: 12pt;">function SetDressSleazyBar(dress:Number)<br>
+</span></i><br>
+<b><span style="font-size: 14pt;">SetDressSlutty<br>
+</span></b><i><span style="font-size: 12pt;">function SetDressSlutty(dress:Number)<br>
+</span></i><br>
+<b><span style="font-size: 14pt;">SetDressDancing<br>
+</span></b><i><span style="font-size: 12pt;">function SetDressDancing(dress:Number)<br>
+</span></i><br>
+<b><span style="font-size: 14pt;">SetDressMaid<br>
+</span></b><i><span style="font-size: 12pt;">function SetDressMaid(dress:Number)<br>
+</span></i><br>
+<b><span style="font-size: 14pt;">SetDressLingerie<br>
+</span></b><i><span style="font-size: 12pt;">function SetDressLingerie(dress:Number)</span></i><br>
+<br>
+<b><span style="font-size: 14pt;">SetDressCatEars<br>
+</span></b><i><span style="font-size: 12pt;">function SetDressCatEars(dress:Number)<br>
+</span></i><br>
+<b><span style="font-size: 14pt;">SetDressCatTail<br>
+</span></b><i><span style="font-size: 12pt;">function SetDressCatTail(dress:Number)<br>
+</span></i><br>
+<b><span style="font-size: 14pt;">SetDressMiko<br>
+</span></b><i><span style="font-size: 12pt;">function SetDressMiko(dress:Number) <br>
+</span></i><br>
+<b><span style="font-size: 14pt;">SetDressWaitress<br>
+</span></b><i><span style="font-size: 12pt;">function SetDressWaitress(dress:Number) <br>
+</span></i><br>
+<b><span style="font-size: 14pt;">SetDressHoly<br>
+</span></b><i><span style="font-size: 12pt;">function SetDressHoly(dress:Number) <br>
+</span></i><br>
+<b><span style="font-size: 14pt;">SetDressDemonic<br>
+</span></b><i><span style="font-size: 12pt;">function SetDressDemonic(dress:Number) <br>
+<br>
+<br>
+</span></i><span style="font-size: 14pt;"><b>SetDressDetails<span style="font-size: 12pt;"> <br>
+</span></b>set the details for the girls dresses<br>
+<b><span style="font-size: 8pt;"><br>
+</span></b><font color="#000000"><i><span style="font-size: 12pt;">function SetDressDetails(dress:Number, short:String, desc:String, forsale:Boolean, price:Number)<br>
+</span></i><span style="font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>dress</i> &nbsp;&nbsp;
+- dress number<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>short &nbsp;&nbsp;
+</i>- a short desciption of the dress 'Cat Suit'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>desc &nbsp;&nbsp;&nbsp;
+</i>- a long description of the dress, including stat effects, dresses 0-3 have standard descriptions, but you may change them if you want<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>forsale</i><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true - you can buy it at the Tailors (default if the parameter is left out)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false - the dress is not for sale<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ignored for dress 0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>price &nbsp;&nbsp;
+</i>- the price of the dress, defaults to the standard prices (dress 1 = 100,... dress 6 = 4000)<br>
+<font color="#000000"><span style="font-size: 12pt;"><br>
+Note this function also resets any dress attributes set using SetDressEasy etc. So call this first and then any functions like SetDressEasy()<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressDetails(1, "Long Dress");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressDetails(2, "Short Dress");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressDetails(3, "Country Dress", "Refinement + 10\rSensibility + 5\rEnjoys walks more.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressDetails(4, "Kimono", "Refinement + 10\rCharisma + 10\rSensibility + 10");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressDetails(5, "Gym Clothes", "Refinement + 10\rCharisma + 10\rConstitution + 15");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressDetails(6, "Mini Skirt", "Charisma + 35, Obedience + 10\rLibido + 15, Nymphomania + 15\rSensibility + 15, Joy + 15\rShe is carefree and energetic.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressCourtly(4);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressEasy(5);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressEasy(6);<span style="font-size: 12pt;"><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">GetDressName<br>
+</span></b><i><span style="font-size: 12pt;">function GetDressName(dress:Number) : String<br>
+</span></i>returns the name of the dress. returns "Naked" for -1<br>
+<br>
+<b><span style="font-size: 14pt;">IsDressForSale<br>
+</span></b><i><span style="font-size: 12pt;">function IsDressForSale(dress:Number) : Boolean<br>
+</span></i>returns true if the dress is sold at the tailors. returns false for 0 and -1 as they are not sold<br>
+<br>
+<br>
+<u>Wearing<br>
+<br>
+</u><b><span style="font-size: 14pt;">WearDress</span></b> <span style="font-size: 12pt;"><br>
+<i>function WearDress(dress:Number)</i><br>
+wear dress x, 0 = plain, -1 naked, 1-6 for other dresses<br>
+<b><br>
+<span style="font-size: 14pt;">RemoveDress<span style="font-size: 12pt;"><br>
+</span></span></b><i>function RemoveDress()<br>
+</i>removes the current dress, must be called before WearDress<br>
+Note: this function also hides any backgrounds shown<br>
+<br>
+<span style="font-size: 10pt;">eg take off current dress and wear dress 6<br>
+_root,RemoveDress();<br>
+_root.WearDress(6);<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">ShowDress</span></b><br>
+<i><span style="font-size: 12pt;">function ShowDress()<br>
+</span></i>show your slave wearing their current dress in the main window (or naked). Will position items.<br>
+Note calls the Slave Girl function ShowDress or ShowNaked depending on her clothing<br>
+<br>
+<b><span style="font-size: 14pt;">HideDresses</span></b><br>
+<i><span style="font-size: 12pt;">function HideDresses() <br>
+</span></i>hide her dress/naked image in the main window (and all other dress images)<br>
+Note: this function also hides any backgrounds shown<br>
+<i><br>
+</i><span style="font-size: 14pt;"><b>SwapDress<br>
+</b><i><span style="font-size: 12pt;">SwapDress(dress:Number)<br>
+</span></i>Temporarily wear the dress (-1 for naked is fine). The current dress will be put back on once the current action is complete (ie next button is clicked)<br>
+if dress parameter is not specified and you have swapped into a dress then the current dress is swapped back into. No effect if she has not swapped dresses<br>
+Note: this function also hides any backgrounds shown<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">var dress:Number = IsDressHolyOwned();<br>
+if (dress != -1) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AddText(SlaveName + " changes into her " + GetDressName(dress));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SwapDress(dress);<br>
+}<br>
+....<br>
+later in say another event or leave it to be done automatically<br>
+SwapDress();<span style="font-size: 12pt;"><br>
+<br>
+The variable <br>
+<b>_root.DressSwap</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= -1000 no dress swapped into<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= the dress she was wearing previously<br>
+<br>
+<br></span></span></span></span></span></span></span></span></span></font></span></font></span></span></span></span></span></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId501360"></a>Items<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><font color="#000000"><span style="font-size: 11pt;"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;"></span></b></u></span></span></span></span></span></span></span></span></span></font></span></font></span></span></span></span></span></span></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><font color="#000000"><span style="font-size: 11pt;"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;">
+</span></b><span style="font-size: 12pt;"></span></u><i><br>
+</i><span style="font-size: 14pt;"><b>HideItems</b><i><br>
+<span style="font-size: 12pt;">function HideItems()<br>
+</span></i>hide all item images<br>
+<i><br>
+</i><span style="font-size: 14pt;"><b>EquipItem<br>
+</b><span style="font-size: 12pt;">call to equip an item, note  the xxxxOK variable (eg ApronOK = 1;) should be set, but is not required<br>
+<i>function EquipItem(item:Number)</i><br>
+item<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 - pony tail<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 - halo or oroborus candle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 - demonic pendant<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 - angels tear or torun's chalice<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 - demonic bra<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 - vibrator panties<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7 - leash<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 - nymphs tiara<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9 - spiked bracelet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10 - handcuff bracelet<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+11 - harness<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+12 - dragon ring<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+13 - apron<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+14 - bit gag<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+15 - strap-on<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+16 - faeries ring<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+17 - nipple rings<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+18 - nipple chain<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+23 - Cat Ears<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+24 - Cat Tail<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+50 - custom item 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+51 - custom item 2<br>
+<i><br>
+</i><span style="font-size: 14pt;"><b>UnEquipItem<br>
+</b><span style="font-size: 12pt;">&nbsp;call to remove an item<br>
+<i>function UnEquipItem(item:Number)<br>
+</i>item - see above, but demonic bra does nothing<br>
+<br>
+<b><span style="font-size: 14pt;">ShowItem<br>
+<span style="font-size: 12pt;">&nbsp;</span></span></b>display an item graphic<br>
+<i>function ShowItem(item:Object, place:Number, align:Number, gframe:Number)<br>
+</i>item<br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></font></span></span></span></span></span></span></span></span></span></span></span><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 - pony tail</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 - halo or oroborus candle</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 - demonic pendant</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 - angels tear or torun's chalice</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 - demonic bra</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 - vibrator panties</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7 - leash</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 - nymphs tiara</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9 - spiked bracelet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10 - handcuff bracelet</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+11 - harness</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+12 - dragon ring</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+13 - apron</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+14 - bit gag</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+15 - strap-on</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+16 - faeries ring</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+17 - nipple rings</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+18 - nipple chain</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+19 - key</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+20 - teddy bear</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+21 - trophy</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+22 - scroll </span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+23 - Cat Ears</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+24 - Cat Tail </span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+40 - Egg</span><br style="font-family: Arial;"><span style="font-family: Arial;">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 47 - Feeldo</span><span style="font-family: Arial;"></span><span style="font-family: Arial;"></span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+50 - custom item 1</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+51 - custom item 2<br></span><span style="font-family: Arial;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 101 - Ofuda</span><br style="font-family: Arial;"><span style="font-family: Arial;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 102 - BE Potion</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Note as for EquipItem but includes 19-22</span><br style="font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><font color="#000000"><span style="font-size: 11pt;"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;">
+place - see ShowMovie. 1=main, 0=people, etc<br>
+align  - see ShowMovie<br>
+gframe - frame choice<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+_root.ShowItem(6, 1, 1);<br>
+<br>
+<b><span style="font-size: 14pt;">IsItemAvailable<br>
+<span style="font-size: 12pt;">&nbsp;</span></span></b>test if an item is owned by slave or slavemaker<br>
+<i>function IsItemAvailable(item:Number) : Boolean<br>
+</i>item<br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></font></span></span></span></span></span></span></span></span></span></span></span><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 - pony tail</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 - halo or oroborus candle</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 - demonic pendant</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 - angels tear or torun's chalice</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 - demonic bra</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 - vibrator panties</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7 - leash</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 - nymphs tiara</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9 - spiked bracelet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10 - handcuff bracelet</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+11 - harness</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+12 - dragon ring</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+13 - apron</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+14 - bit gag</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+15 - strap-on</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+16 - faeries ring</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+17 - nipple rings</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+18 - nipple chain</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+19 - key</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+20 - teddy bear</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+21 - trophy</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+22 - scroll </span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+23 - Cat Ears</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+24 - Cat Tail </span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+25 - Lingerie</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+26 - Bunny Suit</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+27 - Maid Uniform</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+28 - Uniform</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+40 - Egg </span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+41 - Ladies Guide (book)</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+42 - Historical Tales (book)</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+43 - Ropes</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+44 - Silken Ropes</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+45 - Nipple Rings for your Slave Maker</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+46 - Vanity Case for your Slave Maker</span><br style="font-family: Arial;"><span style="font-family: Arial;">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 47 - Feeldo<br></span><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+48 - Masculine Love Vol 1 (book)</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+49 - </span><span style="font-family: Arial;">Masculine Love Vol 2</span><span style="font-family: Arial;"> (book)</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+50 - custom item 1</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+51 - custom item 2</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Note as for EquipItem but includes 19+</span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><font color="#000000"><span style="font-size: 11pt;"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+if (_root.IsItemAvailable(1)) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// you own a ponytail for your slave<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">IsItemWorn<br>
+<span style="font-size: 12pt;">&nbsp;</span></span></b>test if an item is currently being used by the slave/slave maker<br>
+<i>function IsItemWorn(item:Number) : Boolean<br>
+</i>item<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 - pony tail<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 - halo or oroborus candle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 - demonic pendant<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 - angels tear or torun's chalice<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 - demonic bra<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 - vibrator panties<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7 - leash<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 - nymphs tiara<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9 - spiked bracelet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10 - handcuff bracelet<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+11 - harness<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+12 - dragon ring<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+13 - apron<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+14 - bit gag<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+15 - strap-on<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+16 - faeries ring<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+17 - nipple rings<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+18 - nipple chain<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+19 - key<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+20 - teddy bear<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+21 - trophy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+22 - scroll <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+23 - Cat Ears<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+24 - Cat Tail <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+45 - Nipple Rings for your Slave Maker<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+if (_root.IsItemWorn(1)) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// slave is wearing a ponytail<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">SetItemOwned<br>
+<span style="font-size: 12pt;">&nbsp;</span></span></b>set and item owned by slave or slavemaker (or lose the item)<br>
+<i>function SetItemOwned(item:Number, own:Boolean)<br>
+</i>item<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 - pony tail<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 - halo or oroborus candle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 - demonic pendant<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 - angels tear or torun's chalice<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 - demonic bra<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 - vibrator panties<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7 - leash<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 - nymphs tiara<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9 - spiked bracelet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10 - handcuff bracelet<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+11 - harness<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+12 - dragon ring<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+13 - apron<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+14 - bit gag<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+15 - strap-on<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+16 - faeries ring<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+17 - nipple rings<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+18 - nipple chain<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+19 - key<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+20 - teddy bear<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+21 - trophy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+22 - scroll <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+23 - Cat Ears<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+24 - Cat Tail <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+25 - Lingerie<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+26 - Bunny Suit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+27 - Maid Uniform<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+28 - Uniform<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+40 - Egg <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+41 - Ladies Guide (book)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+42 - Historical Tales (book)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+43 - Ropes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+44 - Silken Ropes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+45 - Nipple Rings for your Slave Maker<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+46 - Vanity Case for your Slave Maker<br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></font></span></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><font color="#000000"><span style="font-size: 11pt;"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 47 - Feeldo<br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></font></span></span></span></span></span></span></span></span></span></span></span><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+48 - Masculine Love Vol 1 (book)</span><br style="font-family: Arial;">
+<span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+49 - </span><span style="font-family: Arial;">Masculine Love Vol 2</span><span style="font-family: Arial;"> (book)</span><br><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><font color="#000000"><span style="font-size: 11pt;"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+50 - custom item 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+51 - custom item 2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Note as for EquipItem but includes 19+<br>
+own - true to now own the item, false to lose the item, defaults to true<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">HideItem<br>
+</span></b><span style="font-size: 12pt;">hide the specific item<br>
+<i>function HideItem(item:Object)<br>
+</i>item - as above<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">SetEquipmentButtonState<br>
+</span></b><i><span style="font-size: 12pt;">function SetEquipmentButtonState(item:Number, worn:Boolean, available:Boolean, actlabel:String, shortcut:String)<br>
+</span></i>Similar to SetActButtonState,<br>
+item - as for Equip item, <br>
+Note this can be used to rename any button in the equipment screen or change it's toggled state. The lable will be persistant until the next load, so change it in Initialise()<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+_root.SetEquipmentButtonState(1, false, false, "Horsey\rTail");<span style="font-size: 12pt;"><br>
+<br>
+<br>
+<u>These are mainly support functions for Slave Girls to position items in the main window<br>
+</u><br>
+Some have the parameter<br>
+cr - use the center registered version. Positions and rorates about the center of the movieclip. Easier to use. Defaults to false<br>
+The ones that do not are already center registered<br>
+<br>
+<b><span style="font-size: 14pt;">PositionHalo<br>
+</span></b><span style="font-size: 12pt;">position the halo image on the main dress image<br>
+<i>function PositionHalo(xpos:Number, ypos:Number, rot:Number, wid:Number, hei:Number)<br>
+</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+xpos &nbsp;&nbsp;&nbsp;
+- x coordinate<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ypos &nbsp;&nbsp;&nbsp;
+- y coordinate<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+rot &nbsp;&nbsp;&nbsp;&nbsp;
+- rotation of image in degrees, can be negative<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+wid &nbsp;&nbsp;&nbsp;&nbsp;
+- width, can be negative to flip horizontally<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+hei&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ - height, can be negative to flip vertically<br>
+Note: the image is center registered<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">PositionGag<br>
+</span></b><span style="font-size: 12pt;">bit gag<b><br>
+</b><i>function PositionGag(gframe:Number, xpos:Number, ypos:Number, rot:Number, wid:Number, hei:Number, cr:Number)<br>
+</i>all parameters as above except<br>
+gframe - the particular version of the gag you want, 4 versions, 1-4<br>
+cr - use the center registered version. Positions and rorates about the center of the movieclip. Easier to use. Defaults to false<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">PositionLeash<br>
+<span style="font-size: 12pt;">l</span></span></b>eash<b><br>
+</b><i>function PositionLeash(gframe:Number, xpos:Number, ypos:Number, rot:Number, wid:Number, hei:Number, cr:Number)<br>
+</i>gframe - the particular version of the leash you want (2 choices, without collar, with collar)<br>
+<b><span style="font-size: 14pt;"><br>
+<br>
+PositionTail <br>
+</span></b><span style="font-size: 12pt;">pony tail, under the dress image<b><br>
+</b><i>function PositionTail(xpos:Number, ypos:Number, rot:Number, wid:Number, hei:Number, cr:Number)<br>
+<br>
+<br>
+</i><span style="font-size: 14pt;"><b>PositionTailOver<br>
+</b><span style="font-size: 12pt;">pony tail, on top of the dress image<b><br>
+</b><i>function PositionTailOver(xpos:Number, ypos:Number, rot:Number, wid:Number, hei:Number, cr:Number)<br>
+</i><br>
+<br>
+<b><span style="font-size: 14pt;">PositionNymphsTiara<br>
+</span></b><span style="font-size: 12pt;">Nymph's Tiara<b><br>
+</b><i>function PositionNymphsTiara(xpos:Number, ypos:Number, rot:Number, wid:Number, hei:Number, cr:Number)<br>
+</i><br>
+<br>
+<b><span style="font-size: 14pt;">PositionCatEars<br>
+</span></b><i><span style="font-size: 12pt;">function PositionCatEars(gframe:Number, xpos:Number, ypos:Number, rot:Number, wid:Number, hei:Number)<br>
+</span></i>gframe - the particular version of the ears you want (2 choices, pink/white, black)<br>
+Position a set of car ears behind the slave's image in the main window<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">PositionCatEarsOver<br>
+</span></b><i><span style="font-size: 12pt;">function PositionCatEarsOver(gframe:Number, xpos:Number, ypos:Number, rot:Number, wid:Number, hei:Number)<br>
+</span></i>gframe - the particular version of the ears you want (2 choices, pink/white, black)<br>
+Position a set of car ears behind the slave's image in the main window<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">PositionWings<br>
+</span></b><i><span style="font-size: 12pt;">function PositionWings(xpos:Number, ypos:Number, rot:Number, wid:Number, hei:Number)<br>
+</span></i>Position a set of Faerie wings behind the slave's image in the main window<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">PositionWingLeft<br>
+</span></b><i><span style="font-size: 12pt;">function PositionWingLeft(xpos:Number, ypos:Number, rot:Number, wid:Number, hei:Number)<br>
+</span></i>Position a left Faerie wing behind the slave's image in the main window<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">PositionWingRight<br>
+</span></b><i><span style="font-size: 12pt;">function PositionWingRight(xpos:Number, ypos:Number, rot:Number, wid:Number, hei:Number)<br>
+</span></i>Position a right Faerie wing behind the slave's image in the main window<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">PositionWingsOver<br>
+</span></b><i><span style="font-size: 12pt;">function PositionWingsOver(xpos:Number, ypos:Number, rot:Number, wid:Number, hei:Number)<br>
+</span></i>Position a set of Faerie wings over the slave's image in the main window<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">PositionWingLeftOver<br>
+</span></b><i><span style="font-size: 12pt;">function PositionWingLeftOver(xpos:Number, ypos:Number, rot:Number, wid:Number, hei:Number)<br>
+</span></i>Position a left Faerie wing over the slave's image in the main window<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">PositionWingRightOver<br>
+</span></b><i><span style="font-size: 12pt;">function PositionWingRightOver(xpos:Number, ypos:Number, rot:Number, wid:Number, hei:Number)<br>
+</span></i>Position a right Faerie wing over the slave's image in the main window<br>
+<br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></font></span></span></span></span></span></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId982743"></a>Slave Interface functions<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><font color="#000000"><span style="font-size: 11pt;"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;"></span></b></u></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></font></span></span></span></span></span></span></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><font color="#000000"><span style="font-size: 11pt;"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;">
+</span></b></u><span style="font-size: 12pt;">There are a series of functions can be overridden by a slave girl. See Slave Girl - Override Functions.rtf for the standard dress functions that are mandatory.<br>
+<br>
+<br>
+<u><b>Repeated here are the mandatory functions<br>
+</b></u><br>
+<b><span style="font-size: 14pt;">HideDresses</span></b><br>
+<i><span style="font-size: 12pt;">function HideDresses()<br>
+</span></i>Hide any dress images or naked images<br>
+<br>
+<b><span style="font-size: 14pt;">WearDress<br>
+</span></b><i><span style="font-size: 12pt;">function WearDress() <br>
+</span></i>Here you apply the effect of wearing a dress, generally by calling the PointsMod function<br>
+You may apply other effects, like increasing her Slutiness (Reisz when she wears her wolf dress or teddy) or loyalty etc<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">function WearDress() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.DressWorn == 1) _root.PointsMod(0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if (_root.DressWorn == 2) _root.PointsMod(10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if (_root.DressWorn == 3) _root.PointsMod(0, 5, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if (_root.DressWorn == 4) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Slutiness = _root.Slutiness + 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PointsMod(10, 10, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (_root.DressWorn == 5) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PointsMod(10, 0, 10, 10, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (_root.DressWorn == 6) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Slutiness = _root.Slutiness + 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PointsMod(35, 0, 15, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 15, 35);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">RemoveDress<br>
+</span></b><i><span style="font-size: 12pt;">function RemoveDress() <br>
+</span></i>Here you remove the effect of wearing a dress, generally by calling the PointsMod function. Generally a reverse of the effects of WearDress.<br>
+Remember to reverse any other effects<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">function RemoveDress() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.DressWorn == 1) _root.PointsMod(0, 0, -5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if (_root.DressWorn == 2) _root.PointsMod(-10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if (_root.DressWorn == 3) _root.PointsMod(0, -5, -10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if (_root.DressWorn == 4) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Slutiness = _root.Slutiness - 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PointsMod(-10, -10, -10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (_root.DressWorn == 5) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PointsMod(-10, 0, -10, -10, 0, -5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -10);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (_root.DressWorn == 6) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Slutiness = _root.Slutiness - 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PointsMod(-35, 0, -15, 0, 0, -15, 0, 0, 0, 0, 0, 0, 0, 0, -15, 0, -15, -35);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">ShowNaked<br>
+</span></b><i><span style="font-size: 12pt;">function ShowNaked()<br>
+</span></i>Here you show the graphic in the main window of your slave girl naked. Remember dickgirl state, and MilkInfluence if you have a larger breast version. Consider the function ChoiceNaked.<br>
+You also position items like leash, halo etc<i><br>
+</i><b><br>
+</b>eg<br>
+<span style="font-size: 10pt;">function ShowNaked() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.DickgirlXF &gt; 0) NakedClip.gotoAndStop(_root.ChoiceNaked(2, 4));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else NakedClip.gotoAndStop(_root.ChoiceNaked(3, 1));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+switch(_root.NakedChoice) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+case 1:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionHalo(218, 18, 10, 100, 40);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionGag(2, 228, 66);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionLeash(1, 252, 40, 0, 70, 120);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionNymphsTiara(240, 18, 0, 60, 60);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionTail(250, 145, 0, 110, -65);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+break;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+case 2:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionHalo(220, 20);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionGag(2, 230, 78);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionLeash(1, 262, 30, 0, 80, 145);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionNymphsTiara(235, 20, 0, 60, 60);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionTail(180, 224, 210, 110, 65);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+break;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+case 3:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+case 5:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionHalo(220, 20, 20, 100, 40);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionGag(1, 230, 59, 0, 30, 30);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionLeash(1, 252, 25, 0, 70, 100);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionNymphsTiara(225, 20, 0, 60, 60);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionTail(175, 160, 0, -110, -65);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+break;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+NakedClip._visible = true;<br>
+}<span style="font-size: 12pt;"><br>
+<b><br>
+</b><br>
+<b><span style="font-size: 14pt;">ShowDress<br>
+</span></b><i><span style="font-size: 12pt;">function ShowDress()<br>
+</span></i>Here you show the graphic in the main window of your slave girl wearing a dress. Remember dickgirl state, and MilkInfluence if you have a larger breast version<br>
+You also position items like leash, halo etc<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">function ShowDress() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+var dress:Number = _root.DressWorn;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.CurrentPath == 3 &amp;&amp; dress == 6) dress = 7;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if (_root.CurrentPath == 2 &amp;&amp; dress == 6) dress = 8;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (dress == 0) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionGag(2, 254, 67, 20, 30, 30);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionLeash(1, 280, 30, 0, 70, 100);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionNymphsTiara(250, 15, 0, 40, 40);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionTail(225, 210, 90, 110, 65);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+RobePlainClip._visible = true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (dress == 1) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionHalo(265, 18, 20);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionGag(2, 256, 96, 20, 50, 50);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionLeash(2, 365, 70, 25, 90, 140);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionNymphsTiara(265, 20, 20, 60, 60);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PositionTail(175, 240, 0, -110, -65);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Robe1Clip.gotoAndStop(_root.MilkInfluence &gt; 0 ? 2 : 1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Robe1Clip._visible = true;.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ...<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<br>
+<u><b>The following are all optional but recommended</b></u><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowLingerie<br>
+</span></b><i><span style="font-size: 12pt;">function ShowLingerie() : Boolean<br>
+</span></i>Show the slave girl wearing lingerie<br>
+return true if you show a graphic, return false for no graphic<br>
+Commonly just show a image from the sleazy bar or her dating image<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowBunnySuit<br>
+</span></b><i><span style="font-size: 12pt;">function ShowBunnySuit() : Boolean<br>
+</span></i>Show the slave girl wearing a bunny suit<br>
+return true if you show a graphic, return false for no graphic<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSwimsuit<br>
+</span></b><i><span style="font-size: 12pt;">function ShowSwimsuit() : Boolean<br>
+</span></i>Show the slave girl wearing a swimsuit<br>
+return true if you show a graphic, return false for no graphic<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowMaidUniform<br>
+</span></b><i><span style="font-size: 12pt;">function ShowMaidUniform() : Boolean<br>
+</span></i>Show the slave girl wearing a maid uniform<br>
+return true if you show a graphic, return false for no graphic<br>
+Commonly show the maid ending graphic, if you do remember to hide it in HideImages()<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowDressSmall<br>
+</span></b><i><span style="font-size: 12pt;">function ShowDressSmall()<br>
+</span></i>Show the slave girl wearing her current dress, but in the small person window. Items etc can be ignored<br>
+If not implemented then the game calls ShowAsAssistant(1)<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowNakedSmall<br>
+</span></b><i><span style="font-size: 12pt;">function ShowNakedSmall()<br>
+</span></i>Show the slave girl naked, but in the small person window. Items etc can be ignored<br>
+If not implemented then the game calls ShowAsAssistant(1)<br>
+<br>
+<br>
+<u><b>The following are completely optional</b></u><br>
+<br>
+<b><span style="font-size: 14pt;">WearItem<br>
+</span></b><span style="font-size: 12pt;">called when she equips an item, override to stop the wearing of an item or add some additional prompts<br>
+<i>function WearItem(item:Number)<br>
+</i>item<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 - pony tail<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 - halo or oroborus candle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 - demonic pendant<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 - angels tear or torun's chalice<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 - demonic bra<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 - vibrator panties<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7 - leash<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 - nymphs tiara<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9 - spiked bracelet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10 - handcuff bracelet<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+11 - harness<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+12 - dragon ring<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+13 - apron<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+14 - bit gag<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+15 - strap-on<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+16 - faeries ring<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+17 - nipple rings<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+18 - nipple chain<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+23 - Cat Ears<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+24 - Cat Tail<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+50 - custom item 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+51 - custom item 2<br>
+return true to prevent it being worn<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">RemoveItem<br>
+</span></b><span style="font-size: 12pt;">called as an item is to be removed, override to stop the removal of an item or add some additional prompts<br>
+<i>function RemoveItem(item:Number)<br>
+</i>item as above<br>
+return true to prevent it removed<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">EquipItem</span></b><br>
+<span style="font-size: 12pt;">called when an item is equipped, normally only override to change the effect an item does<br>
+<i>function EquipItem(item:Number) :Boolean</i><br>
+item as above<br>
+return true to disable the standard effect<br>
+If you override an effect, you must also override UnEquipItem to reverse the effect<br>
+<i><br>
+</i>Note you can override and add an effect and return false. In this case you are adding an additional effect to the item<br>
+Note basically mandatory for the custom items 50, 51 and the game does nothing for these<br>
+<br>
+<i><br>
+</i><span style="font-size: 14pt;"><b>UnEquipItem</b><br>
+<span style="font-size: 12pt;">called when an item is removed<br>
+<i>function UnEquipItem(item:Number) :Boolean<br>
+</i>item as above<br>
+return true to disable the standard effect<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">PurchaseItem<br>
+</span></b><span style="font-size: 12pt;">called when an item is purchased<br>
+<i>function PurchaseItem(item:Number, hint:Boolean)<br>
+</i>item<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 - uninhibitor potion<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 - aphrodisiac<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 - soothing draft<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 - energy drink<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 - jewelry<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 - poetry books<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7 - science books<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 - doll<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9 - makeup at salon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10 - leash<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+11 - handcuff bracelet<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+12 - halo/oroborus candle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+13 - nymphs tiara<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+14 - spiked bracelet<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+15 - Dorei<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+16 - Zodai<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+17 - Gaman<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+18 - Byaku<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+19 - Ishinai<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+20 - harness<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+21 - lust draft<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+22 - nipple rings<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+23 - nipple chain<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+24 - dildo<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+25 - anal plug<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+26 - ropes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+27 - vanity case<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+28 - piercing<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+29 - hair styling at salon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+30 - skin care at salon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+31 - pony cart<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+32 - pony boots<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+33 - vibrator panties<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+40 - Egg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+41 - Ladies Guide<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+42 - Historical Tales<br>
+hint - true if a hint for the item is being shown, generally ignore (return true) or show custom description<br>
+return true to prevent purchasing<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<br>
+<b><span style="font-size: 14pt;">PurchaseWeapon</span></b><br>
+<span style="font-size: 12pt;">called on purchasing a waepon<br>
+<i>function PurchaseWeapon(hint:Boolean)<br>
+</i>hint - true if a hint for the weapon is being shown, generally ignore (return true) or show custom description<br>
+return true to prevent purchasing<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">DoTailorYes<br>
+</span></b><i><span style="font-size: 12pt;">function DoTailorYes(dress:Boolean)<br>
+</span></i>called when purchasing an item, after you say yes to purchase, but before gold validation and actual purchase<br>
+dress &nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true - purchasing a dress, _root.DressChoice is the dress number 1-6<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false - purchasing an item, _root.ObjectChoice is the item, see purchase item<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowOtherEquipment<br>
+</span></b><span style="font-size: 12pt;">function ShowOtherEquipment()<br>
+use this to add custom items to the other equipment list in the equipment screen<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">function ShowOtherEquipment()<br>
+{<br>
+&nbsp;&nbsp;&nbsp;if (_root.CheckBitFlag2(1)) _root.AddText("   Glowing rock");<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowItem</span></b><span style="font-size: 12pt;"><br>
+<i>function ShowItem(item:Object, main:Number, align:Number, gframe:Number) : Boolean</i><br>
+As for the core version, but allows you to replace the image of an item, for instance Belldandy and the Angelic Bra/Demonic Bra<br>
+return true if you show a custom graphic.<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">HideItem</span></b><span style="font-size: 12pt;"><br>
+<i>function HideItem(item:Object, align:Number)<br>
+</i>As for the core version, but if use use a custom image above by overriding ShowItem, then use this to hide the custom image<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">BuyDress<br>
+</span></b><span style="font-size: 12pt;">Called when you try to buy a dress. Allows you to customise the message or effects<i><br>
+function BuyDress(cost:Number) : Number <br>
+</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>cost</i>&nbsp;&nbsp;&nbsp;&nbsp;
+- the cost of the dress being purchased<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= do standard purchase<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= the dress was purchased<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= the dress was not purchased<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<br>
+<b><span style="font-size: 14pt;">BuyUniform<br>
+</span></b><span style="font-size: 12pt;">Called when you try to buy a uniform like a bunny suit. Allows you to customise the message or effects<b><span style="font-size: 14pt;"><br>
+</span></b><i><span style="font-size: 12pt;">function BuyUniform(cost:Number) : Number<br>
+</span></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>cost</i>&nbsp;&nbsp;&nbsp;&nbsp;
+- the cost of the uniform being purchased<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= do standard purchase<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= the uniform was purchased<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= the uniform was not purchased<br>
+<br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></font></span></span></span></span></span></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId930300"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><font color="#000000"><span style="font-size: 11pt;"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;"></span></b></u></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></font></span></span></span></span></span></span></span></span></span></span></span>Custom Equipment<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><font color="#000000"><span style="font-size: 11pt;"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></font></span></span></span></span></span></span></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><font color="#000000"><span style="font-size: 11pt;"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i>
+</i><span style="font-size: 12pt;">There are two custom pieces of equipment that can be equipped via the equipment screen. To control these<br>
+<u><b><span style="font-size: 14pt;"><br>
+</span></b></u><b>ShowCustomEquipmentButton1<br>
+</b><span style="font-size: 12pt;">called to show/hide the button<br>
+<i>function ShowCustomEquipmentButton1(showmc:Boolean)<br>
+</i>showmc - true to show the button, false to hide<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowCustomEquipmentButton2<br>
+</span></b><span style="font-size: 12pt;">called to show/hide the button<br>
+<i>function ShowCustomEquipmentButton2(showmc:Boolean)<br>
+</i>showmc - true to show the button, false to hide<br>
+<u><b><span style="font-size: 14pt;"><br>
+</span></b><span style="font-size: 12pt;">Notes<b><span style="font-size: 14pt;"><br>
+</span></b></span></u><span style="font-size: 12pt;">To change the buttons labels use SetEquipmentButtonState with item values 50 or 51 for item 1 or 2 respectively<br>
+<br>
+When the button toggles the game calls<br>
+WearItem/RemoveItem and EquipItem/UnEquipItem with a value of 50/51. There is no game default action for 50/51 besides toggling the button.<br>
+<br>
+The game will not remember the toggle state or label of the custom buttons so make sure to call SetEquipmentButtonState in your Initialise() function<br>
+<u><b><i><span style="font-size: 14pt;"><br>
+</span></i></b></u></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></font></span></span></span></span></span></span></span></span></span></span></span>

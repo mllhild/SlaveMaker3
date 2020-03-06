@@ -1,0 +1,1 @@
+girlname=Mai&girldesc=A defeated warrior from another country.&image=Slave-Mai.png&mode=easy&gamefile=Slave-Mai.swf

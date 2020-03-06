@@ -1,0 +1,249 @@
+<u style="font-family: Arial;"><b><span style="font-size: 18pt;">
+
+
+
+</span></b></u><span style="font-size: 12pt; font-family: Arial;">
+</span><table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;" border="1" cellpadding="2" cellspacing="2"><tbody><tr><td style="vertical-align: top;"><font size="+2"><span style="font-weight: bold;"></span></font><table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2"><tbody><tr><td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">Creating an Actionscript based Slave</span></font><br></td><td style="vertical-align: top;"><br></td></tr><tr><td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td><td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Version 8</font><br></td></tr></tbody></table><font size="+2"><span style="font-weight: bold;"></span></font></td></tr></tbody></table><br style="font-family: Arial;"><span style="font-family: Arial;">Slaves can be developed using either Adobe Flash or the free FlashDevelop program. There are differences in image displaying between the two and some limitations in one case.<br><br>For FlashDevelop, you can also use the code generator SlaveBuilder to construct the base project and source code.</span><span style="font-size: 12pt; font-family: Arial;"><br><br style="font-weight: bold;"><span style="font-weight: bold;">Table of Contents</span><br></span><ul id="mozToc"><!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6--><li><a href="#mozTocId696441">Requirements</a></li><li><a href="#mozTocId588559">Common Setup for both Adobe and Flash Develop</a><ul><li><a href="#mozTocId985842">1) Name the slave</a></li><li><a href="#mozTocId40058">2) Collect Images</a></li><li><a href="#mozTocId54687">3) Create an image for the slave to appear in the slave market</a></li><li><a href="#mozTocId295513">4) Create the SlaveGirlXX.txt file</a></li><li><a href="#mozTocId838314">5) Create the xml file (optional)</a></li><li><a href="#mozTocId99601">6) Create an image folder for the slave (optional)</a></li></ul></li><li><a href="#mozTocId588559">Common Tips for Programming a Slave</a></li><li><a href="#mozTocId903114">Using Adobe Flash</a><ul><li><a href="#mozTocId189018">1) Create the base project by copying an example from this SDK</a></li><li><a href="#mozTocId902734">2) Edit the project to customise for your slave</a></li><li><a href="#mozTocId247554">3) rename layers in the library and stage (optional)</a></li><li><a href="#mozTocId924433">4) Update images and add any new ones needed</a></li><li><a href="#mozTocId686273">5) Update actionscript for events etc</a></li><li><a href="#mozTocId526099">6) Publish</a></li></ul></li><li><a href="#mozTocId365266">Using Flash Develop</a><ul><li><a href="#mozTocId375513">Important Restriction</a></li><li><a href="#mozTocId735303">Class Based Slaves Only</a></li></ul></li></ul><span style="font-size: 12pt; font-family: Arial;"><br></span><hr style="width: 100%; height: 2px;"><table style="text-align: left; width: 100%; background-color: rgb(204, 255, 255); font-family: Arial; height: 16px;" border="1" cellpadding="5" cellspacing="1">
+<tbody><tr><td style="vertical-align: top;">
+      <h1 style="height: 14px;"><a class="mozTocH1" name="mozTocId696441"></a>Requirements</h1>
+</td></tr></tbody></table><span style="font-weight: bold;"><br></span><span style="font-size: 12pt; font-family: Arial;">Adobe Flash CS3 or later<br>OR<br>FlashDevelop (current version)<br><br><span style="font-weight: bold;">Additionally</span><br>Graphic editing program, I use ImageJ and Paint.Net, two quite good free editors.<br><br></span><span style="font-size: 12pt; font-family: Arial;"></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"></span><table style="text-align: left; width: 100%; background-color: rgb(204, 255, 255); font-family: Arial; height: 16px;" border="1" cellpadding="5" cellspacing="1">
+<tbody><tr><td style="vertical-align: top;"><h1 style="height: 14px;"><a class="mozTocH1" name="mozTocId588559"></a>Common Setup for both Adobe and Flash Develop</h1></td></tr></tbody></table><span style="font-size: 12pt; font-family: Arial;"></span><br><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId985842"></a><span style="color: rgb(51, 0, 153); font-style: italic; font-weight: bold;">1) Name the slave</span></h2><span style="font-family: Arial;">Pick an unused name for the slave. For instance you cannot use Rei as that is taken.<br></span><br><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId40058"></a><span style="color: rgb(51, 0, 153); font-style: italic; font-weight: bold;">2) Collect Images<br></span></h2>
+<span style="font-family: Arial;">Collect all images needed for the slave, see the </span><span style="font-family: Arial;"> </span><a style="font-family: Arial;" href="Slave%20-%20Image%20List.html">Image List</a><span style="font-family: Arial;">. Pick</span> an image to appear in the slave market<a style="font-family: Arial;" href="Slave%20-%20Image%20List.html"></a><br style="font-family: Arial;"><br><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId54687"></a><span style="color: rgb(51, 0, 153); font-style: italic; font-weight: bold;">3) Create an image for the slave to appear in the slave market<br></span></h2><span style="font-family: Arial;">
+Add an image like</span><br style="font-family: Arial;"><span style="font-family: Arial;">Slaves/Slave-</span><span style="font-style: italic; font-family: Arial;">name</span><span style="font-family: Arial;">.png</span><br style="font-family: Arial;"><br style="font-family: Arial;"><span style="font-family: Arial;">This can be a jpg, png. gif file, recommend jpg or png. This image <span style="font-weight: bold;">must</span> have a transparent background. If you do not know how to do this, post in a thread in one of the forums and someone will be able to edit it for you</span><br style="font-family: Arial;"><br style="font-family: Arial;"><span style="font-family: Arial;">Note
+the name must correspond exactly to the name of the swf file to be created below.<br></span><font style="font-family: Arial;" face="Arial"><span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"></font></font></span></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></font></span></font></span></font></font></font></span></font></font></font></span></font></span></font></span></font><br><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId295513"></a><span style="color: rgb(51, 0, 153); font-style: italic; font-weight: bold;">4) Create the SlaveGirlXX.txt file<br></span></h2>
+<span style="font-family: Arial;">Create the file</span><br style="font-family: Arial;"><span style="font-family: Arial;">Slaves/SlaveGirlxx.txt</span><br style="font-family: Arial;"><span style="font-family: Arial;">where xx is a number. During development just use a free number less than 200 </span><span style="font-size: 12pt; font-family: Arial;">and edit new contents. Once you are ready for a release a number will be assigned to you..<br><br>eg<br>
+
+
+<i>girlname=Ifurita&amp;girldesc=Ifurita : This girl is lost, claiming
+to have travelled many
+dimensions.&amp;image=Slave-Ifurita.png&amp;gamefile=Slave-Ifurita.swf<br>
+
+
+<br><span style="font-style: italic;"></span></i></span><span style="font-family: Arial;">This is a set of url encoded variables. Some are optional and can be left out, some are mandatory. These variable names are case-sensitive, and they are</span><br style="font-family: Arial;"><br style="font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><i>
+
+
+</i></span><table style="text-align: left; width: 100%; height: 667px; font-family: Arial;" border="0" cellpadding="2" cellspacing="0"><tbody><tr><td style="vertical-align: top; width: 20%;"><span style="font-weight: bold;">girlname</span><br></td><td style="vertical-align: top;">The name of the slave<br></td></tr><tr><td style="vertical-align: top;"><span style="font-weight: bold;">girldesc</span><br></td><td style="vertical-align: top;">A short description of the slave to appear in the Slave Market<br></td></tr><tr><td style="vertical-align: top;"><span style="font-weight: bold;">image</span><br></td><td style="vertical-align: top;">the relative filepath for the image to show in the slave market. It should be a png file with a transparent background. <br>This file <span style="font-weight: bold;">MUST</span> be named like<br>Slave-<span style="font-style: italic;">slavename</span>.png<br></td></tr><tr><td style="vertical-align: top;"><span style="font-weight: bold;">gamefile </span>(optional)<br></td><td style="vertical-align: top;">This is the name of the swf file for actionscript based slaves. As of version 3.3 this is optional for xml slaves<br></td></tr><tr><td style="vertical-align: top;"><span style="font-weight: bold;">Dickgirls</span><span style="font-weight: bold;"> </span>(optional)</td><td style="vertical-align: top;">true/false - are dickgirls a mandatory part of this slaves training. <br></td></tr><tr><td style="vertical-align: top;"><span style="font-weight: bold;">Tentacles</span><span style="font-weight: bold;"> </span>(optional)</td><td style="vertical-align: top;">true/false - are tentacles a mandatory part of this slaves training. </td></tr><tr><td style="vertical-align: top;"><span style="font-weight: bold;">Furries</span><span style="font-weight: bold;"> </span>(optional)</td><td style="vertical-align: top;">true/false - are furries a mandatory part of this slaves training.</td></tr><tr><td style="vertical-align: top;"><span style="font-weight: bold;">renown</span><span style="font-weight: bold;"> </span>(optional)</td><td style="vertical-align: top;"><span style="font-size: 12pt;">none &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= no slavemaker reputation needed (0) - default<br>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+low&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= reputation 10 needed<br>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+medium&nbsp;&nbsp;
+= reputation 30<br>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+high&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= reputation 60<br>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+max&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= reputation 100</span></td></tr><tr><td style="vertical-align: top;"><span style="font-weight: bold;">mode</span><span style="font-weight: bold;"> </span>(optional)</td><td style="vertical-align: top;"><span style="font-size: 12pt;">a general guide to how difficult the girl is to train<br>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+easy&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+normal&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(default)<br>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+hard</span></td></tr><tr><td style="vertical-align: top;"><span style="font-weight: bold;">Pregnancy</span><span style="font-weight: bold;"> </span>(optional)</td><td style="vertical-align: top;">true/false - is pregnanc a mandatory part of this slaves training.</td></tr><tr><td style="vertical-align: top;"><span style="font-weight: bold;">NonHuman</span><span style="font-weight: bold;"> </span>(optional)</td><td style="vertical-align: top;">true/false - are non-humans (and sex with them) a mandatory part of this slaves training.</td></tr><tr><td style="vertical-align: top;"><span style="font-weight: bold;">Folder</span><span style="font-weight: bold;"> </span>(optional)</td><td style="vertical-align: top;">a folder that this slave will store it's images in. This is optional, and can be defined in the slave's xml file<br></td></tr><tr><td style="vertical-align: top;"><span style="font-weight: bold;">available</span><span style="font-weight: bold;"> </span>(optional)</td><td style="vertical-align: top;">true/false - if false the slave is not visible in the slave market and is only shown be a special event when training another slave or a core game event<br></td></tr><tr><td style="vertical-align: top;"><span style="font-weight: bold;">vanilla</span><span style="font-weight: bold;"> </span>(optional)</td><td style="vertical-align: top;">true/false - if true the slave has no custom events or trainings<br></td></tr><tr><td style="vertical-align: top;"><span style="font-weight: bold;">assistant</span><span style="font-weight: bold;"> </span>(optional)</td><td style="vertical-align: top;">true/false - the slave is initially an assistant. This can change due to events.<br></td></tr><tr><td style="vertical-align: top;"><span style="font-weight: bold;">slavetype</span> (optional)<br></td><td style="vertical-align: top;">untrained, minor, assistant<br></td></tr></tbody></table><span style="font-size: 12pt; font-family: Arial;"><br>Note for foreign languages you can also create files like<br>SlaveGirlxx-French.txt<br>and so on. These will contain the translated text.<br><br></span><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId838314"></a><span style="color: rgb(51, 0, 153); font-style: italic; font-weight: bold;">5) Create the xml file (optional)<br></span></h2>
+<span style="font-size: 12pt; font-family: Arial;">Create an xml file for the slave<br>Slave-<span style="font-style: italic;">slavename</span>.xml<br><br>At a minumum this will have the name, version, credits for the slave<br><br><font size="-1">&lt;Language&gt;<br>&nbsp;&nbsp;&nbsp; &lt;Slave&gt;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Version&gt;2&lt;/Version&gt;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Credits&gt;Developed originally by Pooloka, continued by cmacleod&lt;/Credits&gt;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Name&gt;Yurika&lt;/Name&gt;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  <br>&nbsp;&nbsp;&nbsp; &lt;/Slave&gt;<br>&lt;/Language&gt;</font><br><u><b><br></b></u></span><span style="font-family: Arial;">This file can contain any xml nodes and code as needed. See XML slave development for more details, and Ranma's files for a simple actionscript/xml hybrid.</span><span style="font-family: Arial;"><br><br></span><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId99601"></a><span style="color: rgb(51, 0, 153); font-style: italic; font-weight: bold;">6) Create an image folder for the slave (optional)<br></span></h2><span style="font-family: Arial;">All slaves canl have a folder in a location</span><br style="font-family: Arial;"><span style="font-family: Arial;">Images/Slaves/</span><span style="font-style: italic; font-family: Arial;">name</span><br style="font-family: Arial;"><font style="font-family: Arial;" face="Arial"><span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000">eg<br>Images/Slave/Mai<br></font></font></span></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></font></span></font></span></font></font></font></span></font></font></font></span></font></span></font></span></font><br style="font-family: Arial;"><br><hr style="width: 100%; height: 2px;"><table style="text-align: left; width: 100%; background-color: rgb(204, 255, 255); font-family: Arial; height: 16px;" border="1" cellpadding="5" cellspacing="1">
+<tbody><tr><td style="vertical-align: top;"><h1 style="height: 14px;"><a class="mozTocH1" name="mozTocId588559"></a>Common Tips for Programming a Slave<br></h1></td></tr></tbody></table><span style="font-weight: bold;"><br></span><span style="font-size: 12pt; font-family: Arial;"><u><b><span style="font-size: 14pt;"><span style="font-size: 12pt;"></span></span></b></u>First and foremost use <span style="font-weight: bold;">ActionScript 2</span>, do not use the more recent Actionscript 3.<br>
+
+
+<br>
+
+
+My strong guideline for girls is<br>
+
+
+1) no black and white images<br>
+
+
+2) no speech bubbles or sound effect text<br>
+
+
+3) decensor all images<br>
+
+4) any image dimension above 640x480 is fine, I commonly use 800x600 or
+1068x800. The main window is 4x3 aspect ratio (448x336 pixels)<br>
+
+
+5) provide at least two variants for all sex acts, actually for all acts where possible<br>
+
+
+<br>
+
+
+<br>
+
+
+A couple of general notes on programming flash<br>
+
+
+<br>
+
+a) all functions must have less than 500 lines of code, You can get
+very odd things happen if you do not. This is purely what is in <br>
+
+
+function xxxxxx()<br>
+
+
+{<br>
+
+
+}<br>
+
+
+not the total lines in an actionscript file<br>
+
+
+<br>
+
+b) I have seen reports that switch statements should have less than 20
+terms as you can get odd issues. This may be related to a)<br>
+
+
+<br>
+
+c) Careful of floating point arithmetic. The variable of type Number is
+a floating pont number. So you can get cases where 0.1 + 0.1 + 0.1 +
+0.1 != 0.4<br>
+
+
+<br>
+
+
+d) Stats like<br>
+
+
+VarObedience<br>
+
+are not integer and do not include dress and jewelry, makeup etc
+effects. To use the integer versions, with the items included use<br>
+
+
+VarObedienceRounded<br>or to round down<br>int(</span><span style="font-size: 12pt; font-family: Arial;">VarObedience)<br>or round up<br>Math.ceil(</span><span style="font-size: 12pt; font-family: Arial;">VarObedience)</span><br><span style="font-size: 12pt; font-family: Arial;">
+
+
+<br>
+
+
+d) Careful of typos. The compiler will not tell you that a function or variable you use does not exist<br>
+
+
+eg<br>
+
+
+AddTexT("hi")<br>
+
+
+compiles fine but does nothing at run-time<br>
+
+
+<br>
+
+
+Similarly using a wrong variable <br>
+
+
+_root.VarOBedience<br>
+
+
+works fine but will have a value undefined<br>
+
+
+<br>
+
+
+Similarly for any object, movieclip etc<br>
+
+
+Also the same if you leave off _root. when accessing a global/base object<br>
+
+
+<br>
+
+
+e) Event numbers as used in _root.NumEvent, if you use an invalid one the game will generally hang (next button will do nothing)<br><br style="font-family: Arial;"></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><u><b></b></u></span><span style="font-size: 12pt; font-family: Arial;"><u><b><span style="font-size: 14pt;"></span></b></u></span><span style="font-weight: bold;"></span><table style="text-align: left; width: 100%; background-color: rgb(204, 255, 255); font-family: Arial; height: 16px;" border="1" cellpadding="5" cellspacing="1">
+
+<tbody><tr><td style="vertical-align: top;">
+      <h1 style="height: 14px;"><a class="mozTocH1" name="mozTocId903114"></a>Using Adobe Flash<br></h1>
+</td></tr></tbody>
+</table>
+<br><span style="font-size: 12pt; font-family: Arial;"><u><b><span style="font-size: 14pt;"><span style="font-size: 12pt;"> </span></span></b></u>To create your own slave using Adobe Flash<br></span><h2 style="font-family: Arial; height: 16px;"><a class="mozTocH2" name="mozTocId189018"></a><span style="color: rgb(51, 0, 153); font-style: italic; font-weight: bold;">1) Create the base project by copying an example from this SDK<br></span></h2>
+<span style="font-size: 12pt; font-family: Arial;">In the SDK, folder <br>Examples/Slave Girl/Base Girl<br>rename the files<br>
+
+
+Slave-Girl.fla<br>
+
+
+Slave-Girl.as<br>to match the name of your girl. For ease from now on I'll assume the girl will be named Ifurita. So rename to<br>
+
+
+Slave-Ifurita.fla<br>
+
+
+Slave-Ifurita.as<br>Provided are also example SlaveGirlXX.txt and Slave-Girl.xml files.<br>
+
+
+<i><br></i></span><h2 style="font-family: Arial; height: 16px;"><a class="mozTocH2" name="mozTocId902734"></a><span style="color: rgb(51, 0, 153); font-style: italic; font-weight: bold;">2) Edit the project to customise for your slave<br></span></h2>
+<span style="font-size: 12pt; font-family: Arial;"><i>
+
+
+</i>Open the fla file using Adobe Flash. Please note this will not
+be a tutorial on how to program flash. On the top layer in the timeline
+(labelled ActionLayer) edit the actions of frame 1 and change the
+include statement to the new actionscript file Slave-Ifurita.as<br>
+
+
+eg<br>
+
+
+#include "Slave-Ifurita.as"<br>
+
+
+<br></span><h2 style="font-family: Arial; height: 16px;"><a class="mozTocH2" name="mozTocId247554"></a><span style="color: rgb(51, 0, 153); font-style: italic; font-weight: bold;">3) rename layers in the library and stage (optional)<br></span></h2>
+<span style="font-size: 12pt; font-family: Arial;">
+
+
+Rename the folder Slavegirl to Ifurita if you like<br>
+
+
+<br></span><h2 style="font-family: Arial; height: 16px;"><a class="mozTocH2" name="mozTocId924433"></a><span style="color: rgb(51, 0, 153); font-style: italic; font-weight: bold;">4) Update images and add any new ones needed<br></span></h2><span style="font-size: 12pt; font-family: Arial;">Edit images and action script.<br>
+
+
+<br></span><h2 style="font-family: Arial; height: 16px;"><a class="mozTocH2" name="mozTocId686273"></a><span style="color: rgb(51, 0, 153); font-style: italic; font-weight: bold;">5) Update actionscript for events etc<br></span></h2>
+<br><h2 style="font-family: Arial; height: 16px;"><a class="mozTocH2" name="mozTocId526099"></a><span style="color: rgb(51, 0, 153); font-style: italic; font-weight: bold;">6) Publish</span></h2>
+<span style="font-size: 12pt; font-family: Arial;">Publish and copy the swf, png, txt files into your game installation<br>
+
+
+<br></span><span style="font-size: 12pt; font-family: Arial;"><br></span><hr style="width: 100%; height: 2px; font-family: Arial;"><table style="text-align: left; width: 100%; background-color: rgb(204, 255, 255); font-family: Arial; height: 16px;" border="1" cellpadding="5" cellspacing="1">
+
+<tbody><tr><td style="vertical-align: top;">
+      <h1 style="height: 14px;"><a class="mozTocH1" name="mozTocId365266"></a>Using Flash Develop<br></h1>
+</td></tr></tbody>
+</table>
+<br><h2><a class="mozTocH2" name="mozTocId375513"></a>Important Restriction<br></h2> for Actionscript 2 only supports up to 16Mb of images. You must limit yourself to that size of embedded images. If you want to exceed this limit you will have to dynamically load images at runtime using funcntions like AutoLoadAndShowMovie()<br><br><h2><a class="mozTocH2" name="mozTocId735303"></a>Class Based Slaves Only<br></h2>
+All slaves developed using Flash Develop must use a structure based on a class that extends the SlaveModule class. FlashDevelop does not support global functions and variables as Adobe does.<br><br><br><span style="font-size: 12pt; font-family: Arial;">
+
+
+</span>

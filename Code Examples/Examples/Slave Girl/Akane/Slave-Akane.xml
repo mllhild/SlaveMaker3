@@ -1,0 +1,217 @@
+﻿<Language>
+	<Slave>
+		<Version>2</Version>
+		<Credits>Developed originally by Pooloka, continued by cmacleod</Credits>
+		
+		<Name>Akane</Name>
+		<Description>the angry girl</Description>
+		
+		<TrainingTime>60</TrainingTime>
+
+		<Gender>2</Gender>
+		<Bust>85</Bust>
+		<Waist>55</Waist>
+		<Hips>87</Hips>
+		<Age>19</Age>
+		<BloodType>AB</BloodType>
+		<Weight>50</Weight>
+		<Height>163</Height>
+		
+		<Milkable>true</Milkable>
+		<FairyXF>0</FairyXF>
+		<CustomFlag>0</CustomFlag>
+		<CustomFlag1>0</CustomFlag1>
+		<NobleLoveType>8</NobleLoveType>
+		<SlaveLikeServant>false</SlaveLikeServant>
+		
+		<IntroPages>2</IntroPages>
+		<Introduction1 black='true'>
+			<SetText><b>Akane, the angry girl</b>
+			
+			She was born to a martial family in a neighbouring country, but became too unruly and
+			aggressive so they sold her, to hopefully control her. Her initial training went poorly as she repeatedly struck her trainer and then she hit him with a mallet and ran away.
+			
+			Recaptured here in Mioya, she has been re-sold and has been given to you for training, with strong emphasis on her self control. You are warned to keep her away from mallets.
+			When she is delivered to you she is bound in a frogtie and tells you she was repeatedly used during the journey to you from her new owners town. She is angry at the abuse and softly complains about the bondage, but never asked you to free her...
+			
+			You release her and talk for a time with her. She is very assertive and is a tomboy, with little interest in feminine matters. She seems particularly inexperienced in cooking, and has odd tastes in food. She has had dealings with the nobility of her home country, and
+			knows correct etiquette, but seldom acts refined and has little patience for diplomacy.
+			
+			You notice quickly that #assistant does not get on well with her, so you need to take
+			care to supervise their activities. As you turn to discuss this you hear a noise and see Akane slap #assistant in anger...</SetText>
+		</Introduction1>
+
+		<Introduction2 black='true'>
+			<SetText>You slap Akane and take her to her room,
+			and you give her some underwear to put on.
+			
+			As she dresses you scold her for her outburst
+			and you notice something odd. Her breasts
+			seem larger than before and there seems to be
+			a touch of moisture on her nipples.
+			
+			You comment and she looks embarrassed, and
+			explains that since she umm became a woman
+			her breasts sometimes swell larger and even
+			leak a little milk.  It&apos;s a rare condition but not
+			a disease or anything. 
+			
+			She says they will return to normal in a day
+			or so. You ask about what causes the change
+			and she blushes and claims to not know.
+			
+			You are sure she does and will have to
+			get her to talk about it or work it out
+			yourself.</SetText>
+		</Introduction2>
+		
+		<Statistics>
+			<Charisma>10</Charisma>
+			<Sensibility>10</Sensibility>
+			<Refinement>10</Refinement>
+			<Intelligence>5</Intelligence>
+			<Morality>0</Morality>
+			<Constitution>30</Constitution>
+			<Cooking>0</Cooking>
+			<Cleaning>10</Cleaning>
+			<Conversation>10</Conversation>
+			<Fitness>20</Fitness>
+			<BlowJob>15</BlowJob>
+			<Fuck>20</Fuck>
+			<Temperament>20</Temperament>
+			<Nymphomania>15</Nymphomania>
+			<Obedience>0</Obedience>
+			<Lust>0</Lust>
+			<Reputation>0</Reputation>
+			<Fatigue>0</Fatigue>
+			<Joy>0</Joy>
+			<Special>45</Special>
+			<MaxObedience>80</MaxObedience>
+		</Statistics>
+		
+		<Difficulties>
+			<Anal>0</Anal>
+			<Blowjob>12</Blowjob>
+			<Bondage>65</Bondage>
+			<Brothel>75</Brothel>
+			<Dildo>25</Dildo>
+			<Expose>40</Expose>
+			<Fuck>10</Fuck>
+			<GangBang>75</GangBang>
+			<LendHer>90</LendHer>
+			<Lesbian>50</Lesbian>
+			<Lick>5</Lick>
+			<Master>65</Master>
+			<Masturbate>0</Masturbate>
+			<Naked>65</Naked>
+			<Plug>50</Plug>
+			<Ponygirl>65</Ponygirl>
+			<SleazyBar>25</SleazyBar>
+			<Spanking>30</Spanking>
+			<Threesome>20</Threesome>
+			<TitsFuck>12</TitsFuck>
+			<Touch>0</Touch>
+			<XXX>30</XXX>
+			<XXXContest>35</XXXContest>
+		</Difficulties>
+					
+		<SpecialParticipants>
+			<Participant>
+				<Name>Miss N</Name>
+				<Folder>Images/Cities/Mardukane/People/Miss N</Folder>
+				<Description>Renowned Prostitute</Description>
+				<DescriptionDetailed>A famous prostitute in Mardukane, she never talks about her past before she arrived in the Capital.
+				
+				She has a keen desire for money and no matter what she does she always expect payment. She is a skilled trader and negotiater, mainly for her sexual services.
+				
+				She is a personal friend of yours but she always requres a token 1GP payment for her services, of any kind.</DescriptionDetailed>
+				<Image>Images/Cities/Mardukane/People/Miss N/People - Prostitute 2.png</Image>
+				<Gender>2</Gender>
+				<Bust>84</Bust>
+				<Waist>53</Waist>
+				<Hips>85</Hips>
+				<Age>25</Age>
+				<BloodType>A</BloodType>
+				<Weight>47</Weight>
+				<Height>170</Height>
+				<Trainings>Prostitute</Trainings>
+				<Statistics>
+					<Charisma>50</Charisma>
+					<Sensibility>20</Sensibility>
+					<Refinement>30</Refinement>
+					<Intelligence>45</Intelligence>
+					<Morality>0</Morality>
+					<Constitution>60</Constitution>
+					<Cooking>0</Cooking>
+					<Cleaning>0</Cleaning>
+					<Conversation>35</Conversation>
+					<Fitness>50</Fitness>
+					<BlowJob>80</BlowJob>
+					<Fuck>80</Fuck>
+					<Temperament>50</Temperament>
+					<Nymphomania>50</Nymphomania>
+					<Obedience>20</Obedience>
+					<Lust>50</Lust>
+					<Reputation>40</Reputation>
+					<Fatigue>0</Fatigue>
+					<Joy>50</Joy>
+					<NaturalTalent>Sex</NaturalTalent>
+				</Statistics>
+				
+				<Skills>
+					<Swimming>1</Swimming>
+					<Dancing>1</Dancing>
+					<Trader>1</Trader>
+					<SlutTrainer>1</SlutTrainer>
+					
+					<TotalFuck>500</TotalFuck>
+					<LevelFuck>5</LevelFuck>
+					<TotalBlowJob>500</TotalBlowJob>
+					<LevelBlowJob>5</LevelBlowJob>
+		
+				</Skills>
+				
+				<Images>
+					<Fuck>
+						<Normal>3</Normal>
+						<Lesbian>1</Lesbian>
+					</Fuck>
+					<Discuss>
+						<Normal>3</Normal>
+					</Discuss>
+					<TitsFuck>2</TitsFuck>
+					<Blowjob>3</Blowjob>
+					<Lick>1</Lick>
+					<PregnancyReveal>1</PregnancyReveal>
+					<TentacleSex>1</TentacleSex>
+					<EventRaped>1</EventRaped>
+					<Lesbian>2</Lesbian>
+					<KissMale>1</KissMale>
+				</Images>
+				
+				<Planning><DoPlanning>
+					<!-- talk - charge 1GP and then default to standard -->
+					<SlaveTalk>
+						<SMMoney>-1</SMMoney>
+						<DoXMLAct>SlaveTalk</DoXMLAct>
+					</SlaveTalk>
+					
+					<!-- sex, called by all sex acts - charge 1GP and then default to standard -->
+					<DoSlaveIntimacy>
+						<SetText>DoSlaveIntimacy</SetText>
+						<SMMoney>-1</SMMoney>
+						<EndEvent handled='false'/>
+					</DoSlaveIntimacy>
+					
+				</DoPlanning></Planning>
+				
+			</Participant>
+		</SpecialParticipants>
+		
+	</Slave>
+	
+	<Assistant>
+		<AssistantDescription>A violent girl with a taste for bondage, and hammers...\rBondage actions are easier for slaves she assists with. Spanking is more effective.</AssistantDescription>
+	</Assistant>
+
+</Language>

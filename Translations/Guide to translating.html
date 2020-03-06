@@ -1,0 +1,250 @@
+<u><b><font face="Arial"><span style="font-size: 18pt;"></span></font></b></u><span style="font-size: 12pt;"><font face="Arial"></font></span><table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239);" border="1" cellpadding="2" cellspacing="2"><tbody><tr><td style="vertical-align: top;"><font size="+2"><span style="font-weight: bold;"><span style="font-family: Arial;"></span></span></font><table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2"><tbody><tr><td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold; font-family: Arial;">Guide to Translating</span></font><br></td><td style="vertical-align: top;"><br></td></tr></tbody></table><font size="+2"><span style="font-weight: bold;"></span></font></td></tr></tbody></table><br><span style="font-size: 12pt;"><font face="Arial">
+The game uses the xml files for some (eventually all) text in the game. The files are named for their language (eg French.xml)<br>
+<br>
+The default is<br>
+English.xml<br>
+<br>
+When the game starts it first loads English.xml and then the language selected in Options. This means strings can be ommitted from a language and in that case you will just get the english words.<br>
+<br>
+<b><span style="font-size: 14pt;">Each xml file must be saved using either UTF-8 or UTF-16 character encoding</span></b><br>
+<span style="font-size: 12pt;">Note Word Pad in Windows can save as Unicode (UTF-16). Most other editors can also. <u><i>Notepad cannot</i>.<br>
+</u><br>
+<br>
+<u><b>Categories<br>
+</b></u>The files are organised by categories<br>
+<br>
+<b>Buttons &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b>- the labels of button in the game<br>
+<b>Statistics &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b>- the statistics used by slaves and slave makers<br>
+<b>Introduction </b>- text shown during the introduction screens<br>
+<b>Planning &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b>- text shown on the planning screens. There is a sub-section<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b>Acts </b>- the name of all acts/chores/schools. Note gender variants and special training variants<br>
+<b>Shopping &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b>- when visiting shops<br>
+<b>EndGame &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b>- shown in the end game screens<br>
+<b>Equipment &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b>- items in the game<br>
+<b>Places &nbsp;
+</b>- places you walk to<br>
+<b>Hints &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b>- hints and tutorial text<br>
+<b>SlaveMaker &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b>- text specific to slave maker screens<br>
+<b>Talents &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b>- text for Slave Make talents<br>
+<b>Diary&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b>- entries in the diary or on the screen<br>
+<b>Faith &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b>- religion text<br>
+<b>Options &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b>- options screens<br>
+<b>Rules &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b>- rules screens<br>
+<b>Morning &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b>- morning screens<br>
+<b>Contest &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b>- text during contests<br>
+<b>Other &nbsp;&nbsp;
+</b>- general text of a miscellaneous type<br>
+<b>Events</b>&nbsp;&nbsp;
+- event text<br>
+<b>Assistants</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Messages and spoken text by your assistant<br>
+<br>
+<br>
+<u><b>General Translating<br>
+</b></u>To translate replace the contents of the tags, DO NOT rename the tags<br>
+<br>
+eg<font face="Courier New"><span style="font-size: 10pt;"><br>
+&lt;Charisma&gt;Charisma :&lt;/Charisma&gt;<br>
+&lt;Sensibility&gt;Sensibility :&lt;/Sensibility&gt;<br>
+<br>
+<br>
+<font face="Arial"><span style="font-size: 12pt;">In French<font face="Courier New"><span style="font-size: 10pt;"><br>
+&lt;Charisma&gt;Charisme :&lt;/Charisma&gt;<br>
+&lt;Sensibility&gt;Sensibilité :&lt;/Sensibility&gt;<br>
+<br>
+<font face="Arial"><span style="font-size: 12pt;">Note you will see line breaks in some strings. When shown in the game these will generally be seen as a line break and a blank line. If you only want a line break you will have to embed a &lt;br&gt; tag (see below)<br>
+<br>
+Some have punctuation like : at the end. Please try to retain if valid in your language.<br>
+<br>
+There are some comments for some strings. There is no need to translate the comments, they are given as guides for translation<br>
+eg<br>
+<font face="Courier New"><span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!-- The following has Master or your Slave Maker's name preceeding<br>
+eg <br>
+Master, while Ranma is training under my supervision, what would you like to do?<br>
+--&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;SlaveMakerTraining&gt;, while #slaveis training under my supervision, what would you like to do?&lt;/SlaveMakerTraining&gt;<br>
+<font face="Arial"><span style="font-size: 12pt;"><br>
+<br>
+<u><b>Attributes<br>
+</b></u>There are some special attributes that can be used<br>
+<br>
+<b><font face="Arial">fontsize </font></b><font face="Arial">- changes the point size of the font used for the text. It is a relative value, so -2 is 2 points smaller. Use this if your text overflows the available area<br>
+<font face="Courier New"><span style="font-size: 10pt;"><br>
+eg<br>
+&lt;Complete fontsize='-2'&gt;Fin du Dressage&lt;/Complete&gt;<br>
+<font face="Arial"><span style="font-size: 12pt;"><br>
+<br>
+<b>spacing </b>- changes the spacing between characters the font used for the text. use values -1, -2 or -0.5. This compresses the text a little but keeps the point size. Note some fields already have a spacing set (most are 0 or -1)<br>
+<font face="Courier New"><span style="font-size: 10pt;"><br>
+eg<font face="Courier New CYR"><br>
+&lt;Sensibility spacing="-1"&gt;×óâñòâèòåëüíîñòü:&lt;/Sensibility&gt;<font face="Arial"><span style="font-size: 12pt;"><br>
+<br>
+Note: generally use fontsize, just use spacing for stats and similar where you have many similar text fields and it would look odd to change the font size<br>
+<br>
+<br>
+<u><b>Other notes<br>
+</b></u><br>
+<br>
+<b>Html<br>
+</b><font face="Courier New"><span style="font-size: 10pt;"><br>
+&lt;CombatSkillLevels&gt;you have a bonus of &amp;lt;b&amp;gt;#value&amp;lt;/b&amp;gt;.&lt;/CombatSkillLevels&gt;<br>
+<br>
+<font face="Arial"><br>
+<span style="font-size: 12pt;">The text is html encoded and is some places you can use tags like &lt;b&gt; etc. These tags must be encoded using ampersand syntax required by xml and html.<br>
+eg<br>
+&amp;lt; is a &lt;<br>
+&amp;gt; is a &gt;<br>
+&amp;amp; is an &amp;<br>
+<br>
+<br>
+<b>Macros<br>
+</b><font face="Courier New"><span style="font-size: 10pt;"><br>
+eg<br>
+&lt;FirstContest&gt;Today is the first of a series of competitions #slaveheshe can enter, competing against other slaves and other people.<br>
+These contests occur every 8 days from the first day of the year.&lt;/FirstContest&gt;<br>
+&lt;LaterContests&gt;#slave can compete in a contest again.&lt;/LaterContests&gt;<br>
+<br>
+<font face="Arial"><span style="font-size: 12pt;">There are macros for inserting special text into the string<br>
+<br>
+<b>#slave</b> &nbsp;
+- will be replaced by the slaves name, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+eg Ranma<br>
+<b>#assistant</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- will be replaced by your servants name, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+eg Shampoo<br>
+<b>#slavesee</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- slavename sees or slavename see, depending on if they are one person or twins<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Ranma sees<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Mara &amp; Nara see<br>
+<b>#slaveheshe</b> - he/she/they based on gender of your slave<br>
+<b>#slavehimher</b>- him/her/them based on gender of your slave<br>
+<b>#slavehisher</b>&nbsp;&nbsp;&nbsp;&nbsp;
+- his/her/them based on gender of your slave<br>
+<b>#slaveis</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- SlaveName is, or SlaveName are for twins<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ Ranma is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ Mara &amp; Nara are<br>
+<b>#slavehas</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- slave has, or slavename have for twins<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+eg Ranma has<br>
+<b>#slaveA </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- SlaveA, usually this is the slave's name. For twins it is one of the slaves picked at random<br>
+<b>#slaveB</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- SlaveB, the other twin than SlaveA (or SlaveName for non-twins)<br>
+<b>#assistantA</b> &nbsp;&nbsp;&nbsp;&nbsp;
+- ServantA, as above but for your assistant<br>
+<b>#assistantB</b> &nbsp;&nbsp;&nbsp;&nbsp;
+- ServantB, ditto<br>
+<b>#assistantheshe</b> - he/she/they based on gender of your assistant<br>
+<b>#assistanthimher</b> - him/her/them based on gender of your assistant<br>
+<b>#assistanthisher</b> - his/her/them based on gender of your assistant<br>
+<b>#assistantis</b>&nbsp;&nbsp;&nbsp;&nbsp;
+   - Servantname is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+eg Mugi is<br>
+<b>#assistanthas</b> - Servantname has<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+eg Mugi has<br>
+<b>#super</b>&nbsp;&nbsp;
+- the name of the person supervising, either 'you' or your assistants name<br>
+<br>
+Remember there are set by the core game. <br>
+<br>
+In some cases you will also see<br>
+<b>#value</b> &nbsp;
+- this is used for cases where a value like a number is to be inserted into the string.<br>
+eg<br>
+<font face="Courier New"><span style="font-size: 10pt;">&lt;CombatSkillLevels&gt;you have a bonus of #value.&lt;/CombatSkillLevels&gt;<br>
+<font face="Arial"><span style="font-size: 12pt;"><br>
+<br>
+You can delete these macros if needed for your translation and replace as needed, but be aware of gender issues, for instance for<br>
+male slaves<br>
+female slaves<br>
+twins<br>
+DO NOT remove any #value references<br>
+<br>
+<br>
+<u><b>Slave Details<br>
+</b></u>The descriptions of the slaves that appear in the slave market screen can also be translated. <br>
+In the folder<br>
+Slaves<br>
+there are files<br>
+SlaveGirl1.txt<br>
+SlaveGirl2.txt<br>
+etc<br>
+<br>
+To translate <br>
+<br>
+1) copy these files and rename to<br>
+SlaveGirl1-<i>language</i>.txt<br>
+eg<br>
+SlaveGirl1-French.txt<br>
+<br>
+<br>
+2) edit the file and translate the text after girldesc=<br>
+eg<br>
+<font face="Courier New"><span style="font-size: 10pt;">girlname=Shampoo&amp;girldesc=Une fille que vous avez rencontré sur le chemin de la Capitale. Vous l'obsédez au point qu'elle s'est vendue pour devenir votre assistante.&amp;image=Slave-Shampoo.png&amp;gamefile=Slave-Shampoo.swf&amp;mode=easy<font face="Arial"><span style="font-size: 12pt;"><br>
+<br>
+You may translate the slave's name (ie Shampoo above) if you want, particularly for languages using a different alphabet like Russian etc. This is a matter of preference.<br>
+<br>
+Do not translate any other parts like the mode=easy.<br>
+<br>
+<br>
+3) Save the file using UTF-8/UTF-16 character encoding.<br>
+<br>
+<br>
+4) repeat for the remaining files<br>
+<b><br>
+</b></span></font></span></font></span></font></span></font></span></font></span></font></span></font></span></font></span></font></font></span></font></span></font></span></font></font></span></font></span></font></span></font></span></font></span></font></span></font></span></font></span>

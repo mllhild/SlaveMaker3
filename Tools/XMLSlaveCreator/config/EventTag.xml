@@ -1,0 +1,287 @@
+﻿<base> 
+<EventTagList>
+   <EventTag>
+     <Name>AddText</Name>
+     <Description>Appends text to the output window(s).</Description>
+     <Content type="text">true</Content>
+     <TagAttributes>
+       <Attribute name="after" type="numeric" minimum="1" maximum="5" optional="true"/>
+       <Attribute name="before" type="numeric" minimum="1" maximum="5" optional="true"/>
+     </TagAttributes>
+   </EventTag>
+   <EventTag>
+     <Name>SetText</Name>
+     <Description>All text is erased in the output window and then the text in this node's element data is shown. Otherwise the same as AddText</Description>
+     <Content type="text">true</Content> 
+   </EventTag>
+   <EventTag>
+     <Name>BlankLine</Name>
+     <Description>  Adds 2 line feeds (1 blank line) to the output window</Description>
+     <Content>false</Content>
+   </EventTag>
+   <EventTag>
+     <Name>PersonSpeak</Name>
+     <Description>Shows text as if a person is speaking. The text they speak. All standard macros apply as do \r\n. " and ' are fine to use if needed, but the speech is already automatically enclosed in ""</Description>
+     <Content type="text">true</Content>
+     <TagAttributes>
+       <Attribute name="person" type="text" optional="false" values="slave,assistant,assistanta,assistantb,slavea,slaveb"/>
+       <Attribute name="start" type="bool" optional="false"/>
+       <Attribute name="end" type="bool" optional="false"/>
+     </TagAttributes>
+   </EventTag>
+    <EventTag>
+     <Name>If/IfNot/IfOr</Name>
+     <Description>
+       If: applies a series of conditional test, AND'ing all the statements together, and if the total result is true then all statements in it are preformed.
+       Ifor:the statements are OR'd together.
+       ifnot:each conditional is NOT'd together and the content is applied if all terms are false.
+       else: if the if/ifor/ifnot aren't fired.
+     </Description>
+     
+     <Content type="flowcontrol" version="if/ifnot/ifor/else">false</Content>
+     <TagAttributes>
+       <Attribute name="after" type="numeric" minimum="1" maximum="5"/>
+       <Attribute name="before" type="numeric" minimum="1" maximum="5"/>
+     </TagAttributes>
+   </EventTag> <!---->
+   <EventTag>
+     <Name>Points</Name>
+     <Description>
+       anges the stats for a slave. Each statistic value is an evaluated expression, so you can pass terms like constitution / 10 for instance.
+       Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special
+     </Description>
+     <Content type="numeric/stat">true</Content>
+     <TagAttributes>
+       <Attribute name="slave" type="text" optional="true" values="allparticipants"/>
+     </TagAttributes>
+   </EventTag>
+   <EventTag>
+     <Name>Money</Name>
+     <Description>
+       Add or remove money from your training money. Does not increase your Slave Maker's money for Guild Members, use SMMoney for that.
+     </Description>
+     <Content type="numeric">true</Content>
+     <TagAttributes>
+       <Attribute name="quiet" type="bool" optional="true" />
+       <Attribute name="nodebt" type="bool" optional="true" />
+     </TagAttributes>
+   </EventTag>
+   <EventTag>
+     <Name>ShowImage</Name>
+     <Description>
+       loads an external image file and shows it. Supports files of the extensions
+       .jpg
+       .png
+       .gif
+       .swf
+     </Description>
+     <Content>false</Content>
+     <TagAttributes>
+       <Attribute name="image" type="image" optional="false" />
+       <Attribute name="place" type="text" optional="true" />
+       <Attribute name="align" type="text" optional="true" />
+       <Attribute name="delay" type="numeric" optional="true" />
+       <Attribute name="imgno" type="numeric" optional="true" />
+     </TagAttributes>
+   </EventTag>
+   <EventTag>
+     <Name>AskQuestions</Name>
+     <Description>
+       loads an external image file and shows it. Supports files of the extensions
+       .jpg
+       .png
+       .gif
+       .swf
+     </Description>
+     <Content>false</Content>
+     <TagAttributes>
+       <Attribute name="caption" type="text" optional="true" />
+       <Attribute name="main" type="bool" optional="true" />
+     </TagAttributes>
+   </EventTag> <!---->
+   <EventTag>
+     <Name>YesNoQuestion</Name>
+     <Description>
+       Show the Yes/No buttons and when it is pressed the selected event will be done. If you specify an event FightMonster then if you press the Yes button the event FightMonsterYes is performed. Similarly for the No button. Note a line feed/new line is always output to the general text window by the statement.
+     </Description>
+     <Content type="text">true</Content>
+     <TagAttributes>
+       <Attribute name="event" type="text" optional="false" />
+     </TagAttributes>
+   </EventTag> <!---->
+   <EventTag>
+     <Name>DoEvent</Name>
+     <Description>
+       the event name (or number) to trigger
+     </Description>
+     <Content type="text">true</Content>
+     <TagAttributes>
+       <Attribute name="now" type="bool" optional="true" />
+     </TagAttributes> <!---->
+   </EventTag>
+   <EventTag>
+     <Name>Alternatives</Name>
+     <Description>
+       This is a simple version of nested if statement or a variation of a switch statement. This is intended to have a list of variations in a event and the game will pick one at random to be processed. All nodes are given an equal chance to happen by default, but this can be overridden with attributes.
+     </Description>
+     <Content>false</Content>
+     <TagAttributes>
+       <Attribute name="altchance" type="image" optional="false" />
+       <Attribute name="conditionals" type="conditionals " optional="true" />
+       <Attribute name="align" type="text" optional="true" />
+       <Attribute name="delay" type="numeric" optional="true" />
+       <Attribute name="imgno" type="numeric" optional="true" />
+     </TagAttributes>
+   </EventTag>
+</EventTagList>
+</base>
+<!--
+                                  <if supervise='slavemaker'>
+                                    <AddText>You start</AddText>
+                                    <else>if</else>
+                                    <AddText>#assistant starts</AddText>
+                                  </if>
+
+                                  <if currentframe="1">
+                                    <if supervise="true">
+                                      <SetText>You explain how the slaves will have to learn to accept life as a slave. They are now slaves and life can be good and pleasurable.</SetText>
+                                      <else>if</else>
+                                      <SetText>You explain how the slaves will have a harsh time initially as they are punished for their crimes, but they will become normal slaves. Life as a slave can be good and pleasurable and it seems they will be quite popular as they are fit and attractive.</SetText>
+                                    </if>
+                                    <else>if</else>
+                                    <if supervise="true">
+                                      <SetText>#super explains how the slaves will have to learn to accept life as a slave. They are now slaves and must accept that.</SetText>
+                                      <else>if</else>
+                                      <SetText>#super explains how the slaves will have a harsh time initially as they are punished for their crimes, but they will become normal slaves. Most likely sex slaves as they are fit and attractive.</SetText>
+                                    </if>
+                                  </if>
+--> <!--If-->
+                                    
+<!--
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    AskQuestions <AskQuestions>
+                                        <Question event='event'>string</Question>
+                                        ...
+                                      </AskQuestions>
+                                      actionscript version: several functions, ResetQuestions(), AddQuestion(), ShowQuestions();
+                                      attributes for <AskQuestions>
+                                        caption          - (OPTIONAL) text that appears above the questions, normally a question being asked.
+                                        main              - (OPTIONAL) if true show the questions in the main window, otherwise show in the text areas below the last shown text. Defaults to false.
+
+                                        element data
+                                        a series of <Question>
+                                          nodes. Each has an attribute event to specify the event to be done when the question answer is chosen. It's element data is the text of the question. Each event must be in the same parent node as the currently executing event. Standard core game events that use numbers can also be triggered by this, just specify the number here.
+
+                                          eg <AskQuestions caption='What should #slave do in the meantime?'>
+                                            <Question event='BEForestRest'>Rest a little</Question>
+                                            <Question event='BEForestDrink'>Drink water from the lake</Question>
+                                            <Question event='BEForestEat'>Eat one of the unknown fruits</Question>
+                                            <Question event='BEForestLeave'>Wait for morning &amp; leave the valley</Question>
+                                          </AskQuestions>
+                                          ______________________
+--> <!--AskQuestion-->
+                       
+
+                                            <!--Alternatives <Alternatives>
+                                              <Alternative></Alternative>
+                                            </Alternatives>
+                                            actionscript version: if/switch
+                                            
+
+                                            The nodes may be named as Alternative or Alternate.
+
+                                            attributes
+                                            altchance        - (OPTIONAL) a percentage chance to this node to happen, intended to override the standard equal distribution.
+                                            xml conditionals - (OPTIONAL) you can also just specify standard conditionals. These enable or disable the node. If these are true then the node may be selected randomly. If they are false then the node will not be randomly selected. See Core - XML - Comditionals & Variables.rtf
+
+                                            element data
+                                            the event statement to process
+
+                                            eg both equally likely <Alternatives>
+                                              <Alternative>
+                                                <ShowImage image='Images/Lady Farun/Image 2.jpg' place='1' align='1'/>
+                                                <AddText>You find the Lady Farun speaking with another Lady of the Court. The Lady Farun looks enchantingly beautiful as she laughs at a comment of the Lady she is with.\r\rThey notice you and Lady Farun smiles and leans in and rather passionately kisses the woman. She breaks the kiss and runs her hand tenderly along the Ladies face, and she stands and walks over to speak with you.</AddText>
+                                              </Alternative>
+                                              <Alternative>
+                                                <ShowImage image='Images/Lady Farun/Image' place='1' align='1' frame="random3 + 4"/>
+                                                <AddText>You find the Lady Farun speaking with minor nobleman, leaning very close to him, their lips almost touching. The Lady Farun looks very beautiful as she looks into the man&apos;s eyes. The nobleman is very focused on her and clearly besotted with her.\r\rYou are about to leave when Lady Farun notices you and she leans in and whispers in the nobleman&apos;s ear. She pulls away from the nobleman, and she stands and walks over to speak with you, the nobleman watching her as if there was no-one else in the room.</AddText>
+                                              </Alternative>
+                                            </Alternatives>
+
+                                            eg unicorns are rare so seen 10%, bear and deer 45% <Alternatives>
+                                              <Alternate altchance='10%'>
+                                                <AddText>#slave sees a unicorn</AddText>
+                                              </Alternate>
+
+                                              <Alternate>
+                                                <AddText>#slave sees a bear</AddText>
+                                              </Alternate>
+
+                                              <Alternate>
+                                                <AddText>#slave sees a deer</AddText>
+                                              </Alternate>
+                                            </Alternatives>
+
+                                            eg at night 33% of the time a dark elf is seen. In the day time 50% of the time an elf, 50% a woman <Alternatives>
+                                              <Alternate day='false>'
+                                                <AddText>#slave sees dark elf</AddText>
+                                              </Alternate>
+
+                                              <Alternate>
+                                                <AddText>#slave sees an elf</AddText>
+                                              </Alternate>
+
+                                              <Alternate>
+                                                <AddText>#slave sees a woman</AddText>
+                                              </Alternate>
+                                            </Alternatives>
+                                            ______________________
+
+                                            Choices <Choices>
+                                              <nodename></nodename>
+                                            </Choices>
+                                            actionscript version: switch This is a simple version of nested if statement or a variation of a switch statement. Similar to <Alternatives>
+                                              above but you supply conditionals to determin whic node is processed.
+
+                                              When processed the game checks each subnode sequentially and tests if it's conditional is true and if so it performs its statements and then finishes the Choices statment, no later nodes are checked.
+
+                                              If a subnode has no conditionals it is always performed, essentially a defaul clause.
+
+                                              Standardly name the nodes <Choice>
+                                                for clarity, but they can have any name you like. If a node starts Day- then it in only checked in the daytime. If a node name starts Night- then is it only checked at night. This is the same as adding day='true' or day='false' respectively.
+
+                                                attributes
+                                                xml conditionals - see Core - XML - Comditionals & Variables.rtf
+
+                                                element data
+                                                the event statements to process
+
+
+                                                eg <Choices>
+                                                  <Choice tiredness="30-">
+                                                    <AddText>#slave feels fine</AddText>
+                                                  </Choice>
+                                                  <Choice tiredness="60-">
+                                                    <AddText>#slave feels rather tired</AddText>
+                                                  </Choice>
+                                                  <Default>
+                                                    <AddText>#slave faints</AddText>
+                                                  </Default>
+                                                </Choices>
+
+                                                <Choices>
+                                                  <Day-Effect1 tiredness="30->"
+                                                    <AddText>#slave feels fine</AddText>
+                                                  </Day-Effect1>
+                                                  <Day-Effect2 tiredness="60-">
+                                                    <AddText>#slave feels rather tired</AddText>
+                                                  </Day-Effect2>
+                                                  <Default>
+                                                    <AddText>#slave faints</AddText>
+                                                  </Default>
+                                                </Choices>-->
+                                               

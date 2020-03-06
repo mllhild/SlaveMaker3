@@ -1,0 +1,3486 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html;
+      charset=windows-1252">
+  <title>Contests</title>
+</head>
+<body>
+<table
+ style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;"
+ border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font
+ size="+3"><span style="font-weight: bold;">Contests<br>
+            </span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td
+ style="vertical-align: top; width: 80%; text-align: left;"><a
+ href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font
+ style="font-weight: bold;" size="-1">Updated for Version 3.4.01</font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<u style="font-family: Arial;"><b><span style="font-size: 18pt;"></span></b></u><span
+ style="font-size: 12pt; font-family: Arial;"><br>
+There are a series of functions and variables associated with the
+contests that happen every 8 days.<br>
+<br>
+All code and graphics are held in a class<br>
+<span style="font-weight: bold;">var Contests:ContestsModule;</span><br>
+in _root scope<br>
+<br>
+All images are held in a swf file<br>
+Engine/Contests.swf<br>
+and loaded into a MovieClip<br>
+<span style="font-weight: bold;"> _root.ContestsMovie</span><br>
+and also in the folder<br>
+<span style="font-weight: bold;">Images/Contests</span><br>
+in the game installation.<br>
+<br>
+</span><span style="font-weight: bold; font-family: Arial;">Table of
+Contents</span>
+<ul style="font-family: Arial;" id="mozToc">
+<!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6-->
+  <li><a href="#mozTocId88070">Basic Concepts</a>
+    <ul>
+      <li><a href="#mozTocId5296">Date/Time</a></li>
+      <li><a href="#mozTocId403017">Rivals</a></li>
+      <li><a href="#mozTocId598218">Score</a></li>
+      <li><a href="#mozTocId418041">Rigged
+Contests</a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId195453">Core Variables</a>
+    <ul>
+      <li><a href="#mozTocId277684">WinContest</a></li>
+      <li><a href="#mozTocId169761">DifficultyXXXContest</a></li>
+      <li><a href="#mozTocId261745">WinHousework</a></li>
+      <li><a href="#mozTocId104240">WinHouseworkAdvanced</a></li>
+      <li><a href="#mozTocId976717">WinCourt</a></li>
+      <li><a href="#mozTocId961812">WinBeauty</a></li>
+      <li><a href="#mozTocId964947">WinPonygirl</a></li>
+      <li><a href="#mozTocId728236">WinCustom</a></li>
+      <li><a href="#mozTocId160153">WinDance</a></li>
+      <li><a href="#mozTocId406535">WinGeneralKnowledge</a></li>
+      <li><a href="#mozTocId682117">WinXXX</a></li>
+      <li><a href="#mozTocId547209">WinCustom</a></li>
+      <li><a href="#mozTocId342480">TotalContestHousework</a></li>
+      <li><a href="#mozTocId880309">TotalContestHouseworkAdvanced</a></li>
+      <li><a href="#mozTocId398247">TotalContestCourt</a></li>
+      <li><a href="#mozTocId491853">TotalContestBeauty</a></li>
+      <li><a href="#mozTocId172223">TotalContestPonygirl</a></li>
+      <li><a href="#mozTocId679887">TotalContestCustom</a></li>
+      <li><a href="#mozTocId115512">TotalContestDance</a></li>
+      <li><a href="#mozTocId837767">TotalContestGeneralKnowledge</a></li>
+      <li><a href="#mozTocId627409">TotalContestXXX</a></li>
+      <li><a href="#mozTocId179742">TotalContestCustom</a></li>
+      <li><a href="#mozTocId516271">Score</a></li>
+      <li><a href="#mozTocId779098">Contests.NumContest</a></li>
+      <li><a href="#mozTocId431726">Contests.Placing</a></li>
+      <li><a href="#mozTocId83529">Contests.RivalAScore</a></li>
+      <li><a href="#mozTocId129641">Contests.RivalBScore</a></li>
+      <li><a href="#mozTocId797340">Contests.RivalCScore</a></li>
+      <li><a href="#mozTocId155780">Contests.RivalDScore</a></li>
+      <li><a href="#mozTocId27459">Contests.RivalEScore</a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId151293">NumContest Values</a></li>
+  <li><a href="#mozTocId619952">Slave Images</a>
+    <ul>
+      <li><a href="#mozTocId152159">XML Details</a></li>
+      <li><a href="#mozTocId297706">Actionscript Details</a></li>
+      <li><a href="#mozTocId39296">Actionscript
+Functions and XML Nodes </a>
+        <ul>
+          <li><a href="#mozTocId407597">ShowContestBeauty</a></li>
+          <li><a href="#mozTocId250291">ShowContestCourt</a></li>
+          <li><a href="#mozTocId35888">ShowContestHousework</a></li>
+          <li><a href="#mozTocId47334">ShowContestXXX</a></li>
+        </ul>
+      </li>
+      <li><a href="#mozTocId108690">These are
+optional but should be implemented</a>
+        <ul>
+          <li><a href="#mozTocId390497">ShowContestPonygirl</a></li>
+          <li><a href="#mozTocId162211">ShowContestDance</a></li>
+          <li><a href="#mozTocId776071">ShowContestGeneralKnowledge</a></li>
+          <li><a href="#mozTocId164748">ShowContestAdvancedJousework</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId828708">Other Slave Functions </a>
+    <ul>
+      <li><a href="#mozTocId378016">StartContest</a></li>
+      <li><a href="#mozTocId474706">DoContestsNext</a></li>
+      <li><a href="#mozTocId920612">ContestBonus</a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId909448">Custom Contests</a>
+    <ul>
+      <li><a href="#mozTocId968554">ActionScript</a>
+        <ul>
+          <li><a href="#mozTocId155045">AddCustomContest</a></li>
+          <li><a href="#mozTocId626604">ShowCustomContest</a></li>
+          <li><a href="#mozTocId227108">HideCustomContest</a></li>
+          <li><a href="#mozTocId392752">SetCustomContestDetails</a></li>
+        </ul>
+      </li>
+      <li><a href="#mozTocId480692">XML</a></li>
+    </ul>
+  </li>
+</ul>
+<span style="font-size: 12pt; font-family: Arial;"><br>
+</span>
+<hr style="width: 100%; height: 2px;">
+<h1><a class="mozTocH1" name="mozTocId88070"></a>Basic Concepts</h1>
+<h2 style="height: 8px;"><a class="mozTocH2" name="mozTocId5296"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-weight: bold;">Date/Time</span></span></span></h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;">The contests happen every 8 calendar days
+based on day of the year, not days elpased in training. They happen as
+a daily Event, starting at 8am and last 3 hours.<br>
+<br>
+</span></span><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><br>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;">if ((_root.GameDate % 8) == 0) { // contest
+today }</span></span><br>
+<span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:<br>
+</span></span><span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;">&lt;if date='contest'&gt;<br>
+<br>
+</span></span>
+<h2 style="height: 8px;"><a class="mozTocH2" name="mozTocId403017"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-weight: bold;">Rivals</span></span></span></h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;">All contests have 5 other competitors called
+Rivals, standardly referred to as Rival A, Rival B, Rival C, Rival D
+and Rival E. Not all contests use all 5 of these, but most do.<br>
+Each are assigned a default score generally in the range 0 to 200.
+Images for the rivals are mostly embedded in the Contests.swf file.<br>
+<br>
+</span></span>
+<h2 style="height: 8px;"><a class="mozTocH2" name="mozTocId598218"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-weight: bold;">Score</span></span></span></h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;">All slaves are assigned a base score equal to
+their Reputation statistic divided by 10.<br>
+<br>
+</span></span>
+<h2 style="height: 8px;"><a class="mozTocH2" name="mozTocId418041"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-weight: bold;">Rigged
+Contests</span></span></span></h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;">A contest can get rigged so the slave will
+ALWAYS win, standardly this is by a favour from Lady Farun. This is
+defined internally by Bitflag1, flag 19 being set<br>
+if (_root.BitFlag1.CheckBitFlag(19)) { // rigged }<br>
+&lt;if flag1-19='true'&gt;<br>
+<br>
+</span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId195453"></a>Core Variables<span style="font-size: 12pt;"><u><b><span
+ style="font-size: 14pt;"></span></b></u></span></h1>
+<span style="font-size: 12pt; font-family: Arial;"><u><b><span
+ style="font-size: 14pt;"> </span></b></u><span
+ style="font-size: 12pt;">There are a mixed set of variable for the
+core game and for the slave<br>
+<br>
+</span></span>
+<table
+ style="text-align: left; width: 936px; height: 1024px; background-color: rgb(242, 255, 255); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: rgb(229, 229, 229);"><span
+ style="font-weight: bold;">Actionscript Variable</span></td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: rgb(229, 229, 229);"><span
+ style="font-weight: bold;">XML Variable</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 31px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 27px;">
+            <h2 style="height: 8px;"><a class="mozTocH2"
+ name="mozTocId277684"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b>WinContest</b></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h2>
+            <font size="-2"><span style="font-weight: bold;">implemented
+in:</span> _root</font><br>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 27px;"><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b><b>wincontest</b></b></span></span><br>
+            <span style="font-weight: bold;"><font size="-1"><span
+ style="font-style: italic;"></span></font></span><span
+ style="font-size: 12pt; font-weight: bold;"><span
+ style="font-size: 12pt;"><font color="#000080"></font></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <table style="text-align: left; width: 924px; height: 119px;"
+ border="0" cellpadding="6" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"> <font size="+1">(<span
+ style="font-style: italic;">Number</span>) The placing your slave got
+in the last contest<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 or &gt;=4 = 4th or
+worse place<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3 = third place<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 = second<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 = first<br>
+this is saved but not in the Slave class instance, so it lost after
+training is complete. It is intended for usage during training of the
+main slave only<br>
+            <br>
+            </font><span style="font-size: 12pt;"><font size="-1"></font></span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 58px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 30px;">
+            <h2 style="height: 9px;"><a class="mozTocH2"
+ name="mozTocId169761"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b><b>DifficultyXXXContest</b></b></span></span></h2>
+            <font size="-2"><span style="font-weight: bold;">implemented
+in:</span> _root, class <a href="Common%20Scripts/Classes/Slave.as">Slave</a>
+via <a href="Common%20Scripts/Classes/SlaveMakerSkills.as">SlaveActions</a></font><br>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 30px;"><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b><b><b><b>difficultyxxxcontest</b></b></b></b></span></span><br>
+            <span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b><b><b><b><b><b><b><b>difficulty_xxxcontest</b></b></b></b></b></b></b></b></span></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table style="text-align: left; width: 923px; height: 183px;"
+ border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"><span
+ style="font-style: italic;">(Number)</span></font> </span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;">obedience needed to compete in XXX Contest,
+defaults to 35. Initialise in StartGame() or in &lt;Difficulties&gt;</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span><span
+ style="font-size: 12pt;"><font size="-1"><br>
+eg<br>
+            </font></span>
+            <table style="text-align: left; width: 896px; height: 90px;"
+ border="0" cellpadding="0" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td style="vertical-align: top; width: 50%;"><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span></td>
+                  <td style="vertical-align: top;"><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span></td>
+                </tr>
+                <tr>
+                  <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font size="-1">public function StartGame()<br>
+{<br>
+&nbsp;&nbsp;&nbsp; _DifficultyXXXContest = 50;<br>
+}</font><br>
+                  </span></span></span></span></span></font></font></span></span></span></td>
+                  <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1">&lt;Slave&gt;<br>
+&nbsp;&nbsp; &lt;Difficulties&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;XXXContest&gt;50&lt;/XXXContest&gt;<br>
+&nbsp;&nbsp; &lt;/Difficulties&gt;<br>
+&lt;/Slave&gt;<br>
+                  </font></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1"></font></span></span></span></span></span></span></span></span></span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 47px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr style="height: 0px;">
+            <td
+ style="vertical-align: top; background-color: white; height: 9px;">
+            <h2 style="height: 1px;"><a class="mozTocH2"
+ name="mozTocId261745"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b>WinHousework</b></span></span></h2>
+            <h2 style="height: 1px;"><a class="mozTocH2"
+ name="mozTocId104240"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b><b>WinHouseworkAdvanced</b></b></span></span></h2>
+            <h2 style="height: 0px;"><a class="mozTocH2"
+ name="mozTocId976717"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b>WinCourt</b></span></span></h2>
+            <h2 style="height: 1px;"><a class="mozTocH2"
+ name="mozTocId961812"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b>WinBeauty</b></span></span></h2>
+            <h2 style="height: 0px;"><a class="mozTocH2"
+ name="mozTocId964947"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b>WinPonygirl</b></span></span></h2>
+            <h2 style="height: 1px;"><a class="mozTocH2"
+ name="mozTocId728236"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b>WinCustom</b></span></span></h2>
+            <h2 style="height: 0px;"><a class="mozTocH2"
+ name="mozTocId160153"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b>WinDance</b></span></span></h2>
+            <h2 style="height: 0px;"><a class="mozTocH2"
+ name="mozTocId406535"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b>WinGeneralKnowledge</b></span></span></h2>
+            <h2 style="height: 0px;"><a class="mozTocH2"
+ name="mozTocId682117"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b>WinXXX</b></span></span></h2>
+            <h2 style="height: 6px;"><a class="mozTocH2"
+ name="mozTocId547209"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b>WinCustom</b></span></span></h2>
+            <font size="-2"><span style="font-weight: bold;">implemented
+in:</span> _root, class</font> <font size="-2"><a
+ href="Common%20Scripts/Classes/Slave.as">Slave</a></font><br>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 9px;"><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b><b>winhousework</b></b></span></span><br>
+etc<br>
+            <br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <font size="+1">(<span style="font-style: italic;">Number</span>)
+The total number of times the slave has won the contest. Note: for
+WinCustom this is the total for ALL custom contests.<br>
+      <br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 163px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr style="height: 0px;">
+            <td
+ style="vertical-align: top; background-color: white; height: 9px;">
+            <h2 style="height: 1px;"><a class="mozTocH2"
+ name="mozTocId342480"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b>TotalContestHousework</b></span></span></h2>
+            <h2 style="height: 1px;"><a class="mozTocH2"
+ name="mozTocId880309"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b><b>TotalContestHouseworkAdvanced</b></b></span></span></h2>
+            <h2 style="height: 0px;"><a class="mozTocH2"
+ name="mozTocId398247"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b>TotalContestCourt</b></span></span></h2>
+            <h2 style="height: 1px;"><a class="mozTocH2"
+ name="mozTocId491853"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b>TotalContestBeauty</b></span></span></h2>
+            <h2 style="height: 0px;"><a class="mozTocH2"
+ name="mozTocId172223"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b>TotalContestPonygirl</b></span></span></h2>
+            <h2 style="height: 1px;"><a class="mozTocH2"
+ name="mozTocId679887"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b>TotalContestCustom</b></span></span></h2>
+            <h2 style="height: 0px;"><a class="mozTocH2"
+ name="mozTocId115512"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b>TotalContestDance</b></span></span></h2>
+            <h2 style="height: 0px;"><a class="mozTocH2"
+ name="mozTocId837767"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b>TotalContestGeneralKnowledge</b></span></span></h2>
+            <h2 style="height: 0px;"><a class="mozTocH2"
+ name="mozTocId627409"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b>TotalContestXXX</b></span></span></h2>
+            <h2 style="height: 5px;"><a class="mozTocH2"
+ name="mozTocId179742"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b>TotalContestCustom</b></span></span></h2>
+            <font size="-2"><span style="font-weight: bold;">implemented
+in:</span> _root, class</font> <font size="-2"><a
+ href="Common%20Scripts/Classes/Slave.as">Slave</a></font><br>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 9px;"><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b><b><b><b>totalcontesthousework</b></b></b></b></span></span><br>
+etc<br>
+            <br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ size="-1"><span style="font-style: italic;"></span></font></span></span><font
+ size="+1">(<span style="font-style: italic;">Number</span>) The total
+number of times the slave has competed in the contest. Note: for
+TotalContestCustom this is the total for ALL custom contests.<br>
+      <br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr style="height: 0px;">
+            <td
+ style="vertical-align: top; background-color: white; height: 9px;">
+            <h2 style="height: 9px;"><a class="mozTocH2"
+ name="mozTocId516271"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b>Score</b></span></span></h2>
+            <font size="-2"><span style="font-weight: bold;">implemented
+in:</span> _root,</font><br>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 9px;">
+            <span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b><b><b><b>score</b></b></b></b></span></span><br>
+            <br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <font size="+1">(<span style="font-style: italic;">Number</span>)
+The score calculated for the slave. This is a common variable for the
+game, so the contest score is only valid <span
+ style="font-weight: bold;">during</span> the contest. This is not
+saved or valid outside the contest.</font><br>
+      <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><br>
+</span></span><span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"> <u><b><span style="font-size: 14pt;">Contests
+Variables<br>
+</span></b></u><span style="font-size: 12pt;">For actionscript these
+are all in the scope<br>
+_root.Contests<br>
+</span></span></span><font size="-1"> eg<br>
+if (_root.Contests.NumContest == 10)</font> <span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><br>
+<u><b><span style="font-size: 14pt;"><br>
+</span></b></u></span></span></span></span></span>
+<table
+ style="text-align: left; width: 936px; height: 341px; background-color: rgb(242, 255, 255); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: rgb(229, 229, 229);"><span
+ style="font-weight: bold;">Actionscript Variable</span></td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: rgb(229, 229, 229);"><span
+ style="font-weight: bold;">XML Variable</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 17px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 27px;">
+            <h2 style="height: 8px;"><a class="mozTocH2"
+ name="mozTocId779098"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b>Contests.NumContest</b></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h2>
+            <font size="-2"><span style="font-weight: bold;">implemented
+in:</span> _root</font><br>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 27px;"><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b><b>numcontest</b></b></span></span><br>
+            <span style="font-weight: bold;"><font size="-1"><span
+ style="font-style: italic;"></span></font></span><span
+ style="font-size: 12pt; font-weight: bold;"><span
+ style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <table style="text-align: left; width: 924px; height: 36px;"
+ border="0" cellpadding="6" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"> <font size="+1">(<span
+ style="font-style: italic;">Number</span>) The stage of the contest,
+see later for more details<br>
+            </font><span style="font-size: 12pt;"></span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 20px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 30px;">
+            <h2 style="height: 9px;"><a class="mozTocH2"
+ name="mozTocId431726"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b><b>Contests.Placing</b></b></span></span></h2>
+            <font size="-2"><span style="font-weight: bold;">implemented
+in:</span> _root,<a href="Common%20Scripts/Classes/SlaveMakerSkills.as"></a></font><br>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 30px;"><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b><b><b><b>placing</b></b></b></b></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b><b><b><b><b><b><b><b><br>
+            </b></b></b></b></b></b></b></b></span></span> </td>
+          </tr>
+        </tbody>
+      </table>
+      <table style="text-align: left; width: 923px; height: 36px;"
+ border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"><span
+ style="font-style: italic;">(Number)</span></font> </span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;">The calculated placing for the slave, by
+comparing Score and Rival scores. Value 1 to 6</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span><span
+ style="font-size: 12pt;"><font size="-1"><br>
+            </font></span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 47px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr style="height: 0px;">
+            <td
+ style="vertical-align: top; background-color: white; height: 9px;">
+            <h2 style="height: 1px;"><a class="mozTocH2"
+ name="mozTocId83529"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b>Contests.RivalAScore</b></span></span></h2>
+            <h2 style="height: 1px;"><a class="mozTocH2"
+ name="mozTocId129641"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b><b>Contests.RivalBScore</b></b></span></span></h2>
+            <h2 style="height: 1px;"><a class="mozTocH2"
+ name="mozTocId797340"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b><b>Contests.RivalCScore</b></b></span></span></h2>
+            <h2 style="height: 1px;"><a class="mozTocH2"
+ name="mozTocId155780"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b><b>Contests.RivalDScore</b></b></span></span></h2>
+            <h2 style="height: 8px;"><a class="mozTocH2"
+ name="mozTocId27459"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><b><b>Contests.RivalEScore</b></b></span></span></h2>
+            <font size="-2"><span style="font-weight: bold;">implemented
+in:</span> _root,</font><br>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 9px;">
+            <font style="font-weight: bold;" size="+1">rivalascore<br>
+rivalbscore</font><br>
+etc<br>
+            <br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <font size="+1">(<span style="font-style: italic;">Number</span>)
+The total number of times the slave has won the contest. Note: for
+WinCustom this is the total for ALL custom contests.<br>
+      <br>
+      </font> </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><u><b><span
+ style="font-size: 14pt;"></span></b></u><span style="font-size: 12pt;"><br>
+<br>
+</span></span></span></span></span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId151293"></a>NumContest Values<span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span
+ style="font-size: 14pt;"></span></b></u></span></span></span></span></span></span></h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><u><b><span style="font-size: 14pt;"> </span></b></u><span
+ style="font-size: 12pt;">The following values are for the
+Contests.NumContest and are mainly for overriding a standard contest.
+For custom contests note the value 1000.<br>
+<br>
+10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Lady of the Court Contest
+Rival A<br>
+11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Lady of the Court Contest
+Rival B<br>
+12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Lady of the Court Contest
+Rival C<br>
+13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Lady of the Court Contest
+Rival D<br>
+14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Lady of the Court Contest
+Rival E<br>
+15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Lady of the Court Contest -
+Slave's score<br>
+20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Housework Contest Rival A<br>
+21&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Housework Contest Rival B<br>
+22&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Housework Contest Rival C<br>
+23&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Housework Contest Rival D<br>
+24&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Housework Contest - Slave's
+score<br>
+30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Beauty Contest Rival A<br>
+31&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Beauty Contest Rival B<br>
+32&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Beauty Contest Rival C<br>
+33&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Beauty Contest Rival D<br>
+34&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Beauty Contest Rival E<br>
+35&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Beauty Contest - Slave's score<br>
+40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - XXX Contest Rival A<br>
+41&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - XXX Contest Rival B<br>
+42&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - XXX Contest Rival C<br>
+43&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - XXX Contest Rival D<br>
+44&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - XXX Contest Rival E<br>
+45&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - XXX Contest - Slave's score<br>
+50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Ponygirl Race Rival A<br>
+51&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Ponygirl Race Rival B<br>
+52&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Ponygirl Race Rival C<br>
+53&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Ponygirl Race - Slave's score<br>
+60&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Dance Contest Rival A<br>
+61&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Dance Contest Rival B<br>
+62&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Dance Contest Rival C<br>
+63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Dance Contest Rival D<br>
+64&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Dance Contest Rival E<br>
+65&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Dance Contest - Slave's score<br>
+70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - General Knowledge Contest
+Rival A<br>
+71&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - General Knowledge Contest
+Rival B<br>
+72&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - General Knowledge Contest
+Rival C<br>
+73&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - General Knowledge Contest
+Rival D<br>
+74&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - General Knowledge Contest
+Rival E<br>
+75&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - General Knowledge Contest -
+Slave's score<br>
+90-999 - Custom Contests<br>
+1000&nbsp;&nbsp;&nbsp; - contest done, show tropies if any won<br>
+2000&nbsp;&nbsp;&nbsp; - finished and return home<br>
+<br>
+</span></span></span></span></span></span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId619952"></a>Slave Images<span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span
+ style="font-size: 16pt;"></span></b></u></span></span></span></span></span></span></span></h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span
+ style="font-size: 16pt;"> </span></b></u><span
+ style="font-size: 12pt;">These functions can be overloaded for a slave
+to show the image for the contest and optionally modify the score
+calculated for the slave.<br>
+<br>
+</span></span></span></span></span></span></span></span>
+<h2 style="font-weight: bold;"><a class="mozTocH2" name="mozTocId152159"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">XML Details</span></span></span></span></span></span></span></span></h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">Only image nodes are implemented for contest
+images. There are no explicit event type nodes executed at the time the
+image is shown. There is the standard option of &lt;Show&gt; node for
+the image and there you could show an arbitrary image and manipulate
+the score for the slave.<br>
+<br>
+All the nodes otherwise are standard image nodes in &lt;Images&gt; for
+the slave and ar commonly &lt;Contest<span style="font-weight: bold;">type</span>&gt;
+<br>
+</span></span></span></span></span></span></span></span>eg <span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></span></span></span></span></span></span><br>
+<table style="text-align: left;" bgcolor="#ffffff" border="0"
+ cellpadding="6" cellspacing="0" height="168" width="924">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;" bgcolor="#f2ffff"> <font
+ face="Arial" size="-1">&lt;Images&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;ContestBeauty&gt;1&lt;/ContestBeauty&gt;<br>
+      <br>
+&nbsp;&nbsp;&nbsp; &lt;ContestXXX&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &lt;Show&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;if isfairy='true'&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;ShowImage
+image='Images/Slaves/Ifurita/Contest&nbsp; - XXX (Fairy).jpg'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;else&gt;if&lt;/else&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;ShowImage
+image='Images/Slaves/Ifurita/Contest&nbsp; - XXX' frame='random4'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/if&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/ContestXXX&gt;<br>
+&lt;Images&gt;</font><font size="+1"><font size="-1"><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></span></span></span></span></span></span></font><br>
+      </font><span style="font-size: 12pt;"></span></td>
+    </tr>
+  </tbody>
+</table>
+<h2><a class="mozTocH2" name="mozTocId297706"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">Actionscript Details</span></span></span></span></span></span></span></span></h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"> The following
+image selection functions are used to show the image and alter the
+score for the slave if desired, Show an image appropriate for your
+slave for the contest. The parameter score is the standard calculated
+score for the contest. return the score with any changes you wish</span></span></span></span></span></span></span></span></span><br>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"> <font
+ size="-1">eg</font></span></span></span></span></span></span></span></span></span><br>
+<table style="text-align: left;" bgcolor="#ffffff" border="0"
+ cellpadding="6" cellspacing="0" height="65" width="924">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;" bgcolor="#f2ffff"> <span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">function ShowContestHousework(total:Number) :
+Number<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ClipContestsHousework._visible = true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return total;<br>
+}</span></span></span></span></span></span></span></span></span></span><font
+ size="+1"><br>
+      </font><span style="font-size: 12pt;"></span></td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"> <br>
+</span></span></span></span></span></span></span></span></span></span><font
+ face="Arial" size="-1">eg Ranma is competitive so gets a score bonus</font><br>
+<table style="text-align: left;" bgcolor="#ffffff" border="0"
+ cellpadding="6" cellspacing="0" height="65" width="924">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;" bgcolor="#f2ffff"> <span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">function ShowContestCourt(total) : Number<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Backgrounds.ShowPalace();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ClipContestsCourt._visible = true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return total + 8;<br>
+}</span></span></span></span></span></span></span></span></span></span></span></span><font
+ size="+1"><br>
+      </font><span style="font-size: 12pt;"></span></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"> <br>
+</span></span></span></span></span></span></span></span>
+<h2><a class="mozTocH2" name="mozTocId39296"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">Actionscript
+Functions and XML Nodes</span></b><u><b><span style="font-size: 14pt;"><br>
+</span></b></u></span></span></span></span></span></span></span></span></h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"> <span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"> </span></span></span></span></span></span></span></span></span></span></span></span></span>
+<table style="text-align: left; font-family: Arial;" border="1"
+ cellpadding="8" cellspacing="2" height="205" width="1375">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 1351px; height: 6px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 6px;">
+            <h3 style="height: 13px;"><a class="mozTocH3"
+ name="mozTocId407597"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">ShowContestBeauty</span></b></span></span></span></span></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 6px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span> <a
+ href="Common%20Scripts/Classes/SlaveModule.as">SlaveModule</a> class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>f</i></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">unction ShowContestBeauty(score:Number) :
+Number</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML
+Images:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><b>Node:</b><font
+ size="+1"> </font>&lt;ContestBeauty&gt;<font size="+1"><br>
+            </font><b>Image Name:</b> Contest - Beauty n.ext<br>
+            <font size="-1">eg Contest - Beauty 1.png</font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Defaults to the Make Up image for the slave</span></span></span></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      </span></span></span></span><font size="-1"></font><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></span></span></span></span></span></span><font
+ size="-2">&nbsp; </font><br>
+<table style="text-align: left; font-family: Arial;" border="1"
+ cellpadding="8" cellspacing="2" height="184" width="1375">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 1351px; height: 6px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 6px;">
+            <h3 style="height: 13px;"><a class="mozTocH3"
+ name="mozTocId250291"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">ShowContestCourt</span></b></span></span></span></span></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 6px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span> <a
+ href="file:///D:/SlaveMaker/SDK/Common%20Scripts/Classes/SlaveModule.as">SlaveModule</a>
+class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>f</i></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">unction ShowContestCourt(score:Number) :
+Number</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML
+Images:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">Node:
+&lt;ContestCourt&gt;<br>
+Image Name: Contest - Court n.ext<br>
+            <font size="-1">eg Contest - Court 1.png</font><br>
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Defaults to a Refinement school image for the
+slave</span></span></span></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      </span></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"></span></i> <b><span style="font-size: 14pt;"></span></b></span></span></span></span></span></span></span></span></span></span></span></span></span><font
+ size="-2">&nbsp; </font><br>
+<table style="text-align: left; font-family: Arial;" border="1"
+ cellpadding="8" cellspacing="2" height="184" width="1375">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 1351px; height: 6px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 6px;">
+            <h3 style="height: 13px;"><a class="mozTocH3"
+ name="mozTocId35888"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">ShowContestHousework</span></b></span></span></span></span></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 6px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span> <a
+ href="file:///D:/SlaveMaker/SDK/Common%20Scripts/Classes/SlaveModule.as">SlaveModule</a>
+class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>f</i></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">unction ShowContestHousework(score:Number) :
+Number</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML
+Images:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">Node:
+&lt;ContestHousework&gt;<br>
+Image Name: Contest - Housework n.ext<br>
+            <font size="-1">eg Contest - Housework 1.png</font><br>
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Defaults to a Cooking image for the slave</span></span></span></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      </span></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;"> </span></b><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></span></span></span></span></span></span><small>&nbsp;
+</small><br>
+<table style="text-align: left; font-family: Arial;" border="1"
+ cellpadding="8" cellspacing="2" height="184" width="1375">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 1351px; height: 6px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 6px;">
+            <h3 style="height: 13px;"><a class="mozTocH3"
+ name="mozTocId47334"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">ShowContestXXX</span></b></span></span></span></span></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 6px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span> <a
+ href="file:///D:/SlaveMaker/SDK/Common%20Scripts/Classes/SlaveModule.as">SlaveModule</a>
+class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>f</i></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">unction ShowContestXXX(score:Number) : Number</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML
+Images:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">Node:
+&lt;ContestXXX&gt;<br>
+Image Name: Contest - XXX n.ext<br>
+            <font size="-1">eg Contest - XXX 1.png</font><br>
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Defaults to a Fuck image for the slave</span></span></span></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      </span></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"> <span
+ style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<h2><a class="mozTocH2" name="mozTocId108690"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">These are
+optional but should be implemented</span></b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></h2>
+<table style="text-align: left; font-family: Arial;" border="1"
+ cellpadding="8" cellspacing="2" height="184" width="1375">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 1351px; height: 6px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 6px;">
+            <h3 style="height: 13px;"><a class="mozTocH3"
+ name="mozTocId390497"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">ShowContestPonygirl</span></b></span></span></span></span></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 6px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span> <a
+ href="Common%20Scripts/Classes/SlaveModule.as">SlaveModule</a> class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>f</i></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">unction ShowContestPonygirl(score:Number) :
+Number</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML
+Images:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">Node:
+&lt;ContestPonygirl&gt;<br>
+Image Name: Contest - Ponygirl n.ext<br>
+            <font size="-1">eg Contest - Ponygirl 1.png</font><br>
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Defaults to the Ponygirl image for the slave</span></span></span></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      </span></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<table style="text-align: left; font-family: Arial;" border="1"
+ cellpadding="8" cellspacing="2" height="184" width="1375">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 1351px; height: 6px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 6px;">
+            <h3 style="height: 13px;"><a class="mozTocH3"
+ name="mozTocId162211"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">ShowContestDance</span></b></span></span></span></span></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 6px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span> <a
+ href="Common%20Scripts/Classes/SlaveModule.as">SlaveModule</a> class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>f</i></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">unction ShowContestDance(score:Number) :
+Number</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML
+Images:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">Node:
+&lt;ContestDance&gt;<br>
+Image Name: Contest - Dance n.ext<br>
+            <font size="-1">eg Contest - Dance 1.png</font><br>
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Defaults to the Dance school image for the
+slave</span></span></span></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      </span></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;"><br>
+</span></b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<table style="text-align: left; font-family: Arial;" border="1"
+ cellpadding="8" cellspacing="2" height="184" width="1375">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 1351px; height: 6px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 6px;">
+            <h3 style="height: 13px;"><a class="mozTocH3"
+ name="mozTocId776071"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">ShowContestGeneralKnowledge</span></b></span></span></span></span></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 6px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span> <a
+ href="Common%20Scripts/Classes/SlaveModule.as">SlaveModule</a> class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>f</i></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">unction
+ShowContestGeneralKnowledge(score:Number) : Number</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML
+Images:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">Node:
+&lt;ContestGeneralKnowledge&gt;<br>
+Image Name: Contest - General Knowledge n.ext<br>
+            <font size="-1">eg Contest - General Knowledge 1.png</font><br>
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Defaults to the Sciences school image for the
+slave</span></span></span></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      </span></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<table style="text-align: left; font-family: Arial;" border="1"
+ cellpadding="8" cellspacing="2" height="184" width="1375">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 1351px; height: 6px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 6px;">
+            <h3 style="height: 13px;"><a class="mozTocH3"
+ name="mozTocId164748"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">ShowContestAdvancedJousework</span></b></span></span></span></span></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 6px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span> <a
+ href="Common%20Scripts/Classes/SlaveModule.as">SlaveModule</a> class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>f</i></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">unction
+ShowContestAdvancedHousework(score:Number) : Number</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML
+Images:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">Node:
+&lt;ContestAdvancedHousework&gt;<br>
+Image Name: Contest - Advanced Housework n.ext<br>
+            <font size="-1">eg Contest - Advanced Housework 1.png</font><br>
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Defaults to the Naked Apron image for the
+slave</span></span></span></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      </span></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><i></i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><i><br>
+</i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<hr style="width: 100%; height: 2px;"><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId828708"></a>Other Slave Functions<br>
+</h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">These functions can be overloaded for a slave
+to control or customise the competitions. These are used by custom
+contests (see below) or to override specific rivals, or just totally
+alter the contest process. These can be implemented by slaves,
+assistants and events. They cannot be affected by Minor Slaves.</span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><i><br>
+</i><span style="font-size: 14pt;"><i><span style="font-size: 12pt;"><br>
+</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<table style="text-align: left; font-family: Arial;" border="1"
+ cellpadding="8" cellspacing="2" height="184" width="1375">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 1351px; height: 6px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 6px;">
+            <h2 style="height: 10px;"><a class="mozTocH2"
+ name="mozTocId378016"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">StartContest</span></b></span></span></span></span></span></h2>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 6px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span> <a
+ href="Common%20Scripts/Classes/SlaveModule.as">SlaveModule</a> class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>f</i></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">unction StartContest(num:Number</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">, actno:Number</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">) </span></i></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>Node: &lt;Contests&gt;&lt;</i></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">StartContest&gt;<br>
+            </span></i></span></span></span></span></span></span></span></span></span></span></span></span></span>variables:
+            <br>
+general is set to Contests.NumContest<br>
+general2 is set to the act number for the contest<span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+            </span></i></span></span></span></span></span></span></span></span></span></span></span></span></span><font
+ size="-1"></font> <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">When this is called the contest is defined
+with all rival's scores set. Your slave's score is also set. Here you
+can alter the scores for rival's or your slave's calculated score. You
+could even abort the contest, but this is best done using DoContestNext</span></span></span></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      </span></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><i><span style="font-size: 12pt;"></span></i><span
+ style="font-size: 14pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-family: Arial;"></span><br>
+<table
+ style="text-align: left; font-family: Arial; width: 1375px; height: 339px;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 1351px; height: 6px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 6px;">
+            <h2 style="height: 8px;"><a class="mozTocH2"
+ name="mozTocId474706"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">DoContestsNext</span></b></span></span></span></span></span></h2>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 6px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span> <a
+ href="Common%20Scripts/Classes/SlaveModule.as">SlaveModule</a> class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>f</i></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">unction DoContestNext(num:Number,
+actno:Number) </span></i></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>Node: &lt;Contests&gt;&lt;</i></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">ContestsNext&gt;<br>
+            </span></i></span></span></span></span></span></span></span></span></span></span></span></span></span>variables:
+            <br>
+general is set to Contests.NumContest<br>
+general2 is set to the act number for the contest<span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+            </span></i></span></span></span></span></span></span></span></span></span></span></span></span></span>
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-family: Arial;">num is the current value of
+_root.Contests.NumContest</span><br style="font-family: Arial;">
+      <span style="font-family: Arial;"> return true to disable the
+standard processes and do your own thing. For the custom contests the
+values are 90+ there is no standard effect. Note the value of
+_root.Contests.NumContest is automatically incremented by 1 for every
+call. To end the contest change _root.Contests.NumContest to 1000</span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      </span></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<table
+ style="text-align: left; font-family: Arial; width: 1375px; height: 344px;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 1351px; height: 6px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 6px;">
+            <h2 style="height: 7px;"><a class="mozTocH2"
+ name="mozTocId920612"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">ContestBonus</span></b></span></span></span></span></span></h2>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 6px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span> <a
+ href="Common%20Scripts/Classes/SlaveModule.as">SlaveModule</a> class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>f</i></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">unction ContestBonus(num:Number) : Number </span></i></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>Node: &lt;</i></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">ContestsBonus&gt;<br>
+            </span></i></span></span></span></span></span></span></span></span></span></span></span></span></span>this
+node is used from all of<br>
+&lt;Slave&gt;<br>
+&lt;Assistant&gt;<br>
+&lt;Events&gt;<br>
+            <span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"> </span></i></span></span></span></span></span></span></span></span></span></span></span></span></span>
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-family: Arial;">num is the current value of
+_root.Contests.NumContest<br>
+      <br style="font-family: Arial;">
+      </span> <span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">Return a bonus
+for the slave's score. The xml nodes are a parsed value<br>
+      <font size="-1">eg<br>
+&lt;ContestBonus&gt;<br>
+&nbsp; &nbsp; &nbsp;&nbsp; &lt;if flag2-5='true'&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+&lt;SetValue&gt;100&lt;/SetValue&gt;<br>
+&nbsp; &nbsp; &nbsp;&nbsp; &lt;else&gt;if&lt;/else&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&lt;SetValue&gt;0&lt;/SetValue&gt;<br>
+&nbsp; &nbsp; &nbsp;&nbsp; &lt;/if&gt;<br>
+&lt;/ContestBonus&gt;&nbsp;</font></span></span></span></span></span></span></span></font></font></span></span></span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;"><br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId909448"></a>Custom Contests<span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></h1>
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId968554"></a>ActionScript</h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;">These are core fuctions in _root scope<br>
+<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<table
+ style="text-align: left; font-family: Arial; width: 1375px; height: 223px;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 1351px; height: 6px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 6px;">
+            <h3 style="height: 12px;"><a class="mozTocH3"
+ name="mozTocId155045"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">AddCustomContest</span></b></span></span></span></span></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 6px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span>
+_root scope</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;">function
+AddCustomContest(clabel:String, desc:String) : Number</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"> </span></i></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>see below</i></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+            </span></i></span></span></span></span></span></span></span></span></span></span></span></span></span>
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-family: Arial;">clabel is the name of the
+contest<br>
+desc is a short description for the contest<br>
+      <br>
+      </span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">This will add
+a custom contest, returns a unique number for the contest.<br>
+      </span></span></span></span></span></span></span></font></font></span></span></span><span
+ style="font-family: Arial;"></span><span style="font-family: Arial;"></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<table
+ style="text-align: left; font-family: Arial; width: 1375px; height: 144px;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 1351px; height: 6px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 6px;">
+            <h3 style="height: 11px;"><a class="mozTocH3"
+ name="mozTocId626604"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">ShowCustomContest</span></b></span></span></span></span></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 6px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span>
+_root scope</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;">function
+ShowCustomContest(show:Boolean, num:Number)</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"> </span></i></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>&lt;ShowCustomContest
+num='name'&gt;true&lt;/ShowCustomContest&gt;</i></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"> </span></i></span></span></span></span></span></span></span></span></span></span></span></span></span>
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-family: Arial;"><br>
+      </span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">This will show
+or hide the selected contest. For actionscript use the unique number
+returned by AddCustomContest to select the contest. In XML use the name
+of the contest</span></span></span></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"> or the unique number if known.</span></span></span></span></span></span></span></font></font></span></span></span><br>
+      <span style="font-family: Arial;"></span><span
+ style="font-family: Arial;"></span><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<table
+ style="text-align: left; font-family: Arial; width: 1375px; height: 144px;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 1351px; height: 6px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 6px;">
+            <h3 style="height: 7px;"><a class="mozTocH3"
+ name="mozTocId227108"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">HideCustomContest</span></b></span></span></span></span></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 6px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span>
+_root scope</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;">function
+HideCustomContest(num:Number)</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"> </span></i></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>&lt;ShowCustomContest
+num='name'&gt;false&lt;/ShowCustomContest&gt;</i></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"> </span></i></span></span></span></span></span></span></span></span></span></span></span></span></span>
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-family: Arial;"><br>
+      </span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">This
+will hide the selected contest, basically just calls ShowCustomContest.
+For actionscript use the unique
+number returned by AddCustomContest to select the contest. In XML use
+the name of the contest or the unique number if known.<br>
+      </span></span></span></span></span></span></span></font></font></span></span></span><span
+ style="font-family: Arial;"></span><span style="font-family: Arial;"></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">
+<b style="font-weight: bold;"><span style="font-size: 14pt;"></span></b><span
+ style="font-weight: bold;"><br>
+OBSOLETE - Do not use in new code<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<table
+ style="text-align: left; font-family: Arial; width: 1375px; height: 144px;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 1351px; height: 6px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 6px;">
+            <h3 style="height: 8px;"><a class="mozTocH3"
+ name="mozTocId392752"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">SetCustomContestDetails</span></b></span></span></span></span></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 6px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span>
+_root scope</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;">function
+SetCustomContestDetails(</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;">clabel:String,
+desc:String</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;">)</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"> </span></i></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>see below</i></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"> </span></i></span></span></span></span></span></span></span></span></span></span></span></span></span>
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-family: Arial;">clabel is the name of the
+contest<br>
+desc is a short description for the contest<br>
+      <br>
+      </span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">Functionally
+the same as AddCustomContest but only adds contest 1, does not support
+multiple custom contests. DO NOT USE</span></span></span></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"></span></span></span></span></span></span></span></font></font></span></span></span><br>
+      <span style="font-family: Arial;"></span><span
+ style="font-family: Arial;"></span><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><br>
+<br>
+<br>
+So to create a custom contest<br>
+<br>
+a) In Initialise()<br>
+<span style="font-size: 10pt;">var cnum:Number =
+_root.AddCustomContest("Flower\rArranging",
+"She will compete in a contest of flower arranging and etiquette.");<br>
+_root.ShowCustomContest(cnum);<br>
+<br>
+<span style="font-size: 12pt;">b) Implement StartContest<span
+ style="font-size: 10pt;"><br>
+<br>
+function StartContest(num:Number)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (num == 90) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Contests.RivalAScore = 243 + (_root.Difficulty * 5);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Contests.RivalBScore = 310 + (_root.Difficulty * 5);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Contests.RivalCScore = 194 + (_root.Difficulty * 5);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Contests.RivalDScore = 141 + (_root.Difficulty * 5);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Contests.RivalEScore = 115 + (_root.Difficulty * 5);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Score = _root.Score + _root.VarBlowJob +
+_root.VarFuck;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// _root.Score is a base number based on reputation and a few other<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+}<br>
+<br>
+<span style="font-size: 12pt;">Note Pick whatever scores for your
+rivals and your slave as needed.<br>
+This is optional you can do anything or nothing here, as you like, or
+do everything on DoContestsNext<br>
+<span style="font-size: 10pt;"><br>
+<span style="font-size: 12pt;">c) Implement DoContestsNext<br>
+<br>
+Note: most of this is a variation of the code for the Lady of the Court
+contest, slightly adapted<br>
+<i><br>
+</i><span style="font-size: 10pt;">function DoContestsNext(num:Number)
+: Boolean<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (num == 90) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// show first rival and show thier score. Note Backgrounds are
+automatically hidden before this function is called<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ClipRivalA._visible = true;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// or use ShowMovie as always<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetText("This girl got " + _root.Contests.RivalAScore + "
+points.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (num == 91) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// same for second girl, note hide last graphics.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ClipRivalB._visible = true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ClipRivalA._visible = false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetText("This girl got " + _root.Contests.RivalBScore + "
+points.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (num == 92) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// same for third girl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ClipRivalC._visible = true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ClipRivalB._visible = true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetText("This girl got " + _root.Contests.RivalCScore + "
+points.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (num == 93) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// same for fourth girl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ClipRivalD._visible = true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ClipRivalC._visible = true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetText("This girl got " + _root.Contests.RivalDScore + "
+points.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (num == 94) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// same for fifth girl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ClipRivalE._visible = true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ClipRivalD._visible = true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetText("This girl got " + _root.Contests.RivalEScore + "
+points.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (num == 95) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// handle end of contest and report who won<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Contests.NumContest =
+1000;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Contest over<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ClipRivalECourt._visible = false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// Show your slaves image<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CustomContestClip._visible = true;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// or use ShowMovie as always<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// handle Lady Faruns favour, score already adjusted by 10000<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.CheckBitFlag1(19)) _root.AddText("The contest was fixed so "
++ _root.SlaveName + " came ");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else
+_root.AddText(_root.SlaveName + " obtained : " + _root.Score + "pts and
+came ");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.ClearBitFlag1(19);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// report placing. Note order here depends on what you set in
+StartContest()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.Score &lt; _root.Contests.RivalBScore) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Diary.AddEntry(_root.SlaveName + " came last place in the Flower
+Arranging contest.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText("last place.\r\r");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (_root.Score &lt; _root.Contests.RivalEScore) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Diary.AddEntry(_root.SlaveName + "came fifth place in the Flower
+Arranging contest.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText("5th place.\r\r");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (_root.Score &lt; _root.Contests.RivalAScore) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Diary.AddEntry(_root.SlaveName + " came fourth place in the
+Flower Arranging contest.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText("4th place.\r\r");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (_root.Score &lt; _root.Contests.RivalCScore) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText("3rd place.\r\rYou win 500GP");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Money(330);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SMMoney(170);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarJoy = _root.VarJoy + 5;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.WinContest = 3;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Diary.AddEntry(_root.SlaveName + " placed third in the Flower
+Arranging contest.", false, 3);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if (_root.Score &lt; _root.Contests.RivalDScore)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText("2nd place.\r\rYou win 700GP");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Money(525);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SMMoney(175);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarJoy = _root.VarJoy + 10;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarReputation = _root.VarReputation + 5;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.WinContest = 2;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Diary.AddEntry(_root.SlaveName + " placed second in the Flower
+Arranging contest.", false, 2);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText("1st place!\r\rYou win 1500GP");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Money(1125);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SMMoney(375);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarJoy = _root.VarJoy + 10;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarReputation = _root.VarReputation + 10;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarRefinement = _root.VarRefinement + 10;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.WinCustom++;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.WinContest = 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Diary.AddEntry(_root.SlaveName + " won the Flower Arranging
+Contest!", false, 1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+}<br>
+<br>
+<span style="font-size: 12pt;">Note:<br>
+You only need to set _root.Contests.NumContest once to end the contest.
+Do not change it otherwise<br>
+You may have as few or many rounds as you like, but there are only 5
+standard rival variables provided. You can use your own if you want.
+The game does nothing with them for a custom contest. <br>
+See the division of money (3/4 slave, 1/4 slave maker)<br>
+<span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_root.Money(1125);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SMMoney(375);<br>
+<span style="font-size: 12pt;">Also see stat rewards<br>
+_root.WinContest = placing in contest, only 1-3 <br>
+<b><br>
+</b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<h2><a class="mozTocH2" name="mozTocId480692"></a><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><b>XML</b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">A contest can be added purely using XML code,
+an example of this is given below for adding a Martial Arts contest</span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><i><br>
+</i><span style="font-size: 14pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><br>
+<br>
+<table style="text-align: left; width: 1005px; height: 2011px;"
+ bgcolor="#ffffff" border="0" cellpadding="6" cellspacing="0">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;" bgcolor="#f2ffff"><font
+ face="Arial" size="-1"></font><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">&nbsp;&nbsp;&nbsp; &lt;Contests&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;CustomContestMA
+show="true"&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;Name&gt;Martial Arts&lt;/Name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;Hint&gt;#slave will compete in local martial arts
+contest.&lt;/Hint&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;StartContest&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;SetVar rivalascore='50'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;SetVar rivalbscore='150'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;SetVar rivalcscore='75'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;SetVar rivaldscore='20'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;SetVar rivalescore='120'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;SetVar score='(constitution + fitness) * 2 -
+tiredness'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;AddText&gt;Martial Arts Contest - a true test of
+a fighter.&lt;/AddText&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;/StartContest&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;ContestNext&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;Background place='arena'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;Choices&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Choice eventtotal='0'&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;SetText&gt;This competitor scored: #rivalascore&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;ShowImage
+image='Images/Contests/Martial Arts/Martial 1.jpg'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/Choice&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Choice eventtotal='1'&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;SetText&gt;This competitor scored: #rivalbscore&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;ShowImage
+image='Images/Contests/Martial Arts/Martial 7.jpg'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/Choice&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Choice eventtotal='2'&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;SetText&gt;This competitor scored: #rivalcscore&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;ShowImage
+image='Images/Contests/Martial Arts/Martial 4.jpg'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/Choice&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Choice eventtotal='3'&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;SetText&gt;This competitor scored: #rivaldscore&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;ShowImage
+image='Images/Contests/Martial Arts/Martial 2.jpg'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/Choice&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Choice eventtotal='4'&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;SetText&gt;This competitor scored: #rivalescore&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;ShowImage
+image='Images/Contests/Martial Arts/Martial 6.jpg'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/Choice&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Choice eventtotal='5'&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Choices&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;Choice placing='1'&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;SetText&gt;Mai scored #score
+points and won!&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Money&gt;1125&lt;/Money&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;SMMoney&gt;375&lt;/SMMoney&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Points&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;Joy&gt;10&lt;/Joy&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;Reputation&gt;10&lt;/Reputation&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;Constitution&gt;5&lt;/Constitution&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/Points&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;ChangeVar wincustom='1'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Diary win='1'&gt;#slave won
+the martial arts contest&lt;/Diary&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/Choice&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;Choice placing='2'&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;SetText&gt;Mai scored #score
+points and came second!&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Money&gt;600&lt;/Money&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;SMMoney&gt;300&lt;/SMMoney&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Points&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;Joy&gt;5&lt;/Joy&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;Reputation&gt;5&lt;/Reputation&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;Constitution&gt;2&lt;/Constitution&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/Points&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Diary win='2'&gt;#slave came
+second in the martial arts contest&lt;/Diary&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/Choice&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;Choice placing='3'&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;SetText&gt;Mai scored #score
+points and came third!&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Money&gt;300&lt;/Money&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;SMMoney&gt;150&lt;/SMMoney&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Points&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;Joy&gt;2&lt;/Joy&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;Reputation&gt;2&lt;/Reputation&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;Constitution&gt;2&lt;/Constitution&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/Points&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Diary win='3'&gt;#slave came
+third in the martial arts contest&lt;/Diary&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/Choice&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;Choice placing='4+'&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;SetText&gt;Mai scored #score
+points and came #placing out of 5!&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/Choice&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;/Choices&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;ShowImage
+image='Images/Slaves/Mai/Chore - Exercise 3.png'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;SetVar
+numcontest='1000'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/Choice&gt;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/Choices&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;/ContestNext&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/CustomContestMA&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/Contests&gt;</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><br>
+      <span style="font-size: 12pt;"></span></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><b><br>
+</b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+</body>
+</html>

@@ -1,0 +1,670 @@
+<!-- XMLSCreator created by NarutoXD-->
+
+<Language>
+	<Slave>
+
+		<Credits>NarutoXD</Credits>
+
+		<Version>Beta</Version>
+
+		<Name>Momo Velia Deviluke</Name>
+		<Description>Daughter of a fallen demon lord with the ability to talk with plants. She has shady character. - XMLSlaveCreator Test Slave</Description>
+
+		<TrainingTime>45</TrainingTime>
+
+		<Folder>Images/Momo Velia Deviluke</Folder>
+
+		<IntroPages>1</IntroPages>
+		<Price>250</Price>
+		<Introduction1>
+
+			<SetText>The Introduction of Momo will take a while, at least i have a vague idea what i want to do with her. Like changing her from alien to demon... -> The tail makes up for it.
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			</SetText>
+
+		</Introduction1>
+
+		<Milkable>True</Milkable>
+		<Gender>Female</Gender>
+		<Bust>95</Bust>
+		<Waist>50</Waist>
+		<Hips>60</Hips>
+		<ClitCockSize>0.8</ClitCockSize>
+		<Age>18</Age>
+		<BloodType>A</BloodType>
+		<Weight>45</Weight>
+		<Height>151</Height>
+
+		<Sexuality>45</Sexuality>
+		<Loyalty>1</Loyalty>
+		<VirginVaginal>True</VirginVaginal>
+		<VirginAnal>True</VirginAnal>
+		<VirginOral>True</VirginOral>
+
+		<Slutiness>25</Slutiness>
+
+		<LesbianInterest>0</LesbianInterest>
+		<PonygirlInterest>2</PonygirlInterest>
+		<SuccubusInterest>0</SuccubusInterest>
+		<CatgirlInterest>1</CatgirlInterest>
+
+
+		<FairyXF>0</FairyXF>
+
+		<SpecialStat>Shadyness</SpecialStat>
+
+		<Statistics>
+			<Charisma>20</Charisma>
+			<Sensibility>15</Sensibility>
+			<Refinement>10</Refinement>
+			<Intelligence>10</Intelligence>
+			<Morality>5</Morality>
+			<Constitution>15</Constitution>
+			<Cooking>5</Cooking>
+			<Cleaning>5</Cleaning>
+			<Conversation>15</Conversation>
+			<Fitness>10</Fitness>
+			<BlowJob>5</BlowJob>
+			<Fuck>0</Fuck>
+			<Temperament>15</Temperament>
+			<Nymphomania>20</Nymphomania>
+			<Obedience>0</Obedience>
+			<Lust>15</Lust>
+			<Reputation>0</Reputation>
+			<Fatigue>0</Fatigue>
+			<Joy>10</Joy>
+			<Special>0</Special>
+		</Statistics>
+
+		<Difficulties>
+			<Anal>5</Anal>
+			<Blowjob>0</Blowjob>
+			<Bondage>30</Bondage>
+			<Brothel>40</Brothel>
+			<Dildo>10</Dildo>
+			<Expose>20</Expose>
+			<GangBang>15</GangBang>
+			<LendHer>60</LendHer>
+			<Lesbian>25</Lesbian>
+			<Lick>5</Lick>
+			<Master>90</Master>
+			<Masturbate>0</Masturbate>
+			<Naked>0</Naked>
+			<Plug>50</Plug>
+			<Ponygirl>60</Ponygirl>
+			<SleazyBar>30</SleazyBar>
+			<Spanking>20</Spanking>
+			<Threesome>15</Threesome>
+			<TitsFuck>20</TitsFuck>
+			<Touch>10</Touch>
+			<XXX>20</XXX>
+			<XXXContest>20</XXXContest>
+		</Difficulties>
+
+		<Skills>
+			<Swimming>1</Swimming>
+			<Singing>2</Singing>
+			<Dancing>2</Dancing>
+			<Combat>3</Combat>
+		</Skills>
+
+		<SlaveJobs>
+			<SlaveJobA>0</SlaveJobA>
+		</SlaveJobs>
+
+		<SlaveSex>
+			<SlavesexA>0</SlavesexA>
+		</SlaveSex>
+
+		<SlaveSchool>
+			<SlaveSchoolA>0</SlaveSchoolA>
+		</SlaveSchool>
+
+		<SlaveChore>
+			<SlaveChoreA>0</SlaveChoreA>
+		</SlaveChore>
+
+		<Dresses>
+			<DressPlain>
+				<Name>Dark Dress</Name>
+				<Price>0</Price>
+				<Sold>True</Sold>
+				<StatEffects Easy="true"  Holy="true" >0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0</StatEffects>
+				<BitGag frame="1" x="197" y="80" rotation="351" width="50" height="50"/>
+				<Halo x="135" y="-24" rotation="342" width="141" height="69"/>
+				<Leash frame="6" x="186" y="95" rotation="0" width="83" height="240"/>
+				<CatEarRight frame="0" x="50" y="50" rotation="0" width="50" height="50"/>
+				<CatEarLeft frame="1" x="172" y="19" rotation="0" width="25" height="25"/>
+				<FaerieWingRight frame="1" x="50" y="50" rotation="0" width="50" height="50"/>
+				<FaerieWingLeft frame="1" x="132" y="129" rotation="0" width="83" height="240"/>
+				<DevilWingRight frame="0" x="50" y="50" rotation="0" width="50" height="50"/>
+				<DevilWingLeft frame="30" x="150" y="98" rotation="0" width="50" height="250"/>
+				<DevilTail frame="1" x="50" y="50" rotation="0" width="50" height="50"/>
+				<PonyTail frame="1" x="238" y="198" rotation="0" width="50" height="50"/>
+			</DressPlain>
+			<Dress1>
+				<Name>School Unifrom</Name>
+				<Price>1000</Price>
+				<Sold>True</Sold>
+				<StatEffects Easy="true" >0, 5, 2, 2, 10, 0, 1, 1, 5, 0, 0, 0, 0, 0, 5, 10, 0, 5, 2, 2</StatEffects>
+				<BitGag frame="1" x="207" y="77" rotation="354" width="39" height="35"/>
+				<Halo x="137" y="-17" rotation="333" width="150" height="50"/>
+				<Leash frame="6" x="175" y="85" rotation="0" width="89" height="253"/>
+				<CatEarRight frame="1" x="228" y="7" rotation="0" width="0" height="0"/>
+				<CatEarLeft frame="1" x="179" y="10" rotation="0" width="25" height="25"/>
+				<FaerieWingRight frame="1" x="255" y="77" rotation="0" width="100" height="150"/>
+				<FaerieWingLeft frame="1" x="91" y="73" rotation="0" width="100" height="150"/>
+				<DevilWingRight frame="1" x="269" y="85" rotation="0" width="50" height="250"/>
+				<DevilWingLeft frame="0" x="150" y="85" rotation="0" width="50" height="250"/>
+				<DevilTail frame="1" x="0" y="0" rotation="0" width="50" height="150"/>
+				<PonyTail frame="1" x="235" y="200" rotation="0" width="50" height="150"/>
+			</Dress1>
+			<Dress2>
+				<Name>Orange Bra and Bulma</Name>
+				<Price>1000</Price>
+				<Sold>True</Sold>
+				<StatEffects Easy="true"  SleazyBar="true"  Slutty="true"  Lingerie="true" >5, 5, 5, 10, 10, 5, 10, 0, 5, 0, 10, 0, 0, 0, 10, 1, 5, 5, 5, 10</StatEffects>
+				<BitGag frame="3" x="211" y="80" rotation="2" width="50" height="85"/>
+				<Halo x="168" y="-16" rotation="0" width="150" height="50"/>
+				<Leash frame="2" x="225" y="-13" rotation="0" width="284" height="507"/>
+				<CatEarRight frame="0" x="0" y="0" rotation="0" width="0" height="0"/>
+				<CatEarLeft frame="0" x="0" y="0" rotation="0" width="0" height="0"/>
+				<FaerieWingRight frame="2" x="0" y="0" rotation="0" width="0" height="0"/>
+				<FaerieWingLeft frame="2" x="20" y="37" rotation="0" width="200" height="250"/>
+				<DevilWingRight frame="0" x="0" y="0" rotation="0" width="0" height="0"/>
+				<DevilWingLeft frame="11" x="152" y="82" rotation="8" width="50" height="250"/>
+				<DevilTail frame="2" x="0" y="0" rotation="0" width="0" height="0"/>
+				<PonyTail frame="2" x="0" y="0" rotation="0" width="0" height="0"/>
+			</Dress2>
+			<Dress3>
+				<Name>Shiro Mizugi</Name>
+				<Price>1500</Price>
+				<Sold>True</Sold>
+				<StatEffects Easy="true"  Swimsuit="true"  SleazyBar="true" >10, 0, 0, 5, 5, 5, 5, 10, 5, 0, 5, 0, 15, 0, 5, 0, 10, 0, 0, 5</StatEffects>
+				<BitGag frame="1" x="222" y="61" rotation="0" width="25" height="25"/>
+				<Halo x="185" y="-8" rotation="0" width="100" height="35"/>
+				<Leash frame="2" x="226" y="1" rotation="0" width="64" height="95"/>
+				<CatEarRight frame="0" x="0" y="0" rotation="0" width="0" height="0"/>
+				<CatEarLeft frame="0" x="0" y="0" rotation="0" width="0" height="0"/>
+				<FaerieWingRight frame="3" x="0" y="0" rotation="0" width="0" height="0"/>
+				<FaerieWingLeft frame="3" x="115" y="53" rotation="0" width="100" height="100"/>
+				<DevilWingRight frame="0" x="0" y="0" rotation="0" width="0" height="0"/>
+				<DevilWingLeft frame="0" x="164" y="44" rotation="0" width="50" height="250"/>
+				<DevilTail frame="3" x="0" y="0" rotation="0" width="0" height="0"/>
+				<PonyTail frame="3" x="0" y="0" rotation="0" width="0" height="0"/>
+			</Dress3>
+			<Dress4>
+				<Name>Goth Dress</Name>
+				<Price>1500</Price>
+				<Sold>True</Sold>
+				<StatEffects Holy="true"  Demonic="true"  Courtly="true" >0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0, 0, 10, 10, 10, 10, 0, 0, 0, 10</StatEffects>
+				<BitGag frame="1" x="211" y="59" rotation="0" width="25" height="20"/>
+				<Halo x="185" y="-2" rotation="0" width="80" height="35"/>
+				<Leash frame="1" x="206" y="-1" rotation="0" width="150" height="90"/>
+				<CatEarRight frame="0" x="0" y="0" rotation="0" width="0" height="0"/>
+				<CatEarLeft frame="0" x="0" y="0" rotation="0" width="0" height="0"/>
+				<FaerieWingRight frame="4" x="0" y="0" rotation="0" width="0" height="0"/>
+				<FaerieWingLeft frame="4" x="110" y="42" rotation="0" width="100" height="100"/>
+				<DevilWingRight frame="0" x="0" y="0" rotation="0" width="0" height="0"/>
+				<DevilWingLeft frame="0" x="160" y="32" rotation="0" width="50" height="250"/>
+				<DevilTail frame="4" x="0" y="0" rotation="0" width="0" height="0"/>
+				<PonyTail frame="4" x="0" y="0" rotation="0" width="0" height="0"/>
+			</Dress4>
+			<Dress5>
+				<Name>Black Crown</Name>
+				<Price>2000</Price>
+				<Sold>True</Sold>
+				<StatEffects Easy="true"  SleazyBar="true"  Slutty="true"  Lingerie="true" >15, 0, 5, 15, 5, 15, 15, 0, 20, 0, 25, 0, 15, 0, 0, 0, 15, 0, 5, 15</StatEffects>
+				<BitGag frame="1" x="205" y="61" rotation="355" width="50" height="50"/>
+				<Halo x="175" y="-13" rotation="349" width="100" height="40"/>
+				<Leash frame="5" x="173" y="-18" rotation="0" width="70" height="120"/>
+				<CatEarRight frame="0" x="0" y="0" rotation="0" width="0" height="0"/>
+				<CatEarLeft frame="0" x="0" y="0" rotation="0" width="0" height="0"/>
+				<FaerieWingRight frame="5" x="0" y="0" rotation="0" width="0" height="0"/>
+				<FaerieWingLeft frame="5" x="114" y="54" rotation="0" width="100" height="100"/>
+				<DevilWingRight frame="0" x="0" y="0" rotation="0" width="0" height="0"/>
+				<DevilWingLeft frame="0" x="164" y="37" rotation="0" width="50" height="250"/>
+				<DevilTail frame="5" x="0" y="0" rotation="0" width="0" height="0"/>
+				<PonyTail frame="5" x="0" y="0" rotation="0" width="0" height="0"/>
+			</Dress5>
+			<Dress6>
+				<Name>String Bikini</Name>
+				<Price>3500</Price>
+				<Sold>True</Sold>
+				<StatEffects Easy="true"  Swimsuit="true"  SleazyBar="true"  Slutty="true"  Lingerie="true" >10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 0, 10, 0, 0, 0, 10, 10, 10, 10</StatEffects>
+				<BitGag frame="1" x="192" y="90" rotation="0" width="50" height="50"/>
+				<Halo x="116" y="-22" rotation="0" width="200" height="60"/>
+				<Leash frame="3" x="143" y="-25" rotation="0" width="90" height="168"/>
+				<CatEarRight frame="0" x="50" y="50" rotation="0" width="50" height="50"/>
+				<CatEarLeft frame="0" x="50" y="50" rotation="0" width="50" height="50"/>
+				<FaerieWingRight frame="1" x="50" y="50" rotation="0" width="50" height="50"/>
+				<FaerieWingLeft frame="1" x="104" y="102" rotation="0" width="100" height="100"/>
+				<DevilWingRight frame="0" x="50" y="50" rotation="0" width="50" height="50"/>
+				<DevilWingLeft frame="0" x="103" y="80" rotation="0" width="100" height="300"/>
+				<DevilTail frame="1" x="0" y="0" rotation="0" width="0" height="0"/>
+				<PonyTail frame="1" x="0" y="0" rotation="0" width="0" height="0"/>
+			</Dress6>
+		</Dresses>
+
+		<Images>
+			<Introduction>1</Introduction>
+
+			<SlaveMarketImage>1</SlaveMarketImage>
+
+			<DressPlain>1</DressPlain>
+			<Dress1>1</Dress1>
+			<Dress2>1</Dress2>
+			<Dress3>1</Dress3>
+			<Dress4>1</Dress4>
+			<Dress5>1</Dress5>
+			<Dress6>1</Dress6>
+
+			<Dance>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</Dance>
+
+			<Refinement>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</Refinement>
+
+			<Singing>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</Singing>
+
+			<XXX>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</XXX>
+
+			<Theology>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</Theology>
+
+			<Sciences>
+
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+
+			</Sciences>
+			<Restaurant>
+				<Normal>1</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</Restaurant>
+
+			<Acolyte>
+				<Normal>2</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</Acolyte>
+
+			<Onsen>
+				<Normal>4</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</Onsen>
+
+			<Bar>
+				<Normal>2</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</Bar>
+
+			<Library>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</Library>
+
+			<SleazyBar>
+				<Normal>5</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</SleazyBar>
+
+			<Brothel>
+
+				<Normal>5</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</Brothel>
+			<ItemLingerie>
+				<Normal>1</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</ItemLingerie>
+			<ItemSwimsuit>
+				<Normal>1</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</ItemSwimsuit>
+			<ItemMaidUniform>
+				<Normal>1</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</ItemMaidUniform>
+			<ItemBunnysuit>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</ItemBunnysuit>
+			<Break>
+				<Normal>2</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</Break>
+			<Read>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</Read>
+			<Cooking>
+				<Normal>1</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</Cooking>
+			<Cleaning>
+				<Normal>1</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</Cleaning>
+			<MakeUp>
+				<Normal>1</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</MakeUp>
+			<Exercise>
+				<Normal>0</Normal>
+				<Futanari></Futanari>
+				<Naked></Naked>
+				<CatGirl></CatGirl>
+			</Exercise>
+			<Discuss>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</Discuss>
+			<Expose>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</Expose>
+			<SixtyNine>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Lesbian>0</Lesbian>
+			</SixtyNine>
+			<Anal>
+				<Normal>3</Normal>
+				<Futanari>0</Futanari>
+				<Lesbian>0</Lesbian>
+			</Anal>
+			<BlowJob>
+				<Normal>5</Normal>
+				<Futanari>0</Futanari>
+				<Lesbian>0</Lesbian>
+			</BlowJob>
+			<Bondage>
+				<Normal>3</Normal>
+				<Futanari>0</Futanari>
+				<Lesbian>0</Lesbian>
+			</Bondage>
+			<CumBath>
+				<Normal>4</Normal>
+				<Futanari>0</Futanari>
+				<Lesbian>0</Lesbian>
+			</CumBath>
+			<Dildo>
+				<Normal>1</Normal>
+				<Futanari>0</Futanari>
+				<Lesbian>0</Lesbian>
+			</Dildo>
+			<Nothing>
+				<Normal>4</Normal>
+				<Futanari>0</Futanari>
+				<Lesbian>0</Lesbian>
+			</Nothing>
+			<Fuck>
+				<Normal>5</Normal>
+				<Futanari>0</Futanari>
+				<Lesbian>0</Lesbian>
+			</Fuck>
+			<Gangbang>
+				<Normal>2</Normal>
+				<Futanari>0</Futanari>
+				<Lesbian>0</Lesbian>
+			</Gangbang>
+			<Kiss>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Lesbian>0</Lesbian>
+			</Kiss>
+			<Lend>
+				<Normal>1</Normal>
+				<Futanari>0</Futanari>
+				<Lesbian>0</Lesbian>
+			</Lend>
+			<Lesbian>
+				<Normal>2</Normal>
+				<Futanari>0</Futanari>
+				<Lesbian>0</Lesbian>
+			</Lesbian>
+			<Lick>
+				<Normal>2</Normal>
+				<Futanari>0</Futanari>
+				<Lesbian>0</Lesbian>
+			</Lick>
+			<Master>
+				<Normal>4</Normal>
+				<Futanari>0</Futanari>
+				<Lesbian>0</Lesbian>
+			</Master>
+			<Masturbate>
+				<Normal>4</Normal>
+				<Futanari>0</Futanari>
+				<Lesbian>0</Lesbian>
+			</Masturbate>
+			<Naked>
+				<Normal>
+					<Count>3</Count>
+							</Normal>
+				<Futanari>0</Futanari>
+				<Lesbian>0</Lesbian>
+			</Naked>
+			<Orgy>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Lesbian>0</Lesbian>
+			</Orgy>
+			<Plug>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Lesbian>0</Lesbian>
+			</Plug>
+			<Ponygirl>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Lesbian>0</Lesbian>
+			</Ponygirl>
+			<Spanking>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Lesbian>0</Lesbian>
+			</Spanking>
+			<StripTease>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Lesbian>0</Lesbian>
+			</StripTease>
+			<Threesome>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Lesbian>0</Lesbian>
+			</Threesome>
+			<TitsFuck>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Lesbian>0</Lesbian>
+			</TitsFuck>
+			<Touch>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Lesbian>0</Lesbian>
+			</Touch>
+			<LoveRejected>
+				<Normal>0</Normal>
+				<Futanari></Futanari>
+				<Naked></Naked>
+				<CatGirl></CatGirl>
+			</LoveRejected>
+			<LoveConfession>
+				<Normal>0</Normal>
+				<Futanari></Futanari>
+				<Naked></Naked>
+				<CatGirl></CatGirl>
+			</LoveConfession>
+			<LoveAccepted>
+				<Normal>0</Normal>
+				<Futanari></Futanari>
+				<Naked></Naked>
+				<CatGirl></CatGirl>
+			</LoveAccepted>
+			<ContestXXX>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</ContestXXX>
+			<ContestPonygirl>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</ContestPonygirl>
+			<ContestCourt>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</ContestCourt>
+			<ContestBeauty>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</ContestBeauty>
+			<ContestDance>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</ContestDance>
+			<ContestHousework>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</ContestHousework>
+			<ContestGeneralKnowledge>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</ContestGeneralKnowledge>
+			<ContestAdvancedHousework>
+				<Normal>0</Normal>
+				<Futanari>0</Futanari>
+				<Naked>0</Naked>
+				<CatGirl>0</CatGirl>
+			</ContestAdvancedHousework>
+		</Images>
+
+	</Slave>
+
+	<Assistant>
+	</Assistant>
+
+	<Events>
+	</Events>
+
+	<Planning>
+		<Acts>
+			<DoPlanning>
+			</DoPlanning>
+
+		</Acts>
+
+	</Planning>
+
+</Language>

@@ -1,0 +1,1133 @@
+<table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">Take a Walk<br>
+            </span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Version
+8</font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table><u style="font-family: Arial;"><b><span style="font-size: 18pt;"></span></b></u><span style="font-size: 12pt; font-family: Arial;"><br></span><span style="font-weight: bold; font-family: Arial;">Table of Contents</span><br style="font-family: Arial;"><ul style="font-family: Arial;" id="mozToc"><li><a href="#mozTocId260890">Core Place Objects</a></li><li><a href="#mozTocId930843">Core Place BitFlags</a></li><li><a href="#mozTocId685721">Variables while Walking</a></li><li><a href="#mozTocId67758">Slave Interface Functions</a></li><li><a href="#mozTocId368331">Meeting People when walking</a></li></ul><span style="font-size: 12pt; font-family: Arial;"><br></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId260890"></a>Core Place Objects<span style="font-size: 12pt;"></span></h1><span style="font-size: 12pt; font-family: Arial;">
+<span style="font-size: 12pt;">All places you can walk to are instances of the following class.<br>
+<br>
+class Place {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+public var CustomFlag:Number;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// public methods only (private hidden)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+public function CheckBitFlag(flag:Number) : Boolean<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+public function SetBitFlag(flag:Number)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+public function ClearBitFlag(flag:Number)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+public function IsEventDone(evno:Number) : Boolean<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+public function IsEventRepeatable(evno:Number) : Boolean<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+public function IsAccessible() : Boolean<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+public function SetAccessible(seta:Boolean)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+public function IsVisited() : Boolean<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+public function SetVisited()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+public function NoRepeatEvent(evno:Number)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+public function SetEventDone(evno:Number)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+public function SetEventCount(count:Number)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+public function GetEventCount() : Number<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+public function GetEvent() : Number<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+public function GetNextEvent() : Number<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+public function MoveToNextEvent(nxt:Number) : Number<br>
+}<br>
+<br>
+The actual instances are<br>
+var BeachSwim:Place;<br>
+var BeachWalk:Place;<br>
+var BeachPrivate:Place;<br>
+var BeachRocks:Place;<br>
+var DocksPort:Place;<br>
+var DocksSlavePens:Place;<br>
+var TownCenter:Place;<br>
+var Slums:Place;<br>
+var Farm:Place;<br>
+var Palace:Place;<br>
+var Forest:Place;<br>
+var Lake:Place;<br>
+var RuinedTemple:Place;<br>
+var DeepForest:Place;<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">if (_root.Lake.IsVisited()) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText("Once again she visits the Lake...");<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<br></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId930843"></a>Core Place BitFlags<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;">
+<span style="font-size: 12pt;">Each place has 64 bitflags for controlling various settings. Generally bits 0-29 are reserved<br>
+<br>
+These are the defined bit flags for places<br>
+<br>
+Slave Pens<br>
+&nbsp;30  = comfort route<br>
+&nbsp;31  = gave teddy bear<br>
+<br>
+Slave Pens Secure<br>
+&nbsp;29  = escape attempt (note will probably change this to 30 in future)<br>
+<br>
+Ruins<br>
+&nbsp;31  = evil mine cleansed<br>
+&nbsp;32  = searching for evil mine<br>
+&nbsp;33  = asked prostitute<br>
+&nbsp;34  = asked high class prostitute<br>
+&nbsp;35  = asked maid<br>
+&nbsp;36  = asked knight<br>
+&nbsp;37  = asked count<br>
+&nbsp;38  = asked lord<br>
+&nbsp;39  = asked barmaid<br>
+&nbsp;40  = asked merchant<br>
+&nbsp;41  = ruined mine cleansed<br>
+&nbsp;42  = asked pony mistress<br>
+<br>
+Forest<br>
+&nbsp;30  = met dancer<br>
+&nbsp;31  = know dancer is faerie<br>
+&nbsp;32  = met dg maid<br>
+&nbsp;33  = dancer tells about faeries in hiding<br>
+&nbsp;34  = know location of Astrid<br>
+<br>
+Lake<br>
+&nbsp;30  = met maid<br>
+&nbsp;31  = naked apron event<br>
+&nbsp;32  = took 'Nymph's Tears'<br>
+&nbsp;33  = Odd Teacher/Tutor supplies 'Nymph's Tears'<br>
+<br>
+eg<br>
+_root.Forest.SetBitFlag(30);<br>
+<br>
+<br></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId685721"></a>Variables while Walking<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;"></span></b></u></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;">
+</span></b></u><span style="font-size: 12pt;"><b><br>
+_root.Supervise</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ = true, you, the slave maker are taking her for a walk<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= false, your assistant is<br>
+<b>_root.Day</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= true, daytime<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= fase, nightime<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId67758"></a>Slave Interface Functions<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;"></span></b></u></span></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;">
+</span></b></u><span style="font-size: 12pt;">These functions can be overridden for a slave girl to do various things<br>
+<br>
+<b>VisitAstrid - </b>called each time she visits Astrid<br>
+<i>function VisitAstrid() : Boolean</i><br>
+return true if you wish to override the standard events visiting Astrid<br>
+<br>
+<br>
+For all of the following<br>
+return true to handle the event and disable the standard event<br>
+eventno - event she encounters<br>
+<b><br>
+</b>Some events have random variants and will set OldNumEvent to reflect the actual variant. This can then be tested in the AfterWalk function. These values cannot be tested in DoWalkPalace and the like<br>
+<b><br>
+Before the event happens this is called<br>
+<br>
+<span style="font-size: 14pt;">TakeWalk<span style="font-size: 12pt;"><br>
+</span></span></b><i>function TakeWalk(place:Number)<br>
+</i>place<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Forest<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Lake<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TownCenter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Slums<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Palace<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Docks<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Port<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SlavePens<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SlavePens Secure<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Farm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Ruins<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Beach<br>
+<br>
+Use this to insert an event when walking to a location<br>
+<br>
+<br>
+<b>Then the following are called for each event<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<span style="font-size: 14pt;">BeachActivities<br>
+</span></b><i><span style="font-size: 12pt;">function BeachActivities() <br>
+</span></i>This is called when the questions for the beach are shown<br>
+Befeore this the game calls<br>
+AskHerQuestions(4300, 4301, 4302, 4303, "Swim", "Walk on the beach", "Private areas", "The Rocks", "Where will " + SupervisorName + " take " + SlaveName + "?");<br>
+<br>
+eg<br>
+You can add an additional question (there are a maximum of 5)<br>
+<span style="font-size: 10pt;">_root.AddQuestion(300, "Sunbathing");<br>
+_root.PositionQuestions();<br>
+<br>
+<span style="font-size: 12pt;">eg<br>
+replace the questions, just call AskHerQuestions/ResetQuestions/AddQuestion/ShowQuestions<br>
+<span style="font-size: 10pt;">_root.AskHerQuestions(300, 301, 302, 0, "Wade", "Sunbath", "Jog", "", "What will " + SlaveName + " do?");<b><span style="font-size: 12pt;"><br>
+<br>
+<br>
+<span style="font-size: 14pt;">DoWalkBeachSwim</span></span></b><br>
+<i><span style="font-size: 12pt;">function DoWalkBeachSwim(eventno:Number) : Boolean<br>
+</span></i>eventno<br>
+<u>Day</u><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet Tama. BeachSwim.CheckBitFlag(34) == true she is a dickgirl. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Old Faith Offering<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+OldNumEvent<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.1 = dickgirl offering<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.2 = orgy (non dg) offering<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Aroused Encounter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.1 = confused muscule dickgirl ,with new coc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.2 = second meeting, she has accepted her cock<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.3 = lesbians wrestling<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Tiny Bikini<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Demon Girl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Swim out far<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Lost Swimsuit (one off event)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Dive deep<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Dive and see mermaid<br>
+<u>Night<br>
+</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Mermaid assault (one off event)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Swimming girl 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Swimming girl 2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+12<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+13<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- pleasant swim<br>
+&nbsp;<b><br>
+</b>Note on first visit you are always met by Marine and given a tour, currently this is mandatory.<br>
+<b><br>
+<br>
+<span style="font-size: 14pt;">DoWalkBeachWalk</span></b><br>
+<i><span style="font-size: 12pt;">function DoWalkBeachWalk(eventno:Number) : Boolean<br>
+</span></i>eventno<u><br>
+Day</u><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet Nun, kinky swimsuit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet Lady Farun + Maid<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet Lady Okyanu<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Maid Sumi<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet Miss N<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet Barmaid<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet Lady Azure<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet Dark Elf<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+OldNumEvent <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8.1 initial meeting<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8.2 later meetings<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Topless<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+OldNumEvent 9.1 dickgirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Mermaid beads (one off event)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Various People<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet Lord<br>
+<br>
+<u>Night<br>
+</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Fireworks<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Private Couple<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Glowing being<br>
+&nbsp;<b><br>
+<br>
+<br>
+<span style="font-size: 14pt;">DoWalkBeachRocks</span></b><br>
+<i><span style="font-size: 12pt;">function DoWalkBeachRocks(eventno:Number) : Boolean<br>
+</span></i>eventno<br>
+<u>Day</u><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Pleasant climb<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Furry<br>
+<br>
+<u>Night<br>
+</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-Too dangerous<br>
+<br>
+- more to cum<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">DoWalkBeachPrivate</span></b><br>
+<i><span style="font-size: 12pt;">function DoWalkBeachPrivate(eventno:Number) : Boolean<br>
+</span></i><u><br>
+Day<br>
+</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Lesbian passion<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- group sex in light woods<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- cult noblewoman <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- nothing<br>
+&nbsp;<b><br>
+</b><u>Night<br>
+</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Lesbian pair<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- nothing<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- see a girl in tentacles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- slave is tentacle attacked<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">DoWalkPalace<br>
+</span></b><span style="font-size: 12pt;">walk in the Palace<br>
+<br>
+<i>function DoWalkPalace(eventno:Number) : Boolean</i><br>
+eventno <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 - meet the Lord and have brief chat<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1.5 - meet the Lord and her salutes her<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 - meet Count<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 - meet Knight<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.5 - meet Knight and he gives her the Dragon Ring<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 - Meet Lady Okyanu (High Class Prostitute);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 - Meet Private Tutor and she gives the Pony Tail<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5.1 - Meet Private Tutor and she plays with the slaves Pony Tail<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5.2 - Meet Private Tutor who is disappointed the slave is not wearing the Pony Tail<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5.3 - Meet Private Tutor and pat her ass<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 - Meet nun<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7 - Meet Refinement school teacher<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 - meet dancer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9 - meet xxx school owner<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10 - furry meeting 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+11 - furry meeting 2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+12 - furry meeting 3<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">DoWalkForest</span></b><br>
+<i><span style="font-size: 12pt;">function DoWalkForest(eventno:Number) : Boolean<br>
+</span></i>eventno<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Tentacles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Visit Astrid<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet Knight<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+after OldNumEvent is set to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1.1 - forest battles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1.2 - sword techniques<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet Knight but he ignores her<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet Astrid's shy maid<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+after OldNumEvent is set to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.1 - talk on nature<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.2 - collecting herbs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet Astrid's shy maid but she retreats timidly<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Lose 50GP by accident or fortune teller<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+after OldNumEvent is set to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.1 - break heel<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.2 - fortune teller<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet teacher of refinement school<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet nun<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet Faerie dancer and discuss faeries<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- meet faerie dancer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- meet faeire dancer and get faeries ring<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- meet no-one (bitflag1(8) set)  or see a catgirl<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">DoWalkLake</span></b><br>
+<i><span style="font-size: 12pt;">function DoWalkLake(eventno:Number) : Boolean</span></i><br>
+eventno<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- meet maid and gets dirty (naked apron event)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- meet maid and is given apron<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- lose 50GP, have a swim and give money to urchin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- robbed, lose 100GP+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- meet ferie dancer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-meet private tutor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- meet privat tutor and is offered Nymph's Tears (yes/no event 7)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- see angel and is blessed for wearing holy items<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- see angel<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- meet Count<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- meet Count but is ignored<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">DoWalkTownCenter</span></b><br>
+<i><span style="font-size: 12pt;">function DoWalkTownCenter(eventno:Number) : Boolean</span></i><br>
+eventno<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet Merchant and gived advice<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet Merchant but is ignored<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet cute lesbian who gives her a strap-on<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet cute lesbian who gives cock dildo<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet cute lesbian who flirts, lesbian sex easier<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- lose 200GP as nobleman requisitions her<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Talke to barman<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- meet sleazy bar owner<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- meet nun<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- meet cook<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- meet cook and catgirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- meet puppy girl - progressive, see MeetPuppyGirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- meet xxx school owner<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- meet Idol, Meigura - progressive,  see MeetIdol<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet contented ponygirl (one off event, and only if ponygirls are enabled). If the slave maker is present can become ponygirl aware and improve pony training skill<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Furry Bondage (does not happen randomly)<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">DoWalkSlums</span></b><br>
+<i><span style="font-size: 12pt;">function DoWalkSlums(eventno:Number) : Boolean</span></i><br>
+eventno<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Tentacles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet Prostitute<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet Prostitute and is interested<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet high class prostitute, advice on acting like a lady<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet high class prostitute, advice on beauty<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- raped<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- followed by strange guy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- robbed of 200GP+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet knight in not advantageous situation and he bribes her <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet knight in not advantageous situation and he ignore her<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet pimp who compliments her, brothel easier<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet pimp who tries her out, brothel easier +150GP<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet Sleazy Bar Owner<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet XXX School Owner<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet Barmaid<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet Barmaid but did not talk<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Drug dealer visits<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet nun<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">DocksAreas<br>
+</span></b><i><span style="font-size: 12pt;">function DocksAreas(secure:Boolean)<br>
+</span></i>This is called when the questions for the docks are shown. if secure is true then the secure slave pens option is shown<br>
+Befeore this the game calls<br>
+secure == true<br>
+AskHerQuestions(4000, 4003, 4004, 0, "Port area", "Main Slave Pens", "Secure Slave Pens", "", "Where will she visit?");<br>
+secure == false<br>
+AskHerQuestions(4000, 4003, 0, 0, "Port area", "Slave Pens", "", "", "Where will she visit?");<span style="font-size: 10pt;"><br>
+<br>
+<span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">DoWalkDocksPort<br>
+</span></b><span style="font-size: 12pt;">walk in the Port part of the Docks<br>
+<i><br>
+function DoWalkDocksPort(eventno:Number) : Boolean<br>
+</i>eventno<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Tentacles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet merchant unloading a box, specific values<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+after OldNumEvent<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1.1 - just unload box and get reward<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1.2 - sailors troubling the merchant and she helps<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1.3 - merchant lost box and she finds it<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet ponygirl Mistress, gives Bitgag if not already owned. Otherwise meet ponygirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+after OldNumEvent<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.1 - given bitgag<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.2 - meet ponygirl, discuss<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.3 - meet ponygirl discuss, rub breasts<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.4 - meet fearful ponygirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- have an accident and lose 100GP<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+after OldNumEvent<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.1 - jumps away from wagon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.2 - bumped by sailor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.3 - tears dress<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet lesbian girl who propositions your slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- meet Irina the bounty hunter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- meet nun<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- meet cook and visits his ship. If she has bondage experience he can give her the silken ropes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+after OldNumEvent<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7.1 - talk about cooking, hear noise<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7.2 - given silken ropes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7.3 - see assistant<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- meet sailor and talk of the world<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+after OldNumEvent<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8.1 - general<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8.2 - shipboard life<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8.3 - exotic lands<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- help sailor and is propostioned for sex<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- helps some sailors<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- see slave pens (first event on visiting docks)<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">DoWalkDocksSlavePens</span></b><br>
+<i><span style="font-size: 12pt;">function DoWalkDocksSlavePens(eventno:Number) : Boolean</span></i><br>
+eventno<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- random event<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Big Tit Slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet Sareth (happens twice), after OldNumEvent is set to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 2.1 - first meeting<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.2 - second<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- either of two events, after OldNumEvent is set to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.1 Sisters tricked into lesbian training<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.2 two dickgirls 69 training as cock sluts<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- either of two events, after OldNumEvent is set to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4.1 - large breasted slave giving blowjobs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4.2 - dickgirl slave who asks for a blowjob<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">DoWalkDocksSlavePensSecure</span></b><br>
+<i><span style="font-size: 12pt;">function DoWalkDocksSlavePensSecure(eventno:Number) : Boolean</span></i><br>
+eventno<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Demon girl meeting. _root.DemonChoice is the particular meeting<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+OldNumEvent  = 11<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- See Irina the bounty hunter delivering a slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+OldNumEvent  = 12<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- see creature in cage, after OldNumEvent is set to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.1 - demon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.2 - faerie<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.3 - tentacle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- see noblewoman enjoying a creature, after OldNumEvent is set to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4.1 - humaniods<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4.2 - tentacles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4.3 - maid&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Lady Farun being attacked<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<br>
+<b><span style="font-size: 14pt;">DoWalkFarm</span></b><br>
+<i><span style="font-size: 12pt;">function DoWalkFarm(eventno:Number) : Boolean</span></i><br>
+eventno<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- See ponygirl working<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- See girl being mlked , if your slave is under the influence of the milk drug then she gets milked<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- meet farmer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- lose 50GP, either buying diary poducts or falling in mud (naked apron event), after OldNumEvent is set to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.1 - dairy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.2 - mud/naked apron<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet Count, you know he is the owner of the farm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Meet Count, who ignores your slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- meets a chef buying goods<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- if con &gt; 30 then offered milk drug<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  if under influence of drug she is milked<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  else walks avoiding barn<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- wanders studying the buildings<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Faerie rescue events, _root.FairyMeeting is the stage<br>
+Note eventno is always set to 6 the first time she walks in the farm after her constitution exceeds 30, and she is milkable<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">DoWalkRuins</span></b><br>
+<i><span style="font-size: 12pt;">function DoWalkRuins(eventno:Number) : Boolean</span></i><br>
+eventno<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Tentacles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- see plateau<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- see destroyed path<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- see mine<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- see crack in wall<br>
+<br>
+<br>
+<u><b><span style="font-size: 14pt;">Force an encounter<br>
+</span></b></u><span style="font-size: 12pt;">You can change NumEvent to force a particular encounter<br>
+<br>
+eg to force a tentacle scene 20% of the time<br>
+function DoWalkRuins(eventno:Number) : Boolean<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (int(Math.random()*5) == 0) _root.NumEvent = -1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return false;<br>
+}<br>
+<br>
+eg to force a faerie meeting<br>
+function DoWalkFarm(eventno:Number) : Boolean<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.CheckBitFlag2(32)) _root.NumEvent = 7;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return false;<br>
+}<br>
+<br>
+<br>
+<u><b><span style="font-size: 14pt;">After the Walk is Done</span></b></u><b><br>
+</b><span style="font-size: 12pt;"><br>
+<b>AfterWalk</b><br>
+<i>function AfterWalk(place:Number)<br>
+</i>called after a walk event, for instance to add text or add prompts to the encoutner<br>
+place as for TakeWalk except<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= visited your house<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-1000&nbsp;&nbsp;&nbsp;
+= visited custom house<br>
+<br>
+Check _root.OldNumEvent for the exact event, see locations above (eg Farm, 7 is faerie rescue)<br>
+_root.NumEvent may differ to this if yes/no question is asked or other buttons have changed<br>
+<u><b><br>
+<br>
+</b></u></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId368331"></a>Meeting People when walking<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;"></span></b></u></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;">
+</span></b></u><span style="font-size: 12pt;">When walking and it notes you meet say a Nun there are specific functions you can override to customise those meetings.<br>
+Not all people have an override function.<br>
+<b><br>
+<br>
+<span style="font-size: 14pt;">MeetNun<br>
+</span></b><i><span style="font-size: 12pt;">function MeetNun(Description:String) : Boolean<br>
+</span></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Description - standard text intro for the meeting<br>
+return true to disable the standard meeting<br>
+<br>
+Called when she meets a nun when walking, use this and return true to totally customise the meeting<br>
+<i><br>
+<span style="font-size: 10pt;"><br>
+</span></i><span style="font-size: 14pt;"><b>AfterMeetNun<br>
+</b><i><span style="font-size: 12pt;">function AfterMeetNun(Description:String, meet:Number)<br>
+</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span style="font-family: Arial;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Description - standard text intro for the meeting</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+meet - the actual meeting that happened</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = Angel's Tear/Torun's Chalice given</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = Demonic Pendant given</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = given scripture to read</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = pray/angelic vision</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-1 = nun busy praying morality 20-/or standard text </span><br style="font-family: Arial;">
+<br style="font-family: Arial;"><span style="font-family: Arial;">
+Called after meeting a nun when walking, normally use this to still have the standard meeting and effects, but to replace/personalise the text</span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><br>
+<i><span style="font-size: 10pt;"><br>
+<br>
+</span></i><span style="font-size: 14pt;"><b>MeetSleazyBarOwner<br>
+</b><i><span style="font-size: 12pt;">function MeetSleazyBarOwner(meet:Number) : Boolean</span></i><br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span style="font-family: Arial;">
+meet</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 - if Nymphomania &lt; 50 complineted, otherwise blowjob and pill given</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 - give bra or compliment</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+Called when she meets a sleazy bar owner when walking</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+return true to disable the standard meeting</span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><i><br>
+<span style="font-size: 10pt;"><br>
+<br>
+</span></i><span style="font-size: 14pt;"><b>AfterMeetSleazyBarOwner<br>
+</b><i><span style="font-size: 12pt;">function AfterMeetSleazyBarOwner(meet:Number)</span></i><br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span style="font-family: Arial;">
+meet</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = complimented</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0.1 = gives blowjob to dickgirl sleazy bar owner, pill given</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0.2 = gives blowjob to male sleazy bar owner, pill given</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = complimented</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = given demonic bra</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+Called after meeting a sleazy bar owner when walking, normally use this the still have the standard meeting and effects, but to replace/personalise the text</span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">AfterMeetBountyHunter<br>
+</span></b><i><span style="font-size: 12pt;">function AfterMeetBountyHunter(place:Number, meet:Number)<br>
+</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span style="font-family: Arial;">place</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 = docks</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+meet</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+stage of progression of friendship, 1-6</span><br style="font-family: Arial;">
+<br style="font-family: Arial;"><span style="font-family: Arial;">
+Note place is a bit redundant and may be removed in future</span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">AfterMeetMeetOddTeacher<br>
+</span></b><i><span style="font-size: 12pt;">function AfterMeetMeetOddTeacher(place:Number, meet:Number)<br>
+</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span style="font-family: Arial;">place</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 - lake</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 - town center</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 - palace</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+meet</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 - negotiate supply of 'Nymph's Tears' for Lady Farun</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 - pay price for supply</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 - generic meeting</span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">MeetPuppyGirl<br>
+</span></b><i><span style="font-size: 12pt;">function MeetPuppyGirl() : Boolean<br>
+</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span style="font-family: Arial;">variable _root.PuppyGirlFlag (0-4) indicates state of meeting</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+return true to disable the standard meeting</span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">AfterMeetPuppyGirl<br>
+</span></b><i><span style="font-size: 12pt;">function AfterMeetPuppyGirl()<br>
+</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span style="font-family: Arial;">variable _root.PuppyGirlFlag (0-4) indicates state of meeting</span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><br>
+<b><i><br>
+<br>
+</i><span style="font-size: 14pt;">MeetIdol<br>
+</span></b><span style="font-size: 12pt;">Meet Meigura<br>
+<b><span style="font-size: 14pt;"><br>
+</span></b><i><span style="font-size: 12pt;">function MeetIdol() : Boolean<br>
+</span></i>variable _root.VarIdol (0-4) indicates state of meeting<br>
+return true to disable the standard meeting<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">AfterMeetIdol<br>
+</span></b><i><span style="font-size: 12pt;">function AfterMeetIdol()<br>
+</span></i>variable _root.VarIdol (0-4) indicates state of meeting<br>
+<b><i><br>
+</i></b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>

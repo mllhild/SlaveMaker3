@@ -1,0 +1,206 @@
+<u style="font-family: Arial;"><b><span style="font-size: 18pt;"><center><table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239);" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top;">
+          <table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">Slaves Array</span></font><br></td>
+
+                <td style="vertical-align: top;"><br></td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3
+                SDK</span></a></td>
+
+                <td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Version 8</font><br></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table><span style="font-size: 16pt;">
+</span></center>
+</span></b></u><span style="font-size: 12pt; font-family: Arial;"><br>
+<br>For each game in progress there is an array of all the slaves and assistants. It contains<br></span><ul style="font-family: Arial;"><li>all slaves you own</li><li>all slaves you have trained but no longer own</li><li>all untrained slaves</li><li>all possible assistants</li><li>all owned minor slaves</li><li>special particpants, like Kiyone but only once they have been used. Their record is retained after they are no longer in use, and thus can be updated in later training.<br></li></ul><span style="font-family: Arial;">It does not contain any un-purchased minor slaves, except in limited cases.<br><br><span style="font-weight: bold;">Table of Contents</span><br style="font-family: Arial;"></span><ul style="font-family: Arial;" id="mozToc"><li><a href="#mozTocId829016">Variables</a></li><li><a href="#mozTocId95124">Common Functions</a></li><li><a href="#mozTocId356308">Bought Back Slaves</a></li></ul><span style="font-size: 12pt; font-family: Arial;">
+<br></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId829016"></a><span style="font-size: 12pt;"></span>Variables<span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;">
+The array is contained in this core variable<br>
+<b>var SlavesArray:Array<br></b>&nbsp;access using <br>_root.SlavesArray<br>&nbsp;in actionscript.<br><br>Note: this is actually a member of the SlaveMaker object so it is actually using the instance<br>_root.SMData.SlavesArray<br>but there is a reference so _root.SlavesArray can be used for simplicity.<br><br>Each entry of the array is an instance on the class Slave</span></span></span></span></span><span style="font-size: 12pt;"><br>
+  <a href="Common%20Scripts/Classes/Slave.as">Common Scripts/Classes/Slave.as</a><br>
+  <br></span></span>
+
+  <table style="text-align: left; width: 907px; height: 590px; font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top;">Class <span style="font-weight: bold;">Slave </span><font size="-1">(simplified)</font><br></td>
+      </tr>
+
+      <tr>
+        <td style="vertical-align: top; background-color: rgb(239, 255, 255);"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;">class Slave extends SlaveMakerSkills {<br><br>&nbsp;&nbsp; &nbsp;public var SlaveId:Number;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;// id number for the SlaveGirlXX.txt file (not saved, ceated from the file)<br>&nbsp;&nbsp; &nbsp;public var SlaveIndex:Number;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;// strictly temporary (unsaved) index in SlavesArray array<br>&nbsp;&nbsp; &nbsp;public var sNode:XMLNode;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;// node for slave data, a shortcut reference to save lookups<br>&nbsp;&nbsp; &nbsp;public var sXML:XML;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;// loaded xml for the slave (only used for bought back/love slaves)<br>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp; &nbsp;// Properties<br>&nbsp;&nbsp; &nbsp;// Slave Type<br>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; // -200 = special minor slave (unowned yet)<br>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; // -100 = untrained slave<br>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; // -20 = special participant for the current slave<br>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; // -10 = slave in training<br>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; // -4 = escaped<br>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; // -3 = sold slave<br>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; // -2 = special participant, but not for the current slave (to preserve stats etc)<br>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; // -1 = slave maker assistant<br>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; //&nbsp; 0 = minor slave<br>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; //&nbsp; 1 = trained slave<br>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; //&nbsp;&nbsp; &nbsp;2 = 'owned' slavemaker assistant<br>&nbsp;&nbsp; &nbsp;public var SlaveType:Number;&nbsp;<br>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp; &nbsp;public var Available:Boolean;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;// is the slave available to train, false and they are hidden from the slave market<br>&nbsp;&nbsp; &nbsp;public var CanAssist:Boolean;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;// is the slave able to be your assistant<br>&nbsp;&nbsp; &nbsp;<br>&nbsp;&nbsp; &nbsp;public var SlaveName:String;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;// their name<br>&nbsp;&nbsp; &nbsp;public var SlaveName1:String;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;// name of first twin<br>&nbsp;&nbsp; &nbsp;public var SlaveName2:String;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;// name of second twin<br>&nbsp;&nbsp; &nbsp;<br>&nbsp;&nbsp; &nbsp;public var SlaveGender:Number;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;// their gender<br>&nbsp;&nbsp; &nbsp;public var SlaveGenderBorn:Number;&nbsp;&nbsp; &nbsp;// gender at birth<br>&nbsp;&nbsp; &nbsp;public var OldSlaveGender:Number;&nbsp;&nbsp; &nbsp;// original gender at start of training<br><br>&nbsp;&nbsp; .....<br>}<br></span></span></span></td>
+      </tr>
+    </tbody>
+  </table><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><br>
+  <font color="#808080"><font color="#000000">Note the class has many member variables and functions, please refer the the class via the link above. The extract above is for reference.<br></font></font></span></span></span><br style="font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;">
+<br>
+So for the Slaves Array you can<br>
+<br>
+<span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for (var i:Number = 0; i &lt; _root.SlavesArray.length; i++) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               &nbsp;
+var sd:Slave = _root.SlavesArray[i];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// see the class but for example<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+sd.SlaveName = their name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+sd.SlaveGender = gender<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+sd.VarConstitution = constitution stat etc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<span style="font-size: 12pt;"><br>
+<u><br>
+</u>You can access the SlavesArray at anytime, To determine the type of the slave check the property SlaveType<br><br></span></span></span></span></span></span></span></span><table style="text-align: left; width: 1375px; height: 58px; font-family: Arial;" border="1" cellpadding="2" cellspacing="2"><tbody><tr><td style="vertical-align: top; width: 10%;"><span style="font-weight: bold;">Value</span><br></td><td style="vertical-align: top;"><span style="font-weight: bold;">Meaning</span><br></td></tr><tr><td style="vertical-align: top;">-200<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"> </span></span></span></td><td style="vertical-align: top;">special minor slave that is not owned yet. Used for a minor slave that is created so they can have flags and variables, but they have not been purchased yet. <br>Currently only the&nbsp; slave Arak uses this value, when she is met in the Secure Slave Pens, but before she is purchased.<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><br></span></span></span></td></tr><tr><td style="vertical-align: top;">-100</td><td style="vertical-align: top;">A major slave that is awaiting training. So Ranma before she is trained has a value -100<br></td></tr><tr><td style="vertical-align: top;">-20<br></td><td style="vertical-align: top;">a special participant when they are being used. So Kiyone during the training of Mihoshi has a value -20<br></td></tr><tr><td style="vertical-align: top;">-10<br></td><td style="vertical-align: top;">the currently being trained slave has a value of -10<br></td></tr><tr><td style="vertical-align: top;">-4<br></td><td style="vertical-align: top;">a slave that ran away and is unavailable anymore. Commonly if a slave gets an ending like runaway or similar.<br></td></tr><tr><td style="vertical-align: top;">-2<br></td><td style="vertical-align: top;">a special participant that is not currently available, so Kiyone when you have completed training Mihoshi<br></td></tr><tr><td style="vertical-align: top;">-3<br></td><td style="vertical-align: top;">sold slave<br></td></tr><tr><td style="vertical-align: top;">-1<br></td><td style="vertical-align: top;">A slave maker assistant. This is <span style="font-weight: bold;">not</span> used for slaves that have been trained and can assist. In that case refer to the member variable CanAssist<br></td></tr><tr><td style="vertical-align: top;">0<br></td><td style="vertical-align: top;">an owned minor slave<br></td></tr><tr><td style="vertical-align: top;">1<br></td><td style="vertical-align: top;">a major slave that your slave maker owns<br></td></tr><tr><td style="vertical-align: top;">2<br></td><td style="vertical-align: top;">a slave maker assistant (-1 above) that has confessed their love and become part of your household.<br></td></tr></tbody></table><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><br>
+<br>
+<span style="font-size: 10pt;">eg<span style="font-size: 12pt;"><br>
+<span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for (var i:Number = 0; i &lt; _root.SlavesArray.length; i++) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+var sd:Slave = _root.SlavesArray[i];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (sd.SlaveType == 0) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// minor (purchased) slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (sd.SlaveType == 1 &amp;&amp; sd.CanAssist) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// a bought back slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (sd.SlaveType == -20) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// a special participant, like Kiyone when training Mihoshi. Only has a value -20 when valid as a participant<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (sd.SlaveType == -1 &amp;&amp; _root.IsAssistant(sd.SlaveName) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// your current assistant<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<span style="font-size: 12pt;"><br>
+<br>
+</span></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+</span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId95124"></a>Common Functions</h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;">
+</span></b></u><b><br>
+IsSlave<br>
+</b><i><span style="font-size: 12pt;">function IsSlave(name:String)<br>
+</span></i>Is the named person your current slave. Simplified telling where their name can change (ie Cumslut Kasumi or Kasumi)<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+if (_root.IsSlave("Kasumi")) {<br>
+&nbsp;&nbsp;&nbsp;// she is your current slave<br>
+}<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">IsSlaveAvailable<br>
+</span></b><i><span style="font-size: 12pt;">function IsSlaveAvailable(name:String)<br>
+</span></i>Is the named person available for slave training. Part of a system where slaves can be hidden from training in a campaign mode<br>
+<span style="font-size: 10pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">IsSlaveOwned<br>
+</span></b><i><span style="font-size: 12pt;">function IsSlaveOwned(name:String)<br>
+</span></i>Is the named slave owned, ie a minor or bought back slave<br>
+<span style="font-size: 10pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">IsSlaveOwnedByIndex<br>
+</span></b><i><span style="font-size: 12pt;">function IsSlaveOwnedByIndex(idx:Number)<br>
+</span></i>Is the named slave owned, ie a minor or bought back slave,
+by the index of SlavesArray, or PersonIndex value as used by
+Participants array. <br>
+Special values&nbsp;<br>
+-99 - assistant<br>
+-50 - current slave<span style="font-size: 10pt;"><br>
+<b><span style="font-size: 12pt;"><br>
+<br>
+<span style="font-size: 14pt;">GetSlaveDetails<br>
+</span></span></b><i><span style="font-size: 12pt;">function GetSlaveDetails(idx:Number) : Slave<br>
+</span></i>returns the Slave class instance for the slave for the index value<br>
+Special values<br>
+-99 - assistant<br>
+-50 - current slave - NOTE: this value is READ ONLY<br>
+<i><br>
+</i><br>
+<b><span style="font-size: 14pt;">IsSlaveOwned<br>
+</span></b><i><span style="font-size: 12pt;">function IsSlaveOwned(slave:String) : Boolean<br>
+</span></i>return true if the slave is owned<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">SetSlaveOwned<br>
+</span></b><i><span style="font-size: 12pt;">function SetSlaveOwned(slave:String)<br>
+</span></i>The slave is now owned<br>
+<br>
+<i><br>
+</i><span style="font-size: 14pt;"><b>GetTotalSlavesOwned<br>
+</b><i><span style="font-size: 12pt;">function GetTotalSlavesOwned() : Number<br>
+</span></i></span></span></span></span></span></span></span></span><span style="font-family: Arial;">returns the total slaves owned, both minor, excludes slave maker assistants</span><br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-weight: bold; font-family: Arial;">GetTotalMaleSlavesOwned</span><br style="font-family: Arial;">
+<span style="font-style: italic; font-family: Arial;">function GetTotalMaleSlavesOwned(sextype:Number, noassist:Boolean) : Number</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+sextype = the sex act you wish to use them for (see SlaveGirl - Sex Actions.rtf). 0 for no sex act</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+noassist = true, then exclude your assistant. default false</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+returns total male slaves owned who are willing to do the sex act, excludes slave maker assistants </span><br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-weight: bold; font-family: Arial;">GetTotalFemaleSlavesOwned</span><br style="font-family: Arial;">
+<span style="font-style: italic; font-family: Arial;">function GetTotalFemaleSlavesOwned(sextype:Number, noassist:Boolean) : Number</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+sextype = the sex act you wish to use them for. 0 for no sex act</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+noassist = true, then exclude your assistant. default false</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+returns total female slaves owned who are willing to do the sex act, excludes assistants</span><br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-weight: bold; font-family: Arial;">GetTotalDickgirlSlavesOwned</span><br style="font-family: Arial;">
+<span style="font-style: italic; font-family: Arial;">function GetTotalDickgirlSlavesOwned(sextype:Number, noassist:Boolean) : Number</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+sextype = the sex act you wish to use them for. 0 for no sex act</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+noassist = true, then exclude your assistant. default false</span><br style="font-family: Arial;"><span style="font-family: Arial;">
+returns total dickgirl slaves owned who are willing to do the sex act, excludes assistants</span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 14pt;"><br>
+<br>
+<u><b><span style="font-size: 14pt;"></span></b></u><span style="font-size: 12pt;"><br></span></span></span></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId356308"></a>Bought Back Slaves</h1>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;">
+</span></b></u><span style="font-size: 12pt;">No special fuctions but, for Bought Back Slaves, in addition to the member variables of the Slave class <b>ALL </b>slave variables listed in Core - Variables.rtf are also present<br>
+eg<br>
+if (_root.SlavesArray[0].VarIntelligence &gt; 50) {<br>
+}<br>
+These variables are the values at the end of the girls training. <br>
+<br>
+Note the read only variables are NOT available like
+VarIntelligenceRounded. Slave Maker, Servant and common variables are
+NOT available in the object, just use as normal for their current state<br>
+<br>
+Note <br>
+LastEnding is the ending received, does not include tentacle, lesbian meta-endings<br>
+<br>
+</span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><u><br>
+</u></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>

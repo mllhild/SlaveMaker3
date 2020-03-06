@@ -1,0 +1,1817 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html;charset=ISO-8859-1" http-equiv="Content-Type">
+  <meta name="generator"
+ content="HTML Tidy for Windows (vers 22 March 2008), see www.w3.org">
+  <title>Text Functions</title>
+</head>
+<body>
+<table
+ style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;"
+ border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font
+ size="+3"><span style="font-weight: bold;">Text Functions<br>
+            </span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td
+ style="vertical-align: top; width: 80%; text-align: left;"><a
+ href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font
+ style="font-weight: bold;" size="-1">Version 8</font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><br>
+</span>
+<ul style="font-family: Arial;" id="mozToc">
+</ul>
+<span style="font-weight: bold; font-family: Arial;">Table of Contents</span>
+<ul style="font-family: Arial;" id="mozToc">
+  <li> <a href="#mozTocId647971">General Concepts</a>
+    <ul>
+      <li><a href="#mozTocId124306">Text Areas</a></li>
+      <li><a href="#mozTocId170913">Blank Lines and Escaped Characters</a></li>
+      <li><a href="#mozTocId991027">HTML</a></li>
+      <li><a href="#mozTocId439162">XML</a></li>
+    </ul>
+  </li>
+  <li> <a href="#mozTocId55514">Functions</a>
+    <ul>
+      <li> <a href="#mozTocId355919">General</a>
+        <ul>
+          <li><a href="#mozTocId518533">AddText</a></li>
+          <li><a href="#mozTocId298876">SetText</a></li>
+          <li><a href="#mozTocId360183">AddGeneralText</a></li>
+          <li><a href="#mozTocId937358">SetGeneralText</a></li>
+          <li><a href="#mozTocId723855">AddTextToStart</a></li>
+          <li><a href="#mozTocId819562">AddTextToStartGeneral</a></li>
+          <li><a href="#mozTocId76806">BlankLine</a></li>
+        </ul>
+      </li>
+      <li> <a href="#mozTocId911230">Speech</a>
+        <ul>
+          <li><a href="#mozTocId939571">PersonSpeak</a></li>
+          <li><a href="#mozTocId402375">PersonSpeakStart</a></li>
+          <li><a href="#mozTocId878455">PersonSpeakEnd</a></li>
+        </ul>
+      </li>
+      <li> <a href="#mozTocId798471">Slave Class Implementation</a>
+        <ul>
+          <li><a href="#mozTocId355133">SlaveSpeak,SlaveSpeakStart,
+SlaveSpeakEnd,</a></li>
+          <li><a href="#mozTocId5345">ServantSpeak, ServantSpeakStart,
+ServantSpeakEnd</a></li>
+          <li><a href="#mozTocId248626">AddSpeechSuffix</a></li>
+        </ul>
+      </li>
+      <li><a href="#mozTocId174243">Others</a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId112190">Text Macros</a></li>
+</ul>
+<span style="font-size: 12pt; font-family: Arial;"><br>
+</span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId647971" id="mozTocId647971"></a>General Concepts<br>
+</h1>
+<h2 style="font-family: Arial;"><a class="mozTocH4"
+ name="mozTocId124306" id="mozTocId124306"></a><big><font size="+1"><big>Text
+Areas</big></font></big></h2>
+<font size="+1">The game displays
+text in two general places, called text areas</font><font size="+1"><br>
+</font>
+<ol style="font-family: Arial;">
+  <li><font size="+1"><span style="font-weight: bold;">General Text
+field</span> - this
+is the central text area in the lower center part of the screen. It is
+not scrollable and can diaplay abut 18 lines of text.<br>
+    </font> </li>
+  <li><font size="+1"><span style="font-weight: bold;">LargerText field</span>
+- this
+is the large area that can <span style="font-weight: bold;">replace
+the
+statistics boxes,</span> it is scrollable and unlimited in length.</font></li>
+</ol>
+<font size="+1">Any text that
+overflows the General Text Field (ie exceeds 18 lines long) will
+automatically make the Larger Text field visible and then show the
+extra text in the Larger Text field.</font><span
+ style="font-size: 12pt; font-family: Arial;"><br>
+<br>
+</span><font size="+1">One point of note is you can sometimes get an
+odd display of text if
+you show a single line in either field. The text appears a little
+cropped at the bottom. So far no good solution has been found for this
+issue, so if you see this with text you output, please just append some
+blank lines on the end.<br>
+<br>
+</font><span style="font-size: 12pt; font-family: Arial;"></span>
+<h2 style="font-family: Arial;"><a class="mozTocH4"
+ name="mozTocId170913" id="mozTocId170913"></a><big><font size="+1"><big>Blank
+Lines and Escaped Characters<br>
+</big></font></big></h2>
+<font size="+1">Generally try to
+space out any text to make it more readable. Using the general text
+functions this is done using \r<br>
+ie<br>
+</font>_root.SetText("this is line 1\r\rthis is line 2 with a blank
+lines
+before it");<font size="+1"><br>
+<br>
+Also remember escaped values, this means to
+use special character combinations for special characters<br>
+\" for a "<br>
+\r start new line<br>
+\r\r for a blank line</font>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 14pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><br>
+<br>
+</span></span></span></span>
+<h2 style="font-family: Arial;"><a class="mozTocH4"
+ name="mozTocId991027" id="mozTocId991027"></a><big><font size="+1"><big>HTML</big></font></big></h2>
+<span style="font-size: 12pt; font-family: Arial;">All text shown by
+the game is html encoded, this means you can use html tags to format
+the text, for underlining, boldface, colour etc<br>
+</span>ie<br>
+_root.AddText("The creature &lt;b&gt;attacks&lt;/b&gt; and &lt;font
+color='red'&gt;bites&lt;/font&gt; #slave painfully.\r\rYou run to
+help...");<br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;">In xml this can also
+be done<br>
+<br>
+</span>&nbsp;&nbsp;&nbsp;&nbsp; &lt;AddText&gt;The creature
+&lt;b&gt;attacks&lt;/b&gt; and &lt;font
+color='red'&gt;bites&lt;/font&gt; #slave painfully.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; You run to help&lt;/AddText&gt;<span
+ style="font-size: 12pt; font-family: Arial;"><font size="-1"><br>
+<br>
+</font>There are some predefined css styles defined by the game<br>
+&lt;ps&gt; - colours the text the standard colour for speech in the game<br>
+</span>eg<br>
+&lt;ps&gt;Boo&lt;/ps&gt;<br>
+<span style="font-size: 12pt; font-family: Arial;"><br>
+&lt;redtext&gt; &lt;bluetext&gt; &lt;greetext&gt; - colours the text
+red/blue/green<br>
+<br>
+&lt;ld2&gt; &lt;ld3&gt; &lt;ld4&gt; - alters line spacing<br>
+<br>
+</span>
+<h2 style="font-family: Arial;"><a class="mozTocH4"
+ name="mozTocId439162" id="mozTocId439162"></a><big><font size="+1"><big>XML</big></font></big></h2>
+<span style="font-size: 12pt; font-family: Arial;">As you see above xml
+works similarly to actionscript with a few variations<br>
+</span>
+<ul style="font-family: Arial;">
+  <li><font size="+1">you do not need \r just add a blank line to the
+text</font></li>
+  <li><font size="+1">all whitespace (leading spaces and tabs are
+ignored before text
+when you use a blank line So in the example above the spaces before
+"You run to help" are ignored. This is to allow the xml files to be
+indented for better readability.</font></li>
+  <li><font size="+1">The game autmotically adds a blank line to the
+end of most event
+text, so the note about odd truncations is not relevant to xml.</font></li>
+  <li><font size="+1">only some common html tags are well supported by
+xml as used in
+the example above. Only &lt;b&gt; &lt;font&gt; &lt;u&gt; &lt;p&gt;
+&lt;i&gt; and the syles &lt;bluetext&gt; &lt;redtext&gt;
+&lt;greentext&gt; &lt;ld3&gt; &lt;ld4&gt; &lt;ld2&gt; &lt;ps&gt;. You
+can use any or all tags, but you will have to use a syntax like
+&amp;lt;table&amp;gt; etc, ie replace all &lt;&gt; with &amp;lt; and
+&amp;gt;</font><br>
+    <br>
+  </li>
+</ul>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId55514"
+ id="mozTocId55514"></a>Functions</h1>
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId355919" id="mozTocId355919"></a>General</h2>
+<font size="+1">These are general functions to
+display text in the game, all are implemented in a class GameLanguage,
+with a runtime instance Language.<br>
+</font>eg<br>
+_root.Language.AddText("Hello");<font size="+1"><br>
+<br>
+For legacy reasons all these functions are also implenented in root
+scope<br>
+</font>eg<br>
+function AddText(s:String) { Language.AddText(s); }<font size="+1"><br>
+to allow<br>
+</font>_root.AddText("Hello");<font size="+1"><br>
+<br>
+Additionally most of these functions are implemented similarly the
+SlaveModule class so any events or slaves that extend that class can use<br>
+</font>AddText("Hello");<font size="+1"><br>
+<br style="font-family: Arial;">
+</font><br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 90%; height: 455px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 100%; height: 13px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 13px;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId518533" id="mozTocId518533"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">AddText</span></b></span></span></span></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 13px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span>
+_root and <a href="Common%20Scripts/Classes/SlaveModule.as">SlaveModule</a>
+class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><i><span
+ style="font-size: 12pt;">function AddText(nstring:String)</span></i></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;AddText&gt;string&lt;/AddText&gt;<font
+ size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Adds text to the games text areas, First to
+the General Text area and will overflow into the Larger Text area. This
+function is also implemented in the</span></span></span></span></span></span></span></font></font></span></span></span>
+      <a href="Common%20Scripts/Classes/SlaveModule.as">SlaveModule</a>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">class via the base class <a
+ href="Common%20Scripts/Classes/BaseModule.as">BaseModule</a>. This
+means in any slave or event derived from the</span></span></span></span></span></span></span></font></font></span></span></span>
+      <a href="Common%20Scripts/Classes/SlaveModule.as">SlaveModule</a>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">class you do not require the _root. prefix.<br>
+      <br>
+      </span></span></span></span></span></span></span></font></font></span></span></span>
+      <span style="font-size: 12pt;"><font size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 10pt;">_root.AddText("&lt;b&gt;I'm bold&lt;/b&gt;");<br>
+_root.AddText(" and &lt;i&gt;sexy&lt;/i&gt;");<br>
+      <br>
+(in a class derived from SlaveModule)<br>
+      </span></span></span><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;">SetText("You are walking down the street ");<br>
+if (Talent == 21) AddText("and you are aware of a tentacle monster
+nearby.");<br>
+else AddText("and you smell an odd smell.");<br>
+AddText("\r\rThe thing attacks...");</span></span></span></span></span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span></span></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span><br>
+      <font size="-1">&lt;AddText&gt;</font><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 10pt;">&lt;b&gt;I'm bold&lt;/b&gt;&lt;/AddText&gt;<br>
+      </span></span></span><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 10pt;">&lt;AddText&gt;
+and &lt;i&gt;sexy&lt;/i&gt;&lt;/AddText&gt;</span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 14pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><b><span style="font-size: 12pt;"><br>
+</span></b></span></span></span></span></span></span>
+<table
+ style="text-align: left; width: 90%; height: 85px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 100%; height: 13px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 13px;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId298876" id="mozTocId298876"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">SetText</span></b></span></span></span></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 13px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span>
+_root and <a href="Common%20Scripts/Classes/SlaveModule.as">SlaveModule</a>
+class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><i><span
+ style="font-size: 12pt;">function SetText(nstring:String)</span></i></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;SetText&gt;string&lt;/SetText&gt;<font
+ size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Works identically to <a
+ href="#mozTocId518533">AddText</a> but first it erases all text in all
+text areas, so it starts with a clean text field. Useful for cases when
+you override an existing event.</span></span></span></span></span></span></span></font></font></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 90%; height: 86px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 100%; height: 13px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 13px;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId360183" id="mozTocId360183"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">AddGeneralText</span></b></span></span></span></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 13px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span>
+_root and <a href="Common%20Scripts/Classes/SlaveModule.as">SlaveModule</a>
+class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><i><span
+ style="font-size: 12pt;">function AddGeneralText(nstring:String)</span></i></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">no xml implementation<font
+ size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Adds text ONLY to the General Text area. The
+text does not overflow into the Larger Text area. Mainly used for hints
+and shopping type text.</span></span></span></span></span></span></span></font></font></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 90%; height: 86px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 100%; height: 13px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 13px;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId937358" id="mozTocId937358"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">SetGeneralText</span></b></span></span></span></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 13px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span>
+_root and <a href="Common%20Scripts/Classes/SlaveModule.as">SlaveModule</a>
+class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><i><span
+ style="font-size: 12pt;">function SetGeneralText(nstring:String)</span></i></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">no xml implementation<font
+ size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">As for <a href="#mozTocId360183">AddGeneralText</a>,
+but clears the General Text area first/</span></span></span></span></span></span></span></font></font></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 90%; height: 106px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 100%; height: 13px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 13px;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId723855" id="mozTocId723855"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">AddTextToStart</span></b></span></span></span></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 13px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span>
+_root and <a href="Common%20Scripts/Classes/SlaveModule.as">SlaveModule</a>
+class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><i><span
+ style="font-size: 12pt;">function AddTextToStart(nstring:String)</span></i></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">no implementation<font
+ size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Adds the new text at the beginning of the
+General Text area. Useful when modifying an existing event to add a
+prequel piece of text.</span></span></span></span></span></span></span></font></font></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 14pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><br>
+</span></span></span></span></span></span>
+<table
+ style="text-align: left; width: 90%; height: 106px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 100%; height: 13px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 13px;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId819562" id="mozTocId819562"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">AddTextToStartGeneral</span></b></span></span></span></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 13px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span>
+_root and <a href="Common%20Scripts/Classes/SlaveModule.as">SlaveModule</a>
+class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><i><span
+ style="font-size: 12pt;">function AddTextToStartGeneral(nstring:String)</span></i></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">no implementation<font
+ size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">As for <a href="#mozTocId723855">AddTextToStart</a>
+but does not wrap around into Larger Text area</span></span></span></span></span></span></span></font></font></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 14pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 14pt;"><br>
+</span></span></span></span></span></span></span>
+<table
+ style="text-align: left; width: 90%; height: 212px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 100%; height: 13px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 13px;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId76806" id="mozTocId76806"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">BlankLine<br>
+            </span></b></span></span></span></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 13px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span>
+_root and <a href="Common%20Scripts/Classes/SlaveModule.as">SlaveModule</a>
+class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><i><span
+ style="font-size: 12pt;">function BlankLine()</span></i></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;BlankLine/&gt;<font
+ size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Adds a blank line to the end of the currently
+shown text. Essentially a shortcut for<br>
+_root.AddText("\r\r");</span></span></span></span></span></span></span></font></font></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId911230" id="mozTocId911230"></a>Speech</h2>
+<span style="font-family: Arial;">These are function to display text as
+if someone is speaking, generally in the format like</span><br
+ style="font-family: Arial;">
+<span style="font-weight: bold; font-family: Arial;">Ranma:</span><br
+ style="font-family: Arial;">
+<span style="color: rgb(102, 0, 0); font-family: Arial;">"Hello there"</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;">The function also support modifying
+the text if the speaker is a catgirl, ponygirl, puppygirl, or is
+wearing a gag. ie</span><br style="font-family: Arial;">
+<span style="font-family: Arial;">Shampoo briefy removes Ranma's gag</span><br
+ style="font-family: Arial;">
+<span style="font-weight: bold; font-family: Arial;">Ranma:</span><br
+ style="font-family: Arial;">
+<span style="color: rgb(102, 0, 0); font-family: Arial;">"Hello there,
+Neigh!"</span><br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-family: Arial;">These modifications are automatically
+dome for the Slave and Servant versions of the functions, and by the
+Slave class versions.</span><br style="font-family: Arial;">
+<font style="font-family: Arial;" size="-1">eg<br>
+_root.SlaveSpeak("Hello there");<br>
+_root.AssistantData.SlaveSpeak("Hello there");<br>
+_root.ServantSpeak("Hello there");</font><br style="font-family: Arial;">
+<span style="font-family: Arial;">will all modify the text.</span><br
+ style="font-family: Arial;">
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 90%; height: 859px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 100%; height: 13px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 13px;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId939571" id="mozTocId939571"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">PersonSpeak<br>
+            </span></b></span></span></span></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 13px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span>
+_root and <a href="Common%20Scripts/Classes/SlaveModule.as">SlaveModule</a>
+class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><i>function
+PersonSpeak(person:Object, say:String, newl:Boolean)</i></span></span></span></span></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;PersonSpeak
+person='person'&gt;say&lt;/PersonSpeak&gt;<br>
+you can interchangably use slave='person'<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">The person will speak the text specified. The
+person parameter can be any of the following<br>
+      </span></span></span></span></span></span></span></font></font></span></span></span>
+      <ul>
+        <li>a general name "Trader" "Party Goer" etc</li>
+        <li>a standard NPC's person name "Lady Farun" "Miss. N" etc</li>
+        <li>a person number, see <a href="Core%20-%20People.html">Core
+- People.html</a> or the xml file Languages/English/Base.xml and the
+People nodes</li>
+      </ul>
+Actionscript and XML have some differences<br>
+      <br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript</span></span></span></span></span></span></span><font
+ size="+1"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"><span
+ style="font-size: 10pt;">:</span></span></font><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span> By default all
+text is cleared when this function is called (ie calls <a
+ href="#mozTocId298876">SetText())</a> but you can make it append text
+by using the new line parameter<br>
+&nbsp;<span style="font-size: 12pt;"><font size="-1">eg</font></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 10pt;">_root.PersonSpeak("Lady Farun", "Hi!", true);<br>
+      <br>
+      </span></span></span> <span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">xml</span></span></span></span></span></span></span><font
+ size="+1"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"><span
+ style="font-size: 10pt;">:</span></span></font><br>
+By default text is appended, if you wish to clear all text first then
+add a line &lt;SetText/&gt; before the call.<br>
+When &lt;PersonSpeak&gt; is called the game adds a blank line before
+and after the displayed text.<br>
+      <font size="-1">eg<br>
+&lt;PersonSpeak person='Lady Farun"&gt;Hi&lt;/PersonSpeak&gt;<br>
+In actionscript this would be<br>
+_root.BlankLine();<br>
+_root.PersonSpeak("Lady Farun", "Hi", true);<br>
+_root.BlankLine();</font><br>
+      <br>
+There are also several standard person values for the xml version<br>
+      <ul>
+        <li>assistant - your current servant</li>
+        <li>slave - your current slave</li>
+        <li>slavea. slaveb - for twins these represent one of the pair
+picked at random. For non-twins then just the slave<br>
+        </li>
+        <li>assistanta, assistantb - for assistants who are twin, one
+of them picked at random. For non-twins, then just the assistant<br>
+        </li>
+      </ul>
+Lastly there are attributes to reproduce the <a href="#mozTocId402375">PersonSpeakStart</a>
+and PersonSpeakEnd functions below<br>
+      <font size="-1">eg<br>
+&lt;PersonSpeak person="Lady Farun" start='true'&gt;Hi there
+&lt;/PersonSpeak&gt;<br>
+&lt;if gender='male'&gt;<br>
+&nbsp;&nbsp; &lt;PersonSpeak end='true'&gt;handsome.&lt;/PersonSpeak&gt;<br>
+&lt;else&gt;if&lt;/else&gt;<br>
+&nbsp;&nbsp; &lt;PersonSpeak
+end='true'&gt;beautiful.&lt;/PersonSpeak&gt;<br>
+&lt;/if&gt;</font><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 90%; height: 393px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 100%; height: 13px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 13px;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId402375" id="mozTocId402375"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">PersonSpeakStart<br>
+            </span></b></span></span></span></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 13px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span>
+_root and <a href="Common%20Scripts/Classes/SlaveModule.as">SlaveModule</a>
+class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><i>function
+PersonSpeakStart(person:Object, say:String, newl:Boolean)</i></span></span></span></span></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;PersonSpeak
+person='person' start='true'&gt;say&lt;/PersonSpeak&gt;<br>
+you can interchangably use slave='person'<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Works identically to <a
+ href="#mozTocId939571">PersonSpeak</a> but it does not close the
+speech, by adding the training " or add a line feed. This allows you to
+create variations of the text depending on gender or other issues.<br>
+      <br>
+      <font size="-1">eg<br>
+_root.PersonSpeakStart("Lady Farun", "Hi there ");<br>
+if (_root.Gender == 2) _root.AddText("beautiful.");<br>
+else</font></span></span></span></span></span></span></span></font></font></span></span></span>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><font size="-1">_root.AddText("handsome.");</font><br>
+      <font size="-1"><br>
+will show</font><br>
+      </span></span></span></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><b>Lady Farun:<br>
+      </b>"Hi there handsome."<br>
+      <br>
+      </span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">As noted above XML works a bit differently,
+see the discussion on <a href="#mozTocId939571">&lt;PersonSpeak&gt;</a>,<br>
+      </span></span></span></span></span></span></span></font></font></span></span></span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 14pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<table
+ style="text-align: left; width: 90%; height: 246px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 100%; height: 13px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 13px;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId878455" id="mozTocId878455"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">PersonSpeakEnd<br>
+            </span></b></span></span></span></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 13px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span>
+_root and <a href="Common%20Scripts/Classes/SlaveModule.as">SlaveModule</a>
+class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><i>function
+PersonSpeakEnd(say:String)</i></span></span></span></span></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;PersonSpeak
+person='person' end='true'&gt;say&lt;/PersonSpeak&gt;<br>
+you can interchangably use slave='person'<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">This appends the string to the currently
+displayed text, and then closes off the speech by adding " and a line
+feed.</span></span></span></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><br>
+      <br>
+      </span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">As noted above XML works a bit differently,
+see the discussion on <a
+ href="Core%20-%20Functions%20-%20Text.html#mozTocId939571">&lt;PersonSpeak&gt;</a>,<br>
+      </span></span></span></span></span></span></span></font></font></span></span></span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 14pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId798471" id="mozTocId798471"></a>Slave Class
+Implementation<br>
+</h2>
+<table
+ style="text-align: left; width: 90%; height: 174px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 100%; height: 30px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 13px;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId355133" id="mozTocId355133"></a><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">SlaveSpeak,</span><span
+ style="font-size: 14pt;">SlaveSpeakStart, SlaveSpeakEnd,</span></b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></h4>
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId5345" id="mozTocId5345"></a><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">ServantSpeak, ServantSpeakStart,
+ServantSpeakEnd</span></b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 13px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span>
+_root and</font> <a href="Common%20Scripts/Classes/Slave.as"><font
+ size="-1">Slave</font></a> <font size="-1">class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><i>function
+SlaveSpeak(person:Object, say:String, newl:Boolean)</i></span></span></span></span></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">just use
+&lt;PersonSpeak&gt;<font size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">as above but specific for your slave/servant.
+The person parameter is omitted as it is implied.<br>
+For the Slave versions text like Meow, Neigh and references to bitgags
+are automatically added<br>
+For Twins there are also <b>Slave1Speak</b>, <b>Slave2Speak</b>, <b>Slave1SpeakStart</b>,
+      <b>Slave2SpeakStart</b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><br>
+      <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 90%; height: 498px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 100%; height: 13px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 13px;">
+            <h4 style="height: 0px;"><a class="mozTocH4"
+ name="mozTocId248626" id="mozTocId248626"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b><span style="font-size: 14pt;">AddSpeechSuffix<br>
+            </span></b></span></span></span></span></span></h4>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 13px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span>
+_root and <a href="Common%20Scripts/Classes/Slave.as">Slave</a> class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-style: italic;">function
+AddSpeechSuffix(chance:Number,stringsuffix:String)</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML
+Slave Initialisation:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 892px; height: 50px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Speech&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;Suffix chance='number'&gt;string&lt;/Suffix&gt;<br>
+&lt;/Speech&gt;<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML
+function:</span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 892px; height: 1px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;AddSpeechSuffix
+slave='name' chance='number'&gt;string&lt;/AddSpeechSuffix&gt;<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">This will append a phrase or word to the end
+of any speech the slave give using the SlaveSpeak type functions. It
+will happen a certain percentage of the time, default is <span
+ style="font-weight: bold;">every</span> time. For example a certain
+character in an anime always add the word 'Desu!' to the end of every
+time they speak.<br>
+      <br>
+For actionscript this can be changed at any time, or just in the
+StartGame() function, as this setting is remembered and saved for the
+slave.<br>
+      <small>eg for the current slave<br>
+_root.AddSpeechSuffix(100, "Desu!");<br>
+or for a specific slave<br>
+var sd:Slave = _root.GetSlaveDetails("Shampoo");<br>
+sd.AddSpeechSuffix(50, "Nihao!");</small><br>
+      </span></span></span></span></span></span></span></font></font></span></span></span>
+      <span style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">In XML this can be set at anytime using
+&lt;AddSpeechSuffix&gt; or can be initialised by adding to the slaves
+xml, in the &lt;Slave&gt; node<br>
+      <font size="-1">eg note ... just represent other nodes<br>
+&lt;Slave&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; ....<br>
+      </font></span></span></span></span></span></span></span></font></font></span></span></span><font
+ size="-1">&nbsp;&nbsp; &lt;Speech&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Suffix
+chance='100'&gt;Desu!&lt;/Suffix&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/Speech&gt;<br>
+&nbsp;&nbsp;&nbsp; .....<br>
+&lt;/Slave&gt;</font><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><br>
+      </span></span></span></span></span></span></span></font></font></span></span></span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId174243" id="mozTocId174243"></a>Others</h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 14pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;">There are a number of generic manipulation
+functions for altering case, plurality, but these are not needed by a
+slave girl developer as you know the gender and plurality of your slave.<br>
+<br>
+The following function are only implement for actionscript and are only
+available via _root scope.<br>
+<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<table
+ style="text-align: left; width: 100%; height: 260px; font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">Function</span><br>
+      </td>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">Prototype</span><br>
+      </td>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">Description</span><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; width: 20%;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;">NonPlural</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></td>
+      <td style="vertical-align: top; width: 40%; font-style: italic;">function
+NonPlural(str:String, gender:Number) : String</td>
+      <td style="vertical-align: top; width: 40%;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;">Plural</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></td>
+      <td style="vertical-align: top; font-style: italic;">function
+Plural(str:String, gender:Number) : String</td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;">SlaveVerb</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></td>
+      <td style="vertical-align: top; font-style: italic;">function
+SlaveVerb(s:String) : String</td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;">SlaveHeSheVerb</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></td>
+      <td style="vertical-align: top; font-style: italic;">function <span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;">SlaveHeSheVerb</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>(s:String)
+: String</td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">ShowLargerText</td>
+      <td style="vertical-align: top; font-style: italic;">function
+ShowLargerText(large:Boolean)</td>
+      <td style="vertical-align: top;">Shows the Larger Text field<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">NameCase</td>
+      <td style="vertical-align: top; font-style: italic;">function
+NameCase(s:String) : String</td>
+      <td style="vertical-align: top;">Converts a string so the first
+character is in upper case<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">strTrim</td>
+      <td style="vertical-align: top; font-style: italic;">function
+strTrim(s:String) : String</td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">SaveText</td>
+      <td style="vertical-align: top; font-style: italic;">function
+SaveText()</td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">RestoreText</td>
+      <td style="vertical-align: top; font-style: italic;">function
+RestoreText()</td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 14pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;">eg<br>
+<span style="font-size: 10pt;">AddText(SlaveName + NonPlural(" refuse")
++ " explaining that " + SlaveHeSheIs + " not of their faith. The person
+smiles and rejoins the others to make their offerings.");<br>
+AddText(SlaveVerb("refuse") + " explaining that " + SlaveHisHer +
+Plural(" cock") + " may be too large for her.");<br>
+<i><br>
+</i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId112190" id="mozTocId112190"></a> Text Macros</h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 14pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">In all the
+above functions (and most other places text is used) a series of macros
+can be used<br>
+<span style="font-size: 10pt;"><br>
+eg<br>
+_root.SetText("#slave can compete in a contest again.");<br>
+<span style="font-size: 12pt;"><br>
+<br>
+<b>#slave</b> &nbsp; - will be replaced by the slaves name,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; eg Ranma<br>
+<b>#assistant</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - will be replaced by
+your servants name,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; eg Shampoo<br>
+<b>#slaveheshe</b> - he/she/they based on gender of your slave<br>
+<b>#slavehimher</b>- him/her/them based on gender of your slave<br>
+<b>#slavehimher2</b> - for translation cases where there are
+tense/plural differences<br>
+<b>#slavehimher3</b><br>
+<b>#slavehimher4</b><br>
+<b>#slavehisher</b>&nbsp;&nbsp;&nbsp;&nbsp; - his/her/them based on
+gender of your slave<br>
+<b>#slavehisher2</b> - for translation cases where there are
+tense/plural differences<br>
+<b>#slavehisher3</b><br>
+<b>#slavehisher4</b><br>
+<b>#slaveA</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -
+SlaveA, usually this is the slave's name. For twins it is one of the
+slaves picked at random<br>
+<b>#slaveB</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -
+SlaveB, the other twin than SlaveA (or SlaveName for non-twins)<br>
+<b>#assistant</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - your assistants name<br>
+<b>#assistantA</b> &nbsp;&nbsp;&nbsp;&nbsp; - ServantA, as above but
+for your assistant<br>
+<b>#assistantB</b> &nbsp;&nbsp;&nbsp;&nbsp; - ServantB, ditto<br>
+<b>#assistantheshe</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- he/she/they based on gender of your assistant<br>
+<b>#assistanthimher</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -
+him/her/them based on gender of your assistant<br>
+<b>#assistanthimher2</b> - for translation cases where there are
+tense/plural differences<br>
+<b>#assistanthimher3</b><br>
+<b>#assistanthimher4</b><br>
+<b>#assistanthisher</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -
+his/her/them based on gender of your assistant<br>
+<b>#assistanthisher2</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - for
+translation cases where there are tense/plural differences<br>
+<b>#assistanthisher3</b><br>
+<b>#assistanthisher4</b><br>
+<b>#super</b>&nbsp;&nbsp; - the name of the person supervising, either
+'you' or your assistants name<br>
+<b>#supername</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - the name of the
+person supervising, either your slave makers name or your assistants
+name<br>
+<br>
+<b>#master</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -
+Master or Mistress, depending on your Slave Makers gender<br>
+<b>#slavemakername</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- your Slave Makers name<br>
+<b>#superhisher</b> &nbsp;&nbsp;&nbsp; - his/her/them based on gender
+of the person currently supervising your slave<br>
+<b>#superheshe</b> &nbsp;&nbsp;&nbsp;&nbsp; - he/she/they based on
+gender of the person currently supervising your slave<br>
+<b>#supername</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - the name of the
+person currently supervising your slave, always the persons explicit
+name<br>
+<b>#super</b> &nbsp; - similar to #supername but show 'you' for your
+slave maker<br>
+<b>#assistantpronoun</b> - the pronoun your asistant uses, default I<br>
+<b>#assistant&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> - your assistants
+name<br>
+<br>
+<br>
+<span style="font-weight: bold;">First Letter in Uppercase</span><br>
+The macros for he/she/his/her also support displaying He <br>
+eg<br>
+He goes for a walk<br>
+To do this just use #Slaveheshe<br>
+eg<br>
+#Slaveheshe goes for a walk<br>
+<br>
+<br>
+<span style="font-weight: bold;">DEPRECIATED</span><br>
+The following macros are available but you are discouraged from using
+them. They will eventually be removed from the game<br>
+<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 14pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><b>#slavesee</b>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - slavename sees
+or slavename see, depending on if they are one person or twins<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ranma sees<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mara &amp; Nara see</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><br>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 14pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><b>#slaveis</b>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - SlaveName
+is, or SlaveName are for twins<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ranma is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mara &amp; Nara are<br>
+<b>#slavehas</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - slave has, or
+slavename have for twins<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; eg Ranma has<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><br>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 14pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><b>#assistantis</b>&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Servantname is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; eg Mugi is<br>
+<b>#assistanthas</b> -&nbsp; Servantname has<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; eg Mugi has<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><br>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 14pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><br>
+<br>
+<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+</body>
+</html>

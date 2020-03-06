@@ -1,0 +1,1949 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html;charset=ISO-8859-1" http-equiv="Content-Type">
+  <meta name="generator"
+ content="HTML Tidy for Windows (vers 22 March 2008), see www.w3.org">
+  <title>Pregnancy</title>
+</head>
+<body>
+<table
+ style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;"
+ border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font
+ size="+3"><span style="font-weight: bold;">Pregnancy<br>
+            </span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td
+ style="vertical-align: top; width: 80%; text-align: left;"><a
+ href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font
+ style="font-weight: bold;" size="-1">Updated for version 3.4</font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"></span><span
+ style="font-weight: bold; font-family: Arial;"></span><span
+ style="font-family: Arial;"><br>
+<br>
+</span>
+<span style="font-weight: bold; font-family: Arial;">Table of Contents</span><span
+ style="font-family: Arial;">
+</span><span style="font-size: 12pt; font-family: Arial;"><b><br>
+</b></span>
+<ul style="font-family: Arial;" id="mozToc">
+<!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6-->
+  <li><a href="#mozTocId101062">General Concepts</a>
+    <ul>
+      <li><a href="#mozTocId1806">Fertility</a></li>
+      <li><a href="#mozTocId565713">Contraceptives</a></li>
+      <li><a href="#mozTocId57899">Progression of Pregnancies</a></li>
+      <li><a href="#mozTocId492015">Midwives</a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId655244">Core Variables</a>
+    <ul>
+      <li><a href="#mozTocId278224">PregnancyOn</a></li>
+      <li><a href="#mozTocId675395">config.DefaultFertility</a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId974336">Slave and Slave Maker Variables</a>
+    <ul>
+      <li><a href="#mozTocId154668">PregnancyGestation</a></li>
+      <li><a href="#mozTocId571643">PregnancyType</a></li>
+      <li><a href="#mozTocId122668">PregnancyCount</a></li>
+      <li><a href="#mozTocId74816">DateImpregnated</a></li>
+      <li><a href="#mozTocId309905">Fertility</a></li>
+      <li><a href="#mozTocId710453">TotalChildren</a></li>
+      <li><a href="#mozTocId70635">TotalTentaclePregnancy</a></li>
+      <li><a href="#mozTocId479914">DaysUnavailble</a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId887237">Configuration Settings</a></li>
+  <li><a href="#mozTocId700515">BitFlags</a>
+    <ul>
+      <li><a href="#mozTocId902164">BitFlag 1</a></li>
+      <li><a href="#mozTocId208918">BitFlagSM</a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId990246">Slave and Slave Maker Functions</a>
+    <ul>
+      <li><a href="#mozTocId941913">CheckImpregnate</a></li>
+      <li><a href="#mozTocId661259">Impregnate</a></li>
+      <li><a href="#mozTocId29082">CanImpregnate</a></li>
+      <li><a href="#mozTocId742328">IsPregnant</a></li>
+      <li><a href="#mozTocId475831">AddToPregnancy</a></li>
+      <li><a href="#mozTocId479206">UseContraceptives</a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId999341">Slave Interface Functions</a>
+    <ul>
+      <li><a href="#mozTocId751726">ShowPregnancyReveal</a></li>
+      <li><a href="#mozTocId480132">ShowTentaclePregnancyReveal</a></li>
+      <li><a href="#mozTocId999267">ShowTentaclePregnancyBirth</a></li>
+      <li><a href="#mozTocId449771">ShowPregnancyBirth</a></li>
+      <li><a href="#mozTocId855169">SeePregnant</a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId707988">XML Slave Maker Images</a></li>
+  <li><a href="#mozTocId868657">Birthing Events</a></li>
+</ul>
+<span style="font-size: 12pt; font-family: Arial;"><b><br>
+</b></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId101062"></a>General Concepts</h1>
+<span style="font-size: 12pt; font-family: Arial;">There are a series
+of functions and variables that affect pregnancy in the game. In
+general these are common to all slaves, assistants and for your Slave
+Maker with slight variations. The race of the slave (if set) can vary
+the gestation time, fertility and number of children that result from
+pregnancies.<br>
+<br>
+</span>
+<h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId1806"></a><span
+ style="font-size: 12pt;">Fertility</span></h2>
+<span style="font-size: 12pt; font-family: Arial;">All slaves/slave
+makers have a fertility that defines the chance they will become
+pregnant, by default this is 20%<br>
+<br>
+</span>
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId565713"></a><span style="font-size: 12pt;">Contraceptives</span></h2>
+<span style="font-size: 12pt; font-family: Arial;">Using the Potions
+dialogue you can choose to have a slave on or off of contraceptives. It
+is important to note that the Tentacle Beasts are extraordinarily
+potent and totally ignore these contraceptives.<br>
+<br>
+</span>
+<h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId57899"></a><span
+ style="font-size: 12pt;">Progression of Pregnancies</span></h2>
+<span style="font-size: 12pt; font-family: Arial;">The general process
+will be<br>
+<br>
+1) your assistant will notice the slave is gaining weight<br>
+<br>
+2) If you own the minor slave Cora she can report that the slave is
+pregnant in an early morning event or if you talk to her.<br>
+<br>
+3) once the pregnancy comes to term the slave will give birth in a
+morning event. By default only one slave per day will give birth<br>
+<br>
+</span>
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId492015"></a><span style="font-size: 12pt;">Midwives</span></h2>
+<span style="font-size: 12pt; font-family: Arial;">The minor slaves
+Cora and Maran are Midwives or Nurses and can supervise the birthing
+process. They can report on if a slave is pregnant in 2) above. The
+game will preferentially use Cora for this if she is owned.<br>
+Any slave can have this set in their xml via the node &lt;Trainings&gt;<br>
+<br>
+</span><br style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><b></b></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId655244"></a>Core Variables</h1>
+<table
+ style="text-align: left; width: 936px; height: 212px; background-color: rgb(242, 255, 255); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: rgb(229, 229, 229);"><span
+ style="font-weight: bold;">Actionscript Variable</span></td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: rgb(229, 229, 229);"><span
+ style="font-weight: bold;">XML Variable</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 21px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 33px;">
+            <h2 style="height: 9px;"><a class="mozTocH2"
+ name="mozTocId278224"></a><small>PregnancyOn</small><span
+ style="font-size: 12pt;"></span></h2>
+            <font size="-2"><span style="font-weight: bold;">implemented
+in:</span> _root and Options</font><br>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 33px;"><font
+ size="+1"><span style="font-weight: bold;">pregnacy</span></font><span
+ style="font-size: 12pt; font-weight: bold;"><span
+ style="font-size: 12pt;"><font color="#000080"></font></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <big>(<span style="font-style: italic;">Boolean</span>) can your
+slaves become pregnant and are events featuring pregnancy in the game<br>
+      </big> <span style="font-size: 12pt;"><font size="-1">eg</font></span>
+      <table style="text-align: left; width: 896px; height: 68px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; width: 50%;"><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span></td>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span></td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">if (_root.PregnancyOn)<br>
+&nbsp;&nbsp; // the events are allowed<br>
+} <br>
+            </span></span></span></span></span></font></font></span></span></span></td>
+            <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1">&lt;if
+pregnancy='true'&gt;<br>
+&nbsp;&nbsp; &lt;!-- allowed --&gt;<br>
+&lt;/if&gt;<br>
+            </font></span></span></span></span></span></span></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table
+ style="text-align: left; width: 936px; height: 50px; background-color: rgb(242, 255, 255);"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;">
+            <table style="text-align: left; width: 924px; height: 21px;"
+ border="1" cellpadding="2" cellspacing="2">
+              <tbody>
+                <tr>
+                  <td
+ style="vertical-align: top; background-color: white; height: 33px;">
+                  <h2 style="height: 9px;"><a class="mozTocH2"
+ name="mozTocId675395"></a><small>config.DefaultFertility</small><span
+ style="font-size: 12pt;"></span></h2>
+                  <font size="-2"><span style="font-weight: bold;"></span></font>
+                  </td>
+                  <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 33px;"><font
+ size="+1"><span style="font-weight: bold;">not implemented</span></font><span
+ style="font-size: 12pt; font-weight: bold;"><span
+ style="font-size: 12pt;"></span></span></td>
+                </tr>
+              </tbody>
+            </table>
+            <big>(<span style="font-style: italic;">Number</span>) the
+initlal value for a new slave's
+fertility. Set in configuration.xml</big><span style="font-size: 12pt;"></span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><br>
+</font></font></span></span></span>
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId974336"></a>Slave and Slave Maker Variables</h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000">These veriables are common to
+all slaves and also to the Slave Makers<br>
+<br>
+</font></font></span></span></span>
+<table
+ style="text-align: left; width: 936px; height: 576px; background-color: rgb(242, 255, 255); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: rgb(229, 229, 229);"><span
+ style="font-weight: bold;">Actionscript Variable</span></td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: rgb(229, 229, 229);"><span
+ style="font-weight: bold;">XML Variable</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table
+ style="text-align: left; width: 924px; height: 245px; background-color: rgb(242, 255, 255);"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;">
+            <table style="text-align: left; width: 912px; height: 52px;"
+ border="1" cellpadding="2" cellspacing="2">
+              <tbody>
+                <tr>
+                  <td
+ style="vertical-align: top; background-color: white;">
+                  <h2><a class="mozTocH2" name="mozTocId154668"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><b>PregnancyGestation</b></font></font></font></font></font></span></span></h2>
+                  </td>
+                  <td
+ style="vertical-align: top; width: 50%; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><b>pregnancygestation<br>
+pregnancygestation-<span style="font-style: italic;">slavename</span></b></font></font></font></font></font></span></span></td>
+                </tr>
+              </tbody>
+            </table>
+            <big>(<span style="font-style: italic;">Number</span>)
+state of the slave's pregnancy</big><br>
+            <div style="margin-left: 40px;"> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000">0 = not
+pregnant with something</font></font></font></font></font></span></span><br>
+            <span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000080"><font color="#000000"><font color="#000000">&nbsp;&gt;
+0 she is pregnant and this is the</font></font></font></font></font></span></span>
+            <span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000080"><font color="#000000"><font color="#000000">number of
+days until she gives birth</font></font></font></font></font></span></span><br>
+            <span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000080"><font color="#000000"><font color="#000000">&nbsp;-1 =
+will not become pregnant, ever<br>
+-1000 = will give birth very soon, normally the next morning<br>
+            </font></font></font></font></font></span></span> </div>
+Generally do not modify
+this value, use the Impregnate() function or &lt;Impregnate&gt;
+statement, but you can if you wish<br>
+            <br>
+Note:<br>
+pregnancygestation-slavename supports<br>
+            <div style="margin-left: 40px;"> <font size="-1">pregnancygestation-slavemaker<br>
+pregnancygestation-assistant<br>
+pregnancygestation-maran</font><br>
+            </div>
+            <br>
+            <span style="font-size: 12pt;"><font size="-1">eg<br>
+            </font></span>
+            <table style="text-align: left; width: 912px; height: 71px;"
+ border="0" cellpadding="0" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td style="vertical-align: top; width: 50%;"><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span></td>
+                  <td style="vertical-align: top;"><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span></td>
+                </tr>
+                <tr>
+                  <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">if
+((_root.PregnancyGestation &lt; 5) {<br>
+&nbsp;&nbsp; _root.SetText("#slave is due to give birth in a few
+days...");<br>
+}</span></span></span></span></span></font></font></span></span></span></td>
+                  <td style="vertical-align: top;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1">&lt;if
+pregnancygestation-slavemaker='5-'&gt;<br>
+&nbsp;&nbsp; &lt;SetText&gt;You are due to give birth in a few
+days&lt;/SetText&gt;</font></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1"><br>
+&lt;/if&gt;</font></span></span></span></span></span></span></span></span></span></span></td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">
+            <table style="text-align: left; width: 912px; height: 52px;"
+ border="1" cellpadding="2" cellspacing="2">
+              <tbody>
+                <tr>
+                  <td
+ style="vertical-align: top; background-color: white;">
+                  <h2><a class="mozTocH2" name="mozTocId571643"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><b>PregnancyType</b></font></font></font></font></font></span></span></h2>
+                  </td>
+                  <td
+ style="vertical-align: top; width: 50%; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><b>pregnancytype<br>
+pregnancytype-<span style="font-style: italic;">slavename</span></b></font></font></font></font></font></span></span></td>
+                </tr>
+              </tbody>
+            </table>
+            <big><font size="-1"><big><span style="font-style: italic;">(String)</span></big></font>
+The type/father of the pregnancy. An arbitrary value but the standard
+values are</big><br>
+            <div style="margin-left: 40px;"> <big>"Yours" - your Slave
+Maker is the father<br>
+"Tentacles" - the slave was impregnated by a tentacle beast<br>
+"Human" - impregnated by a general/unspecified person<br>
+            </big><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font
+ color="#000080"><font color="#000000"><font color="#000000"></font></font></font></font></font></span></span>
+            </div>
+            <big>Generally do not modify
+this value, but you can if you wish</big><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table
+ style="text-align: left; width: 924px; height: 82px; background-color: rgb(242, 255, 255);"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;">
+            <table style="text-align: left; width: 912px; height: 52px;"
+ border="1" cellpadding="2" cellspacing="2">
+              <tbody>
+                <tr>
+                  <td
+ style="vertical-align: top; background-color: white;">
+                  <h2><a class="mozTocH2" name="mozTocId122668"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><b>PregnancyCount</b></font></font></font></font></font></span></span></h2>
+                  </td>
+                  <td
+ style="vertical-align: top; width: 50%; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><b>pregnancycount<br>
+pregnancycount-<span style="font-style: italic;">slavename</span></b></font></font></font></font></font></span></span></td>
+                </tr>
+              </tbody>
+            </table>
+            <big><font size="-1"><big><span style="font-style: italic;">(Number)</span></big></font>
+The number of children that will be birthed</big><br>
+            <big>Generally do not modify
+this value, but you can if you wish</big><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">
+            <table
+ style="text-align: left; width: 924px; height: 82px; background-color: rgb(242, 255, 255);"
+ border="1" cellpadding="2" cellspacing="2">
+              <tbody>
+                <tr>
+                  <td style="vertical-align: top;">
+                  <table
+ style="text-align: left; width: 912px; height: 52px;" border="1"
+ cellpadding="2" cellspacing="2">
+                    <tbody>
+                      <tr>
+                        <td
+ style="vertical-align: top; background-color: white;">
+                        <h2><a class="mozTocH2" name="mozTocId74816"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><b>DateImpregnated</b></font></font></font></font></font></span></span></h2>
+                        </td>
+                        <td
+ style="vertical-align: top; width: 50%; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><b>dateimpregnated <span
+ style="color: rgb(102, 102, 204);">(READONLY)</span><br>
+dateimpregnated-<span style="font-style: italic;">slavename</span></b></font></font></font></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><b> <span
+ style="color: rgb(102, 102, 204);">(READONLY)</span></b></font></font></font></font></font></span></span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <big><font size="-1"><big><span
+ style="font-style: italic;">(Number)</span></big></font> The date the
+slave was last impregnated. Uses the internal date format, where 1
+represents the first day of year 1252</big><br>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">
+            <table
+ style="text-align: left; width: 924px; height: 82px; background-color: rgb(242, 255, 255);"
+ border="1" cellpadding="2" cellspacing="2">
+              <tbody>
+                <tr>
+                  <td style="vertical-align: top;">
+                  <table
+ style="text-align: left; width: 912px; height: 52px;" border="1"
+ cellpadding="2" cellspacing="2">
+                    <tbody>
+                      <tr>
+                        <td
+ style="vertical-align: top; background-color: white;">
+                        <h2><a class="mozTocH2" name="mozTocId309905"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><b>Fertility</b></font></font></font></font></font></span></span></h2>
+                        </td>
+                        <td
+ style="vertical-align: top; width: 50%; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><b>fertility<span
+ style="color: rgb(102, 102, 204);"></span><br>
+fertility-<span style="font-style: italic;">slavename</span></b></font></font></font></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><b>&nbsp;<span
+ style="color: rgb(102, 102, 204);"></span></b></font></font></font></font></font></span></span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <big><font size="-1"><big><span
+ style="font-style: italic;">(Number)</span></big></font> The
+percentage chance the slave can become pregnancy. Initialliy set to the
+DefaultFertility above</big><br>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">
+            <table
+ style="text-align: left; width: 924px; height: 82px; background-color: rgb(242, 255, 255);"
+ border="1" cellpadding="2" cellspacing="2">
+              <tbody>
+                <tr>
+                  <td style="vertical-align: top;">
+                  <table
+ style="text-align: left; width: 912px; height: 52px;" border="1"
+ cellpadding="2" cellspacing="2">
+                    <tbody>
+                      <tr>
+                        <td
+ style="vertical-align: top; background-color: white;">
+                        <h2><a class="mozTocH2" name="mozTocId710453"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><b>TotalChildren</b></font></font></font></font></font></span></span></h2>
+                        </td>
+                        <td
+ style="vertical-align: top; width: 50%; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><b>totalchildren<span
+ style="color: rgb(102, 102, 204);"></span><br>
+totalchildren-<span style="font-style: italic;">slavename</span></b></font></font></font></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><b>&nbsp;<span
+ style="color: rgb(102, 102, 204);"></span></b></font></font></font></font></font></span></span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <big><font size="-1"><big><span
+ style="font-style: italic;">(Number)</span></big></font> The total
+number of children the person has given birth to</big><br>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">
+            <table
+ style="text-align: left; width: 924px; height: 82px; background-color: rgb(242, 255, 255);"
+ border="1" cellpadding="2" cellspacing="2">
+              <tbody>
+                <tr>
+                  <td style="vertical-align: top;">
+                  <table
+ style="text-align: left; width: 912px; height: 52px;" border="1"
+ cellpadding="2" cellspacing="2">
+                    <tbody>
+                      <tr>
+                        <td
+ style="vertical-align: top; background-color: white;">
+                        <h2><a class="mozTocH2" name="mozTocId70635"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><b>TotalTentaclePregnancy</b></font></font></font></font></font></span></span></h2>
+                        </td>
+                        <td
+ style="vertical-align: top; width: 50%; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><b>totaltentaclepregnancy<span
+ style="color: rgb(102, 102, 204);"></span><br>
+totaltentaclepregnancy-<span style="font-style: italic;">slavename</span></b></font></font></font></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><b>&nbsp;<span
+ style="color: rgb(102, 102, 204);"></span></b></font></font></font></font></font></span></span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <big><font size="-1"><big><span
+ style="font-style: italic;">(Number)</span></big></font> The total
+number of tentacle offspring the person has given birth to</big><br>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">
+            <table
+ style="text-align: left; width: 924px; height: 82px; background-color: rgb(242, 255, 255);"
+ border="1" cellpadding="2" cellspacing="2">
+              <tbody>
+                <tr>
+                  <td style="vertical-align: top;">
+                  <table
+ style="text-align: left; width: 912px; height: 52px;" border="1"
+ cellpadding="2" cellspacing="2">
+                    <tbody>
+                      <tr>
+                        <td
+ style="vertical-align: top; background-color: white;">
+                        <h2><a class="mozTocH2" name="mozTocId479914"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><b>DaysUnavailble</b></font></font></font></font></font></span></span></h2>
+                        </td>
+                        <td
+ style="vertical-align: top; width: 50%; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><b>daysunavailable<span
+ style="color: rgb(102, 102, 204);"></span><br>
+daysunavailable-<span style="font-style: italic;">slavename</span></b></font></font></font></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><b>&nbsp;<span
+ style="color: rgb(102, 102, 204);"></span></b></font></font></font></font></font></span></span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <big><font size="-1"><big><span
+ style="font-style: italic;">(Number)</span></big></font> The number of
+days the slave is unable to be trained. For a time after birth or when
+ill this is set</big><br>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId887237"></a>Configuration Settings</h1>
+<span style="font-size: 12pt; font-family: Arial;">The configurations
+in configuration.xml affect some defaults for pregnancies. The values
+are listed below<br>
+<br>
+</span><span style="font-family: Arial;">&nbsp;&nbsp;&nbsp; &lt;!--
+COMMON: the following values are common to all slaves and to slave
+makers --&gt;</span><br style="font-family: Arial;">
+<span style="font-family: Arial;">&nbsp;&nbsp;&nbsp;
+&lt;CommonDefaults&gt;</span><br style="font-family: Arial;">
+<span style="font-family: Arial;">&nbsp;&nbsp;&nbsp; </span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;!-- Pregnancy --&gt;</span><br style="font-family: Arial;">
+<span style="font-family: Arial;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;!-- the default percentage chance of impregnation --&gt;</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;DefaultFertility&gt;30&lt;/DefaultFertility&gt;</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+</span><br style="font-family: Arial;">
+<span style="font-family: Arial;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;!-- base gestation period for humanoid races in days. A random
+factor is added to determine the actual value</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+and altered based on the mothers race. This base value cannot be less
+than 35, if it is it will be increased to 35&nbsp;&nbsp;&nbsp; --&gt;</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;BaseGestation&gt;270&lt;/BaseGestation&gt;</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+</span><br style="font-family: Arial;">
+<span style="font-family: Arial;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;!-- allow multiple people to give birth in a given day --&gt;</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;MultipleBirthsPerDay&gt;false&lt;/MultipleBirthsPerDay&gt;</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;"> &lt;/CommonDefaults&gt;</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;">&nbsp;&nbsp;&nbsp; </span><br
+ style="font-family: Arial;">
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId700515"></a>BitFlags</h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;">There
+are some bitflags related to pregnancy<br>
+</span></font></font></span></span></span>
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId902164"></a>BitFlag 1</h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"></span></span></span></span></span></span></span></span><font
+ style="font-family: Arial;" size="-1"></font><span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">
+</span></span></span></span></span></span></span></span></span></span></span>
+<table
+ style="text-align: left; width: 907px; height: 90px; font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="0">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">13</font> </td>
+      <td style="vertical-align: top;"><font size="+1">gaining weight
+reported<br>
+      </font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">14</font> </td>
+      <td style="vertical-align: top;"><font size="+1">NOT taking
+contraceptives</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">34</font> </td>
+      <td style="vertical-align: top;"><font size="+1">SlaveMaker
+tentacle pregnancy (OBSOLETE)</font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">88</font></td>
+      <td style="vertical-align: top;"><font size="+1">Pregnancy ON
+needed for the slave to be trained<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">95</font> </td>
+      <td style="vertical-align: top;"><font size="+1">announced or
+been told of pregnancy</font></td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId208918"></a>BitFlagSM</h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<table
+ style="text-align: left; width: 66%; height: 58px; font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="0">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">14<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Slave Maker is
+NOT taking
+contraceptives<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">95<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">announced or
+been told of pregnancy</font></td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><font size="-2"></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"></span></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"></span></span></span></span></span></span></font></font></span></span><span
+ style="font-size: 12pt;"><br>
+</span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId990246"></a>Slave and Slave Maker Functions</h1>
+<table
+ style="text-align: left; width: 1375px; height: 326px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 1351px; height: 6px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 6px;">
+            <h2 style="height: 9px;"><a class="mozTocH2"
+ name="mozTocId941913"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">CheckImpregnate</span></b></span></span></span></span></span></h2>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 6px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span>
+_root and <a href="Common%20Scripts/Classes/Slave.as">Slave</a> and
+SlaveMaker class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>public function
+CheckImpregnate(type:String, count:Number, gestation:Number) : Boolean</i></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;"></span></i></span></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">no implementation<font
+ size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">The game will check if the slave can become
+pregnant and apply a random check and impregnate the slave based on
+their fertility.<br>
+type - the person or thing impregnating them. See PregnancyType above
+for default values<br>
+count - the number of children. This is optional and will default based
+on parent and race of the slave<br>
+gestation - the number of days until birth. Optional and will default
+based on parent and the race of the slave<br>
+      </span></span></span></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"> <br>
+      </span></span></span></span> <span style="font-size: 12pt;"><font
+ size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span> <small>_root.CheckImpregnate("Yours");</small><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span></span></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span><br>
+      <small>&lt;if canimpregnate-current="yours"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- slave is impregnated your child --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;impregnate person='current'
+type='Yours'/&gt;<br>
+&lt;/if&gt;</small><font size="-1"></font><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></span></font></font></span></span></span>
+<table
+ style="text-align: left; width: 1375px; height: 222px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 1351px; height: 13px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 13px;">
+            <h2 style="height: 5px;"><a class="mozTocH2"
+ name="mozTocId661259"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">Impregnate</span></b></span></span></span></span></span></h2>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 13px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span>
+_root and <a href="Common%20Scripts/Classes/Slave.as">Slave</a> </font><font
+ size="-1">and SlaveMaker </font><font size="-1">class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>public function Impregnate(type:String,
+count:Number, gestation:Number)</i></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+            </span></i></span></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Impregnate
+slave='slave' type='whatever' gestation='time' count='number'/&gt;<font
+ size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">The specified person will become pregnant.
+Ignores fertility and contraceptives. Does not impregnate males.</span></span></span></span></span></span></span></font></font></span></span></span><font
+ size="-1"></font><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></span></font></font></span></span></span>
+<table
+ style="text-align: left; width: 1375px; height: 163px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 1351px; height: 16px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 16px;">
+            <h2 style="height: 4px;"><a class="mozTocH2"
+ name="mozTocId29082"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">CanImpregnate</span></b></span></span></span></span></span></h2>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 16px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span>
+_root and <a href="Common%20Scripts/Classes/Slave.as">Slave</a> class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><big>function
+CanImpregnate(type:String) : Boolean</big><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"> </span></i></span></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;if
+canimpregnate='type'&gt;<font size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Returns true if your slave can be impregnated
+and ramdomly can be due to randome chance based on fertility</span></span></span></span></span></span></span></font></font></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 1375px; height: 162px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 1351px; height: 10px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 10px;">
+            <h2 style="height: 9px;"><a class="mozTocH2"
+ name="mozTocId742328"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;">IsPregnant</span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></h2>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 10px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span>
+_root and <a href="Common%20Scripts/Classes/Slave.as">Slave</a> class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><font color="#000000"><font color="#000080"><font
+ color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>function</i></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></span></span>
+            <span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">IsPregnant() : Boolean<br>
+            </span></i></span></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;if
+pregnancygestation='1+'&gt;<font size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Returns true if your slave is pregnant.</span></span></span></span></span></span></span></font></font></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;"><br>
+</span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span>
+<table
+ style="text-align: left; width: 1375px; height: 162px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 1351px; height: 10px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 10px;">
+            <h2 style="height: 8px;"><a class="mozTocH2"
+ name="mozTocId475831"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;">AddToPregnancy</span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></h2>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 10px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span>
+_root and <a href="Common%20Scripts/Classes/Slave.as">Slave</a> class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><big
+ style="font-style: italic;">function AddToPregnancy(count:Number) :
+Boolean</big><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+            </span></i></span></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;ChangeVar
+pregnancycount='count'/&gt;<font size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Increases the number of children that will be
+given birth ro</span></span></span></span></span></span></span></font></font></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;">&nbsp;</span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span>
+<table
+ style="text-align: left; width: 1375px; height: 162px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <table style="text-align: left; width: 1351px; height: 10px;"
+ border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; height: 10px;">
+            <h2 style="height: 8px;"><a class="mozTocH2"
+ name="mozTocId479206"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;">UseContraceptives</span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></h2>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; text-align: right; height: 10px;"><font
+ size="-1"><span style="font-weight: bold;">implemented in:</span>
+_root and <a href="Common%20Scripts/Classes/Slave.as">Slave</a> class</font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><big
+ style="font-style: italic;">function UseContraceptives(buse:Boolean)</big><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+            </span></i></span></span></span></span></span></span></span></font></font></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;SetFlag
+flag1-14='buse'/&gt;<br>
+&lt;SetFlag flagsm-14-'buse'/&gt;<br>
+            <font size="+1"> </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Puts your slave or slave maker on or off of
+contraceptives, set buse to true for ON contraceptives.<br>
+      <br>
+In XML you have to directly change flag1 for a slave or flagsm for the
+slave maker.<br>
+      </span></span></span></span></span></span></span></font></font></span></span></span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;"><br>
+<br>
+</span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId999341"></a>Slave Interface Functions</h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;">These functions can be overloaded for a slave
+to control their pregnancies. These are all optional, default images
+and events will happen in not implemented.<br>
+<br>
+Note that originally in the game there were only tentacle pregnancies
+so the game will default to calling the tentacle version of functions
+if the others are not implemented<br>
+<br>
+<br>
+<u><b><span style="font-size: 14pt;"></span></b></u><span
+ style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span>
+<table
+ style="text-align: left; width: 1375px; height: 248px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h2 style="height: 9px;"><a class="mozTocH2" name="mozTocId751726"></a>ShowPregnancyReveal</h2>
+      <h2 style="height: 0px;"><a class="mozTocH2" name="mozTocId480132"></a>ShowTentaclePregnancyReveal</h2>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><br>
+      </span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i>function
+ShowPregnancyReveal() : Boolean<br>
+            </i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i>function
+ShowTentaclePregnancyReveal() : Boolean</i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Images&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;PregnancyReveal&gt;<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">Show an image
+of the slave pregnant, return true if an image is shown.
+ShowTentaclePregnancyReveal is called only for tenacle pregnancies.
+ShowPregnancyReveal for all other cases.<br>
+      <br>
+NOTE: this is only called if </span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;">ShowPregnancyBirth/</span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;">ShowTentaclePregnancyBirth
+return false<br>
+      <br>
+      <span style="font-weight: bold;">XML Images</span><br>
+      </span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">Images for xml
+are in the naming format<br>
+Event - Pregnancy Reveal 1.jpg</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"> </span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 1375px; height: 248px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h2 style="height: 8px;"><a class="mozTocH2" name="mozTocId999267"></a>ShowTentaclePregnancyBirth<br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;"></span></b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></h2>
+      <h2><a class="mozTocH2" name="mozTocId449771"></a>ShowPregnancyBirth</h2>
+      <br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>function ShowPregnancyBirth() : Boolean<br>
+            </i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>function ShowTentaclePregnancyBirth() :
+Boolean</i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Images&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;PregnancyBirth&gt;<br>
+or<br>
+&nbsp;&nbsp;&nbsp; &lt;TentacleBirth&gt;<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">Show an image of the slave giving birth, to a
+tentacle beast or normal child, return true if the image is shown.<br>
+      <br>
+This is the image preferentially used by the game. If it is not
+implemented or returns false then ShowPregnancyReveal is called above.<br>
+      <br>
+      </span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-weight: bold;">XML Images</span><br>
+      </span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">Images for xml
+are in the naming format<br>
+      </span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">Event -
+Tentacle Birth 1.jpg</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 1375px; height: 248px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h2><a class="mozTocH2" name="mozTocId855169"></a>SeePregnant</h2>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i>function
+SeePregnant() : Boolean</i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Other&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;PregnancyGainingWeight&gt;<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#000000"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">Your assistant
+will report to you that they notice the slave is gaining weight. This
+can be used to modify or prevent the notification. Return true to
+disable the standard text and either do nothing or show your own text.<br>
+      <br>
+For xml you can replace the node &lt;PregnancyGainingWeight&gt; and
+show/do arbitrary xml<br>
+      </span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId707988"></a>XML Slave Maker Images</h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">If a Slave Maker uses the avatar system for
+image then their image use the same image naming format as slaves<br>
+eg<br>
+Event - Pregnancy Reveal 1.jpg<br>
+etc<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span><br
+ style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;"></span></b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId868657"></a>Birthing Events</h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">When a slave, assistant or your Slave Maker
+gives birth a standard set of events handle the birth. <br>
+<br>
+The general process is<br>
+<br>
+Call the XML node for the birth, this is&nbsp; in the &lt;Other&gt;
+node (and in Other.xml in the game installation)<br>
+<br>
+&lt;parentPregnancy&gt;<br>
+for a slave<br>
+eg<br>
+&lt;TentaclePregnancy&gt;<br>
+<br>
+For your Slave Maker <br>
+&lt;SMparentPregnancy&gt;<br>
+eg<br>
+&lt;SMTentaclePregnancy&gt;<br>
+<br>
+By default the game implements<br>
+<br>
+Tentacle<br>
+Human<br>
+Yours<br>
+as options and a special case for Shampoo. You can implement these
+arbitrarily as you can specify any arbitrary string for PregnancyType,
+so you could potentially have<br>
+&lt;RanmaPregnancy&gt;<br>
+if you used<br>
+&lt;Impregnate type='Ranma'/&gt;<br>
+for a slave<br>
+<br>
+Once the event is complete the image is shown by the game.<br>
+<br>
+Note that tentacle pregnancies are a multiple stage event but other
+pregnancies are a single stage event.<br>
+<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span><br
+ style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;"></span></b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span>
+</body>
+</html>

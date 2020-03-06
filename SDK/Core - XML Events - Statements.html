@@ -1,0 +1,3223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta name="generator"
+ content="HTML Tidy for Windows (vers 22 March 2008), see www.w3.org">
+  <title></title>
+</head>
+<body>
+<span style="font-size: 12pt;"><font face="Arial"> </font></span>
+<table
+ style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;"
+ border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font
+ size="+3"><span style="font-weight: bold;">XML Statements<br>
+            </span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td
+ style="vertical-align: top; width: 80%; text-align: left;"><a
+ href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font
+ style="font-weight: bold;" size="-1">Version 8</font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<span style="font-size: 12pt;"><font face="Arial"> <br>
+<u><b><span style="font-size: 16pt;">Statements</span></b></u><span
+ style="font-size: 12pt;"><font color="#000000"><br>
+note: all these statements tags and attributes are case-insensitive<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">&lt;AddText&gt;This is to be
+shown&lt;/AddText&gt;<br>
+is the same as<br>
+&lt;addtext&gt;This is to be shown&lt;/addtext&gt;<br>
+<br>
+<span style="font-size: 12pt;">Generall all these statments are almost
+the same as an equivallently named SDK function. There will be slight
+differences as xml needed some simplifications, and for clarity in some
+cases.<br>
+<br>
+Some attributes and statement names have variants to allow for typos
+and for regional differences so generally colour and color can be used
+interchangably. Similarly for armour/armor. These variants can be
+listed like<br>
+<b><span style="font-size: 10pt;">OwnArmour | SetArmourOwned | OwnArmor
+| SetArmorOwned</span></b><br>
+<span style="font-size: 12pt;"><br>
+<br>
+<u><b><span style="font-size: 14pt;">Example statement<br>
+</span></b></u><span style="font-size: 12pt;">Black text is from the
+documentation below, green is explanatory text<br>
+<br>
+<b><span style="font-size: 16pt;">&lt;AddText&gt;<br>
+</span></b><font color="#008000"><font face="Arial"><span
+ style="font-size: 10pt;">- this is the statement to use<font
+ color="#000000"><font face="Arial"><span style="font-size: 16pt;"><br>
+<i><span style="font-size: 12pt;">&lt;AddText&gt;text&lt;/AddText&gt;<br>
+</span></i><font color="#008000"><font face="Arial"><span
+ style="font-size: 10pt;">- a general prototype of the statement,
+mandatory parts are listed, optional are omitted<br>
+<b>text</b> - means you supply a string, generally to be read by the
+person playing the game<br>
+<b>number</b> - a constant number like 2 or 7<br>
+<b>expression</b> - a numerical expression like -1 * constitution, or
+just a constant number<br>
+<b>event -</b> a special case of <b>text</b>, the name or number of an
+event<br>
+<b>boolean -</b> the value true or false<font color="#000000"><i><font
+ face="Arial"><span style="font-size: 14pt;"><br>
+</span></font></i><span style="font-size: 10pt;"><font face="Arial">actionscript
+version: AddText()<br>
+<font color="#008000"><font face="Arial">- this is the equivallent
+statement you would use in actionscript<font color="#000000"><font
+ face="Arial"><br>
+<span style="font-size: 12pt;"><br>
+Appends text to the output window(s).<br>
+<font color="#008000"><font face="Arial"><span style="font-size: 10pt;">-
+a description of the effect of the statement<br>
+<font color="#000000"><font face="Arial"><span style="font-size: 12pt;"><br>
+<u>attributes<br>
+</u><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; before </b><font
+ color="#000080">(OPTIONAL)<font color="#000000"><b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; after </b><font
+ color="#000080">(OPTIONAL)<font color="#000000"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; These are numbers that
+define a number of line feeds to add before or after the text<br>
+<font color="#008000"><font face="Arial"><span style="font-size: 10pt;">-
+these are the attributes that can be used<br>
+eg<br>
+&lt;AddText before='1'&gt;Hi there&lt;/AddText&gt;<font color="#000000"><u><font
+ face="Arial"><span style="font-size: 12pt;"><br>
+</span></font></u><span style="font-size: 10pt;"><font face="Arial"><font
+ color="#000080">OPTIONAL <font color="#008000">- means the attribute
+or data can be omitted and a default value will be supplied. If an
+attribute is not noted as optional and you omit it then generally the
+statement will do nothing<font color="#000000">.<span
+ style="font-size: 12pt;"><br>
+<br>
+<span style="font-size: 10pt;"><br>
+<span style="font-size: 12pt;"><br>
+<u>element data<br>
+</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The text to
+display in the general and larger text fields<br>
+<font color="#008000"><font face="Arial"><span style="font-size: 10pt;">-
+this is what to encode in the node<br>
+ie what is in bold below<br>
+&lt;AddText&gt;<b>This is the element data</b>&lt;/AddText&gt;<font
+ color="#000000"><font face="Arial"><span style="font-size: 12pt;"><br>
+<br>
+<br>
+<u><b><span style="font-size: 14pt;">Common Attribute Values<br>
+</span></b></u><span style="font-size: 12pt;">The attributes for many
+statements use common values or similar structures<br>
+<br>
+<u>Gender<br>
+</u>Whenever gender is referred to in an attribute or element data, the
+following values may be used. Note spaces are optional. Values
+separated by commas are alternate values that can be used<br>
+<br>
+none, neutral &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (0) a person wwho
+has no gender<br>
+male&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (1) a man<br>
+female&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (2) a female<br>
+dickgirl,<br>
+&nbsp;hermaphrodite &nbsp; - (3) a hermaphrodite, with the genitals of
+both genders<br>
+male twins&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (4) two males, not
+necessarily related<br>
+female twins&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (5) two females, not
+necessarily related<br>
+dickgirl twins,<br>
+hermaphrodite twins&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (6) two
+hermaphrodites, , not necessarily related<br>
+twins&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (4, 5, 6) any gender
+that are twins<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+'none'<br>
+'Male Twins'<br>
+'dickgirltwins'<span style="font-size: 12pt;"><br>
+<br>
+<u>Slave<br>
+</u>Where the game refers to a slave or person the following are
+acceptable values<br>
+slavemaker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - your slave maker<br>
+assistant&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - your current
+assistant<br>
+<i>name&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i> - the name of the
+slave, preferably the simlest form,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; like 'Kasumi' not
+'Cumslut Kasumi'<br>
+<br>
+<u>Person<br>
+</u>An extension of the above, including the NPCs in the game, like
+Miss.N, Lady Okyanu. In this case use their name, spaces and
+punctuation are optional. The values are case insensitive<br>
+<span style="font-size: 10pt;">eg<br>
+'miss.n'<br>
+'ladyokyanu'<br>
+'Lady Farun'<br>
+<span style="font-size: 12pt;">In all cases here you may also specify
+the person number, see <b>Core - People.rtf<br>
+</b><span style="font-size: 10pt;">eg<br>
+'8' for the Lord<span style="font-size: 12pt;"><br>
+<u><br>
+</u><b><span style="font-size: 14pt;">__________________________________________________<br>
+<br>
+<span style="font-size: 16pt;">&lt;AddText&gt;<br>
+</span></span></b><i><span style="font-size: 12pt;">&lt;AddText&gt;text&lt;/AddText&gt;<span
+ style="font-size: 14pt;"><br>
+</span></span></i><span style="font-size: 10pt;">actionscript version:
+AddText()<b><br>
+</b><span style="font-size: 12pt;"><br>
+Appends text to the output window(s).<br>
+<br>
+<u>attributes<br>
+</u><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; before </b><font
+ color="#000080">(OPTIONAL)<font color="#000000"><b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; after </b><font
+ color="#000080">(OPTIONAL)<font color="#000000"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; These define a number
+of line feeds to add before or after the text<br>
+<br>
+<u>element data<br>
+</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The text to display<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">&lt;AddText&gt;This is to be
+shown&lt;/AddText&gt;<br>
+shows<br>
+This is to be shown<br>
+in the output window.<span style="font-size: 12pt;"><br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">&lt;AddText before="2"&gt;This is to be
+shown&lt;/AddText&gt;<br>
+shows<br>
+<br>
+This is to be shown<br>
+in the output window.<span style="font-size: 12pt;"><br>
+<br>
+All text here has standard macros applied, see <b>Core - Functions -
+Text.rtf<br>
+</b><br>
+All leading and trailing whitespace (spaces, tabs) are stripped and not
+shown. All tab characters are always stripped from the text to allow
+text like<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;AddText&gt;#slave
+is walking along.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A person taps
+#slavehimher on the shoulder&lt;/AddText&gt;<br>
+to be shown reasonably and allow better layout of the xml files<br>
+<br>
+______________________<br>
+<br>
+<b><span style="font-size: 14pt;">SetText<br>
+</span></b><i><span style="font-size: 12pt;">&lt;SetText&gt;text&lt;/SetText&gt;<br>
+</span></i><span style="font-size: 10pt;">actionscript version:
+SetText()<br>
+<b><i><span style="font-size: 12pt;"><br>
+</span></i></b>All text is erased in the output window and then the
+text in this node's element data is shown.<br>
+Otherwise the same as &lt;AddText&gt;<br>
+<br>
+______________________<br>
+<br>
+<b><span style="font-size: 14pt;">BlankLine<br>
+</span></b><i><span style="font-size: 12pt;">&lt;BlankLine/&gt;<br>
+</span></i><span style="font-size: 10pt;">actionscript version:
+BlankLine()<br>
+<b><br>
+</b><span style="font-size: 12pt;">Adds 2 line feeds (1 blank line) to
+the output window<br>
+<u><br>
+No attributes or element data.<br>
+</u><br>
+<span style="font-size: 10pt;">eg<br>
+&lt;BlankLine/&gt;<br>
+<br>
+Note: same as<br>
+&lt;AddText&gt;\r\r&lt;/AddText&gt;<br>
+or<br>
+AddText("\r\r");<br>
+<span style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+<b><span style="font-size: 14pt;">PersonSpeak<br>
+</span></b><i><span style="font-size: 12pt;">&lt;PersonSpeak
+person='person' start='true' end='true'&gt;text&lt;/PersonSpeak&gt;<br>
+</span></i><span style="font-size: 10pt;">actionscript version:
+PersonSpeak() or PersonSpeakStart() or PersonSpeakEnd() or
+SlaveSpeak()/ServantSpeak() versions<br>
+<i><span style="font-size: 12pt;"><br>
+</span></i>Shows text as if a person is speaking<br>
+<br>
+<u>attributes<br>
+</u><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; person</b> -
+the person to speak to. Use the name of number of an NPC or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assistant<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assistanta<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assistantb<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slavea<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slaveb<b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; start &nbsp;&nbsp; - </b><font
+ color="#000080">(OPTIONAL) <font color="#000000">equivalent to using
+PrsonSpeakStart<br>
+<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end
+&nbsp;&nbsp;&nbsp;&nbsp; - </b><font color="#000080">(OPTIONAL)<font
+ color="#000000">equivalent to using PrsonSpeakEnd, ignored if start is
+used<br>
+<br>
+<u>element data<br>
+</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The text they
+speak. All standard macros apply as do \r\n. " and ' are fine to use if
+needed, but the speech is already automatically enclosed in ""<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;PersonSpeak person="Lady Farun"&gt;Hi there&lt;/PersonSpeak&gt;<br>
+<br>
+&lt;PersonSpeak person="slave"&gt;Hello Lady Farun&lt;/PersonSpeak&gt;<br>
+<span style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+<b><span style="font-size: 14pt;">If/IfNot/IfOr<br>
+</span></b><i>&lt;if&gt;<br>
+&lt;ifor&gt;<br>
+&lt;ifnot&gt;<br>
+&lt;else&gt;</i><span style="font-size: 12pt;"><br>
+<br>
+&lt;if&gt; applies a series of conditional test, AND'ing all the
+statements together, and if the total result is true then all
+statements in the &lt;i&gt; are performed, until an &lt;else&gt; node
+is encountered or all statements in the else are complete.<br>
+<br>
+&lt;ifor&gt; as for &lt;if&gt; but the statements are OR'd together<br>
+<br>
+&lt;ifnot&gt; as for &lt;if&gt; but each conditional is NOT'd, ie the
+&lt;ifnot&gt; is applied if all terms are false.<br>
+<br>
+&lt;else&gt; if the &lt;if&gt; conditionals are not true, processing
+skips to any &lt;else&gt; statement and then performs all statements
+after the else. NOT statements inside the &lt;else&gt; node<br>
+<br>
+Note, &lt;if&gt; statements can be nested.<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;if supervise='slavemaker'&gt;&lt;AddText&gt;You
+start&lt;/AddText&gt;<br>
+&lt;else&gt;if&lt;/else&gt;&lt;AddText&gt;#assistant
+starts&lt;/AddText&gt;<br>
+&lt;/if&gt;<br>
+<br>
+&lt;if currentframe="1"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;if
+supervise="true"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;SetText&gt;You
+explain how the slaves will have to learn to accept life as a slave.
+They are now slaves and life can be good and
+pleasurable.&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;else&gt;if&lt;/else&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;SetText&gt;You
+explain how the slaves will have a harsh time initially as they are
+punished for their crimes, but they will become normal slaves. Life as
+a slave can be good and pleasurable and it seems they will be quite
+popular as they are fit and attractive.&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/if&gt;<br>
+&lt;else&gt;if&lt;/else&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;if
+supervise="true"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;SetText&gt;#super
+explains how the slaves will have to learn to accept life as a slave.
+They are now slaves and must accept that.&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;else&gt;if&lt;/else&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;SetText&gt;#super
+explains how the slaves will have a harsh time initially as they are
+punished for their crimes, but they will become normal slaves. Most
+likely sex slaves as they are fit and attractive.&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/if&gt;<br>
+&lt;/if&gt;<br>
+<span style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+<b><span style="font-size: 14pt;">Points<br>
+</span></b><i><span style="font-size: 12pt;">&lt;Points&gt;Charisma,
+Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking,
+Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania,
+Obedience, Lust, Reputation, Fatigue, Joy, Love, Special&lt;/Points&gt;<br>
+</span></i><span style="font-size: 10pt;">actionscript version:
+Points() or PointsIndexed()<br>
+<i><span style="font-size: 14pt;"><br>
+</span></i><span style="font-size: 12pt;">Changes the stats for a
+slave. Each statistic value is an evaluated expression, so you can pass
+terms like constitution / 10 for instance.<br>
+<br>
+<u>attributes<br>
+</u><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slave</b>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - <font
+ color="#000080">(OPTIONAL) <font color="#000000">the slave whose
+stats are to be updated. Defaults to the current slave in training<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; special value
+'allparticipants'<br>
+<br>
+<u>element data<br>
+</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; comma delimited
+list of the value to be added to each stat<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;AddText&gt;Everyone looks much prettier after Narry's
+lesson&lt;/AddText&gt;<br>
+&lt;Points &gt;charisma / 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0&lt;/Points&gt;<br>
+&lt;Points slave="assistant"&gt;5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0&lt;/Points&gt;<br>
+&lt;Points slave="Narry"&gt;5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0&lt;/Points&gt;<span style="font-size: 12pt;"><br>
+<br>
+______________________<br>
+<br>
+<b><span style="font-size: 14pt;">SMPoints<br>
+</span></b><i><span style="font-size: 12pt;">&lt;SMPoints&gt;attack,
+defence, arousaldef, constitution, conversation, lust, corrupt, renown,
+dominance, charisma, refinement, nymphomania, tiredness&lt;/SMPoints&gt;<br>
+</span></i><span style="font-size: 10pt;">actionscript version:
+SMPoints()<br>
+<span style="font-size: 12pt;"><br>
+Change your slavemakers statistics. Each statistic value is an
+evaluated expression, so you can pass terms like constitution / 10 for
+instance<br>
+<br>
+<i><span style="font-size: 14pt;"><br>
+</span></i><span style="font-size: 12pt;"><u>attributes<br>
+</u><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> no
+attributes<br>
+<br>
+<u>element data<br>
+</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; comma delimited
+list of the value to be added to each stat<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;AddText&gt;You learn a forbidden attack maneouver&lt;/AddText&gt;<br>
+&lt;SMPoints&gt;1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0&lt;/SMPoints&gt;<i><br>
+<span style="font-size: 14pt;"><br>
+</span></i><span style="font-size: 12pt;">______________________<br>
+<br>
+<b><span style="font-size: 14pt;">Money</span></b><span
+ style="font-size: 12pt;"><br>
+<i>&lt;Money&gt;expression&lt;/Money&gt;<br>
+</i><span style="font-size: 10pt;">actionscript version: Money()<br>
+<span style="font-size: 12pt;"><br>
+Add or remove money from your training money. Does not increase your
+Slave Maker's money for Guild Members, use SMMoney for that.<br>
+<br>
+<u>attributes<br>
+</u><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; quiet</b>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - <font
+ color="#000080">(OPTIONAL) <font color="#000000">make no sound
+(normally maked the coin noise)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>nodebt &nbsp;</b>
+- <font color="#000080">(OPTIONAL) <font color="#000000">do not go
+into debt, ie pay as much as you can<br>
+<br>
+<u>element data<br>
+</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; An expression, the
+amount of money to add<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;Money quiet="true"&gt;constitution + charisma&lt;/Money&gt;<br>
+&lt;Money&gt;-50&lt;/Money&gt;<span style="font-size: 12pt;"><br>
+<i><span style="font-size: 14pt;"><br>
+</span></i><span style="font-size: 12pt;">______________________<br>
+<br>
+<b><span style="font-size: 14pt;">SMMoney</span></b><span
+ style="font-size: 12pt;"><br>
+<i>&lt;SMMoney&gt;expression&lt;/SMMoney&gt;<br>
+</i><span style="font-size: 10pt;">actionscript version: SMMoney()<br>
+<span style="font-size: 12pt;"><br>
+Add or remove money from your Slave Maker's money. For Guild Members
+this works identically to calling &lt;Money&gt;. For freelancers it
+increases the slave makers personal gold.<br>
+<br>
+<u>attributes<br>
+</u><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; quiet</b>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - <font
+ color="#000080">(OPTIONAL) <font color="#000000">make no sound
+(normally maked the coin noise)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>nodebt &nbsp;</b>
+- <font color="#000080">(OPTIONAL) <font color="#000000">do not go
+into debt, ie pay as much as you can<br>
+<br>
+<u>element data<br>
+</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; An expression, the
+amount of money to add<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;SMMoney quiet="true"&gt;smconstitution + smcharisma&lt;/SMMoney&gt;<br>
+&lt;SMMoney&gt;-50&lt;/SMMoney&gt;<br>
+<span style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+<b><span style="font-size: 14pt;">OwnItem<br>
+</span></b><i><span style="font-size: 12pt;">&lt;OwnItem&gt;number&lt;/OwnItem&gt;<br>
+</span></i><span style="font-size: 10pt;">actionscript version:
+SetItemOwned(item)<br>
+<span style="font-size: 12pt;"><br>
+Set a standard item as owned by the slave, Same as the actionsctipt
+function SetItemOwned<br>
+<br>
+<u>attributes<br>
+</u><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> no
+attributes<br>
+<br>
+<u>element data<br>
+</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the item number<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;OwnItem&gt;1&lt;/OwnItem&gt;<br>
+<span style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+<b><span style="font-size: 14pt;">WearItem<br>
+</span></b><i><span style="font-size: 12pt;">&lt;WearItem&gt;number&lt;/WearItem&gt;<br>
+</span></i><span style="font-size: 10pt;">actionscript version:
+EquipItem(item)<br>
+<br>
+<span style="font-size: 12pt;">Equip a standard item as worn by the
+slave, Same as the actionsctipt function WearItem<br>
+<br>
+<u>attributes<br>
+</u><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> no
+attributes<br>
+<br>
+<u>element data<br>
+</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the item number<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;WearItem&gt;1&lt;/WearItem&gt;<br>
+<br>
+<span style="font-size: 12pt;">______________________<br>
+<br>
+<b><span style="font-size: 14pt;">RemoveItem<br>
+</span></b><i><span style="font-size: 12pt;">&lt;RemoveItem&gt;number&lt;/RemoveItem&gt;<br>
+</span></i><span style="font-size: 10pt;">actionscript version:
+UnEquipItem(item)<br>
+<i><span style="font-size: 12pt;"><br>
+</span></i>UnEquip a standard item so it is not worn by the slave, Same
+as the actionsctipt function RemoveItem<br>
+<br>
+<u>attributes<br>
+</u><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> no
+attributes<br>
+<br>
+<u>element data<br>
+</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the item number<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;RemoverItem&gt;1&lt;/RemoveItem&gt;<br>
+<span style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+<b><span style="font-size: 14pt;">OwnWeapon</span></b> | <b>SetWeaponOwned</b><span
+ style="font-size: 12pt;"><br>
+<i>&lt;OwnWeapon&gt;number&lt;/OwnWeapon&gt;<br>
+</i><span style="font-size: 10pt;">actionscript version:
+SetWeaponOwned(weapon)<br>
+<i><span style="font-size: 12pt;"><br>
+</span></i>Set a standard weapon as owned by the slave maker, Same as
+the actionsctipt function SetWeaponOwned<br>
+<br>
+<u>attributes<br>
+</u><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> no
+attributes<br>
+<br>
+<u>element data<br>
+</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the weapon number<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;OwnWeapon&gt;1&lt;/OwnWeapon&gt;<br>
+<span style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+<b><span style="font-size: 14pt;">OwnArmour | SetArmourOwned | OwnArmor
+| SetArmorOwned</span></b><span style="font-size: 12pt;"><br>
+<i>&lt;OwnArmour&gt;number&lt;/OwnArmour&gt;<br>
+</i><span style="font-size: 10pt;">actionscript version:
+SetArmourOwned(weapon)<br>
+<i><span style="font-size: 12pt;"><br>
+</span></i>Set a standard armour as owned by the slave maker, Same as
+the actionsctipt function SetArmourOwned<br>
+<br>
+<u>attributes<br>
+</u><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> no
+attributes<br>
+<br>
+<u>element data<br>
+</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the armour number<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;OwnArmour&gt;1&lt;/OwnArmour&gt;<br>
+<span style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+<b><span style="font-size: 14pt;">SetFlags<br>
+</span></b><i><span style="font-size: 12pt;">&lt;SetFlags
+attributes&gt;sv&lt;/SetFlags&gt;<br>
+</span></i><span style="font-size: 10pt;">actionscript version:
+multiple functions<span style="font-size: 12pt;"><br>
+<br>
+Use this function to set the various flags for the game, slavemaker, a
+slave, a person, a place or an event.<br>
+<br>
+<br>
+______________________<br>
+<br>
+<b><span style="font-size: 14pt;">ClearFlags<br>
+</span></b><i><span style="font-size: 12pt;">&lt;ClearFlags
+attributes&gt;sv&lt;/ClearFlags&gt;<br>
+</span></i><span style="font-size: 10pt;">actionscript version:
+multiple functions<span style="font-size: 12pt;"><br>
+<br>
+Use this function to reset the various flags for the game, slavemaker,
+a slave, a person, a place or an event. Only really meaningful for bit
+type flags, but for other flags will set them to a value of 0<br>
+<br>
+<br>
+______________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowDress</span></b> <span
+ style="font-size: 12pt;"><br>
+<i>&lt;ShowDress/&gt;<br>
+</i><span style="font-size: 10pt;">actionscript version: ShowDress()<span
+ style="font-size: 12pt;"><br>
+<br>
+Show your slave wearing their current dress, in the main window, or
+small person window.<br>
+<br>
+<u>attributes<br>
+</u><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; place</b>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - <font
+ color="#000080">(OPTIONAL) <font color="#000000">0 or 1, same as used
+in ShowMovie(), defaults to 1<br>
+<br>
+<u>no element data</u><br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;ShowDress/&gt;<br>
+&lt;ShowDress place='0'/&gt;<span style="font-size: 12pt;"><br>
+<br>
+______________________<br>
+<br>
+<b><span style="font-size: 14pt;">HideDress | HideDresses<br>
+</span></b><i><span style="font-size: 12pt;">&lt;HideDress/&gt;<br>
+</span></i><span style="font-size: 10pt;">actionscript version:
+HideDresses()<span style="font-size: 12pt;"><br>
+<br>
+Hide the current dress image of your slave<br>
+<i><br>
+</i><u>No attributes or element data.<br>
+</u><i><br>
+</i>______________________<br>
+<br>
+<b><span style="font-size: 14pt;">PickActImage</span></b><span
+ style="font-size: 12pt;"><br>
+<i>&lt;PickActImage act='text'/&gt;<br>
+</i><span style="font-size: 10pt;">actionscript version
+ShowActImage(act);<br>
+<span style="font-size: 12pt;"><br>
+Intended for XML slaves that use &lt;Images&gt; nodes to specify the
+images for the various trainings. This allows you to select a
+particular image for the act. This can be used by other slaves but you
+must still have an &lt;Images&gt; node specified and images to show, it
+will not use the actionscript Showxxxxx() functions.<br>
+<br>
+Basically used to change the randomly selected image to pick a specific
+one based on slave specific events or settings.<br>
+<br>
+<u>attributes<br>
+</u><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; act</b>
+&nbsp;&nbsp;&nbsp;&nbsp; - <font color="#000080">(OPTIONAL) <font
+ color="#000000">the number of the act to show. Defaults to the current
+training being done. If no training is being done, the statement has no
+effect<br>
+<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; frame</b>&nbsp;&nbsp;&nbsp;
+- <font color="#000080">(OPTIONAL) <font color="#000000">particular
+image to select, defaults to 1<br>
+<br>
+<u>no element data</u><br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;PickActImage frame="1"/&gt;<br>
+<br>
+eg Break act, select the second image<br>
+&lt;PickActImage act='1017' frame="2"/&gt;<br>
+<br>
+eg from Mihoshi, when doing Lesbian sex and Kiyone is her partner,
+select an image featuring Kiyone<br>
+act attribute is not selected as we are doing an act, so defaults to 11<br>
+<br>
+&lt;Lesbian&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;if
+usegeneric="false" currframe="2+" partner="Kiyone"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;PickActImage
+frame="1"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/if&gt;<br>
+&lt;/Lesbian&gt;<br>
+<br>
+<span style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowMovie<br>
+</span></b><i><span style="font-size: 12pt;">&lt;ShowMovie
+movie='text'/&gt;<br>
+</span></i><span style="font-size: 10pt;">actionscript version
+ShowMovie(image, 1, 1);<br>
+<b><span style="font-size: 14pt;"><br>
+</span></b><span style="font-size: 12pt;">Show a selected MovieClip
+image.<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; movie &nbsp;&nbsp; -
+(OPTIONAL) the name of the movieclip to show. If it is not specified
+then this will re-show the last shown movieclip<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; submovie
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the name of a
+child movieclip to show, of the movieclip specified in movie above<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slave &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) show
+movie as movieclip from your current slave girl, same as
+movie='SlaveMovie' submovie='movie'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; place &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+location to show the item. See ShowMovie(), defaults to 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; special values can be
+used for simplicity<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'main' &nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - show in the main
+window, same as place='1'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+'person'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - show in the
+small person window, same as place='0'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; align &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+positioning of the item in the selected area, see ShowMovie(), defaults
+to 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; special values can be
+used for simplicity<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'left' &nbsp; - align
+to the left of the window, same as align='2'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'right'&nbsp; - align
+to the right of the window, same as align='3'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'center'- align to the
+center of the window, same as align='1'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'fill'&nbsp;&nbsp; -
+resize the image to fill the window, same as align='0'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; frame &nbsp;&nbsp; -
+(OPTIONAL) the particular frame of the movie clip to show, defaults to 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; delay &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) a delay
+in milliseconds to delay before showing the movie. Defaults to 0<br>
+<br>
+no element data<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;ShowMovie movie='WalkForest' submovie='BEForest' place='1'
+align='0' frame='2'/&gt;<br>
+eg<span style="font-size: 14pt;"><br>
+<span style="font-size: 10pt;">&lt;ShowMovie movie='WalkForest'
+submovie='BEForest' place='main' align='0' frame='left'/&gt;<br>
+<span style="font-size: 14pt;"><br>
+<span style="font-size: 12pt;">______________________<br>
+<br>
+<span style="font-size: 14pt;">ShowImage<br>
+<span style="font-size: 12pt;">&lt;ShowImage image='text'/&gt;<br>
+<span style="font-size: 10pt;">actionscript version
+AutoLoadAndShowMovie(image, 1, 1);<br>
+<span style="font-size: 14pt;"><br>
+<span style="font-size: 12pt;">As for &lt;ShowMovie&gt; but loads an
+external image file and shows it. Supports files of the extensions<br>
+.jpg<br>
+.png<br>
+.gif<br>
+.swf<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; image &nbsp;&nbsp; -
+the filename of the image to show. The path is relative to the file
+SlaveMaker3.exe<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; place &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+location to show the item. See ShowMovie(), defaults to 1, also uses
+special values like 'main'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; align &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+positioning of the item in the selected area, see ShowMovie(), defaults
+to 1, also uses valued like 'left'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; delay &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) a delay
+in milliseconds to delay before showing the movie. Defaults to 0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; imgno &nbsp;&nbsp; -
+(OPTIONAL) a numeric suffix added to the filename, generally used for
+standard act images or to show variant images. No default.<br>
+<br>
+no element data<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;ShowImage image='Images/Walk Palace - Latex Slave.png' place='1'
+align='3'/&gt;<br>
+<br>
+eg show either of the images<br>
+Images/Walk Farm - New Slaves For The Market 1.jpg<br>
+or<br>
+Images/Walk Farm - New Slaves For The Market 2.jpg<br>
+&lt;ShowImage image='Images/Walk Farm - New Slaves For The Market'
+place='1' align='1' imgno='random2'/&gt;<br>
+eg<br>
+&lt;ShowImage image='Images/Walk Palace - Latex Slave.png' place='main'
+align='center'/&gt;&nbsp;&nbsp;&nbsp;<br>
+<span style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+<span style="font-size: 14pt;">ShowPerson<br>
+<span style="font-size: 12pt;">&lt;ShowPerson person='text'/&gt;<br>
+<span style="font-size: 10pt;">actionscript version ShowPerson();<br>
+<span style="font-size: 12pt;"><br>
+Show the image of a standard NPC (Lady Farun for instance).<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; person &nbsp; - the
+name or number of the person to show<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; place &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+location to show the item. See ShowMovie(), defaults to 1, also uses
+special values like 'main'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; align &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+positioning of the item in the selected area, see ShowMovie(), defaults
+to 1, also uses special values like 'left'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; frame &nbsp;&nbsp; -
+(OPTIONAL) the particular image to show, for items with multiple
+images, defaults to 1<br>
+<br>
+no element data<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;ShowPerson person='Lady Farun'/&gt;<br>
+eg<br>
+&lt;ShowPerson person='8' place='1' align='3'/&gt;<span
+ style="font-size: 12pt;"><br>
+<span style="font-size: 10pt;">eg<br>
+&lt;ShowPerson person='miss.n'/&gt;<span style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+<span style="font-size: 14pt;">HidePerson<br>
+<span style="font-size: 12pt;">&lt;HidePerson person='text'/&gt;<br>
+<span style="font-size: 10pt;">actionscript version: HidePerson()<span
+ style="font-size: 12pt;"><br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; person &nbsp; - the
+name or number of the person to hide<br>
+<br>
+no element data<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;HidePerson person='8'/&gt;<br>
+&lt;HidePerson person='Lady Farun"'/&gt;<span style="font-size: 12pt;"><br>
+<br>
+______________________<br>
+<br>
+<span style="font-size: 14pt;">Backgrounds | Background<br>
+<span style="font-size: 12pt;">&lt;Backgrounds attributes/&gt;<br>
+<span style="font-size: 10pt;">actionscript versions:
+Backgrounds.ShowBackground(text), or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HideBackgrounds(), or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ShowOverlay(0xnnnnnn)<span
+ style="font-size: 12pt;"><br>
+<br>
+Hide or show a background image or colour in the main window.<br>
+<br>
+Note the attributes place and colour are mutually exclusive. hide may
+be used with either, in which case the backgrounds are hidden first.<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; place - Show a
+background image in the main window, valid values are<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alley<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; arena<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; armoury&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+bar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bedroom<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bath<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; beach<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; beachrocks<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cellar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cemetary<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; circus<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; deepforest<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; diningroom<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; docks<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dungeon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+farm&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; festival<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; forest<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; garden<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grass<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hallway<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; outside<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; kitchen<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lake<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; library<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; livingroom<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; night<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; onsen<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; other<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; palace<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; potions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; restaurant<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; temple<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sakura<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; salon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; school<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ship<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; shop<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sky<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slavemarket<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slavemakerroom<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slavepens<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slums<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stables<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sunset<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tailors<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; temple<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; towncenter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tentacles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tunnels<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tunnelschamber<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; housing<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; frame - the particular
+frame of the background image.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; flip - reverse the
+image left to right<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; colour - show a solid
+background colour in the main window.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; attributes place,
+frame, flip are ignored. Use RGB hex notation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hide - hide the
+background image/colour, may be used with place or colour<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no element data<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&nbsp;&lt;Backgrounds hide='true'/&gt;<br>
+&lt;Backgrounds place='Town Center'/&gt;<br>
+&lt;Backgrounds hide='true' place='Slums'/&gt;<br>
+note: in most cases using hide='true' is not needed as the previous
+background is automatically hidden<br>
+&lt;Backgrounds colour='0xFF0000'/&gt;<span style="font-size: 12pt;"><br>
+<br>
+______________________<br>
+<br>
+<span style="font-size: 14pt;">CumSplatter<br>
+<span style="font-size: 12pt;">&lt;CumSplatter movie='text'/&gt;<br>
+<span style="font-size: 10pt;">actionscript version DoCumSplatter();<br>
+<span style="font-size: 12pt;"><br>
+After a pause, show a splatter of cum over the main window, or show an
+image of a cock cumming internally. Most attributes are the same as
+&lt;ShowMovie&gt;<br>
+Note: at this time this does not support the frame attribute with
+images loaded using &lt;ShowImage&gt; or using the XM Slave internal
+system.<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; delay &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) a delay
+in milliseconds to delay before showing the cum. Defaults to 0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; movie &nbsp;&nbsp; -
+(OPTIONAL) the name of the movieclip to show when the cum is shown, say
+a more 'wet' version of the first image.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; submovie
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the name of a
+child movieclip to show, of the movieclip specified in movie above<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slave &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) show
+movie as movieclip from your current slave girl, same as
+movie='SlaveMovie' submovie='movie'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; align &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+positioning of the above movie (if specified), see ShowMovie(),
+defaults to 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; frame &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+particular frame of the movieclip to show (if specified), defaults to 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; internal
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) show a cock
+cumming internally, default false<br>
+<br>
+no element data<br>
+<br>
+<span style="font-size: 10pt;">eg show the splatter after 1 second, no
+other image changes than the cum effects<br>
+&lt;CumSplatter delay='1000'/&gt;<span style="font-size: 12pt;"><br>
+<br>
+<span style="font-size: 10pt;">eg show the splatter immediately,
+showing the internal version<br>
+&lt;CumSplatter internal='true'/&gt;<br>
+<br>
+eg show the movieclip from the slave's swf file (actually it will try
+the core game, then the slaves), right aligned, frame 5 in the movieclip<br>
+&lt;CumSplatter movie='GangBangClip' align='3' frame='5'/&gt;<span
+ style="font-size: 12pt;"><br>
+<br>
+<span style="font-size: 10pt;">eg same as above, but explicitly only
+checks the slave's swf file<br>
+&lt;CumSplatter slave='true' movie='GangBangClip' align='3'
+frame='5'/&gt;</span><span style="font-size: 12pt;"><br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">ShowSupervisor</span><span
+ style="font-size: 12pt;"><br>
+&lt;ShowSupervisor/&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version
+ShowSupervisor();<br>
+</span><span style="font-size: 12pt;"><br>
+Shows the image of the current supervisor (your slave maker or
+assistant) in the small person window<br>
+<br>
+No attributes or element data.<br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">ShowSlaveMaker</span><span
+ style="font-size: 12pt;"><br>
+&lt;ShowSlaveMaker/&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version
+ShowSlaveMaker();<br>
+</span><span style="font-size: 12pt;"><br>
+Shows the image of your slave maker in the small person window.<br>
+<br>
+No attributes or element data.<br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">ShowItem</span><span
+ style="font-size: 12pt;"><br>
+&lt;ShowItem item='number'/&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+ShowItem(item, true, 1, 1);<br>
+</span><span style="font-size: 12pt;"><br>
+Show the image of an item in the main/person window of the game.<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; item
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -
+the number of the item to hide<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; place &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+location to show the item. See ShowMovie(), defaults to 0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; align &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+positioning of the item in the selected area, see ShowMovie(), defaults
+to 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; frame &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+particular image to show, for items with multiple images, defaults to 1<br>
+<br>
+no element data<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;ShowItem item='1'/&gt;<br>
+eg<br>
+&lt;ShowItem item='2' place='1' align='3'/&gt;</span><span
+ style="font-size: 12pt;"><br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">HideItem</span><span
+ style="font-size: 12pt;"><br>
+&lt;HideItem item='number'/&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version: HidePerson()</span><span
+ style="font-size: 12pt;"><br>
+<br>
+Hides the image of a selected item.<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; item - the number of
+the item to hide<br>
+<br>
+no element data<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;HideItem item='8'/&gt;<br>
+<br>
+</span><span style="font-size: 12pt;">______________________<br>
+<br>
+</span><span style="font-size: 14pt;">AskQuestions</span><span
+ style="font-size: 12pt;"><br>
+&lt;AskQuestions&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Question
+event='event'&gt;string&lt;/Question&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...<br>
+&lt;/AskQuestions&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version: several
+functions, ResetQuestions(), AddQuestion(), ShowQuestions();<br>
+<br>
+</span><span style="font-size: 12pt;"><br>
+attributes for &lt;AskQuestions&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; caption
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) text that
+appears above the questions, normally a question being asked.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; main
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -
+(OPTIONAL) if true show the questions in the main window, otherwise
+show in the text areas below the last shown text. Defaults to false.<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a series of
+&lt;Question&gt; nodes. Each has an attribute event to specify the
+event to be done when the question answer is chosen. It's element data
+is the text of the question. Each event must be in the same parent node
+as the currently executing event. Standard core game events that use
+numbers can also be triggered by this, just specify the number here.<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;AskQuestions caption='What should #slave do in the meantime?'&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Question
+event='BEForestRest'&gt;Rest a little&lt;/Question&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Question
+event='BEForestDrink'&gt;Drink water from the lake&lt;/Question&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Question
+event='BEForestEat'&gt;Eat one of the unknown fruits&lt;/Question&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Question
+event='BEForestLeave'&gt;Wait for morning &amp;amp; leave the
+valley&lt;/Question&gt;<br>
+&lt;/AskQuestions&gt;</span><span style="font-size: 12pt;"><br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">YesNoQuestion</span><span
+ style="font-size: 12pt;"><br>
+&lt;YesNoQuestion event='event'&gt;text&lt;/YesNoQuestion&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+DoYesNoEvent(text);<br>
+<br>
+</span><span style="font-size: 12pt;">Show the Yes/No buttons and when
+it is pressed the selected event will be done. If you specify an event
+FightMonster then if you press the Yes button the event FightMonsterYes
+is performed. Similarly for the No button.<br>
+Note a line feed/new line is always output to the general text window
+by the statement.<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; event &nbsp;&nbsp; -
+the name of the event that will be performed, with a Yes or No suffix.
+The yes/no event must be in the same parent node as the currently
+executing event. Standard core game events that use numbers can also be
+triggered by this, just specify the number here.<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (OPTIONAL) a string
+output in the general text window, generally the question being asked
+that you are to respond yes/no to<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;YesNoQuestion event='FightMonster&gt;Will you fight the
+monster?&lt;/YesNoQuestion &gt;<br>
+eg<br>
+&lt;YesNoQuestion event='140'&gt;Will you submit to the
+tentacles?YesNoQuestion &gt;<br>
+<br>
+</span><span style="font-size: 12pt;">______________________<br>
+<br>
+</span><span style="font-size: 14pt;">DoEvent<br>
+</span><span style="font-size: 12pt;">&lt;DoEvent&gt;event&lt;/DoEvent&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+DoEvent(string);<br>
+</span><span style="font-size: 12pt;"><br>
+Show the Next button and when it is pressed the selected event will be
+done.<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now
+&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the next button is not shown,
+instead the event is immediately done. Useful to have a common event
+that can be triggered from several places and you wish to just vary
+some initial text for instance.<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the event name (or
+number) to trigger<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;DoEvent&gt;LamiaEscape&lt;/DoEvent&gt;<br>
+eg trigger standard core event<br>
+&lt;DoEvent&gt;9800&lt;/DoEvent&gt;<br>
+</span><span style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">Alternatives</span><span
+ style="font-size: 12pt;"><br>
+&lt;Alternatives&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Alternative&gt;&lt;/Alternative&gt;<br>
+&lt;/Alternatives&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version: if/switch<br>
+<br>
+</span><span style="font-size: 12pt;"><br>
+This is a simple version of nested if statement or a variation of a
+switch statement. This is intended to have a list of variations in a
+event and the game will pick one at random to be processed. All nodes
+are given an equal chance to happen by default, but this can be
+overridden with attributes.<br>
+<br>
+The nodes may be named as Alternative or Alternate.<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; altchance
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) a percentage chance
+to this node to happen, intended to override the standard equal
+distribution.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xml conditionals -
+(OPTIONAL) you can also just specify standard conditionals. These
+enable or disable the node. If these are true then the node may be
+selected randomly. If they are false then the node will not be randomly
+selected. See Core - XML - Comditionals &amp; Variables.rtf<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the event statement to
+process<br>
+<br>
+</span><span style="font-size: 10pt;">eg both equally likely<br>
+&lt;Alternatives&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Alternative&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ShowImage
+image='Images/Lady Farun/Image 2.jpg' place='1' align='1'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;AddText&gt;You
+find the Lady Farun speaking with another Lady of the Court. The Lady
+Farun looks enchantingly beautiful as she laughs at a comment of the
+Lady she is with.\r\rThey notice you and Lady Farun smiles and leans in
+and rather passionately kisses the woman. She breaks the kiss and runs
+her hand tenderly along the Ladies face, and she stands and walks over
+to speak with you.&lt;/AddText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Alternative&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Alternative&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ShowImage
+image='Images/Lady Farun/Image' place='1' align='1' frame="random3 +
+4"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;AddText&gt;You
+find the Lady Farun speaking with minor nobleman, leaning very close to
+him, their lips almost touching. The Lady Farun looks very beautiful as
+she looks into the man&amp;apos;s eyes. The nobleman is very focused on
+her and clearly besotted with her.\r\rYou are about to leave when Lady
+Farun notices you and she leans in and whispers in the
+nobleman&amp;apos;s ear. She pulls away from the nobleman, and she
+stands and walks over to speak with you, the nobleman watching her as
+if there was no-one else in the room.&lt;/AddText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Alternative&gt;<br>
+&lt;/Alternatives&gt;<br>
+<br>
+eg unicorns are rare so seen 10%, bear and deer 45%</span><span
+ style="font-size: 12pt;"><br>
+</span><span style="font-size: 10pt;">&lt;Alternatives&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Alternate
+altchance='10%'&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;AddText&gt;#slave
+sees a unicorn&lt;/AddText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Alternate&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Alternate&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;AddText&gt;#slave
+sees a bear&lt;/AddText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Alternate&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Alternate&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;AddText&gt;#slave
+sees a deer&lt;/AddText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Alternate&gt;<br>
+&lt;/Alternatives&gt;<br>
+<br>
+eg at night 33% of the time a dark elf is seen. In the day time 50% of
+the time an elf, 50% a woman</span><span style="font-size: 12pt;"><br>
+</span><span style="font-size: 10pt;">&lt;Alternatives&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Alternate
+day='false&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;AddText&gt;#slave
+sees dark elf&lt;/AddText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Alternate&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Alternate&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;AddText&gt;#slave
+sees an elf&lt;/AddText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Alternate&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Alternate&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;AddText&gt;#slave
+sees a woman&lt;/AddText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Alternate&gt;<br>
+&lt;/Alternatives&gt;<br>
+</span><span style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">Choices</span><span
+ style="font-size: 12pt;"><br>
+&lt;Choices&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;nodename&gt;&lt;/nodename&gt;<br>
+&lt;/Choices&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version: switch<br>
+</span><span style="font-size: 12pt;"><br>
+This is a simple version of nested if statement or a variation of a
+switch statement. Similar to &lt;Alternatives&gt; above but you supply
+conditionals to determin whic node is processed.<br>
+<br>
+When processed the game checks each subnode sequentially and tests if
+it's conditional is true and if so it performs its statements and then
+finishes the Choices statment, no later nodes are checked.<br>
+<br>
+If a subnode has no conditionals it is always performed, essentially a
+defaul clause.<br>
+<br>
+Standardly name the nodes &lt;Choice&gt; for clarity, but they can have
+any name you like. If a node starts Day- then it in only checked in the
+daytime. If a node name starts Night- then is it only checked at night.
+This is the same as adding day='true' or day='false' respectively.<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xml conditionals - see
+Core - XML - Comditionals &amp; Variables.rtf<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the event statements
+to process<br>
+<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;Choices&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Choice
+tiredness="30-"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;AddText&gt;#slave
+feels fine&lt;/AddText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Choice&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Choice
+tiredness="60-"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;AddText&gt;#slave
+feels rather tired&lt;/AddText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Choice&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Default&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;AddText&gt;#slave
+faints&lt;/AddText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Default&gt;<br>
+&lt;/Choices&gt;<br>
+<br>
+&lt;Choices&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Day-Effect1
+tiredness="30-&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;AddText&gt;#slave
+feels fine&lt;/AddText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Day-Effect1&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Day-Effect2
+tiredness="60-"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;AddText&gt;#slave
+feels rather tired&lt;/AddText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Day-Effect2&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Default&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;AddText&gt;#slave
+faints&lt;/AddText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Default&gt;<br>
+&lt;/Choices&gt;</span><span style="font-size: 12pt;"><br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">AlterSexuality</span><span
+ style="font-size: 12pt;"><br>
+&lt;AlterSexuality&gt;expression&lt;/AlterSexuality&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+AlterSexuality(val);<br>
+</span><span style="font-size: 12pt;"><br>
+Changes the slave's sexuality by an expression<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slave &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+slave/assistant to change. 'slavemaker' is not a valid choice.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Defaults to your
+current slave<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; an expression for the
+amount to change, negative values to decrease<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;AlterSexuality&gt;-2&lt;/AlterSexuality&gt;</span><span
+ style="font-size: 12pt;"><br>
+</span><span style="font-size: 10pt;">&lt;AlterSexuality
+slave='Tifa'&gt;-1 * elapsed&lt;/AlterSexuality&gt;</span><span
+ style="font-size: 12pt;"><br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">ChangeBustSize<br>
+</span><span style="font-size: 12pt;">&lt;ChangeBustSize&gt;expression&lt;/ChangeBustSize&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+ChangeBustSize(val);<br>
+</span><span style="font-size: 12pt;"><br>
+Changes the slaves bust size by a percentage value, 1.1 = 10% increase<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slave &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+slave/slavemaker/assistant to change.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Defaults to your
+current slave<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; an expression for the
+amount to change, values less than 1 decrease,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; greater than 1 increase<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;ChangeBustSize&gt;1.1&lt;/ChangeBustSize&gt;</span><span
+ style="font-size: 12pt;"><br>
+</span><span style="font-size: 10pt;">&lt;ChangeBustSize
+slave='Tifa'&gt;1.2&lt;/ChangeBustSize&gt;</span><span
+ style="font-size: 12pt;"><br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">ChangeClitCockSize</span><span
+ style="font-size: 12pt;"><br>
+&lt;ChangeClitCockSize&gt;expression&lt;/ChangeClitCockSize&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+ChangeClitCockSize(val);<br>
+</span><span style="font-size: 12pt;"><br>
+Changes the slaves clit or cock size by a percentage value, 1.1 = 10%
+increase<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slave &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+slave/slavemaker/assistant to change.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Defaults to your
+current slave<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; an expression for the
+amount to change, values less than 1 decrease,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; greater than 1 increase<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;ChangeClitCockSize&gt;1.1&lt;/ChangeClitCockSize&gt;</span><span
+ style="font-size: 12pt;"><br>
+</span><span style="font-size: 10pt;">&lt;ChangeClitCockSize
+slave='Tifa'&gt;1.2&lt;/ChangeClitCockSize&gt;</span><span
+ style="font-size: 12pt;"><br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">ChangeMilkEffects</span><span
+ style="font-size: 12pt;"><br>
+&lt;ChangeMilkEffects attributes/&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+ChangeMilkEffects(val);<br>
+</span><span style="font-size: 12pt;"><br>
+Changes the slaves lactation rate, breast fixation, milkinfluence
+values.<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slave &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+slave/assistant to change, value 'slavemaker' is not valid.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Defaults to your
+current slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+lactation&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+amount to change the slave's lactation rate<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; breastfixation-
+(OPTIONAL) the amount to change the slave's breast fixation<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; milkinfluence-
+(OPTIONAL) the amount to change the slave's milk drug influence<br>
+<br>
+no element data<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;ChangeMilkEffects lactation="1"/&gt;<br>
+&lt;ChangeMilkEffects breastfixation='2' lactation="1"/&gt;</span><span
+ style="font-size: 12pt;"><br>
+</span><span style="font-size: 10pt;">&lt;ChangeMilkEffects
+slave='Tifa' lactation="1"/&gt;<br>
+</span><span style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">Diary</span><span
+ style="font-size: 12pt;"><br>
+&lt;Diary&gt;string&lt;/Diary&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+Diary.AddEntry(string);<br>
+</span><span style="font-size: 12pt;"><br>
+Adds an entry to the Training Log/Diary for the slave's training<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tentacles
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) true is this event
+associate with the tentacle creatures<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; winner &nbsp; -
+(OPTIONAL) did the slave win a contest, 1 = first place, 2 = second, 3
+= third<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ownertesting -
+(OPTIONAL) is this entry to do with the slaves owner testing the slave<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the message to add<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;Diary&gt;#slave was bitten by a Lamia&lt;/Diary&gt;<br>
+&lt;Diary tentacles='true'&gt;#slave saw a tentacle shape in the
+shadows&lt;/Diary&gt;<br>
+</span><span style="font-size: 12pt;"><br>
+_____________________<br>
+<br>
+</span><span style="font-size: 14pt;">HideImages</span><span
+ style="font-size: 12pt;"><br>
+&lt;HideImages/&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version: several
+functions involved<br>
+</span><span style="font-size: 12pt;"><br>
+Hides all currently shown images and people<br>
+<br>
+Equivallent to calling the actionscript functions, leaves backgrounds
+as is<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HideImages();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HideSlaveActions();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HideAllPeople();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HideItems();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HideEndings();<br>
+<br>
+No attributes or element data.<br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">GenderVersions</span><span
+ style="font-size: 12pt;"><br>
+&lt;GenderVersions&gt;<br>
+&lt;/GenderVersions&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version: none<br>
+</span><span style="font-size: 12pt;"><br>
+Similar to &lt;Choices&gt; this selects a node based on the
+slave/slavemaker/assistants gender<br>
+<br>
+You build a set of nodes like<br>
+<br>
+&lt;GenderVersions&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Male&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;SetText&gt;Male
+slave ....&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Male&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Female&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;SetText&gt;Female
+slave ....&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Female&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Dickgirl&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;SetText&gt;Female
+slave ....&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Dickgirl&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Other&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;SetText&gt;Other
+gender, none or twins&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Other&gt;<br>
+&lt;/GenderVersions&gt;<br>
+<br>
+Nodes can be named as the standard gender names (see the top on this
+document) except you must remove any spaces. The nodes are case
+insensitive.<br>
+<br>
+attributes for GenderVersions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slavemaker
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) true means to use your
+slave makers gender<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assistant
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) true, then use the
+assistants gender<br>
+Defaults to your slaves gender<br>
+<br>
+no element data for GenderVersions<br>
+<br>
+no attributes for individual gender nodes<br>
+<br>
+element data for gender nodes like &lt;Male&gt;<br>
+The XML statements to process for the gender case<br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">RepeatEvent<br>
+</span> <span style="font-size: 12pt;">&lt;RepeatEvent&gt;event&lt;/RepeatEvent&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+Forest.RepeatEvent("Centaur");<br>
+</span><span style="font-size: 12pt;"><br>
+Allows an event to happen that had been prevented from happening via
+NoRepeatEvent (or actionscript version), some core events will reset
+for later slaves.<br>
+<br>
+Note: only applies for events when doing the 'Take a Walk' action.<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no attributes<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (OPTIONAL) event to
+enable, defaults to the current event<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;RepeatEvent&gt;Centaur&lt;/RepeatEvent&gt;<br>
+</span><span style="font-size: 12pt;"><br>
+______________________<br>
+</span><span style="font-size: 14pt;"><br>
+NoRepeatEvent<br>
+</span><span style="font-size: 12pt;">&lt;NoRepeatEvent&gt;event&lt;/NoRepeatEvent&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+Forest.NoRepeatEvent("Centaur");<br>
+</span><span style="font-size: 12pt;"><br>
+Prevents an event from happening again, some core events automatically
+repeat for each slave, but most stay reset for all slaves.<br>
+<br>
+Note: only applies for events when doing the 'Take a Walk' action.<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no attributes<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (OPTIONAL) event to
+disable, defaults to the current event<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;NoRepeatEvent&gt;Centaur&lt;/NoRepeatEvent&gt;<br>
+</span><span style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">Combat</span><span
+ style="font-size: 12pt;"><br>
+&lt;Combat resethealth='true' startnow='true'&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;StartMessage&gt;You advance to help the guards fight the deformed
+creature...&lt;/StartMessage&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;RunawayEvent&gt;FarunRescueGetHelpBattleWonNoHelp&lt;/RunawayEvent&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;WinEvent&gt;FarunRescueGetHelpBattleWon&lt;/WinEvent&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;LoseDamageEvent&gt;FarunRescueGetHelpBattleLost&lt;/LoseDamageEvent&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;LoseLustEvent&gt;FarunRescueGetHelpBattleLost&lt;/LoseLustEvent&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;BonusAttack&gt;10&lt;/BonusAttack&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;BonusDefence&gt;10&lt;/BonusDefence&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Monsters&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Generic
+attack="70" defence="30" health="80" speed="65" desc="Deformed
+Ogre"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Monsters&gt;<br>
+&lt;/Combat&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version: multiple
+functions are involved here.<br>
+</span><span style="font-size: 12pt;"><br>
+Start a combat with your slaves maker and a monster.<br>
+<br>
+attributes for Combat<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; resethealth
+&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) true means your slave makers
+health is reset to full. Otherwise their health stays the same from the
+last combat. Default true<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; startnow
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) true, then the
+combat immediately starts, otherwise a Next button is shown and the
+combat starts when it is pressed. Default false<br>
+<br>
+element data for Combat<br>
+There are a series of subnodes detailing the events that happen after
+the combat and who is being fought, no actual element data.<br>
+<br>
+&lt;StartMessage&gt; - a text string shown when the combat starts<br>
+&lt;RunawayEvent&gt; &nbsp; - if your slave maker flees this event is
+triggered<br>
+&lt;WinEvent&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - if your slave maker
+defeats the monster, this event is triggered<br>
+&lt;LoseDamage&gt;&nbsp;&nbsp;&nbsp;&nbsp; - if your slave maker fails
+due to health (ie hurt too much), this event is triggered<br>
+&lt;LoseLustEvent&gt;&nbsp; - if your slave makers lust reaches
+maximum, this event is triggered<br>
+&lt;BonusAttack&gt;&nbsp;&nbsp;&nbsp; - a bonus added to your slave
+makers attack stat for this combat only<br>
+&lt;BonusDefence&gt;&nbsp;&nbsp; - a bonus added to your slave makers
+defence stat for this combat only<br>
+<br>
+&lt;Monsters&gt;<br>
+A list is the monsters in the combat, valid nodes are<br>
+Tentacles<br>
+Demongirl<br>
+Zombie<br>
+Astrid<br>
+Generic<br>
+Each have attributes<br>
+attributes for monster types<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; attack &nbsp; - attack
+stat for the monster<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; defence
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - defence stat for the
+monster<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; health &nbsp; - health
+for the monster<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; speed &nbsp;&nbsp; -
+speed for the monster, lower the faster<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+desc&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- the name of the monster that appears during the combat<br>
+<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;Combat resethealth='true' startnow='true'&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;StartMessage&gt;You advance to help the guards fight the deformed
+creature...&lt;/StartMessage&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;RunawayEvent&gt;FarunRescueGetHelpBattleWonNoHelp&lt;/RunawayEvent&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;WinEvent&gt;FarunRescueGetHelpBattleWon&lt;/WinEvent&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;LoseDamageEvent&gt;FarunRescueGetHelpBattleLost&lt;/LoseDamageEvent&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;LoseLustEvent&gt;FarunRescueGetHelpBattleLost&lt;/LoseLustEvent&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;BonusAttack&gt;10&lt;/BonusAttack&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;BonusDefence&gt;10&lt;/BonusDefence&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Monsters&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Generic
+attack="70" defence="30" health="80" speed="65" desc="Deformed
+Ogre"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Monsters&gt;<br>
+&lt;/Combat&gt;<br>
+</span><span style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">ShowJob</span><span
+ style="font-size: 12pt;"><br>
+&lt;ShowJob&gt;number&lt;/ShowJob&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+ShowCustomJob(value);<br>
+<br>
+</span><span style="font-size: 12pt;">Shows a custom job<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no attributes<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; job number 1, 2, 3<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;ShowJob&gt;1&lt;/ShowJob&gt;</span><span style="font-size: 12pt;"><br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">HideJob</span><span
+ style="font-size: 12pt;"><br>
+&lt;HideJob&gt;number&lt;/HideJob&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+HideCustomJob(value);<br>
+<br>
+</span><span style="font-size: 12pt;">Hides a custom job<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no attributes<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; job number 1, 2, 3<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;HideJob&gt;1&lt;/HideJob&gt;</span><span style="font-size: 12pt;"><br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">ShowChore</span><span
+ style="font-size: 12pt;"><br>
+&lt;ShowChore&gt;number&lt;/ShowChore&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+ShowCustomChore(value);<br>
+<br>
+</span><span style="font-size: 12pt;">Shows a custom chore<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no attributes<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; chore number 1, 2, 3<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;ShowChore&gt;1&lt;/ShowChore&gt;</span><span
+ style="font-size: 12pt;"><br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">HideChore</span><span
+ style="font-size: 12pt;"><br>
+&lt;HideChore&gt;number&lt;/HideChore&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+HideCustomChore(value);<br>
+<br>
+</span><span style="font-size: 12pt;">Hides a custom chore<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no attributes<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; chore number 1, 2, 3<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;HideChore&gt;1&lt;/HideChore&gt;<br>
+<br>
+</span><span style="font-size: 12pt;">______________________<br>
+<br>
+</span><span style="font-size: 14pt;">ShowSchool</span><span
+ style="font-size: 12pt;"><br>
+&lt;ShowSchool&gt;number&lt;/ShowSchool&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+ShowCustomSchool(value);<br>
+<br>
+</span><span style="font-size: 12pt;">Shows a custom school<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no attributes<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; school number 1, 2, 3<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;ShowSchool&gt;1&lt;/ShowSchool&gt;</span><span
+ style="font-size: 12pt;"><br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">HideSchool</span><span
+ style="font-size: 12pt;"><br>
+&lt;HideSchool&gt;number&lt;/HideSchool&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+HideCustomSchool(value);<br>
+<br>
+</span><span style="font-size: 12pt;">Hides a custom school<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no attributes<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; school number 1, 2, 3<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;HideSchool&gt;1&lt;/HideSchool&gt;<br>
+<br>
+</span><span style="font-size: 12pt;">______________________<br>
+<br>
+</span><span style="font-size: 14pt;">ShowSex</span><span
+ style="font-size: 12pt;"><br>
+&lt;ShowSex&gt;number&lt;/ShowSex&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+ShowCustomSex(value);<br>
+<br>
+</span><span style="font-size: 12pt;">Shows a custom sex act<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no attributes<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sex number 1, 2<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;ShowSex&gt;1&lt;/ShowSex&gt;</span><span style="font-size: 12pt;"><br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">HideSex</span><span
+ style="font-size: 12pt;"><br>
+&lt;HideSex&gt;number&lt;/HideSex&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+HideCustomSex(value);<br>
+<br>
+</span><span style="font-size: 12pt;">Hides a custom sex act<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no attributes<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sex act number 1, 2<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;HideSex&gt;1&lt;/HideSex&gt;<br>
+<br>
+</span><span style="font-size: 12pt;">______________________<br>
+<br>
+</span><span style="font-size: 14pt;">ChangeDate | UpdateDateAndItems<br>
+</span><span style="font-size: 12pt;">&lt;ChangeDate&gt;expression&lt;/ChangeDate&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+UpdateDateAndItems(value);<br>
+<br>
+</span><span style="font-size: 12pt;">Moves the game to the start of a
+later day, advancing by the noted number of days (1 for the next day).<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no attributes<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; number of days to
+advance<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;ChangeDate&gt;1.5&lt;/ChangeDate&gt;</span><span
+ style="font-size: 12pt;"><br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">ChangeTime</span><span
+ style="font-size: 12pt;"><br>
+&lt;ChangeTime&gt;expression&lt;/ChangeTime&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+AddTime(value);<br>
+<br>
+</span><span style="font-size: 12pt;">Changes the time of day by the
+specified number of hours, or fraction there of.<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no attributes<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; number of hours to
+change, 0.5 = 30 minutes<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;ChangeTime&gt;1.5&lt;/ChangeTime&gt;<br>
+</span><span style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">ShowCurrentFloor<br>
+</span><span style="font-size: 12pt;">&lt;ShowCurrentFloor/&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+HouseEvents.ShowCurrentFloor();<br>
+<br>
+</span><span style="font-size: 12pt;">Shows the current floor map when
+exploring a building/location<br>
+<br>
+no attributes or element data<br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">HideCurrentFloor<br>
+</span><span style="font-size: 12pt;">&lt;HideCurrentFloor/&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+HouseEvents.HideCurrentFloor();<br>
+<br>
+</span><span style="font-size: 12pt;">Hides the current floor map when
+exploring a building/location<br>
+<br>
+no attributes or element data<br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">StopExploring<br>
+</span><span style="font-size: 12pt;">&lt;StopExploring/&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+DoEvent(6999)<br>
+<br>
+</span><span style="font-size: 12pt;">Shows the next button and stops
+the current exploration of a house/location. Planning will continue
+after<br>
+<br>
+no attributes or element data<br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">SetRoomExplored<br>
+</span><span style="font-size: 12pt;">&lt;SetRoomExplored&gt;expression&lt;/SetRoomExplored&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+HouseEvents.SetRoomExplored(value);<br>
+<br>
+</span><span style="font-size: 12pt;">Sets the specified room as
+explored and visible on the house map<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no attributes<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; room number to set as
+explored<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;SetRoomExplored&gt;1&lt;/SetRoomExplored&gt;</span><span
+ style="font-size: 12pt;"><br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">EnterRoom<br>
+</span><span style="font-size: 12pt;">&lt;EnterRoom&gt;expression&lt;/EnterRoom&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+HouseEvents.EnterRoom(value);<br>
+<br>
+</span><span style="font-size: 12pt;">Triggers the event associated
+with walking into the selected room, and then puts you into that room.<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no attributes<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; room number to enter<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;EnterRoom&gt;1&lt;/EnterRoom&gt;</span><span
+ style="font-size: 12pt;"><br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">SetCurrentRoom<br>
+</span><span style="font-size: 12pt;">&lt;SetCurrentRoom&gt;expression&lt;/SetCurrentRoom&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+HouseEvents.SetCurrentRoom(value);<br>
+<br>
+</span><span style="font-size: 12pt;">Teleports/puts you into the
+selected room. No events are tiggered, you are just there.<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no attributes<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; room number to now be
+in<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;SetCurrentRoom&gt;1&lt;/SetCurrentRoom&gt;</span><span
+ style="font-size: 12pt;"><br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">LockDoor<br>
+</span><span style="font-size: 12pt;">&lt;LockDoor from='number'
+to='number'/&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+HouseEvents.LockDoor(frm, to);<br>
+</span><span style="font-size: 12pt;"><br>
+Locks a door between 2 rooms<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; from - the room the
+door leads from<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; to - to door the room
+leads to<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; none<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;LockDoor from='1' to='2'/&gt;<br>
+</span><span style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">UnlockDoor<br>
+</span><span style="font-size: 12pt;">&lt;UnlockDoor from='number'
+to='number'/&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+HouseEvents.LockDoor(frm, to);<br>
+</span><span style="font-size: 12pt;"><br>
+Unlocks a door between 2 rooms<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; from - the room the
+door leads from<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; to - to door the room
+leads to<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; none<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;UnlockDoor from='1' to='2'/&gt;</span><span style="font-size: 12pt;"><br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">Exploration<br>
+</span><span style="font-size: 12pt;">&lt;Exploration&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Room
+attributes/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Door
+attributes/&gt;<br>
+&lt;/Exploration&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version: multiple
+functions are involved here.<br>
+<br>
+</span><span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var desc:String = "";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var desc2:String = "";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (var attr:String
+in aNode.attributes) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (attr.toLowerCase()
+== "description") desc = aNode.attributes[attr];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else if
+(attr.toLowerCase() == "description2") desc2 = aNode.attributes[attr];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HouseEvents.InitialiseExploration(desc, desc2);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (var dNode:XMLNode
+= aNode.firstChild; dNode != null; dNode = dNode.nextSibling) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; str =
+dNode.nodeName.toLowerCase();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (str == "room") {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type = 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xpos = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ypos = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rwidth = 60;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rheight = 60;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; evt = undefined;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rot = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; desc = "";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (var attr:String
+in dNode.attributes) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (attr == "type")
+type = GetExpression(dNode.attributes[attr]);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else if (attr ==
+"xpos") xpos = GetExpression(dNode.attributes[attr]);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else if (attr ==
+"description") desc = dNode.attributes[attr];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else if (attr ==
+"ypos") ypos = GetExpression(dNode.attributes[attr]);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else if (attr ==
+"width") rwidth = GetExpression(dNode.attributes[attr]);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else if (attr ==
+"height") rheight = GetExpression(dNode.attributes[attr]);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else if (attr ==
+"event") evt = dNode.attributes[attr];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HouseEvents.AddRoomAndPosition(type, desc, evt, xpos, ypos, rwidth,
+rheight, rot, false);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else if (str ==
+"door") {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xpos = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rwidth = 5;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rheight = 20;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; evt = undefined;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type = -1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ypos = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (var attr:String
+in dNode.attributes) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (attr == "from")
+xpos = GetExpression(dNode.attributes[attr]);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else if (attr == "to")
+ypos = GetExpression(dNode.attributes[attr]);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else if (attr ==
+"dpos") type = GetExpression(dNode.attributes[attr]);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else if (attr ==
+"width") rwidth = GetExpression(dNode.attributes[attr]);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else if (attr ==
+"height") rheight = GetExpression(dNode.attributes[attr]);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else if (attr ==
+"event") evt = dNode.attributes[attr];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HouseEvents.AddDoorToRoom(xpos, ypos, type, rwidth, rheight, evt,
+false);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return true;<br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">SetVar | SetVars<br>
+</span><span style="font-size: 12pt;">&lt;SetVars attributes/&gt;</span><span
+ style="font-size: 10pt;"><br>
+actionscript version: multiple functions, but mainly just setting
+variables</span><span style="font-size: 12pt;"><br>
+</span><span style="font-size: 14pt;"><br>
+</span><span style="font-size: 12pt;">______________________<br>
+</span><span style="font-size: 14pt;"><br>
+ChangeVar | ChangeVars</span><span style="font-size: 12pt;"><br>
+&lt;ChangeVars attributes/&gt;</span><span style="font-size: 10pt;"><br>
+actionscript version: multiple functions, but mainly just setting
+variables<br>
+</span><span style="font-size: 12pt;"><br>
+if (attr.substr(0, 3) == "var") {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var idx:Number =
+Number(attr.substr(3));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (idx != NaN
+&amp;&amp; idx != undefined &amp;&amp; tempVars.length &lt; idx) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (var id:Number =
+tempVars.length; id &lt; idx; id++) tempVars.push(0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (str == "setvar")
+tempVars[idx] = GetExpression(aNode.attributes[attr]);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else tempVars[idx] +=
+GetExpression(aNode.attributes[attr]);<br>
+}&nbsp;else if (attr == "idx") {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var idx:Number =
+GetExpression(aNode.attributes[attr]);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (idx != NaN
+&amp;&amp; idx != undefined &amp;&amp; tempVars.length &lt; idx) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (var id:Number =
+tempVars.length; id &lt; idx; id++) tempVars.push(0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (str == "setvar")
+tempVars[idx] = GetExpression(aNode.attributes[attr]);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else tempVars[idx] +=
+GetExpression(aNode.attributes[attr]);<br>
+}&nbsp;else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var val:Number =
+undefined;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (str ==
+"changecustom" || str == "changevar"|| str == "changevars") val =
+Number(GetStatSkill(attrl));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (val == undefined)
+val = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SetStatSkill(attrl,
+val + GetExpression(aNode.attributes[attr]), aNode.attributes[attr]);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">AddParticipant<br>
+</span><span style="font-size: 12pt;">&lt;AddParticipant attributes/&gt;</span><span
+ style="font-size: 10pt;"><br>
+actionscript version: multiple functions</span><span
+ style="font-size: 12pt;"><br>
+</span><span style="font-size: 14pt;"><br>
+</span><span style="font-size: 12pt;">______________________<br>
+</span><span style="font-size: 14pt;"><br>
+ChangeParticipant<br>
+</span><span style="font-size: 12pt;">&lt;ChangeParticipant
+attributes/&gt;</span><span style="font-size: 10pt;"><br>
+actionscript version: multiple functions</span><span
+ style="font-size: 12pt;"><br>
+<br>
+var enable:Boolean = true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var owned:Boolean =
+false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var nm:String=
+GetXMLString("Name", statNode);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (var attr:String
+in aNode.attributes) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (attr.toLowerCase()
+== "enable") enable = aNode.attributes[attr].toLowerCase() == "true";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else if
+(attr.toLowerCase() == "name") nm = aNode.attributes[attr];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else if
+(attr.toLowerCase() == "owned") owned =
+aNode.attributes[attr].toLowerCase() == "true";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (nm == "") return;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (statNode ==
+undefined) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; statNode =
+aNode.firstChild;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if
+(GetXMLString("Name", statNode) == "") statNode = GetMinorSlaveXML(nm);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var sdata:Slave =
+GetSlaveDetailsByName(nm);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (sdata == null) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sdata = new Slave(nm);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sdata.SlaveIndex =
+SlavesArray.length;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SpecialIndex =
+sdata.SlaveIndex;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+StartGameSlaveXML(statNode, sdata);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SlavesArray.push(sdata);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (sdata.SlaveType ==
+-2 || sdata.SlaveType == -20) SpecialIndex = sdata.SlaveIndex;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sdata.SlaveImage =
+GetXMLString("Image", statNode);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (owned)
+sdata.SlaveType = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else sdata.SlaveType =
+enable ? -20 : -2;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+sdata.ActInfoBase.LoadActImages(statNode);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+sdata.ActInfoBase.ActFolder = sdata.SlaveFolder;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sdata.ActInfoCurrent =
+sdata.ActInfoBase;<br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">ShowSpecialStat</span><span
+ style="font-size: 12pt;"><br>
+&lt;ShowSpecialStat&gt;text&lt;/ShowSpecialStat&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version
+ShowSpecialStat("Femininity: ");<br>
+</span><span style="font-size: 12pt;"><br>
+Show the custom/special stat for the slave so it is visible on the
+statistics screens<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no attributes<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (OPTIONAL) the label
+of the special stat, it will default to the value previously set, say
+in XML or by a previous call to this function.<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;ShowSpecialStat&gt;Femininity: &lt;/ShowSpecialStat&gt;<br>
+eg<br>
+&lt;ShowSpecialStat/&gt;<br>
+<br>
+</span><span style="font-size: 12pt;">______________________<br>
+<br>
+</span><span style="font-size: 14pt;">HideSpecialStat</span><span
+ style="font-size: 12pt;"><br>
+&lt;HideSpecialStat/&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version
+HideSpecialStat();<br>
+</span><span style="font-size: 12pt;"><br>
+Hides the custom/special stat for the slave so it is not visible on the
+statistics screens. The stat can still be updated using &lt;Points&gt;<br>
+<br>
+No attributes or element data.<br>
+<br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">EndEvent<br>
+</span><span style="font-size: 12pt;">&lt;EndEvent/&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version: none</span><span
+ style="font-size: 12pt;"><br>
+<br>
+Stops all processing of an XML event. This is intended to simplify
+nesting in complex events. Once this statment is executed no further
+XML statements will be parsed.<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; handled - (OPTIONAL)
+The event will terminate and will be treated by the core game as if the
+event had done the event. This is intended for limited cases where an
+XML event had done nothing except say &lt;if&gt; statements and you
+still wish to suppress the standard handling of a core game event.
+Rarely use with caution.<br>
+<br>
+no element data<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;EndEvent'/&gt;<br>
+</span><span style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">ShowCustomHouse<br>
+</span><span style="font-size: 12pt;">&lt;ShowCustomHouse&gt;text&lt;/ShowCustomHouse&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version
+ShowCustomHouse();<br>
+</span><span style="font-size: 12pt;"><br>
+Shows a custom house<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no attributes<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the name of the house<br>
+<br>
+</span> <span style="font-size: 10pt;">eg<br>
+&lt;ShowCustomHouse&gt;Black Cave&lt;/ShowCustomHouse&gt;<br>
+</span><span style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">HideCustomHouse</span><span
+ style="font-size: 12pt;"><br>
+&lt;HideCustomHouse&gt;text&lt;/HideCustomHouse&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version
+HideCustomContest();<br>
+</span><span style="font-size: 12pt;"><br>
+Hides a custom house<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no attributes<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the name of the house<br>
+<br>
+</span> <span style="font-size: 10pt;">eg<br>
+&lt;HideCustomHouse&gt;Black Cave&lt;/HideCustomHouse&gt;<br>
+<br>
+</span><span style="font-size: 12pt;">______________________<br>
+<br>
+</span><span style="font-size: 14pt;">ShowCustomContest</span><span
+ style="font-size: 12pt;"><br>
+&lt;ShowCustomContest&gt;boolean&lt;/ShowCustomContest&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+ShowCustomContest();<br>
+</span><span style="font-size: 12pt;"><br>
+Shows/Hides the custom contest for the slave<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no attributes<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (OPTIONAL) true to
+show the contest, false to hide it. Defaults to true.<br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">SetEnding<br>
+</span><span style="font-size: 12pt;">&lt;SetEnding
+num='number'&gt;text&lt;/SetEnding &gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+SetEnding(string, num);<br>
+</span><span style="font-size: 12pt;"><br>
+During the end of training, sets the specific ending the slave gets<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; num
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - the ending number
+you wish to select, 30+ for custom endings<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The short description
+of the ending<br>
+<br>
+</span> <span style="font-size: 10pt;">eg<br>
+&lt;SetEnding num='31'&gt;Race Queen&lt;/SetEnding&gt;<br>
+</span><span style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">TrainingComplete<br>
+</span><span style="font-size: 12pt;">&lt;TrainingComplete/&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+SetEnding(string, num);<br>
+<br>
+</span><span style="font-size: 12pt;">attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ending &nbsp; -
+(OPTIONAL) the ending number you wish to select, 30+ for custom endings<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fulltime
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) if true change
+the date to the scheduled end of training, otherwise do not change<br>
+<br>
+<br>
+no element data<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;TrainingComplete full='false' ending='9003'/&gt;<br>
+<br>
+</span><span style="font-size: 12pt;">______________________<br>
+<br>
+</span><span style="font-size: 14pt;">ChangeCombat<br>
+</span><span style="font-size: 12pt;">&lt;ChangeCombat&gt;expression&lt;/ChangeCombat&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+ChangeCombat(value);<br>
+<br>
+</span><span style="font-size: 12pt;">Changes the slave's custom combat
+skill<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slave &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+slave/assistant to change. 'slavemaker' is not a valid choice.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Defaults to your
+current slave<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; amount to change<br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">ChangeSwimming<br>
+</span><span style="font-size: 12pt;">&lt;ChangeSwimming&gt;expression&lt;/ChangeSwimming&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+ChangeSwimming(value);<br>
+<br>
+</span><span style="font-size: 12pt;">Changes the slave's skill in
+swimming<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slave &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+slave/assistant to change. 'slavemaker' is not a valid choice.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Defaults to your
+current slave<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; amount to change<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;ChangeSwimming&gt;0.1&lt;/ChangeSwimming&gt;</span><span
+ style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">ChangeCourtesan<br>
+</span><span style="font-size: 12pt;">&lt;ChangeCourtesan&gt;expression&lt;/ChangeCourtesan&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+ChangeCourtesan(value);<br>
+<br>
+</span><span style="font-size: 12pt;">Changes the slave's skill in
+being a courtesan<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slave &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+slave/assistant to change. 'slavemaker' is not a valid choice.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Defaults to your
+current slave<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; amount to change<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;ChangeCourtesan&gt;0.1&lt;/ChangeCourtesan&gt;</span><span
+ style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">ChangeFairyXF<br>
+</span><span style="font-size: 12pt;">&lt;ChangeFairyXF&gt;expression&lt;/ChangeFairyXF&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+ChangeFairyXF(value);<br>
+<br>
+</span><span style="font-size: 12pt;">Changes the slave's
+transformation as a fairy<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slave &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+slave/assistant to change. 'slavemaker' is not a valid choice.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Defaults to your
+current slave<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; amount to change<br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">ChangeSeduction<br>
+</span><span style="font-size: 12pt;">&lt;ChangeSeduction&gt;expression&lt;/ChangeSeduction&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+ChangeSeduction(value);<br>
+<br>
+</span><span style="font-size: 12pt;">Changes the slave's skill at
+seduction<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slave &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+slave/assistant to change. 'slavemaker' is not a valid choice.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Defaults to your
+current slave<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; amount to change<br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">ChangeSinging<br>
+</span><span style="font-size: 12pt;">&lt;ChangeSinging&gt;expression&lt;/ChangeSinging&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+ChangeSinging(value);<br>
+<br>
+</span><span style="font-size: 12pt;">Changes the slave's skill at
+singing<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slave &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+slave/assistant to change. 'slavemaker' is not a valid choice.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Defaults to your
+current slave<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; amount to change<br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">ChangeDancing<br>
+</span><span style="font-size: 12pt;">&lt;ChangeDancing&gt;expression&lt;/ChangeDancing&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+ChangeDancing(value);<br>
+<br>
+</span><span style="font-size: 12pt;">Changes the slave's skill at
+dancing<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slave &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+slave/assistant to change. 'slavemaker' is not a valid choice.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Defaults to your
+current slave<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; amount to change<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">ChangeCatTraining<br>
+</span><span style="font-size: 12pt;">&lt;ChangeCatTraining&gt;expression&lt;/ChangeCatTraining&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+ChangeCatTraining(value);<br>
+<br>
+</span><span style="font-size: 12pt;">Changes the slave's training as a
+cat girl<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slave &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+slave/assistant to change. 'slavemaker' is not a valid choice.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Defaults to your
+current slave<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; amount to change<br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">ChangePonyTraining<br>
+</span><span style="font-size: 12pt;">&lt;ChangePonyTraining&gt;expression&lt;/ChangePonyTraining&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+ChangePonyTraining(value);<br>
+<br>
+</span><span style="font-size: 12pt;">Changes the slave's training as a
+ponygirl<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slave &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+slave/assistant to change. 'slavemaker' is not a valid choice.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Defaults to your
+current slave<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; amount to change<br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">Impregnate<br>
+</span><span style="font-size: 12pt;">&lt;Impregnate/&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+Impregnate() or SMImpregnate()<br>
+<br>
+</span><span style="font-size: 12pt;">Impregnates the selected slave
+with a type of offspring<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slave &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+slave/slavemaker/assistant to change.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Defaults to your
+current slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -
+(OPTIONAL) the type of being who impregnated your slave, default
+'Tentacle'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; count &nbsp;&nbsp; -
+(OPTIONAL) an expression, the number of offspring that will be born,
+defaults to 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gestation
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) an expression, the
+number of days until birth. For Tentacles this is 28 + a random number
+from 0 to 4<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) an
+expression, adds an additional number of offspring, intended for later
+impregnations.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Not 'realistic' but
+intended for special cases<br>
+<br>
+no element data<br>
+<br>
+</span><span style="font-size: 10pt;">eg your slave will give birth to
+a single tentacle spawn in 28 to 32 days<br>
+&lt;Impregnate/&gt;<br>
+</span><span style="font-size: 12pt;"><br>
+</span><span style="font-size: 10pt;">eg your slave is impregnated
+again with an additional tentacle child, gestation period is 5 days
+longer<br>
+&lt;Impregnate add='1' gestation='pregnancygestation + 5'/&gt;<br>
+</span><span style="font-size: 12pt;"><br>
+</span><span style="font-size: 10pt;">eg your slave maker will give
+birth to 3 orc children in 15 days<br>
+&lt;Impregnate person='slavemaker' type='Orc' gestation='15'
+count='3'/&gt;<br>
+<br>
+eg another orc fucks your slave maker and another offspring is
+impregnated, and gestation increases 2 days<br>
+&lt;Impregnate person='slavemaker' add='1'
+gestation='pregnancygestation-slavemaker + 2'/&gt;<br>
+<br>
+eg Tifa will give birth to dark elf twins in 13 to 25 days<br>
+&lt;Impregnate slave='Tifa' type='Dark Elf' gestation='13 + random12'
+count='2'/&gt;<br>
+</span><span style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">AddSpeechSuffix<br>
+</span><span style="font-size: 12pt;">&lt;AddSpeechSuffix
+attributes/&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+AddSpeechSuffix()<br>
+<br>
+</span><span style="font-size: 12pt;">Adds a suffix to any text the
+slave says<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; slave &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+slave/assistant to change. 'slavemaker' is not a valid choice.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Defaults to your
+current slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; chance &nbsp; -
+(OPTIONAL) the percentage chance the suffix is added, defaults to
+always (100%)<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the suffix<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;AddSpeechSuffix chance='50%'&gt;Desu&lt;/AddSpeechSuffix&gt;<br>
+eg<br>
+&lt;AddSpeechSuffix slave='Akane'
+chance='50%'&gt;Idiot!&lt;/AddSpeechSuffix&gt;<br>
+<br>
+</span><span style="font-size: 12pt;">______________________<br>
+<br>
+</span><span style="font-size: 14pt;">PlaySound<br>
+</span><span style="font-size: 12pt;">&lt;PlaySound&gt;text&lt;/PlaySound&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+PlaySound(text)<br>
+<br>
+</span><span style="font-size: 12pt;">Plays a sound effect, either a
+standard sound effect or an external mp3 sound file.<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stop
+&nbsp;&nbsp;&nbsp; - (OPTIONAL) true and it will stop playing all
+sounds first<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; vol
+&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) volume level for the sound, a
+percentage of the maximum value. Defaults to 100<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; repeats - (OPTIONAL)
+repeat the sound effect this many times, does not apply for mp3 sounds<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; count - (OPTIONAL)
+special value for 'fucking' and 'moaning' specifies how many of aid
+effect play simultanously<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; delay &nbsp;&nbsp; -
+(OPTIONAL) a delay in milliseconds to delay before playing the sound
+effect<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (OPTIONAL) The name of
+the standard sound effect, or the filename of the mp3 file to play.
+Only optional if you specify the stop attribute<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;PlaySound&gt;Frying&lt;/PlaySound&gt;<br>
+&lt;PlaySound stop='true'&gt;Sounds/Forest.mp3&lt;/PlaySound&gt;<br>
+&lt;PlaySound count='2'&gt;Fucking&lt;/PlaySound&gt;</span><span
+ style="font-size: 12pt;"><br>
+</span><span style="font-size: 10pt;">&lt;PlaySound stop='true'/&gt;</span><span
+ style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">For<br>
+</span><span style="font-size: 12pt;">&lt;For&gt;<br>
+&lt;/For&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version: for(var
+loop:Number=start; loop &lt; end; loop += inc) { }<br>
+</span><span style="font-size: 12pt;"><br>
+Performs a loop, using an index loop from start to end value,
+incrementing as selected.<br>
+Please take care of creating infinite loops that will hang the game.<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; start &nbsp;&nbsp; -
+(OPTIONAL) the starting loop value. An expression, defaults to 0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end
+&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the ending loop value. An
+expression that the loop variable will always be less than. This value
+will never be encountered in the loop, defaults to 0<br>
+</span><span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; eg</span><span
+ style="font-size: 12pt;"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span
+ style="font-size: 10pt;">for(var loop:Number=start; loop &lt; end;
+loop += inc) { }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for statements are
+only executed when loop is less than end</span><span
+ style="font-size: 12pt;"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; inc
+&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) amount to increment the start
+value by, defaults to 1.<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The statements to
+execute in the loop<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;For start='0' end='#participanttotal'&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;GetParticipantDetails/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;AddText&gt;#person moves towards
+#slave....&lt;/AddText&gt;<br>
+&lt;/For&gt;<br>
+<br>
+&lt;For start='0' end='10' inc='2'&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;AddText&gt;Looping,
+current loop is #loop&lt;/AddText&gt;<br>
+&lt;/For&gt;<br>
+</span><span style="font-size: 12pt;"><br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">While<br>
+</span><span style="font-size: 12pt;">&lt;While&gt;<br>
+&lt;/While&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version: while<br>
+</span><span style="font-size: 12pt;"><br>
+Loops, similar to the for loop above but loops based on an XML
+comditional. All attributes are the xml conditional that must evalulate
+to true for the loop to continue<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;While time='12-'&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;AddText&gt;Time
+passes, it is now #displaytime&lt;/AddText&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;AddTime&gt;0.5&lt;/AddTime&gt;<br>
+&lt;/While&gt;</span><span style="font-size: 12pt;"><br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">GetParticipantDetails<br>
+</span><span style="font-size: 12pt;">&lt;GetParticipantDetails&gt;text&lt;/GetParticipantDetails&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version:
+GetParticipantDetails()<br>
+</span><span style="font-size: 12pt;"><br>
+Sets the variables<br>
+PersonIndex<br>
+PersonName<br>
+PersonGender<br>
+PersonHeShe<br>
+PersonHimHer<br>
+PersonHisHer<br>
+and the macros<br>
+#person<br>
+#personheshe<br>
+#personhisher<br>
+#personhimher<br>
+based on the participant of the current sex act. You specify the 0
+based index of the participant to set. If the value is not specified
+and you are calling this in a loop of a &lt;For&gt; or &lt;While&gt;
+statement, then participant matching the loop is selected<br>
+<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; none<br>
+<br>
+element data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (OPTIONAL) the
+participant, defaults to the loop index. If not in a loop and it is
+omitted then nothing happens.<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;GetParticipantDetails&gt;0&lt;/GetParticipantDetails&gt;<br>
+<br>
+eg<br>
+&lt;For start='0' end='#participanttotal'&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;GetParticipantDetails/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;AddText&gt;#person moves towards
+#slave....&lt;/AddText&gt;<br>
+&lt;/For&gt;</span><span style="font-size: 12pt;"><br>
+<br>
+______________________<br>
+<br>
+</span><span style="font-size: 14pt;">SetPersonDetails<br>
+</span><span style="font-size: 12pt;">&lt;SetPersonDetails&gt;text&lt;/SetPersonDetails&gt;<br>
+</span><span style="font-size: 10pt;">actionscript version: several
+functions involved<br>
+</span><span style="font-size: 12pt;"><br>
+Sets various information for an NPC, like Lady Farun. Similar effects
+can be gained using &lt;SetFlags&gt;, notably for the smflag, custom1,
+custom2, personflag attributes.<br>
+<br>
+attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; person &nbsp; - the
+person to alter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; met
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) sets the
+person as having been met (or resets)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; available
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the person is
+available<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; visited
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the
+person has been visited today, and cannot be visited again<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; doneinitialvisit-
+(OPTIONAL) the person has been visited for the first time<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+unavailable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) the person is
+unavailable to be visited or loaned to for this many days, 0 to
+re-enable<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; smflag&nbsp;&nbsp; -
+(OPTIONAL) sets a value for the SMFlag property. Values are person
+dependent<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; custom1&nbsp; -
+(OPTIONAL) sets a value for the Custom1 property. Values are person
+dependent<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; custom2&nbsp; -
+(OPTIONAL) sets a value for the Custom2 property. Values are person
+dependent<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+personflag&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - (OPTIONAL) sets a
+value for the PersonFlag property.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Values are person
+dependent, but commonly is the amount of reputation gained by visiting
+them<br>
+<br>
+no element data<br>
+<br>
+</span><span style="font-size: 10pt;">eg<br>
+&lt;SetPersonDetails person="ladyfarun" met='true'/&gt;</span><span
+ style="font-size: 12pt;"><br>
+<br>
+<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></span></span></span></span></span></span></span></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></span></span></span></span></span></span></font></font></font></font></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></span></span></span></span></font></font></font></font></span></span></span></span></span></span></span></span></span></span></font></font></font></font></span></span></span></span></span></span></span></span></span></span></font></font></span></font></font></span></span></span></font></font></font></font></span></font></span></font></font></font></font></font></font></span></font></font></span></font></font></span></font></font></font></font></font></span></font></span></font></font></span></font></font></span></font></font></span></span></span></span></font></span></font></span>
+</body>
+</html>

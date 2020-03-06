@@ -1,0 +1,930 @@
+<u style="font-family: Arial;"><b><span style="font-size: 18pt;"><center><u><b><span style="font-size: 18pt;"><u><b><span style="font-size: 18pt;"><table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239);" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">Variables - Slave<br>
+            </span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Version
+8</font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table></span></b></u></span></b></u><span style="font-size: 14pt;"><span style="font-size: 16pt;"></span></span></center>
+</span></b></u><span style="font-size: 12pt; font-family: Arial;"><br></span><span style="font-weight: bold; font-family: Arial;">Table of Contents<br></span><ul style="font-family: Arial;" id="mozToc"><!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6--><li><a href="#mozTocId640729">General Concepts</a></li><li><a href="#mozTocId663110">Variables</a><ul><li><a href="#mozTocId647734">General Variables</a></li><li><a href="#mozTocId771747">People variables 0 = not found, 0.01 = introductions shown, other values depend on person</a></li><li><a href="#mozTocId257098">Dating </a></li><li><a href="#mozTocId852250">Item variables </a></li><li><a href="#mozTocId419753">Dresses</a></li><li><a href="#mozTocId79408">Totals - count of times an action/event is done, initially 0</a></li><li><a href="#mozTocId882487">Statistics (value 0 - 300 (a few 0-100) can be fractional</a></li><li><a href="#mozTocId534870">Sex act levels, 0-5</a></li><li><a href="#mozTocId751395">Difficulty for various acts, set to the required obedience to do the act, all except 1 default to 0</a></li><li><a href="#mozTocId410142">Factor multiplied by any stat change, used for cases like Shampoo where she has a lower rate of increase for conversation. </a></li><li><a href="#mozTocId355194">Generic variables for girl use (all saved in save file)</a></li><li><a href="#mozTocId572035">Slave Skills</a></li><li><br></li></ul></li><li><a href="#mozTocId24424">XML Versions</a></li></ul><span style="font-weight: bold; font-family: Arial;"><br></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId640729"></a>General Concepts<span style="font-weight: bold;"></span></h1><span style="font-size: 12pt; font-family: Arial;">
+
+All these are present in the _root stage variables, use as <br>
+_root.SlaveName etc<br>
+Mostly I will leave off the _root from now on.<br>
+<br></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId663110"></a>Variables</h1><span style="font-size: 12pt; font-family: Arial;">
+</span><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId647734"></a><span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;"></span></b></u></span>General Variables</h2><span style="font-size: 12pt; font-family: Arial;"><b><span style="font-size: 12pt;">
+SlaveName </span></b>- the girls name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Note you can change this ie "Cumslut Kasumi", but it is NOT saved so always set in the slavegirl's Initialise() or UpdateSlave() functions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b>Note</b> this variable is copied for your Slave Girl so you can use it without _root.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText(SlaveName + " says....");<br>
+<b>SlaveName1 </b>- for Twins the name of the first twin, defaults to SlaveName<br>
+<b>SlaveName2 </b>- for Twins the name of the second twin, defaults to SlaveName<b><br>
+SlavePronoun </b>- default "I", otherwise commonly set to SlaveName, say for Shampoo, NOT saved so always set in the slave's Initialse() or UpdateSlave() functions<br>
+<b>SlaveGender </b>- slaves gender, default 2, her actual, permanent gender<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = no gender<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = male<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = female<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = dickgirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 = male twins<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 = female twins<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 = dickgirl twins<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7 = mixed twins<br>
+<b>SlaveGenderBorn </b>- slaves gender at birth, as above<br>
+<b>VarGold </b>- how much gold she has earned and is unspent<br>
+<br>
+<b>ClitCockSize </b>- the size of her clit, measured in mm. When you slave has a cock (or is male) this is shown as ClitCockSize * 33 rounded to the nearest mm. So to increase the size it is best to to relative changes like<br>
+_root.SetClitCockSize(_root.ClitCockSize * 1.1);<br>
+<br>
+<b>VirginVaginal<br>
+VirginAnal<br>
+VirginOral</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Is she a virgin of that type of sex. Default false. Updated when an appropriate act is done<br>
+<br>
+<b>vitalsWaist </b>- measurement of her waist in cm<br>
+<b>vitalsHips </b>- measurement of her hips in cm<br>
+<b>vitalsAge </b>- her age in years<br>
+<b>vitalsBloodType </b>- Bloodtype A, B, O, AB, but you can use anything<br>
+<b>vitalsDescription </b>- her short description "angry girl' etc<br>
+<b>vitalsWeight </b>- her weight in kilograms<br>
+<b>vitalsHeight </b>- her height in cm<br>
+<b>vitalsBust </b>- her bust size in cm<br>
+<b>vitalsBustStart </b>- her bust size at the start of training<br>
+<br>
+<font color="#808080"><b>LesbianTrainable</b>, default true<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true = she can be lesbian trained<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false = she will refuse lesbian training<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Note you can change this dynamically. It is NOT saved so you must set it in Initialise() or UpdateSlave() functions and when it changes<br>
+DEPRECIATED DO NOT USE ANYMORE, BUT STILL WORKS<br>
+<br>
+<font color="#000080"><b>Lesbian </b>- the state of lesbian training, READ ONLY<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true = lesbian training under way<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false = not in lesbian training<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b>Note</b> this variable is copied for your Slave Girl so you can use it without _root.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (Lesbian) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+....<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+<font color="#808080"><br>
+<font color="#000000"><b>LesbianInterest - </b>The level of interest your slave has in lesbian training. This is the skill level of sLesbianTrainer needed to start training<font color="#000000">. It is NOT saved so you must set it in Initialise() or UpdateSlave() functions and when it changes<br>
+<font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = always will train if sLesbianTrainer is 1 or more<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = will train is sLesbianTrainer is 1 or more<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = will train is sLesbianTrainer is 2 or more<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = will train is sLesbianTrainer is 3 or more<br>
+Special case<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 = will never train. Preferably do not use this value, generally set to 3 to indicate high resistance. Only for special cases like Angel Belldandy say<br>
+<b><br>
+PonygirlInterest - </b>The level of interest your slave has in being a ponygirl. This is the skill level of sPonyTrainer needed to start training<font color="#000000">. It is NOT saved so you must set it in Initialise() or UpdateSlave() functions and when it changes<font color="#000000"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = always will train if sPonyTrainer is 1 or more<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = will train is sPonyTrainer is 1 or more<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = will train is sPonyTrainer is 2 or more<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = will train is sPonyTrainer is 3 or more<br>
+Special case<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 = will never train. Preferably do not use this value, generally set to 3 to indicate high resistance. Only for special cases<br>
+<b><br>
+CatgirlInterest - </b>The level of interest your slave has in being a cat girl. This is the skill level of sCatTrainer needed to start training<font color="#000000">. It is NOT saved so you must set it in Initialise() or UpdateSlave() functions and when it changes<font color="#000000"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = always will train if sCatTrainer is 1 or more<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = will train is sCatTrainer is 1 or more<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = will train is sCatTrainer is 2 or more<br>
+Special case<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = will never train. Preferably do not use this value, generally set to 2 to indicate high resistance.<br>
+<b><br>
+SuccubusInterest - </b>The level of interest your slave has in being a succubus. This is the skill level of sSuccubusTrainer needed to start training<font color="#000000">. It is NOT saved so you must set it in Initialise() or UpdateSlave() functions and when it changes<font color="#000000"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = always will train if sSuccubusTrainer is 1 or more<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = will train is sSuccubusTrainer is 1 or more<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = will train is sSuccubusTrainer is 2 or more<br>
+Special case<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = will never train. Preferably do not use this value, generally set to 2 to indicate high resistance.<b><br>
+<br>
+OwnerTesting</b>, default true, NOT saved, so always set in the slavegirl's Initialise() or UpdateSlave() functions (if not true)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true = her owner will visit every 7 days and test her.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false = no testing<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ For instance if you buy her set it to false<br>
+<b>OwnerTestingUrgent</b>, default false, NOT saved, so always set in the slavegirl's Initialise() or UpdateSlave() functions (if not false)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true = owner tests will always happen first before any other event (eg before contests)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false = owner test will hapen in default order (eg after contests)<br>
+<font color="#000080"><br>
+<b>HasCock </b>- does he/she have a cock (true/false)<font color="#000000">&nbsp;&nbsp;
+<br>
+<font color="#000080"><b>SlaveFemale </b>- is your slave a woman or a dickgirl<br>
+<b>SlaveWoman </b>- is you slave a woman but not a dickgirl<br>
+<br>
+<b>TrainingStart  </b>- date she started training - READ ONLY<br>
+<font color="#000000"><b>TrainingTime </b>- days to train her - should be read only, but you can change it if you want<br>
+<b>Milkable</b>, default false, NOT saved, so always set in the slavegirl's Initialse() or UpdateSlave() functions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true = she can be milked<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false = milking events will not happen at all<br>
+<b>MilkInfluence</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = has not taken the milk drug<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &gt; 0 under influence of milk drug, and days remaining until she realises she is under the influence, increases each time she is milked<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ -1 = cured<br>
+<b>MaxTentacleHarem </b>- how many more times she can be tentacle abducted, default 1, 2 for Hard difficulty<br>
+<b>TentaclePregnancy</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 0 = not pregnant with a tentacle monster<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &gt; 0 she is pregnant and the number of days to birth<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-1 = will not become pregnant<br>
+<b>Slutiness </b>- how much of a slut she is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 6+ she is a slut, Nymphomania always 50+<br>
+<b>Loyalty </b>- her loyalty, the lower the more loyal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = completely loyal<br>
+<b>NobleLoveType </b>- the noble who can fall in love with her, NOT saved, so always set in the slavegirl's Initialse() or UpdateSlave() functions, default 0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = no one<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+other values see person values in Core - People.rtf<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+eg <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 = lord<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+16 = Astrid<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+etc<br>
+<b>NobleLove </b>- flag for progression of love by Lord, Count, Knight, basically a count of her meetings with the noble<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+special values<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-1 = refused to sell<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-2 = sold, also SoldSlave set to the person number<br>
+<b>MaxAstrid </b>- maximum percent chance of meeting Astrid in the forest, default 50, NOT saved, so always set in the slavegirl's Initialse() or UpdateSlave() functions<br>
+<b>IntroPages </b>- number of pages for her introduction, default 1, NOT saved<br>
+<font color="#000080"><b>Naked </b>- is she weaing nothing,  READ ONLY<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true = Naked today<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false = she is wearing clothes<br>
+<font color="#000000"><br>
+<b>DressWorn </b>- the dress she is wearing ( 0 = plain, -1 naked, otherwise see shortcut in tailor screen)<br>
+<b>DickgirlXF</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 0 = normal girl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 1 = permanent dickgirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 2 = permanent and refused to be cured<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-1 = will never be a dickgirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+note if cured then resets to 0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Note: generally use _root.IsDickgirl()<br>
+<b>LoveAccepted<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 0 = has not confessed yet<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 1 = accepted her confession of love<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 2 = refused her confession outright<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-1 = <br>
+<b>SoldSlave<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   0 = has not been sold<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   otherwise see the person numbers in Core - People.rtf<br>
+<b>DoneMaster<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = she calls you master/mistress<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = she has not yet called you master/mistress<br>
+<b>DonePonygirl<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = she is a ponygirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = not yet agreed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Note generally use IsPonygirl() to test if your slave is a ponygirl<br>
+<b>DoneCourtesan<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true = she has completed courtesan training<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false = has not<br>
+<b>DonePlug<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true = she has been asked to insert an anal plug today<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false = has not<br>
+<b>PlugInserted  </b>- wearing an anal plug<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = not wearing one<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &gt; 0 if wearing one<br>
+<b>BadGirl</b>, NOT saved<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = she has been bad<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = she has not<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Note you can set this in events if she breaks a rule say. If set spanking is more effective<br>
+<b>Behaving</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&gt; 0  she is obedient, raised by spanking, decreases each day<br>
+<b>AntidoteDays </b>- days remaining to Astrid's antidote is available - should be READ ONLY, but you can change if you really want<br>
+<b>DickgirlRate </b>- %chance she will spontaneously grow a cock<br>
+<b>SlaveAttitude </b>- her attitude in encounters (currently only used a little), default 0, NOT saved<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = normal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = sexy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = angry<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = heroine<br>
+<b>PotionsUsed</b>, Array that counts the number of times a potion has been drunk, these elements are<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 - Priapus Draft<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 - Uninhibitor potion<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 - Aphrodisiac<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 - Soothing Potion<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 - Energy Drink<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5 - Dorei<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 - Zodai<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7 - Gaman<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 - Biyaku<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9 - Ishinai<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10 - Lust Draft<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+11 - Odd Pill<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+12 - Nymph's Tears<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+13 - Rinno's Orgasm Potion<br>
+eg<br>
+PotionsUsed[4] = number of times the Energy Drink has been used<br>
+<br>
+<b>FairyXF </b>- stage of her transformation into a fairy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= will never transform<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= nor started<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1-99 &nbsp;&nbsp;&nbsp;
+= partial<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2000 &nbsp;&nbsp;&nbsp;
+= fully transformed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<br>
+<b>RulesTalk<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = on<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = off<br>
+<b>RulesFuck<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = on<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = off<br>
+<b>RulesGoOut<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = on<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = off<br>
+<b>RulesTouchHerself<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = on<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = off<br>
+<b>RulesWriteLetters<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = on<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = off<br>
+<b>RulesPocketMoney<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = on<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = off<br>
+<b>RulesPray<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = on<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = off<br>
+<br>
+<br>
+</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></span><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId771747"></a>People variables 0 = not found, 0.01 = introductions shown, other values depend on person<span style="font-size: 12pt;"></span></h2><span style="font-size: 12pt; font-family: Arial;"><font color="#808080"><font color="#000080"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><b>
+VarIdol<br>
+PuppyGirlFlag<br>
+</b>See Core - People.rtf for general information on met people<br>
+<br>
+<br>
+</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></span><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId257098"></a>Dating <span style="font-size: 12pt;"></span></h2><span style="font-size: 12pt; font-family: Arial;"><font color="#808080"><font color="#000080"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><u>
+</u><b>EventBoyfriend</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 - dating (well fucking...)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 - not dating<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-1 - will not date<br>
+<b>OldLover</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 has male older lover <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 has female older lover<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 does not have older lover<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-1 will not take older lover<br>
+<br>
+</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></span><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId852250"></a>Item variables <span style="font-size: 12pt;"></span></h2><span style="font-size: 12pt; font-family: Arial;"><font color="#808080"><font color="#000080"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- xxxOK 1 = item owned, 0 = not owned, 2 = not present in the game at all<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- xxxxWorn 1 = item worn, 0 = not worn<br>
+<b>RopesOK<br>
+SilkenRopesOK<br>
+LingerieOK<br>
+BunnySuitOK<br>
+HarnessOK<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b>0 - no harness<b><br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = basic harness<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = superior harness<b><br>
+NymphsTiaraOK<br>
+SpikedBraceletOK<br>
+HaloOK<br>
+HandcuffBraceletOK<br>
+AngelsTearOK<br>
+DemonicBraOK<br>
+VibratorPantiesOK<br>
+FaeriesRingOK<br>
+DragonRingOK<br>
+DemonicPendantOK<br>
+ApronOK<br>
+StrapOnOK<br>
+BitGagOK<br>
+PonyTailOK<br>
+NippleChainOK<br>
+NippleRingsOK<br>
+VanityCaseOK<br>
+PonyCartOK<br>
+PonyBootsOK<br>
+DildoOK<br>
+ImprovedDildoOK<br>
+PlugOK<br>
+TrophyOK<br>
+SmallTrophyOK<br>
+LeashOK<br>
+CatEarsOK<br>
+CatTailOK<br>
+SpikedBraceletWorn<br>
+NymphsTiaraWorn<br>
+DemonicBraWorn<br>
+AngelsTearWorn<br>
+VibratorPantiesWorn<br>
+FaeriesRingWorn<br>
+DragonRingWorn<br>
+DemonicPendantWorn<br>
+LeashWorn<br>
+ApronWorn<br>
+StrapOnWorn<br>
+BitGagWorn<br>
+HarnessWorn<br>
+PonyTailWorn<br>
+HandcuffBraceletWorn<br>
+HaloWorn<br>
+NippleChainWorn<br>
+NippleRingsWorn<br>
+CatEarsWorn<br>
+CatTailWorn<br>
+PiercingsType<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = unpierced<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = nipple/clit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = the works<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></span><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId419753"></a>Dresses<span style="font-size: 12pt;"></span></h2><span style="font-size: 12pt; font-family: Arial;"><font color="#808080"><font color="#000080"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><u>
+</u><b>NumDresses </b>- count of dresses bought (excludes bunny suit, lingerie)<br>
+<b>Robe1OK </b>- dress 1 owned<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = owned<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = not owned<br>
+<b>Robe2OK </b>- dress 2 owned<br>
+<b>Robe3OK </b>- dress 3 owned<br>
+<b>Robe4OK </b>- dress 4 owned<br>
+<b>Robe5OK </b>- dress 5 owned<br>
+<b>Robe6OK </b>- dress 6 owned<br>
+<b>RobePlainOK </b>- Basic dress owned (default 1)<br>
+<b>NakedChoice </b>- particular naked image shown today, generally the frame in her movieclip, but can be used as desired<br>
+<b>DressFrame </b>- particular dress image shown when there are multiple choices<br>
+<br>
+<i>The following dress variables are NOT saved, set in Initialise() if you want a non-default value<br>
+</i><br>
+<b>SellBunnySuit </b>- bunny suit available for sale at the tailors<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = available (default)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = not available<br>
+<b>SellLingerie </b>- lingerie available for sale at the tailors<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = available (default)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = not available<br>
+<b>SellSwimsuit </b>- swimsuit available for sale at the tailors<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = available (default)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = not available<br>
+<b>SellMaidUniform </b>- maid uniform available for sale at the tailors<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = available (default)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = not available<br>
+<br>
+<i>The following dress variables are NOT saved, and are set by calling SetDressDetails, you can change these but you should just use SetDressDetails<br>
+</i><br>
+<b>SellDress1 </b>- dress 1 available at the tailors<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = available (default)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = not available<br>
+<b>SellDress2 </b>- dress 2 available at the tailors<br>
+<b>SellDress3 </b>- dress 3 available at the tailors<br>
+<b>SellDress4 </b>- dress 4 available at the tailors<br>
+<b>SellDress5 </b>- dress 5 available at the tailors<br>
+<b>SellDress6 </b>- dress 6 available at the tailors<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></span><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId79408"></a>Totals - count of times an action/event is done, initially 0<span style="font-size: 12pt;"></span></h2><span style="font-size: 12pt; font-family: Arial;"><font color="#808080"><font color="#000080"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><u>
+</u><b>TotalBlowjob<br>
+TotalFuck<br>
+TotalAnal<br>
+TotalBondage<br>
+TotalMasturbate<br>
+TotalLesbian<br>
+TotalNaked<br>
+TotalGangBang<br>
+TotalTouch<br>
+TotalLick<br>
+TotalTitsFuck<br>
+TotalDildo<br>
+TotalPlug<br>
+TotalLendHer<br>
+TotalSpank<br>
+TotalThreesome<br>
+Total69<br>
+TotalGroup<br>
+TotalCumBath<br>
+TotalKiss<br>
+TotalStripTease<br>
+TotalBondage<br>
+TotalSex1<br>
+TotalSex2<br>
+TotalXXX<br>
+TotalSleazyBar<br>
+TotalExpose<br>
+TotalBrothel<br>
+TotalPony<br>
+TotalAcolyte<br>
+TotalRestaurant<br>
+TotalBar<br>
+TotalExercise<br>
+TotalCooking<br>
+TotalCleaning<br>
+TotalBreak<br>
+TotalDance<br>
+TotalSciences<br>
+TotalRefinement<br>
+TotalTheology<br>
+TotalNaked<br>
+TotalDiscuss<br>
+TotalMakeUp<br>
+TotalWalkForest<br>
+TotalWalkFarm<br>
+TotalWalkPalace<br>
+TotalWalkSlums<br>
+TotalWalkLake<br>
+TotalWalkTownCenter<br>
+TotalWalkDocks<br>
+TotalWalkRuins<br>
+TotalWalkBeach<br>
+TotalWalkHouse<br>
+TotalWalkCustom<br>
+TotalVisitAstrid<br>
+WinXXX&nbsp;&nbsp;
+</b>- total times the contest has been won<b><br>
+WinHousework<br>
+WinCourt<br>
+WinBeauty<br>
+WinPonygirl<br>
+WinDance<br>
+WinCustom<br>
+WinGeneralKnowledge<br>
+WinContest<br>
+TotalContestCustom<br>
+TotalContestXXX<br>
+TotalContestHousework<br>
+TotalContestHouseworkAdvanced<br>
+TotalContestCourt<br>
+TotalContestBeauty<br>
+TotalContestPonygirl<br>
+TotalContestDance<br>
+TotalContestGeneralKnowledge<br>
+TotalTentacle </b>- number to tentacle assaults, abduction event counts for 2<br>
+<b>TotalMilked<br>
+TotalTeddyBear<br>
+TotalGames<br>
+TotalJewelry<br>
+TotalDoll<br>
+TotalProstituteParty<br>
+TotalHighClassParty<br>
+TotalVisitAstrid<br>
+TotalMakeupCare<br>
+TotalHairCare<br>
+TotalSkinCare<br>
+TotalBooks </b>- how many books owned<br>
+<b>TotalPoetry </b>- how many poetry books owned<br>
+<b>TotalBooksRead </b>- how many books have been read, increases 1 each time a book is read, so double TotalBooks<br>
+<b>TotalPoetryRead</b><br>
+<b>TotalScrolls</b>&nbsp;&nbsp;&nbsp;&nbsp;
+- note purely for slave girl use<br>
+<b>TotalScrollsRead</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- note purely for slave girl use<br>
+<b>TotalScripture<br>
+TotalScriptureRead<br>
+TotalKamasutra<br>
+TotalKamasutraRead<br>
+TotalSlaveJob1<br>
+TotalSlaveJob2<br>
+TotalSlaveJob3<br>
+TotalSlaveSchool1<br>
+TotalSlaveSchool2<br>
+TotalSlaveSchool3<br>
+TotalSlaveChore1<br>
+TotalSlaveChore2<br>
+TotalSlaveChore3<br>
+</b><br>
+</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></span><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId882487"></a>Statistics (value 0 - 300 (a few 0-100) can be fractional<span style="font-size: 12pt;"></span></h2><span style="font-size: 12pt; font-family: Arial;"><font color="#808080"><font color="#000080"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><u>
+</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- xxxxxxRounded - stat modified by dress and items, rounded up, an integer value, READ ONLY<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- xxxxxxx - base stat - note a real/fractional number<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Maxyyyyyyy - maximum value of stat<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Minyyyyyyy - Minimum value of the stat<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- yyyyyyyyyMod - modifier from dresses, items etc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<b>VarFatigueRounded<br>
+VarConversationRounded&nbsp;&nbsp;
+<br>
+VarCharismaRounded<br>
+VarObedienceRounded<br>
+VarReputationRounded<br>
+VarSensibilityRounded<br>
+VarRefinementRounded<br>
+VarIntelligenceRounded<br>
+VarMoralityRounded<br>
+VarConstitutionRounded<br>
+VarCleaningRounded<br>
+VarCookingRounded<br>
+VarBlowJobRounded<br>
+VarFuckRounded<br>
+VarTemperamentRounded<br>
+VarNymphomaniaRounded<br>
+VarJoyRounded<br>
+VarLibidoRounded<br>
+VarSpecialRounded<br>
+<br>
+MaxFuck = 75<br>
+MaxBlowJob = 75 <br>
+MinLibido = 100<br>
+MaxCharisma = 75<br>
+MaxRefinement = 80<br>
+MaxIntelligence = 80<br>
+MaxMorality = 80<br>
+MaxCooking = 75<br>
+MaxCleaning = 75<br>
+MaxConversation = 80<br>
+MaxTemperament = 100<br>
+MaxNymphomania = 100<br>
+MaxObediance = 100<br>
+MaxJoy = 100<br>
+MaxSensibility = 100<br>
+MaxConstitution = 100<br>
+<br>
+VarCharismaMod<br>
+VarSensibilityMod<br>
+VarRefinementMod<br>
+VarIntelligenceMod<br>
+VarMoralityMod<br>
+VarConstitutionMod<br>
+VarCookingMod<br>
+VarCleaningMod<br>
+VarConversationMod<br>
+VarBlowJobMod<br>
+VarFuckMod<br>
+VarTemperamentMod<br>
+VarNymphomaniaMod<br>
+VarObedienceMod<br>
+VarLibidoMod<br>
+VarReputationMod<br>
+VarJoyMod<br>
+FatigueBonus </b>- a value that increases the threshold where she gets tired, normally threshold is 60, this is a flat number that adds to this<br>
+<br>
+<i>Special, optional stat<br>
+</i><b>MaxSpecial </b>= 100<br>
+<b>VarSpecial<br>
+VarSpecialMod</b><br>
+<br>
+eg<br>
+_root.VarSpecial = 20;<br>
+_root.ShowSpecialStat("Femininity :");<br>
+<br>
+</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></span><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId534870"></a>Sex act levels, 0-5<span style="font-size: 12pt;"></span></h2><span style="font-size: 12pt; font-family: Arial;"><font color="#808080"><font color="#000080"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><u>
+</u><b>LevelMasturbate<br>
+LevelLesbian<br>
+LevelTouch<br>
+LevelLick<br>
+LevelThreesome<br>
+Level69<br>
+LevelStripTease<br>
+LevelMasturbateDG</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+masturbate as a dickgirl<br>
+<b>LevelLesbianDG<br>
+LevelTouchDG<br>
+LevelLickDG<br>
+LevelThreesomeDG<br>
+Level69DG<br>
+LevelStripTeaseDG<br>
+LevelFuck<br>
+LevelAnal<br>
+LevelGangBang<br>
+LevelDildo<br>
+LevelGroup<br>
+LevelLendHer<br>
+LevelTitsFuck<br>
+LevelNaked<br>
+LevelNothing<br>
+LevelPlug<br>
+LevelBlowjob<br>
+LevelSpank<br>
+LevelCumBath<br>
+LevelKiss<br>
+LevelBondage<br>
+LevelPony<br>
+LevelSex1<br>
+LevelSex2<br>
+<font color="#000080">Trust</font></b><font color="#000080">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+how much she trusts you Obedience + LovePoints, READ ONLY<br>
+<font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></span><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId751395"></a>Difficulty for various acts, set to the required obedience to do the act, all except 1 default to 0<span style="font-size: 12pt;"></span></h2><span style="font-size: 12pt; font-family: Arial;"><font color="#808080"><font color="#000080"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><u>
+</u><b>DifficultyXXX</b>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- XXX School<br>
+<b>DifficultyXXXContest</b>&nbsp;&nbsp;&nbsp;&nbsp;
+- XXX Contest, defaults to 35<br>
+<b>DifficultyExhib </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Expose Herself<br>
+<b>DifficultySleazyBar<br>
+DifficultyBrothel <br>
+DifficultyTouch<br>
+DifficultyLick<br>
+DifficultyFuck<br>
+DifficultyBlowjob<br>
+DifficultyTitsFuck<br>
+DifficultyAnal<br>
+DifficultyMasturbate<br>
+DifficultyDildo<br>
+DifficultyPlug<br>
+DifficultyLesbian<br>
+DifficultyBondage<br>
+DifficultyNaked<br>
+DifficultyMaster<br>
+DifficultyGangBang<br>
+DifficultyLendHer<br>
+DifficultyPonygirl<br>
+DifficultySpank<br>
+DifficultyThreesome<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></span><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId410142"></a>Factor multiplied by any stat change, used for cases like Shampoo where she has a lower rate of increase for conversation. <span style="font-size: 12pt;"></span></h2><span style="font-size: 12pt; font-family: Arial;"><font color="#808080"><font color="#000080"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><u>
+</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+For Shampoo Her ConversationFactor  = 0.5.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Default value for all is _root.dmod<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+set these in the ApplyDifficulty slave girl function<br>
+<br>
+<b>dmod </b>- base factor for all stat increases, based on difficulty settings and skills<br>
+<b>BlowjobFactor<br>
+FuckFactor<br>
+NymphomaniaFactor<br>
+LibidoFactor<br>
+CharismaFactor<br>
+MoralityFactor<br>
+CookingFactor<br>
+CleaningFactor<br>
+ConversationFactor<br>
+FatigueFactor<br>
+SensibilityFactor<br>
+RefinementFactor<br>
+IntelligenceFactor<br>
+ConstitutionFactor<br>
+TemperamentFactor<br>
+ObedienceFactor<br>
+SpecialFactor<br>
+</b><br>
+eg<br>
+function ApplyDifficulty(Charisma:Number, Sensibility:Number, Refinement:Number, Intelligence:Number, Morality:Number, Constitution:Number, Cooking:Number, Cleaning:Number, Conversation:number, BlowJob:Number, Fuck:Number, Temperament:Number, Nymphomania:Number, Obedience:Number, Lust:Number, Fatigue:Number, Joy:Number) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.ConversationFactor = _root.dmod / 2;<br>
+}<br>
+<br>
+</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></span><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId355194"></a>Generic variables for girl use (all saved in save file)<span style="font-size: 12pt;"></span></h2><span style="font-size: 12pt; font-family: Arial;"><font color="#808080"><font color="#000080"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><u>
+</u><b>CustomFlag<br>
+CustomFlag1<br>
+CustomFlag2<br>
+CustomFlag3<br>
+CustomFlag4<br>
+CustomFlag5<br>
+CustomFlag6<br>
+CustomFlag7<br>
+CustomFlag8<br>
+CustomFlag9</b><br>
+<b>CustomString </b>- a String variable<br>
+<b>Path1 </b>- custom flag for girls with multiple paths<br>
+<b>Path2<br>
+Path3<br>
+CurrentPath</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 if Path1 &gt; Path2 and Path3<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 if Path2 &gt; Path1 and Path2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 if Path3 &gt; Path1 and Path2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Only updated when you call UpdatePath. Initially set by the game<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b>Note</b> this variable is copied for your Slave Girl so you can use it without _root.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (CurrentPath == 1) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+....<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<b>MaxPath </b>- not SAVED, the maximum of Path1, Path2, Path3. as above. Continually updated<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b>Note</b> this variable is copied for your Slave Girl so you can use it without _root.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (MaxPath == 1) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+....<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+<br>
+</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></span><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId572035"></a>Slave Skills<span style="font-size: 12pt;"></span></h2><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId3730"></a><span style="font-size: 12pt;"></span></h2><span style="font-size: 12pt; font-family: Arial;"><font color="#808080"><font color="#000080"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><u>
+</u>All these skills are fractional, 1.1 etc to reflect training. The levels are when &gt;=1 and &lt; 2 for level 1<br>
+<br>
+<b>slDancing </b>- her skill at dancing, 0-4<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = Can't Dance<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = Two left feet<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = Adequate Dancer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = Sensual Dancer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 = Superb Dancer<br>
+<br>
+<b>slSinging </b>- her skill at singing, 0-4<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = Can't Sing<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = Poor Singer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = Good simple Singer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = Enjoyable Singer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 = Enchanting Singer<br>
+<br>
+<b>slSwimming </b>- her skill at swimming, 0-4<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = Swims like a hammer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = Can float and dog paddle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = Swims well<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = Expert, fast swimmer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 = Athletic swimmer<br>
+<br>
+<b>slPonygirlTraining</b> - her progression as a ponygirl (0-100)<br>
+<br>
+<b>slCatTraining</b>- her progression as a catgirl (0-100)<br>
+<br>
+<b>slCombat </b>- her skill in combat (0-100)<br>
+<br>
+<b>slCourtesan </b>- her training as a courtesan (0-100)<br><br>
+</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId24424"></a>XML Versions<span style="font-size: 12pt;"></span></h1><span style="font-size: 12pt; font-family: Arial;"><font color="#808080"><font color="#000080"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000">charisma<br>sensibility<br>refinement<br>intelligence<br>morality<br>constitution<br>cooking<br>cleaning<br>conversation<br>blowjob or blowjobs<br>cunnilingus<br>fuck or fucking<br>trib/strap-on or lesbianfuck<br>temperament<br>nymphomania<br>minnymphomania<br>obedience<br>lust<br>minlust<br>fatigue or tiredness<br>joy<br>reputation<br>special<br>special2<br>sexualenergy<br>naturaltalent<br>deficiency<br>&nbsp;&nbsp;&nbsp; <br>customflag<br>customflag1<br></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font><font color="#808080"><font color="#000080"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000">customflag2<br></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font><font color="#808080"><font color="#000080"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000">customflag3<br></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font><font color="#808080"><font color="#000080"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000">customflag4<br></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font><font color="#808080"><font color="#000080"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000">customflag5<br></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font><font color="#808080"><font color="#000080"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000">customflag6<br></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font><font color="#808080"><font color="#000080"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000">customflag7<br></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font><font color="#808080"><font color="#000080"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000">customflag8<br></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font><font color="#808080"><font color="#000080"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000">customflag9</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></span><br style="font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><font color="#808080"><font color="#000080"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000">path1<br>path2<br>path3<br>currentpath<br>maxpath<br>customstring<br>love<br>fitness<br>slutiness<br>sexuality<br>sexualitystart<br>bust<br>buststart<br>clit or cock<br>clitstart or cockstart<br>lactation<br>milkbuildup<br>breastfixation<br>milkinfluence<br>bloodtype<br><br>maxfuck<br>maxcharisma<br>maxrefinement<br>maxsensibility<br>maxintelligence<br>maxmorality<br>maxconstitution<br>maxcooking<br>maxcleaning<br>maxconversation<br>maxblowjob<br>maxtemperament<br>maxnymphomania<br>maxobedience<br>maxlibido<br>maxjoy<br>maxspecia<br>maxspecial2<br>dickgirlrate<br>fertility<br>pregnancygestation<br>pregnancycount<br>pregnancytype<br>slavetype<br>canassist<br>available<br><br>dressworn<br>daysunavailable<br>trainingstart<br>&nbsp;&nbsp;&nbsp; <br>potionusedx<br>&nbsp;&nbsp;&nbsp; <br>loveaccepted<br>fairytransformation or fairyxf<br>fairymeeting<br>ishinaieffecting<br>doreieffecting<br>addictionlevel<br>drugaddicted<br>noblelove<br>noblelove<br>donetentacleharem<br>oldlover<br>donemaster<br><br>slavegende<br>ownername<br>buyer or owner<br>&nbsp;&nbsp;&nbsp; <br>isdating<br>iscourtesan<br>virginvagina<br>virginanal<br>virginoral<br><br>levelfuck (etc)<br>&nbsp;<br>winxxx<br>winhousework<br>wincourt<br>winbeauty<br>winponygirl<br>windance<br>wincustom<br>wingeneralknowledge<br>winhouseworkadvanced<br>totalcontestcustom<br>totalcontestxxx<br>totalcontesthousework<br>totalcontesthouseworkadvanced<br>totalcontestcour<br>totalcontestbeauty<br>otalcontestponygirl<br>totalcontestdance<br>totalcontestgeneralknowledge<br><br>lesbianinterest<br>ponygirlinterest<br>catgirlinterest<br>succubusinterest<br><br></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font><font color="#808080"><font color="#000080"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000">intimacyok</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></span><br style="font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><font color="#808080"><font color="#000080"><font color="#808080"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><font color="#000080"><font color="#000000"><br><span style="font-weight: bold;">no set versions for the following</span><br>isfairy or isfaerie<br>iscatgirl<br>iscatgirlcomplete<br>iscatgirltraining<br>isponygirl<br>isdickgirl<br>issuccubus<br>issuccubuscomplete<br>iscumslut<br>&nbsp;&nbsp;&nbsp; <br>totalfuck (etc)<br><br>
+</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></span>

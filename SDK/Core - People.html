@@ -1,0 +1,704 @@
+<u style="font-family: Arial;"><b><span style="font-size: 18pt;"><center><u><b><span style="font-size: 18pt;"><table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239);" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">People<br>
+            </span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table></span></b></u><span style="font-size: 16pt;"><span style="font-size: 14pt;">
+</span></span></center>
+</span></b></u><span style="font-size: 12pt; font-family: Arial;"><u><b><span style="font-size: 16pt;"><br>
+</span></b></u><span style="font-size: 12pt;">There are a set of standard people your slave maker and slave can interact with.<span style="font-size: 10pt;"><span style="font-size: 12pt;"><a href="Core%20-%20Background%20Images.html"></a><br><br><br><span style="font-weight: bold;">Table of Contents</span><br></span></span></span></span><ul style="font-family: Arial;" id="mozToc"><!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6--><li><a href="#mozTocId19454">Person Numbers</a></li><li><a href="#mozTocId325682">Core Functions</a></li><li><a href="#mozTocId935331">Custom Person</a></li><li><a href="#mozTocId916627">Slave Interface Functions</a><ul><li><a href="#mozTocId558813">Shopping</a></li><li><a href="#mozTocId76013">Visiting</a></li><li><a href="#mozTocId229767">Lending</a></li><li><a href="#mozTocId671020">Other</a></li></ul></li><li><a href="#mozTocId458696">People Status</a><ul><li><a href="#mozTocId718107">Class Person (simplified)</a></li></ul></li><li><a href="#mozTocId775908">People Variables</a><ul><li><a href="#mozTocId134031">VarIdol </a></li><li><a href="#mozTocId870211">PuppyGirlFlag</a></li><li><a href="#mozTocId864866">VarSchoolGirl </a></li></ul></li><li><a href="#mozTocId839430">People BitFlags</a></li></ul><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;">
+<br></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId19454"></a><span style="font-size: 12pt;"></span>Person Numbers<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;">
+Many of the following functions and other core function can use a person number to select the person. Some functions limit the values, but the list is below<br><br>
+person<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Risso the Merchant<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Sora the Barmaid<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Miss N. the Prostitute<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Lady Okyanu the High Class Prostitute<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Sumi the Maid<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Knight Shan<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Count Gossem<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Lord<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Lady Farun<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Tena the cute lesbian<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Mistress Epona the ponygirl mistress<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Irina the beautiful Bounty Hunter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Head Librarian Willana<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Dancer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Skuld, the salon owner<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Astrid, the dickgirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+17&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Alsha, the swim instructor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+18&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Marine, the beach guide<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+19&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Snow, the school girl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Meigura, the idol<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+21&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Ellara, the armourer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+22&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Meesh the trainer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+23 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Tailor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+24 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Nun<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bar Owner<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+26&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Sleazy Bar Owner<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+27&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Pimp<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+28&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Cook<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+29 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Tutor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+30 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Refinement Teacher<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+31 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+XXX School Owner<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+32 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Fortune Teller/Seer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+33 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Demon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+34 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Angel<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+35 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Sailor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+36 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Farmer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+37 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+High Priestess Daruna<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+38 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Thug<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+39 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Narana, the demon fan<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+40 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Kogin, the Travelling salesman<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+41 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Onsen Owner, Lady Azure<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+42 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Jester<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+43&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Misana the Medium<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+44&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Dealer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+45&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Stable-hand<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+46&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Guard Soli<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+47&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Lady Farun's Maid<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+48&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Tama, naked girl at the beach<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+49&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Guild Member<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+51&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Mina the Singing teacher<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+52&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Lara, Astrid's Maid<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+53&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Puppy Girl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+54&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Guard (general)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+55&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Slave Trader<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+56&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Mistress (general)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+57&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Master (general)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+58&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Tiger Girl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+59&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Busty Cat Slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+60&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Cat Slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+61&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Natsu<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+62&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Catburglar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Woman<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+64&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Lady<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+65&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Marna<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+66&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Catgirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+67&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Lady Cat<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+68&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Azana<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+69&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Leonthas<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Maid<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+71&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Ring Master<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+72&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Ambassador Tachiba<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1000  Older Lover<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1001, 1002,1003, 1004 New Owner, 1001,1002 male, 1002,1003 female<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1999&nbsp;&nbsp;&nbsp;&nbsp;
+Original Owner<br>
+<br>
+See the file<br>
+Languages/Base.xml<br>
+for a complete list, with some additional minor people.<br><br></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId325682"></a>Core Functions</h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;">
+</span></b></u><span style="font-size: 12pt;">The following functions are used for interacting/showing people<br>
+<br>
+<b><span style="font-size: 14pt;">HidePeople<br>
+</span></b><i><span style="font-size: 12pt;">function HidePeople()<span style="font-size: 14pt;"><br>
+</span></span></i><span style="font-size: 12pt;">hide people like Lady Farun, and your slavemaker image, then shows your assistant afterwards or if personally supervising then your slavemaker image<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">HideAllPeople</span></b><br>
+<i><span style="font-size: 12pt;">function HideAllPeople() <br>
+</span></i>hide people like Lady Farun, also hides your assistant and your slavemaker image<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">GetPersonsName</span></b><br>
+<i><span style="font-size: 12pt;">function GetPersonsName(person:Number) : String<br>
+</span></i>returns the name of a standard person (the bit below in '')<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">GetPersonsGender<span style="font-size: 12pt;"><br>
+</span></span></b><i>function GetPersonsGender(person:Number) : Number<br>
+</i>returns the gender (1-3) of the person<br>
+Some slight variations, for instance the Sleazy Bar Owner can be a dickgirl at times but this always return 1. Also The librarian is a dickgirl if dickgirls are enabled, else a woman<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">GetPersonsMovieClip<span style="font-size: 12pt;"><br>
+</span></span></b><i>function GetPersonsMovieClip(item:Object) : MovieClip<br>
+</i>returns the MovieClip for the person. Note not all people have an image or MovieClip (45, 50, 1000+)<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowPerson<span style="font-size: 12pt;"><br>
+</span></span></b><i>function ShowPerson(person:Number, place:Number, align:Number, gframe:Number)<br>
+</i>A simple wrapper around ShowMovie to show the movieclip for a person. Simply does<br>
+ShowMovie(GetPersonsMovieClip(person), place, align, gframe);<br>
+<br>
+<span style="font-size: 10pt;">eg Show the Lord's image<br>
+ShowPerson(8, 1, 1);<span style="font-size: 12pt;"></span></span></span></span></span></span></span></span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><br>
+</span></span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;">
+or </span></span></span><br><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;">
+<span style="font-size: 10pt;">_root.ShowPerson(1, 0, 0);<br>
+or <br>
+_root.ShowPerson(8, 0, 1, 2);<br>
+or<br>
+_root.ShowPerson(6, true, 0, int(Math.random()*2) + 1);   // randomly choose frame 1 or 2<span style="font-size: 12pt;"><br>
+<br>
+For individual frames for the person, see the folder People in this SDK for thumbnails<br></span></span></span></span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span><br><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;">
+<br></span></span></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId935331"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span>Custom Person<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;"></span></b></u></span></span></span></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;">
+</span></b></u><span style="font-size: 12pt;">There is a customisable person you can lend or visit in the game. This person is hidden by default<br>
+<br>
+<b><span style="font-size: 14pt;">ShowCustomVisitPerson<br>
+</span></b><i><span style="font-size: 12pt;">ShowCustomVisitPerson(pname:String)<br>
+</span></i>Adds a custom person to the Vist/Lend screens. Call in Initialise() function of your slave<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">_root.SetCustomVisitPerson("Tirana");<span style="font-size: 12pt;"><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">HideCustomVisitPerson<br>
+</span></b><i><span style="font-size: 12pt;">HideCustomVisitPerson()<br>
+</span></i>Hides the person<br>
+<br>
+<br>
+There are two Slave Girl Override functions to allow you to show/hide the person on the visit/lend screens. These are only need if the person is only visible some of the time (for instance Tirana for Minako). <br>
+<br>
+<b><span style="font-size: 14pt;">DoLendSelect<br>
+</span></b><i><span style="font-size: 12pt;">function DoLendSelect()<br>
+</span></i><span style="font-size: 14pt;"><b>DoVisitSelect</b><span style="font-size: 12pt;"><br>
+<i>function DoVisitSelect()<br>
+</i><br>
+<span style="font-size: 10pt;">eg Tirana is only visible for lending and only when a particular flag is set<br>
+<span style="font-size: 12pt;"><br>
+<span style="font-size: 10pt;">function DoLendSelect()<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.CustomFlag4 == 3 || _root.CustomFlag4 == 6) _root.ShowCustomVisitPerson("Tirana");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else _root.HideCustomVisitPerson();<br>
+}<br>
+<br>
+function DoVisitSelect()<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.HideCustomVisitPerson();<br>
+}<br>
+<span style="font-size: 12pt;"><br>
+These functions can also be used to hide the standard people. The standard code for both visit and lend is <br>
+eg<br>
+<span style="font-size: 10pt;">_root.VisitMenu.Count._visible = _root.Count.IsAccessible();<br>
+_root.VisitMenu.Lord._visible = _root.Lord.IsAccessible();<br>
+_root.VisitMenu.Knight._visible = _root.Knight.IsAccessible();<br>
+_root.VisitMenu.Barmaid._visible = _root.Barmaid.IsAccessible();<br>
+_root.VisitMenu.Maid._visible = _root.Maid.IsAccessible();<br>
+_root.VisitMenu.LadyFarun._visible = _root.LadyFarun.IsMet() || _root.LadyFarun.IsAccessible();<br>
+_root.VisitMenu.CuteLesbian._visible = _root.CuteLesbian.IsAccessible();<br>
+_root.VisitMenu.PonyMistress._visible = _root.PonyMistress.IsAccessible();<br>
+_root.VisitMenu.BountyHunter._visible = _root.BountyHunter.IsAccessible();<br>
+_root.VisitMenu.GuildMember._visible = false;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// true for lending<br>
+<br>
+<span style="font-size: 12pt;">The Shop Owner, Prostitute and High Class Prostutite are always visible in both but you can hide them with<br>
+<span style="font-size: 10pt;">_root.VisitMenu.Prostitute._visible = false;<br>
+_root.VisitMenu.HighClassProstitute._visible = false;<br>
+_root.VisitMenu.ShopOwner._visible = false;<span style="font-size: 12pt;"><br>
+<br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId916627"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>Slave Interface Functions<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;"></span></b></u></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;">
+</span></b></u><span style="font-size: 12pt;">The following functions can be overridden for a slave to affect meetings with a person<br><br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><h2 style="font-family: Arial; text-decoration: underline;">Shopping</h2><h2><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></h2><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b>
+</b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><br><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 16pt;"><u>
+</u><b><span style="font-size: 12pt;">
+<span style="font-size: 14pt;">DoShop<br>
+</span></span></b><i><span style="font-size: 12pt;">function DoShop()<br>
+</span></i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>visit the shop, note bitflag1 28 first visit shop is set after the first visit<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 16pt;"><br>
+<br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+eg<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 16pt;"><br>
+<span style="font-size: 10pt;">function DoShop() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (!root.CheckBitFlag1(28)) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    // first visit<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+}<span style="font-size: 12pt;"><br>
+<b><br>
+<br>
+<span style="font-size: 14pt;">DoSalon<br>
+</span></b><i><span style="font-size: 12pt;">function DoSalon()<br>
+</span></i>visit the beauty salon, bitflag1 29 for first visit<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">DoTailor</span></b><span style="font-size: 12pt;"><br>
+<i>function DoTailor()<br>
+</i>visit the tailors, bitflag1 30<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">DoArmourer</span></b><span style="font-size: 12pt;"><br>
+<i>function DoArmourer()<br>
+</i>visit the tailors, bitflag1 14<br>
+<br>
+<br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><h2 style="font-family: Arial; text-decoration: underline;">Visiting</h2>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 16pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><u><span style="font-size: 16pt;">
+<span style="font-size: 12pt;">
+</span></span></u><b><span style="font-size: 14pt;">DoVisit</span></b><br>
+<span style="font-size: 12pt;">called before visiting a person<br>
+<i>DoVisit(person:Number) : Boolean<br>
+</i>person - values 1-42<br>
+return true to prevent the visit<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">DoVisitShop<br>
+</span></b><span style="font-size: 12pt;">called when visiting the Merchant, and if the merchant will see her<br>
+<i>function DoVisitShop() : Boolean</i><br>
+return true to completely overide the default visit<br>
+<br>
+<b>DoVisitBarmaid()  - </b>Called when visiting the Barmaid, otherwise as DoVisitShop<br>
+<br>
+<b>DoVisitMaid()  - </b>Called when visiting the Maid, otherwise as DoVisitShop<br>
+<br>
+<b>DoVisitKnight()  - </b>Called when visiting the Knight, otherwise as DoVisitShop<br>
+<br>
+<b>DoVisitLord()  - </b>Called when visiting the Lord, otherwise as DoVisitShop<br>
+<br>
+<b>DoVisitCount()  - </b>Called when visiting the Count, otherwise as DoVisitShop<br>
+<br>
+<b>DoVisitLadyFarun()  - </b>Called when visiting Lady Farun, otherwise as DoVisitShop<br>
+<br>
+<b>DoVisitProstitute()  - </b>Called when visiting the prostitute, otherwise as DoVisitShop<br>
+<br>
+<b>DoVisitHighClassProstitute()  - </b>Called when visiting Lady Okyanu the high class prostitute, otherwise as DoVisitShop<br>
+<br>
+<b>DoVisitCuteLesbian()  - </b>Called when visiting Tena, otherwise as DoVisitShop<br>
+<br>
+<b>DoVisitPonyMistress()  - </b>Called when visiting Mistress Epona the pony mistress, otherwise as DoVisitShop<br>
+<br>
+<b>DoVisitBountyHunter()  - </b>Called when visiting Irinia the Bounty Hunter, otherwise as DoVisitShop<br>
+<span style="font-size: 10pt;"><br>
+<b><span style="font-size: 12pt;">DoVisitCustomPerson()  - </span></b>Called when visiting the custom person<br>
+<span style="font-size: 10pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">HighClassPartyOffer<span style="font-size: 12pt;"><br>
+</span></span></b><i>function HighClassPartyOffer(days:Number)<br>
+</i>called after the offer of the high class party is made. Allow you to override the stadard text<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">HighClassPartyCheck<span style="font-size: 12pt;"><br>
+</span></span></b><i>function HighClassPartyCheck()  : Boolean<br>
+</i>return true to override the text of a days before party (ie to alter criteria say)<br>
+<br>
+<b><span style="font-size: 14pt;">VisitSeer<span style="font-size: 12pt;"><br>
+</span></span></b><i>function VisitSeer(total:Number)<br>
+</i>total - estimated score at the end of game<i><br>
+</i>Called when she visits the seer, use to change her readings. Alter these values<br>
+VisitFortuneTeller.SlaveReading.text&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- slaves reading<br>
+VisitFortuneTeller.SlaveMakerReading1.text&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- part 1 of your slavemakers reading<br>
+VisitFortuneTeller.SlaveMakerReading2.text&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- part 2 of your slavemakers reading<br>
+<br>
+eg<br>
+function VisitSeer(total:Number)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_root.VisitFortuneTeller.SlaveReading.text = "She is fated to become the greatest slave.";<br>
+}<br>
+<br>
+<br><br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><h2 style="font-family: Arial; text-decoration: underline;">Lending</h2>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 16pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><u><span style="font-size: 16pt;">
+</span></u><span style="font-size: 12pt;">
+<b>DoLendHer</b> - called before lending to a person<br>
+<i>DoVisit(person:Number) : Boolean<br>
+</i>person - values 1-42<br>
+return true to prevent the loan<br>
+<br>
+<b>DoLendShop()</b> - called when visiting the Merchant, and if the merchant will see her<br>
+<i>function DoVisitShop() : Boolean</i><br>
+return true to completely overide the default visit<br>
+<br>
+<b>DoLendBarmaid()  - </b>Called when visiting the Barmaid, otherwise as DoVisitShop<br>
+<br>
+<b>DoLendMaid()  - </b>Called when visiting the Maid, otherwise as DoVisitShop<br>
+<br>
+<b>DoLendKnight()  - </b>Called when visiting the Knight, otherwise as DoVisitShop<br>
+<br>
+<b>DoLendLord()  - </b>Called when visiting the Lord, otherwise as DoVisitShop<br>
+<br>
+<b>DoLendCount()  - </b>Called when visiting the Count, otherwise as DoVisitShop<br>
+<br>
+<b>DoLendLadyFarun()  - </b>Called when visiting Lady Farun, otherwise as DoVisitShop<br>
+<br>
+<b>DoLendProstitute()  - </b>Called when visiting the prostitute, otherwise as DoVisitShop<br>
+<br>
+<b>DoLendHighClassProstitute()  - </b>Called when visiting Lady Okyanu the high class prostitute, otherwise as DoVisitShop<br>
+<br>
+<b>DoLendCuteLesbian()  - </b>Called when visiting Tena, otherwise as DoVisitShop<br>
+<br>
+<b>DoLendPonyMistress()  - </b>Called when visiting Mistress Epona the pony mistress, otherwise as DoVisitShop<br>
+<br>
+<b>DoLendBountyHunter()  - </b>Called when visiting Irinia the Bounty Hunter, otherwise as DoVisitShop<br>
+<span style="font-size: 10pt;"><br>
+<b><span style="font-size: 12pt;">DoLendCustomPerson()  - </span></b>Called when visiting the custom person<br>
+<br>
+<br><br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><h2 style="font-family: Arial; text-decoration: underline;">Other</h2>
+
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 16pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;">
+<span style="font-size: 12pt;">See <a href="Slave%20-%20Events%20-%20Love%20&amp;%20Dating.html">Slave - Events - Love &amp; Dating.html</a> for interactions with an Older Lover or for dating.<b><span style="font-size: 14pt;"></span></b><span style="font-size: 12pt;"><br>
+<br>
+<br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId458696"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 16pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>People Status<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 16pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;"></span></b></u></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 16pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;">
+</span></b></u><span style="font-size: 12pt;">During gameplay most people have a state of their interactions with you and your slave. This state is saved and portions carryover between slave girls<br>
+<br>
+Selected people are instances of the <a href="Common%20Scripts/Classes/Person.as">Place</a> class (an extension of the Place class)<br>
+<br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><table style="text-align: left; width: 907px; height: 913px; font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr><td style="vertical-align: top; text-align: left;"><h2 style="height: 21px;"><a class="mozTocH2" name="mozTocId718107"></a><small><span style="font-weight: normal;">Class </span><span style="font-weight: bold;">Person </span><font style="font-weight: normal;" size="-1"><small>(simplified)</small></font></small></h2></td></tr>
+
+      <tr>
+        <td style="vertical-align: top; background-color: rgb(239, 255, 255);"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;">class Person extends Place<br>{<br>&nbsp;&nbsp;&nbsp; public var PersonName:String;&nbsp;&nbsp;&nbsp; // their name<br>&nbsp;&nbsp;&nbsp; public var PersonGender:Number;&nbsp;&nbsp;&nbsp; // their gender<br><br>&nbsp;&nbsp;&nbsp; public var SMLove:Number;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // Slave Maker love for person<br>&nbsp;&nbsp;&nbsp; public var SlaveLove:Number;&nbsp;&nbsp;&nbsp; // Slave love for person<br>&nbsp;&nbsp;&nbsp; public var LoveSM:Number;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // person's love of Slave Maker<br>&nbsp;&nbsp;&nbsp; public var LoveSlave:Number;&nbsp;&nbsp;&nbsp; // person's love of slave's<br>&nbsp;&nbsp;&nbsp; public var PersonFlag:Number;&nbsp;&nbsp;&nbsp; // generic flag, reset each slave<br>&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; public var PregnancyGestation:Number;&nbsp;&nbsp;&nbsp; // state of tentacle pregnancy<br>&nbsp;&nbsp;&nbsp; public var PregnancyCount:Number;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // number of offspring<br>&nbsp;&nbsp;&nbsp; public var PregnancyType:String;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // type of pregnancy<br>&nbsp;&nbsp;&nbsp; public var TotalTentaclePregnancy:Number;&nbsp;&nbsp;&nbsp; // total tentacle pregnancies<br>&nbsp;&nbsp;&nbsp; public var DaysUnavailable:Number;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // days unavailable<br>&nbsp;&nbsp;&nbsp; public var TotalChildren:Number;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // total child borths (non-tentacle)<br>&nbsp;&nbsp;&nbsp; public var Fertility:Number;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // fertility percent value<br>&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; public var DifficultyLendMod:Number;&nbsp;&nbsp;&nbsp; // modifier to difficulty to lend<br>&nbsp;&nbsp;&nbsp; public var DifficultyLendStart:Number;&nbsp;&nbsp;&nbsp; // initial modifier for each slave<br>&nbsp;&nbsp;&nbsp; public var TotalLend:Number;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // total times lent<br>&nbsp;&nbsp;&nbsp; public var InLoveWith:String;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // name of person they are in love with<br>&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; private var Met:Boolean;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // true and has met slave/you<br>&nbsp;&nbsp;&nbsp; private var VisitedToday:Boolean;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // true and has been visited today<br>&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; public var strCity:String;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // the city the person lives in<br>&nbsp;&nbsp;&nbsp; public var strLocation:String;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // location/area in the city the person lives&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; // Standard BitFlags as the eventually inherits from BitFlags<br>&nbsp;&nbsp;&nbsp; // Person Properties<br>&nbsp;&nbsp;&nbsp; // 128 - Nobility<br>&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; // Identity<br>&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; public function IsPerson(str:String) : Boolean<br>&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp; }&nbsp;  <br><br>&nbsp;&nbsp;&nbsp; public function PointsPerson(flag:Number, lovesm:Number, loveslave:Number, smlove:Number, slavelove:Number)<br>&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; public function IsMet() : Boolean {&nbsp;&nbsp;&nbsp; return Met;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp; public function SetMet(met:Boolean) { Met = met == undefined ? true : met; }<br>&nbsp;&nbsp;&nbsp; <br>}<br></span></span></span></td>
+      </tr>
+    </tbody>
+  </table><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 16pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><br>
+Internal functions and member variables have been omitted<br>
+<br>
+For most people the member PersonFlag is a count of the reputation your slave has gained from visiting the person<br>
+<br>
+The specific instances are<br>
+<br>
+var LadyFarun:Person;<br>
+var Knight:Person;<br>
+var Lord:Person;<br>
+var Prostitute:Person;<br>
+var HighClassProstitute:Person;<br>
+var Barmaid:Person;<br>
+var Maid:Person;<br>
+var Merchant:Person;<br>
+var Count:Person;<br>
+var CuteLesbian:Person;<br>
+var BountyHunter:Person;<br>
+var PonyMistress:Person;<br>
+var Dancer:Person;<br>
+var SleazyBarOwner:Person;<br>
+<br>
+eg<span style="font-size: 10pt;"><br>
+if (LadyFarun.IsVisited()) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SetText("You have visited Lady Farun before....");<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">BountyHunter.Points(0, 0, 10); // she falls a little in love with your slave<br>
+if (BountyHunter.SlaveLovePoints &gt; 60) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SetText("Irina tells  + SlaveName +  she is in love with her!");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;BountyHunter.InLove(SlaveName, true);<br>
+}<br>
+<span style="font-size: 12pt;"><br>
+Note if she has already declared her love then the Points function does not change SlaveLovePoints. But, if you use previously<br>
+BountyHunter.InLove(SlaveName, false);<br>
+she will fall out of love with her previous lover and swap over to your slave (or you!)<br>
+<br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId775908"></a>People Variables<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 16pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 16pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;">
+<span style="font-size: 12pt;">Some people have specific variables for their interactions. These will be removed in future and use the above class<br>
+<br>
+For all the following variables a value of 0 means you have not met them, 0.01 means you have met them once. Other values vary from person to person<b><br>
+</b><br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><table style="text-align: left; width: 936px; height: 97px; background-color: rgb(242, 255, 255); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: rgb(229, 229, 229);"><span style="font-weight: bold;">Actionscript Variable</span></td>
+            <td style="vertical-align: top; width: 50%; background-color: rgb(229, 229, 229);"><span style="font-weight: bold;">XML Variable</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 15px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white; height: 25px;">
+            <h2 style="height: 5px;"><a class="mozTocH2" name="mozTocId134031"></a><small>VarIdol</small> <font size="-1"><span style="font-style: italic;"></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h2>
+            <font size="-2"><span style="font-weight: bold;">i</span></font><font size="-2"><span style="font-weight: bold;">mplemented
+in:</span> _root, class <a href="Common%20Scripts/Classes/Slave.as">Slave</a></font> </td>
+            <td style="vertical-align: top; width: 50%; background-color: white; height: 25px;"><span style="font-weight: bold;">idolmeeting</span><span style="font-weight: bold;"><font size="-1"><span style="font-style: italic;"></span></font></span><span style="font-size: 12pt; font-weight: bold;"><span style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"><span style="font-style: italic;">(Number)</span></font> The state of the meetings with Meigura the idol/demon girl.<br></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table><br><table style="text-align: left; width: 936px; height: 97px; background-color: rgb(242, 255, 255); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: rgb(229, 229, 229);"><span style="font-weight: bold;">Actionscript Variable</span></td>
+            <td style="vertical-align: top; width: 50%; background-color: rgb(229, 229, 229);"><span style="font-weight: bold;">XML Variable</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 29px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white; height: 25px;">
+            
+            <h2 style="height: 5px;"><a class="mozTocH2" name="mozTocId870211"></a><small>PuppyGirlFlag</small><font size="-1"><span style="font-style: italic;"></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h2>
+
+            <font size="-2"><span style="font-weight: bold;">i</span></font><font size="-2"><span style="font-weight: bold;">mplemented
+in:</span> _root, class <a href="Common%20Scripts/Classes/Slave.as">Slave</a></font> </td>
+            <td style="vertical-align: top; width: 50%; background-color: white; height: 25px;"><span style="font-weight: bold;">puppygirlmeeting</span><span style="font-weight: bold;"><font size="-1"><span style="font-style: italic;"></span></font></span><span style="font-size: 12pt; font-weight: bold;"><span style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"><span style="font-style: italic;">(Number)</span></font> The state of the meetings with the puppy girl at the town center<br></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br><table style="text-align: left; width: 936px; height: 97px; background-color: rgb(242, 255, 255); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: rgb(229, 229, 229);"><span style="font-weight: bold;">Actionscript Variable</span></td>
+            <td style="vertical-align: top; width: 50%; background-color: rgb(229, 229, 229);"><span style="font-weight: bold;">XML Variable</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 29px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white; height: 25px;">
+            
+            <h2 style="height: 6px;"><a class="mozTocH2" name="mozTocId864866"></a><small>VarSchoolGirl</small> <font size="-1"><span style="font-style: italic;"></span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h2>
+
+            <font size="-2"><span style="font-weight: bold;">i</span></font><font size="-2"><span style="font-weight: bold;">mplemented
+in:</span> _root, class <a href="Common%20Scripts/Classes/Slave.as">Slave</a></font> </td>
+            <td style="vertical-align: top; width: 50%; background-color: white; height: 25px;"><span style="font-weight: bold;">schoolgirlmeeting</span><span style="font-weight: bold;"><font size="-1"><span style="font-style: italic;"></span></font></span><span style="font-size: 12pt; font-weight: bold;"><span style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"><span style="font-style: italic;">(Number)</span></font> The state of the meetings Snow the school girl your slave meets in the Sciences class.<br></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId839430"></a>People BitFlags<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 16pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 16pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">
+<span style="font-size: 12pt;">Each person with an instance of the Person class can have dedicated bitflags for the state of their interactions<br>
+<br>
+Bounty Hunter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+32 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- free services<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+33 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- other services<br>
+<br>
+Dancer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+33&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Known as a faerie<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+34 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- dancer tells about faeries in hiding<br>
+<br>
+Prostitute<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+32 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Made party offer<br>
+<br>
+HigClassProstitute<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+32 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Made party offer<br>
+<br>
+Lady Farun<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+32 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Rescued<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.Dancer.CheckBitFlag(33)) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AddText("You speak to the faerie dancer...");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+....<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<span style="font-size: 12pt;"><br>
+<i><span style="font-size: 10pt;"><br>
+<br>
+</span></i><span style="font-size: 14pt;"><u><b><br>
+</b></u></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>

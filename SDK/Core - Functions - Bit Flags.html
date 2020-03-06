@@ -1,0 +1,2493 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html;charset=ISO-8859-1" http-equiv="Content-Type">
+  <meta name="generator"
+ content="HTML Tidy for Windows (vers 22 March 2008), see www.w3.org">
+  <title>BitFlags</title>
+</head>
+<body>
+<table
+ style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;"
+ border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font
+ size="+3"><span style="font-weight: bold;">BitFlags<br>
+            </span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td
+ style="vertical-align: top; width: 80%; text-align: left;"><a
+ href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font
+ style="font-weight: bold;" size="-1">Updated for Version 3.4</font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><br>
+All slaves, places, people, events and your slave maker have a set of
+bitflags. These are a set of boolean flags, rach of which can have the
+value of
+<span style="font-weight: bold;">true</span> or <span
+ style="font-weight: bold;">false</span>. By default all flags are <span
+ style="font-weight: bold;">false</span> unless otherwise noted. There
+is a theoretically unlimited number of individual boolean flags but in
+practise using version large numbers will greatly increase the size of
+save games.<br>
+</span>
+<ul style="font-family: Arial;" id="mozToc">
+</ul>
+<span style="font-weight: bold; font-family: Arial;">Table of Contents</span>
+<ul style="font-family: Arial;" id="mozToc">
+<!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6-->
+  <li><a href="#mozTocId111106">Class</a>
+    <ul>
+      <li><a href="#mozTocId427877">Class Methods</a>
+        <ul>
+          <li><a href="#mozTocId470081">CheckBitFlag</a></li>
+          <li><a href="#mozTocId62822">&nbsp;SetBitFlag</a></li>
+          <li><a href="#mozTocId470081">ClearBitFlag</a></li>
+          <li><a href="#mozTocId470081">CheckAndSetBitFlag</a></li>
+        </ul>
+      </li>
+      <li><a href="#mozTocId643083">General Usage Notes:</a>
+        <ul>
+          <li><a href="#mozTocId673808">To Load or Save a set of
+flags</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId903100">Defined BitFlags</a>
+    <ul>
+      <li><a href="#mozTocId658558">Slave</a></li>
+      <li><a href="#mozTocId200960">Slave Maker</a></li>
+      <li><a href="#mozTocId664396">BitFlag 1</a>
+        <ul>
+          <li><a href="#mozTocId279625">Class Instance: BitFlag1</a></li>
+          <li><a href="#mozTocId840959">XML Usage:</a></li>
+          <li><a href="#mozTocId586516">Defined Flags</a></li>
+          <li><a href="#mozTocId726326">Notes</a></li>
+        </ul>
+      </li>
+      <li><a href="#mozTocId966820">BitFlag2</a>
+        <ul>
+          <li><a href="#mozTocId168615">Class instance: BitFlag2</a></li>
+          <li><a href="#mozTocId538829">XML Usage:</a></li>
+          <li><a href="#mozTocId524329">Defined Flags</a></li>
+          <li><a href="#mozTocId773651">Notes:</a></li>
+        </ul>
+      </li>
+      <li><a href="#mozTocId67867">DemonFlags</a>
+        <ul>
+          <li><a href="#mozTocId24235">Class Instance: DemonFlags</a></li>
+          <li><a href="#mozTocId577542">XML Usage:</a></li>
+          <li><a href="#mozTocId995380">Defined Flags</a></li>
+          <li><a href="#mozTocId312234">Notes</a></li>
+        </ul>
+      </li>
+      <li><a href="#mozTocId487474">BitFlagSM</a>
+        <ul>
+          <li><a href="#mozTocId24235">Class Instance: SMData.BitFlagSM</a></li>
+          <li><a href="#mozTocId598430">XML Usage:</a></li>
+          <li><a href="#mozTocId995380">Defined Flags</a></li>
+        </ul>
+      </li>
+      <li><a href="#mozTocId704009">SMInitialItems</a>
+        <ul>
+          <li><a href="#mozTocId24235">Class Instance:
+SMData.SMInitialItems</a></li>
+          <li><a href="#mozTocId213484">XML Usage:</a></li>
+          <li><a href="#mozTocId995380">Defined Flags</a></li>
+          <li><a href="#mozTocId292695">Notes</a></li>
+        </ul>
+      </li>
+      <li><a href="#mozTocId679617">SMSkills</a>
+        <ul>
+          <li><a href="#mozTocId24235">Class Instance: SMData.SMSkills</a></li>
+          <li><a href="#mozTocId841772">XML Usage:</a></li>
+          <li><a href="#mozTocId995380">Defined Flags</a></li>
+          <li><a href="#mozTocId289050">Notes</a></li>
+        </ul>
+      </li>
+      <li><a href="#mozTocId215840">SMAdvantages</a>
+        <ul>
+          <li><a href="#mozTocId24235">Class Instance:
+SMData.SMAdvantages</a></li>
+          <li><a href="#mozTocId792885">XML Usage:&nbsp;</a></li>
+          <li><a href="#mozTocId995380">Defined Flags</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+<br>
+<hr style="width: 100%; height: 2px;">
+<h1 style="height: 18px; font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId111106" id="mozTocId111106"></a>Class</h1>
+<span style="font-size: 12pt; font-family: Arial;">All bitflags in the
+game are instances of the class BitFlags<span style="font-size: 12pt;"><br>
+<a href="Common%20Scripts/Classes/BitFlags.as">Common
+Scripts/Classes/BitFlags.as</a><br>
+<br>
+</span></span>
+<table
+ style="text-align: left; width: 907px; height: 173px; font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">Class <span
+ style="font-weight: bold;">BitFlags</span> <font size="-1">(simplified,
+code bodies and private functions and variables omitted)</font><br>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="vertical-align: top; background-color: rgb(239, 255, 255);"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">class BitFlags {&nbsp;<br>
+&nbsp;&nbsp;&nbsp; public function BitFlags();<br>
+      <br>
+&nbsp;&nbsp;&nbsp; public function Load(lo:Object);<br>
+&nbsp;&nbsp;&nbsp; public function Save(so:Object);<br>
+&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp; public function CheckBitFlag(flag:Number) : Boolean;<br>
+&nbsp;&nbsp;&nbsp; public function SetBitFlag(flag:Number);<br>
+&nbsp;&nbsp;&nbsp; public function ClearBitFlag(flag:Number);<br>
+&nbsp;&nbsp;&nbsp; public function CheckAndSetBitFlag(flag:Number) :
+Boolean;&nbsp; // if the flag is false return true and set the flag to
+true<br>
+&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp; public function ShowBitFlags(cnt:Number) : String;<br>
+}<br>
+      </span></span></span></td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><br>
+</span></span></span>
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId427877" id="mozTocId427877"></a>Class Methods</h2>
+<table
+ style="text-align: left; width: 95%; height: 235px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td
+ style="background-color: rgb(249, 249, 249); vertical-align: top;">
+      <h3><a class="mozTocH3" name="mozTocId470081" id="mozTocId470081"></a>CheckBitFlag</h3>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">function CheckBitFlag(no:Number) : Boolean<br>
+            </span></i></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table style="text-align: left; width: 66%; height: 33px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-style: italic;">&lt;if flagxxxxxx-no='true'&gt;</span><br
+ style="font-style: italic;">
+            <span style="font-style: italic;"> where xxxxxx is the name
+of the event, slave, place or 1,2,SM, Advantages, Skills, InitialItems.
+See Defined Bitflags</span><font size="+1"><span
+ style="font-style: italic;"><br>
+            </span></font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-weight: bold;"><br>
+      </span>Returns true if the flag is set</span></span></span></span><span
+ style="font-size: 12pt;"><font size="-1"><br>
+      </font></span> </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 95%; height: 235px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td
+ style="background-color: rgb(249, 249, 249); vertical-align: top;">
+      <h3><a class="mozTocH3" name="mozTocId62822" id="mozTocId62822"></a>&nbsp;SetBitFlag</h3>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">function SetBitFlag(no:Number)</span></i></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table style="text-align: left; width: 66%; height: 33px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-style: italic;">&lt;SetFlag flagxxxxxx-no='true'&gt;</span><br
+ style="font-style: italic;">
+            <span style="font-style: italic;"> where xxxxxx is the name
+of the event, slave, place or 1,2,SM etc. See Defined Bitflags</span><font
+ size="+1"><span style="font-style: italic;"><br>
+            </span></font></td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+Sets the flag to <span style="font-weight: bold;">true</span>. The xml
+method can set to either <span style="font-weight: bold;">true</span>
+or <span style="font-weight: bold;">false</span>.<span
+ style="font-size: 12pt;"><font size="-1"><br>
+      </font></span> </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<table
+ style="text-align: left; width: 95%; height: 250px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td
+ style="background-color: rgb(249, 249, 249); vertical-align: top;">
+      <h3><a class="mozTocH3" name="mozTocId470081" id="mozTocId470081"></a>ClearBitFlag</h3>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">function ClearBitFlag(no:Number)</span></i></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; width: 66%; height: 33px; font-style: italic;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;SetFlag
+flagxxxxxx-no='false'&gt;<br>
+where xxxxxx is the name of the event, slave, place or 1,2,SM. See
+Defined Bitflags</td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-weight: bold;"><br>
+      </span></span></span></span></span>Sets the flag to <span
+ style="font-weight: bold;">false</span> The xml method can set to
+either <span style="font-weight: bold;">true</span> or <span
+ style="font-weight: bold;">false</span>.<span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 95%; height: 236px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td
+ style="background-color: rgb(249, 249, 249); vertical-align: top;">
+      <h3><a class="mozTocH3" name="mozTocId470081" id="mozTocId470081"></a>CheckAndSetBitFlag</h3>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">function CheckAndSetBitFlag(no:Number) :
+Boolean<br>
+            </span></i></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table style="text-align: left; width: 66%; height: 33px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-style: italic;">&lt;SetFlag flagxxxxxx-no=''&gt;</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-weight: bold;"><br>
+      </span></span></span></span></span>If the selected bitflag is
+false, the flag is set to true and the function returns true. Otherwise
+th function returns false.<br>
+      <br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><font size="-1">eg</font><br>
+      </span></span></span></span></span><span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><br>
+      <font style="font-family: Arial;" size="-1">if
+(_root.BitFlag2.CheckAndSetBitFlag(5)) {<br>
+&nbsp;&nbsp;&nbsp; // do event, will happen only once as the flag is
+now set<br>
+}<br>
+      <br>
+same as<br>
+      <br>
+if (_root.BitFlag2.CheckBitFlag(5)) {<br>
+&nbsp;&nbsp;&nbsp; _root.BitFlag2.SetBitFlag(5);<br>
+&nbsp;&nbsp;&nbsp; // do event<br>
+}.</font><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<h2 style="height: 20px; font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId643083" id="mozTocId643083"></a>General Usage Notes:</h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">BitFlags are a
+class so to create one for your slave, event they must be created using
+new<br>
+<font size="-1">eg<br>
+var MyFlags:BitFlags;<br>
+<br>
+In an initialise function<br>
+MyFlag = new BitFlags();<br>
+</font></span></span><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><br>
+</span></span></span></span></span>
+<h3 style="height: 14px; font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId673808" id="mozTocId673808"></a>To Load or Save a set of
+flags</h3>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">cookie.data.MyFlags = new BitFlags();<br>
+MyFlags.Save(cookie.data.MyFlags);<br>
+<span style="font-size: 12pt;"><br>
+To load for a custom event<br>
+<br>
+<span style="font-size: 10pt;">delete MyFlags;<br>
+MyFlags = new BitFlags();<br>
+MyFlags.Load(cookie.data.MyFlags);<i><span style="font-size: 12pt;"><br>
+</span></i><br>
+</span></span></span></span></span></span></span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId903100" id="mozTocId903100"></a>Defined BitFlags</h1>
+<h2 style="height: 11px; font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId658558" id="mozTocId658558"></a>Slave</h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">Each slave,
+assistant and minor slave has these sets ot flags defined. These are
+all member of the class Slave,<br>
+<font size="-1">eg<br>
+var sd:Slave = _root.GetSlaveDetails("Maran");<br>
+sd.BitFlag1.SetBitFlag(61);</font><br>
+<br>
+For the legacy reasons,these flags can be access directly for the the
+current slave in training, ie without referencing the class instance.<br>
+<font size="-1">eg<br>
+_root.BitFlag1.SetBitFlag(61);<br>
+</font><br>
+</span></span></span></span></span></span></span></span></span>
+<table
+ style="text-align: left; width: 687px; height: 194px; font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="0">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 25%;"><span
+ style="font-weight: bold;">BitFlag1</span><br>
+      </td>
+      <td style="vertical-align: top;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">core game flags</span></span></span></span></span></span></span></span></span></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">BitFlag2</span></td>
+      <td style="vertical-align: top;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">custom for
+slave use</span></span></span></span></span></span></span></span></span></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">DemonFlags</span><br>
+      </td>
+      <td style="vertical-align: top;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">state of devil
+girl training</span></span></span></span></span></span></span></span></span></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">FairyFlags</span><br>
+      </td>
+      <td style="vertical-align: top;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">defined for
+faerie events, but currently unused</span></span></span></span></span></span></span></span></span></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">I<span style="font-weight: bold;">temsOwned</span><br>
+      </td>
+      <td style="vertical-align: top;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">defines what
+items are owned, intended as a replacement for the variables like
+BitGagOK</span></span></span></span></span></span></span></span></span></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">I<span style="font-weight: bold;">temsWorn</span><br>
+      </td>
+      <td style="vertical-align: top;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">defines what
+items are owned, intended as a replacement for the variables like
+BitGagWorn</span></span></span></span></span></span></span></span></span></td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><br>
+DO NOT use the flags ItemsOwned and ItemsWorn, they are listed here for
+completeness, but are used internally by the SetItemOwned and
+IsItemOwned functions. See <a
+ href="Core%20-%20Items%20+%20Dresses.html">Core - Items + Dresses.html.</a><br>
+Similarly FairyFlags are reserved, please do not use for a slave's
+training, or if needed please request a flag.<br>
+</span></span></span></span></span></span></span></span></span>
+<h2 style="height: 11px; font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId200960" id="mozTocId200960"></a>Slave Maker</h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">Your Slave
+Maker has these sets of flags, all can be referenced directly or via
+the SMData object<br>
+<font size="-1">eg<br>
+_root.BitFlagSM.SetBitFlag(0);<br>
+or<br>
+</font></span></span></span></span></span></span></span></span><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1">_root.SMData.BitFlagSM.SetBitFlag(0);</font><br>
+<br>
+</span></span></span></span></span></span></span></span></span>
+<table
+ style="text-align: left; width: 687px; height: 133px; font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="0">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 25%;"><font size="+2"><span
+ style="font-weight: bold;">BitFlagSM</span></font><br>
+      </td>
+      <td style="vertical-align: top;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">slave maker
+related, persists for all slave girl trainings</span></span></span></span></span></span></span></span></span></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; font-weight: bold;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">OtherBooks</span></span></span></span></span></span></span></span></span></td>
+      <td style="vertical-align: top;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">defines
+specialist books owned (Ladies Guide for instance)</span></span></span></span></span></span></span></span></span></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span
+ style="font-size: 12pt; font-weight: bold;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">SMInitialItems</span></span></span></span></span></span></span></span></span></td>
+      <td style="vertical-align: top;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">defines what
+item related options where purchased during slave maker creation</span></span></span></span></span></span></span></span></span></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; font-weight: bold;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">SMSkills</span></span></span></span></span></span></span></span></span></td>
+      <td style="vertical-align: top;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">defines skills
+selected during slave maker creation</span></span></span></span></span></span></span></span></span></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span
+ style="font-size: 12pt; font-weight: bold;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">SMAdvantages</span></span></span></span></span></span></span></span></span></td>
+      <td style="vertical-align: top;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">defines the
+advantages/problems the slave maker ha</span></span></span></span></span></span></span></span></span></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span
+ style="font-size: 12pt; font-weight: bold;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">SpecialEventFlags</span></span></span></span></span></span></span></span></span></td>
+      <td style="vertical-align: top;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">set of flags
+for the slave makers special event</span></span></span></span></span></span></span></span></span></td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></span></span><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">DO NOT use the
+flag OtherBooks, it is listed here for completeness, but is used
+internally by the SetItemOwned and IsItemOwned functions. See <a
+ href="Core%20-%20Items%20+%20Dresses.html">Core - Items + Dresses.html</a><br>
+</span></span></span></span></span></span></span></span></span><br
+ style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><br>
+Otherwise all places, NPC's and events have a single set of bit flags.
+The bitflags here do not have a specific instance as their base class
+inherits from the class BitFlags<br>
+<font size="-1">eg<br>
+Palace.SetBitFlag(10);<br>
+&lt;SetFlag flagpalace-10='true'/&gt;</font><br>
+<br>
+See elsewhere in the SDK for details on the places, NPC's and events
+for their defined flag values<br>
+<br>
+</span></span></span></span></span></span></span></span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId664396" id="mozTocId664396"></a>BitFlag 1</h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">These flags
+generally represent the state of the slave during their training, and
+also the state of a number of their specific trainings.</span></span></span></span></span></span></span></span></span></span></span><br
+ style="font-family: Arial;">
+<h3 style="font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId279625" id="mozTocId279625"></a>Class Instance: BitFlag1</h3>
+<h3 style="height: 6px; font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId840959" id="mozTocId840959"></a>XML Usage:</h3>
+<font style="font-family: Arial;" size="-1">Refer to flag1<br>
+eg<br>
+&lt;if flag1-5='true'&gt;<br>
+&nbsp;&nbsp; &lt;!-- flag is set --&gt;<br>
+&lt;/if&gt;<br>
+for a specific slave<br>
+&lt;if flag1-tifa-5='true'&gt;<br>
+&nbsp;&nbsp; &lt;!-- flag is set --&gt;<br>
+&lt;/if&gt;</font><br style="font-family: Arial;">
+<h3 style="height: 5px; font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId586516" id="mozTocId586516"></a>Defined Flags</h3>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">Standard
+BitFlags used by the game<br>
+</span></span></span></span></span></span></span></span></span></span></span>
+<table
+ style="text-align: left; width: 907px; height: 227px; font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="0">
+  <tbody>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; width: 15%; text-align: center; font-family: Arial;"><font
+ size="+1">0</font></td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">seen cowgirls</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">1</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">visited farmer
+and allowed to see cowgirls</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">2</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">Demon
+encounter 1</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">3</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">Demon Girl
+encounter 2</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">4</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">Demon DG
+escape witness</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">5</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">Demon DG
+escape attempt</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">6</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">First Milk
+Event</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">7</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">Milk Accident</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">8</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">Catgirl flag
+(toggle)</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">9</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">used Cheat
+button</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">10</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">Lesbian
+training</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">11</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">decided to not
+do lesbian training</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">12</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">reset = Offer
+Lesbian Training next Lesbian act, else offered</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">13</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">gaining weight</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">14</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">NOT taking
+contraceptives</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">15</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">catgirl</font> </td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">16</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">always win
+attacks in tentacle abduction + and can wander indefinitely</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">17</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">Lady Farun
+favour owed</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">18</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">Private Tutor
+agreement</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">19</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">Lady Farun
+will fix the next contest</font> </td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">20</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">Searching for
+nymphs tear supply</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">21</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">bondage warning for ponygirls</font> </td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">22</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">sleazy blowjob
+(male)</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">23</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">sleazy blowjob
+(dickgirl)</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">24</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">met disciple
+tutor</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">25</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">Count owns farm</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">26</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">cowgirls
+removed from farm</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">27</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">start lesbian
+training at start of day</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">28</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">first visit
+shop</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">29</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">first visit
+salon</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">30</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">first visit
+tailor</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">31</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">first job at
+restaurant</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">32</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">working as chef</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">33</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">offered job as
+chef</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">34</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">SlaveMaker
+tentacle pregnancy (OBSOLETE)</font> </td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">35</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">first visit to
+stables</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">36</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">advanced
+housework contest available</font> </td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">37</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">assisted at
+Prostitute Party</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">38</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">assisted at
+High Class Party</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">39</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">did other at
+Prostitute Party</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">40</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">did other at
+High Class Party</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">41</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">acolyte
+tentacle raid has happened</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">42</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">Met Narana at
+High Class Party</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">43</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">Puppygirl is
+guarding a dickgirl</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">44</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">Puppygirl is
+guarding a female</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">45</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">Started
+catgirl training</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">46</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">demon tail</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">47</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">giga BE
+happened</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">48</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">offer of cat
+items by Lady Farun (one off per slave)</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">49</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">bypass
+training with Meesh</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">50</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">demon wings</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">51</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">demon horns</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">52</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">snake fangs</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">53</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">snake skin</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">54</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">snake eyes</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">55</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">saved Lady
+Farun</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">56</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">first cum bath
+after lesbian train started (if reset)</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">57</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">Started
+puppygirl training</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">58</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">completed puppy girl training</font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">59</font></td>
+      <td style="vertical-align: top;"><font size="+1">accepted wolf
+training training</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">60</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">Proposed</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">61</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">Married to SM</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">62</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">Effeminate</font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">63<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Mute<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">64<br>
+      </font></td>
+      <td style="vertical-align: top;"><font size="+1">Set if done
+"Talk To Slaves" today with this slave<br>
+      </font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">65</font><br>
+      </td>
+      <td style="vertical-align: top;"><font size="+1">Set if done a
+"Custom Talk To Slaves" today with this slave</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">...<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">85</font></td>
+      <td style="vertical-align: top;"><font size="+1">trainable
+(primarily for internal use)<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">86</font></td>
+      <td style="vertical-align: top;"><font size="+1">Ponygirls needed<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">87</font></td>
+      <td style="vertical-align: top;"><font size="+1">Non-human sex
+needed<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">88</font></td>
+      <td style="vertical-align: top;"><font size="+1">Pregnancy needed<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">89<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Dickgirls needed<br>
+      </font> </td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">90</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">rape enabled</font> </td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">91</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">tentacle sex enabled</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">92</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">vanilla</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">93</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">furries needed</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">94</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">Tentacles Needed</font></td>
+    </tr>
+    <tr style="font-family: Arial;">
+      <td
+ style="vertical-align: top; text-align: center; font-family: Arial;"><font
+ size="+1">95</font> </td>
+      <td style="vertical-align: top; font-family: Arial;"><font
+ size="+1">announced or
+been told of pregnancy</font></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+<font size="-1">eg<br>
+_root.BitFlag1.SetBitFlag(61);&nbsp;&nbsp; &nbsp;&nbsp; // married to
+the slave maker<br>
+</font><br>
+</span></span></span></span></span></span></span></span></span></span></span>
+<h3 style="height: 5px; font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId726326" id="mozTocId726326"></a><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-weight: bold;">Notes</span></span></span></span></span></span></span></span></span></span></span></span></h3>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">There are a
+set of obsolete functions to specifically set this flag. Do not use,
+instead directly use<br>
+_root.BitFlag2.SetBitFlag(10);<br>
+and similar members.<br>
+<br>
+</span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i>function
+CheckBitFlag1(flag:Number) : Boolean</i></span></span></span></span></span></span></span></span></span></span></span><br
+ style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><i>function SetBitFlag1(flag:Number)</i><br>
+<span style="font-size: 12pt;"><i>function ClearBitFlag1(flag:Number)<br>
+</i><span style="font-size: 14pt;"><span style="font-size: 12pt;"><i>function
+CheckAndSetBitFlag1 (flag:Number) : Boolean</i><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><br>
+<br>
+<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId966820" id="mozTocId966820"></a><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 20pt;">BitFlag2</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">These flags
+are custom flags and are for use by the slave ONLY.</span></span></span></span></span></span></span></span></span></span></span><br
+ style="font-family: Arial;">
+<h3 style="font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId168615" id="mozTocId168615"></a>Class instance: BitFlag2</h3>
+<h3 style="height: 6px; font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId538829" id="mozTocId538829"></a>XML Usage:</h3>
+<font style="font-family: Arial;" size="-1">Refer to flag2<br>
+eg<br>
+&lt;if flag2-5='true'&gt;<br>
+&nbsp;&nbsp; &lt;!-- flag is set --&gt;<br>
+&lt;/if&gt;<br>
+for a specific slave<br>
+&lt;if flag2-tifa-5='true'&gt;<br>
+&nbsp;&nbsp; &lt;!-- flag is set --&gt;<br>
+&lt;/if&gt;</font><br style="font-family: Arial;">
+<h3 style="height: 6px; font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId524329" id="mozTocId524329"></a>Defined Flags</h3>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">No flags are defined, all are available for
+slave use<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><br
+ style="font-family: Arial;">
+<h3 style="height: 5px; font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId773651" id="mozTocId773651"></a>Notes:</h3>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">There are a
+set of obsolete functions to specifically set this flag. Do not use,
+instead directly use<br>
+_root.BitFlag2.SetBitFlag(10);<br>
+and similar members.<br>
+</span></span></span></span></span></span></span></span></span></span></span><br
+ style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i>function
+CheckBitFlag2(flag:Number) : Boolean</i><span style="font-size: 12pt;"><br>
+<i>function SetBitFlag2(flag:Number)</i><span style="font-size: 12pt;"><br>
+<i>function ClearBitFlag2(flag:Number)<br>
+</i><span style="font-size: 12pt;"><i>function CheckAndSetBitFlag2
+(flag:Number) : Boolean</i><br>
+<br>
+<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId67867"
+ id="mozTocId67867"></a><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 20pt;">DemonFlags</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">These relate
+to the slaves' training as a demon.<br style="font-weight: bold;">
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<h3 style="font-family: Arial;"><a class="mozTocH3" name="mozTocId24235"
+ id="mozTocId24235"></a>Class Instance: DemonFlags</h3>
+<h3 style="height: 6px; font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId577542" id="mozTocId577542"></a>XML Usage:</h3>
+<font style="font-family: Arial;" size="-1">Refer to flagdemon<br>
+eg<br>
+&lt;if flagdemon-5='true'&gt;<br>
+&nbsp;&nbsp; &lt;!-- flag is set --&gt;<br>
+&lt;/if&gt;<br>
+for a specific slave (after they have been trained)<br>
+&lt;if flagdemon-tifa-5='true'&gt;<br>
+&nbsp;&nbsp; &lt;!-- flag is set --&gt;<br>
+&lt;/if&gt;</font><br style="font-family: Arial;">
+<h3 style="height: 5px; font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId995380" id="mozTocId995380"></a>Defined Flags</h3>
+<table
+ style="text-align: left; width: 66%; height: 58px; font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="0">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 15%; text-align: center;"><font
+ size="+1">0</font></td>
+      <td style="vertical-align: top;"><font size="+1">Met the demon
+girl at the town
+center<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">1<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Successfully
+seduced in the Forest</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">2<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Successfully
+seduced at the Lake<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">3<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Successfully
+seduced in the Town Center<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">4<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Successfully
+seduced in the Slums<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">5<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Successfully
+seduced at the Palace<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">6<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Successfully
+seduced at the Port (any part)<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">7<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Successfully
+seduced at the Farm<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">8<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Successfully
+seduced in the Ruins<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">9<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Successfully
+seduced at the Beach (any area)<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">32<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Quest complete,
+the slave has
+her wings<br>
+      </font> </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<h3 style="height: 4px; font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId312234" id="mozTocId312234"></a>Notes</h3>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">Note these
+flags are only available for a slave that has been trained (or is being
+trained). By default they are not available for minor slaves or
+assistants. Any use of the functions will return false. Attempting to
+set the flag will have no effects</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><i><br>
+<br>
+</i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId487474" id="mozTocId487474"></a>BitFlagSM</h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">These relate
+to your slave maker, they are persistent and apply for the duration of
+your slave maker's career.<br>
+<br>
+&nbsp;Please do not use any undefined flags, some flags are used
+internally by the game but are not documented. With a special request
+flags 80-89 can be allocated for slave specific purposes.<br
+ style="font-weight: bold;">
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<h3 style="font-family: Arial;"><a class="mozTocH3" name="mozTocId24235"
+ id="mozTocId24235"></a>Class Instance: SMData.BitFlagSM</h3>
+<h3 style="height: 11px;"><a class="mozTocH3" name="mozTocId598430"
+ id="mozTocId598430"></a>XML Usage:</h3>
+<span style="font-family: Arial;">Refer to flagsm</span><font
+ style="font-family: Arial;" size="-1"><br>
+eg<br>
+&lt;if flagsm-5='true'&gt;<br>
+&nbsp;&nbsp; &lt;!-- flag is set --&gt;<br>
+&lt;/if&gt;</font><br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<h3 style="height: 5px; font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId995380" id="mozTocId995380"></a>Defined Flags</h3>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">Standard flags used by the game<br>
+<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<table
+ style="text-align: left; width: 66%; height: 58px; font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="0">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 15%; text-align: center;"><font
+ size="+1">0</font></td>
+      <td style="vertical-align: top;"><font size="+1">Seer has been
+visited, and you know where her
+shop is<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">1<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Meigura is a
+dickgirl, otherwise a female<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">2<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">asked Mistress
+Epona about Ponygirls and Epona</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">3<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">know location of
+Astrid's home in the forest<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">4<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Slave Maker
+knows that Private Tutor supplies
+the 'Nymph's Tears'</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">5<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Heard Rumour:
+Nymph's Tears<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">6<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Heard Rumour:
+Tentacles</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">7<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Heard Rumour:
+Faerie Hunting<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">8<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Heard Rumour:
+Furries</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">9<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Illegally
+re-sold a slave<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">10<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">unused<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">11<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Sold a slave to
+the Lord</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">12<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Know location of
+Item Salesman's home</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">13<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Know location of
+Dealer's home</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">14<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Slave Maker is
+NOT taking
+contraceptives<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">15<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Heard Rumour:
+Catgirls<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">16<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Stables can be
+visited</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">17<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">first visit to
+the ambassadors at Court<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">18<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Can access the
+Apple farm<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">19<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Know how to have
+your slave wear
+the 'Naked Dress'<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">20<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Effeminate<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">21<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">illegally sold a
+slave<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">22<br>
+      </font></td>
+      <td style="vertical-align: top;"><font size="+1">Bestiality OK<br>
+      </font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">...<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1"><br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">95<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">announced or
+been told of pregnancy</font></td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><br>
+Some tutorial related flags are omitted from the above list (range
+32-60)<br>
+<font size="-2">32&nbsp; = New day tutorial<br>
+33&nbsp; = Shops Tutorial<br>
+34&nbsp; = Do Planning Tutorial<br>
+35&nbsp; = Contests Tutorial<br>
+36&nbsp; = Evening Tutorial<br>
+37&nbsp; = Morning Tutorial<br>
+38&nbsp; = Nightime Planning Tutorial<br>
+39&nbsp; = Daytime Planning Tutorial<br>
+40&nbsp; = Options Tutorial<br>
+41&nbsp; = Slave Maker creation<br>
+42&nbsp; = Slave Selection Tutorial<br>
+43&nbsp; = Sex Extreme Tutorial<br>
+44&nbsp; = Sex Normal Tutorial<br>
+45&nbsp; = Slave Maker Tutorial<br>
+46&nbsp; = Schools Tutorial<br>
+47&nbsp; = Chores Tutorial<br>
+48&nbsp; = Jobs Tutorial<br>
+49&nbsp; = Slave Maker Planning Tutorial<br>
+50&nbsp; = Give orders Tutorial</font><br>
+<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><br>
+Flags 80-89 are reserved for slave specific use. Please request the
+flag for your use to prevent conflicts.<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><i><br>
+</i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId704009" id="mozTocId704009"></a>SMInitialItems</h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">These relate
+to your slave maker and the items thy start training with, they are
+persistent and apply for the duration of your slave maker's career.<br>
+<br>
+&nbsp;Please do not use any undefined flags, request permission and one
+can be allocated if needed.<br style="font-weight: bold;">
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<h3 style="font-family: Arial;"><a class="mozTocH3" name="mozTocId24235"
+ id="mozTocId24235"></a>Class Instance: SMData.SMInitialItems</h3>
+<h3 style="height: 10px;"><a class="mozTocH3" name="mozTocId213484"
+ id="mozTocId213484"></a>XML Usage:</h3>
+<span style="font-family: Arial;">Refer to flaginitialitems</span><font
+ style="font-family: Arial;" size="-1"><br>
+eg<br>
+&lt;if flagsminitialitems-5='true'&gt;<br>
+&nbsp;&nbsp; &lt;!-- flag is set --&gt;<br>
+&lt;/if&gt;</font><br style="font-family: Arial;">
+<h3 style="height: 5px; font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId995380" id="mozTocId995380"></a>Defined Flags</h3>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">Standard flags used by the game<br>
+<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<table
+ style="text-align: left; width: 66%; height: 58px; font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="0">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 15%; text-align: center;"><font
+ size="+1">0</font></td>
+      <td style="vertical-align: top;"><font size="+1">Sex Items, all
+slaves</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">1</font> </td>
+      <td style="vertical-align: top;"><font size="+1">Ponygirl items,
+first slave</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">2</font> </td>
+      <td style="vertical-align: top;"><font size="+1">Ponygirl items,
+all slaves</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">3</font> </td>
+      <td style="vertical-align: top;"><font size="+1">catgirl items,
+first slave</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">4</font> </td>
+      <td style="vertical-align: top;"><font size="+1">catgirl items,
+all slaves</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">5</font> </td>
+      <td style="vertical-align: top;"><font size="+1">1 dress, usually
+dress 2</font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">6</font> </td>
+      <td style="vertical-align: top;"><font size="+1">sword</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">7</font> </td>
+      <td style="vertical-align: top;"><font size="+1">leash</font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">8</font> </td>
+      <td style="vertical-align: top;"><font size="+1">300GP per slave</font>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">9</font> </td>
+      <td style="vertical-align: top;"><font size="+1">whip</font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">10</font> </td>
+      <td style="vertical-align: top;"><font size="+1">Leather Armour</font>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">11<br>
+      </font></td>
+      <td style="vertical-align: top;"><font size="+1">puppygirl items,
+first slave<br>
+      </font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">12<br>
+      </font></td>
+      <td style="vertical-align: top;"><font size="+1">puppygirl items,
+all slaves<br>
+      </font></td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<h3 style="height: 4px; font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId292695" id="mozTocId292695"></a><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-weight: bold;">Notes</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></h3>
+<span style="font-family: Arial;">It is pointless to set t</span><span
+ style="font-family: Arial;">he 'first slave' flags in code for a slave
+or event as they are never otherwise checked.</span><br
+ style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 12pt;"><i><br>
+</i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId679617" id="mozTocId679617"></a>SMSkills</h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">These relate
+to your slave maker, and the skills they start the game with. Do not
+change these flags as they are never checked after the game starts.<br
+ style="font-weight: bold;">
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<h3 style="font-family: Arial;"><a class="mozTocH3" name="mozTocId24235"
+ id="mozTocId24235"></a>Class Instance: SMData.SMSkills</h3>
+<h3 style="height: 7px;"><a class="mozTocH3" name="mozTocId841772"
+ id="mozTocId841772"></a>XML Usage:</h3>
+<span style="font-family: Arial;">no implementation, only of use at
+start of game.</span><br style="font-family: Arial;">
+<h3 style="height: 5px; font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId995380" id="mozTocId995380"></a>Defined Flags</h3>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">Standard flags used by the game<br>
+<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<table
+ style="text-align: left; width: 907px; height: 227px; font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="0">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 15%; text-align: center;"><font
+ size="+1">0</font></td>
+      <td style="vertical-align: top;"><font size="+1">Slave Trainer 2</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">1<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Lesbian Trainer 1</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">2<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Refined 1</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">3<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Catgirl Trainer 1</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">4<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Alchemy 1</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">5<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Trader 1</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">6<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Pony Trainer 1</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">7<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Leadership 1</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">8<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Slut Trainer 1<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">9<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Gay Trainer 1<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">10<br>
+      </font></td>
+      <td style="vertical-align: top;"><font size="+1">Puppy Trainer 1<br>
+      </font></td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<h3 style="height: 4px; font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId289050" id="mozTocId289050"></a>Notes</h3>
+<span style="font-family: Arial;">It is pointless to set these flags in
+code for a slave or event as they are never otherwise checked.</span><br
+ style="font-family: Arial;">
+<br style="font-family: Arial;">
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId215840" id="mozTocId215840"></a>SMAdvantages</h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">These relate
+to your slave maker and the items thy start training with, they are
+persistent and apply for the duration of your slave maker's career.<br>
+<br>
+&nbsp;Please do not use any undefined flags, request permission and one
+can be allocated if needed.<br style="font-weight: bold;">
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<h3 style="font-family: Arial;"><a class="mozTocH3" name="mozTocId24235"
+ id="mozTocId24235"></a>Class Instance: SMData.SMAdvantages</h3>
+<h3 style="height: 3px;"><a class="mozTocH3" name="mozTocId792885"
+ id="mozTocId792885"></a>XML Usage:<big style="font-family: Arial;"><font
+ size="-1"><big><span style="font-weight: bold;">&nbsp;</span></big></font></big></h3>
+<span style="font-family: Arial;">Refer to flagsmadvantages</span><font
+ style="font-family: Arial;" size="-1"><br>
+eg<br>
+&lt;if flagsmadvantages-5='true'&gt;<br>
+&nbsp;&nbsp; &lt;!-- flag is set --&gt;<br>
+&lt;/if&gt;</font><br style="font-family: Arial;">
+<h3 style="height: 5px; font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId995380" id="mozTocId995380"></a><span
+ style="font-weight: bold;">Defined Flags</span></h3>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">Standard flags used by the game<br>
+<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<table
+ style="text-align: left; width: 66%; height: 58px; font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="0">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 15%; text-align: center;"><font
+ size="+1">0</font></td>
+      <td style="vertical-align: top;"><font size="+1">Minor Noble</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">1<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Noble</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">2<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Experienced Trade</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">3<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Weapon Master</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">4<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Sex Addict</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">5<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Wealthy<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">6<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Unnatural Cum</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">7<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Pagan/Witch</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">8<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Brothel Madam</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">9<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Cruel
+Dominatrix/Master</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">10<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Dominatrix/Master</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">11<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Pony Expert</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">12<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Catgirl</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">13<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Vampire</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">14<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Furry</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">15<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Secret Old Faith
+Worshipper</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">16<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Attractive to
+Tentacles</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">17<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Blunt</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">18<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Inept Warrior</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">19<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Fangs &amp; Claws</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">20<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Chauvinist</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">21<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Holy</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">22<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Convincing</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">23<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Ex-brothel slave</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">24<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Submissive</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">25<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Masochist</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">26<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Competitive</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">27<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Exhibitionist<br>
+      </font> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><font
+ size="+1">28<br>
+      </font> </td>
+      <td style="vertical-align: top;"><font size="+1">Mesmerism<br>
+      </font> </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<br style="font-family: Arial;">
+</body>
+</html>

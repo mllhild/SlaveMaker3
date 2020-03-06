@@ -1,0 +1,1158 @@
+﻿// GameTab - a general tab for the game
+//
+// Translation status: COMPLETE
+
+import Scripts.Classes.*;
+import flash.display.BitmapData;
+import flash.geom.ColorTransform;
+import flash.geom.Transform;
+
+class GameTabDebugging extends GameTabBase {
+	
+		
+	// Constructor
+	public function GameTabDebugging(mc:MovieClip, cg:Object) { super(mc, cg); }
+
+	
+	// Show the tab
+	public function ShowTab()
+	{
+		super.Show();
+
+		if (coreGame.Plannings.IsStarted()) {
+			Bloop();
+			return;
+		}
+		if (coreGame.Quitter._visible) coreGame.DoLeaveButton();
+		coreGame.HideEquipmentButton();
+		coreGame.HideSMEquipmentButton();
+		coreGame.StatImage._visible = false;
+		
+		mcBase.DBSMGender.onChanged = function()
+		{
+			if (mcBase.DBSMGender.text != "") ChangeSlaveMakerGender(Number(mcBase.DBSMGender.text));
+		}
+		
+		mcBase.DBGender.onChanged = function()
+		{
+			if (mcBase.DBGender.text != "") {
+				ChangeSlaveGender(Number(mcBase.DBGender.text));
+				DebugDress();
+			}
+		}
+		
+		mcBase.DBXF.onChanged = function()
+		{
+			if (mcBase.DBXF.text != "") {
+				DickgirlTransform(Number(mcBase.DBXF.text));
+				DebugDress();
+			}
+		}
+		
+		mcBase.DBPonygirl.onChanged = function()
+		{
+			DonePonygirl = Number(mcBase.DBPonygirl.text);
+			UpdateSlave();
+		}
+		
+		mcBase.DBCatgirl.onChanged = function()
+		{
+			var val:Number = Number(mcBase.DBCatgirl.text);
+			if (val == 0 || val == 1) {
+				if (val == 1) BitFlag1.SetBitFlag(15);
+				else BitFlag1.ClearBitFlag(15);
+				UpdateSlave();
+				DebugDress();
+			}
+		}
+		mcBase.DBPuppygirl.onChanged = function()
+		{
+			var val:Number = Number(mcBase.DBPuppygirl.text);
+			if (val == 0 || val == 1) {
+				if (val == 1) BitFlag1.SetBitFlag(58);
+				else BitFlag1.ClearBitFlag(58);
+				UpdateSlave();
+				DebugDress();
+			}
+		}	
+		
+		mcBase.DBDevil.onChanged = function()
+		{
+			var val:Number = Number(mcBase.DBDevil.text);
+			if (val == 0 || val == 1) {
+				if (val == 1) {
+					BitFlag1.SetBitFlag(46);
+					BitFlag1.SetBitFlag(50);
+				} else {
+					BitFlag1.ClearBitFlag(46);
+					BitFlag1.ClearBitFlag(50);
+				}
+				UpdateSlave();
+				DebugDress();
+			}
+		}
+		
+		mcBase.DBDress.onChanged = function()
+		{
+			if (mcBase.DBDress.text != "" && mcBase.DBDress.text != "-") {
+				DressFrame = 0;
+				RemoveDress();
+				WearDress(Number(mcBase.DBDress.text));
+				DebugDress();
+				DressWorn = Number(mcBase.DBDress.text);		// to handle some special cases
+			}
+		}
+		
+		mcBase.DressLeft.onPress = function()
+		{
+			var ds:Number = DressWorn;
+			RemoveDress();
+			ds--;
+			if (ds < 0) ds = 6;
+			mcBase.DBDress.text = ds;
+			WearDress(ds);
+			DebugDress();
+			mcBase._visible = true;
+		}
+		
+		mcBase.DressRight.onPress = function()
+		{
+			var ds:Number = DressWorn;
+			RemoveDress();
+			ds++;
+			if (ds > 6) ds = 0;
+			mcBase.DBDress.text = ds;
+			WearDress(ds);
+			DebugDress();
+			mcBase._visible = true;
+		}
+		
+		mcBase.DressNaked.Btn.onPress = function()
+		{
+			RemoveDress();
+			DressWorn = -1;
+			mcBase.DBDress.text = DressWorn;
+			WearDress(DressWorn);
+			UpdateSlave();
+			DebugDress();
+		}
+		
+		mcBase.DBDressFrame.onChanged = function()
+		{
+			if (mcBase.DBDressFrame.text != "") {
+				if (DressWorn == -1) {
+					var nc:Number = Number(mcBase.DBDressFrame.text);
+					if (nc != undefined) {
+						NakedChoice = nc;
+						slaveData.NakedChoice = nc;
+					}
+				} else {
+					DressFrame = Number(mcBase.DBDressFrame.text);
+				}
+				DebugDress();
+			}
+		}
+		
+		mcBase.FrameLeft.onPress = function()
+		{
+			if (DressWorn == -1) {
+				NakedChoice--;
+				slaveData.NakedChoice--;
+				if (NakedChoice < 0) {
+					NakedChoice = 0;
+					slaveData.NakedChoice = 0;
+				}
+				mcBase.DBDressFrame.text = NakedChoice;
+			} else {
+				DressFrame--;
+				if (DressFrame < 1) DressFrame = 1;
+			}
+			DebugDress();
+		}
+		
+		mcBase.FrameRight.onPress = function()
+		{
+			if (DressWorn == -1) {
+				NakedChoice++;
+				slaveData.NakedChoice++;
+				mcBase.DBDressFrame.text = NakedChoice;
+			} else {
+				DressFrame++;
+			}
+			DebugDress();
+		}
+		
+		mcBase.DBFairy.onChanged = function()
+		{
+			FairyXF = Number(mcBase.DBFairy.text);
+			UpdateSlave();
+			DebugDress();
+		}
+		
+		mcBase.ClearItems.Btn.onPress = function() {
+			mcBase.DBItem.text = "0";
+			DebugChangeItem();
+			Selection.setFocus(mcBase.DBItem);
+		}
+		mcBase.LoadItems.Btn.onPress = function() {
+			mcBase.DBItem.text = "3";
+			HarnessOK = 1;
+			NymphsTiaraOK = 1;
+			EquipItem(8);
+			PonyTailOK = 1;
+			EquipItem(1);
+			DemonicBraOK = 1;
+			HaloOK = 1;
+			BitGagOK = 1;
+			EquipItem(14);
+			EquipItem(2);
+			LeashOK = 1;
+			CatEarsOK = 1;
+			CatTailOK = 1;
+			CatEarsWorn = 1;
+			slaveData.ItemsOwned.SetBitFlag(29);
+			slaveData.ItemsWorn.SetBitFlag(29);
+			slaveData.ItemsOwned.SetBitFlag(30);
+			slaveData.ItemsWorn.SetBitFlag(30);		
+			EquipItem(7);
+			FairyXF = 50;
+			SpikedBraceletOK = 1;
+			PlugInserted = 1;
+			SetDressOwned(1);
+			SetDressOwned(2);
+			SetDressOwned(3);
+			SetDressOwned(4);
+			SetDressOwned(5);
+			SetDressOwned(6);
+			DebugChangeItem();
+			Selection.setFocus(mcBase.DBItem);
+			DebugDress();
+		}
+		mcBase.ItemPlus.onPress = function() {
+			var num:Number = Number(mcBase.DBItem.text);
+			if (num == undefined || num == NaN) num = 0;
+			num++;
+			if (num > 17) num = 1;
+			mcBase.DBItem.text = num + "";
+			DebugSetItemDetails();
+			Selection.setFocus(mcBase.DBItem);
+		}
+		mcBase.ItemMinus.onPress = function() {
+			var num:Number = Number(mcBase.DBItem.text);
+			if (num == undefined || num == NaN) num = 18;
+			num--;
+			if (num < 0) num = 17;
+			mcBase.DBItem.text = num + "";
+			DebugSetItemDetails();
+			Selection.setFocus(mcBase.DBItem);
+		}
+		mcBase.FramePlus.onPress = function() {
+			if (mcBase.DBFrame.text == "N/A") return;
+			var num:Number = Number(mcBase.DBFrame.text);
+			if (num == undefined || num == NaN) num = 0;
+			num++;
+			mcBase.DBFrame.text = num + "";
+			DebugChangeItem();
+		}
+		mcBase.FrameMinus.onPress = function() {
+			if (mcBase.DBFrame.text == "N/A") return;
+			var num:Number = Number(mcBase.DBFrame.text);
+			if (num == undefined || num == NaN) num = 2;
+			num--;
+			if (num < 0) num = 1;
+			mcBase.DBFrame.text = num + "";
+			DebugChangeItem();
+		}
+		
+		mcBase.EvalBtn.Btn.onPress = function() {
+			if (mcBase.DBPosition.text.charAt(0) == "<") {
+				// xml
+				var xData:XML = new XML;
+				xData.parseXML(mcBase.DBPosition.text);
+				XMLEventByNode(xData, true, undefined, true);
+				mcBase.DBPosition.text = XMLData.EventText;
+				XMLData.EventText = "";
+				return;
+			}
+			if (mcBase.DBPosition.text.charAt(0) == "=") {
+				// xml conditional
+				if (XMLData.ParseConditionalString(mcBase.DBPosition.text.substr(1), true, false)) mcBase.DBPosition.text = "True";
+				else mcBase.DBPosition.text = "False";
+				return;
+			}
+			
+			if (mcBase.DBPosition.text.charAt(0) == "?") {
+				// get value
+				var str:String = Language.StripLines(mcBase.DBPosition.text).substr(1);
+				var val:Object;
+				if (str.substr(0, 4) == "flag") val = XMLData.ParseGetFlags(str);
+				else val = GetStatSkill(str);
+				if (val == undefined) mcBase.DBPosition.text = str + "=" + eval(str);
+				else if (typeof(val) == "number") mcBase.DBPosition.text = str + "=" + String(Number(val));
+				else mcBase.DBPosition.text = str + "=" + String(val);
+				return;
+			}
+			
+			// set value
+			var ln:Array = StripLines(mcBase.DBPosition.text).split("=");
+			var var1:String = Langauge.strTrim(ln[0]);
+			var var2:String = Langauge.strTrim(ln[1]).split("'").join("").split('"').join("");
+			
+			if (var1.substr(0, 4) == "flag") {
+				SetSingleFlag(var1, var2);
+				UpdateSlave();
+				return;
+			}
+			
+			if (var2 == "true") var2 = "1";
+			else if (var2 == "false") var2 = "0";
+			
+			if (!isNaN(var2)) {
+				// numeric type rparam
+				if (SetStatSkill(var1, Number(var2), var2) == undefined) {
+					if (_root[var1] != undefined) _root[var1] = Number(var2);
+				}
+			} else {
+				// non-numeric
+				if (SetStatSkill(var1, 0, var2) == undefined) {
+					if (_root[var1] != undefined) _root[var1] = var2;
+				}
+			}
+			UpdateSlave();
+		}
+		
+		mcBase.DateBtn.Btn.onPress = function() {
+			ChangeDate(1);
+		}
+		mcBase.TimeBtn.Btn.onPress = function() {
+			AddTime(1);
+		}
+		mcBase.BEBtn.Btn.onPress = function() {
+			ChangeBustSize(1.2);
+			ChangeClitCockSize(1.2);
+			DebugDress();
+		}
+		mcBase.LOGBtn.Btn.onPress = function() {
+			coreGame.StatsTextBtn.Btn.onPress();
+			coreGame.ShowLargerText();
+			coreGame.LargerTextField.content.LargerTextField.selectable = true;
+			AddText(strLOG);
+		}	
+		mcBase.ResetBtn.Btn.onPress = function() {
+			coreGame.currentCity.StartNewSlave();
+			coreGame.LadyFarun.ResetBitFlags();
+		}
+		mcBase.LoveBtn.Btn.onPress = function() {
+			coreGame.StatsTextBtn.Btn.onPress();
+			coreGame.ShowLargerText();
+			coreGame.LargerTextField.content.LargerTextField.selectable = true;
+			DebugLoveDetails();
+		}	
+	
+		mcBase.SlaveToggle.Btn.onPress = function() {
+			if (mcBase.SlaveToggle.LText.text == "Slave1") coreGame.SetSlave2Items();
+			else coreGame.SetSlave1Items();
+				
+			if (coreGame.DressHalo == coreGame.ItemsOver1.DressHalo) mcBase.SlaveToggle.LText.text = "Slave1";
+			else mcBase.SlaveToggle.LText.text = "Slave2";
+	
+			DebugDress();
+		}
+		
+	
+		mcBase.mc_colourPicker._visible = false;
+		mcBase.mc_colourPicker.colours.onPress = function() {
+			var srcMC:MovieClip = mcBase.mc_colourPicker.colours;
+			var colourBitmap:BitmapData = new BitmapData(srcMC._width, srcMC._height, true, 0x00000000);
+			colourBitmap.draw(srcMC);
+			var olourValue:String = "0x"+colourBitmap.getPixel(srcMC._xmouse, srcMC._ymouse).toString(16);
+			colourBitmap.dispose();
+			var mycolour:Color = new Color(mcBase.DBTint);
+			mycolour.setRGB(colourValue);
+			mcBase.mc_colourPicker._visible = false;
+			mcBase.DBPosition._visible = true;
+			DebugChangeItem();
+		};
+		mcBase.DBTint.onPress = function() {
+			mcBase.DBPosition._visible = false;
+			mcBase.mc_colourPicker._visible = true;
+		}
+		
+		mcBase.PeoplePlacesBtn.Btn.onPress = function() {
+			coreGame.StatsTextBtn.Btn.onPress();
+			coreGame.ShowLargerText();
+			
+			AddText("<b><u>People</u></b>");
+			coreGame.currentCity.DebugPeople();
+			
+			AddText("\r<b><u>Places</u></b>");
+			coreGame.currentCity.DebugPlaces();	
+		}
+		
+		mcBase.BitflagsBtn.Btn.onPress = function() { DoBitflagsBtn(); }
+	
+		mcBase.SlavesBtn.Btn.onPress = function() { DoSlavesBtn(); }
+	
+		mcBase.XMLBtn.Btn.onPress = function() { DoXMLBtn(); }
+
+	
+		mcBase.DBItem.onChanged = DebugSetItemDetails;
+		mcBase.DBX.onChanged = DebugChangeItem;
+		mcBase.DBY.onChanged = DebugChangeItem;
+		mcBase.DBHeight.onChanged = DebugChangeItem;
+		mcBase.DBWidth.onChanged = DebugChangeItem;
+		mcBase.DBRotate.onChanged = DebugChangeItem;
+		mcBase.DBFrame.onChanged = DebugChangeItem;
+		mcBase._x = 487;
+		
+		coreGame.HideMenus();
+		coreGame.HideImages();
+		coreGame.HideSlaveActions();
+		coreGame.DressFrame = 0;
+		mcBase._visible = true;
+		mcBase.DBSMGender.text = coreGame.Gender;
+		mcBase.DBGender.text = coreGame.SlaveGender;
+		mcBase.DBXF.text = coreGame.DickgirlXF;
+		mcBase.DBFairy.text = coreGame.FairyXF;
+		mcBase.DBPonygirl.text = coreGame.DonePonygirl;
+		mcBase.DBCatgirl.text = coreGame.Catgirl ? "1" : "0";
+		mcBase.DBPuppygirl.text = coreGame.BitFlag1.CheckBitFlag(58) ? "1" : "0";
+		mcBase.DBDevil.text = coreGame.BitFlag1.CheckBitFlag(46) ? "1" : "0";
+		mcBase.BitflagsBtn.LText.text = "View Flags";
+		mcBase.SlavesBtn.LText.text = "Slaves";
+		mcBase.PeoplePlacesBtn.LText.text = "People/Places";
+		mcBase.ClearItems.LText.text = "Clear Items";
+		mcBase.LoadItems.LText.text = "Load Items";
+		mcBase.DressNaked.LText.text = "Naked";
+		mcBase.EvalBtn.LText.text = "Evaluate";
+		mcBase.DateBtn.LText.text = "+1 Day";
+		mcBase.TimeBtn.LText.text = "+1 Hour";
+		mcBase.BEBtn.LText.text = "BE";
+		mcBase.LOGBtn.LText.text = "Log";
+		mcBase.ResetBtn.LText.text = "Reset";
+		mcBase.XMLBtn.LText.text = "View XML";
+		mcBase.LoveBtn.LText.text = "Love";
+		if (DressHaloCR == ItemsOver1.DressHaloCR) mcBase.SlaveToggle.LText.text = "Slave1";
+		else mcBase.SlaveToggle.LText.text = "Slave2";
+		DebugDress();
+	
+	}
+	
+	function DebugGetItemSize(mc:MovieClip) : Boolean
+	{
+		if (mc.posx != undefined) {
+			mcBase.DBX.text = mc.posx;
+			mcBase.DBY.text = mc.posy;
+			mcBase.DBWidth.text = mc.poswid;
+			mcBase.DBHeight.text = mc.poshei;
+			mcBase.DBRotate.text = mc.posrot;
+			var mycolour:Color = new Color(mcBase.DBTint);
+			if (mc.tint != undefined) mycolour.setRGB(mc.tint);
+			else {
+				mycolour.setRGB(0);
+				mc.tint = 0;
+			}
+			return true;
+		}
+		mcBase.DBX.text = mc._x;
+		mcBase.DBY.text = mc._y;
+		mcBase.DBWidth.text = mc._width;
+		mcBase.DBHeight.text = mc._height;
+		mcBase.DBRotate.text = mc._rotation;
+		var mycolour:Color = new Color(mcBase.DBTint);
+		mycolour.setRGB(0);
+		mc.tint = 0;
+		return false;
+	}
+		
+	function DebugDress()
+	{
+		var df:Number = DressFrame;
+		HideDresses();
+		DressFrame = df;
+		ShowDress();
+		mcBase.I1 = "";
+		mcBase.I2 = "";
+		mcBase.I3 = "";
+		mcBase.I4 = "";
+		mcBase.I5 = "";
+		mcBase.I6 = "";
+		mcBase.I7 = "";
+		mcBase.I8 = "";
+		mcBase.I9 = "";
+		mcBase.I10 = "";
+		mcBase.I11 = "";
+		mcBase.I12 = "";
+		mcBase.I13 = "";
+		mcBase.I14 = "";
+		mcBase.I15 = "";
+		mcBase.I16 = "";
+		mcBase.I17 = "";
+		mcBase.X1 = "";
+		mcBase.X2 = "";
+		mcBase.X3 = "";
+		mcBase.X4 = "";
+		mcBase.X5 = "";
+		mcBase.X6 = "";
+		mcBase.X7 = "";
+		mcBase.X8 = "";
+		mcBase.X9 = "";
+		mcBase.X10 = "";
+		mcBase.X11 = "";
+		mcBase.X12 = "";
+		mcBase.X13 = "";
+		mcBase.X14 = "";
+		mcBase.X15 = "";
+		mcBase.X16 = "";
+		mcBase.X17 = "";
+		mcBase.DBPosition.text = "";
+		mcBase.DBDress.text = DressWorn;
+		if (DressFrame == 0) DressFrame = lastmc._currentframe;
+		var ilast:Number = 0;
+		if (mcBase.SlaveToggle.LText.text == "Slave1") SetSlave1Items();
+		else SetSlave2Items();
+	
+		for (i = 1; i < 18; i++) {
+			if (DebugGetItemSizeNo(i)) {
+				ilast = i;
+				mcBase.DBItem.text = i + "";
+				DebugSetItemDetails2();
+			}
+		}
+		var	oPlugInserted:Number = PlugInserted;
+		var oPonyTailWorn:Number = PonyTailWorn;
+		var oCatTailWorn:Number = CatTailWorn;
+		var oCatEarsWorn:Number = CatEarsWorn;
+		var oPuppyTailWorn:Boolean = IsItemWorn(30);
+		var oPuppyEarsWorn:Boolean = IsItemWorn(29);
+		var oHaloWorn:Number = HaloWorn;
+		
+		mcBase.DBItem.text = "0";
+		DebugChangeItem();
+		
+		PlugInserted = oPlugInserted;
+		PonyTailWorn = oPonyTailWorn;
+		CatEarsWorn = oCatEarsWorn;
+		CatTailWorn = oCatTailWorn;
+		slaveData.ItemsWorn.ChangeBitFlag(29, oPuppyEarsWorn);
+		slaveData.ItemsWorn.ChangeBitFlag(30, oPuppyTailWorn);
+		HaloWorn = oHaloWorn;
+	
+		if (ilast != 0) {
+			mcBase.DBItem.text = ilast + "";
+			DebugSetItemDetails2();
+		}
+		HideDresses();
+		if (df != 0) DressFrame = df;
+		ShowDress();
+		if (DressFrame == 0) DressFrame = 1;
+		if (DressWorn == -1) mcBase.DBDressFrame.text = NakedChoice + "";
+		else mcBase.DBDressFrame.text = DressFrame + "";
+		DressHalo._visible = false;
+		DressBitgag._visible = false;
+		DressLeash._visible = false;
+	}
+	
+	function DebugSetItemDetails()
+	{
+		clearInterval(intervalId1);
+		intervalId1 = setInterval(_root, "DebugSetItemDetails2", 200);
+	}
+	
+	function DebugGetItemSizeNo(item:Number) : Boolean
+	{
+		switch(item) {
+			case 1:
+				return DebugGetItemSize(DressTailCR);
+			case 2:
+				return DebugGetItemSize(DressTailOverCR);
+			case 3:
+				return DebugGetItemSize(DressHaloCR);
+			case 4:
+				return DebugGetItemSize(DressLeashCR);
+			case 5:
+				return DebugGetItemSize(DressBitgagCR);
+			case 6:
+				return DebugGetItemSize(DressNymphsTiaraCR);
+			case 7:
+				return DebugGetItemSize(Wings);
+			case 8:
+				return DebugGetItemSize(WingsOver);
+			case 9:
+				return DebugGetItemSize(DressCatEars);
+			case 10:
+				return DebugGetItemSize(DressCatEarsOver);
+			case 11:
+				return DebugGetItemSize(WingLeftOver);
+			case 12:
+				return DebugGetItemSize(WingRightOver);
+			case 13:
+				return DebugGetItemSize(WingLeft);
+			case 14:
+				return DebugGetItemSize(WingRight);
+			case 15:
+				return DebugGetItemSize(DressCatEarOver);
+			case 16:
+				return DebugGetItemSize(DressPuppyEars);
+			case 17:
+				return DebugGetItemSize(DressPuppyEarsOver);			
+	
+		}
+	}
+	
+	function DebugSetItemDetails2()
+	{
+		clearInterval(intervalId1);
+		DebugGetItemSizeNo(Number(mcBase.DBItem.text));
+		switch(Number(mcBase.DBItem.text)) {
+			case 1:
+				mcBase.DBFrame.text = DressTailCR._currentframe;
+				break;
+			case 2:
+				mcBase.DBFrame.text = DressTailOverCR._currentframe;
+				break;
+			case 3:
+				mcBase.DBFrame.text = "N/A";
+				break;
+			case 4:
+				mcBase.DBFrame.text = DressLeashCR._currentframe;
+				break;
+			case 5:
+				mcBase.DBFrame.text = DressBitgagCR._currentframe;
+				break;
+			case 6:
+				mcBase.DBFrame.text = DressNymphsTiaraCR._currentframe + "";
+				break;
+			case 7:
+				mcBase.DBFrame.text = Wings._currentframe + "";
+				break;		
+			case 8:
+				mcBase.DBFrame.text = "N/A";
+				break;
+			case 11:
+				mcBase.DBFrame.text = WingLeftOver._currentframe;
+				break;
+			case 12:
+				mcBase.DBFrame.text = WingRightOver._currentframe;
+				break;
+			case 13:
+				mcBase.DBFrame.text = WingLeft._currentframe;
+				break;
+			case 14:
+				mcBase.DBFrame.text = WingRight._currentframe;
+				break;
+			case 9:
+				mcBase.DBFrame.text = DressCatEars._currentframe + "";
+				break;
+			case 10:
+				mcBase.DBFrame.text = DressCatEarsOver._currentframe + "";
+				break;
+			case 15:
+				mcBase.DBFrame.text = DressCatEarOver._currentframe + "";
+				break;
+			case 16:
+				mcBase.DBFrame.text = DressPuppyEars._currentframe + "";
+				break;
+			case 17:
+				mcBase.DBFrame.text = DressPuppyEarsOver._currentframe + "";
+				break;
+				
+	
+		}
+		DebugChangeItem();
+	}
+	
+	function DebugRelease(mc:MovieClip)
+	{
+		mc.stopDrag();
+		mc.posx = mc._x;
+		mc.posy = mc._y;
+		DebugGetItemSize(mc);
+		DebugChangeItem();
+	}
+	
+	function DebugSetDraggable(mc:MovieClip, item:Number) 
+	{
+		mc.enabled = true;
+		mc.ditem = item;
+		mc.onPress = function() { mcBase.DBItem.text = this.ditem + ""; this.startDrag(); }
+		mc.onRelease = function() { DebugRelease(this); }
+	}
+	
+	function DebugClearDraggable(mc:MovieClip, item:Number) 
+	{
+		mc.enabled = false;
+		mc.onPress = null;
+		mc.onRelease = null;
+	}
+	
+		
+	function DebugChangeItem()
+	{
+		function FixVal(s:String) : Number
+		{
+			var val:Number = Number(s);
+			if (s == "" || s == "N/A") return 0;
+			return Math.round(val * 10) / 10;
+		}
+		var frame:Number = FixVal(mcBase.DBFrame.text);
+		if (frame == 0) frame = 1;
+		else frame = Math.round(Number(mcBase.DBFrame.text));
+		var xpos:Number = FixVal(mcBase.DBX.text);
+		var ypos:Number = FixVal(mcBase.DBY.text);
+		var rot:Number = FixVal(mcBase.DBRotate.text);
+		var wid:Number = FixVal(mcBase.DBWidth.text);
+		var hei:Number = FixVal(mcBase.DBHeight.text);
+			
+		var transformer = new Transform(mcBase.DBTint);
+		var ctf:ColorTransform = transformer.colorTransform;
+		var tint:Number = ctf.rgb;
+		
+		switch(Number(mcBase.DBItem.text)) {
+			case 0:
+				HideDressItems(ItemsOver1, ItemsUnder1);
+				HideDressItems(ItemsOver2, ItemsUnder2);
+	
+				PlugInserted = 0;
+				PonyTailWorn = 0;
+				slaveData.ItemsWorn.ClearBitFlag(29);
+				slaveData.ItemsWorn.ClearBitFlag(30);
+				CatTailWorn = 0;
+				CatEarsWorn = 0;
+				HaloWorn = 0;
+				DebugClearDraggable(DressHaloCR);
+				DebugClearDraggable(DressTailCR);
+				DebugClearDraggable(DressTailOverCR);
+				DebugClearDraggable(DressLeashCR);
+				DebugClearDraggable(DressBitgagCR);
+				DebugClearDraggable(DressNymphsTiaraCR);
+				DebugClearDraggable(Wings);
+				DebugClearDraggable(WingLeft);
+				DebugClearDraggable(WingRight);
+				DebugClearDraggable(WingsOver);
+				DebugClearDraggable(WingLeftOver);
+				DebugClearDraggable(WingRightOver);
+				DebugClearDraggable(DressCatEars);
+				DebugClearDraggable(DressCatEarsOver);
+				DebugClearDraggable(DressCatEarOver);
+				DebugClearDraggable(DressPuppyEars);
+				DebugClearDraggable(DressPuppyEarsOver);
+				mcBase.DBPosition.text = "";
+				return;
+			case 1:
+				DebugSetDraggable(DressTailCR, 1);
+				PonyTailWorn = 0;
+				slaveData.ItemsWorn.ClearBitFlag(30);
+				CatTailWorn = 0;
+				if (IsCatgirl()) CatTailWorn = 1;
+				else if (IsPuppygirl()) slaveData.ItemsWorn.SetBitFlag(30);
+				else PonyTailWorn = 1;
+				PlugInserted = 1;
+				DressTailCR._visible = true;
+				PositionTail(xpos, ypos, rot, wid, hei, true, frame);
+				mcBase.I1 = "_root.PositionTail(" + xpos+", " + ypos + ", " + rot + ", " + wid + ", " + hei + ", true";
+				if (frame > 1) mcBase.I1 += ", " + frame;
+				mcBase.I1 += ");\r";
+				if (tint != 0) mcBase.I1 += "_root.SetLastMovieColourARGB(" + tint + ");\r";
+				mcBase.X1 = "<Tail x='" + xpos+"' y='" + ypos + "' width='" + wid + "' height='" + hei + "' frame='"  + frame + "'";
+				if (rot != 0) mcBase.X1 += " rotation='" + rot + "'";
+				if (tint != 0) mcBase.X1 += " tint='" + tint + "'";
+				mcBase.X1 += "/>\r";
+				break;
+			case 2:
+				DebugSetDraggable(DressTailOverCR, 2);
+				PonyTailWorn = 0;
+				slaveData.ItemsWorn.ClearBitFlag(30);
+				CatTailWorn = 0;
+				if (IsCatgirl()) CatTailWorn = 1;
+				else if (IsPuppygirl()) slaveData.ItemsWorn.SetBitFlag(30);
+				else PonyTailWorn = 1;
+				PlugInserted = 1;
+				DressTailOverCR._visible = true;
+				PositionTailOver(xpos, ypos, rot, wid, hei, true, frame);
+				mcBase.I2 = "_root.PositionTailOver(" + xpos+", " + ypos + ", " + rot + ", " + wid + ", " + hei + ", true";
+				if (frame > 1) mcBase.I2 += ", " + frame;
+				mcBase.I2 += ");\r";
+				if (tint != 0) mcBase.I2 += "_root.SetLastMovieColourARGB(" + tint + ");\r";
+				mcBase.X2 = "<Tail x='" + xpos+"' y='" + ypos + "' width='" + wid + "' height='" + hei + "' frame='"  + frame + "' over='true'";
+				if (rot != 0) mcBase.X2 += " rotation='" + rot + "'";
+				if (tint != 0) mcBase.X2 += " tint='" + tint + "'";
+				mcBase.X2 += "/>\r";
+				break;
+			case 3:
+				DebugSetDraggable(DressHaloCR, 3);
+				HaloWorn = 1;
+				DressHaloCR._visible = true;
+				PositionHalo(xpos, ypos, rot, wid, hei);
+	
+				mcBase.I3 = "_root.PositionHalo(" + xpos+", " + ypos + ", " + rot + ", " + wid + ", " + hei + ");\r";
+				if (tint != 0) mcBase.I3 += "_root.SetLastMovieColourARGB(" + tint + ");\r";
+				mcBase.X3 = "<Halo x='" + xpos+"' y='" + ypos + "' width='" + wid + "' height='" + hei + "'";
+				if (rot != 0) mcBase.X3 += " rotation='" + rot + "'";
+				if (tint != 0) mcBase.X3 += " tint='" + tint + "'";
+				mcBase.X3 += "/>\r";
+				break;
+			case 4:
+				DebugSetDraggable(DressLeashCR, 4);
+				LeashWorn = 1;
+				PositionLeash(frame, xpos, ypos, rot, wid, hei, true);
+				mcBase.I4 = "_root.PositionLeash(" + frame + ", " + xpos+", " + ypos + ", " + rot + ", " + wid + ", " + hei + ", true);\r";
+				if (tint != 0) mcBase.I4 += "_root.SetLastMovieColourARGB(" + tint + ");\r";
+				mcBase.X4 = "<Leash x='" + xpos+"' y='" + ypos + "' width='" + wid + "' height='" + hei + "' frame='" + frame + "'";
+				if (rot != 0) mcBase.X4 += " rotation='" + rot + "'";
+				if (tint != 0) mcBase.X4 += " tint='" + tint + "'";
+				mcBase.X4 += "/>\r";
+				break;
+			case 5:
+				DebugSetDraggable(DressBitgagCR, 5);
+				BitGagWorn = 1;
+				PositionGag(frame, xpos, ypos, rot, wid, hei, true);	
+				mcBase.I5 = "_root.PositionGag(" + frame + ", " + xpos+", " + ypos + ", " + rot + ", " + wid + ", " + hei + ", true);\r";
+				if (tint != 0) mcBase.I5 += "_root.SetLastMovieColourARGB(" + tint + ");\r";
+				mcBase.X5 = "<BitGag frame='"  + frame + "' x='" + xpos+"' y='" + ypos + "' width='" + wid + "' height='" + hei + "'";
+				if (rot != 0) mcBase.X5 += " rotation='" + rot + "'";
+				if (tint != 0) mcBase.X5 += " tint='" + tint + "'";
+				mcBase.X5 += "/>\r";
+				break;
+			case 6:
+				NymphsTiaraWorn = 1;
+				DebugSetDraggable(DressNymphsTiaraCR, 6);
+				DressNymphsTiaraCR._visible = false;
+				DressNymphsTiara._visible = false;
+				PositionNymphsTiara(xpos, ypos, rot, wid, hei, true);
+				mcBase.I6 = "_root.PositionNymphsTiara(" + xpos+", " + ypos + ", " + rot + ", " + wid + ", " + hei + ", true);\r";
+				if (tint != 0) mcBase.I6 += "_root.SetLastMovieColourARGB(" + tint + ");\r";
+				mcBase.X6 = "<NymphsTiara x='" + xpos+"' y='" + ypos + "' width='" + wid + "' height='" + hei + "'";
+				if (rot != 0) mcBase.X6 += " rotation='" + rot + "'";
+				if (tint != 0) mcBase.X6 += " tint='" + tint + "'";
+				mcBase.X6 += "/>\r";
+				break;
+			case 7:
+				if (FairyXF == 0 || !BitFlag1.CheckBitFlag(50)) FairyXF = 50;
+				Wings._visible = true;
+				DebugSetDraggable(Wings, 7);
+				PositionWings(xpos, ypos, rot, wid, hei, frame);
+				if (frame != NaN) mcBase.I7 = "_root.PositionWings(" + xpos+", " + ypos + ", " + rot + ", " + wid + ", " + hei + ", " + frame + ");\r";
+				else mcBase.I7 = "_root.PositionWings(" + xpos+", " + ypos + ", " + rot + ", " + wid + ", " + hei + ");\r";
+				if (tint != 0) mcBase.I7 += "_root.SetLastMovieColourARGB(" + tint + ");\r";
+				if (frame != NaN) mcBase.X7 = "<Wings frame='"  + frame + "' x='" + xpos+"' y='" + ypos + "' width='" + wid + "' height='" + hei + "'";
+				else mcBase.X7 = "<Wings x='" + xpos+"' y='" + ypos + "' width='" + wid + "' height='" + hei + "'";
+	
+				if (rot != 0) mcBase.X7 += " rotation='" + rot + "'";
+				if (tint != 0) mcBase.X7 += " tint='" + tint + "'";
+				mcBase.X7 += "/>\r";
+				break;
+			case 8:
+				if (FairyXF == 0 || !BitFlag1.CheckBitFlag(50)) FairyXF = 50;
+				WingsOver._visible = true;
+				DebugSetDraggable(WingsOver, 8);
+				PositionWingsOver(xpos, ypos, rot, wid, hei, frame);
+				if (tint != 0) mcBase.I8 += "_root.SetLastMovieColourARGB(" + tint + ");\r";
+				if (frame != NaN) mcBase.I8 = "_root.PositionWingsOver(" + xpos+", " + ypos + ", " + rot + ", " + wid + ", " + hei + ");\r";
+				if (frame != NaN) mcBase.X8 = "<Wings frame='"  + frame + "' x='" + xpos+"' y='" + ypos + "' width='" + wid + "' height='" + hei + "' over='true'";
+				else mcBase.X8 = "<Wings x='" + xpos+"' y='" + ypos + "' width='" + wid + "' height='" + hei + "' over='true'";
+				if (rot != 0) mcBase.X8 += " rotation='" + rot + "'";
+				if (tint != 0) mcBase.X8 += " tint='" + tint + "'";
+				mcBase.X8 += "/>\r";
+				break;
+			case 9:
+				CatEarsWorn = 1;
+				DebugSetDraggable(DressCatEars, 9);
+				PositionCatEars(frame, xpos, ypos, rot, wid, hei);
+				mcBase.I9 = "_root.PositionCatEars(" + frame + ", " + xpos+", " + ypos + ", " + rot + ", " + wid + ", " + hei + ");\r";
+				if (tint != 0) mcBase.I9 += "_root.SetLastMovieColourARGB(" + tint + ");\r";
+				mcBase.X9 = "<CatEars frame='"  + frame + "' x='" + xpos+"' y='" + ypos + "' rotation='" + rot + "' width='" + wid + "' height='" + hei + "'";
+				if (tint != 0) mcBase.X9 += " tint='" + tint + "'";
+				mcBase.X9 += "/>\r";
+				break;
+			case 10:
+				CatEarsWorn = 1;
+				DebugSetDraggable(DressCatEarsOver, 10);
+				PositionCatEarsOver(frame, xpos, ypos, rot, wid, hei);
+				mcBase.I10 = "_root.PositionCatEarsOver(" + frame + ", " + xpos+", " + ypos + ", " + rot + ", " + wid + ", " + hei + ");\r";
+				if (tint != 0) mcBase.I10 += "_root.SetLastMovieColourARGB(" + tint + ");\r";
+				mcBase.X10 = "<CatEars frame='"  + frame + "' x='" + xpos+"' y='" + ypos + "' rotation='" + rot + "' width='" + wid + "' height='" + hei + "' over='true'";
+				if (tint != 0) mcBase.X10 += " tint='" + tint + "'";
+				mcBase.X10 += "/>\r";
+				break;
+			case 11:
+				if (FairyXF == 0 || !BitFlag1.CheckBitFlag(50)) FairyXF = 50;
+				WingLeftOver._visible = true;
+				DebugSetDraggable(WingLeftOver, 11);
+				PositionWingLeftOver(xpos, ypos, rot, wid, hei, frame);
+				mcBase.I11 = "_root.PositionWingLeftOver(" + xpos+", " + ypos + ", " + rot + ", " + wid + ", " + hei + ", " + frame + ");\r";
+				if (tint != 0) mcBase.I11 += "_root.SetLastMovieColourARGB(" + tint + ");\r";
+				mcBase.X11 = "<WingLeft frame='"  + frame + "' x='" + xpos+"' y='" + ypos + "' rotation='" + rot + "' width='" + wid + "' height='" + hei + "' over='true'";
+				if (rot != 0) mcBase.X11 += " rotation='" + rot + "'";
+				if (tint != 0) mcBase.X11 += " tint='" + tint + "'";
+				mcBase.X11 += "/>\r";
+				break;
+			case 12:
+				if (FairyXF == 0 || !BitFlag1.CheckBitFlag(50)) FairyXF = 50;
+				DebugSetDraggable(WingRightOver, 12);
+				WingRightOver._visible = true;
+				PositionWingRightOver(xpos, ypos, rot, wid, hei, frame);
+				mcBase.I12 = "_root.PositionWingRightOver(" + xpos+", " + ypos + ", " + rot + ", " + wid + ", " + hei + ", " + frame + ");\r";
+				if (tint != 0) mcBase.I12 += "_root.SetLastMovieColourARGB(" + tint + ");\r";
+				mcBase.X12 = "<WingRight frame='"  + frame + "' x='" + xpos+"' y='" + ypos + "' width='" + wid + "' height='" + hei + "' over='true'";
+				if (rot != 0) mcBase.X12 += " rotation='" + rot + "'";
+				if (tint != 0) mcBase.X12 += " tint='" + tint + "'";
+				mcBase.X12 += "/>\r";
+				break;
+			case 13:
+				if (FairyXF == 0 || !BitFlag1.CheckBitFlag(50)) FairyXF = 50;
+				DebugSetDraggable(WingLeft, 13);
+				WingLeft._visible = true;
+				PositionWingLeft(xpos, ypos, rot, wid, hei, frame);
+				mcBase.I13 = "_root.PositionWingLeft(" + xpos+", " + ypos + ", " + rot + ", " + wid + ", " + hei + ", " + frame + ");\r";
+				if (tint != 0) mcBase.I13 += "_root.SetLastMovieColourARGB(" + tint + ");\r";
+				mcBase.X13 = "<WingLeft frame='"  + frame + "' x='" + xpos+"' y='" + ypos + "' width='" + wid + "' height='" + hei + "'";
+				if (rot != 0) mcBase.X13 += " rotation='" + rot + "'";
+				if (tint != 0) mcBase.X13 += " tint='" + tint + "'";
+				mcBase.X13 += "/>\r";
+				break;
+			case 14:
+				if (FairyXF == 0 || !BitFlag1.CheckBitFlag(50)) FairyXF = 50;
+				DebugSetDraggable(WingRight, 14);
+				WingRight._visible = true;
+				PositionWingRight(xpos, ypos, rot, wid, hei, frame);
+				if (tint != 0) mcBase.I14 += "_root.SetLastMovieColourARGB(" + tint + ");\r";
+				mcBase.I14 = "_root.PositionWingRight(" + xpos+", " + ypos + ", " + rot + ", " + wid + ", " + hei + ", " + frame + ");\r";
+				mcBase.X14 = "<WingRight frame='"  + frame + "' x='" + xpos+"' y='" + ypos + "' width='" + wid + "' height='" + hei + "'";
+				if (rot != 0) mcBase.X14 += " rotation='" + rot + "'";
+				if (tint != 0) mcBase.X14 += " tint='" + tint + "'";
+				mcBase.X14 += "/>\r";
+				break;
+			case 15:
+				DebugSetDraggable(DressCatEarOver, 15);
+				CatEarsWorn = 1;
+				PositionCatEarOver(frame, xpos, ypos, rot, wid, hei);
+				mcBase.I15 = "_root.PositionCatEarOver(" + frame + ", " + xpos+", " + ypos + ", " + rot + ", " + wid + ", " + hei + ");\r";
+				if (tint != 0) mcBase.I15 += "_root.SetLastMovieColourARGB(" + tint + ");\r";
+				mcBase.X15 = "<CatEar frame='"  + frame + "' x='" + xpos+"' y='" + ypos + "' width='" + wid + "' height='" + hei + "' over='true'";
+				if (rot != 0) mcBase.X15 += " rotation='" + rot + "'";
+				if (tint != 0) mcBase.X15 += " tint='" + tint + "'";
+				mcBase.X15 += "/>\r";
+				break;
+			case 16:
+				slaveData.ItemsWorn.SetBitFlag(29);
+				DebugSetDraggable(DressPuppyEars, 16);
+				PositionPuppyEars(frame, xpos, ypos, rot, wid, hei);
+				mcBase.I16 = "_root.PositionPuppyEars(" + frame + ", " + xpos+", " + ypos + ", " + rot + ", " + wid + ", " + hei + ");\r";
+				if (tint != 0) mcBase.I16 += "_root.SetLastMovieColourARGB(" + tint + ");\r";			
+				mcBase.X16 = "<PuppyEars frame='"  + frame + "' x='" + xpos+"' y='" + ypos + "' width='" + wid + "' height='" + hei + "'";
+				if (rot != 0) mcBase.X16 += " rotation='" + rot + "'";
+				if (tint != 0) mcBase.X16 += " tint='" + tint + "'";
+				mcBase.X16 += "/>\r";
+				break;
+			case 17:
+				slaveData.ItemsWorn.SetBitFlag(29);
+				DebugSetDraggable(DressPuppyEarsOver, 17);
+				PositionPuppyEarsOver(frame, xpos, ypos, rot, wid, hei);
+				mcBase.I17 = "_root.PositionPuppyEarsOver(" + frame + ", " + xpos+", " + ypos + ", " + rot + ", " + wid + ", " + hei + ");\r";
+				if (tint != 0) mcBase.I17 += "_root.SetLastMovieColourARGB(" + tint + ");\r";
+				mcBase.X17 = "<PuppyEars frame='"  + frame + "' x='" + xpos+"' y='" + ypos + "' width='" + wid + "' height='" + hei + "' over='true'";
+				if (rot != 0) mcBase.X17 += " rotation='" + rot + "'";
+				if (tint != 0) mcBase.X17 += " tint='" + tint + "'";
+				mcBase.X17 += "/>\r";
+				break;
+	
+		}
+		
+		if (Number(mcBase.DBItem.text) < 18) SetLastMovieColourARGB(tint);
+	
+		mcBase.DBPosition.text = "XML\r<" + mcBase.SlaveToggle.LText.text + ">\r" + mcBase.X3;
+		mcBase.DBPosition.text += mcBase.X4;
+		mcBase.DBPosition.text += mcBase.X5;
+		mcBase.DBPosition.text += mcBase.X6;
+		
+		//mcBase.DBPosition.text += "\r// Over\r"
+		mcBase.DBPosition.text += mcBase.X2;
+		mcBase.DBPosition.text += mcBase.X8;
+		mcBase.DBPosition.text += mcBase.X10;
+		mcBase.DBPosition.text += mcBase.X11;
+		mcBase.DBPosition.text += mcBase.X12;
+		mcBase.DBPosition.text += mcBase.X15;
+		mcBase.DBPosition.text += mcBase.X16;
+		
+		//mcBase.DBPosition.text += "\r// Under";
+		mcBase.DBPosition.text += mcBase.X1;
+		mcBase.DBPosition.text += mcBase.X7;
+		mcBase.DBPosition.text += mcBase.X9;
+		mcBase.DBPosition.text += mcBase.X13;
+		mcBase.DBPosition.text += mcBase.X14;
+		mcBase.DBPosition.text += mcBase.X17;
+		
+		mcBase.DBPosition.text += "</" + mcBase.SlaveToggle.LText.text + ">\r";
+		
+		mcBase.DBPosition.text += "\rActionscript\r" + mcBase.I3;
+		mcBase.DBPosition.text += mcBase.I4;
+		mcBase.DBPosition.text += mcBase.I5;
+		mcBase.DBPosition.text += mcBase.I6;
+		
+		//mcBase.DBPosition.text += "\r// Over\r"
+		mcBase.DBPosition.text += mcBase.I2;
+		mcBase.DBPosition.text += mcBase.I8;
+		mcBase.DBPosition.text += mcBase.I10;
+		mcBase.DBPosition.text += mcBase.I11;
+		mcBase.DBPosition.text += mcBase.I12;
+		mcBase.DBPosition.text += mcBase.I15;
+		mcBase.DBPosition.text += mcBase.I16;
+		
+		//mcBase.DBPosition.text += "\r// Under";
+		mcBase.DBPosition.text += mcBase.I1;
+		mcBase.DBPosition.text += mcBase.I7;
+		mcBase.DBPosition.text += mcBase.I9;
+		mcBase.DBPosition.text += mcBase.I13;
+		mcBase.DBPosition.text += mcBase.I14;
+		mcBase.DBPosition.text += mcBase.I17;
+	}
+	
+	function DoBitflagsBtn()
+	{
+		StatsTextBtn.Btn.onPress();
+		ShowLargerText();
+		var say:String = "SoldSlave\t\t" + Owner.GetOwner() + " (" + SoldSlave + ")";
+		say += "\rStart Owner\t\t" + slaveData.StartOwner.GetOwner();
+		say += "\rTrainingStart\t" + TrainingStart + "(" + Elapsed + ")";
+		say += "\rTentacleHaunt\t" + TentacleHaunt;
+		say += "\rCustomFlag  \t" + CustomFlag;
+		say += "\rCustomFlag1\t" + CustomFlag1;
+		say += "\rCustomFlag2\t" + CustomFlag2;
+		say += "\rCustomFlag3\t" + CustomFlag3;
+		say += "\rCustomFlag4\t" + CustomFlag4;
+		say += "\rCustomFlag5\t" + CustomFlag5;
+		say += "\rCustomFlag6\t" + CustomFlag6;
+		say += "\rCustomFlag7\t" + CustomFlag7;
+		say += "\rCustomFlag8\t" + CustomFlag8;
+		say += "\rCustomFlag9\t" + CustomFlag9;
+		say += "\rCustomString\t" + CustomString;
+		say += "\rPath1\t\t\t" + Path1;
+		say += "\rPath2\t\t\t" + Path2;
+		say += "\rPath3\t\t\t" + Path3;
+		say += "\rPregnancy = " + PregnancyGestation;
+		say += "\rPregnant With = " + PregnancyType;
+	
+		say += "\r\r<b>BitFlag 1</b>\r" + BitFlag1.ShowBitFlags();
+		say += "\r<b>BitFlag 2</b>\r" + BitFlag2.ShowBitFlags();
+		say += "\r<b>Assistant BitFlag1</b>\r" + AssistantData.BitFlag1.ShowBitFlags();
+		say += "\r<b>Assistant BitFlag2</b>\r" + AssistantData.BitFlag2.ShowBitFlags();
+		
+		say +="\r<b>Slave Maker</b>";
+		say += "\rSMPregnancy = " + SMData.PregnancyGestation;
+		say += "\rSMPregnant With = " + SMData.PregnancyType;	
+		say += "\r\r<b>Advantages</b>\r" + SMData.SMAdvantages.ShowBitFlags();
+		say += "\r<b>BitFlag SM</b>\r" + SMData.BitFlagSM.ShowBitFlags();
+		
+		say += modulesList.ShowFlags();
+		say += Plannings.ShowFlags();
+		
+		slaveData.ActInfoBase.ActArray.sortOn("Act", Array.NUMERIC);
+		say += slaveData.ActInfoBase.ShowFlags();
+		
+		AddText(say);
+			
+	}
+	
+	function DoSlavesBtn() {
+		StatsTextBtn.Btn.onPress();
+		ShowLargerText();
+		var sdata:Slave;
+		var say:String;
+		var ar:Array = Key.isDown(Key.SHIFT) ? SMData.arUsableSlaves : SMData.SlavesArray;
+		if (ar == SMData.arUsableSlaves) say = "<b>Usable Slaves</b>";
+		else say = "<b>All Slaves</b>";
+		var nd:String;
+		for (var so:String in ar) {
+			sdata = ar[so];
+			say = say + "\r\r<u>Slave</u>" + sdata.SlaveIndex + ": <b>" + sdata.SlaveName + "</b>";
+			say = say + "\r  Type: " + sdata.SlaveType;
+			say = say + "\tCanAssist: " + sdata.CanAssist;
+			say = say + "\r  Image: " + sdata.SlaveImage;
+			say = say + "\r  Folder: " + sdata.ImageFolder;
+			say = say + "\r  Filename: " + sdata.SlaveFilename;
+			say = say + "\r  Pregnancy = " + sdata.PregnancyGestation;
+			say = say + "\tPregnant With = " + sdata.PregnancyType;
+			say = say + "\r  Fertility = " + sdata.Fertility;
+			say = say + "\tGender = " + sdata.SlaveGender;		
+			say = say + "\r  IntimacyOK = " + sdata.IntimacyOK;
+			say = say + "\tCumslut = " + sdata.CumslutLevel;
+			say = say + "\r  Order1 = " + sdata.Order1;
+			say = say + "\tOrder2 = " + sdata.Order2;
+			say = say + "\rNode:\r";
+			nd = sdata.sNode + "";
+			say += nd.split("<").join("&lt;").split(">").join("&gt;");
+		}
+		AddText(say);
+	}
+	
+	function DoXMLBtn() {
+		StatsTextBtn.Btn.onPress();
+		ShowLargerText();
+	
+		var say:String;
+		
+		var str:String = Language.StripLines(mcBase.DBPosition.text);
+		if (Key.isDown(Key.CONTROL)) {
+			var xNode:XMLNode = GetNode(str);
+			say = xNode + "";
+		} else say = XMLData.ShowNodeDetails("", GetNodeC(str));
+		say = say.split("<").join("&lt;").split(">").join("&gt;");
+		AddText(say);
+	}
+	
+	
+	function DebugLoveDetails()
+	{
+		var iLove:Number = SMData.GetTotalSlavesInLove();
+		var iLimit:Number = 1 + ((SMData.sLeadership * 2) - 1);
+		if (SMData.sLeadership > 3 || IsSlave("Shampoo")) iLimit = 99999;
+		else if (SMData.sLeadership == 1) iLimit = 1;
+		
+		// Gender effects
+		var sameg:Boolean = (SlaveGender == 1 && (SMData.Gender == 1 || SMData.Gender == 4));
+		if (DickgirlLesbians) {
+			if (SlaveGender == 2 && (SMData.Gender != 1 && SMData.Gender != 4)) sameg = true;
+		} else {
+			if (SMData.Gender == 2 && (SlaveGender != 1 && SlaveGender != 4)) sameg = true;
+			else if (SMData.Gender == 3 && (SlaveGender != 3 && SlaveGender != 6)) sameg = true;
+		}
+		var lf:Number = 1;
+		if (sameg) {
+			if (LesbianTraining) lf *= 0.7;
+			else lf *= 0.5;
+		} else if (SMAdvantages.CheckBitFlag(20)) lf *= 0.5;
+		if (SMAdvantages.CheckBitFlag(9)) lf *= 0.75;
+		switch (Home.HouseType) {
+			case 4:
+				lf *= 1.2;
+				break;
+		}
+		if (SMData.sLeadership > 0) lf *= (1 + (SMData.sLeadership * 0.1));
+		lf *= dmod;
+	
+	
+		var say:String = "Total Lovers:\t\t\t" + iLove;
+		say += "\rLeadership\t\t\t" + SMData.sLeadership;
+		say += "\rLimit of Lovers\t\t\t" + iLimit;
+		say += "\rMarried\t\t\t" + SMData.GetTotalMarried();
+		say += "\rLove (current)\t\t\t" + VarLovePoints;
+		say += "\rLove Factor\t\t\t" + lf;
+		
+		var sdata:Slave;
+		for (var so:String in SlavesArray) {
+			sdata = SlavesArray[so];
+			if (sdata.IsSlaveOwned() || sdata,SlaveType == -10) {
+				say = say + "\r\r<u>Slave</u>" + sdata.SlaveIndex + ": <b>" + sdata.SlaveName + "</b>";
+				say = say + "\r  Love = " + sdata.VarLovePoints;
+				say = say + "\tAccepted = " + sdata.LoveAccepted;
+				say = say + "\r  Noble Love = " + sdata.NobleLove;
+				say = say + "\tType = " + sdata.NobleLoveType;
+				say = say + "\r  Old Lover = " + sdata.OldLover;
+				say = say + "\tBoyfriend = " + sdata.EventBoyfriend;		
+			}
+		}
+		AddText(say);
+	
+	}
+}

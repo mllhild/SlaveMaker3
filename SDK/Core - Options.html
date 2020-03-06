@@ -1,0 +1,1007 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html;charset=ISO-8859-1" http-equiv="Content-Type">
+  <meta name="generator"
+ content="HTML Tidy for Windows (vers 22 March 2008), see www.w3.org">
+  <title>Options</title>
+</head>
+<body>
+<table
+ style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;"
+ border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font
+ size="+3"><span style="font-weight: bold;">Game Options<br>
+            </span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td
+ style="vertical-align: top; width: 80%; text-align: left;"><a
+ href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font
+ style="font-weight: bold;" size="-1">Updated
+to version 3.4.02</font> </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<center style="font-family: Arial;"> <u><b><span
+ style="font-size: 18pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 16pt;"><span style="font-size: 14pt;"><br>
+</span></span></span></span></b></u> </center>
+<span style="font-size: 12pt; font-family: Arial;"></span><span
+ style="font-weight: bold; font-family: Arial;">Table of Contents</span>
+<ul style="font-family: Arial;" id="mozToc">
+<!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6-->
+  <li><a href="#mozTocId303433">General Concepts</a></li>
+  <li><a href="#mozTocId895898">Core
+Variables</a>
+    <ul>
+      <li><a href="#mozTocId449503">Options for Content
+and Events </a>
+        <ul>
+          <li><a href="#mozTocId512517">BadEndsOn</a></li>
+          <li><a href="#mozTocId945793">BDSMOn</a></li>
+          <li><a href="#mozTocId163588">bCatgirlsCommon</a></li>
+          <li><a href="#mozTocId777227">DickgirlOn</a></li>
+          <li><a href="#mozTocId164615">DickgirlLesbians</a></li>
+          <li><a href="#mozTocId727441">DickgirlTesticles</a></li>
+          <li><a href="#mozTocId598941">Difficulty</a></li>
+          <li><a href="#mozTocId233947">FurriesOn</a></li>
+          <li><a href="#mozTocId17548">IncestOn</a></li>
+          <li><a href="#mozTocId531416">NonHumansOn</a></li>
+          <li><a href="#mozTocId737832">PonygirlsOn</a></li>
+          <li><a href="#mozTocId679519">RapeOn</a></li>
+          <li><a href="#mozTocId132120">PregnancyOn</a></li>
+          <li><a href="#mozTocId962405">bSoundsOn</a></li>
+          <li><a href="#mozTocId343941">TentaclesOn</a></li>
+        </ul>
+      </li>
+      <li><a href="#mozTocId363131">Options for Game
+configuration</a>
+        <ul>
+          <li><a href="#mozTocId270210">CombatDifficulty</a></li>
+          <li><a href="#mozTocId232151">GlobalTentacleFrequency</a></li>
+          <li><a href="#mozTocId56833">GlobalDickgirlFrequency</a></li>
+          <li><a href="#mozTocId407150">TutorialOn</a></li>
+          <li><a href="#mozTocId27124">FullscreenOn</a></li>
+          <li><a href="#mozTocId612937">Clock24On</a></li>
+          <li><a href="#mozTocId450152">MetricOn</a></li>
+          <li><a href="#mozTocId276145">StatIconsOn</a></li>
+          <li><a href="#mozTocId480723">StatImagesOn</a></li>
+          <li><a href="#mozTocId253838">bLimitSavesOn</a></li>
+          <li><a href="#mozTocId470702">bShowVanillaOn</a></li>
+          <li><a href="#mozTocId683232">AllDickgirlXFOn</a></li>
+          <li><a href="#mozTocId602654">DickgirlStartOn</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId228035">Content Filters and Selections</a>
+    <ul>
+      <li><a href="#mozTocId106547">Selection Functions</a></li>
+      <li><a href="#mozTocId46818">Slave/Assistant Selection</a></li>
+    </ul>
+  </li>
+</ul>
+<br style="font-family: Arial;">
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId303433"></a>General Concepts</h1>
+<span style="font-size: 12pt; font-family: Arial;">Options can be set
+to limit or alter can content seen in the game.<br>
+<br>
+All option data is help in a class instance <span
+ style="font-weight: bold;">Options</span>, and also copied into the
+global scope in _root. All the options can be changed as required but
+most of them should not alter during a given game.<br>
+<br>
+No functions are provided to change or check options, you just directly
+check or change the listed variables. Importantly XML <span
+ style="font-weight: bold;">does not</span> allow you to change options
+at all, so you can only alter them with actionscript code. This was
+done as it is very rare to every have to change an option during game
+play so the extra code was not implemented for XML.<br>
+<br>
+All options are automatically saved by the game when you alter them
+using the dialogue in the game. If a developer just changes a variable
+for an option
+then they <span style="font-weight: bold;">ARE NOT SAVED</span>. If
+needed in actionscript code you can change the variable, and then call<br>
+_root.Options.SaveGlobalData();<br>
+<br>
+</span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId895898" id="mozTocId895898"></a>Core
+Variables</h1>
+<span style="font-size: 12pt; font-family: Arial;">As noted these are
+all stored in the Options object. Unless otherwise noted all variables
+here are of type Boolean<br>
+</span><br style="font-family: Arial;">
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId449503"></a>Options for Content
+and Events<br>
+</h2>
+<span style="font-size: 12pt; font-family: Arial;">The following
+options are the ones that a developer would reasonably check for
+content of a slave or event. Please note above that
+XML does not allow
+you to change any options.</span><br style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><br>
+</span>
+<table
+ style="text-align: left; width: 948px; height: 428px; background-color: rgb(242, 255, 255); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: rgb(229, 229, 229);"><span
+ style="font-weight: bold;">Actionscript Variable</span></td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: rgb(229, 229, 229);"><span
+ style="font-weight: bold;">XML Variable</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 0px;"><a class="mozTocH2"
+ name="mozTocId512517"></a><span style="font-size: 12pt;"><b>BadEndsOn</b></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 21px;"><span
+ style="font-size: 12pt;"><b>badends</b></span><span
+ style="font-weight: bold;"></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+If true then game ending events can happen that mean your Slave Maker
+is gone and cannot continue.<br>
+      <br>
+Generally test this and do one form of an event and if false then do a
+'softer' version of the event that allow you to continue the game.<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 0px;"><a class="mozTocH2"
+ name="mozTocId945793"></a><span style="font-size: 12pt;"><b>BDSMOn</b></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 21px;"><span
+ style="font-size: 12pt;"><b>bdsm</b></span><span
+ style="font-weight: bold;"></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+true if events involving BDSM elements are in the game. If false the
+Bondage training and Ponygirls traning and events are disabled<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 0px;"><a class="mozTocH3"
+ name="mozTocId163588"></a><span style="font-size: 12pt;"><b>bCatgirlsCommon</b></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 21px;"><span
+ style="font-size: 12pt;"><b>catgirlscommon</b></span><span
+ style="font-weight: bold;"></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+If true then catgirl encounters are much more common in the game (60%
+of the time)<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 4px;"><a class="mozTocH2"
+ name="mozTocId777227"></a><span style="font-size: 12pt;"><b>DickgirlOn</b></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 21px;"><span
+ style="font-size: 12pt;"><b>dickgirls</b></span><span
+ style="font-weight: bold;"></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-style: italic;"><font size="-1">(Number) </font></span>Defines
+if dickgirls can be encountered in the game<span
+ style="font-style: italic;"><font size="-1"><br>
+      </font></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = dickgirls in game<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = they are not<br>
+Note: the XML variable dickgirls is a Boolean, with values true or false<span
+ style="font-size: 12pt;"><font size="-1"><br>
+eg<br>
+&lt;if dickgirls='true'&gt;<br>
+&nbsp;&nbsp; &lt;!-- dickgirls are in the game --&gt;<br>
+&lt;/if&gt;<br>
+      <br>
+      </font></span><span style="font-weight: bold;">Note:</span><br>
+In general it is better to use the function I<a
+ href="Slave%20-%20Transformation%20-%20Dickgirl.html">sDickgirlEvent()</a>
+as it checks this flag for events. The only reason to use this flag is
+if you want an event that is always dickgirl related.and has no random
+chance to not happen.<br>
+      <br>
+      <span style="font-size: 12pt;"></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ color="#000080"><span style="color: black;"></span><font size="-1"><span
+ style="color: black;"></span></font></font></span></span> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 6px;"><a class="mozTocH3"
+ name="mozTocId164615"></a><span style="font-size: 12pt;"><b>DickgirlLesbians</b></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 21px;"><span
+ style="font-size: 12pt;"><b>dickgirllesbians</b></span><span
+ style="font-weight: bold;"></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+If true lesbians consider dickgirls to be a woman and can fall in love
+with them.<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 5px;"><a class="mozTocH3"
+ name="mozTocId727441"></a><span style="font-size: 12pt;"><b>DickgirlTesticles</b></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 21px;"><span
+ style="font-size: 12pt;"><b>dickgirltesticles</b></span><span
+ style="font-weight: bold;"></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+If there is a choice show dickgirl images with testicles if this is true<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 5px;"><a class="mozTocH3"
+ name="mozTocId598941"></a><span style="font-size: 12pt;"><b>Difficulty</b></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 21px;"><span
+ style="font-size: 12pt;"><b>difficulty</b></span><span
+ style="font-weight: bold;"></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+The difficulty level selected for the game, varies<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -
+1 = east<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = normal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = difficult<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 = hard<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 3px;"><a class="mozTocH2"
+ name="mozTocId233947"></a><span style="font-size: 12pt;"><b>FurriesOn</b></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 21px;"><span
+ style="font-size: 12pt;"><b>furries</b></span><span
+ style="font-weight: bold;"></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+It true anthropomorhhic furries available in the game. This does not
+include True Catgirls<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 0px;"><a class="mozTocH2"
+ name="mozTocId17548"></a><span style="font-size: 12pt;"><b>IncestOn</b></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 21px;"><span
+ style="font-size: 12pt;"><b>incest</b></span><span
+ style="font-weight: bold;"></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+Are events featuring incest in the game<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 3px;"><a class="mozTocH2"
+ name="mozTocId531416"></a><span style="font-size: 12pt;"><b>NonHumansOn</b></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 21px;"><span
+ style="font-size: 12pt;"><b>nonhumans</b></span><span
+ style="font-weight: bold;"></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+Can sexual encounters with non-human beings happen. This does not
+include tentacles, furries, elves, orc or similar. This is for
+substantially non-human beings, centaurs, mermaids, lamias, driders etc.<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 5px;"><a class="mozTocH2"
+ name="mozTocId737832"></a><span style="font-size: 12pt;"><b>PonygirlsOn</b></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 21px;"><span
+ style="font-size: 12pt;"><b>ponygirls</b></span><span
+ style="font-weight: bold;"></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+Are there ponygirls in the game. If false then ponygirl training is
+disabled<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 4px;"><a class="mozTocH2"
+ name="mozTocId679519"></a><span style="font-size: 12pt;"><b>RapeOn</b></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 21px;"><span
+ style="font-size: 12pt;"><b>rape</b></span><span
+ style="font-weight: bold;"></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+Can events featuring rape occur, including events where your slave or
+assistant or slave maker is raped<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 0px;"><a class="mozTocH2"
+ name="mozTocId132120"></a><span style="font-size: 12pt;"><b>PregnancyOn</b></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 21px;"><span
+ style="font-size: 12pt;"><b>pregnancy</b></span><span
+ style="font-weight: bold;"></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+Can yout slaves, or slavemaker, become pregnant. Also are there events
+featuring pregnancy in the game.<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 1px;"><a class="mozTocH2"
+ name="mozTocId962405"></a><span style="font-size: 12pt;"><b>bSoundsOn</b></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 21px;"><span
+ style="font-size: 12pt;"><b>soundson</b></span><span
+ style="font-weight: bold;"></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-style: italic;"></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">true if sound
+effects are on <br>
+      </span></span><span style="font-size: 12pt;"><font size="-1">eg<br>
+&lt;if soundson='true'&gt;<br>
+&nbsp;&nbsp; &lt;!-- sound effects are enabled --&gt;<br>
+&lt;/if&gt;<br>
+      <br>
+      </font></span><span style="font-size: 12pt;"><span
+ style="font-weight: bold;">Note:</span><br>
+In practice you will very seldom, if ever, need to use this variable.
+The standard game functions below all internally test it and do not
+play any sound if false.</span><br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 4px;"><a class="mozTocH2"
+ name="mozTocId343941"></a><span style="font-size: 12pt;"><b>TentaclesOn</b></span></h3>
+            </td>
+            <td
+ style="vertical-align: top; width: 50%; background-color: white; height: 21px;"><span
+ style="font-size: 12pt;"><b>tentacles</b></span><span
+ style="font-weight: bold;"></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+(<span style="font-style: italic;">Number</span>) Are the tentacle
+beasts in the game<br>
+      <span style="font-size: 12pt;"><font color="#000080"><font
+ color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = tentacles in game<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = they are not<br>
+      </span></span></span></span></span></font></font></span><br>
+      <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><br>
+Note: the
+following
+variables are initialised from these settings<br>
+<br>
+</span>
+<table
+ style="text-align: left; width: 907px; height: 13px; font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="0">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 30%;"> <span
+ style="font-size: 12pt;"><b><b><b><b>SMData.PonygirlAware</b></b></b></b></span>
+      </td>
+      <td style="vertical-align: top;">If
+PonygirlsOn is true this is set to 0, otherwise -1<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"></span>
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId363131"></a>Options for Game
+configuration</h2>
+<span style="font-size: 12pt; font-family: Arial;">The following
+options used by the game interally. It is unlikely that at developer
+will have to check these. Please note that these
+do not have an XML implementation
+to check.<font color="#000080"><font color="#000000"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><br>
+</span></span></span></span></span></font></font></span><br
+ style="font-family: Arial;">
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 948px; height: 88px; background-color: rgb(242, 255, 255); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: rgb(229, 229, 229);"><span
+ style="font-weight: bold;">Actionscript Variable</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 0px;"><a class="mozTocH3"
+ name="mozTocId270210"></a><span style="font-size: 12pt;"><b>CombatDifficulty</b></span></h3>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+The difficulty of combats in the game<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-1 = no combats<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = standard<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = hard<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = you lose<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 0px;"><a class="mozTocH3"
+ name="mozTocId232151"></a><span style="font-size: 12pt;"><b>GlobalTentacleFrequency</b></span></h3>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><font color="#000080"><font
+ color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">percentage
+rate of tentacle events (0-100)
+on a daily basis</span></span></span></span></span></font></font></span><br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 0px;"><a class="mozTocH3"
+ name="mozTocId56833"></a><span style="font-size: 12pt;"><b>GlobalDickgirlFrequency</b></span></h3>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><font color="#000080"><font
+ color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">how often
+dickgirls are encountered (only
+valid if DickgirlOn == 1)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= 20% of the time you encounter the dickgirl version of an event (if it
+exists)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= 80% of the time you encounter the dickgirl version of an event (if it
+exists)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= 100% of the time you encounter the dickgirl version of an event (if
+it exists)</span></span></span></span></span></font></font></span><br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 0px;"><a class="mozTocH3"
+ name="mozTocId407150"></a><span style="font-size: 12pt;"><b>TutorialOn</b></span></h3>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+If true show tutorials during gameplay<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 0px;"><a class="mozTocH3"
+ name="mozTocId27124"></a><span style="font-size: 12pt;"><b>FullscreenOn</b></span></h3>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+If true the game will start in fullscreen mode<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 0px;"><a class="mozTocH3"
+ name="mozTocId612937"></a><span style="font-size: 12pt;"><b>Clock24On</b></span></h3>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+If true use a 24hr clock<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 0px;"><a class="mozTocH3"
+ name="mozTocId450152"></a><span style="font-size: 12pt;"><b>MetricOn</b></span></h3>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+If true use the metric system for measurements<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 0px;"><a class="mozTocH3"
+ name="mozTocId276145"></a><span style="font-size: 12pt;"><b>StatIconsOn</b></span></h3>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+If true show icnos for statistics changes<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 0px;"><a class="mozTocH3"
+ name="mozTocId480723"></a><span style="font-size: 12pt;"><b>StatImagesOn</b></span></h3>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+If true an image reflecting the training or state of the slave or slave
+maker is shown behind the statistics<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 0px;"><a class="mozTocH3"
+ name="mozTocId253838"></a><span style="font-size: 12pt;"><b>bLimitSavesOn</b></span></h3>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+If true you can only save the game on selected days (contest days)<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 0px;"><a class="mozTocH3"
+ name="mozTocId470702"></a><span style="font-size: 12pt;"><b>bShowVanillaOn</b></span></h3>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+If true then vanilla slaves and assistants are shown in the Slave Market<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 0px;"><a class="mozTocH3"
+ name="mozTocId683232"></a><span style="font-size: 12pt;"><b>AllDickgirlXFOn</b></span></h3>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+If true then all slaves may transform into dickgirls<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 936px; height: 27px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td
+ style="vertical-align: top; background-color: white; height: 21px;">
+            <h3 style="height: 0px;"><a class="mozTocH3"
+ name="mozTocId602654"></a><span style="font-size: 12pt;"><b>DickgirlStartOn</b></span></h3>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+If true all slaves will start the game transformed into dickgirls<br>
+      <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;">Note: the following
+variables are initialised from these settings<br>
+<br>
+</span>
+<table
+ style="text-align: left; width: 907px; height: 87px; font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="0">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 30%; height: 64px;"> <span
+ style="font-size: 12pt;"><b><b><b><b>TentacleFrequency</b></b></b></b></span>
+      </td>
+      <td style="vertical-align: top; height: 64px;"> <span
+ style="font-size: 12pt;"><span style="font-weight: normal;">frequency
+for the current game in
+progress, initially GlobalTentacleFrequency</span></span><br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; height: 95px;"><span
+ style="font-size: 12pt;"><font color="#000080"><font color="#000000"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><b>DickgirlFrequency</b></span></span></span></span></span></font></font></span></td>
+      <td style="vertical-align: top; height: 95px;"><span
+ style="font-size: 12pt;"><span style="font-weight: normal;">frequency
+for spontaneous dickgirl transformations, initially
+GlobalDickgirlFrequency</span></span><br>
+      <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><font color="#000080"><font
+ color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></font></font><font
+ color="#000080"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></font></font><font
+ color="#000080"><font color="#000000"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></font></font></span><br
+ style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><br>
+</span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId228035"></a>Content Filters and Selections</h1>
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId106547"></a><big>Selection
+Functions</big></h2>
+<big style="font-family: Arial;">There are a number of setting in
+Options that can affect what
+events appear and what slaves or assistants are available. Some of them
+have a rate of appearance if enabled.</big><big
+ style="font-family: Arial;"><br>
+<br>
+In general do not use these options, instead use the
+functions/conditionals<br>
+<br>
+ActionScript<br>
+function IsDickgirlEvent() : Boolean<br>
+function IsTentacleEvent() : Boolean<br>
+function Catgirls.IsCatgirlEvent() : Boolean<br>
+<br>
+XML<br>
+dickgirlevent or isdickgirlevent<br>
+tentacleevent or istentacleevent<br>
+catgirlevent or iscatgirlevent<br>
+and generically<br>
+istrainingevent-catgirltraining<br>
+<br>
+eg<br>
+if (_root.IsDickgirlEvent()) {<br>
+&nbsp;&nbsp; // do a dickgirl thing here<br>
+}<br>
+<br>
+&lt;if isdickgirlevent='true'&gt;<br>
+&nbsp;&nbsp; &lt;!-- do it here too --&gt;<br>
+&lt;/if&gt;<br>
+<br>
+<br>
+</big>
+<h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId46818"></a><big>Slave/Assistant
+Selection</big></h2>
+<big style="font-family: Arial;">Based on these selections slaves or
+assistants can be excluded
+from the
+game. For instance Reisz is disabled is Tentacles are turned off. If
+you disable dickgirls a number of minor slaves are removed.<br>
+<br>
+The is done via the SlaveGirlxx.txt file, add the following<br>
+<br>
+Tentacles=true&amp;Dickgirls=true&amp;Furries=true&amp;Pregnancy=true&amp;NonHuman=true&amp;Ponygirls=true<br>
+<br>
+If any of these are set then it means the corresponding option MUST be
+turned ON for the slave/assistant to be usable.<br>
+<br>
+Currently only the dickgirl flag is tested for Minor Slaves.</big><span
+ style="font-family: Arial;">
+</span><span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 14pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></span></span></span></span>
+</body>
+</html>

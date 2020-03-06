@@ -1,0 +1,1185 @@
+<table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+
+    <tbody>
+      <tr>
+        <td style="vertical-align: top;">
+          <table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">General Actions<br></span></font></td>
+
+                <td style="vertical-align: top;"><br></td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3
+                SDK</span></a></td>
+
+                <td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Version 8</font><br></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  
+</table>
+
+<u><b><font face="Arial"><span style="font-size: 18pt;">
+</span></font></b></u><span style="font-size: 12pt;"><font face="Arial"><br>
+<u><b><br>
+</b></u>There are general actions, not actual sex trainings that are done. These have actions numbers &gt; 1000. When the action is done a function like<br>
+ShowChoreCooking<br>
+is called.<br>
+<br>
+A number have functions like<br>
+AfterJobAcolyte()<br>
+which are called after the job is done and all standard effects and text are displayed. These are intended to add text, or add special events<br></font></span><ul id="mozToc"><!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6--><li><a href="#mozTocId969388">Variables</a></li><li><a href="#mozTocId112268">Chores</a></li><li><a href="#mozTocId205270">Schools</a></li><li><a href="#mozTocId731189">Jobs</a></li><li><a href="#mozTocId550021"></a></li><li><a href="#mozTocId661082">Others</a></li><li><a href="#mozTocId458023">General Notes</a></li></ul><span style="font-size: 12pt;"><font face="Arial">
+<br></font></span><hr style="width: 100%; height: 2px;"><h1><a class="mozTocH1" name="mozTocId969388"></a>Variables<span style="font-size: 12pt;"><font face="Arial"><u><b><span style="font-size: 16pt;"></span></b></u></font></span></h1><span style="font-size: 12pt;"><font face="Arial"><u><b><span style="font-size: 16pt;">
+</span></b></u><span style="font-size: 12pt;">There are a series of standard variables you can test/check<br>
+<br>
+<b>_root.Supervise</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true = your slave maker is supervising and is present<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false = your assistant is supervising<br>
+<br>
+<b>_root.AppendActText </b>- default true<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true = the standard text is appended to any shown in the Showxxxx functions below<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false = the standard text is not appended, please show all text yourself<br>
+<br>
+<b>_root.StandardDGText</b> - defaults to true<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+change to false to suppress standard text for spontaneous dickgirl changes, or general cock references<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Note if AppendActText is false these messages are never shown<br>
+<br>
+<b>_root.StandardPlugText</b> - defaults to true if your slave is wearing an anal plug, otherwise false<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+change to false to suppress standard text for wearing an anal plug<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Note if AppendActText is false these messages are never shown<br>
+<br>
+<b>_root.Naked</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ true if she is naked<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false she is clothed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root. is optional<br>
+<br>
+<b>_root.Lesbian</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ true if she is in lesbian training<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false not in lesbian training<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root is optional<br>
+<br>
+<b>_root.Aroused</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true if your slave is aroused<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false and they are not<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root is optional<br>
+<br>
+<b>_root.Gender</b>, your gender<br>
+<b>_root.SlaveGender</b> - your slaves permanent gender<br>
+<br>
+<b>_root.LastActionDone</b> = the type of the action being done (see Slave Girl - Plannings - Common.rtf for the base values)<br>
+<br>
+Also remember there are local copies of <br>
+SlaveName<br>
+CurrentPath<br>
+MaxPath<br>
+ie you do not need to use _root. to access them<br>
+<br>
+<u><b><span style="font-size: 16pt;">Act Functions<br>
+</span></b></u><span style="font-size: 12pt;"><br>
+Some of these functions are optional and default graphics are shown if you do not provide a function. You should where possible always provide the function. Some like AfterJobAcolyte are optional but nothing happens by default<br>
+Optional ones are noted<br>
+<br>
+In the notes it will list variables specific to the act and the standard stat effects the action does, and any other relelvant notes<br>
+<br></span></span></font></span><hr style="width: 100%; height: 2px;"><h1><a class="mozTocH1" name="mozTocId112268"></a>Chores<span style="font-size: 12pt;"><font face="Arial"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 16pt;"></span></b></span></span></font></span></h1><span style="font-size: 12pt;"><font face="Arial"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 16pt;">
+</span></b><span style="font-size: 12pt;">________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowChoreCleaning</span></b><br>
+<span style="font-size: 12pt;">Show your slave training at cleaning<br>
+<i><br>
+function ShowChoreCleaning()</i><br>
+LastActionDone<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1002&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- normal training<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1002.1 &nbsp;
+- trained by a tutor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1002.2&nbsp;&nbsp;
+- trained by Haro (minor slave)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1002.3&nbsp;&nbsp;
+- trained by Sana (minor slave)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1002.4&nbsp;&nbsp;
+- clean as she can (but she is at max cleaning)<br>
+<br>
+<span style="font-size: 10pt;">eg from Belldandy<br>
+function ShowChoreCleaning()<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+temp = int(Math.random()*2) + 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (temp == 2) _root.Backgrounds.ShowSky();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CleaningClip.gotoAndStop(temp);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CleaningClip._visible = true;<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<u>Notes<br>
+</u>_root.TotalCleaning = times the chore has been done, BEFORE this time<br>
+_root.FirstTimeTodayCleaning = true the first time the chore has been done today<br>
+Stats<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(-1, 0, 0, -1, 0, 0, 0, 3 + Home.hKitchen, 0, 0, 0, 0, -1, 0, 0, 0, 3 - Home.hKitchen, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Home.hKitchen = quality of your kitchen, generally 0, can be 1 or 2<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowChoreCooking</span></b><br>
+<span style="font-size: 12pt;">Show your slave cooking<br>
+<i><br>
+function ShowChoreCooking()</i><br>
+LastActionDone<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1001&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- normal training<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1001.1 &nbsp;
+- trained by a tutor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1002.2&nbsp;&nbsp;
+- trained by Haro (minor slave)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1002.3&nbsp;&nbsp;
+- trained by Sana (minor slave)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1001.4 &nbsp;
+- clean as she can (but she is at max cleaning)<br>
+<br>
+<u>Notes<br>
+</u>_root.TotalCooking =  times the chore has been done, BEFORE this time<br>
+_root.FirstTimeTodayCooking = true the first time the chore has been done today<br>
+Stats<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 0, -1, 0, 0, 0, 3 + Home.hKitchen, 0, 0, 0, 0, 0, -1, 0, 0, 0, 3 - Home.hKitchen, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Home.hKitchen = quality of your kitchen, generally 0, can be 1 or 2<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowChoreDiscuss<br>
+</span></b><span style="font-size: 12pt;">You are talking to her. Show an image of her relaxing, sitting as if talking to you. Please include at least a naked version and preferably a dickgirl one if she can permanently transform<br>
+<i><br>
+function ShowChoreDiscuss()<br>
+</i><br>
+<span style="font-size: 10pt;">eg from Akane<br>
+function ShowChoreDiscuss()<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.HideBackgrounds();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (Naked) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.IsDickgirl()) DiscussClip.gotoAndStop(4);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else DiscussClip.gotoAndStop(int(Math.random()*2) + 3);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else DiscussClip.gotoAndStop(int(Math.random()*2) + 1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DiscussClip._visible = true;<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<u>Notes<br>
+</u>_root.TotalDiscuss =  times the chore has been done, BEFORE this time<br>
+_root.FirstTimeTodayDiscuss = true the first time the chore has been done today<br>
+Stats<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 0, 1 ,1 ,0, -1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);<br>
+<br>
+________________________________________________________________<br>
+&nbsp;<br>
+<b><span style="font-size: 14pt;">ShowChoreExpose<br>
+</span></b><span style="font-size: 12pt;">Show your slave partially clothed, exposing her breasts, pussy, cock. ie lifting her top or skirt etc<br>
+<i><br>
+function ShowChoreExpose()<br>
+</i><br>
+<u>Notes<br>
+</u>_root.DifficultyExhib = obediance threshold to do this chore<br>
+_root.TotalExpose =  times the chore has been done, BEFORE this time<br>
+_root.FirstTimeTodayExpose = true the first time the chore has been done today<br>
+Stats<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(1, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 2, 1, 3, 0, 0, 0, 0, 0)<br>
+<br>
+________________________________________________________________<br>
+<b><span style="font-size: 14pt;"><br>
+ShowChoreMakeUp<br>
+</span></b><span style="font-size: 12pt;">Your slave is practising makeup. If they are a pony slave then you personally are grooming her, brushing her hair and the such like.<br>
+If_root.DonePonygirl == 1 then she is being groomed as a ponygirl<br>
+<br>
+<i>function ShowChoreMakeUp() : Boolean<br>
+</i>return true if she is aroused and does a kinky form of makeup<br>
+<br>
+<u>Notes<br>
+</u>_root.TotalMakeUp=  times the chore has been done, BEFORE this time<br>
+_root.FirstTimeTodayMakeUp = true the first time the chore has been done today<br>
+Stats<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if you return true<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(2, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if you return false<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(2, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0.5, 0)<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowChoreExercise<br>
+</span></b><span style="font-size: 12pt;">Show your slave exercising or going for a walk or run<br>
+If _root.DonePonygirl == 1 then she is being ridden and all graphics shown here are ignored (almost no girls have these graphics)<br>
+<i><br>
+function ShowChoreExercise() <br>
+</i><br>
+<u>Notes<br>
+</u>This function was  called ShowChoreWalk and that function still works but is obsolete and should no longer be used.<u><br>
+</u>_root.TotaExercise =  times the chore has been done, BEFORE this time<br>
+_root.FirstTimeTodayExercise= true the first time the chore has been done today<br>
+Stats<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 1, 0, 0, 0, 1, 0, 0, -2, 0, 0, 0, -1, 0, 0, 0, 2, 1, 0, 0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+FatigueBonus += 0.5;<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowChoreReadABook (OPTIONAL)<br>
+</span></b><span style="font-size: 12pt;">Show her reading a book. There are default, generic versions of this <br>
+<i><br>
+function ShowChoreReadABook() : Boolean<br>
+return true if she has a read graphic. <br>
+</i>LastActionDoneDay<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1019.1 - science book<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1019.2 - poetry book<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1019.3 - scroll<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1019.4 - kamasutra<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1019.5 - scripture<br>
+<br>
+Note Scrolls are purely for Slave Girl use, no generic events use or create them<br>
+eg<br>
+<span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.LastActionDone == 1019.1) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// reading a science book<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<span style="font-size: 12pt;"><br>
+<br>
+<u>Notes</u><br>
+<b>TotalBooksRead </b>- how many books have been read, increases 1 each time a book is read, so double TotalBooks<br>
+<b>TotalPoetryRead</b><br>
+<b>TotalScrollsRead</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- note purely for slave girl use<br>
+<b>TotalScriptureRead<br>
+TotalKamasutraRead</b><br>
+Stats<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+General Knowledge Book &nbsp;
+- Points(0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Poetry&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Points(0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 1, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Scripture (New Gods Faith)- Points(0, 0, 0, 20, -5, 0, 0, 0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Scripture (Other Faiths)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Points(0, 0, 0, 20, 20, 0, 0, 0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Kamasutra (Lesbian)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- NoTalentPoints(0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 10, 0, 0, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Kamasutra&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Points(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 10, 0, 0, 0, 0, 0);<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 16pt;">Custom Chores Acts<br>
+</span></b><span style="font-size: 12pt;"><br>
+____________________________________<br>
+<br>
+<u><b><span style="font-size: 14pt;">Core Functions to enable and define the chores<br>
+</span></b></u><span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">SetCustomChoreDetails1</span></b> <span style="font-size: 12pt;">- sets a custom chore for the slave girl<br>
+<i>function SetCustomChoreDetails1(slabel:String, desc:String)<br>
+</i>slabel - short label on the button<br>
+desc - longer description<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">SetCustomChoreDetails2</span></b> <span style="font-size: 12pt;">- sets a custom job for the slave girl (eg Urd's Potion shop)<b><br>
+</b><i>function SetCustomChoreDetails2(slabel:String, desc:String)<br>
+</i>slabel - short label on the button<br>
+desc - longer description<br>
+<i><br>
+<br>
+</i><span style="font-size: 14pt;"><b>SetCustomChoreDetails3</b> <span style="font-size: 12pt;">- sets a custom job for the slave girl (eg Urd's Potion shop)<b><br>
+</b><i>function SetCustomChoreDetails3(slabel:String, desc:String)<br>
+</i>slabel - short label on the button<br>
+desc - longer description<br>
+<i><br>
+<br>
+</i><span style="font-size: 14pt;"><b>ShowCustomChore</b><i><span style="font-size: 12pt;"><br>
+function ShowCustomChore(num:Number)<br>
+</span></i>Show chore 1-3, defaults to 1<br>
+<i><br>
+<br>
+</i><span style="font-size: 14pt;"><b>HideCustomChore <span style="font-size: 12pt;">- </span></b>hides the custom chore<b><br>
+</b><i>function HideCustomChore(num:Number)<br>
+</i>Hide job 1-3, defaults to 1<br>
+<br>
+____________________________________<br>
+<br>
+<u><b><span style="font-size: 14pt;">Slavegirl Override functions<br>
+</span></b></u><span style="font-size: 12pt;"><br>
+____________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSlaveChore1<br>
+</span></b><span style="font-size: 12pt;">Your slave is training at a custom chore<br>
+<i><br>
+function ShowSlaveChore1()<br>
+</i><br>
+Note<br>
+_root.TotalSlaveChore1 = times the chore has been done, BEFORE this time<br>
+_root.FirstTimeTodayCustomChore1 = true the first time the chore has been done today<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSlaveChore2<br>
+</span></b><span style="font-size: 12pt;">Your slave is training at a custom chore<br>
+<i><br>
+function ShowSlaveChore2()<br>
+</i><br>
+Note<br>
+_root.TotalSlaveChore2 = times the chore has been done, BEFORE this time<br>
+_root.FirstTimeTodayCustomChore2 = true the first time the chore has been done today<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSlaveChore3<br>
+</span></b><span style="font-size: 12pt;">Your slave is training at a custom chore<br>
+<i><br>
+function ShowSlaveChore3()<br>
+</i><br>
+Note<br>
+_root.TotalSlaveChore3 = times the chore has been done, BEFORE this time<br>
+_root.FirstTimeTodayCustomChore3 = true the first time the chore has been done today<br>
+<br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span><hr style="width: 100%; height: 2px;"><h1><a class="mozTocH1" name="mozTocId205270"></a>Schools<span style="font-size: 12pt;"><font face="Arial"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 16pt;"></span></b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></h1><span style="font-size: 12pt;"><font face="Arial"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 16pt;">
+</span></b><span style="font-size: 12pt;">________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSchoolSciences<br>
+</span></b><span style="font-size: 12pt;">Show your slave studying, say in a class, or at least reading a book<br>
+<i><br>
+function ShowSchoolSciences() <br>
+</i><br>
+<u>Notes<br>
+</u>_root.TotalSciences = times the school has been attended, BEFORE this time<br>
+_root.FirstTimeTodaySciences = true the first time the school has been attended today<br>
+Stats<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, -1, 0, 5 + Home.hLibrary, 0, -1, 0, 0, 0, 0, 0, 0, -2, 0, 0, 0, 1, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Home.hLibrary = quality of your library, generally 0, can be 1 or 2<br>
+<br>
+____________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">AfterSchoolSciences (OPTIONAL)<br>
+</span></b><span style="font-size: 12pt;">called after your slave attends the school<br>
+<br>
+<i>function AfterSchoolSciences()<br>
+</i>_root.FirstTimeTodaySciences == true the first time your slave attends the school in a given day<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSchoolSinging<br>
+</span></b><span style="font-size: 12pt;">Show your slave singing<br>
+<b><span style="font-size: 14pt;"><br>
+</span></b><i><span style="font-size: 12pt;">function ShowSchoolSinging() <br>
+</span></i><u><br>
+Notes<br>
+</u>_root.TotalSinging = times the school has been attended, BEFORE this time<br>
+_root.FirstTimeTodaySinging =  true the first time your slave attends the school in a given day<br>
+Stats<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+slSinging += 0.2;<br>
+____________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">AfterSchoolSinging (OPTIONAL)<br>
+</span></b><span style="font-size: 12pt;">called after your slave attends the school<br>
+<br>
+<i>function AfterSchoolSinging()<br>
+</i>_root.FirstTimeTodaySinging == true the first time your slave attends the school in a given day<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSchoolTheology<br>
+</span></b><span style="font-size: 12pt;">Show your slave praying or studying<br>
+<b><span style="font-size: 14pt;"><br>
+</span></b><i><span style="font-size: 12pt;">function ShowSchoolTheology() <br>
+</span></i><u><br>
+Notes<br>
+</u>_root.TotalTheology = times the school has been attended, BEFORE this time<br>
+_root.FirstTimeTodayTheology =  true the first time your slave attends the school in a given day<br>
+Stats<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, -1, 0, 5 + Home.hLibrary, 0, -1, 0, 0, 0, 0, 0, 0, -2, 0, 0, 0, 1, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Home.hLibrary= quality of your library, generally 0, can be 1 or 2<br>
+<br>
+____________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">AfterSchoolTheology (OPTIONAL)<br>
+</span></b><span style="font-size: 12pt;">called after your slave attends the school<br>
+<br>
+<i>function AfterSchoolTheology()<br>
+</i>_root.FirstTimeTodayTheology == true the first time your slave attends the school in a given day<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSchoolRefinement<br>
+</span></b><span style="font-size: 12pt;">Show your slave dressed elegantly, say in a kimono, or otherwise being courtly<br>
+<i><br>
+function ShowSchoolRefinement() </i><br>
+<br>
+<u>Notes</u><br>
+_root.TotalRefinement = times the school has been attended, BEFORE this time<br>
+_root.FirstTimeTodayRefinement = true the first time your slave attends the school in a given day<br>
+Stats<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 2, 3, 0, 0, -1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+additionally if dressed courtly (IsDressCourtly())<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)<br>
+<br>
+____________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">AfterSchoolRefinement (OPTIONAL)<br>
+</span></b><span style="font-size: 12pt;">called after your slave attends the school<br>
+<br>
+<i>function AfterSchoolRefinement()<br>
+</i>_root.FirstTimeTodayRefinement == true the first time your slave attends the school in a given day<br>
+<br>
+________________________________________________________________<br>
+<b><span style="font-size: 14pt;"><br>
+ShowSchoolDance<br>
+</span></b><span style="font-size: 12pt;">Show your slave dancing.<br>
+If they are a ponyslave then prancing and tually no girls have such images generic images are always shown then;<br>
+<i><br>
+function ShowSchoolDance(donearoused:Boolean) <br>
+</i>donearoused = true if your slave is aroused and may do something inappropriate<br>
+<br>
+<u>Notes</u><br>
+_root.DonePony == 1 if they are a pony slave<br>
+_root.TotalDance = times the school has been attended, BEFORE this time<br>
+_root.FirstTimeTodayDance = true the first time the chore has been done today<br>
+Stats - Prancing<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(3, 0, 1, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0);<br>
+Stats - Dancing<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(3, 0, 1, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+additionally if dressed in a dance dress (IsDressDance())<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if you own the slave Latala<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);<br>
+<br>
+____________________________________<br>
+<b><span style="font-size: 14pt;"><br>
+AfterSchoolDance (OPTIONAL)<br>
+</span></b><span style="font-size: 12pt;">called after your slave attends the dance school<br>
+<br>
+<i>function AfterSchoolDance()<br>
+</i>_root.FirstTimeTodayDance == true the first time your slave attends the school in a given day<br>
+<br>
+________________________________________________________________<br>
+<b><span style="font-size: 14pt;"><br>
+ShowSchoolXXX<br>
+</span></b><span style="font-size: 12pt;">Show your slave training in sex, at least just show her having sex<br>
+<i><br>
+function ShowSchoolXXX(doDG:Boolean) : Boolean<br>
+doDG is true if the XXX School Teacher partners her with a dickgirl. You can ignore this if you like. If you do use it then display appropriate text for the lesson and return true, else return false<br>
+</i><br>
+<u>Notes</u><br>
+_root.TotalXXX = times the school has been attended, BEFORE this time<br>
+_root.FirstTimeTodayXXX = true the first time the chore has been done today<br>
+Stats - dickgirl training (return true)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+NoTalentPoints(0, 0, -2, 0, -2, 1, 0, 0, 0, 4, 5, -4, 4, 0, -2, 0, 6, 0, 0, 0)<br>
+Stats - 'normal'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+NoTalentPoints(0, 0, -2, 0, -2, 1, 0, 0, 0, 3, 4, -3, 4, 0, 1, 0, 4, 0, 0, 0)<br>
+<br>
+____________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">AfterSchoolXXX (OPTIONAL)<br>
+</span></b><span style="font-size: 12pt;">called after your slave attends the school<br>
+<br>
+<i>function AfterSchoolXXX()<br>
+</i>_root.FirstTimeTodayXXX == true the first time your slave attends the school in a given day<br>
+<br>
+________________________________________________________________<br>
+<br>
+<br>
+<b><span style="font-size: 16pt;">Custom Schools<br>
+</span></b><span style="font-size: 12pt;"><br>
+____________________________________<br>
+<br>
+<u><b><span style="font-size: 14pt;">Core Functions to enable and define the schools<br>
+</span></b></u><span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">SetCustomSchoolDetails1</span></b> <span style="font-size: 12pt;">- sets a custom school for the slave girl<br>
+<i>function SetCustomSchoolDetails1(slabel:String, desc:String)<br>
+</i>slabel - short label on the button<br>
+desc - longer description<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">SetCustomSchoolDetails2</span></b> <span style="font-size: 12pt;">- sets a custom job for the slave girl (eg Urd's Potion shop)<b><br>
+</b><i>function SetCustomSchoolDetails2(slabel:String, desc:String)<br>
+</i>slabel - short label on the button<br>
+desc - longer description<br>
+<i><br>
+<br>
+</i><span style="font-size: 14pt;"><b>SetCustomSchoolDetails3</b> <span style="font-size: 12pt;">- sets a custom job for the slave girl (eg Urd's Potion shop)<b><br>
+</b><i>function SetCustomSchoolDetails3(slabel:String, desc:String)<br>
+</i>slabel - short label on the button<br>
+desc - longer description<br>
+<i><br>
+<br>
+</i><span style="font-size: 14pt;"><b>ShowCustomSchool</b><i><span style="font-size: 12pt;"><br>
+function ShowCustomSchool(num:Number)<br>
+</span></i>Show school 1-3, defaults to 1<br>
+<i><br>
+<br>
+</i><span style="font-size: 14pt;"><b>HideCustomSchool <span style="font-size: 12pt;">- </span></b>hides the custom school<b><br>
+</b><i>function HideCustomSchool(num:Number)<br>
+</i>Hide job 1-3, defaults to 1<br>
+<br>
+____________________________________<br>
+<br>
+<u><b><span style="font-size: 14pt;">Slavegirl Override functions<br>
+</span></b></u><span style="font-size: 12pt;"><br>
+____________________________________<br>
+<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSlaveSchool1<br>
+</span></b><span style="font-size: 12pt;">Your slave is training at a custom school<br>
+<i><br>
+function ShowSlaveSchool1()<br>
+</i><br>
+<u>Notes<br>
+</u>_root.TotalSlaveSchool1 = time school has been attended, BEFORE this time<br>
+_root.FirstTimeTodayCustomSchool1 = true the first attended time today<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSlaveSchool2<br>
+</span></b><span style="font-size: 12pt;">Your slave is training at a custom school<br>
+<i><br>
+function ShowSlaveSchool2()<br>
+</i><br>
+<u>Notes<br>
+</u>_root.TotalSlaveSchool2 = time school has been attended, BEFORE this time<br>
+_root.FirstTimeTodayCustomSchool2 = true the first attended time today<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSlaveSchool3<br>
+</span></b><span style="font-size: 12pt;">Your slave is training at a custom school<br>
+<i><br>
+function ShowSlaveSchool3()<br>
+</i><br>
+Note<br>
+_root.TotalSlaveSchool3 = time school has been attended, BEFORE this time<br>
+_root.FirstTimeTodayCustomSchool3 = true the first attended time today<br>
+<br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span><hr style="width: 100%; height: 2px;"><h1><a class="mozTocH1" name="mozTocId731189"></a>Jobs<span style="font-size: 12pt;"><font face="Arial"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 16pt;"></span></b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></h1><h1><a class="mozTocH1" name="mozTocId550021"></a><span style="font-size: 12pt;"><font face="Arial"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 16pt;"></span></b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></h1><span style="font-size: 12pt;"><font face="Arial"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 16pt;">
+</span></b><span style="font-size: 12pt;">________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowJobAcolyte<br>
+</span></b><span style="font-size: 12pt;">Show your slave working in a temple, dresses as a nun or miko preferably<br>
+<i><br>
+function ShowJobAcolyte() : Number<br>
+</i>return a multiplier for her salary, nomally return 1, but say 1.1 for a skilled girl<br>
+<br>
+When you return, the game assumes the nun is talking to you and appends her finishing text.<br>
+<br>
+ie assumes you show text like something like<br>
+PersonSpeakStart("Nun", "You were a skilled acolyte.", true);<br>
+If you show nothing, then the game always adds some text and then<br>
+PersonSpeakStart("Nun", "You were a big help.", true);<br>
+<br>
+The engine then always appends<br>
+AddText(" Here is your reward : "+pay+"GP");<br>
+<br>
+<span style="font-size: 10pt;">eg from Belldandy<br>
+function ShowJobAcolyte(doplug:Boolean) : Number {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.DickgirlXF &lt; 1 &amp;&amp; ((_root.Naked) || (_root.Aroused &amp;&amp; int(Math.random()*4) == 1))) AcolyteClip.gotoAndStop(3);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+temp = int(Math.random()*2) + 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AcolyteClip.gotoAndStop(temp);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.HideBackgrounds();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (temp == 1) _root.Backgrounds.ShowLake();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AcolyteClip._visible = true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.CustomFlag == 2) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// Angel<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PersonSpeakStart("Nun", "It is an honour for me that you chose to work here.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Points(0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return 1.2;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.CustomFlag == 1) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// Demon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetText("The nun is breathing heavily and strangely flushed\r\r");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.PersonSpeakStart("Nun", SlaveName + " acted oddly and talked often about demons and the freedom of hell.", true);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarMorality = _root.VarMorality - 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return 1;<br>
+}<br>
+<br>
+eg from Akane<br>
+function ShowJobAcolyte() : Number {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AcolyteClip._visible = true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return 1;<br>
+}<br>
+<span style="font-size: 12pt;"><br>
+<u>Notes<br>
+</u>_root.TotalAcolyte = times the job has been done, BEFORE this time<br>
+_root.FirstTimeTodayAcolyte = true the first worked time today<br>
+Stats <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, -2, 0, -1, 0, 2, 0, 0, 0)<br>
+<br>
+____________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">AfterJobAcolyte (OPTIONAL)<br>
+</span></b><span style="font-size: 12pt;">Called after your slave has worked at the job<br>
+<i><br>
+function AfterJobAcoltye(pay:Number)<br>
+pay = amount she earned in GP</i><br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowJobBar<br>
+</span></b><span style="font-size: 12pt;">Show your job working in a bar<br>
+<i><br>
+function ShowJobBar() : Number<br>
+</i>return a multiplier for her salary, nomally return 1, but say 1.1 for a skilled girl<br>
+<u><br>
+Notes<br>
+</u>_root.TotalBar = times the job has been done, BEFORE this time<br>
+_root.FirstTimeTodayBar = true the first worked time today<br>
+Stats <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 0, -1, -1, 0, 0, 1, 1, 2, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0)<br>
+<br>
+____________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">AfterJobBar (OPTIONAL)<br>
+</span></b><span style="font-size: 12pt;">Called after your slave has worked at the job<br>
+<i><br>
+function AfterJobBar(pay:Number)<br>
+</i>pay = amount she earned<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowJobBrothel<br>
+</span></b><span style="font-size: 12pt;">Show your slave working as a prostitute<br>
+<i><br>
+function ShowJobBrothel() : Number<br>
+</i>return a multiplier for her salary, nomally return 1, but say 1.1 for a skilled girl<br>
+<br>
+<u>Notes<br>
+</u>_root.TotalBrothel = times the job has been done, BEFORE this time<br>
+_root.FirstTimeTodayBrothel = true the first worked time today<br>
+Stats <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, tempvar, -2, -1, -3, 2, 0, 0, 0, 0, 1, 2, 3, 2, 0, 0, 8, tempvar, tempvar, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+tempvar = -2, unless Nymphomania &gt; 94 or you return a value &gt; 1 above, then tempvar = 1<br>
+<br>
+____________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">AfterJobBrothel (OPTIONAL)<br>
+</span></b><span style="font-size: 12pt;">Called after your slave has worked at the job<br>
+<i><br>
+function AfterJobBrothel(pay:Number)<br>
+</i>pay = amount she earned<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowJobCockMilking<br>
+</span></b><span style="font-size: 12pt;">Show your slave working for Astrid having her cum milked. If LastActionDone is 1031 then your slave is also being milked, otherwise just your slave maker<br>
+<i><br>
+function ShowJobCockMilking() : Number<br>
+</i>return a multiplier for her/your salary, nomally return 1, but say 1.1 for a skilled girl<br>
+<br>
+<u>Notes<br>
+</u>_root.TotalCockMilk=  times your slave has been milked, BEFORE this time<br>
+_root.TotalSMCockMilk=  times you have been milked, BEFORE this time<br>
+________________________________________________________________<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowJobLibrary<br>
+</span></b><span style="font-size: 12pt;">Show your slave working in a library. The first time you work here a standard introduction is always show, an apended to any text shown<br>
+<i><br>
+function ShowJobLibrary() : Number<br>
+</i>return a multiplier for her salary, nomally return 1, but say 1.1 for a skilled girl<br>
+<br>
+<u>Notes<br>
+</u>_root.TotalLibrary = times the job has been done, BEFORE this time<br>
+_root.FirstTimeTodayLibrary = true the first worked time today<br>
+Stats - Aroused<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 0, 0, 2, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0);<br>
+Stats - Not Aroused<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 0, 0, 2, 0, 1, 0, 1, 0, 0, 0, 0, -1, 0, -2, 0, 2, 0, 0, 0);<br>
+<br>
+____________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">AfterJobLibrary(OPTIONAL)<br>
+</span></b><span style="font-size: 12pt;">Called after your slave has worked at the job<br>
+<i><br>
+function AfterJobLibrary(pay:Number)<br>
+</i>pay = amount she earned<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowJobOnsen<br>
+</span></b><span style="font-size: 12pt;">Show your slave working or sitting in a hotspring. The first time you work here a standard introduction is always show, an apended to any text shown<br>
+<i><br>
+function ShowJobOnsen(wgender:Number) : Number<br>
+wgender -<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = just cleaning<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = wash male customer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = wash female customer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 = wash dickgirl customer<br>
+</i>return a multiplier for her salary, nomally return 1, but say 1.1 for a skilled girl<br>
+<u><br>
+Notes<br>
+</u>_root.TotalOnsen = times the job has been done, BEFORE this time<br>
+_root.FirstTimeTodayOnsen = true the first worked time today<br>
+Stats - Wash a Customer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 2, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 2, 0, 0, 0)<br>
+Stats - No Washing<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 1, 0, 0, 0, 2, 0, 3, 0, 0, 0, 0, 0, 0, 1, 0, 3, 0, 0, 0)<br>
+<br>
+____________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">AfterJobOnsen (OPTIONAL)<br>
+</span></b><span style="font-size: 12pt;">Called after all text shown, say use to trigger an event etc, and to disable all 'interest' if needed<br>
+<b><br>
+</b><font color="#000000"><i>function AfterJobOnsen(pay:Number, event:Number) : Boolean<br>
+</i><font color="#000000">pay = amount she earned in GP<br>
+interest = true if she was asked to wash a customer and they ask for something more intimate (about 25% of the time for first in day)<br>
+event<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- no request for service<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+38.1 &nbsp;&nbsp;&nbsp;
+- male customer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+38.2 &nbsp;&nbsp;&nbsp;
+- female<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+38.3 &nbsp;&nbsp;&nbsp;
+- dickgirl<br>
+return <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true to prevent any customers 'interest' (not refuse, to completely remove it)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false to allow 'interest'<br>
+<br>
+<u>Notes<br>
+</u>You can force an 'interest' (ie sex scene) by setting <br>
+NumEvent = 38.1 - male customer<br>
+NumEvent = 38.2 - female customer<br>
+NumEvent = 38.3 - dickgirl customer<br>
+If this differs to the female parameter then you must replace all text and show your own custom text<br>
+<font color="#000000">You should then also set _root.AppendActText = false;  to suppress the standard text about 'interest'<font color="#000000"><br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+<font color="#000000">function AfterJobOnsen(pay:Number, event:Number) : Boolean<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.CheckBitFlag2(10)) return false;  // pure path, will never give any sexual signals<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (NumEvent != 38.1) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// she will only give signals to men<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.NumEvent = 38.1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetText(AddText("As " + SlaveName + " is cleaning a customer, a man asks for her to wash his back. " + SlaveName + " agrees and expertly washes the customers back.\r\rAs she finishes she notices his cock stiffening and he ask if she would care to help and wash something more private...");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.AppendActText = false; // to suppress other standard text<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return true;<br>
+}<br>
+<span style="font-size: 12pt;"><br>
+Actually you can set NumEvent to any custom value you desire.<br>
+<font color="#000000"><u><br>
+</u>____________________________________<br>
+<u><br>
+</u><b><span style="font-size: 14pt;">ShowJobOnsenService (OPTIONAL)<br>
+</span></b><span style="font-size: 12pt;">Use to show sex acts with customers in the hotspring<br>
+<i><br>
+function ShowJobOnsenService(cgender:Number) : Boolean<span style="font-size: 14pt;"><br>
+</span></i><span style="font-size: 12pt;">cgender = customers gender (1= male, 2 = female, 3 = dickgirl)<br>
+return <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true to show a custom act<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false for generic, and no custom graphic<br>
+<br>
+<u>Notes<br>
+</u>_root.TotalOnsenService = times the service has been done, BEFORE this time<br>
+<br>
+Stats - <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 2, 0, 0, 0, 0, 0)<br>
+<u><br>
+</u>________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowJobRestaurant<br>
+</span></b><span style="font-size: 12pt;">Show your slave working in the restaurant<br>
+<b><span style="font-size: 14pt;"><br>
+</span></b><i><span style="font-size: 12pt;">function ShowJobRestaurant() : Number<br>
+</span></i>return a multiplier for her salary, nomally return 1, but say 1.1 for a skilled girl<br>
+<br>
+if BitFlag1 32 is set she is working as an assistant chef, but only when she is not naked<br>
+eg<br>
+if (!_root.Naked &amp;&amp; _root.CheckBitFlag1(32)) {<br>
+}<br>
+<br>
+<u>Notes<br>
+</u>_root.TotalRestaurant = times the job has been done, BEFORE this time<br>
+_root.FirstTimeTodayRestaurant = true the first worked time today<br>
+Stats - Assistant Chef<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 0, 0.5, 0, 0, 0, 4, 0.5, 0, 0, 0, 0, 0, 0, 0, 0.5, 2, 0, 0, 0)<br>
+Stats - Waitress/Waiter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 0, -1, 0, 0, 1, 1, 0.5, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0)<br>
+<br>
+____________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">AfterJobRestaurant (OPTIONAL)<br>
+</span></b><span style="font-size: 12pt;">Called after your slave has worked at the job<br>
+<i><br>
+function AfterJobRestaurant(pay:Number)<br>
+</i>pay = amount you slave earned<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowJobSleazyBar<br>
+</span></b><span style="font-size: 12pt;">Show her working in the sleazy bar, seceral variations<br>
+- doing a striptease (parameter strip = true)<br>
+- wearing a Bunny Suit - _root.BunnySuitOK == 1<br>
+- wearing Lingerie - _root.LingerieOK == true<br>
+<i><br>
+function ShowJobSleazyBar(strip:Boolean) : Number<br>
+</i>strip = true if she is to do a strip tease<br>
+return a multiplier for her salary, nomally return 1, but say 1.1 for a skilled girl<br>
+LastActionDoneDay<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1015.1 - strip tease<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1015.2 - refused to do strip tease<br>
+<br>
+<u>Notes<br>
+</u>_root.TotalSleazyBar = times the job has been done, BEFORE this time<br>
+_root.FirstTimeTodaySleazyBar = true the first worked time today<br>
+Stats - <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(2, -2, 0, -2, -2, 1, 0, 0, 2, 0, 0, 1, 2, 1, 1, 0, 6, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if you return 1 from the show function Points(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 0, 0.5, 0, 0, 0, 4, 0.5, 0, 0, 0, 0, 0, 0, 0, 0.5, 2, 0, 0, 0)<br>
+<br>
+____________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">AfterJobSleazyBar (OPTIONAL)<br>
+</span></b><span style="font-size: 12pt;">Called after all text shown, say use to trigger an event etc<br>
+<b><br>
+</b><font color="#000000"><i>function AfterJobSleazyBar(pay:Number) : Boolean<br>
+</i><font color="#000000">pay = amount she earned in GP<br>
+return <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true to prevent 'service' for customers<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false to allow 'service'<br>
+<br>
+____________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowJobSleazyBarService (OPTIONAL)<br>
+</span></b><span style="font-size: 12pt;">Use to show sex acts with customers in the sleazy bar<br>
+<i><br>
+function ShowJobSleazyBarService(female:Boolean) : Boolean<span style="font-size: 14pt;"><br>
+</span></i><span style="font-size: 12pt;">female = true if the customer is a woman, false a male. Your discretion for dickgirl<br>
+return <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true to show a custom act<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false for generic (a standard blowjob), and no custom graphic<br>
+<br>
+<u>Notes<br>
+</u>_root.TotalSleazyBarService = times the service has been done, BEFORE this time<br>
+<br>
+Stats - <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 2, 0, 0, 0, 0, 0)<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 16pt;">Custom Jobs<br>
+</span></b><span style="font-size: 12pt;"><br>
+____________________________________<br>
+<br>
+<u><b><span style="font-size: 14pt;">Core Functions to enable and define the jobs<br>
+</span></b></u><span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">SetCustomJobDetails1</span></b> <span style="font-size: 12pt;">- sets a custom job for the slave girl (eg Urd's Potion shop)<b><br>
+</b><i>function SetCustomJobDetails1(slabel:String, desc:String)<br>
+</i>slabel - short label on the button<br>
+desc - longer description<br>
+<br>
+eg from Ranma<br>
+_root.SetCustomJobDetails1("Sp&lt;font color='#0000FF'&gt;o&lt;font color='#000000'&gt;rts Store", " work in a sports store selling goods and discussing games");<i><br>
+<br>
+<br>
+</i><span style="font-size: 14pt;"><b>SetCustomJobDetails2</b> <span style="font-size: 12pt;">- sets a custom job for the slave girl (eg Urd's Potion shop)<b><br>
+</b><i>function SetCustomJobDetails2(slabel:String, desc:String)<br>
+</i>slabel - short label on the button<br>
+desc - longer description<br>
+<i><br>
+<br>
+</i><span style="font-size: 14pt;"><b>SetCustomJobDetails3</b> <span style="font-size: 12pt;">- sets a custom job for the slave girl (eg Urd's Potion shop)<b><br>
+</b><i>function SetCustomJobDetails3(slabel:String, desc:String)<br>
+</i>slabel - short label on the button<br>
+desc - longer description<br>
+<i><br>
+<br>
+</i><span style="font-size: 14pt;"><b>ShowCustomJob </b><i><span style="font-size: 12pt;"><br>
+function ShowCustomJob(num:Number)<br>
+</span></i>Show job 1-3, defaults to 1<br>
+<i><br>
+<br>
+</i><span style="font-size: 14pt;"><b>HideCustomJob <span style="font-size: 12pt;">- </span></b>hides the custom job<b><br>
+</b><i>function HideCustomJob(num:Number)<br>
+</i>Hide job 1-3, defaults to 1<br>
+<br>
+____________________________________<br>
+<br>
+<u><b><span style="font-size: 14pt;">Slavegirl Override functions<br>
+<br>
+</span></b></u><span style="font-size: 12pt;">____________________________________<br>
+<u><b><span style="font-size: 14pt;"><br>
+</span></b></u><span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">ShowSlaveJob1<br>
+</span></b><span style="font-size: 12pt;">Your slave is working at their first custom job<br>
+<i><br>
+function ShowSlaveJob1()<br>
+</i><br>
+use function<br>
+_root.EarnMoney(x) to have her earn money<br>
+eg<br>
+_root.EarnMoney(100); to earn 100GP from running the shop<br>
+<br>
+<u>Note this was previously called RunShop(), temporarily that function is also called, but is obsolete and will be removed<br>
+</u><br>
+<u>Notes<br>
+</u>_root.TotalSlaveJob1 = times the job has been done, BEFORE this time<br>
+_root.FirstTimeTodayCustomJob1 = true the first worked time today<br>
+<br>
+____________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSlaveJob2<br>
+</span></b><span style="font-size: 12pt;">Your slave is working at their second custom job<br>
+<i><br>
+function ShowSlaveJob2()<br>
+</i><br>
+use function<br>
+_root.EarnMoney(x) to have her earn money<br>
+eg<br>
+_root.EarnMoney(100); to earn 100GP from running the shop<br>
+<br>
+<u>Notes<br>
+</u>_root.TotalSlaveJob2 = times the job has been done, BEFORE this time<br>
+_root.FirstTimeTodayCustomJob2 = true the first worked time today<br>
+<br>
+____________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSlaveJob3<br>
+</span></b><span style="font-size: 12pt;">Your slave is working at their third custom job<br>
+<i><br>
+function ShowSlaveJob2()<br>
+</i><br>
+use function<br>
+_root.EarnMoney(x) to have her earn money<br>
+eg<br>
+_root.EarnMoney(100); to earn 100GP from running the shop<br>
+<i><br>
+</i><u>Notes<br>
+</u>_root.TotalSlaveJob3 = times the job has been done, BEFORE this time<br>
+_root.FirstTimeTodayCustomJob3 = true the first worked time today<br>
+<br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></span></span></span></font></span></font></span></font></font></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span><hr style="width: 100%; height: 2px;"><span style="font-size: 12pt;"><font face="Arial"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></span></span></span></font></span></font></span></font></font></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span><h1><a class="mozTocH1" name="mozTocId661082"></a>Others<span style="font-size: 12pt;"><font face="Arial"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 16pt;"></span></b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></span></span></span></font></span></font></span></font></font></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></h1><p><span style="font-size: 12pt;"><font face="Arial"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 16pt;"></span></b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></span></span></span></font></span></font></span></font></font></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></p><span style="font-size: 12pt;"><font face="Arial"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 16pt;">
+</span></b><span style="font-size: 12pt;">________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowRefusedAction<br>
+</span></b><span style="font-size: 12pt;">Show your slave looking sad or angry as she has refused to do something<br>
+<i><br>
+function ShowRefusedAction(Action:Number, slave:String, servant:String, Charisma:Number, Sensibility:Number, Refinement:Number, Intelligence:Number, Morality:Number, Constitution:Number, Cooking:Number, Cleaning:Number, Conversation:Number, BlowJob:Number, Fuck:Number, Temperament:Number, Nymphomania:Number, Obedience:Number, Libido:Number, Reputation:Number, Fatigue:Number, Joy:Number, Love:Number, Special:Number) : Boolean<br>
+</i>Action - act to do<br>
+slave - standard refusal text for slave<br>
+servant - speech by your assistant<br>
+the rest are the stat changes for refusing to do the act<br>
+return true to disable standard effects, stat changes and text and do your own<br>
+<br>
+<u>Notes<br>
+</u>_root.LastActionRefused is set to the action refused<br>
+Stats<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+vary by act refused, 50% worse if you have Leadership skill &gt; 0<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowBreak<br>
+</span></b><span style="font-size: 12pt;">Show your slave resting or sleeping<br>
+<i><br>
+function ShowBreak(sleeping:Boolean) <br>
+sleeping = true then show her asleep if possible<br>
+</i><br>
+<u>Notes<br>
+</u>_root.TotalBreak = total times rested, BEFORE this time<br>
+_root.FirstTimeTodayBreak = true the first resting time today<br>
+Stats<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Home.hWards &gt; 0 ? -13 : -10, 1, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+hWards &gt; 0 - is the house magically warded (Onsen house mainly)<br>
+<br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></span></span></span></font></span></font></span></font></font></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span><hr style="width: 100%; height: 2px;"><h1><a class="mozTocH1" name="mozTocId458023"></a>General Notes</h1><span style="font-size: 12pt;"><font face="Arial"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">
+<span style="font-size: 12pt;">Use functions like<br>
+<b>DoDickgirlChange<br>
+DefaultDickgirl<br>
+DefaultLesbian<br>
+DefaultGeneric <br>
+</b>to handle default images. You can also explicitly set<br>
+_root.UseGeneric = true;<br>
+to make the game use a generic image, or preferably call<br>
+_root.DefaultGeneric(100);<br>
+<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></span></span></span></font></span></font></span></font></font></font></font></span></span></span></span></span></span></span></span><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"></font></font></font></font></font></font></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"></font></font></font></font></font></font></span><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"></font></font></font></font></font></span><font color="#000000"><font color="#000000"><font color="#000000"><font color="#000000"></font></font></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span>

@@ -1,0 +1,1533 @@
+<table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top;">
+          <table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">Building an XML based Slave<br></span></font></td>
+
+                <td style="vertical-align: top;"><br></td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3
+                SDK</span></a></td>
+
+                <td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Version 8</font><br></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table><span style="font-size: 12pt; font-family: Arial;">
+<br>
+Every slave and assistant has an optional XML file that can be used to initialise their variables, show introductions and even show images.<br>
+<br>
+See <a href="Core%20-%20XML%20Events%20-%20Common.html">Core - XML Events - Common.html </a>for a general overview of xml in the game and file locations.<br><br><span style="font-weight: bold;">Table of Contents</span><br>
+</span><ul style="font-family: Arial;" id="mozToc"><!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6--><li><a href="#mozTocId953742">Creating the XML Slave Files</a><ul><li><a href="#mozTocId158393">1) Create a new xml file for the slave</a></li><li><a href="#mozTocId602320">2) Create a new SlaveGirlxx.txt file</a></li><li><a href="#mozTocId91259">3) Create an image for the slave to appear when selecting</a></li><li><a href="#mozTocId978389">4) Create an image folder for the slave and a base image</a></li></ul></li><li><a href="#mozTocId725674">Create the XML for the Slave</a></li><li><a href="#mozTocId856689">Initialisation</a></li><li><a href="#mozTocId391021">When used as an Assistant</a></li></ul><span style="font-size: 12pt; font-family: Arial;"><br></span><hr style="width: 100%; height: 2px;"><h1><a class="mozTocH1" name="mozTocId953742"></a><span style="font-size: 12pt; font-family: Arial;"></span>Creating the XML Slave Files<span style="font-family: Arial;"></span></h1><span style="font-family: Arial;"></span><span style="font-family: Arial;"></span><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId158393"></a><span style="color: rgb(51, 0, 153); font-style: italic; font-weight: bold;">1) Create a new xml file for the slave</span></h2><span style="font-family: Arial;">Use the naming system/pattern</span><br style="font-family: Arial;"><span style="font-family: Arial;">Slaves/Slave-</span><span style="font-style: italic; font-family: Arial;">name</span><span style="font-family: Arial;">.xml</span><br style="font-family: Arial;"><span style="font-family: Arial;">ie</span><br style="font-family: Arial;"><span style="font-family: Arial;">in the Slaves folder, and where </span><span style="font-style: italic; font-family: Arial;">name</span><span style="font-family: Arial;"> is the name of your slave.</span><br style="font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000"><font color="#000000"><font color="#0000ff"><font color="#000000"><font color="#0000ff"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000"><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000"><font color="#0000ff"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></font></font></span></font></font></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></font></font></span></span></span></span></span></span></span></span></span></span><font style="font-family: Arial;" face="Arial"><span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><i><font color="#000080"><b><span style="font-size: 14pt;"><br></span></b></font></i></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></font></span></font></span></font></font></font></span></font></font></font></span></font></span></font></span></font><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;">
+For translation copy this file and create for Russian for example<br>
+Slave-Aeris-Russian.xml<br>
+and similarly for other languages. Note these are in the same folder, not a subfolder like above.<br>
+</span></span><br><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId602320"></a><span style="color: rgb(51, 0, 153); font-style: italic; font-weight: bold;">2) Create a new SlaveGirlxx.txt file<br></span></h2>
+<font style="font-family: Arial;" face="Arial"><span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><i><font color="#000080"><b><span style="font-size: 14pt;">
+</span></b></font></i><span style="font-size: 12pt;"></span></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></font></span></font></span></font></font></font></span></font></font></font></span></font></span></font></span></font><font style="font-family: Arial;" face="Arial" size="-1"><span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000">See <a href="Building%20-%20Actionscript%20Slaves.html#mozTocId793701">Building - Actionscript Slaves.html</a> for details.<br><br></font></font></span></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></font></span></font></span></font></font></font></span></font></font></font></span></font></span></font></span></font><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId91259"></a><span style="color: rgb(51, 0, 153); font-style: italic; font-weight: bold;">3) Create an image for the slave to appear when selecting<br></span></h2><span style="font-family: Arial;">
+Add an image like</span><br style="font-family: Arial;"><span style="font-family: Arial;">Slaves/Slave-</span><span style="font-style: italic; font-family: Arial;">name</span><span style="font-family: Arial;">.png</span><br style="font-family: Arial;"><br style="font-family: Arial;"><span style="font-family: Arial;">This can be a jpg, png. gif file, recommend jpg or png.</span><br style="font-family: Arial;"><br style="font-family: Arial;"><span style="font-family: Arial;">Note
+the name must correspond exactly to the name of the xml created above.
+Also note slaves do not use an &lt;Image&gt; node for this to be
+shown.<br><br></span><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId978389"></a><span style="color: rgb(51, 0, 153); font-style: italic; font-weight: bold;">4) Create an image folder for the slave and a base image<br></span></h2><span style="font-family: Arial;">All slaves will have a folder in a location</span><br style="font-family: Arial;"><span style="font-family: Arial;">Images/Slaves/</span><span style="font-style: italic; font-family: Arial;">name</span><br style="font-family: Arial;"><font style="font-family: Arial;" face="Arial"><span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><span style="font-size: 12pt;"><font color="#000000"><span style="font-size: 12pt;"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000">eg<br>Images/Slaves/Daisy<br><br>Now add an image file to that folder<br>Assistant.jpg<br><br>This
+is the default image shown in the lower left person window during game
+play when the slave is used as an assustant. Ideally the image should be square (ie width equal to height),
+but this is not required.<br><br><br></font></font></span></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></font></span></font></span></font></font></font></span></font></font></font></span></font></span></font></span></font><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000"><font color="#000000"><font color="#0000ff"><font color="#000000"><font color="#0000ff"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000"><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000"><font color="#0000ff"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;">
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></font></font></span></font></font></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></font></font></span></span></span></span></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId725674"></a>Create the XML for the Slave</h1><span style="font-family: Arial;"></span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;">All data in the slave's XML file are structured in general as<br>
+<br><font size="-1">
+&lt;Language&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Slave&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/Slave&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Events&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/Events&gt;<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Planning&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Acts&gt;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;DoPlanning&gt;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/DoPlanning&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/Acts&gt;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/Planning&gt;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Other&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Other&gt;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;EndGame&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/EndGame&gt;<br><br></font></span></span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><font size="-1">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Assistant&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/Assistant&gt;</font></span></span><br><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><font size="-1">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&lt;/Language&gt;<br></font>
+
+
+<br>
+<br>
+All the nodes are optional, except the &lt;Slave&gt; node.<br><br>These node represent<br><br></span></span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"></span></span><h2><a href="#mozTocId856689">&lt;Slave&gt;</a></h2>This is the initialisation information for the slave. It contains all the statictics, meaurements, skills and similar information for the slave.<br><br><h2>&lt;Events&gt;</h2>This node has the custom events for the slave.<br><br>Note: this node is included in the &lt;Slave&gt; node for assistants and minor slaves. For a slave you can include versions inside &lt;Slave&gt; as well. This will represent events for the slave when <br><ul><li>slave is acting as an assistant</li><li>you talk to the slave via the 'Talk to Slaves' screen</li></ul>when used as an assistant or owned slave the &lt;Events&gt; node outside of &lt;Slave&gt; node is ignored completely.<br><br><h2>&lt;Planning&gt;<br></h2><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;">This is where you customise the slaves tranings and interactions with your Slave Maker. You can add custom jobs, chores, schools, sex acts. You can also customise talking with your slave makers and the various standard trainings.<br><br>As for &lt;Events&gt; yhere is a separate version included inside &lt;Slave&gt; node for use when the slave is an assistant, owned slave or minor slave. Notably for the &lt;SlaveTalk&gt; and &lt;SlaveIntimacy&gt; nodes.<br></span></span><h2>&lt;Other&gt;</h2>
+This node allow you to customise love confessions and pregnancy effects for the slave.<br><br><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;">As
+for &lt;Events&gt; yhere is a separate version included inside
+&lt;Slave&gt; node for use when the slave is an assistant, owned slave
+or minor slave. Notably for the &lt;SlaveTalk&gt; and
+&lt;SlaveIntimacy&gt; nodes.<br>
+</span></span>
+
+<br><h2>&lt;EndGame&gt;</h2>
+This is where you implement custom endings for the slave<br><br><h2>&lt;Assistant&gt;</h2>
+This node contains specifc nodes for the the slave for when they are used as an assistant<br><br><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId856689"></a>&lt;Slave&gt; Initialisation<span style="font-size: 12pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;"></span></b></u></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;">
+</span></b></u><span style="font-size: 12pt;"><b>
+</b>All slave variables can be initialised in the &lt;Slave&gt; node. Some are only checked when a new game is started and others also when a game is loaded. The game automatically decides which variables to load at which time. In most cases the name of the tag is the same as an existing variable in this SDK<br>
+<br>
+A few variables are clearly for start game only, particularly those for the introduction screens.<br>
+<span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000"><font color="#000000"><u><b><span style="font-size: 14pt;"></span></b></u><b><br>
+<br>
+General Variables<br>
+<span style="font-size: 12pt;">These appear in the base &lt;Slave&gt; node and are only checked by the game when the slave starts being trained<br>
+<span style="font-size: 14pt;"><br>
+<span style="font-size: 12pt;">&lt;Name&gt;</span></span></span></b>string<b>&lt;/Name&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="#0000ff">MANDATORY<font color="#000000"><br>
+</font></font></b><font color="#0000ff"><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The slave's name.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> SlaveName<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> none<br>
+<br>
+<b>&lt;Folder&gt;</b>string<b>&lt;/Folder&gt;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="#0000ff">MANDATORY for pure XML slaves</font></b><font color="#0000ff"><font color="#000000"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The relative path to the folder containing the images for the slave. This is relative to the location of SlaveMaker.exe/SlaveMaker.swf. Use / in the path, not Windows type \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> SlaveFolder <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> none&nbsp;&nbsp;&nbsp;
+<br>
+<span style="font-size: 10pt;"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Folder&gt;Images/Mai&lt;/Folder&gt;<span style="font-size: 12pt;"><br>
+<br>
+<b>&lt;Price&gt;</b>number<b>&lt;/Price&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The purchase price for the slave when purchased by a Freelance Slave Maker<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> Price<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> 200<br>
+<br>
+<b>&lt;Gender&gt;</b>number or string<b>&lt;/Gender&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b>Values 1-6 (see Core - Variables.rtf) or male, female, dickgirl, male twins, female twins, dickgirl twins<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> SlaveGender<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> 2 (female)<br>
+<br>
+<span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Gender&gt;3&lt;/Gender&gt;<span style="font-size: 12pt;"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="font-size: 10pt;">or<br>
+<span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="font-size: 10pt;">&lt;Gender&gt;dickgirl&lt;/Gender&gt;<span style="font-size: 12pt;"><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Note hermaphrodite can be used interchangably with dickgirl<br>
+<span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+eg<span style="font-size: 12pt;"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="font-size: 10pt;">&lt;Gender&gt;hermaphrodite twins&lt;/Gender&gt;<span style="font-size: 12pt;"><br>
+<br>
+<b>&lt;GenderBorn&gt;</b>number or string<b>&lt;/GenderBorn&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The gender the slave was born. Same values as &lt;Gender&gt;<b><br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> SlaveGenderBorn<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> SlaveGender<br>
+<b><span style="font-size: 14pt;"><br>
+<span style="font-size: 12pt;">&lt;Image&gt;</span></span></b><i>filename</i><b>&lt;/Image&gt;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="#0000ff">MANDATORY for pure XML slaves<font color="#000000"><br>
+</font></font></b><font color="#0000ff"><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The filename for the image shown in the Participant selection screen.&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> SlaveImage<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> none<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Image&gt;Images/Mai/Chore - Discuss 1.jpg&lt;/Image&gt;<br>
+<span style="font-size: 12pt;"><br>
+<b>&lt;Available </b><i>conditionals </i><b>/&gt;</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+A comditional to determine if the slave is available for training<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> Available<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> true<br>
+<span style="font-size: 10pt;"><br>
+<span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="font-size: 10pt;">eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Available renown="80+" ponytrainer="2+"/&gt;<span style="font-size: 12pt;"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<b>&lt;CustomFlag&gt;</b><i>expression</i><b>&lt;/CustomFlag&gt;</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Set the initial value for a custom flag to the result of an expression<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> CustomFlag<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> -1<br>
+<span style="font-size: 10pt;"><br>
+<span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="font-size: 10pt;">eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;CustomFlag&gt;0&lt;/CustomFlag&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+sets the initial value to 0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ie CustomFlag = 0;<span style="font-size: 12pt;"><br>
+<br>
+<b>&lt;CustomFlag1&gt;</b><i>expression</i><b>&lt;/CustomFlag1&gt;</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Set the initial value for a custom flag<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> CustomFlag1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> -1<br>
+<br>
+<b>&lt;CustomFlag2&gt;</b><i>expression</i><b>&lt;/CustomFlag2&gt;</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Set the initial value for a custom flag<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> CustomFlag2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> -1<br>
+<br>
+<b>&lt;CustomFlag3&gt;</b><i>expression</i><b>&lt;/CustomFlag3&gt;</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Set the initial value for a custom flag<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> CustomFlag3<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> -1<br>
+<br>
+<b>&lt;CustomFlag4&gt;</b><i>expression</i><b>&lt;/CustomFlag4&gt;</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Set the initial value for a custom flag<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> CustomFlag4<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> -1<br>
+<br>
+<b>&lt;CustomFlag5&gt;</b><i>expression</i><b>&lt;/CustomFlag5&gt;</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Set the initial value for a custom flag<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> CustomFlag5<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> -1<br>
+<br>
+<b>&lt;CustomFlag6&gt;</b><i>expression</i><b>&lt;/CustomFlag6&gt;</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Set the initial value for a custom flag<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> CustomFlag6<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> -1<br>
+<br>
+<b>&lt;CustomFlag7&gt;</b><i>expression</i><b>&lt;/CustomFlag7&gt;</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Set the initial value for a custom flag<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> CustomFlag7<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> -1<br>
+<br>
+<b>&lt;CustomFlag8&gt;</b><i>expression</i><b>&lt;/CustomFlag8&gt;</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Set the initial value for a custom flag<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> CustomFlag8<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> -1<br>
+<br>
+<b>&lt;CustomFlag9&gt;</b><i>expression</i><b>&lt;/CustomFlag9&gt;</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Set the initial value for a custom flag<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> CustomFlag9<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> -1<br>
+<br>
+<b>&lt;CustomString&gt;</b>string<b>&lt;/CustomString&gt;</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Set the initial value for a custom flag<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> CustomString<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> ""<br>
+<br>
+<b>&lt;VirginVaginal&gt;</b>boolean<b>&lt;/VirginVaginal&gt;</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Is the slave a virgin (in her pussy for females, for males have they fucked ever before)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> VirginVaginal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> false<br>
+<br>
+<b>&lt;VirginAnal&gt;</b>boolean<b>&lt;/VirginAnal&gt;</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Is the slave a virgin (in their ass)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> VirginAnal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> false<br>
+<br>
+<b>&lt;VirginOral&gt;</b>boolean<b>&lt;/VirginOral&gt;</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Is the slave a virgin of oral sex<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> VirginOral<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> false<br>
+<br>
+<b>&lt;Sexuality&gt;</b>boolean<b>&lt;/Sexuality&gt;</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The slaves sexuality <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> Sexuality<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> 100<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<b>&lt;Bust&gt;</b>number<b>&lt;/Bust&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b>The circumference of your slave's bust in centimeters<b><br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> vitalsBust<br>
+<br>
+<b>&lt;Waist&gt;</b>number<b>&lt;/Waist&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The circumference of your slave's waist in centimeters<b><br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> vitalsWaist <br>
+<br>
+<b>&lt;Hips&gt;number&lt;/Hips&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The circumference of your slave's hips in centimeters<b><br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> vitalsHips<br>
+<br>
+<b>&lt;Age&gt;</b>number<b>&lt;/Age&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b>The slave's age in years<b><br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> vitalsAge<br>
+<br>
+<b>&lt;Weight&gt;</b>number<b>&lt;/Weight&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The slave's weight in kilograms<b><br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> vitalsWeight<br>
+<br>
+<b>&lt;Height&gt;</b>number<b>&lt;/Height&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The slave's height in centimeters<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> vitalsHeight <br>
+<br>
+<b>&lt;ClitCockSize&gt;</b>number<b>&lt;/ClitCockSize&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The size of the slaves clit in centimeters. If your slave has a cock this is the size of their cock * 30 in centimeters<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> ClitCockSize<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> 0.6<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<b>&lt;BloodType&gt;</b>string<b>&lt;/BloodType&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The slave's blootype (O, A, B, AB)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> vitalsBloodType<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> O<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<b>&lt;Description&gt;</b>string<b>&lt;/Description&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="#0000ff">MANDATORY<font color="#000000"><br>
+</font></font></b><font color="#0000ff"><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+A short description of your slave like "The angry girl"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> vitalsDescription<br>
+<br>
+<b>&lt;IntimacyOK&gt;</b>boolean<b>&lt;/IntimacyOK&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+For minor slaves and assistants only. Will they do sex acts or assist in sex trainings<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> IntimacyOK<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> true<br>
+<br>
+<b>&lt;Path1&gt;</b>number<b>&lt;/Path1&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+This is a general variable for 3 possible paths of development<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> Path1 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> 0<br>
+<br>
+<b>&lt;Path2&gt;</b>number<b>&lt;/Path2&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+This is a general variable for 3 possible paths of development<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> Path2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> 0<br>
+<br>
+<b>&lt;Path3&gt;</b>number<b>&lt;/Path3&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+This is a general variable for 3 possible paths of development<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> Path3<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> 0<br>
+<br>
+<b>&lt;Slutiness&gt;</b>number<b>&lt;/Slutiness&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+How much of a slut is the slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> Slutiness<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> 1<br>
+<br>
+<b>&lt;Loyalty&gt;</b>number<b>&lt;/Loyalty&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+How loyal the slave is (0 completely)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> Loyalty<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> 6<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<b>&lt;FairyXF&gt;</b>number<b>&lt;/FairyXF&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Progress of her fairy transformation 0-100, 1000-complete<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> FairyXF<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> -1<br>
+<br>
+<b>&lt;PonygirlInterest&gt;</b>number<b>&lt;/PonygirlInterest&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Level of Ponygirl Trainer needed to train as a ponygirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> PonygirlInterest<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> 1<br>
+<br>
+<b>&lt;LesbianInterest&gt;</b>number<b>&lt;/LesbianInterest&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Level of Lesbian Trainer needed to train as a lesbian<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> LesbianInterest<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> 1<br>
+<br>
+<b>&lt;CatgirlInterest&gt;</b>number<b>&lt;/CatgirlInterest&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Level of Catgirl Trainer needed to train as a catgirl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> CatgirlInterest<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> 1<br>
+<br>
+<b>&lt;SuccubusInterest&gt;</b>number<b>&lt;/SuccubusInterest&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Level of Succubus Trainer needed to train as a succubus<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> SuccubusInterest<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default:</u> 1<br>
+<br>
+<b>&lt;TrainingTime&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> TrainingTime<br>
+<br>
+<b>&lt;MaxTentacleHarem&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> MaxTentacleHarem<br>
+<br>
+<b>&lt;IntroPages&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> IntroPages<br>
+<br>
+<b>&lt;Available&gt;</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Is the slave available in the Slave Market<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> Available<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<br>
+<b><span style="font-size: 14pt;">Statistics<br>
+<span style="font-size: 12pt;">The following appear in the subnode of the base slave node &lt;Statistics&gt;<span style="font-size: 14pt;"><br>
+<font color="#0000ff"><span style="font-size: 12pt;">Following are MANDATORY<font color="#000000"><span style="font-size: 14pt;"><br>
+</span></font></span></font></span></span></span></b><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000">Well, sort of, all statistics default to 0 if not supplied<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<span style="font-size: 10pt;">&lt;Statistics&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Charisma&gt;20&lt;/Charisma&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Sensibility&gt;10&lt;/Sensibility&gt;<br>
+&lt;/Statistics&gt;<b><span style="font-size: 12pt;"><br>
+</span></b><span style="font-size: 10pt;"><br>
+<span style="font-size: 12pt;"><br>
+<b>&lt;Charisma&gt;</b>number<b>&lt;/Charisma&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> VarCharisma<br>
+<b>&lt;Sensibility&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> VarSensibility <br>
+<b>&lt;Refinement&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> VarRefinement<br>
+<b>&lt;Intelligence&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> VarIntelligence<br>
+<b>&lt;Morality&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> VarMorality<br>
+<b>&lt;Constitution&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> VarConstitution<br>
+<b>&lt;Cooking&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> VarCooking<br>
+<b>&lt;Cleaning&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> VarCleaning<br>
+<b>&lt;Conversation&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> VarConversation<br>
+<b>&lt;Fitness&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> FatigueBonus<br>
+<b>&lt;BlowJob&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> VarBlowJob<br>
+<b>&lt;Fuck&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> VarFuck<br>
+<b>&lt;Temperament&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> VarTemperament<br>
+<b>&lt;Nymphomania&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> VarNymphomania<br>
+<b>&lt;Obedience&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> VarObedience<br>
+<b>&lt;Lust&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> VarLibido<br>
+<b>&lt;Reputation&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> VarReputation<br>
+<b>&lt;Fatigue&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> VarFatigue<br>
+<b>&lt;Joy&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> VarJoy<br>
+<b>&lt;LovePoints&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> VarLovePoints<br>
+<br>
+<font color="#0000ff"><b>Following are OPTIONAL</b><font color="#000000"><br>
+<b>&lt;Special&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> VarSpecial<br>
+<b>&lt;Cunnilingus&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> VarCunnilingus<br>
+<b>&lt;LesbianFuck&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> VarLesbianFuck<br>
+<b>&lt;MaxFuck&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> MaxFuck<br>
+<b>&lt;MaxBlowJob&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> MaxBlowJob<br>
+<b>&lt;MaxObedience&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> MaxObedience<br>
+<br>
+<b>&lt;Deficiency&gt;</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+A specified statistic increases at 50% of the normal rate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+charisma<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+sensibility<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+refinement<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+intelligence<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+morality<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+constitution<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+cooking<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+cleaning<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+conversation<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+blowjob or blowjobs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fuck or fucking<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+temperament<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+nymphomania<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+obedience<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+lust<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fatigue or tiredness<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+joy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+special<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;Deficiency&gt;charisma&lt;/Deficiency&gt;<br>
+<span style="font-size: 12pt;"><br>
+<b>&lt;NaturalTalent&gt;</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+A specified statistic increases at 150% of the normal rate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+charisma<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+sensibility<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+refinement<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+intelligence<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+morality<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+constitution<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+cooking<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+cleaning<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+conversation<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+blowjob or blowjobs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fuck or fucking<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+temperament<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+nymphomania<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+obedience<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+lust<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fatigue or tiredness<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+joy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+special<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;NaturalTalent&gt;constitution&lt;/NaturalTalent&gt;<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">Skills<br>
+<span style="font-size: 12pt;">The following appear in the subnode of the base slave node &lt;Skills&gt;<span style="font-size: 14pt;"><br>
+</span></span></span></b><span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<b>&lt;Singing&gt;</b>number<b>&lt;/Singing&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> slSinging<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default: </u>0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>range: </u>0 to 5<br>
+<b>&lt;Dancing&gt;</b>number<b>&lt;/Dancing&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> slDancing<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default: </u>0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>range: </u>0 to 5<br>
+<b>&lt;Swimming&gt;</b>number<b>&lt;/Swimming&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> slSwimming<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default: </u>0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>range: </u>0 to 5<br>
+<b>&lt;Combat name="?????"&gt;</b>number<b>&lt;/Combat&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> slCombat<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>default: </u>0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>range: </u>0 to 100<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;Skills&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Swimming&gt;1&lt;/Swimming&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Combat name="Martial Arts"&gt;20&lt;/Combat&gt;<br>
+&lt;/Skills&gt;<span style="font-size: 12pt;"><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<b><span style="font-size: 14pt;">Difficulties<br>
+<span style="font-size: 12pt;">The following appear in the subnode of the base slave node &lt;Difficulties&gt;<span style="font-size: 14pt;"><br>
+</span></span></span></b><span style="font-size: 12pt;"><br>
+All these should have the range 0 to 300 and default to 0. They are used the same as a simple number node<br>
+<span style="font-size: 10pt;">eg<br>
+&lt;Difficulties&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;XXX&gt;40&lt;/XXX&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;XXXContest&gt;40&lt;/XXXContest&gt;<span style="font-size: 12pt;"><br>
+<span style="font-size: 10pt;">&lt;/Difficulties&gt;<br>
+<span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<b>&lt;XXX&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Difficulty to attend the XXX School&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> DifficultyXXX<br>
+<b>&lt;XXXContest&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Difficulty to compete in the XXX Contest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> DifficultyXXXContest<br>
+<b>&lt;Expose&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Difficulty to do the 'Expose Herself' Chore<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> DifficultyExhib<br>
+<b>&lt;SleazyBar&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Difficulty to work in the Sleazy Bar&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> DifficultySleazyBar<br>
+<b>&lt;Brothel&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Difficulty to work in the Brothel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> DifficultyBrothel<br>
+<b>&lt;Touch&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Difficulty to do the Touch Her sex act<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> DifficultyTouch<br>
+<b>&lt;Lick&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Difficulty to do the Lick Her sex act&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> DifficultyLick<br>
+<b>&lt;Fuck&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Difficulty to do the Fuck sex act<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> DifficultyFuck<br>
+<b>&lt;Blowjob&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Difficulty to compete in the XXX Contest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> DifficultyBlowjob<br>
+<b>&lt;TitsFuck&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Difficulty to compete in the XXX Contest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> DifficultyTitsFuck<br>
+<b>&lt;Anal&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Difficulty to compete in the XXX Contest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> DifficultyAnal<br>
+<b>&lt;Dildo&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Difficulty to compete in the XXX Contest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> DifficultyDildo<br>
+<b>&lt;Plug&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Difficulty to compete in the XXX Contest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> DifficultyPlug<br>
+<b>&lt;Lesbian&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Difficulty to compete in the XXX Contest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> DifficultyLesbian<br>
+<b>&lt;Bondage&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Difficulty to compete in the XXX Contest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> DifficultyBondage<br>
+<b>&lt;Naked&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Difficulty to compete in the XXX Contest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> DifficultyNaked<br>
+<b>&lt;Master&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Difficulty to compete in the XXX Contest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> DifficultyMaster<br>
+<b>&lt;GangBang&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Difficulty to compete in the XXX Contest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> DifficultyGangBang<br>
+<b>&lt;Lend&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Difficulty to compete in the XXX Contest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> DifficultyLendHer<br>
+<b>&lt;Ponygirl&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Difficulty to compete in the XXX Contest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> DifficultyPonygirl<br>
+<b>&lt;Spanking&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Difficulty to compete in the XXX Contest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> DifficultySpank<br>
+<b>&lt;Threesome&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Difficulty to compete in the XXX Contest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> DifficultyThreesome<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Difficulties&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Anal&gt;15&lt;/Anal&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Blowjob&gt;10&lt;/Blowjob&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Bondage&gt;60&lt;/Bondage&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Brothel&gt;50&lt;/Brothel&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Dildo&gt;40&lt;/Dildo&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Expose&gt;20&lt;/Expose&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Fuck&gt;5&lt;/Fuck&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;GangBang&gt;85&lt;/GangBang&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;LendHer&gt;75&lt;/LendHer&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Lesbian&gt;70&lt;/Lesbian&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Lick&gt;5&lt;/Lick&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Master&gt;80&lt;/Master&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Masturbate&gt;0&lt;/Masturbate&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Naked&gt;20&lt;/Naked&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Plug&gt;55&lt;/Plug&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Ponygirl&gt;95&lt;/Ponygirl&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;SleazyBar&gt;15&lt;/SleazyBar&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Spanking&gt;30&lt;/Spanking&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Threesome&gt;15&lt;/Threesome&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;TitsFuck&gt;10&lt;/TitsFuck&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Touch&gt;5&lt;/Touch&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;XXX&gt;40&lt;/XXX&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;XXXContest&gt;30&lt;/XXXContest&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/Difficulties&gt;<span style="font-size: 12pt;"><br>
+<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">Images<br>
+<span style="font-size: 12pt;">The following appear in the subnode of the base slave node &lt;Images&gt;</span></span></b><br>
+Each of these node are used to show images, primarily for XML slaves. They can be manually invoked in actioncsript. Each corresponds to particularly named files in the folder pointed to by the &lt;Folder&gt; node above<br>
+<br>
+Each have set sub nodes<br>
+&lt;Normal&gt; - standard act, heterosexual sex<br>
+&lt;Naked&gt; - the slave is shown naked whie doing the act<br>
+&lt;Lesbian&gt; - show a lesbian version of the act<br>
+&lt;Dickgirl&gt; - show the slave as a dickgirl<br>
+&lt;Catgirl&gt; - show the slave as a catgirl<br>
+<br>
+These nodes just contains a count of the available images.<br>
+<br>
+The &lt;Normal&gt; node is mandatory, none of the others are and will intelligently default. If your slave is naked but there is no &lt;Naked&gt; node the game will use the &lt;Normal&gt; node. <br>
+For sex acts it will show images from &lt;Normal&gt; and &lt;Naked&gt; combined if they are clothed.<br>
+<br>
+<br>
+There is a special case for dickgirl images, <br>
+&lt;Dickgirl&gt;-2&lt;/Dickgirl&gt;<br>
+This means there are no specific dickgirl images available, but the first 2 normal images should be used for the dickgirl case. This is to allow you to select images where you cannot tell if she is a dickgirl or not (ie you do not see her groin clearly)<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">&lt;Fuck&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Normal&gt;5&lt;/Normal&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Lesbian&gt;1&lt;/Lesbian&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Dickgirl&gt;2&lt;/Dickgirl&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Naked&gt;1&lt;/Naked&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Catgirl&gt;1&lt;/Catgirl&gt;<br>
+&lt;Fuck&gt;<br>
+<br>
+In the folder pointed to by &lt;Folder&gt; there will be files<br>
+Sex Act - Fuck 1.jpg<br>
+Sex Act - Fuck 2.jpg<br>
+Sex Act - Fuck 3.jpg<br>
+Sex Act - Fuck 4.jpg<br>
+Sex Act - Fuck 5.jpg<br>
+Sex Act - Fuck (As Lesbian 1).jpg<br>
+Sex Act - Fuck (As Dickgirl 1).jpg<br>
+Sex Act - Fuck (As Dickgirl 2).jpg<br>
+Sex Act - Fuck (Naked 1).jpg<br>
+Sex Act - Fuck (As Catgirl 1).jpg<span style="font-size: 12pt;"><br>
+<br>
+Note:<br>
+the game supports the extensions<br>
+.jpg<br>
+.png<br>
+.gif<br>
+.swf<br>
+<br>
+The available node are<br>
+<u>sex acts</u><br>
+<b>Nothing<br>
+Touch<br>
+Lick<br>
+Fuck<br>
+BlowJob<br>
+TitsFuck<br>
+Anal<br>
+Masturbate<br>
+Dildo<br>
+Plug<br>
+Lesbian<br>
+Bondage<br>
+Naked<br>
+Master<br>
+GangBang<br>
+Lend<br>
+Ponygirl<br>
+Spanking<br>
+Threesome<br>
+SixtyNine<br>
+Orgy<br>
+KissMale<br>
+KissFemale<br>
+StripTease<br>
+CumBath<br>
+CustomSex1<br>
+CustomSex2<br>
+<br>
+</b><u>chores/jobs<br>
+</u><b>Cooking<br>
+Cleaning<br>
+Exercise<br>
+Discuss<br>
+Makeup<br>
+Sciences<br>
+Theology<br>
+Refinement<br>
+Dance<br>
+XXX<br>
+Expose<br>
+Restaurant<br>
+Acolyte<br>
+Bar<br>
+SleazyBar<br>
+SleazyBarStrip<br>
+Brothel<br>
+Break<br>
+CustomJob1<br>
+Read<br>
+CustomJob2<br>
+CustomJob3<br>
+Library<br>
+Onsen<br>
+CustomSchool1<br>
+CustomSchool2<br>
+CustomSchool3<br>
+CustomChore1<br>
+CustomChore2<br>
+CustomChore3<br>
+CockMilk<br>
+Singing<br>
+<br>
+</b><u>contests<br>
+</u><b>ContestXXX<br>
+ContestBeauty<br>
+ContestHousework<br>
+ContestAdvancedHousework<br>
+ContestCourt<br>
+ContestDance<br>
+ContestGeneralKnowledge<br>
+ContestPonygirl<br>
+<br>
+</b><u>other events and images<br>
+</u><b>TentacleSex<br>
+Tired<br>
+EventMilked<br>
+Dickgirl<br>
+EventGigaBE<br>
+ItemLingerie<br>
+ItemSwimsuit<br>
+EventNakedApron<br>
+EventRaped<br>
+ItemBunnySuit<br>
+ItemMaidUniform<br>
+EventFaerieTransformation<br>
+</b><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<u><b><span style="font-size: 14pt;">Initialisation (new game or when loading a game)</span></b></u><b><br>
+<span style="font-size: 12pt;">The following appear in the base node &lt;Slave&gt;</span></b><br>
+<br>
+<b>&lt;Version&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Version of the slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> SlaveVersion<br>
+<br>
+<b>&lt;Credits&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Credits and notes for the assistant.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> SlaveCredits<br>
+<br>
+<b>&lt;Pronoun&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> SlavePronoun<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<b>&lt;SlaveLikeServant&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> SlaveLikeServant<br>
+<br>
+<b>&lt;Attitude&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> SlaveAttitude<br>
+<br>
+<b>&lt;NobleLoveType&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> NobleLoveType<br>
+<br>
+<b>&lt;Milkable&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> Milkable<br>
+<br>
+<b>&lt;OwnerTesting&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> OwnerTesting<br>
+<br>
+<b>&lt;OwnerTestingUrgent&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> OwnerTestingUrgent<br>
+<br>
+<b>&lt;OldLover&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>sdk variable:</u> OldLover<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<b><span style="font-size: 14pt;">Dresses<br>
+<span style="font-size: 12pt;">The following appear in the subnode of the base slave node &lt;Dresses&gt;</span></span></b><br>
+<br>
+Each dress has it's own node selected by dress number<br>
+<b>&lt;Dress0&gt;<br>
+&lt;Dress1&gt;<br>
+&lt;Dress2&gt;<br>
+&lt;Dress3&gt;<br>
+&lt;Dress4&gt;<br>
+&lt;Dress5&gt;<br>
+&lt;Dress6&gt;</b><br>
+<br>
+Each dress has the following subnodes<br>
+<br>
+<b>&lt;Name&gt;&nbsp;&nbsp;
+<font color="#0000ff">MANDATORY<font color="#000000"><br>
+</font></font></b><font color="#0000ff"><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+the name of the dress<br>
+<br>
+<b>&lt;Price&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+the price of the dress at the tailors<br>
+<br>
+<b>&lt;Sold&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+is the dress sold at the tailors, defaults to true<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<b>&lt;StatEffects&gt;&nbsp;&nbsp;&nbsp;
+<font color="#0000ff">MANDATORY<font color="#000000"><br>
+</font></font></b><font color="#0000ff"><font color="#000000"><i>&lt;StatEffects&gt;Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Joy, Special&lt;/StatEffects&gt;<br>
+</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The effects the dress has as it is worn<br>
+<br>
+<font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>attributes</u><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b>holy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+easy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+courtly<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+swimsuit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+sleazybar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+slutty<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+dance | dancing<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+maid<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+lingerie<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+catears<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+cattail<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+miko<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+waitress<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+demonic<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b>Set these attributes to true to apply the property to the dress<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Optional for Dress 0<br>
+<br>
+<b>&lt;Effects&gt;<br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+A text description of the effect or properties of the dress, option as the game will automatically build a description based on the stat effects and properties.<br>
+<br>
+<b>&lt;Normal&gt;<br>
+&lt;Dickgirl&gt;<br>
+&lt;Catgirl&gt;</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Counts of the number of variations of the dress for normal, dickgirls and catgirls, defaults to &lt;Normal&gt;1&lt;/Normal&gt;<br>
+<br>
+The following are positions information for the item images that appear on the dresses. Generally these are created using the debugging menu.<br>
+<b>&lt;Halo&gt;<br>
+</b><span style="font-size: 10pt;">eg<br>
+&lt;Halo x='223.2' y='18.4' rotation='-5' width='180' height='55'/&gt;<br>
+<span style="font-size: 12pt;"><br>
+<b>&lt;Leash&gt;<br>
+</b><span style="font-size: 10pt;">eg<br>
+&lt;Leash x='262.4' y='60.75' rotation='0' width='60' height='120'/&gt;<br>
+<span style="font-size: 12pt;"><br>
+<b>&lt;BitGag&gt;<br>
+</b><span style="font-size: 10pt;">eg<br>
+&lt;BitGag frame='2' x='236.7' y='99.45' rotation='-10' width='60' height='39.3'/&gt;<br>
+<span style="font-size: 12pt;"><br>
+<b>&lt;NymphsTiara&gt;<br>
+</b><span style="font-size: 10pt;">eg<br>
+&lt;NymphsTiara x='227.3' y='33' rotation='-10' width='70' height='70'/&gt;<br>
+<span style="font-size: 12pt;"><br>
+<b>&lt;CatEars&gt;<br>
+</b><span style="font-size: 10pt;">eg<br>
+&lt;CatEars frame='1' x='223.75' y='46.85' rotation='-10' width='70' height='25' over='true'/&gt;<br>
+<span style="font-size: 12pt;"><br>
+<b>&lt;Tail&gt;<br>
+</b><span style="font-size: 10pt;">eg<br>
+&lt;Tail x='186.65' y='246.15' rotation='10' width='-130' height='119.3'/&gt;<br>
+<span style="font-size: 12pt;"><br>
+<b>&lt;Wings&gt;<br>
+</b><span style="font-size: 10pt;">eg<br>
+&lt;Wings x='238' y='185.35' rotation='0' width='320' height='260'/&gt;<br>
+<span style="font-size: 12pt;"><br>
+<span style="font-size: 10pt;">eg<br>
+&lt;Dresses&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Dress0&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Halo x='229.5' y='30.95' rotation='0' width='150' height='54'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Leash x='177.6' y='57' rotation='0' width='-80' height='120' over='true'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;BitGag frame='4' x='220' y='79' rotation='-10' width='55' height='40'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;NymphsTiara x='216' y='47' rotation='-10' width='50' height='45'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;CatEars frame='1' x='222.25' y='52.55' rotation='0' width='50' height='25' over='true'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Tail x='152' y='226' rotation='0' width='-150' height='80'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Wings x='217' y='150' rotation='10' width='-300' height='200'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/Dress0&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Dress1&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Name&gt;Shorts &amp;amp; Top&lt;/Name&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;StatEffects&gt;5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0&lt;/StatEffects&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Halo x='236.15' y='38.25' rotation='0' width='200' height='60'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Leash x='272' y='74.25' rotation='0' width='80' height='160'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;BitGag frame='2' x='228' y='130' rotation='-5' width='90' height='50'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;NymphsTiara x='212.7' y='57.7' rotation='-10' width='57.05' height='53'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;CatEars frame='1' x='229.5' y='46.55' rotation='0' width='80' height='30' over='true'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Tail x='290.2' y='248.4' rotation='-50' width='250' height='170'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Wings x='233' y='221' rotation='5' width='400' height='300'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/Dress1&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Dress2&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Name&gt;Bunny Suit&lt;/Name&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;StatEffects SleazyBar='true'&gt;10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 2, 0&lt;/StatEffects&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Halo x='223.9' y='21.25' rotation='0' width='130' height='45'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Leash x='247.25' y='42.85' rotation='0' width='60' height='120'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;BitGag frame='4' x='220' y='69' rotation='-15' width='40' height='30'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;NymphsTiara x='220' y='42.35' rotation='-10' width='40' height='40'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;CatEars frame='1' x='219.5' y='45.7' rotation='5' width='40' height='25' over='true'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Tail x='276.8' y='190.7' rotation='10' width='120' height='100'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Wings x='226.5' y='148' rotation='10' width='250' height='200'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/Dress2&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Dress3&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Name&gt;Very Little&lt;/Name&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;StatEffects Easy='true' Lingerie='true'&gt;5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 4, 0, 2, 0&lt;/StatEffects&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Halo x='223.2' y='18.4' rotation='-5' width='180' height='55'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Leash x='262.4' y='60.75' rotation='0' width='60' height='120'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;BitGag frame='2' x='236.7' y='99.45' rotation='-10' width='60' height='39.3'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;NymphsTiara x='227.3' y='33' rotation='-10' width='70' height='70'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;CatEars frame='1' x='223.75' y='46.85' rotation='-10' width='70' height='25' over='true'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Tail x='186.65' y='246.15' rotation='10' width='-130' height='119.3'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Wings x='238' y='185.35' rotation='0' width='320' height='260'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/Dress3&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Dress4&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Name&gt;Green Bikini&lt;/Name&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;StatEffects Swimsuit='true' Easy='true'&gt;10, 10, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0&lt;/StatEffects&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Halo x='215.3' y='24.15' rotation='5' width='184.1' height='70.5'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Leash x='258' y='59' rotation='0' width='90' height='140'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;BitGag frame='4' x='217.4' y='80.7' rotation='-15' width='60' height='40'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;NymphsTiara x='210.7' y='32.2' rotation='-10' width='60' height='60'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;CatEars frame='1' x='231' y='29.6' rotation='10' width='60' height='25' over='true'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Tail x='292.3' y='280.15' rotation='10' width='148.75' height='140.05'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Wings x='220.85' y='183' rotation='5' width='400' height='300'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/Dress4&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Dress5&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Name&gt;Strap Swimsuit&lt;/Name&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;StatEffects Swimsuit='true' Easy='true'&gt;10, 0, 10, 0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 5, 0, 5, 0&lt;/StatEffects&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Halo x='242.65' y='16.35' rotation='0' width='130' height='40'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Leash x='202.4' y='17.85' rotation='0' width='-70' height='120'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;BitGag frame='2' x='245.5' y='64.15' rotation='0' width='45' height='30'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;NymphsTiara x='242.5' y='29.5' rotation='-10' width='30' height='30'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;CatEars frame='1' x='244.75' y='31.8' rotation='0' width='40' height='25' over='true'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Tail x='307' y='179' rotation='10' width='150' height='120'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Wings x='246' y='116.5' rotation='-10' width='300' height='250'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/Dress5&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Dress6&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Name&gt;Slutty Straps&lt;/Name&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;StatEffects Slutty='true' Easy='true'&gt;30, 0, 10, 0, 0, 0, 0, 0, 0, 10, 10, 10, 10, 15, 15, 0, 15, 0&lt;/StatEffects&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Halo x='220.5' y='24' rotation='-5' width='200' height='50'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Leash x='272' y='76.5' rotation='0' width='-100' height='140'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;BitGag frame='2' x='233.5' y='113.25' rotation='-10' width='70' height='35'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;NymphsTiara x='222.9' y='46.65' rotation='-10' width='80' height='80'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;CatEars frame='1' x='220.25' y='49.65' rotation='-10' width='80' height='25' over='true'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Tail x='141' y='291.5' rotation='10' width='-190' height='145'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;Wings x='231.5' y='225.5' rotation='5' width='400' height='350'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/Dress6&gt;<br>
+&lt;/Dresses&gt;<span style="font-size: 12pt;"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;
+<br>
+<br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></font></font></span></font></font></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></font></font></span></span></span></span></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId391021"></a>When used as an Assistant<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000"><font color="#000000"><font color="#0000ff"><font color="#000000"><font color="#0000ff"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000"><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000"><font color="#0000ff"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></font></font></span></font></font></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></font></font></span></span></span></span></span></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000"><font color="#000000"><font color="#0000ff"><font color="#000000"><font color="#0000ff"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000"><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font color="#0000ff"><font color="#000000"><font color="#0000ff"><font color="#000000"><font color="#000000"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><b>
+<span style="font-size: 12pt;"></span></b><font color="#0000ff"><font color="#000000"><font color="#0000ff"><font color="#000000"><font color="#0000ff"><font color="#000000"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;">See <a href="Building%20-%20XML%20Assistants.html">Building - XML Assistants.html</a> for more details.<br><br>
+</span></span></span></span></font></font></font></font></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></font></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></font></font></span></font></font></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></span></span></span></span></span></span></span></span></span></font></font></font></font></font></font></font></span></span></span></span></span></span></span></span></span></span>

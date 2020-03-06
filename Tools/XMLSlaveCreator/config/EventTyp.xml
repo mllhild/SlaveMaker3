@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<EventMainType>
+  <EventList>
+    <Events>EarlyMorning</Events>
+    <Events>Custom</Events>
+  </EventList>
+  <Planning>
+    <Acts>
+      <Events>Nothing</Events>
+    </Acts>
+  </Planning>
+</EventMainType>

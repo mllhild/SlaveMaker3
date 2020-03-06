@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base>
+<ConditionList>
+  <Condition>
+    <Name>chance</Name>
+    <Description>A percentage chance that the conditional will be true and it's subnodes are processed.</Description>
+    <Values>
+      <Value type="numeric">%</Value>
+    </Values>
+  </Condition>
+  <Condition>
+    <Name>supervise</Name>
+    <Description>
+      This is the person who is supervising your slave. 
+    </Description>
+    <Values>
+      <Value type="radio">slavemaker</Value>
+      <Value type="radio">assistant</Value>
+    </Values>
+  </Condition>
+  <Condition>
+    <Name>slavegender</Name>
+    <Description>
+      This is the gender of your current slave. Also provides a check if your slaves are twins.
+    </Description>
+    <Values>
+      <Value type="radio">1</Value>
+      <Value type="radio">2</Value>
+      <Value type="radio">3</Value>
+      <Value type="radio">4</Value>
+      <Value type="radio">5</Value>
+      <Value type="radio">6</Value>
+      <Value type="radio">twins</Value>
+    </Values>
+  </Condition>
+  <Condition>
+    <Name>assistantgender</Name>
+    <Description>
+      This is the gender of your current assistant. Also provides a check if your slaves are assistant.
+    </Description>
+    <Values>
+      <Value type="radio">1</Value>
+      <Value type="radio">2</Value>
+      <Value type="radio">3</Value>
+      <Value type="radio">4</Value>
+      <Value type="radio">5</Value>
+      <Value type="radio">6</Value>
+      <Value type="radio">twins</Value>
+    </Values>
+  </Condition>
+  <Condition>
+    <Name>lactating</Name>
+    <Description>
+      Returns true if your slave is lactating (female or dickgirl slaves only)
+    </Description>
+    <Values>
+      <Value type="radio">true</Value>
+      <Value type="radio">false</Value>
+    </Values>
+  </Condition>
+  <Condition>
+    <Name>guildmember</Name>
+    <Description>
+      re you a member of the slavemaker guild.
+    </Description>
+    <Values>
+      <Value type="radio">true</Value>
+      <Value type="radio">false</Value>
+    </Values>
+  </Condition>
+  <Condition>
+    <Name>ispregnant</Name>
+    <Description>
+      Is the slave pregnant. Defaults to checking your current slave. Check slaves or NPCs by name. Also supports 'slavemaker' and 'assistant'
+    </Description> 
+    <Values>
+      <Value type="radio">true</Value>
+      <Value type="radio">false</Value>
+      <Value type="text">Default</Value>
+    </Values>
+  </Condition>
+  <Condition>
+    <Name>pregnancytype</Name>
+    <Description>
+      What is the slave pregnant with. Defaults to checking your current slave. Check slaves or NPCs by name. Also supports 'slavemaker' and 'assistant'
+      Values "Tentacles" or slave developer specific
+    </Description>
+    <Values>
+      <Value type="text">any</Value>
+      <Value type="text">Default</Value>
+    </Values>
+  </Condition>
+</ConditionList>
+</base>

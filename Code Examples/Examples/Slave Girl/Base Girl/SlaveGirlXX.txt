@@ -1,0 +1,1 @@
+girlname=Akane&girldesc=This girl was a slave trained by a foreign Slave Maker, but, she fled from her master. She was recaptured and her master asked you to train her once again. She is a very poor cook.&image=Slave-Akane.png&gamefile=Slave-Akane.swf

@@ -1,0 +1,499 @@
+<u style="font-family: Arial;"><b><span style="font-size: 18pt;"><u><b><span style="font-size: 18pt;"><table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239);" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">House Exploration<br>
+            </span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Version
+8</font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody></table></span></b></u></span></b></u><u style="font-family: Arial;"><b><span style="font-size: 18pt;"></span></b></u><span style="font-size: 12pt; font-family: Arial;"><i><br>
+</i>To explore a house or other place<br><br></span><span style="font-weight: bold; font-family: Arial;">Table of Contents</span><ul style="font-family: Arial;" id="mozToc"><!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6--><li><a href="#mozTocId917339">General Concepts</a><ul><li><a href="#mozTocId260936">Custom Houses</a></li><li><a href="#mozTocId331429">Exploring Houses</a></li></ul></li><li><a href="#mozTocId709359">Creating Custom Houses</a><ul><li><a href="#mozTocId287627">Actionscript</a><ul><li><a href="#mozTocId620750">AddCustomHouse</a></li><li><a href="#mozTocId224523">ShowCustomHouse</a></li><li><a href="#mozTocId920961">HideCustomHouse</a></li></ul></li><li><a href="#mozTocId93431">XML</a></li></ul></li><li><a href="#mozTocId905079">Visiting Homes</a></li><li><a href="#mozTocId761467">Exploring Homes Functions</a></li><li><a href="#mozTocId221522">Exploring</a></li></ul><br style="font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId917339"></a>General Concepts</h1><span style="font-family: Arial; outline-color: navy ! important; outline-style: dashed ! important; outline-width: 2px ! important;"></span><span style="font-family: Arial;">The houses your Slave Maker lives in are discussed in </span><a style="font-family: Arial;" href="Slave%20Maker%20-%20House.html">Slave Maker - House</a><span style="font-family: Arial;"> and the current house is shown on the Take A Walk map. If you take a walk and click on said link then it is possible to start a event where the house is explored. By defaul this is not done for standard homes in the game.</span><br style="font-family: Arial;"><br style="font-family: Arial;"><span style="font-family: Arial;">All functions are present in the object</span><br style="font-family: Arial;"><span style="font-weight: bold; font-family: Arial;">_root.HouseEvents</span><br style="font-family: Arial;"><span style="font-family: Arial;">Some functions are also present in _root for backward compatibility for previous versions of the game. Do not use those versions anymore.<br>eg<br></span><table style="text-align: left; width: 907px; height: 17px; background-color: rgb(239, 239, 239); font-family: Arial;" border="0" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; background-color: rgb(244, 244, 244);"><font size="-1">_root.HouseEvents.HideCustomHouse("Cave");<br>do not use<br>_root.HideCustomHouse(1);<br></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span>
+      </td>
+    </tr>
+  </tbody>
+</table><br style="font-family: Arial;"><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId260936"></a>Custom Houses</h2><span style="font-family: Arial;">A developer can add a custom 'house' or location to the Take a Walk map as a location to visit or explore, like the Red Lily, Peach's Cave, Mihoshi's 'Kiyone's House' and many more. These can be added by the slave, an assistant or a custom event.</span><br style="font-family: Arial;"><br style="font-family: Arial;"><span style="font-family: Arial;">Actionscript and XML are supported for this exploration and custom houses.</span><br style="font-family: Arial;"><br style="font-family: Arial;"><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId331429"></a>Exploring Houses</h2><span style="font-family: Arial;">A system is available to show a map while exploring of the rooms, passages, floors of a house, cave, dungeon etc. There are possible events when entering rooms, opening doors and so on. Doors can be locked and require a key to open (actually an event that unlocks the door)<br><br></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-family: Arial;"></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId709359"></a>Creating Custom Houses<br></h1><br style="font-family: Arial;"><span style="font-family: Arial;"></span><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId287627"></a>Actionscript</h2><span style="font-family: Arial;"></span><table style="text-align: left; width: 1449px; height: 313px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h3><a class="mozTocH3" name="mozTocId620750"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">AddCustomHouse</span></b></span></span></span></span></font></font></span></span></span></h3>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function AddCustomHouse(clabel:String, xpos:Number, ypos:Number, hint:String) : Number</span></i></span></span></span></span></font></font></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+            </span></i></span></span></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">no direct equivallent, see discussion below<font size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">Creates a new custom house, if it does not already exist. Returns a unique id for the house that can be passed to other functions, see below. The xpos, ypos are in the coordinated of the take a walk map, an area 800 by 600 pixels. By default custom houses are visible and visitable. </span></span></span></span></font></font></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      <br>
+      </span></span></span></span> <span style="font-size: 12pt;"><font size="-1">eg<br>
+      </font></span> <span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">actionscript:</span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1">var hid:Number<br>...<br>hid = _root.HouseEvents.AddCustomHouse("Arena", 100, 200, "#slave will fight in the arena");</font></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;"></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1"><br>
+      </font></span></span></span></span></span></span></span></span></span></span>
+      </td>
+    </tr>
+  </tbody>
+</table><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><span style="font-size: 10pt;"></span></span></span></span></span></span></span><br style="font-family: Arial;"><table style="text-align: left; width: 1449px; height: 245px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h3><a class="mozTocH3" name="mozTocId224523"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">ShowCustomHouse</span></b></span></span></span></span></font></font></span></span></span></h3>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function ShowCustomHouse(house:Object, xpos:Number, ypos:Number, hint:String)</span></i></span></span></span></span></font></font></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+            </span></i></span></span></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;ShowCustomHouse&gt;house&lt;/ShowCustomHouse&gt;<font size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">Show the custom house and optionally alter it's location on the take a walk map or mouse over hint. The house parameter is e</span></span></span></span></font></font></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">ither the unique numeric identifier retured by <a href="Core%20-%20House%20Exploration.html#mozTocId620750">AddCustomHouse</a> or the name of the house or it's XML node. If the house does not exist this will also create it, implicitly calling </span></span></span></span></font></font></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></font></font></span></span></span><font color="#808080"><font color="#000000"><a href="Core%20-%20House%20Exploration.html#mozTocId620750">AddCustomHouse</a></font></font> but note this does not return the uniqie id.<br><br><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">
+      In general just use this finction to show a hidden house, not to create it. Create using </span></span></span></span><font color="#808080"><font color="#000000"><a href="Core%20-%20House%20Exploration.html#mozTocId620750">AddCustomHouse</a>. Changing x,y positions or hints would be rarely used.</font></font><br> <span style="font-size: 12pt;"></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1">
+      </font></span></span></span></span></span></span></span></span></span></span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;">
+<br></span></span></span></span></span></span></span></span><table style="text-align: left; width: 1449px; height: 380px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h3><a class="mozTocH3" name="mozTocId920961"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">HideCustomHouse</span></b></span></span></span></span></font></font></span></span></span></h3>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function HideCustomHouse(house)</span></i></span></span></span></span></font></font></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+            </span></i></span></span></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;HideCustomHouse&gt;house&lt;/HideCustomHouse&gt;<font size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">Hides the selected custom house. You may pass the unique numeric identifier retured by <a href="#mozTocId620750">AddCustomHouse</a> or the name of the house or it's XML node.</span></span></span></span></font></font></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      <br></span></span></span></span><span style="font-size: 12pt;"><font size="-1">eg<br>
+      </font></span> <span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">actionscript:</span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1">var hid:Number<br>...say in Initialise();<br>&nbsp;hid = _root.HouseEvents.AddCustomHouse("Arena", 100, 200, "#slave will fight in the arena");<br>... in an event or Initialise()<br>_root.HouseEvents.HideCustomHouse(hid);<br>OR<br></font></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1">_root.HouseEvents.HideCustomHouse("Arena");<br>note: hid variable would have to be in global/class scope not a local variable.<br></font></span></span> <span style="font-size: 12pt;"></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1">
+      </font></span></span></span></span></span></span></span></span></span></span>
+      </td>
+    </tr>
+  </tbody>
+</table><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><i><span style="font-size: 12pt;"><br></span></i></span></span></span></span></span></span></span></span></span></span><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId93431"></a>XML</h2><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><i><span style="font-size: 12pt;"></span></i><span style="font-size: 12pt;"> To create a custom house using XML add to &lt;Events&gt; a node like the following<br><br></span><i><span style="font-size: 12pt;"></span></i><span style="font-size: 12pt;">&lt;CustomHouse-KiyonesHome name="Kiyone's Home" hint="Kiyone's home" xpos="80" ypos="180" show="true"&gt;<br>&nbsp;&nbsp;&nbsp; &lt;ShowImage image="Images/Slaves/Mihoshi/House - Kiyone's House 1.jpg" place="1" align="0"/&gt;<br>&nbsp;&nbsp;&nbsp; &lt;SetText&gt;#slave visits Kiyone at home, and they spend some time chatting.&lt;/SetText&gt;<br>&nbsp;&nbsp;&nbsp; &lt;Points&gt;0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0, 0&lt;/Points&gt;<br>&lt;/CustomHouse-KiyonesHome&gt;<br></span><i><span style="font-size: 12pt;"><br>to be expanded upon<br><br></span></i></span></span></span></span></span></span></span></span></span><span style="font-size: 10pt;"><span style="font-size: 12pt;">
+<u><b><span style="font-size: 14pt;"></span></b></u></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId905079"></a><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;"></span></b></u></span></span></span>Visiting Homes<span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;"></span></b></u></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;">
+</span></b></u></span></span><span style="font-size: 10pt;"></span><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><i><span style="font-size: 12pt;"></span></i><br>
+<u>Slave Girl Override function<br>
+</u><br>
+<b><span style="font-size: 14pt;">DoWalkHouse<br>
+</span></b><span style="font-size: 12pt;">Called when you click on a house in the Take a Walk screen. <br>
+<i><span style="font-size: 8pt;"><br>
+<span style="font-size: 12pt;">function DoWalkHouse(house:Number) : Boolean<br>
+</span></span></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>house&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</i>- the house visited.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-1 = custom house,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+see Home.HouseType for other values (Core - Variables.rtf)<i><br>
+</i><span style="font-size: 8pt;"><br>
+<span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return true to handle the walk, false to let the game do the default. There is no default for the custom house -1<br>
+<br></span></span></span></span></span></span></span></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId761467"></a>Exploring Homes Functions<span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;"></span></b></u></span></span></span></span></span></span></span></span></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 14pt;">
+</span></b></u><span style="font-size: 12pt;"><br>
+All the following functions are present in a root MovieClip HouseEvents<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">_root.HouseEvents.ShowCurrentFloor();<br>
+<span style="font-size: 12pt;"><br>
+<span style="font-size: 14pt;"><br>
+<b>InitialiseExploration<br>
+</b><span style="font-size: 12pt;">Call this function to start an exploration<br>
+<b><span style="font-size: 8pt;"><br>
+</span></b><i><span style="font-size: 12pt;">function InitialiseExploration(desc:String, desc2:String)<br>
+</span></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>desc&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</i>- Short description of the house<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>desc2&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</i>- a short description of the initial room you start in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+both parameters are optional<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">AddRoomAndPosition<br>
+</span></b><span style="font-size: 12pt;">This function adds a room to the map<br>
+<i><span style="font-size: 8pt;"><br>
+<span style="font-size: 12pt;">function AddRoomAndPosition(type:Number, desc:String, eventno:Number, xpos:Number, ypos:Number, rwidth:Number, rheight:Number, rrotate:Number, explored:Boolean)<br>
+</span></span></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>type &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</i>- type of room<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= plain room<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= corridor. no ends<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= corridor, dead end at top<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= corridor, dead end at bottom<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= room, rough walls<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= corridor, rough walls<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= corridor, rough walls, dead end at top<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= corridor, rough walls, dead end at bottom<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Note more are coming, stairs, trap doors...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>desc &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</i>- short description of the area<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>eventno &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</i>- event via DoNextEvent called when you enter the room<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>xpos </i>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- x position the room is drawn on screen<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>ypos</i>&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- y position of room<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>rwidth </i>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- width of room<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>rheight </i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- hright of room<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>rrotate </i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- rotation of the room, careful positions are awkward, but game automatically handles 90 properly<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>explored </i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- true and it is visible<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">AddDoorAndPosition<br>
+</span></b><span style="font-size: 12pt;">Position a door on the map, generally use the next function, but use this to placve a door at an arbitrary location or add hidden doors, just to connect rooms logically. Note room1 and room2 do not have to be adjacent<br>
+<b><span style="font-size: 8pt;"><br>
+</span></b><i><span style="font-size: 12pt;">function AddDoorAndPosition(room1:Number, room2:Number, hidden:Boolean, xpos:Number, ypos:Number, rwidth:Number, rheight:Number, rrotate:Number, locked:Boolean, eventno:Number)<br>
+</span></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>room1 </i>&nbsp;&nbsp;
+- room the door connects from<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>room2 </i>&nbsp;&nbsp;
+- room the door connects to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>hidden </i>&nbsp;
+- true and the door is invisible<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>xpos </i>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- x position of the door<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>ypos </i>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- y position of the door<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>rwidth </i>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- width of the door (default 25)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>rheight </i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- hieght of the door (default 14)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>rrotate </i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- rotation of the door, 90 is handled well, others can cause strange positioning<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>locked </i>&nbsp;
+- the door is locked preventing passage<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>eventno </i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- event called when you pass through the door<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">AddDoorToRoom<br>
+</span></b><span style="font-size: 12pt;">Position a door, automatically places on the map, connecting to room 1 and room 2. Note room1 and room2 do not have to be adjacent<br>
+<i><span style="font-size: 8pt;"><br>
+<span style="font-size: 12pt;">function AddDoorToRoom(room1:Number, room2:Number, dpos:Number, rwidth:Number, rheight:Number, eventno:Number, locked:Boolean)<br>
+</span></span></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>room1 &nbsp;&nbsp;
+</i>- room the door connects from<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>room2 &nbsp;&nbsp;
+</i>- room the door connects to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>dpos&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</i>- where to door is on the wall<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+top left of room<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+top center<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+top right<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+top of rightmost wall<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+center of right wall<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+bottom of right wall<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+right of bottom wall<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+center of botton wall<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+left of bottom wall<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+bottom of left wall<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+center of left wall<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+top of left wall<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>xpos &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</i>- x position of the door<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>ypos &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</i>- y position of the door<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>rwidth &nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</i>- width of the door (default 25)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>rheight &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</i>- hieght of the door (default 14)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>locked &nbsp;
+</i>- the door is locked preventing passage<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<i>eventno &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</i>- event called when you pass through the door<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowCurrentFloor<br>
+</span></b><span style="font-size: 12pt;">Show the exploration map and shows the map/view button<br>
+<i><br>
+function ShowCurrentFloor()<br>
+</i><br>
+<br>
+<b><span style="font-size: 14pt;">HideCurrentFloor<br>
+</span></b><span style="font-size: 12pt;">Hide the map only<br>
+<span style="font-size: 8pt;"><br>
+<i><span style="font-size: 12pt;">function HideCurrentFloor()</span></i><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">HideCurrentFloorMap<br>
+</span></b><span style="font-size: 12pt;">Completely hide the map and button<br>
+<b><span style="font-size: 8pt;"><br>
+</span></b><i><span style="font-size: 12pt;">function HideCurrentFloorMap()<br>
+</span></i><br>
+<br>
+<b><span style="font-size: 14pt;">GetCurrentRoomDescription<br>
+</span></b><span style="font-size: 12pt;">Get the description of the current room<br>
+<b><span style="font-size: 8pt;"><br>
+</span></b><i><span style="font-size: 12pt;">function GetCurrentRoomDescription() : String<br>
+</span></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+returns the description of the current room<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">IsCurrentRoomExplored<br>
+</span></b><i><span style="font-size: 12pt;">function IsCurrentRoomExplored() : Boolean<br>
+</span></i>returns true if you have not been in the current room before<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">IsRoomExplored<br>
+</span></b><i><span style="font-size: 12pt;">function IsRoomExplored(room:Number) : Boolean<br>
+</span></i>return true if the specified room has been explored<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">SetRoomExplored<br>
+</span></b><i><span style="font-size: 12pt;">function SetRoomExplored(room:Number)<br>
+</span></i>Makes the specified room explored<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">EnterRoom<br>
+</span></b><i><span style="font-size: 12pt;">function EnterRoom(room:Number)</span></i><br>
+enters the room, only use this in unusual situations, say it you want to teleport...<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">LockDoor<br>
+</span></b><i><span style="font-size: 12pt;">function LockDoor(room1:Number, room2:Number)<br>
+</span></i>Lock the door from room1 to room2<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">UnlockDoor</span></b><br>
+<i><span style="font-size: 12pt;">function UnlockDoor(room1:Number, room2:Number)<br>
+</span></i>Unlock the door from room1 to room2<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">GetCurrentRoomType<br>
+</span></b><i><span style="font-size: 12pt;">function GetCurrentRoomType() : Number<br>
+</span></i>returns the type of the room, see AddDoorAndPosition for values<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">SetCurrentRoom<br>
+</span></b><i><span style="font-size: 12pt;">function SetCurrentRoom(room:Number)<b><br>
+</b></span></i>Sets the starting room, or teleports you to the specified room<br>
+<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.HouseEvents.InitialiseExploration("Expensive Apartment", "Hallway");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.HouseEvents.AddRoomAndPosition(0, "Living Area", 423, 90, 180, 200, 150);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.HouseEvents.AddRoomAndPosition(0, "Kitchen", 424, 90, 80, 150, 100);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.HouseEvents.AddRoomAndPosition(0, "Bath Room", 0, 240, 80, 50, 100);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.HouseEvents.AddRoomAndPosition(0, "Bed Room", 436, 290, 205, 100, 125,0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.HouseEvents.AddRoomAndPosition(0, "Bed Room", 0, 290, 80, 100, 125);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.HouseEvents.AddDoorToRoom(0, 1, 2);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.HouseEvents.AddDoorToRoom(1, 2, 5);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.HouseEvents.AddDoorToRoom(2, 4, 5);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.HouseEvents.AddDoorToRoom(0, 3, 5);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.HouseEvents.AddDoorToRoom(0, 4, 4, undefined, undefined, undefined, true);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.HouseEvents.AddDoorToRoom(0, -1, 8, 50);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.HouseEvents.ShowCurrentFloor();<span style="font-size: 12pt;"><br>
+<br>
+Note room numbers are sequential numbers 0 for the first room added, 1 for the next. <b><br>
+<br></b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId221522"></a>Exploring<span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><b><u><span style="font-size: 14pt;"></span></u></b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 8pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><b><u><span style="font-size: 14pt;">
+</span></u></b><span style="font-size: 12pt;">To start initialise as above then show the map<br>
+_root.HouseEvents.ShowCurrentFloor();<br>
+<br>
+When you handle a room events do something like<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">if (_root.HouseEvents.IsCurrentRoomExplored()) _root.SetText("The master bedroom is dark and filled with passion.");<br>
+else _root.SetText(SlaveName + " walks into the master bedroom and is almost shocked by the intense feelings of passion, and she almost staggers. She is reluctant to looks any closer, but feels an obsessive passion radiating from the room.");<br>
+<br>
+<span style="font-size: 12pt;">Remember the hide/show functions to suppress the map if desired.<br>
+<br>
+<b>Finishing<br>
+</b>To finish exploring, do event 6999<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">_root.DoEvent(6999);<br>
+<span style="font-size: 12pt;"><br>
+<b><br>
+</b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>

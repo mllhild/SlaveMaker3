@@ -1,0 +1,323 @@
+<table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">Start of Training for a Slave<br>
+            </span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Version
+8</font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table><u style="font-family: Arial;"><b><span style="font-size: 18pt;"></span></b></u><span style="font-size: 12pt; font-family: Arial;"><u><b><span style="font-size: 16pt;"></span></b></u><span style="font-size: 14pt;"><br>
+<span style="font-size: 12pt;">This documents how the training for a slave starts.<br><br></span></span></span><span style="font-weight: bold; font-family: Arial;">Table of Contents</span><ul style="font-family: Arial;" id="mozToc"><li><a href="#mozTocId942676">General Concepts</a></li><li><a href="#mozTocId393066">Core Game Variables</a></li><li><a href="#mozTocId689617">Core Game Functions</a></li><li><a href="#mozTocId282687">Slave Interface Functions</a><ul><li><a href="#mozTocId544089">Mandatory</a></li><li><a href="#mozTocId793942">Optional</a></li></ul></li></ul><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><br></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"></span></span></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId942676"></a>General Concepts<br></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 14pt;"><span style="font-size: 12pt;">There are a series of functions called when you start training your slave. The core game does a series of calls<br>
+<br>
+Core Game Calls<br>
+StartGame()<br>
+Initialise()<br>
+<br>
+Then the Slaves Introduction screen is shown that can have multiple pages, for each it calls<br>
+ShowIntroPage()<br>
+HideIntroPage()<span style="font-size: 10pt;"><br>
+<span style="font-size: 12pt;"><br>
+Then<br>
+StartMessage()<br>
+<br>
+Lastly the main screen is shown<br><br>
+<br>
+</span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId393066"></a>Core Game Variables<span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;"></span></b></u></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;">
+</span></b></u><span style="font-size: 12pt;">
+<b>_root.IntroPages</b> = count of introduction pages, default 1, can be set in StartGame()<br>
+<br>
+<font color="#000080"><b style="color: black;">_root.IntroPage</b> = the currently shown page for the introduction, passed into ShowIntroPage(). READ ONLY, but you could changed it, carefully<br>
+<font color="#000000"><br>
+</font></font></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId689617"></a>Core Game Functions<span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><u><b><span style="font-size: 16pt;"></span></b></u></font></font></span></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><u><b><span style="font-size: 16pt;">
+</span></b></u><span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">SetIntroText<br>
+</span></b><span style="font-size: 12pt;">Call this to set the text that appears on the introduction screen. Generally call this in ShowIntroPage()<i><br>
+function SetIntroText(intro:String)<br>
+</i>intro - the text, html fomatted, use \r for newlines. The text is left aligned.<br>
+<br>
+Also the following special characters will be decoded by the game<br>
+# = ServantName eg Shampoo<br>
+^ = ServantHimHer eg her for a female assistant, him for a male assistant<br>
+~ = ServantHeShe eg she for a female assistant, he for a male assistant<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">SetIntroColour<br>
+</span></b><i><span style="font-size: 12pt;">function SetIntroColour(red:Number, green:Number, blue:Number, alphao:Number, redmul:Number, greenmul:Number, bluemul:Number, alphamul:Number)<br>
+</span></i>Sets the colour of the background of the introduction screen. Resets to white each page. Generally call this in ShowIntroPage()<br>
+<br>
+red, green, blue - the RGB colour values (0-255)<br>
+alphao - alpha value, 0 - completely transparent, 100 = opaque<br>
+redmul, greemul, bluemul, alphamul - a value that is multiplied by the appropriate colour channel, default 1<br>
+<span style="font-size: 10pt;"><br>
+<i><span style="font-size: 12pt;"><br>
+</span></i></span></span></span></font></font></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId282687"></a>Slave Interface Functions<span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 14pt;"></span></span></span></span></font></font></span></span></span></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 14pt;">
+<span style="font-size: 12pt;">These functions can be defined in the Slave Girl swf file and are called by the main engine when you start training the slave<br>
+<br>
+<br></span></span></span></span></span></font></font></span></span></span></span></span></span><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId544089"></a>Mandatory</h2><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;">
+<u><span style="font-size: 14pt;">You must implement the following functions</span></u><br>
+<span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">StartGame()<br>
+</span></b><span style="font-size: 12pt;">called at the start of a new game. You initialise her stats and difficulties here. You set things here for start of game only, This function is not called when a saved game is loaded.<br>
+<br>
+<span style="font-size: 10pt;">eg<br>
+function StartGame()<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetGirlsVitals("Akane", "the angry girl", 85, 55, 87, 19, "AB", 163, 50);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.TrainingTime = 50;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarCharisma = 15;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarSensibility = 10;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarRefinement = 5;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarIntelligence = 5;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarMorality = 15;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarConstitution = 25;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarCooking = 15;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarCleaning = 15;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarConversation = 10;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.FatigueBonus = 10;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarBlowJob = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarFuck = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarTemperament = 25;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarNymphomania = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarObedience = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarLibido = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarReputation = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarFatigue = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarJoy = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarLovePoints = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.VarSpecial = 40;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.slSinging = 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.slSwimming = 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.slCombat = 60;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DifficultyXXX = 45;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DifficultyXXXContest = 35;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DifficultyExhib = 5;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DifficultySleazyBar = 30;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DifficultyBrothel = 80;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DifficultyTouch = 8;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DifficultyLick = 10;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DifficultyFuck = 13;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DifficultyBlowjob = 20;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DifficultyTitsFuck = 20;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DifficultyAnal = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DifficultyMasturbate = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DifficultyDildo = 25;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DifficultyPlug = 60;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DifficultyLesbian = 60;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DifficultyBondage = 65;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DifficultyNaked = 50;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DifficultyMaster = 75;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DifficultyGangBang = 80;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DifficultyLendHer = 80;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DifficultyPonygirl = 99;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DifficultySpank = 30;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.DifficultyThreesome = 20;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.MaxFuck = 60;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.MaxBlowJob = 50; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.CustomFlag2 = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetSexuality(76);<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">Initialise()</span></b><br>
+<span style="font-size: 12pt;">called after StartGame() or when a game is loaded - Used to initialise buttons, and other variaibles needed for both cases. For instance providing dress names etc. Also used for any changes to non-saved variables. For instance if you wish to rename your slavegirl<br>
+<br>
+eg<br>
+<span style="font-size: 10pt;">function Initialise() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressDetails(1, "Long Dress");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressDetails(2, "Short Dress");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressDetails(3, "Country Dress", "Refinement + 10\rSensibility + 5\rEnjoys walks more.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressDetails(4, "Kimono");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressDetails(5, "Gym Clothes", "Refinement + 10\rCharisma + 10\rConstitution + 15");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressDetails(6, "Mini Skirt", "Charisma + 35, Obedience + 10\rLibido + 15, Nymphomania + 15\rSensibility + 15, Joy + 15\rShe is carefree and energetic.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressCourtly(4);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressEasy(5);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetDressEasy(6);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.NobleLoveType = 8;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.Milkable = true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.LesbianInterest = 2;<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+NOTE: SetGirlsVital has moved from Initialise() to StartGame() to allow changes to be remembered<br>
+<b><br><br></b></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></span></span></span><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId793942"></a>Optional<span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></span></span></span></h2><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><b>
+</b><span style="font-size: 14pt;"><u>You do not have to override any of the following, default actions will happen if you do not</u><br>
+<span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">StartMessage<br>
+</span></b><i><span style="font-size: 12pt;">function StartMessage() : Boolean<br>
+</span></i>Show text at the start of the game, generally something from your assistant, but can be anything.<br>
+return true to disable the standard message<br>
+<br>
+eg <span style="font-size: 10pt;">from Ranma<br>
+<br>
+function StartMessage() : Boolean<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.ServantSpeak("The training of #slave will last for " + _root.TrainingTime + " days, and then she will unfortunately be delivered to her owner.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return true;<br>
+}<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowIntroPage<br>
+</span></b><i><span style="font-size: 12pt;">function ShowIntroPage(page:Number) : MovieClip<br>
+</span></i>Called to show the introduction page, pages 1+<br>
+return the MovieClip for the introduction page. If you wish to use the standard page and ShowMovie, then return undefined<br>
+<span style="font-size: 10pt;"><br>
+eg using a formatted MovieClip with all text and images pre-positioned<br>
+function ShowIntroPage(page:Number) : MovieClip<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.ServantName != "Shampoo") page = page * 2;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Introduction.gotoAndStop(page);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Introduction._visible = true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return Introduction;<br>
+}<br>
+<br>
+<br>
+using the functions<br>
+function ShowIntroPage(page:Number) : MovieClip<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.ShowMovie(Introduction, 4, 2);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetIntroColour(200, 100, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetIntroText("Ifurita\r\rThis girl claims to be lost, wandering through many dimensions.\r\r# says that ^ has heard of other people who have come from other worlds and beileves Ifurita. You decided to not argue the point.\r\rYou start her training...");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return undefined;<br>
+}<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">HideIntroPages</span></b><span style="font-size: 10pt;"><br>
+<i><span style="font-size: 12pt;">function HideIntroPages()<br>
+</span></i>Hide any images shown in ShowIntroPage<br>
+<span style="font-size: 10pt;"><br>
+eg<br>
+function HideIntroPages() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Introduction._visible = false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Untrainable._visible = false;<br>
+}<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowUntrainable<br>
+</span></b><i><span style="font-size: 12pt;">function ShowUntrainable() : MovieClip<br>
+</span></i>If your slave cannot be trained by your Slave Maker this is called after all the other introduction pages<br>
+return the MovieClip for the page. If you wish to use the standard page and ShowMovie, then return undefined<br>
+<span style="font-size: 10pt;"><br>
+eg<br>
+function ShowUntrainable() :MovieClip {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Untrainable._visible = true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return Untrainable;<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<br>
+<span style="font-size: 10pt;">using the functions<br>
+function ShowUntrainable() : MovieClip<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.ShowMovie(Untrainable, 4, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.SetIntroText("Ifurita is completely unresponsive. She clearly refuses to relate with a person with demonic ties. You decide to return her to the Slave Market.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return undefined;<br>
+}<span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;"><br>
+</span></b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span></span></span></span>

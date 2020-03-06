@@ -1,0 +1,688 @@
+<table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+
+    <tbody>
+      <tr>
+        <td style="vertical-align: top;">
+          <table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">Sex Actions<br></span></font></td>
+
+                <td style="vertical-align: top;"><br></td>
+              </tr>
+
+              <tr>
+                <td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3
+                SDK</span></a></td>
+
+                <td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Version 8</font><br></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  
+</table><u><b><font face="Arial"><span style="font-size: 18pt;"></span></font></b></u><span style="font-size: 12pt;"><font face="Arial"><br>
+<br>
+These are the sex trainings that are done. These have action numbers &lt; 1000. When the action is done (and not refused) a function like <br>
+ShowSexActFuck<br>
+is called. Show appropriate graphics and any custom text. Note your Slave Maker is always present and supervising.<br>
+<br></font></span><ul id="mozToc"><!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6--><li><a href="#mozTocId339251">Variables</a></li><li><a href="#mozTocId810306">Act Functions</a></li><li><a href="#mozTocId526831">Custom Sex Acts</a></li><li><a href="#mozTocId60711">General Notes</a></li><li><a href="#mozTocId199570">To Skip to Night Planning</a></li></ul><br><span style="font-size: 12pt;"></span><hr style="width: 100%; height: 2px;"><h1><a class="mozTocH1" name="mozTocId339251"></a>Variables<span style="font-size: 12pt;"><font face="Arial"><u><b><span style="font-size: 16pt;"></span></b></u></font></span></h1><span style="font-size: 12pt;"><font face="Arial"><u><b><span style="font-size: 16pt;">
+</span></b></u><span style="font-size: 12pt;">There are a series of standard variables you can test/check<br>
+<br>
+<b>_root.AppendActText </b>- default true<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true = the standard text is appended to any shown in the Showxxxx functions below<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false = the standard text is not appended, please show all text yourself<br>
+<br>
+<b>_root.StandardDGText</b> - defaults to true<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+change to false to suppress standard text for spontaneous dickgirl changes, or general cock references<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Note if AppendActText is false these messages are never shown<br>
+<br>
+<b>_root.StandardPlugText</b> - defaults to true if your slave is wearing an anal plug, otherwise false<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+change to false to suppress standard text for wearing an anal plug<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Note if AppendActText is false these messages are never shown<br>
+<br>
+<b>_root.Naked</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ true if she is naked<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false she is clothed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root. is optional<br>
+<br>
+<b>_root.Lesbian</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ true if she is in lesbian training<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false not in lesbian training<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root is optional<br>
+<br>
+<b>_root.Aroused</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true if your slave is aroused<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+false and they are not<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root is optional<br>
+<br>
+<b>_root.Gender</b>, your gender<br>
+<b>_root.SlaveGender</b> - your slaves permanent gender<br>
+<br>
+<b>_root.LastActionDone</b> = the type of the action being done (see Slave Girl - Plannings - Common.rtf for the base values)<br>
+<br>
+<b>_root.UseGeneric</b>, set to true to show a generic image (or use DefaultGeneric function and other similar)<br>
+<br>
+Also remember there are local copies of <br>
+SlaveName<br>
+CurrentPath<br>
+MaxPath<br>
+ie you do not need to use _root. to access them<br>
+<br></span></font></span><hr style="width: 100%; height: 2px;"><h1><a class="mozTocH1" name="mozTocId810306"></a>Act Functions<span style="font-size: 12pt;"><font face="Arial"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;"></span></b></u></span></font></span></h1><span style="font-size: 12pt;"><font face="Arial"><span style="font-size: 12pt;"><u><b><span style="font-size: 16pt;">
+</span></b></u><span style="font-size: 12pt;">
+Some of these functions are optional and default graphics are shown if you do not provide a function. You should where possible always provide the function. Some like AfterJobAcolyte are optional but nothing happens by default<br>
+Optional ones are noted<br>
+<br>
+The line in itallics like <br>
+<i>function ShowSexActNothing() : Boolean<br>
+</i>indicate the function prototype you must create. It also notes any parameters and returns needed.<br>
+<br>
+In the notes it will list variables specific to the act and the standard stat effects the action does, and any other relelvant notes<br>
+<br>
+All Stat effects are doubled if she is under the influence of the drug Zodai<br>
+<br>
+<b>Image Selection<br>
+</b>Remember to select images to show based on<br>
+Lesbian Training<br>
+If she is Naked<br>
+If she is a Dickgirl<br>
+or if nothing appropriate show a generic image<br>
+Use the above variables or the support functions, at the end of this document<br>
+<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSexActNothing<br>
+</span></b><span style="font-size: 12pt;">Show your slave looking anxious for sex, on her own, like she needs it a lot. Often 'presenting' herself to you, inviting sex.<br>
+Note otherwise ShowBreak is called if she does not want sex<br>
+<b><span style="font-size: 14pt;"><br>
+</span></b><i><span style="font-size: 12pt;">function ShowSexActNothing() : Boolean<br>
+LastActionDone<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- rest once<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1.1 &nbsp;&nbsp;&nbsp;&nbsp;
+- rest two times<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1.2 &nbsp;&nbsp;&nbsp;&nbsp;
+- rest three times<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+etc<br>
+return true to suppress text about dreams and vibrator panties references, normally return false</span></i><br>
+<br>
+<u>Notes<br>
+</u>No difficulty level to do this act. No skill level for this act<br>
+_root.TotalNothing = times the act has been done, BEFORE this time<br>
+Stats<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Needing Sex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Points(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, int(VarLibidoRounded/5), 0, rest, 0, 0, 0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Not Needing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Points(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, rest, 0, 0, 0);<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSexAct69<br>
+</span></b><span style="font-size: 12pt;">Show your slave doing a 69.<br>
+<i><br>
+function ShowSexAct69() <br>
+</i>LastActionDone<br>
+<i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</i>20.1 &nbsp;&nbsp;&nbsp;
+- Female SlaveMaker<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+20.2 &nbsp;&nbsp;&nbsp;
+- Servant<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+20.3 &nbsp;&nbsp;&nbsp;
+- female slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+20.4 &nbsp;&nbsp;&nbsp;
+- male slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+20.5 &nbsp;&nbsp;&nbsp;
+- male/dickgirl Slavemaker<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+20.6 &nbsp;&nbsp;&nbsp;
+- assistant<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+20.7 &nbsp;&nbsp;&nbsp;
+- dickgirl slave<br>
+<br>
+<u>Notes<br>
+</u>_root.DifficultyBlowjob + 3= obedience required to do this training<br>
+_root.Total69 = times the act has been done, BEFORE this time<br>
+_root.Level69 = level of mastery at the act<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSexActAnal<br>
+</span></b><span style="font-size: 12pt;">Show your slave being fucked in the ass. Remember Lesbian training (anal strap-on), and dickgirl slave makers<br>
+<i><br>
+function ShowSexActAnal()<br>
+</i>No LastActDone values, use _root.Lesbian, _root.Gender to differentiate images<i><br>
+</i><br>
+<br>
+<u>Notes<br>
+</u>_root.DifficultyAnal = obedience required to do this training<br>
+_root.TotalAnal = times the act has been done, BEFORE this time<br>
+_root.LevelAnal = level of mastery at the act<br>
+Stats<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Lesbian (bonus) Points(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+For all cases Points(0, 0, -0.5, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 2, 0, 0, 0)<br>
+Slave Maker Points, if personally doing it, not if Lesbian training and slave maker is not female, or if not lesbian training and slave maker is female<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SMPoints(0, 0, 0, 0, 0, -5, 0);<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSexActBlowjob<br>
+</span></b><span style="font-size: 12pt;">Show her sucking, licking a man's cock (for dickgirls for dickgirl slavemakers). In lesbian training, show her licking a woman's pussy<br>
+<i><br>
+function ShowSexActBlowjob()<br>
+</i>No LastActDone values, use _root.Lesbian, _root.Gender to differentiate images<i><br>
+</i><br>
+<u>Notes<br>
+</u>_root.DifficultyBlowjob = obedience required to do this training<br>
+_root.TotalBlowjob = times the act has been done, BEFORE this time<br>
+Stats<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Lesbian (bonus) NoTalentPoints(0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+For all cases Points(0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 2, 0, 0, 0, 0, 0)<br>
+Slave Maker Points<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Only if Gender == 1 or 3 or Lesbian training and you are a female slave maker<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SMPoints(0, 0, 0, 0, 0, -5, 0);<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSexActBondage<br>
+</span></b><span style="font-size: 12pt;">Show your slave tied up in some way. Generally not being fucked or giving a blowjob but can be if desired<br>
+<i><br>
+function ShowSexActBondage() <br>
+</i><br>
+<u>Notes<br>
+</u>_root.DifficultyBondage = obedience required to do this training<br>
+_root.TotalBondage = times the act has been done, BEFORE this time<br>
+_root.LevelBondage = level of mastery at the act<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSexActCumBath (OPTIONAL)<br>
+</span></b><span style="font-size: 12pt;">Show her being covered in cum, the more the better. Penetration is optional<br>
+<i><br>
+function ShowSexActCumBath() : Boolean<br>
+return true if you display a graphic. This function is optional and the game will display generic graphics if not present or you return false<br>
+</i><br>
+<u>Notes<br>
+</u>_root.DifficultyGangBang - 5 = obedience required to do this training<br>
+_root.TotalCumBath = times the act has been done, BEFORE this time<br>
+_root.LevelCumBath = level of mastery at the act<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSexActDildo<br>
+</span></b><span style="font-size: 12pt;">Show her using a dildo to fuck herself, preferably vaginally<br>
+<i><br>
+function ShowSexActDildo() <br>
+</i><br>
+<u>Notes<br>
+</u>_root.DifficultyDildo = obedience required to do this training<br>
+_root.TotalDildo = times the act has been done, BEFORE this time<br>
+_root.LevelDildo = level of mastery at the act<br>
+Stats<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 0, 2, 0, 0, 0)) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Additionally with the Improved Dildo<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0);<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSexActFuck<br>
+</span></b><span style="font-size: 12pt;">Show your slave being vaginally fucked, if in Lesbian Training by a woman with a strap-on, otherwise by a man's cock<br>
+<i><br>
+function ShowSexActFuck() <br>
+</i><u><br>
+Notes<br>
+</u>_root.DifficultyFuck = obedience required to do this training<br>
+_root.TotalFuck = times the act has been done, BEFORE this time<br>
+_root.LevelFuck = level of mastery at the act<br>
+<br>
+_________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSexActGangBang<br>
+</span></b><span style="font-size: 12pt;">Show her taken by many men at once. If in lesbian training them many women. If Amazon background then many dickgirls<br>
+<i><br>
+function ShowSexActGangBang() <br>
+</i><br>
+<u>Notes<br>
+</u>_root.DifficultyGangBang = obedience required to do this training<br>
+_root.TotalGangBang = times the act has been done, BEFORE this time<br>
+_root.LevelGangBang = level of mastery at the act<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSexActGroup<br>
+</span></b><span style="font-size: 12pt;">She your slave having sex on an orgy situation, may couples simultaneously having sex. NOT a gang-bang<br>
+<i><br>
+function ShowSexActGroup() <br>
+</i><br>
+<u>Notes<br>
+</u>_root.DifficultyGangBang -10 = obedience required to do this training<br>
+_root.TotalGroup = times the act has been done, BEFORE this time<br>
+_root.LevelGroup = level of mastery at the act<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSexActKiss (OPTIONAL)<br>
+</span></b><span style="font-size: 12pt;">Show your slave kissing someone<br>
+<i><br>
+function ShowSexActKiss() : Boolean<br>
+return true if you display a graphic. This function is optional and the game will display generic graphics if not present or you return false</i><br>
+LastActionDone - the person being kissed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+23  &nbsp;&nbsp;&nbsp;&nbsp;
+- your SlaveMaker <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+23.1&nbsp;&nbsp;&nbsp;&nbsp;
+- your Assistant<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+23.2 &nbsp;&nbsp;&nbsp;
+- a female slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+23.3 &nbsp;&nbsp;&nbsp;
+- a male slave<br>
+<br>
+<u>Notes<br>
+</u>No difficulty level<br>
+_root.LevelKiss = level of mastery at the act<br>
+_root.TotalKiss = times the act has been done, BEFORE this time<br>
+Stats<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Slave Maker<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Female Slave and Slave Maker and willing to do lesbian acts<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 2, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 2, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Both female and not lesbian ok<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SexPoints(0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0);<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowActLendHer<br>
+</span></b><i><span style="font-size: 12pt;"><br>
+function ShowActLendHer() : String<br>
+</span></i>normally return "" but any returned string and appended to the end of any text the game engine adds<br>
+<br>
+<u>Notes<br>
+</u>_root.LendPerson = the person she is loaned to (See Core - People.rtf for person numbers)<u><br>
+</u>_root.DiffiicultyLendHer = obedience required to do this training<br>
+_root.TotalLendHer = times the act has been done, BEFORE this time<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSexActLesbian<br>
+</span></b><span style="font-size: 12pt;">Show her having lesbian sex. If in lesbian training then doing a tridadism act (grinding pussies together)<br>
+<i><br>
+function ShowSexActLesbian()<br>
+</i><br>
+<u>Notes<br>
+</u>_root.DifficultyLesbian = obedience required to do this training<br>
+_root.TotalLesbian = times the act has been done, BEFORE this time<br>
+_root.LevelLesbian = level of mastery at the act<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSexActLick<br>
+</span></b><span style="font-size: 12pt;">Show your slave's pussy being licked, or if a male/dickgirl then receiving a blowjob<br>
+<i><br>
+function ShowSexActLick() <br>
+</i>LastActionDone<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.0 = cunnilingus by slave maker, all genders<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.1 = blowjob by female/dickgirl slave maker (slave girl is a dickgirl)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.2 = blowjob by female slave (slave girl is a dickgirl)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.4 = cunnilingus by male slave (note skipped 3.3 for internal girl use)<br>
+<br>
+<u>Notes<br>
+</u>_root.DifficultyLick = obedience required to do this training<br>
+_root.TotalLick = times the act has been done, BEFORE this time<br>
+_root.LevelLick = level of mastery at the act<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSexActMaster<br>
+</span></b><span style="font-size: 12pt;">Show an image of your slave being submissive or blushing as they agree to call you master/mistress<br>
+<i><br>
+function ShowSexActMaster()<br>
+</i><br>
+<u>Notes<br>
+</u>no mastery level or total times done, can only be done once<br>
+_root.DiffiicultyMaster = obedience required to do this training<br>
+_root.DoneMaster = 1 , she has called you master<br>
+Stats&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+NoTalentPoints(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -2, 0, 5, 3, 0, 0, 0, 10, 0);<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSexActMasturbate<br>
+</span></b><span style="font-size: 12pt;">Show her masturbating, remember a dickgirl version if she can transform<br>
+<i><br>
+function ShowSexActMasturbate()<br>
+</i><br>
+<u>Notes<br>
+</u>_root.DifficultyMasturbate = obedience required to do this training<br>
+_root.TotalMasturbate = times the act has been done, BEFORE this time<br>
+_root.LevelMasturbate = level of mastery at the act<br>
+_root.LevelMasturbateDG = level of mastery at the act, as a dickgirl<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowActNakedStart (OPTIONAL)<br>
+</span></b><span style="font-size: 12pt;">Called after she agrees but before she removes her dress. Do not show any images, it is designed for anything special to be done. Fairly limited cases though.<br>
+<br>
+<i>function ShowActNakedStart()<br>
+<br>
+</i>____________________________________<br>
+<i><br>
+</i><span style="font-size: 14pt;"><b>ShowActNaked<br>
+</b><span style="font-size: 12pt;">Called after she removed her dress<br>
+<i><br>
+function ShowActNaked()<br>
+<br>
+</i>DO NOT use this to show custom graphics, the game will use her naked dress images. This function can be used for selecting a particular dress<br>
+<br>
+<span style="font-size: 10pt;">eg from Kasumi<br>
+function ShowActNaked() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.DressToWear == 6 &amp;&amp; int(Math.random()*3) &gt; 0) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (_root.CustomFlag == 0) _root.NakedChoice = 4;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else _root.NakedChoice = _root.DickgirlXF &gt; 0 ? 5 : 2;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}<br>
+}<span style="font-size: 12pt;"><br>
+<br>
+<u>Notes<br>
+</u>_root.DiffiicultyNaked = obedience required to do this training<br>
+_root.Naked = true is she is naked<br>
+_root.TotalNaked = times the act has been done, BEFORE this time<br>
+Stats&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(2, 0, 0, 0, -2, 0, 0, 0, 0, 0, 0, 0, 3, 4, 5, 0, 0, 0, 0, 0)<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowActPlug<br>
+</span></b><span style="font-size: 12pt;">Show your slave either putting or wearing a plug in their ass. Can just be a dildo, but preferably an anal plug<br>
+<i><br>
+function ShowActPlug()<br>
+</i><br>
+<u>Notes<br>
+</u>_root.DiffiicultyPlug = obedience required to do this training<br>
+_root.PlugInserted = 1 if a plug is inserted<br>
+_root.TotalPlug = times the act has been done, BEFORE this time<br>
+_root.LevelPlug = level of mastery at the act<br>
+Stats&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 0, -1, 0, -2, 1, 0, 0, 0, 0, 0, 0, 3, 3, 4, 0, 8, 0, 0, 0)<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSexActPonygirl<br>
+</span></b><span style="font-size: 12pt;">She her as a pony girl, preferably with a bitgag, ponytail. This function is often called at end of game too<br>
+<i><br>
+function ShowSexActPonygirl() : Boolean<br>
+return false and a generic ponygirl image is shown<br>
+</i><br>
+<u>Notes<br>
+</u>mastery levels do not apply<br>
+Does not use _root.UseGeneric!!!<br>
+_root.DifficultyPonygirl = obedience required to do this training<br>
+_root.DonePony = 1 once she is a ponygirl<br>
+_root.TotalPony = times the act has been done, BEFORE this time<br>
+Stats&nbsp;&nbsp;&nbsp;
+- first time<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(5, 0, -5, 0, -5, 5, 0, 0, 0, 0, 0, -5, 2, 5, 5, 0, 0, 1, 0, 0);<br>
+Stats - later times<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Points(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0);<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSexActSpank<br>
+</span></b><span style="font-size: 12pt;">Show your slave being spanked. A simple version can be your slave with a reddened bottom (a simple image edit)<i><br>
+<br>
+function ShowSexActSpank(whip:Boolean)<br>
+</i>whip = true if she is being whipped<br>
+_root.Badgirl == 1 if she did something bad today<br>
+<br>
+<u>Notes<br>
+</u>_root.DiffiicultySpank = obedience required to do this training<br>
+_root.TotalSpank = times the act has been done, BEFORE this time<br>
+_root.DoneSpank = 1 if spanked previously this night<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+If you do not use ShowMovie function to display the spank graphic, then please assign the movieclip to _root.lastmc<br>
+<span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="font-size: 12pt;">eg<br>
+<span style="font-size: 10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_root.lastmc = SpankClip;<span style="font-size: 12pt;"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Remember not needed if you use ShowMovie<br>
+<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSexActStripTease<br>
+</span></b><span style="font-size: 12pt;">Show your slave doing a strip tease<i><br>
+<br>
+function ShowSexActStripTease() : Boolean<br>
+</i>return true if you show an image, return false and the game calls ShowJobSleazyBar(true)<br>
+<br>
+<u>Notes<br>
+</u>_root.DifficultyExhib = obedience required to do this training<br>
+_root.TotalStripTease = times the act has been done, BEFORE this time<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSexActThreesome<br>
+</span></b><span style="font-size: 12pt;">Show your slave in a MFF threesome (if lesbian training FFF)<i><br>
+<br>
+function ShowSexActThreesome() : String<br>
+</i>return "" or the description of the other person in the threesome, say "Shampoo"<br>
+If you return "" it defaults to "the other woman"<br>
+<br>
+<u>Notes<br>
+</u>_root.DiffiicultyThreesome = obedience required to do this training<br>
+_root.TotalThreesome = times the act has been done, BEFORE this time<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSexActTitFuck<br>
+</span></b><span style="font-size: 12pt;">Show your slave<br>
+Normal/Heterosexual  -  using her breasts to masturbate a cock/have a cock fucked between her breasts<br>
+Lesbian - masturbate your female slave maker or a female slave. Not lick, using hand etc<i><br>
+<br>
+function ShowSexActTitFuck()<br>
+</i><br>
+<u>Notes<br>
+</u>_root.DiffiicultyTitsFuck = obedience required to do this training<br>
+_root.TotalTitsFuck = times the act has been done, BEFORE this time<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSexActTouch<br>
+</span></b><span style="font-size: 12pt;">Show youd slave being touched to become aroused, Breast caressing, rubbing pussy. For dickgirls also lightly stroking cock (cumming optional)<i><br>
+<br>
+function ShowSexActTouch()<br>
+</i>Action<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.0 = touch by male slave maker (female slave)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.1 = handjob or touch by female/dickgirl slavemaker (all slave genders)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.2 = handjob or touch by female slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.3 = touch by male slave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.4 = handjob or touch by assistant<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.5 = handjob or touch by dickgirl slave<br>
+<u>Notes<br>
+</u>_root.DiffiicultyTouch = obedience required to do this training<br>
+_root.TotalTouch = times the act has been done, BEFORE this time<br>
+<br>
+________________________________________________________________<br>
+<br>
+<b><span style="font-size: 14pt;">ShowTentacleSex<br>
+</span></b><span style="font-size: 12pt;">Show her being sexually assaulted by tentacles<br>
+<b><span style="font-size: 14pt;"><br>
+</span></b><i><span style="font-size: 12pt;">function ShowTentacleSex(place:Number) : Boolean<br>
+place<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-1 = tentacle harem abduction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1  = Forest<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4  = Slums<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6  = Port<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8  = Ruined temple<br>
+return true to disable standard tentacle sex, normally return false</span></i><br>
+<br>
+<u>Notes<br>
+</u>_root.TotalTentacle = times assaulted before this time<br>
+<br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span><hr style="width: 100%; height: 2px;"><h1><a class="mozTocH1" name="mozTocId526831"></a>Custom Sex Acts<span style="font-size: 12pt;"><font face="Arial"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 16pt;"></span></b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></h1><span style="font-size: 12pt;"><font face="Arial"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 16pt;">
+</span></b><span style="font-size: 12pt;">
+____________________________________<br>
+<br>
+<u><b><span style="font-size: 14pt;">Core Functions to enable and define the acts<br>
+</span></b></u><span style="font-size: 12pt;"><br>
+Act 1 - Normal Sex Act<br>
+Act 2 - Extreme<br>
+<br>
+<b><span style="font-size: 14pt;">SetCustomSexAct1<span style="font-size: 12pt;"><br>
+</span></span></b><i>function SetCustomSexAct1(slabel:String, desc:String, useshortcut:Boolean)<br>
+</i>slabel - shory label on the button<br>
+desc - longer description<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowCustomSexAct<span style="font-size: 12pt;"><br>
+</span></span></b>Show sex act 1-2, defaults to 1<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">HideCustomSexAct<span style="font-size: 12pt;"><br>
+</span></span></b><i>function HideCustomSexAct(num:Number)<br>
+</i>Hide sex act 1-2, defaults to 1<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">SetCustomSexAct2<span style="font-size: 12pt;"><br>
+</span></span></b><i>function SetCustomSexAct2(slabel:String, desc:String, useshortcut:Boolean)<br>
+</i>slabel - shory label on the button<br>
+desc - longer description<br>
+<br>
+____________________________________<br>
+<br>
+<u><b><span style="font-size: 14pt;">Slavegirl Override functions<br>
+</span></b></u><span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">ShowSlaveSex1<br>
+</span></b><span style="font-size: 12pt;">A custom sex act<br>
+<i><br>
+function ShowSlaveSex1()</i><br>
+<u><br>
+</u><br>
+<u>Notes<br>
+</u>_root.TotalSex1 = times the act has been done, BEFORE this time<br>
+_root.LevelSex1 = level of skill<br>
+See functions to enable<br>
+<span style="font-size: 10pt;">function SetCustomSexAct1(slabel:String, desc:String, useshortcut:Boolean)<br>
+function ShowCustomSexAct(num:Number)<br>
+function HideCustomSexAct(num:Number)<span style="font-size: 12pt;"><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowSlaveSex2<br>
+</span></b><span style="font-size: 12pt;">A custom sex act<br>
+<i><br>
+function ShowSlaveSex2()</i><br>
+<u><br>
+</u><br>
+<u>Notes<br>
+</u>_root.TotalSex2 = times the act has been done, BEFORE this time<br>
+_root.LevelSex2 = level of skill<br>
+See functions to enable<br>
+<span style="font-size: 10pt;">function SetCustomSexAct2(slabel:String, desc:String, useshortcut:Boolean)<br>
+function ShowCustomSexAct(num:Number)<br>
+function HideCustomSexAct(num:Number)<span style="font-size: 12pt;"><br>
+<br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span><hr style="width: 100%; height: 2px;"><h1><a class="mozTocH1" name="mozTocId60711"></a>General Notes<span style="font-size: 12pt;"><font face="Arial"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></h1><span style="font-size: 12pt;"><font face="Arial"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><b>
+</b><span style="font-size: 12pt;">Use core functions like<br>
+<b>DoDickgirlChange</b><br>
+<b>DefaultDickgirl</b><br>
+<b>DefaultLesbian</b><br>
+<b>DefaultGeneric <br>
+</b>to handle default images. You can also explicitly set<br>
+_root.UseGeneric = true;<br>
+to make the game use a generic image, or call<br>
+_root.DefaultGeneric(100);<br>
+<i><br>
+</i></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span><hr style="width: 100%; height: 2px;"><h1><a class="mozTocH1" name="mozTocId199570"></a>To Skip to Night Planning<span style="font-size: 12pt;"><font face="Arial"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span></h1><span style="font-size: 12pt;"><font face="Arial"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b>
+</b><span style="font-size: 12pt;">Sometimes from a day action or a morning event you wish to skip directly to night actions, and even set certain actions to be done<br>
+<br>
+<b>SetNightActions - </b>Will start night, adding any mandatory actions like Bondage for Ponygirls<br>
+<i>function SetNightActions(enum1:Number, enum2:Number, enum3:Number, enum4:Number, enum5:Number, enum6:Number)<br>
+</i>enum1-enum6 - night actions to add (see list above). Any above the maximum allowed actions are ignored. All parameters are optional<br>
+<br>
+eg<br>
+SetNightActions(7);<br>
+start night with anal sex added. The game will ask for any remaining actions. Any mandatory actions will be first added, like bondage for ponygirls<br>
+<br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></font></span>

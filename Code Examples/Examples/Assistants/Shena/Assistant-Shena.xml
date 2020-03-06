@@ -1,0 +1,41 @@
+﻿<Language>
+	<Assistant>
+		<Name>Shena</Name>
+		<AssistantDescription>A noble from a distant kingdom, one of the rare furry women.\r\rShe is caring and increases Sensibility, but is also a bit of a slut and increases Nymphomania.</AssistantDescription>
+		<Cost>300</Cost>
+		<Vanilla>false</Vanilla>
+		
+		<Version>1.1</Version>
+		
+		<Bust>90</Bust>
+		<Waist>60</Waist>
+		<Hips>89</Hips>
+		<Age>22</Age>
+		<BloodType>O</BloodType>
+		<Weight>51</Weight>
+		<Height>179</Height>
+	
+		<Statistics>
+			<Charisma>50</Charisma>
+			<Sensibility>30</Sensibility>
+			<Refinement>30</Refinement>
+			<Intelligence>35</Intelligence>
+			<Morality>35</Morality>
+			<Constitution>40</Constitution>
+			<Cooking>25</Cooking>
+			<Cleaning>25</Cleaning>
+			<Conversation>40</Conversation>
+			<Fitness>30</Fitness>
+			<BlowJob>60</BlowJob>
+			<Fuck>40</Fuck>
+			<Temperament>50</Temperament>
+			<Nymphomania>30</Nymphomania>
+			<Obedience>40</Obedience>
+			<Lust>20</Lust>
+			<Reputation>30</Reputation>
+			<Fatigue>0</Fatigue>
+			<Joy>5</Joy>
+		</Statistics>
+
+	</Assistant>
+</Language>

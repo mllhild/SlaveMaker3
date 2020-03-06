@@ -1,0 +1,728 @@
+<u style="font-family: Arial;"><b><span style="font-size: 18pt;">
+</span></b></u><table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><font size="+2"><span style="font-weight: bold;"></span></font>
+      <table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">Common Events<br>
+</span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Version 8</font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <font size="+2"><span style="font-weight: bold;"></span></font></td>
+    </tr>
+  </tbody>
+</table><span style="font-size: 12pt; font-family: Arial;"><br><span style="font-size: 12pt;"><span style="font-weight: bold;">Basic Concepts</span><br>
+The game works on an event/handler model, where you start an event by
+showing some text and images and then show a button or question. This button has a
+linked <span style="font-weight: bold;">eventid </span>that uniquely defines the event.<br><br>When
+the button is clicked then an event handler function is called by the
+core game, and it is called using actionscript and xml interfaces for<br></span></span><ul style="font-family: Arial;"><li>the currently trained slave</li><li>for all minor slaves (xml interface only)<br></li><li>the current assistant</li><li>all custom events like the SMEncounter event, or the Lady Grey event</li></ul><span style="font-family: Arial;">Each
+of these will check if they can handle the event and if so will
+process, generally clearing text, images and showing new text/images,
+plus optionally showing a new button to continue the event chain. For
+most of the handlers, they return true to indicate the event was
+handled.</span><br style="font-family: Arial;"><br style="font-family: Arial;"><span style="font-family: Arial;">By
+default when your slave is training (ie performing acts like chores,
+jobs, sec acts etc) the Planning Next button is always shown. During
+early morning and daily events the Next button is shown by default.<br><span style="font-weight: bold;"></span><br>Generally an event works as follows<br>
+</span>
+<ul style="font-family: Arial;"><li>Call a button show function which sets the event variables (see below)<br></li><li>the player clicks the button<br></li><li>the button Handler is called to process the event</li><li>a Post Handler is called after the Handler finishes processing</li></ul><span style="font-family: Arial;">In the Handler or Post Handler a new event can be started as desired by the developer.</span><br style="font-family: Arial;">
+<br style="font-family: Arial;"><br style="font-family: Arial;"><span style="font-weight: bold; font-family: Arial;">Eventid</span><br style="font-family: Arial;"><span style="font-family: Arial;">An </span><span style="font-weight: bold; font-family: Arial;">eventid</span><span style="font-family: Arial;">
+is either a number, like 300, or a string like "RanmaGenderChange". The
+game reserves some numbers for slave, assistant, event use</span><br style="font-family: Arial;"><font style="font-family: Arial;" face="Arial"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">300-999&nbsp;
+- reserved for slave girl use<br>
+7000-7999&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- reserved for assistant use<br>
+10000-10999&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- reserved for custom event use<b><br>
+</b></span></span></span></font><br style="font-family: Arial;"><span style="font-family: Arial;">For string eventid's they must be a unique name, generally recommend prefixing it with the name of the slave or event, thus</span><br style="font-family: Arial;"><span style="font-family: Arial;">"RanmaGenderChange"</span><br style="font-family: Arial;"><span style="font-family: Arial;">"LadyGreyOnsen"</span><br style="font-family: Arial;"><span style="font-family: Arial;">etc</span><br style="font-family: Arial;"><span style="font-family: Arial;">If
+you do not use a unique name then you will disable the existing event,
+but it depends where it is defined, see the sequence of calling above,
+so an assistant version would never happen if it conflicts with a
+slaves. This is the same for the event numbers.<br><br>For most events the variables</span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>_root.NumEvent<br>_root.StrEvent<br>hold the eventid. NumEvent is a numeric
+event, and StrEvent is a string event. If StrEvent has a value then it
+is triggered, otherwise NumEvent will be triggered. This is an unusual
+case and seldom used in the game, mainly for some complex gender based
+cases and for your slave to override and bypass the standard event.<br><br>When event handler function is called the following variables are also set<br>_root.OldNumEvent<br>_root.OldStrEvent<br>these are set to the eventid when the event starts. This is to allow Post Handlers to determine the original event. This because an event can show a new event to trigger a chain of events.<br><br><span style="font-weight: bold;">Buttons</span><br>See <a href="Core%20-%20Buttons.html">Core - Buttons.html</a> for details on the buttons that can be shown for an event. These include</span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+<br>
+<b>DoEvent </b>- do an event and show the NextEvent button.<br>
+<b>DoYesNoEvent</b> - display yes/no buttons at the bottom of the general text area<br>
+<b>AskHerQuestions - </b>ask up to 5 questions<br>
+<b>ResetQuestions - </b>Reset and hide all questions<br>
+<b>AddQuestion - </b>Add a question to the list, call 1+ times.<br>
+<b>ShowQuestions - </b>Show the questions dialogue<br><br></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-weight: bold; font-family: Arial;">Table of Contents</span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br></span></span></span></span><ul style="font-family: Arial;" id="mozToc"><!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6--><li><a href="#mozTocId517153">Core Variables</a><ul><li><a href="#mozTocId515540">NumEvent</a></li><li><a href="#mozTocId364422">StrEvent</a></li><li><a href="#mozTocId102618">
+currentstrevent</a></li><li><a href="#mozTocId295438">OldNumEvent</a></li><li><a href="#mozTocId641809">lastnumevent
+</a></li><li><a href="#mozTocId326777">DoneEvent</a></li></ul></li><li><a href="#mozTocId547726">Standard Events Common to all Slaves</a><ul><li><a href="#mozTocId786305">Event Pickers</a><ul><li><a href="#mozTocId587351">Early Morning Events</a><ul><li><a href="#mozTocId118973">PreEvent</a></li><li><a href="#mozTocId479749">&lt;Events&gt;&lt;EarlyMorning&gt;</a></li></ul></li><li><a href="#mozTocId439032">Daily/Morning Events</a><ul><li><a href="#mozTocId292025">Events</a></li><li><a href="#mozTocId479749">&lt;Events&gt;&lt;Daily&gt;</a></li></ul></li><li><a href="#mozTocId107370">Other Event Functions</a></li></ul></li></ul></li><li><a href="#mozTocId975209">Standard Eventid's</a></li><li><a href="#mozTocId33378">Specialised Events</a></li></ul><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span>
+<br></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"></span><table style="width: 100%; height: 49px; background-color: rgb(210, 255, 202); font-family: Arial;" border="1" cellpadding="5" cellspacing="0">
+<tbody><tr><td><h1 style="height: 13px;"><a class="mozTocH1" name="mozTocId517153"></a>Core Variables</h1></td></tr>
+</tbody></table>
+<span style="font-family: Arial;">When an event is called or set the game uses a standard set of variables to record what event is to be done or is being done. A separate set of variables also holds what event was last done.</span><br style="font-family: Arial;"><br style="font-family: Arial;"><table style="text-align: left; width: 936px; height: 461px; background-color: rgb(242, 255, 255); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: rgb(229, 229, 229);"><span style="font-weight: bold;">Actionscript Variable</span></td>
+            <td style="vertical-align: top; width: 50%; background-color: rgb(229, 229, 229);"><span style="font-weight: bold;">XML Variable</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 13px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white;">
+            <h2 style="height: 0px;"><a class="mozTocH2" name="mozTocId515540"></a><small><span style="font-weight: bold;">NumEvent</span></small><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h2>
+            </td>
+            <td style="vertical-align: top; width: 50%; background-color: white;"><font size="+1"><span style="font-weight: bold;">currentnumevent</span></font> <font size="-1"><span style="font-style: italic;">(</span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080">READ ONLY)</font></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <table style="text-align: left; width: 924px; height: 239px;" border="0" cellpadding="6" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"> <span style="font-style: italic;"><font size="-1">(Number)</font></span> The numeric eventid for the current event or the event to be next performed. Generally this is set by the various button functions like DoEvent() and tested in the button/event handler like DoEventNext().<br>
+            <br>
+             <span style="font-size: 12pt;"><font size="-1">eg<br>
+            </font></span>
+            <table style="text-align: left; width: 896px; height: 92px;" border="0" cellpadding="0" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td style="vertical-align: top; width: 50%;"><span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">actionscript:</span></span></td>
+                  <td style="vertical-align: top;"><span style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span style="font-size: 10pt;">xml:</span></span></td>
+                </tr>
+                <tr>
+                  <td style="vertical-align: top;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;">function DoEventNext() {<br>&nbsp;&nbsp; if (_root.NumEvent == 300)
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // doing event 300<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // do whatever here<br>&nbsp;&nbsp;&nbsp;&nbsp; return true;<br>&nbsp;&nbsp; }<br>&nbsp;&nbsp; return false;<br>}<br></span></span></span></span></span></font></font></span></span></span></td>
+                  <td style="vertical-align: top;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1">&lt;if currentnumevent='300'&gt;<br>
+&nbsp;&nbsp; &lt;!-- doing event 300 --&gt;<br>
+&lt;/if&gt;<br><br></font></span></span></span></span></span></span></span></span></span></span></td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><div style="text-align: left;">
+      </div><table style="text-align: left; width: 924px; height: 33px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white; text-align: left; height: 7px;"><h2 style="height: 1px;"><a class="mozTocH2" name="mozTocId364422"></a><small>StrEvent</small><br></h2></td>
+            <td style="vertical-align: top; width: 50%; background-color: white; height: 7px;"><h2 style="height: 2px;"><a class="mozTocH2" name="mozTocId102618"></a><span style="font-weight: bold;">
+</span><small><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span>currentstrevent</small></h2></td>
+          </tr>
+        </tbody>
+      </table>
+      <table style="text-align: left; width: 912px; height: 5px;" border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"> <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"><span style="font-style: italic;">(String)</span></font> The current string eventid, otherwise identical to NumEvent.</span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span><span style="font-size: 12pt;"></span><br> </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 18px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white;"><h2 style="height: 6px;"><a class="mozTocH2" name="mozTocId295438"></a><small>OldNumEvent</small><br></h2></td>
+            <td style="vertical-align: top; width: 50%; background-color: white;"><h2 style="height: 3px;"><a class="mozTocH2" name="mozTocId641809"></a><span style="font-weight: bold;"><small>lastnumevent</small><br>
+</span><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h2></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"><span style="font-style: italic;">(Number)</span></font></span></span> <span style="font-size: 12pt;"><span style="font-size: 12pt;">The value of NumEvent at the start of an event. Useful to find out the event number before the event itself changes or starts a new event.</span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span><span style="font-size: 12pt;"></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span><br>
+      </td>
+    </tr>
+    
+    
+    
+    
+    
+    
+    
+    <tr><td style="vertical-align: top;"><table style="text-align: left; width: 924px; height: 13px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white;">
+            <h2 style="height: 0px;"><a class="mozTocH2" name="mozTocId326777"></a><small><span style="font-weight: bold;">DoneEvent</span></small><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h2>
+            </td>
+            <td style="vertical-align: top; width: 50%; background-color: white;"><font size="+1">no xml implementation</font><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080"></font></span></span></td>
+          </tr>
+        </tbody>
+      </table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"><span style="font-style: italic;">(Number)</span></font></span></span> <span style="font-size: 12pt;"><span style="font-size: 12pt;">This is a flag to indicate if an event has been started. Any of the functions like DoEvent(), AskQuestions() etc will set this to a value 1</span></span><br><br>Primarily this flag is used in <a href="#mozTocId292025">Events()</a> below. Every test for an event there should first test to see if DoneEvent is 0 to prevent an event being overwritten/relpaced. You do not need to check this for <a href="#mozTocId118973">PreEvent()</a> below.<br></td></tr><tr>
+      <td style="vertical-align: top;">
+      <hr style="width: 100%; height: 2px;"> </td>
+    </tr>
+  </tbody>
+</table><br style="font-family: Arial;"><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"></span><table style="width: 100%; height: 48px; background-color: rgb(210, 255, 202); font-family: Arial;" border="1" cellpadding="5" cellspacing="0">
+
+<tbody><tr><td>
+      <h1 style="height: 12px;"><a class="mozTocH1" name="mozTocId547726"></a>Standard Events Common to all Slaves</h1>
+</td></tr>
+</tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><u><b><span style="font-size: 14pt;">
+</span></b></u><span style="font-size: 12pt;"></span></span><h2 style="font-family: Arial;"><a class="mozTocH2" name="mozTocId786305"></a>Event Pickers<br></h2><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;">There are a set of events where the game can choose one of a list of possible events. The implementation of these is quite different between xml and actionscript.<br>
+<br>
+</span></span><h3 style="font-family: Arial;"><a class="mozTocH3" name="mozTocId587351"></a><span style="text-decoration: underline;">Early Morning Events</span><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></h3><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><b>
+</b>Each morning at 6am an event can happen. There are no standard events that happen here, all are custom for the slave. This event can be a series of events if desired. <br><br></span><span style="font-size: 12pt;"> </span><span style="font-size: 12pt;">If
+an event is triggered then the game by default will show a Next button
+that will perform the event 250. The is the same as the game
+automatically doing<br>
+_root.DoEvent(250);</span></span><br style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;">
+But, this Next button is only shown if you did not explicitly show a button or question in the </span></span><a style="font-family: Arial;" href="Slave%20-%20Events%20-%20Common.html#mozTocId118973">PreEvent()</a><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"> function.<br><br>By default, once these events are complete the game advances time by 1 hour, standardly to 7am. Any event triggered can advance time arbitrarily, see <a href="Core%20-%20Date,%20Time%20&amp;%20the%20Diary.html">Core - Date, Time &amp; the Diary.html</a>.<br></span><span style="font-size: 12pt;">
+<br></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br style="font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;">The following function is called. a slightly different version for slaves and assistants/events.<br><br></span></span><table style="text-align: left; width: 100%; height: 181px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 5px;"><a class="mozTocH4" name="mozTocId118973"></a><big>PreEvent</big></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"></span></span></span></span></span></span></span>
+      <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; font-weight: bold;">slave</span><i><span style="font-size: 12pt;"><br>function PreEvent() : Boolean<br></span></i><span style="font-size: 12pt; font-weight: bold;">assistant or event</span><i><span style="font-size: 12pt;"><br></span></i></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function PreEventAsAssistant() : Boolean</span></i></span></span><br><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>Show the text/images and return true&nbsp; to indicate and event has happened.</span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;"></span></b><br><span style="font-weight: bold;">Example:<br></span></span><span style="font-size: 12pt;"><font size="-1">&nbsp;( from Kasumi)<br><br>function PreEvent() : Boolean<br>{<br>&nbsp;&nbsp;&nbsp; if (_root.RulesWriteLetters == 0) {<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; _root.Points(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, -1, 2, 0, 0, -1, -1, 0);<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; _root.Backgrounds.ShowBedRoom();<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; EventNoFamilyContact._visible = true;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; _root.SetText("#slave tells you her family is &lt;i&gt;very&lt;/i&gt; important to her. She begs you to allow her to contact them and receive letters from them.\r\rStrangely she seems very aroused as she tells you...");<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return true;<br>&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp; if (Math.floor(Math.random()*6) == 1) {<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; temp = Math.floor(Math.random()*4) + 1;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; EventSnacks.gotoAndStop(temp);<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; if (temp == 1) _root.ShowOverlay(0);<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; else if (temp == 2) _root.Backgrounds.ShowBeach();<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; EventSnacks._visible = true;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; _root.Points(0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, 0, 0);<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; _root.SetText("Before breakfast you see #slave is eating a snack she has just prepared. She seems relaxed and quite happy.");<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return true;<br>&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp; return false;<br>}</font><br><br><br></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:</span></span></span></span></span></span></span><br style="font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><br></span></span><table style="text-align: left; width: 100%; height: 243px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      
+      <h4 style="height: 8px;"><a class="mozTocH4" name="mozTocId479749"></a><big>&lt;Events&gt;&lt;EarlyMorning&gt;</big></h4>
+
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"></span></span></span></span></span></span></span>
+      <table style="text-align: left; width: 892px; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">&lt;Events&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp; &lt;EarlyMorning&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;MyEvent1 conditionals&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/MyEvent1&gt;<br>&nbsp;&nbsp; &lt;/EarlyMorning&gt;<br>&lt;/Events&gt;</span></i></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span><br></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>The &lt;EarlyMorning&gt; node will contain a list of unique events, each with a conditional to determine if it should happen. The game sequentially checks each event until one's conditionals evaluate to true, then that event happens.<br><br>Note: if a node does not have any conditionals then it will never be selected. You can do this so the event node can be called from another node, say as a question response.</span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-weight: bold;">Example:<br></span><font size="-1">(from Mihoshi, simplified, 2 events)<br><br>&lt;Events&gt;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;EarlyMorning&gt;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;MitotoMorning chance="20%"&gt;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;ShowImage image="Images/Slaves/Mihoshi/Introduction 2.jpg" place="1" align="3"/&gt;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;SetText&gt;When you wake up, you find a sleepy Mitoto in bed with you dressed in skimpy lingerie. She sleepily smiles at you and then removes her lingerie and bends over seductively, and picks up her clothing. Mitoto dresses, ignoring your stares or questions.<br><br>She smiles and blows you a kiss and leaves.&lt;/SetText&gt;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;SMPoints&gt;0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0&lt;/SMPoints&gt;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;if chance="50%"&gt;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;SetVars flag="1"/&gt;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/if&gt;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/MitotoMorning&gt;<br><br></font></span><span style="font-size: 12pt;"><font size="-1">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;KiyoneMorning chance="10%"&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;ShowImage image="Images/Slaves/Mihoshi/Kiyone Visit.jpg" place="1" align="3"/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;SetText&gt;Early in the morning Kiyone visits on her way to attend work...&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;SMPoints&gt;0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0&lt;/SMPoints&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/</font></span><span style="font-size: 12pt;"><font size="-1">KiyoneMorning</font></span><span style="font-size: 12pt;"><font size="-1">&gt;</font></span></span><br style="font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><font size="-1">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/EarlyMorning&gt;<br>&lt;/Events&gt;</font></span><span style="font-size: 12pt;"><b><br></b></span><span style="font-size: 12pt;"><br><span style="font-weight: bold;"></span></span></span><h3 style="font-family: Arial;"><a class="mozTocH3" name="mozTocId439032"></a><span style="text-decoration: underline;">Daily/Morning Events</span></h3><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><b>
+</b>After the early morning events are resolved the game will check the standard daily events (including contests and end of game). This implementation is otherwise fairly different for actionscript and xml.<br><br></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br style="font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;">The
+game first checks a set of standard events and then call the following
+for the surrent slave + assistant + any external events.<br><br></span></span><table style="text-align: left; width: 1375px; height: 181px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 5px;"><a class="mozTocH4" name="mozTocId292025"></a><big>Events</big></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"></span></span></span></span></span></span></span>
+      <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; font-weight: bold;">slave</span><i><span style="font-size: 12pt;"><br>function Events()<br></span></i><span style="font-size: 12pt; font-weight: bold;">assistant or event</span><i><span style="font-size: 12pt;"><br></span></i></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">function EventsAsAssistant()</span></i></span></span><br><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>Check DoneEvent&nbsp; variable, otherwise show the text and images for your event, and show an event button, say using DoEvent(). Commonly call<br>_root.DoEvent(9999);<br>or<br>&lt;DoEvent&gt;9999&lt;/DoEvent&gt;<br>as this event will show the standard morning screen and allow the game to proceed. Otherwise you can show custom events but make sure the last one uses the 9999 event.</span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table><br style="font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;">
+<b style="font-weight: bold;"><span style="font-size: 14pt;"></span></b><span style="font-weight: bold;">Example</span><br><font size="-1">(from Ranma)<br><br>function Events()<br>{<br>&nbsp;&nbsp;&nbsp; if (_root.IsAssistant("Shampoo") &amp;&amp; _root.DoneEvent == 0 &amp;&amp; _root.VarLibidoRounded&gt;=50 &amp;&amp; _root.VarNymphomaniaRounded&gt;=50 &amp;&amp; _root.TotalLesbian &gt; 0 &amp;&amp; _root.Behaving &lt; 1) {<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; temp = Math.floor(Math.random()*5 - _root.Difficulty);<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; if (temp == 1) {<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; _root.DoEvent(9999);<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; if (_root.IsDickgirl()) ClipForcesShampoo.gotoAndStop(2);<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; else ClipForcesShampoo.gotoAndStop(1);<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ClipForcesShampoo._visible = true;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; _root.SetText("#slave was overcome with desire and forced "+ _root.ServantName + " to have sex.");<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; _root.Points(0, 0, -3, 0, -10, 0, 0, 0, 0, 0, 0, 0, 5, 0, -10, 0, 0, 0, 0, 0);<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; if(_root.RulesFuck == 0) _root.BadGirl = 1;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; } <br>&nbsp;&nbsp;&nbsp; }<br>}</font><br></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><br><br></i></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:</span></span></span></span></span></span><span style="font-size: 12pt;"><br></span></span>
+<table style="text-align: left; width: 1375px; height: 243px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+
+
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      
+      <h4 style="height: 8px;"><a class="mozTocH4" name="mozTocId479749"></a><big>&lt;Events&gt;&lt;Daily&gt;</big></h4>
+
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"></span></span></span></span></span></span></span>
+      <table style="text-align: left; width: 892px; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;">&lt;Events&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp; &lt;Daily&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;MyEvent1 conditionals&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/MyEvent1&gt;<br>&nbsp;&nbsp; &lt;/Daily&gt;<br>&lt;/Events&gt;</span></i></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span><br></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;"></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>The
+&lt;Daily&gt; node will contain a list of unique events, each
+with a conditional to determine if it should happen. The game
+sequentially checks each event until one's conditionals evaluate to
+true, then that event happens. By default the game will show the Next
+button and schedule the eventid 9999 (see above). Also the DoneEvent
+test is not needed, this node is not checked if another event has been
+selected.<br><br></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">Note:
+if a node does not have any conditionals then it will never be
+selected. You can do this so the event node can be called from another
+node, say as a question response.</span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-weight: bold;">Example:<br>
+</span><font size="-1">(from the core game Events.xml, slightly modified) This one asks a question, this the event 9999 is not scheduled.<br>
+&lt;Events&gt;<br>
+&nbsp; &nbsp; &lt;Daily&gt; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- fortune teller visits offering a reading --&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;FortuneTellerVisit elapsed='8+' flagsm-0='false'&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;AttachMovie movie='ClipFortuneTelling' place='1' align='0'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;ShowPerson person='Fortune Teller' place='0' align='2'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;PersonSpeak person='Fortune Teller'&gt;I can predict
+the future of #slave and do a reading for you for just
+10GP.&lt;/PersonSpeak&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;YesNoQuestion event='8'&gt;Do you want to see the future?&lt;/YesNoQuestion&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/FortuneTellerVisit&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/Daily&gt;<br>
+&lt;/Events&gt;</font></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><br><br>
+</i></span></span></span></span><h3 style="font-family: Arial;"><a class="mozTocH3" name="mozTocId107370"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><u><b>Other Event Functions</b></u></span></span></span></span></span></h3><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;">
+<span style="font-size: 12pt;">These functions are called for a standard events.Override for your slave girl to show the girls graphics and any text you want<br>
+<br>
+<u><span style="font-size: 14pt;">Mandatory Functions<br>
+</span></u></span></span></span></span></span></span><br style="font-family: Arial;"><span style="font-family: Arial;">
+Please also see </span><a style="font-family: Arial;" href="Slave%20-%20Events%20-%20Love%20&amp;%20Dating.html">Slave - Events - Love &amp; Dating.html</a><span style="font-family: Arial;"> as several functions describe there are also mandatory.</span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+<br>
+<b><span style="font-size: 14pt;">ShowTired<span style="font-size: 12pt;"><br>
+</span></span></b><i>function ShowTired(cum:Boolean)<br>
+</i>Show the slave looking exhausted. If cum == true show her covered in cum<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowPropositionAccepted<span style="font-size: 12pt;"><br>
+</span></span></b><i>function ShowPropositionAccepted()<br>
+</i>She her having sex in public<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowPropositionRefused<span style="font-size: 12pt;"><br>
+</span></span></b><i>function ShowPropositionRefused()<br>
+</i>Show her upset and maybe a little slutty<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowRetrieved<span style="font-size: 12pt;"><br>
+</span></span></b><i>function ShowRetrieved() : Boolean<br>
+</i>Show her tied up after being retrieved after running away or being rescued`<br>
+return true to disable any standard events<br><br>
+NumEvent == 30 - she ran away and was recaptured<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1    - she was rescued and retrieved<br>
+<b><span style="font-size: 14pt;"></span></b><br>
+<br>
+<br>
+<u><span style="font-size: 14pt;">Optional<br>
+</span></u><span style="font-size: 12pt;"><br>
+<b><span style="font-size: 14pt;">ShowDemonRape<span style="font-size: 12pt;"><br>
+</span></span></b>function ShowDemonRape() : Boolean<br>
+Show her being raped by a demon (male)<br>
+return true if you show a graphic, otherwise a generic graphic is shown<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowNakedApron<span style="font-size: 12pt;"><br>
+</span></span></b>function ShowNakedApron() : Boolean<br>
+Show her wearing only an apron.<br>
+return true if you show a graphic, otherwise a generic graphic is shown<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowRaped<span style="font-size: 12pt;"><br>
+</span></span></b><i>function ShowRaped() : Boolean<br>
+</i>Show her being raped<br>
+return false to show a generic graphic<br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowMorningMouthfull<span style="font-size: 12pt;"><br>
+</span></span></b><i>function ShowMorningMouthfull() : Boolean<br>
+</i>Show her receiving a mouthfull of cum<br>
+return true if she is awake in the graphic, else false<span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><i><br>
+</i><br>
+<br>
+<b><span style="font-size: 14pt;">ShowTentaclePregnancyReveal<span style="font-size: 12pt;"><br>
+</span></span></b><small><i>function ShowTentaclePregnancyReveal() : Boolean<br>
+</i>Show her in an advanced stage of pregnancy<br>
+return true if you show the graphic, otherwise a generic graphic is shown<br>
+Only used if tentacles are enabled</small><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">ShowTentaclePregnancyBirth<span style="font-size: 12pt;"><br>
+</span></span></b><small><i>function ShowTentaclePregnancyBirth() : Boolean<br>
+</i>Show her giving birth to a monster<br>
+return true if you show the graphic, otherwise a generic graphic is shown<br>
+Only used if tentacles are enabled</small><br>
+<b><i><br>
+<br>
+</i><span style="font-size: 14pt;">ShowTrainingComplete<span style="font-size: 12pt;"><br>
+</span></span></b><small><i>function ShowTrainingComplete() : Boolean<br>
+</i>Show an image when her training finishes, Normally also some custom text<br>
+return true to disable standard graphics</small><br>
+<b><i><br>
+<br>
+</i><span style="font-size: 14pt;">OwnerTest<span style="font-size: 12pt;"><br>
+</span></span></b><small><i>function OwnerTest(str:String, gain:Number) : Boolean<br>
+</i>Customise the message when the slave girls owner visits and test her every 7 days<br>
+str&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- what is tested eg "talents as a maid"<br>
+gain&nbsp;&nbsp;&nbsp;&nbsp;
+- amount of money paid<br>
+return true to disable standard messages and show your own</small><b><span style="font-size: 14pt;"></span></b><br>
+<br>
+<br>
+<b><span style="font-size: 14pt;">EventByuer<span style="font-size: 12pt;"><br>
+</span></span></b><small><i>function EventBuyer() : Boolean<br>
+</i>Totally customise the event where a person offers to buy her. Before NumEvent = 2, Yes/No buttons will be shown after this call,<br>
+return true to override standard messages</small><b><span style="font-size: 14pt;"></span></b><br>
+<br><br>
+<b><span style="font-size: 14pt;">EventRescue<i><span style="font-size: 12pt;"><br>
+</span></i></span></b><small><i>function EventRescue() : Boolean<br>
+</i>Override to alter the text/graphics when a delegation arrives to rescue her<br>
+return true to totally disable the standard event<br>
+Note: if you do nothing but return true the event will never happen,
+otherwise show text/graphic and call DoEvent/DoYesNoEvent etc</small><br>
+<br>
+</span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><b><i><br>
+</i><span style="font-size: 14pt;">ShowGigaBE<span style="font-size: 12pt;"><br>
+</span></span></b><small><i>function ShowGigaBE() : Boolean<br>
+</i>Showed when your slave has an extreme breast/cock expansion event. Show her with huge breasts, or for males slaves with a huge cock.</small></span></span></span></span></span></span></span></span></span></span></span><br style="font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;">
+<br></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"></span><span style="font-size: 12pt;"></span></span><table style="width: 100%; height: 48px; background-color: rgb(210, 255, 202); font-family: Arial;" border="1" cellpadding="5" cellspacing="0">
+
+
+<tbody><tr><td>
+      
+      <h1 style="height: 12px;"><a class="mozTocH1" name="mozTocId975209"></a>Standard Eventid's</h1>
+
+</td></tr>
+</tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;">
+<b><span style="font-size: 16pt;">
+
+</span></b><span style="font-size: 12pt;"><br>Generally events are grouped by numbers, with these general bands<br><br></span></span></span><table style="width: 100%; font-family: Arial;" border="1" cellpadding="2" cellspacing="0">
+<tbody><tr><td style="width: 8%;">0-99    
+         
+</td><td>core game events</td></tr>
+<tr><td>100-199          
+</td><td>tentacle events</td></tr>
+<tr><td>200-249  
+</td><td>dickgirl events</td></tr>
+<tr><td>250-269  
+</td><td>core game events (new day)</td></tr>
+<tr><td>270-299  
+</td><td>lesbian events</td></tr>
+<tr><td><b>300-999  
+</b></td><td>reserved for slave girl use</td></tr>
+<tr><td>2000-2500        
+</td><td>Catgirls</td></tr>
+<tr><td>3000-3999        
+</td><td>Combat</td></tr>
+<tr><td>4000-4999       
+</td><td>Events while walking</td></tr>
+<tr><td>4080-4099        
+</td><td>Milking</td></tr>
+<tr><td>4100-4199        
+</td><td>Evil Mine</td></tr>
+<tr><td>4200-4299        
+</td><td>Faeries</td></tr>
+<tr><td>4300-4399        
+</td><td>Beach events</td></tr>
+<tr><td>5000-5999       
+</td><td>events related to Slave Maker backgrounds/talents</td></tr>
+<tr><td>6000-6999        
+</td><td>house exploration</td></tr>
+<tr><td><b>7000-7999        
+</b></td><td>reserved for assistant use</td></tr>
+<tr><td>8000-8499        
+</td><td>events while visiting a person</td></tr>
+<tr><td>8500-8999        
+</td><td>furry events</td></tr>
+<tr><td>9000-9799        
+</td><td>internal game use</td></tr>
+<tr><td>9800-9899        
+</td><td>bad end use</td></tr>
+<tr><td>9900-9999        
+</td><td>internal game use</td></tr>
+<tr><td><b>10000-10999    </b></td><td>reserved for custom event use</td></tr>
+<tr><td>11000-12000  </td><td>Job and Training related</td></tr>
+</tbody></table>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+<br>
+<br>
+yes/no events<br></span></span></span><table style="width: 1375px; height: 1246px; font-family: Arial;" border="1" cellpadding="2" cellspacing="0">
+<tbody><tr><td style="width: 10%;">0<br></td><td> traveling salesman visits</td></tr>
+<tr><td>1<br></td><td> party arrives to rescue slave girl and asks for a bribe</td></tr>
+<tr><td>2<br></td><td> a male buyer offers to purchase her</td></tr>
+<tr><td>2.1<br></td><td> a female buyer offers to purchase her</td></tr>
+<tr><td>3<br></td><td> love confession</td></tr>
+<tr><td>6<br></td><td> take pill from odd man/dg</td></tr>
+<tr><td>7<br></td><td> drink nymph's tears</td></tr>
+<tr><td>8<br></td><td> fortune teller visits</td></tr>
+<tr><td>9<br></td><td> sex with cute lesbian</td></tr>
+<tr><td>10<br></td><td> sex with sailor</td></tr>
+<tr><td>11<br></td><td> Early Training Complete</td></tr>
+<tr><td>13<br></td><td> sold to nobleman</td></tr>
+<tr><td>20<br></td><td> buy her back at end of game</td></tr>
+<tr><td>21<br></td><td> train by Meesh</td></tr>
+<tr><td>31<br></td><td> will work as a chef</td></tr>
+<tr><td>32<br></td><td> sleazy bar striptease</td></tr>
+<tr><td>33<br></td><td> sleazy bar service (if asked), male customer</td></tr>
+<tr><td>33.1<br></td><td> sleazy bar service (if asked), female customer</td></tr>
+<tr><td>34<br></td><td> club lick</td></tr>
+<tr><td>35<br></td><td> club refuse</td></tr>
+<tr><td>36<br></td><td> club agree to lick later</td></tr>
+<tr><td>37<br></td><td> club refuse later</td></tr>
+<tr><td>38.1<br></td><td> male requests service in the onsen</td></tr>
+<tr><td>38.2<br></td><td> female requests service in the onsen</td></tr>
+<tr><td>38.3<br></td><td> dickgirl requests service in the onsen</td></tr>
+<tr><td>39<br></td><td> force owned slave to do act</td></tr>
+<tr><td>40<br></td><td> investiage exorcism</td></tr>
+<tr><td>41<br></td><td> change assistant</td></tr>
+<tr><td>100<br></td><td> search for her when tentacle abducted</td></tr>
+<tr><td>200<br></td><td> drink Priapus Draft</td></tr>
+<tr><td>220<br></td><td> drink anitdote to Priapus Draft</td></tr>
+<tr><td>271<br></td><td> Start Lesbian Training?</td></tr>
+<tr><td>4070<br></td><td> agree to Private tutors price</td></tr>
+<tr><td>4080<br></td><td> take milk drug</td></tr>
+<tr><td>4115<br></td><td> hire medium during evil mine</td></tr>
+<tr><td>4304<br></td><td> Beach Swim : take a lesson</td></tr>
+<tr><td>4305<br></td><td> Beach Swim : Get lost swimsuit</td></tr>
+<tr><td>6001<br></td><td> entertain high priestess Daruna</td></tr>
+<tr><td>8020<br></td><td> attend prostitutes party</td></tr>
+<tr><td>8040<br></td><td> attend high class party</td></tr>
+<tr><td>8079<br></td><td> courtesan training</td></tr>
+<tr><td>11001<br></td><td> Seek out Lord</td></tr>
+<tr><td>11002<br></td><td> Lady Farun</td></tr>
+<tr><td>11003<br></td><td> Ambassadors</td></tr>
+<tr><td>11004<br></td><td> Guild Officials</td></tr>
+<tr><td>11005<br></td><td> Other nobles</td></tr>
+</tbody></table>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+<br>
+next/questions events<br></span></span></span><table style="width: 100%; font-family: Arial;" border="1" cellpadding="2" cellspacing="0">
+<tbody><tr><td style="width: 10%;">14<br></td><td> show contest menu (only valid during a contest)</td></tr>
+<tr><td>15<br></td><td> same a pressing Next button during a contest</td></tr>
+<tr><td>30<br></td><td> runaway slave</td></tr>
+<tr><td>33<br></td><td> sleazy bar service (if she does it automatically) : male customer</td></tr>
+<tr><td>33.1<br></td><td> sleazy bar service (if she does it automatically) : female customer</td></tr>
+<tr><td>36<br></td><td> club meeting</td></tr>
+<tr><td>100<br></td><td> Tentacle Abduction Start</td></tr>
+<tr><td>101<br></td><td> Tentacle Abduction area 1 (l/r junction)</td></tr>
+<tr><td>102<br></td><td> Tentacle Abduction : Chamber E1</td></tr>
+<tr><td>103<br></td><td> Tentacle Abduction : Chamber E2</td></tr>
+<tr><td>104<br></td><td> Tentacle Abduction : area 2 (l/r junction)</td></tr>
+<tr><td>105<br></td><td> Tentacle Abduction : area 3 (f/b chamber)</td></tr>
+<tr><td>106<br></td><td> Tentacle Abduction : area 4 (l/r junction)</td></tr>
+<tr><td>107<br></td><td> Tentacle Abduction : Chamber E4</td></tr>
+<tr><td>108<br></td><td> Tentacle Abduction : Chamber E3</td></tr>
+<tr><td>109<br></td><td> Tentacle Abduction : Chamber E5</td></tr>
+<tr><td>110<br></td><td> Tentacle Abduction : Chamber E6</td></tr>
+<tr><td>120<br></td><td> Tentacle Abduction : Main Chamber entry</td></tr>
+<tr><td>121<br></td><td> Tentacle Abduction : Main Chamber rescue!</td></tr>
+<tr><td>122<br></td><td> Tentacle Abduction : Main Chamber abandoned : aftermath</td></tr>
+<tr><td>125/126<br></td><td> Tentacle Abduction : Defeat : part 1</td></tr>
+<tr><td>127<br></td><td> Defeat : Submit</td></tr>
+<tr><td>128, 128.5<br></td><td> Defeat : Resist</td></tr>
+<tr><td>13<br></td><td> acolyte tentacle raid : run</td></tr>
+<tr><td>132 <br></td><td> acolyte tentacle raid : help</td></tr>
+<tr><td>140<br></td><td> Assistant Tentacle Sex</td></tr>
+<tr><td>141<br></td><td> Slave Maker Tentacle Sex</td></tr>
+<tr><td>190<br></td><td> tentacle pregnancy</td></tr>
+<tr><td>200<br></td><td> drink Priapus Draft (non permanent transform) : generally ignore this, use the functions provided</td></tr>
+<tr><td>201<br></td><td> drink Priapus Draft (non permanent) : her cock grows : generally ignore this</td></tr>
+<tr><td>202<br></td><td> drink Priapus Draft (permanent transform) : her cock grows : generally ignore this, use the functions provided</td></tr>
+<tr><td>210<br></td><td> drink Priapus Draft (permanent transform) : Astrid examines her : generally ignore this, use the functions provided</td></tr>
+<tr><td>211<br></td><td> drink Priapus Draft (permanent transform) : Astrid tells her she is
+now a permanent dickgirl : generally ignore this, use the functions
+provided</td></tr>
+<tr><td>212<br></td><td> drink Priapus Draft (permanent transform) : update stats : generally ignore this, use the functions provided</td></tr>
+<tr><td>240<br></td><td> after drinking potion : generally ignore this, use the functions provided</td></tr>
+<tr><td>270<br></td><td> Lesbian Training start</td></tr>
+<tr><td>4010<br></td><td> Puppy Girl : peek at puppy girl's 'Mine'</td></tr>
+<tr><td>4011<br></td><td> Puppy Girl : say 'Look Catgirl'</td></tr>
+<tr><td>4012<br></td><td> Puppy Girl : get servant to play and fuck 'Mine'</td></tr>
+<tr><td>4013<br></td><td> Puppy Girl : no do not trick</td></tr>
+<tr><td>4014<br></td><td> Meigura offers wish or leave city</td></tr>
+<tr><td>4015<br></td><td> Meigura Leave City</td></tr>
+<tr><td>4016<br></td><td> Meigura Wish : ask type</td></tr>
+<tr><td>4017<br></td><td> Wish for Freedom</td></tr>
+<tr><td>4018<br></td><td> Wish for Love</td></tr>
+<tr><td>4019<br></td><td> Wish for Health</td></tr>
+<tr><td>4020<br></td><td> Comfort Bit Tit Slave</td></tr>
+<tr><td>4021<br></td><td> Promise to free Bit Tit Slave</td></tr>
+<tr><td>4025<br></td><td> Slave Comfort : give teddy bear</td></tr>
+<tr><td>4026<br></td><td> Slave Comfort : no teddy bear</td></tr>
+<tr><td>4030<br></td><td> Slave Pens : Escapee Run for Help : Deformed</td></tr>
+<tr><td>4031<br></td><td> Slave Pens : Escapee Run for Help : Tentacle</td></tr>
+<tr><td>4032<br></td><td> Slave Pens : Escapee : Help : Deformed</td></tr>
+<tr><td>4033<br></td><td> Slave Pens : Escapee : Help : Tentacle</td></tr>
+<tr><td>4040<br></td><td> Slave Pens : Tell the girls</td></tr>
+<tr><td>4041<br></td><td> Slave Pens : Slap Him</td></tr>
+<tr><td>4050<br></td><td> Slave Pens : dg slave blowjob</td></tr>
+<tr><td>4051<br></td><td> Slave Pens : dg slave refuse</td></tr>
+<tr><td>4080<br></td><td> First Milking</td></tr>
+<tr><td>4081<br></td><td> End of First Milking</td></tr>
+<tr><td>4082<br></td><td> Milk Drug Confront Farmer : Punch farmer</td></tr>
+<tr><td>4083<br></td><td> Milk Drug Confront Farmer : promise to tell lord, questions asked for 4088, 4087</td></tr>
+<tr><td>4084<br></td><td> Milk Drug Confront Farmer : Male SlaveMaker : next morning, I have breasts, female gender change</td></tr>
+<tr><td>4085 <br></td><td> Milk Drug Confront Farmer : Male SlaveMaker : next morning, I am a woman?, dickgirl gender change</td></tr>
+<tr><td>4086<br></td><td> Milk Drug Confront Farmer : rescued and go to Lord</td></tr>
+<tr><td>4087<br></td><td> Milk Drug Confront Farmer : refuse to wait and go to Lord</td></tr>
+<tr><td>4088<br></td><td> Milk Drug Confront Farmer : agree to wait</td></tr>
+<tr><td>4200/4203<br></td><td> Fairy rescue : free her</td></tr>
+<tr><td>4201<br></td><td> Fairy Rescue : leave</td></tr>
+<tr><td>4202<br></td><td> Fairy Rescue : rebind her</td></tr>
+<tr><td>4204<br></td><td> Fairy Rescue : sell reward gem</td></tr>
+<tr><td>4205<br></td><td> Fairy Rescue : eat reward gem</td></tr>
+<tr><td>4207<br></td><td> Fairy Rescue : eat spider berry</td></tr>
+<tr><td>4300<br></td><td> Swim at the beach</td></tr>
+<tr><td>4301<br></td><td> Walk at the beach</td></tr>
+<tr><td>4302<br></td><td> Private areas at the beach</td></tr>
+<tr><td>4303<br></td><td> Rocks at the beach</td></tr>
+<tr><td>4310<br></td><td> Beach Guide : Swimming</td></tr>
+<tr><td>4311<br></td><td> Beach Guide : Swimming Instructor</td></tr>
+<tr><td>4312<br></td><td> Beach Guide : Walking</td></tr>
+<tr><td>4313<br></td><td> Beach Guide : Private</td></tr>
+<tr><td>4314<br></td><td> Beach Guide : Rocks</td></tr>
+<tr><td>4315<br></td><td> Beach Guide : Mermaids</td></tr>
+<tr><td>4320<br></td><td> Beach Swim : Mermaid Rescue : Swim to Help</td></tr>
+<tr><td>4321<br></td><td> Beach Swim : Mermaid Rescue : Look to supervisor</td></tr>
+<tr><td>4322<br></td><td> Beach Swim : Mermaid Rescue : Scream for Help</td></tr>
+<tr><td>4323/4324/4325</td><td> Beach Swim  Mermaid Rescue : Mermaid Revenge</td></tr>
+<tr><td>4330<br></td><td> Beach Walk : Mermaid Assault : slave help</td></tr>
+<tr><td>4331<br></td><td> Beach Walk : Mermaid Assault : supervisor help</td></tr>
+<tr><td>4332<br></td><td> Beach Walk : Mermaid Assault : slave helpless</td></tr>
+<tr><td>4333<br></td><td> Beach Walk : Mermaid Assault : thanks</td></tr>
+<tr><td>5010<br></td><td> demon cock mc : any sex</td></tr>
+<tr><td>5011<br></td><td> demon cock mc : arousal</td></tr>
+<tr><td>5012<br></td><td> demon cock mc : any non sex</td></tr>
+<tr><td>5013<br></td><td> demon cock mc : obey</td></tr>
+<tr><td>5014<br></td><td> demon cock mc : desire</td></tr>
+<tr><td>5015<br></td><td> demon cock mc : visions</td></tr>
+<tr><td>5016<br></td><td> demon cock : ass fuck</td></tr>
+<tr><td>5017<br></td><td> demon cock : resist ass fuck</td></tr>
+<tr><td>5020<br></td><td> demon ancestory : destroy</td></tr>
+<tr><td>5021<br></td><td> demon ancestory : destroy and take</td></tr>
+<tr><td>5022<br></td><td> demon ancestory : nothing</td></tr>
+<tr><td>5030<br></td><td> tentacle hybrid : nun vision 1</td></tr>
+</tbody></table>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+<br>
+// House<br></span></span></span><table style="width: 100%; font-family: Arial;" border="1" cellpadding="2" cellspacing="0">
+<tbody><tr><td style="width: 10%;">6000<br></td><td> rent for temple house</td></tr>
+<tr><td>6999<br></td><td> end of house exlporation</td></tr>
+</tbody></table>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+<br>
+// Visit/Party events<br></span></span></span><table style="width: 100%; font-family: Arial;" border="1" cellpadding="2" cellspacing="0">
+<tbody><tr><td style="width: 10%;">8000<br></td><td> ask barmaid about herself</td></tr>
+<tr><td>8001<br></td><td> Barmaid bj</td></tr>
+<tr><td>8002<br></td><td> Barmaid gossip</td></tr>
+<tr><td>8003<br></td><td> first meeting with barmaid</td></tr>
+<tr><td>8010<br></td><td> After Lady Farun</td></tr>
+<tr><td>8012<br></td><td> After Prostitute</td></tr>
+<tr><td>8020<br></td><td> start of prostitute party</td></tr>
+<tr><td>8026<br></td><td> prostitute party : Accompany : normal</td></tr>
+<tr><td>8027<br></td><td> prostitute party : Maids</td></tr>
+<tr><td>8028<br></td><td> prostitute party : Accompany : dickgirl 1</td></tr>
+<tr><td>8029<br></td><td> prostitute party : Accompany : dickgirl 2</td></tr>
+<tr><td>8030<br></td><td> serve as maid, choose place</td></tr>
+<tr><td>8031<br></td><td> serve as maid : outside</td></tr>
+<tr><td>8032<br></td><td> serve as maid : upstairs</td></tr>
+<tr><td>8033<br></td><td> serve as maid : basement</td></tr>
+<tr><td>8034<br></td><td> serve as maid : cum dining</td></tr>
+<tr><td>8039<br></td><td> prostitute party : end of party</td></tr>
+<tr><td>8040<br></td><td> start of high class party</td></tr>
+<tr><td>8041<br></td><td> high class party : Intro : Dancing</td></tr>
+<tr><td>8042<br></td><td> high class party : Intro : Dinner</td></tr>
+<tr><td>8043<br></td><td> high class party : Intro : Seance</td></tr>
+<tr><td>8044<br></td><td> high class party : Intro : Maids</td></tr>
+<tr><td>8046<br></td><td> high class party : Accompany : start</td></tr>
+<tr><td>8047<br></td><td> high class party : Accompany : innuendo</td></tr>
+<tr><td>8048<br></td><td> high class party : Accompany : forthcoming</td></tr>
+<tr><td>8049<br></td><td> high class party : Dancing</td></tr>
+<tr><td>8050<br></td><td> high class party : Dinner</td></tr>
+<tr><td>8051<br></td><td> high class party : Maids</td></tr>
+<tr><td>8052<br></td><td> high class party : Maid : sex</td></tr>
+<tr><td>8053<br></td><td> high class party : Maid : demon girl</td></tr>
+<tr><td>8055<br></td><td> high class party : Maid : visit</td></tr>
+<tr><td>8056<br></td><td> high class party : seance</td></tr>
+<tr><td>8057<br></td><td> high class party : seance : wait</td></tr>
+<tr><td>8058<br></td><td> high class party : seance : help</td></tr>
+<tr><td>8059<br></td><td> high class party : seance : masturbate</td></tr>
+<tr><td>8060<br></td><td> high class party : talk</td></tr>
+<tr><td>8065<br></td><td> high class party : invite Lady Azure to dance</td></tr>
+<tr><td>8066<br></td><td> high class party : fake message for Lady Azure</td></tr>
+<tr><td>8079<br></td><td> high class party : end of party, home with servant</td></tr>
+<tr><td>8079<br></td><td> high class party : end of party, home with Lady Okyanu</td></tr>
+<tr><td>8200<br></td><td> Lady Farun : access ruins</td></tr>
+<tr><td>8201<br></td><td> Lady Farun : Fix Race</td></tr>
+<tr><td>8202<br></td><td> Lady Farun : Money</td></tr>
+<tr><td>8203<br></td><td> Lady Farun : Nothing</td></tr>
+<tr><td>8300<br></td><td> Bounty Hunter : refuse to give her</td></tr>
+<tr><td>8301<br></td><td> Bounty Hunter : give her freely</td></tr>
+<tr><td>8302<br></td><td> Bounty Hunter : give her conditionally</td></tr>
+<tr><td>8303<br></td><td> Bounty Hunter : services needed after visit</td></tr>
+<tr><td>8500<br></td><td> Furry Forest chase 1</td></tr>
+<tr><td>8501<br></td><td> Furry Forest chase 2</td></tr>
+<tr><td>8502<br></td><td> Furry cat Palace meeting 1</td></tr>
+<tr><td>8503<br></td><td> Furry cat Palace meeting 2</td></tr>
+<tr><td>8504<br></td><td> Furry cat Palace meeting 3</td></tr>
+</tbody></table>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+assorted<br></span></span></span><table style="width: 1375px; height: 85px; font-family: Arial;" border="1" cellpadding="2" cellspacing="0">
+<tbody><tr><td style="width: 10%;">9800<br></td><td> game over</td></tr>
+<tr><td>9810<br></td><td> Bad End sold a slave</td></tr>
+<tr><td>9820<br></td><td> Bad End Breast Enlargement </td></tr>
+</tbody></table>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+<br>
+special - generally do not use or intercept<br></span></span></span><table style="width: 100%; height: 177px; font-family: Arial;" border="1" cellpadding="2" cellspacing="0">
+<tbody><tr><td style="width: 10%;">9700<br></td><td> while shopping in shop will show a next button and return you to the shop when next clicked</td></tr>
+<tr><td>9701<br></td><td> ditto, for dealer</td></tr>
+<tr><td>9702<br></td><td> dito, for salon</td></tr>
+<tr><td>9703<br></td><td> ditto, stables</td></tr>
+<tr><td>9999<br></td><td> do not intercept this, but call<br><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">_root.DoEvent(9999)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for an event with the Next button that will return to the main screen with no other standard effects</span></span></span><br></td></tr>
+</tbody></table>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><br></span></span></span></span></span></span></span></span></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"></span></span></span></span></span></span></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"></span></span></span></span></span></span></span></span></span></span></span><table style="width: 100%; height: 48px; background-color: rgb(210, 255, 202); font-family: Arial;" border="1" cellpadding="5" cellspacing="0">
+
+
+<tbody><tr><td>
+      
+      <h1 style="height: 12px;"><a class="mozTocH1" name="mozTocId33378"></a>Specialised Events<br></h1>
+
+</td></tr>
+</tbody>
+</table>
+<br style="font-family: Arial;"><span style="font-family: Arial;">There are a number of assorted events custom to trainings, love confessions, pregnancy etc.</span><br style="font-family: Arial;"><br style="font-family: Arial;"><span style="font-family: Arial;">See</span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><br></span></span></span></span></span></span></span></span></span></span></span><ul style="font-family: Arial;"><li><a href="Slave%20-%20Events%20-%20Love%20&amp;%20Dating.html">Slave - Events - Love &amp; Dating.html</a> - when your slave confesses their love or they date someone<br></li><li><a href="Slave%20-%20Events%20-%20Milking.html">Slave - Events - Milking.html</a> - when they are milked at the farm</li><li><a href="Slave%20-%20Transformation%20-%20Faeries.html">Slave - Transformation - Faeries.html</a> - when your slave transforms into a faerie<br></li><li><a href="Slave%20-%20Transformation%20-%20Dickgirl.html">Slave - Transformation - Dickgirl.html</a> - when you slave becomes a dickgirl<br><span style="text-decoration: underline;"></span></li></ul><span style="font-family: Arial;">Also see the various trainings, planning actions like Jobs, Chores, Schools, Sex Acts.</span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><br>
+<span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>

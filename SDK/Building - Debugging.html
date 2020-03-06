@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html;charset=ISO-8859-1" http-equiv="Content-Type">
+  <meta name="generator"
+ content="HTML Tidy for Windows (vers 22 March 2008), see www.w3.org">
+  <title>Debugging</title>
+</head>
+<body>
+<table
+ style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;"
+ border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font
+ size="+3"><span style="font-weight: bold;">Debugging<br>
+            </span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td
+ style="vertical-align: top; width: 80%; text-align: left;"><a
+ href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font
+ style="font-weight: bold;" size="-1">Updated
+to version 3.4</font> </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<center style="font-family: Arial;"> <u><b><span
+ style="font-size: 18pt;"><span style="font-size: 14pt;"><span
+ style="font-size: 16pt;"><span style="font-size: 14pt;"><br>
+</span></span></span></span></b></u> </center>
+<span style="font-weight: bold; font-family: Arial;">Table of Contents</span><br
+ style="font-family: Arial;">
+<ul style="font-family: Arial;" id="mozToc">
+<!--mozToc h3 1 h2 2 h3 3 h4 4 h5 5 h6 6-->
+  <li><a href="#mozTocId671338">Using the Debugging Menu</a></li>
+  <li><a href="#mozTocId31012">Dress Layout and Items</a></li>
+  <li><a href="#mozTocId242755">View Slave Details</a></li>
+  <li><a href="#mozTocId99491">View Flag Details</a></li>
+  <li><a href="#mozTocId312428">View People/Places</a></li>
+  <li><a href="#mozTocId687685">Check any Arbitrary Variable Value</a></li>
+  <li><a href="#mozTocId366862">Run any Arbitrary XML code</a></li>
+  <li><a href="#mozTocId903034">Other buttons</a></li>
+  <li><a href="#mozTocId867179">Other Fields</a></li>
+</ul>
+<br style="font-family: Arial;">
+<span style="font-weight: bold; font-family: Arial;"></span>
+<h3 style="font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId671338"></a><span style="font-weight: bold;">Using the </span><span
+ style="font-weight: bold;">Debugging Menu</span></h3>
+<span style="font-family: Arial;">For testing of slaves the debugging
+menu in the game is very useful. This is opened by holding Ctrl key
+and the Shift key and simultaneously clicking the letter G in the Gold
+text in the lower left of the screen using the mouse. This will add a
+new tab, click on it and you have the following</span><br
+ style="font-family: Arial;">
+<br style="font-family: Arial;">
+<h3 style="font-family: Arial;"><a class="mozTocH3" name="mozTocId31012"></a><span
+ style="font-weight: bold;">Dress Layout and Items</span></h3>
+<span style="font-family: Arial;">You have the ability to position
+dress items using drag and drop or typing the coordinates explicitly.
+The xml and actionscript code for the item is how. </span><br
+ style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-family: Arial;">To use this click the button "Load
+Items" then type an item number in the input box "Show Item". The item
+will then be shown and you can drag it into place and type the
+coordinates. Note</span><br style="font-family: Arial;">
+<span style="font-family: Arial;">- negative width/height reverse the
+image</span><br style="font-family: Arial;">
+<span style="font-family: Arial;">- rotation is in degrees, can be
+negative</span><br style="font-family: Arial;">
+<span style="font-family: Arial;">Use the button "Clear Items" to
+remove the items. </span><br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-family: Arial;">You can use the Dress +/- and Naked
+buttons to select the dress or naked image to select. The frame +/-
+buttons select an alternative (notably for naked images)</span><br
+ style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-family: Arial;">Tint field can apply a tint to the
+current item, click the colour and a simple colour picker will be shown</span><br
+ style="font-family: Arial;">
+<br style="font-family: Arial;">
+<h3 style="font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId242755"></a><span style="font-weight: bold;">View Slave
+Details</span></h3>
+<span style="font-family: Arial;">The Slave button at the top lists all
+slaves, includes details on pregnancy. By default this show all slaves
+and assistant, including ones you do not own (have sold or are not
+employed) You can filter this to only owned slaves by holding the Shift
+key as you click the button</span><br style="font-family: Arial;">
+<span style="font-family: Arial;">The number like Slave 14: is the
+index into the SlavesArray for the slave (the SlaveIndex variable) and
+is also the index for the slave in the smxslaves.sol file</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;">Type is the type of slave, 0 minor
+slave, -1 assistant, -10 current slave. Details in the SDK</span><br
+ style="font-family: Arial;">
+<br style="font-family: Arial;">
+<h3 style="font-family: Arial;"><a class="mozTocH3" name="mozTocId99491"></a><span
+ style="font-weight: bold;">View Flag Details</span></h3>
+<span style="font-family: Arial;">View all flags like BitFlag1,
+BitFlagSM and the various flags for events</span><br
+ style="font-family: Arial;">
+<br style="font-family: Arial;">
+<h3 style="font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId312428"></a><span style="font-weight: bold;">View
+People/Places</span></h3>
+<span style="font-family: Arial;">similarly view the flags and
+variables for all people and places in the game</span><br
+ style="font-family: Arial;">
+<br style="font-family: Arial;">
+<h3 style="font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId687685"></a><span style="font-weight: bold;">Check any
+Arbitrary
+Variable Value</span></h3>
+<span style="font-family: Arial;">In the white text area (clear it in
+needed first) type</span><br style="font-family: Arial;">
+<span style="font-family: Arial;">?variable</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;">and click on the "Evaluate" button</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;">eg</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;">?constitution</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;">this will display the value of the
+constitution stat for the current slave.</span><br
+ style="font-family: Arial;">
+<br style="font-family: Arial;">
+<span style="font-family: Arial;">This supports </span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;">- xml variable naming</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;">- absolute actionscript variable name</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;">eg</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;">?NumMerchant</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;">will display the variable</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;">_root.NumMerchant</span><br
+ style="font-family: Arial;">
+<br style="font-family: Arial;">
+<h3 style="font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId366862"></a><span style="font-weight: bold;">Run any
+Arbitrary XML
+code</span></h3>
+<span style="font-family: Arial;">You can type any arbitrary xml code
+in the white text area (multiple statements fine) and click the
+"Evaluate" button. The game will execute the code and any output (say
+using &lt;AddText&gt; will be shown in the same area</span><br
+ style="font-family: Arial;">
+<br style="font-family: Arial;">
+<h3 style="font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId903034"></a><span style="font-weight: bold;">Other
+buttons</span></h3>
+<span style="font-family: Arial;"><span style="font-weight: bold;">+1
+Day</span> - move time forward 1 day</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;"><span style="font-weight: bold;">+1
+Hour</span> - move time forward 1 hour</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;"><span style="font-weight: bold;">Love</span>
+- displays love specific information for all slaves</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;"><span style="font-weight: bold;">Reset</span>
+- will reset people/places and events back to default. Basically
+intended as a attempt to fix errors in data</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;"><span style="font-weight: bold;">Log</span>
+- not very useful yet. some key statement log output here. Also if you
+use the xml statement &lt;trace&gt;whatever&lt;/trace&gt; or
+_root.SMTRACE("whatever"); ONLY logs once the debugging menu has been
+enabled</span><br style="font-family: Arial;">
+<span style="font-family: Arial;"><span style="font-weight: bold;">View
+XML</span> - used to list xml nodes for debugging some issues. Type say
+in the white area</span><br style="font-family: Arial;">
+<span style="font-family: Arial;">Slave</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;">and it will list all xml nodes in
+&lt;Slave&gt;</span><br style="font-family: Arial;">
+<span style="font-family: Arial;"><span style="font-weight: bold;">Slave1/Slave2</span>
+- used for twins as each twin can have a separate dress image and thus
+separate item positioning</span><br style="font-family: Arial;">
+<br style="font-family: Arial;">
+<h3 style="font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId867179"></a><span style="font-weight: bold;">Other Fields</span></h3>
+<span style="font-family: Arial;">The gender fields allow you to
+immediate change the gender of the slave or slave maker</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;">The catgirl etc field allows you to
+make the slave immediately a catgirl, type 1 for YES and 0 for NO</span><br
+ style="font-family: Arial;">
+<span style="font-family: Arial;">FairyXF is a ratio 0-100 and is the
+alpha transparency of the wings</span>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 14pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span>
+</body>
+</html>

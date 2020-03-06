@@ -1,0 +1,690 @@
+<u style="font-family: Arial;"><b><span style="font-size: 18pt;">
+</span></b></u><table style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><font size="+2"><span style="font-weight: bold;"></span></font>
+      <table style="text-align: left; width: 100%; height: 42px;" border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font size="+3"><span style="font-weight: bold;">Love Confession &amp; Dating<br>
+</span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; width: 80%; text-align: left;"><a href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font style="font-weight: bold;" size="-1">Updated for version 3.4.02</font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <font size="+2"><span style="font-weight: bold;"></span></font></td>
+    </tr>
+  </tbody>
+</table><span style="font-weight: bold; font-family: Arial;"><br></span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">Slaves can fall in love with your Slave Maker and potentially with other NPCs (not implemented). Some NPC's can fall in love with your slave and some with your Slave Maker.<br><br>Your slave can also start dating other people from a random person to an older lover who pays for their company.<br><br><br></span></span></span><span style="font-weight: bold;">Table of Contents<br></span></span><ul style="font-family: Arial;" id="mozToc"><!--mozToc h1 1 h4 2 h5 3--><li><a href="#mozTocId366171">Basic Concepts</a><ul><li><a href="#mozTocId229163">Love for your Slave Maker</a></li><li><a href="#mozTocId520721">Assistant for your Slave Maker</a></li><li><a href="#mozTocId295966">NPC Loving your Slave (aka Noble Love)
+</a></li><li><a href="#mozTocId770766">Dating</a></li><li><a href="#mozTocId914968">Older Lover</a></li></ul></li><li><a href="#mozTocId923674">Variables</a><ul><li><a href="#mozTocId597271"> VarLovePoints</a></li><li><a href="#mozTocId882296"> LoveAccepted</a></li><li><a href="#mozTocId963016"> OldLover</a></li><li><a href="#mozTocId531678">EventBoyfriend</a></li><li><a href="#mozTocId625560">NobleLoveType</a></li><li><a href="#mozTocId867872">NobleLove</a></li></ul></li><li><a href="#mozTocId18942">Event Numbers</a></li><li><a href="#mozTocId461192">Slave
+Interface Functions - Dating</a><ul><li><a href="#mozTocId832336">ShowDating</a></li><li><a href="#mozTocId729149">OldLoverDating</a></li><li><a href="#mozTocId78504">BreakupOldLover</a></li><li><a href="#mozTocId539988">OldLoverStartDating</a></li></ul></li><li><a href="#mozTocId610305">Slave
+Interface Functions - Love</a><ul><li><a href="#mozTocId403390">ShowLoveConfession</a></li><li><a href="#mozTocId495036">ShowLoveAccepted</a></li><li><a href="#mozTocId495036">ShowLoveRefused</a></li><li><a href="#mozTocId495036">ShowLoveUnsure</a></li></ul></li><li><a href="#mozTocId198299">Slave Interface Functions - Noble Love</a><ul><li><a href="#mozTocId600411">NobleLove</a></li><li><a href="#mozTocId740004">ShowNobleLoveAccepted</a></li><li><a href="#mozTocId112014">ShowNobleLoveRefused</a></li></ul></li><li><a href="#mozTocId841457">Core Functions - Noble Love</a><ul><li><a href="#mozTocId865984">NobleLoveEvent</a></li></ul></li></ul><br style="font-family: Arial;"><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial; height: 34px;"><a class="mozTocH1" name="mozTocId366171"></a><span style="font-size: 12pt;"></span>Basic Concepts</h1><h4 style="height: 0px; font-family: Arial;"><a class="mozTocH4" name="mozTocId229163"></a>Love for your Slave Maker<br></h4><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">Slaves have a hidden stat, <a href="#mozTocId597271">VarLovePoints/love</a> that reflects their love for your Slave Maker. This increases via certain acts, notably Kiss, and "Talk To Slaves" and some sex acts.<br><br>Once this value is 60 or higher there is a chance that during the morning events the slave will confess their love for you. You will have the choice to accept, refuse, or not choose their love. Accepting love is considered inappropriate for a Slave Maker and your score for thraining the slave will be penalised, but you will get the option to retain the slave via the 'Love' ending.<br><br>After the first confession your Slave Maker will gain the skill "Leadership" level 1. This skill also affects how many slaves you can be in a relationship with at a time. If your skill is not high enough then the slave will not confess their love in the first place but an event will happen when they back off i.<br></span></span></span></span><h4 style="height: 0px; font-family: Arial;"><a class="mozTocH4" name="mozTocId520721"></a>Assistant for your Slave Maker</h4><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">This process also applies to assistants and in you accept their love they will move into your household and offer their services as an assistant for free and be available for general tranings as a participant. They will also allow you to alter their contraceptive status. Once they beome this 'Love Assistant' their variable SlaveType changes to a value of 2.<br><br></span></span></span></span><h4 style="height: 0px; font-family: Arial;"><a class="mozTocH4" name="mozTocId295966"></a>NPC Loving your Slave (aka Noble Love)<br>
+</h4>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">A slave can have a selected NPC become fasinated with them, and fall in love. This is controlled by the variables <a href="#mozTocId625560">NobleLoveType</a> and <a href="#mozTocId867872">NobleLove</a>. The game tracks the encounters and updates the variable </span></span></span></span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><a href="Slave%20-%20Events%20-%20Love%20&amp;%20Dating.html#mozTocId867872">NobleLove</a></span></span></span></span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"> and whenever the slave Visits or meets the NPC the interface function <a href="#mozTocId600411">NobleLove()</a> is called. The game implements a Yes/No event 13 for the eventual case where the NPC confesses their love, but this is never explicitly triggered, it is up to the slave developer to choose to do this. <br><br>Nothing else is done by default by the game, it is up to the slave developer to handle this as desired.See the source code for Akane for an example of this.<br><br></span></span></span></span><h4 style="height: 0px; font-family: Arial;"><a class="mozTocH4" name="mozTocId770766"></a>Dating</h4>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">If you do not meet the sexual desires of your slave then they can start dating, assuming you allow them to <span style="font-weight: bold;">Go Out</span> in Rules and they are not wearing a Gag.<br><br>The criteria are<br>EventBoyfriend != -1<br>VarNymphomania &gt; 10 <br>and either<br>Slutiness &gt; 8<br>RulesGoOut == 1 and BitGagWorn == 0<br><br></span></span></span></span><h4 style="height: 0px; font-family: Arial;"><a class="mozTocH4" name="mozTocId914968"></a>Older Lover<br></h4>
+
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">At the sleazy bar your slave can meet a person who will pay them for their company, to become their mistress for pay. This is an older man or woman.</span></span></span></span><br style="font-family: Arial;"><br style="font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;">
+</span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"></span><h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId923674"></a>Variables</h1><table style="text-align: left; width: 936px; height: 1733px; background-color: rgb(242, 255, 255); font-family: Arial;" border="1" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: rgb(229, 229, 229);"><span style="font-weight: bold;">Actionscript Variable</span></td>
+            <td style="vertical-align: top; width: 50%; background-color: rgb(229, 229, 229);"><span style="font-weight: bold;">XML Variable</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    
+    
+    <tr><td style="vertical-align: top;"><table style="text-align: left; width: 924px; height: 47px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr style="height: 0px;">
+            <td style="vertical-align: top; background-color: white; height: 9px;">
+            
+            <h4 style="height: 0px;"><a class="mozTocH4" name="mozTocId597271"></a><span style="font-size: 12pt;"></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span> VarLovePoints<span style="font-weight: bold;"></span></h4><font size="-2"><span style="font-weight: bold;">implemented in:</span> _root, class <a href="Common%20Scripts/Classes/Slave.as">Slave</a></font><br></td>
+            <td style="vertical-align: top; width: 50%; background-color: white; height: 9px;"><span style="font-weight: bold;">love<br></span><font size="-1">initialise in &lt;Slave&gt;:</font><span style="font-weight: bold;"> &lt;Lover&gt;</span><br><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      </table><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"><span style="font-style: italic;">(Number)</span></font></span></span> This represents the slave's love for your Slave Maker. Range 0 to 100. Please only change using the Points() function or &lt;Points&gt; xml statement.<br>Default 0<br><br><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">xml:<br>
+</span></span></span></span></span></span></span>You can initialise this for an xml slave, in the &lt;Slave&gt; node to indicate the slave is already a bit in love with you.<br>
+<font size="-1">eg<br>
+&lt;Slave&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;Name&gt;Ifurita&lt;/Name&gt;<br>
+&nbsp;&nbsp;&nbsp; ....<br>&nbsp;&nbsp;&nbsp; &lt;Charisma&gt;10&lt;/Charisma&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;Love&gt;10&lt;/Love&gt;<br>
+&nbsp;&nbsp;&nbsp; ....<br>
+&lt;/Slave&gt;</font><br><br></td></tr><tr><td style="vertical-align: top;"><table style="text-align: left; width: 924px; height: 47px;" border="1" cellpadding="2" cellspacing="2">
+
+        <tbody>
+          <tr style="height: 0px;">
+            <td style="vertical-align: top; background-color: white; height: 9px;">
+            
+            <h4 style="height: 0px;"><a class="mozTocH4" name="mozTocId882296"></a><span style="font-size: 12pt;"></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span> LoveAccepted<span style="font-weight: bold;"></span></h4><font size="-2"><span style="font-weight: bold;">implemented in:</span> _root, class <a href="Common%20Scripts/Classes/Slave.as">Slave</a></font><br></td>
+            <td style="vertical-align: top; width: 50%; background-color: white; height: 9px;"><span style="font-weight: bold;">loveaccepted<br></span><font size="-1">initialise in &lt;Slave&gt;:</font><span style="font-weight: bold;"> &lt;LoveAccepted&gt;</span><br><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      
+</table>
+<span style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"><span style="font-style: italic;">(Number)</span></font></span></span>&nbsp; Have you accepted this slaves love<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -1 = no and they will never confess love<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 = no, they have not confessed yet<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1 = yes you accepted<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 = you refused their confession<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10 = yes and you got the "Love" ending to buy the slave back<br>Default 0<br><br></td></tr><tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 47px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr style="height: 0px;">
+            <td style="vertical-align: top; background-color: white; height: 9px;">
+            
+            <h4 style="height: 0px;"><a class="mozTocH4" name="mozTocId963016"></a><span style="font-size: 12pt;"></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span> OldLover<span style="font-weight: bold;"></span></h4><font size="-2"><span style="font-weight: bold;">implemented in:</span> _root, class <a href="Common%20Scripts/Classes/Slave.as">Slave</a></font><br></td>
+            <td style="vertical-align: top; width: 50%; background-color: white; height: 9px;"><span style="font-weight: bold;">oldlover<br></span><font size="-1">initialise in &lt;Slave&gt;:</font><span style="font-weight: bold;"> &lt;OldLover&gt;<br></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"><span style="font-style: italic;">(Number)</span></font></span></span> The type of older lover the slave has taken<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -1 = will never take an older lover<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0 = does not have an older lover<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 = male older lover<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 = female older lover<br>Default 0<br><br><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">xml:<br></span></span></span></span></span></span></span>You can initialise this for an xml slave, usually to set it to a value of -1 in the &lt;Slave&gt; node<br><font size="-1">eg<br>&lt;Slave&gt;<br>&nbsp;&nbsp;&nbsp; &lt;Name&gt;Ifurita&lt;/Name&gt;<br>&nbsp;&nbsp;&nbsp; ....<br>&nbsp;&nbsp;&nbsp; &lt;OldLover&gt;-1&lt;/OldLover&gt;<br>&nbsp;&nbsp;&nbsp; ....<br>&lt;/Slave&gt;</font><br><br><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 22px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white; height: 13px;">
+            <h4 style="height: 1px;"><a class="mozTocH4" name="mozTocId531678"></a><span style="font-weight: bold;">EventBoyfriend</span></h4><font size="-2"><span style="font-weight: bold;">mplemented in:</span> _root</font><br>
+            </td>
+            <td style="vertical-align: top; width: 50%; background-color: white; height: 13px;"><span style="font-weight: bold;">dating<br>
+isdating</span> <font size="-1"><span style="font-style: italic;">(</span></font><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font color="#000080">READ ONLY)<br></font></span></span><font size="-1">initialise in &lt;Slave&gt;:</font><span style="font-weight: bold;"> &lt;Dating&gt;</span><br><span style="font-weight: bold;">
+            </span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"><span style="font-style: italic;">(Number)</span></font></span></span> is the slave dating a person. Set to -1 to prevent dating.<br>Default 0<br><br><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">xml:<br>
+</span></span></span></span></span></span></span>You can initialise this for an xml slave, usually to set it to a value of -1 in the &lt;Slave&gt; node<br>
+      <br>
+<span style="font-size: 12pt;"></span></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 31px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white; height: 14px;">
+            <h4 style="height: 0px;"><a class="mozTocH4" name="mozTocId625560"></a><span style="font-weight: bold;">NobleLoveType</span><br></h4><font size="-2"><span style="font-weight: bold;">mplemented in:</span> _root</font><br>
+            </td>
+            <td style="vertical-align: top; width: 50%; background-color: white; height: 14px;"><span style="font-weight: bold;">noblelover<br></span><font size="-1">initialise in &lt;Slave&gt;:</font><span style="font-weight: bold;"> &lt;NobleLove&gt;</span><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span><font size="-1"><span style="font-style: italic;">(Number)</span></font> The id of the NPC that can fall in love with your slave. See <a href="Core%20-%20People.html">Core - People.html</a> for details on the values. Set to 0 for no noble lover.<br>Default 0 (no NPC)<br>
+      <br><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">xml:<br>
+</span></span></span></span></span></span></span>You can initialise this for an xml slave, usually to set the NPC involved.<br><br>
+
+      </td>
+    </tr><tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 924px; height: 14px;" border="1" cellpadding="2" cellspacing="2">
+
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; background-color: white; height: 14px;">
+            <h4 style="height: 0px;"><a class="mozTocH4" name="mozTocId867872"></a><span style="font-weight: bold;">NobleLove</span><br></h4><font size="-2"><span style="font-weight: bold;">mplemented in:</span> _root</font><br>
+            </td>
+            <td style="vertical-align: top; width: 50%; background-color: white; height: 14px;"><span style="font-weight: bold;">noblelove</span><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></td>
+          </tr>
+        </tbody>
+      
+      </table>
+      <font size="-1"><span style="font-style: italic;">(Number)</span></font> The progress of the love of the NPC. A simple count of the number of encounters with them,<br>Default 0, can only be changed or initialised by setting the variable<br><font size="-1">eg<br>_root.NobleLove += 2;<br>&lt;ChangeVar noblelove='2'/&gt;</font><br><br>There are only limited cases where you would need to change this variable.<br>
+      <br>
+      </td>
+    </tr>
+
+    
+    
+    
+    
+    
+    
+  </tbody>
+</table>
+<br style="font-family: Arial;"><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="height: 27px; font-family: Arial;"><a class="mozTocH1" name="mozTocId18942"></a>Event Numbers<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></h1><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">
+
+<br>
+yes/no events<br>3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- love confession<br>13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- sold to NPC ('noble love')<br>
+20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- buy her back at end of game<br>
+<br></span></span></span><hr style="width: 100%; height: 2px; font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span><h1 style="font-family: Arial; height: 37px;"><a class="mozTocH1" name="mozTocId461192"></a>Slave
+Interface Functions - Dating<br></h1><span style="font-family: Arial;">These
+functions can be implemented/overloaded for a slave to control their dating.</span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+</span></span></span></span></span><br style="font-family: Arial;">
+<table style="text-align: left; width: 95%; height: 383px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 19px;"><a class="mozTocH4" name="mozTocId832336" id="mozTocId832336"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">ShowDating</span></b></span></span></span></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i>function
+ShowDating()<br>
+            </i></span></span></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML Event:<br>
+      </span></span></span></span></span></span></span>
+      <table style="text-align: left; font-style: italic; width: 892px; height: 50px;" border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Daily&gt;<br>&nbsp;&nbsp; &lt;Dating&gt;<br><font size="+1">
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML Images:</span></span></span></span></span></span></span><table style="text-align: left; font-style: italic; width: 892px; height: 1px;" border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Dating&gt;<br><font size="+1">
+            </font></td>
+          </tr>
+        </tbody>
+      </table><br><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">Show an image of her dating a lover, or just of her being seductive.<br><br>For XML the image is displayed based on the node &lt;Dating&gt;<br><font size="-1">eg for a single, normal image<br>&lt;Images&gt;<br>&nbsp;&nbsp; &lt;Dating&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Normal&gt;1&lt;/Normal&gt;<br>&nbsp;&nbsp; &lt;/Dating&gt;<br>&lt;/Images&gt;</font><br><br>The images are named according to the pattern<br>Dating x.extension<br><small>eg<br>Dating 1.jpg<br>Dating 2.png<br><br></small></span></span></span></span></span></span></span></td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;"></span></b></span></span></span></span></span></span><br style="font-family: Arial;"><table style="text-align: left; width: 95%; height: 135px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 19px;"><a class="mozTocH4" name="mozTocId729149"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">OldLoverDating</span></b></span></span></span></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i>function </i></span></span></span></span></span></span><span style="font-style: italic;">OldLoverDating()</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Daily&gt;<br>&nbsp;&nbsp; &lt;DatingOldLover&gt;<br><font size="+1">
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">Show an image of her dating a lover, or just of her being seductive. Defailt text and stat effects have been applied at this stage.<br></span></span></span></span></span></span></span><span style="font-weight: bold;"></span><font size="-1"><br>
+      </font> </td>
+    </tr>
+  </tbody>
+</table><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"></span></span></span></span></span></span></span></span></span></span></span><span style="font-family: Arial;"></span><br style="font-family: Arial;"><table style="text-align: left; width: 95%; height: 145px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 19px;"><a class="mozTocH4" name="mozTocId78504"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;">BreakupOldLover</span></b></span></span></span></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i>no implementation</i></span></span></span></span></span></span><span style="font-style: italic;"></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Daily&gt;<br>&nbsp;&nbsp; &lt;BreakupOldLover&gt;<br><font size="+1">
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">Displays text when the slave breaks up with their older lover. Only an xml override is provided.<br></span></span></span></span></span></span></span><span style="font-weight: bold;"></span><font size="-1"><br>
+      </font> </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;"><table style="text-align: left; width: 95%; height: 121px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+
+
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 19px;"><a class="mozTocH4" name="mozTocId539988"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><b><span style="font-size: 14pt;">OldLoverStartDating</span></b></span></span></span></span></span></span></span></span></span></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span style="font-style: italic;">function OldLoverStartDating()</span><span style="font-style: italic;"></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Events&gt;<br>&nbsp;&nbsp; &lt;StartDatingOldLover&gt;<br><font size="+1">
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span>
+Override to alter the text/graphics when your slave first meets their older lover<br><span style="font-weight: bold;"></span><font size="-1"><br>
+      </font> </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;">
+<b><span style="font-size: 14pt;"></span></b></span></span></span></span></span></span></span></span></span></span></span><span style="font-family: Arial;"></span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"></span></span></span></span></span></span></span></span></span></span><br style="font-family: Arial;"><br style="font-family: Arial;"><hr style="width: 100%; height: 2px; font-family: Arial;"><h1 style="font-family: Arial; height: 34px;"><a class="mozTocH1" name="mozTocId610305"></a>Slave
+Interface Functions - Love</h1><span style="font-family: Arial;">
+These
+functions can be implemented/overloaded for a slave to control their love confessions.</span><br style="font-family: Arial;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br><br></span></span></span></span></span></span></span><table style="text-align: left; width: 95%; height: 487px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+
+
+
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 19px;"><a class="mozTocH4" name="mozTocId403390"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><b><span style="font-size: 14pt;">ShowLoveConfession</span></b></span></span></span></span></span></span></span></span></span></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i>function ShowLoveConfession()</i></span></span></span></span></span></span></span><span style="font-style: italic;"></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML Event:<br>
+      </span></span></span></span></span></span></span>
+      <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Other&gt;&lt;LoveConfession&gt;<br>&lt;Slave&gt;&lt;Other&gt;&lt;LoveConfession&gt;<br>for assistants only<br>&lt;Assistant&gt;&lt;Other&gt;&lt;LoveConfession&gt;<br>
+<font size="+1">
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML Images:</span></span></span></span></span></span></span><table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2"><tbody><tr><td style="background-color: white;">&lt;Images&gt;&lt;LoveConfession&gt;<br>naming: Love Confession n,jpg<br>
+<font size="+1">
+            </font></td></tr></tbody></table><br><span style="font-family: Arial;">Called when the slave confesses love. No default image is shown for actionscript based slaves. For xml based slaves a generic image is show if no image is shown.<br><br>Standard text can be disabled by setting _root.AppendActText = false or in xml appendacttext='false'<br><br>For XML slaves the event will preferentially use</span> &lt;Slave&gt; version. Similarly assistants will
+preferentially use the &lt;Assistant&gt; version. If neither are present the blogal &lt;Other&gt; version is used. Note: the xml event is always called for BOTH xml and actionscript slaves/<br><span style="font-family: Arial;"><br>At the time the xml event/and the actionscript function is called standard text has been shown and you can replace it using SetText as needed. After they are called the game displays a list of questions &lt;Other&gt;&lt;LoveConfessionResponses&gt; giving the standard accept, refuse, unsure. If you have shown a question in the xml event then the standard questions will be appended. Also note </span><span style="font-family: Arial;">&lt;Other&gt;&lt;LoveConfessionResponses&gt; can also be present in &lt;Slave&gt; and &lt;Assistant&gt; allowing you to precent questions or change or remove options.</span><br><span style="font-weight: bold;"></span><font size="-1"><br>
+      </font> </td>
+    </tr>
+  </tbody>
+</table>
+<br><table style="text-align: left; width: 95%; height: 487px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+
+
+
+
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 19px;"><a class="mozTocH4" name="mozTocId495036"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><b><span style="font-size: 14pt;">ShowLoveAccepted</span></b></span></span></span></span></span></span></span></span></span></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i>function ShowLoveAccepted()</i></span></span></span></span></span></span></span><span style="font-style: italic;"></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML Event:<br>
+      </span></span></span></span></span></span></span>
+      <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Other&gt;&lt;LoveConfessionAccepted&gt;<br>
+&lt;Slave&gt;&lt;Other&gt;&lt;LoveConfessionAccepted&gt;<br>
+for assistants only<br>
+&lt;Assistant&gt;&lt;Other&gt;&lt;LoveConfessionAccepted&gt;<br>
+<font size="+1">
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML Images:</span></span></span></span></span></span></span>
+      <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+<tbody><tr><td style="background-color: white;">&lt;Images&gt;&lt;LoveConfessionAccepted&gt;<br>
+naming: Love Confession Accepted n,jpg<br>
+<font size="+1">
+            </font></td></tr></tbody>
+      </table>
+      <br>
+<span style="font-family: Arial;">Called when you accept a slaves confession of love.
+No default image is shown for actionscript based slaves. If _root.UseGeneric is true or no xml image is shown a generic image is show in no image is shown. <br>
+      <br>
+For XML slaves the event will preferentially use</span> &lt;Slave&gt;
+version. Similarly assistants will
+preferentially use the &lt;Assistant&gt; version. If neither are
+present the blogal &lt;Other&gt; version is used. Note: the xml event
+is always called for BOTH xml and actionscript slaves.<br>
+      <span style="font-family: Arial;"><br>
+After the actionsscript function is called then the xml version is called. </span><span style="font-family: Arial;">Standard text in the base version can be disabled by setting _root.AppendActText = false or in xml appendacttext='false'</span><span style="font-family: Arial;"></span><br>
+<span style="font-weight: bold;"></span><font size="-1"><br>
+      </font> </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></span><table style="text-align: left; width: 95%; height: 487px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+
+
+
+
+
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 19px;"><a class="mozTocH4" name="mozTocId495036"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><b><span style="font-size: 14pt;">ShowLoveRefused</span></b></span></span></span></span></span></span></span></span></span></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i>function ShowLoveRefused()</i></span></span></span></span></span></span></span><span style="font-style: italic;"></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML Event:<br>
+      </span></span></span></span></span></span></span>
+      <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Other&gt;&lt;LoveConfessionRefused&gt;<br>
+&lt;Slave&gt;&lt;Other&gt;&lt;LoveConfessionRefused&gt;<br>
+for assistants only<br>
+&lt;Assistant&gt;&lt;Other&gt;&lt;LoveConfessionRefused&gt;<br>
+<font size="+1">
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML Images:</span></span></span></span></span></span></span>
+      <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+<tbody><tr><td style="background-color: white;">&lt;Images&gt;&lt;LoveConfessionRefused&gt;<br>
+naming: Love Confession Refused n,jpg<br>
+<font size="+1">
+            </font></td></tr></tbody>
+      </table>
+      <br>
+<span style="font-family: Arial;">Called when you refuse a slaves
+confession of love.
+No default image is shown for actionscript based slaves. If
+_root.UseGeneric is true or no xml image is shown a generic image is
+show in no image is shown. <br>
+      <br>
+For XML slaves the event will preferentially use</span> &lt;Slave&gt;
+version. Similarly assistants will
+preferentially use the &lt;Assistant&gt; version. If neither are
+present the blogal &lt;Other&gt; version is used. Note: the xml event
+is always called for BOTH xml and actionscript slaves.<br>
+      <span style="font-family: Arial;"><br>
+After the actionsscript function is called then the xml version is called. </span><span style="font-family: Arial;">Standard text in the base version can be disabled by setting _root.AppendActText = false or in xml appendacttext='false'</span><span style="font-family: Arial;"></span><br>
+<span style="font-weight: bold;"></span><font size="-1"><br>
+      </font> </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span style="font-size: 14pt;"></span></b><u><span style="font-size: 14pt;"></span></u><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><b><i><br></i></b></span></span></span></span></span></span></span></span></span></span></span><table style="text-align: left; width: 95%; height: 487px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+
+
+
+
+
+
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 19px;"><a class="mozTocH4" name="mozTocId495036"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><b><span style="font-size: 14pt;">ShowLoveUnsure</span></b></span></span></span></span></span></span></span></span></span></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i>function ShowLoveUnsure()</i></span></span></span></span></span></span></span><span style="font-style: italic;"></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML Event:<br>
+      </span></span></span></span></span></span></span>
+      <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Other&gt;&lt;LoveConfessionUnsure&gt;<br>
+&lt;Slave&gt;&lt;Other&gt;&lt;LoveConfessionUnsure&gt;<br>
+for assistants only<br>
+&lt;Assistant&gt;&lt;Other&gt;&lt;LoveConfessionUnsure&gt;<br>
+<font size="+1">
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML Images:</span></span></span></span></span></span></span>
+      <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+<tbody><tr><td style="background-color: white;">&lt;Images&gt;&lt;LoveConfessionUnsure&gt;<br>
+naming: Love Confession Unsure n,jpg<br>
+<font size="+1">
+            </font></td></tr></tbody>
+      </table>
+      <br>
+<span style="font-family: Arial;">Called when you say you are unsure about slaves
+confession of love.
+No default image is shown for actionscript based slaves. If
+_root.UseGeneric is true or no xml image is shown the game will call </span><a href="#mozTocId495036"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;">ShowLoveRefused()</span></span></span></span></span></span></span></a><br><span style="font-family: Arial;">
+      <br>
+For XML slaves the event will preferentially use</span> &lt;Slave&gt;
+version. Similarly assistants will
+preferentially use the &lt;Assistant&gt; version. If neither are
+present the blogal &lt;Other&gt; version is used. Note: the xml event
+is always called for BOTH xml and actionscript slaves.<br>
+      <span style="font-family: Arial;"><br>
+After the actionsscript function is called then the xml version is called. </span><span style="font-family: Arial;">Standard text in the base version can be disabled by setting _root.AppendActText = false or in xml appendacttext='false'</span><span style="font-family: Arial;"></span><br>
+<span style="font-weight: bold;"></span><font size="-1"><br>
+      </font> </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"></span></span></span></span></span></span></span></span></span><span style="font-family: Arial;"></span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><br></span></span></span></span></span></span></span></span></span></span></span><hr style="width: 100%; height: 2px;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"></span></span></span></span></span></span></span></span></span></span></span><h1><a class="mozTocH1" name="mozTocId198299"></a>Slave Interface Functions - Noble Love<br></h1><table style="text-align: left; width: 95%; height: 121px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+
+
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 19px;"><a class="mozTocH4" name="mozTocId600411"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><b><span style="font-size: 14pt;">NobleLove</span></b></span></span></span></span></span></span></span></span></span></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span style="font-style: italic; font-family: Arial;">function NobleLove(alowoffer:Boolean)</span><span style="font-style: italic;"></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Other&gt;&lt;NobleLove&gt;<br>variable general is 1 if allowoffer is true<br><font size="+1">
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span style="font-family: Arial;">
+Called when the slave encounters a noble who is interested in them. Generally have an event where they express interest, If allowoffer is true then the noble can offer to purchase the slave. </span><span style="font-weight: bold;"></span><font size="-1"><br>
+      </font> </td>
+    </tr>
+  </tbody>
+</table><span style="font-family: Arial;"></span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><br></span></span></span></span></span></span></span></span></span></span></span><table style="text-align: left; width: 95%; height: 487px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+
+
+
+
+
+
+
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 19px;"><a class="mozTocH4" name="mozTocId740004"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><b><span style="font-size: 14pt;">ShowNobleLoveAccepted</span></b></span></span></span></span></span></span></span></span></span></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span style="font-style: italic; font-family: Arial;">function ShowNobleLoveAccepted()</span><span style="font-style: italic;"></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML Event:<br>
+      </span></span></span></span></span></span></span>
+      <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Other&gt;&lt;NobleLoveAccepted&gt;<br>
+&lt;Slave&gt;&lt;Other&gt;&lt;NobleLoveAccepted&gt;<br>
+for assistants only<br>
+&lt;Assistant&gt;&lt;Other&gt;&lt;NobleLoveAccepted&gt;<br>
+<font size="+1">
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML Images:</span></span></span></span></span></span></span>
+      <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+<tbody><tr><td style="background-color: white;">none, display a custom image in the event if desired<br>
+<font size="+1">
+            </font></td></tr></tbody>
+      </table>
+      <br>
+<span style="font-family: Arial;">Called when you agree to sell your slave to a noble. Generic text is shown (and the xml event called) before the actionscript function is called.</span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span><br>
+      <span style="font-family: Arial;">
+      <br>
+For XML slaves the event will preferentially use</span> &lt;Slave&gt;
+version. Similarly assistants will
+preferentially use the &lt;Assistant&gt; version. If neither are
+present the blogal &lt;Other&gt; version is used. Note: the xml event
+is always called for BOTH xml and actionscript slaves.<br>
+      <span style="font-family: Arial;"></span><span style="font-family: Arial;"></span><span style="font-family: Arial;"></span><br>
+<span style="font-weight: bold;"></span><font size="-1"><br>
+      </font> </td>
+    </tr>
+  </tbody>
+</table>
+<br><table style="text-align: left; width: 95%; height: 290px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+
+
+
+
+
+
+
+
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 19px;"><a class="mozTocH4" name="mozTocId112014"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><b><span style="font-size: 14pt;">ShowNobleLoveRefused</span></b></span></span></span></span></span></span></span></span></span></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span style="font-style: italic; font-family: Arial;">function ShowNobleLoveRefused()</span><span style="font-style: italic;"></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML Event:<br>
+      </span></span></span></span></span></span></span>
+      <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;Other&gt;&lt;NobleLoveRefused&gt;<br>
+&lt;Slave&gt;&lt;Other&gt;&lt;NobleLoveRefused&gt;<br>
+for assistants only<br>
+&lt;Assistant&gt;&lt;Other&gt;&lt;NobleLoveRefused&gt;<br>
+<font size="+1">
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML Images:</span></span></span></span></span></span></span>
+      <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+<tbody><tr><td style="background-color: white;">none, display a custom image in the event if desired<br>
+<font size="+1">
+            </font></td></tr></tbody>
+      </table>
+      <br>
+<span style="font-family: Arial;">Called when you refuse to sell your
+slave to a noble. Generic text is shown (and the xml event called)
+before the actionscript function is called.</span><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span><br>
+      <span style="font-family: Arial;">
+      <br>
+For XML slaves the event will preferentially use</span> &lt;Slave&gt;
+version. Similarly assistants will
+preferentially use the &lt;Assistant&gt; version. If neither are
+present the blogal &lt;Other&gt; version is used. Note: the xml event
+is always called for BOTH xml and actionscript slaves.<br>
+      <span style="font-family: Arial;"></span><font size="-1"><br>
+      </font> </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-family: Arial;"></span><br><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"></span></span></span></span></span></span></span></span></span></span></span><span style="font-family: Arial;"></span><br><hr style="width: 100%; height: 2px;"><span style="font-size: 12pt; font-family: Arial;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;">
+<b><span style="font-size: 14pt;"></span></b><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><h1><a class="mozTocH1" name="mozTocId841457"></a>Core Functions - Noble Love<br></h1><br><table style="text-align: left; width: 95%; height: 121px; font-family: Arial;" border="1" cellpadding="8" cellspacing="2">
+
+
+
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h4 style="height: 19px;"><a class="mozTocH4" name="mozTocId865984"></a><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><span style="font-size: 14pt;"><b><span style="font-size: 14pt;">NobleLoveEvent</span></b></span></span></span></span></span></span></span></span></span></span></span></h4>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;" border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span style="font-style: italic; font-family: Arial;">function NobleLoveEvent(noble:Number, alowoffer:Boolean)</span><span style="font-style: italic;"></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table style="text-align: left; font-style: italic; width: 66%; height: 32px;" border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;NobleLoveEvent allowoffer='true'&gt;Noble name or number&lt;/NobleLoveEvent&gt;<br>
+<font size="+1">
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span style="font-family: Arial;">Call this in an event where the slave meets a notable NPC, pass the unique id for the noble, or for the XML version you can pass their name.<br><br>If the slave is one the noble is interested in bases on <a href="#mozTocId625560">NobleLoveType</a> then the game will call the interface <a href="#mozTocId600411">NobleLove()</a><br></span><span style="font-weight: bold;"></span><font size="-1"><br>
+      </font> </td>
+    </tr>
+  </tbody>
+</table>
+

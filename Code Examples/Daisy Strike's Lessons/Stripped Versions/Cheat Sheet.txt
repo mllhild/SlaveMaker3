@@ -1,0 +1,28 @@
+7x5
+
+448x336
+
+Half point
+
+231 x 168
+
+Assistant Position
+
+6 x 341.5
+154 x 153
+
+on off on on off off
+
+_root.Points(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+1Charisma, 2Sensibility, 3Refinement, 4Intelligence, 5Morality, 
+6Constitution, 7Cooking, 8Cleaning, 9Conversation, 10BlowJob, 
+11Fuck, 12Temperament, 13Nymphomania, 14Obedience, 15Libido, 
+16Reputation, 17Fatigue, 18Joy, 19Love, 20Special
+
+_root.Points(Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special);
+
+CustomFlags:
+
+
+
+BitFlags:

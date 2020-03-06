@@ -1,0 +1,1314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html;charset=ISO-8859-1" http-equiv="Content-Type">
+  <meta name="generator"
+ content="HTML Tidy for Windows (vers 22 March 2008), see www.w3.org">
+  <title>Home</title>
+</head>
+<body>
+<table
+ style="text-align: left; width: 100%; background-color: rgb(239, 239, 239); font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <table style="text-align: left; width: 100%; height: 42px;"
+ border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: left;"><font
+ size="+3"><span style="font-weight: bold;">Housing</span></font></td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td
+ style="vertical-align: top; width: 80%; text-align: left;"><a
+ href="index.html"><span style="font-weight: bold;">Slave Maker 3 SDK</span></a></td>
+            <td style="vertical-align: top; text-align: right;"><font
+ style="font-weight: bold;" size="-1">Updated version 3.4.02</font><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><br>
+</span><span style="font-weight: bold; font-family: Arial;">Table of
+Contents</span><span style="font-family: Arial;">
+</span><br style="font-family: Arial;">
+<ul style="font-family: Arial;" id="mozToc">
+<!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6-->
+  <li><a href="#mozTocId4857">General
+Concepts </a>
+    <ul>
+      <li><a href="#mozTocId614677">Moving Homes</a></li>
+      <li><a href="#mozTocId898396">House ID's</a></li>
+      <li><a href="#mozTocId548695">Map Location</a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId135">Basic House Object</a>
+    <ul>
+      <li><a href="#mozTocId592033">Member variables</a></li>
+      <li><a href="#mozTocId493976">Notes</a></li>
+      <li><a href="#mozTocId772635">XML Access</a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId42791">Core Functions</a>
+    <ul>
+      <li><a href="#mozTocId375962">ChangeHouse</a></li>
+      <li><a href="#mozTocId165559">IsHouse</a></li>
+    </ul>
+  </li>
+  <li><a href="#mozTocId619002">Backgrounds</a></li>
+  <li><a href="#mozTocId895739">Custom Houses and Exploring your Home </a></li>
+  <li><a href="#mozTocId66876">Creating
+Houses </a>
+    <ul>
+      <li><a href="#mozTocId336817">Basics</a></li>
+      <li><a href="#mozTocId600026">House XML</a>
+        <ul>
+          <li><a href="#mozTocId533673">Details of
+the House</a></li>
+          <li><a href="#mozTocId630500">Areas</a></li>
+          <li><a href="#mozTocId775789">Images</a></li>
+          <li><a href="#mozTocId556125">Events of
+the House</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+<span style="font-weight: bold; font-family: Arial;"></span> <span
+ style="font-size: 12pt; font-family: Arial;"><br>
+</span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId4857"></a>General
+Concepts<br>
+</h1>
+<span style="font-family: Arial;">Your Slave Maker has a house they
+live in, in the current city the game is set in. In theory you can have
+a different house in different cities. The folliowing does not discuss
+custom houses, just the actual home you live in. See <a
+ href="#mozTocId895739">here</a> for custom homes.</span><br
+ style="font-family: Arial;">
+<br style="font-family: Arial;">
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId614677"></a>Moving Homes</h2>
+<span style="font-family: Arial;">Between training slaves you can
+select a new house in your current city for a large fee. You can force
+this if needed by calling<br>
+_root.HouseEvents.MoveHouse();<br>
+<br>
+</span>
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId898396"></a>House ID's</h2>
+<span style="font-family: Arial;">Each house has a unique id that is
+used to reference it. It is possible to not use the number if you use
+the function IsHouse() below especially if a 3rd party adds an
+additional house to the game, as it will be assigned a number.<br>
+<br>
+</span>
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId548695"></a>Map Location</h2>
+<span style="font-family: Arial;">Each house has a location as defined
+in it's xml. This can vary from city to city and thus there is a
+separate Housing.xml file for each city.<br>
+<br>
+</span><br style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;"><span
+ style="font-size: 12pt; font-family: Arial;"></span>
+<h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId135"
+ id="mozTocId135"></a>Basic House Object</h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;">
+Your home is stored in an object in the _root scope in the <a
+ href="Common%20Scripts/Classes/City.as">City</a>
+data object currentCity<br>
+<br>
+<b>var Home:Housing;</b><br>
+<br>
+</span><span style="font-size: 12pt;">an instance of this class<br>
+<a href="Common%20Scripts/Classes/HouseDetails.as">Common
+Scripts/Classes/HouseDetails.as</a><br>
+<br>
+</span></span>
+<table
+ style="text-align: left; width: 907px; height: 776px; font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">Class <span
+ style="font-weight: bold;">HouseDetails </span><font size="-1">(simplified)</font><br>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="vertical-align: top; background-color: rgb(239, 255, 255);"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">class
+HouseDetails extends Place {<br>
+&nbsp;&nbsp;&nbsp; public var HouseType:Number;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // type of the house. An index
+into the list of &lt;Houses&gt; in Housing.xml<br>
+&nbsp;&nbsp;&nbsp; public var HouseName:String;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // the name of the house<br>
+&nbsp;&nbsp;&nbsp; public var CityName:String;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // name of the
+city the house is in<br>
+&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp; public var Price:Number;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // purchase
+price of the house<br>
+      <br>
+&nbsp;&nbsp;&nbsp; public var DaysOccupied:Number;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // total days you have lived in
+the home<br>
+&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp; // Cost of living<br>
+&nbsp;&nbsp;&nbsp; public var hIncome:Number;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // GP per day
+this house earns<br>
+&nbsp;&nbsp;&nbsp; public var hUpkeep:Number;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // GP per day
+required to occupy the home<br>
+      <br>
+&nbsp;&nbsp;&nbsp; // required levels of security and home
+maintenance/cleaning for the house<br>
+&nbsp;&nbsp;&nbsp; public var BaseHouseWork:Number;<br>
+&nbsp;&nbsp;&nbsp; public var BaseSecurity:Number<br>
+&nbsp;&nbsp;&nbsp; public var ActualHouseWork:Number;<br>
+&nbsp;&nbsp;&nbsp; public var ActualSecurity:Number;<br>
+&nbsp;&nbsp;&nbsp; public var ActualCooking:Number;<br>
+      <br>
+&nbsp;&nbsp;&nbsp; // following are facilities of the house.<br>
+&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp; // The number represents quality of the facility<br>
+&nbsp;&nbsp;&nbsp; // 0 = not present<br>
+&nbsp;&nbsp;&nbsp; // 1 = standard<br>
+&nbsp;&nbsp;&nbsp; // 2 = food quality<br>
+&nbsp;&nbsp;&nbsp; // 3 = excellent quality<br>
+&nbsp;&nbsp;&nbsp; public var hKitchen:Number;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp; public var hLibrary:Number;<br>
+&nbsp;&nbsp;&nbsp; public var hDungeon:Number;<br>
+&nbsp;&nbsp;&nbsp; public var hWards:Number;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp; // no quality, just present or not<br>
+&nbsp;&nbsp;&nbsp; public var hStables:Boolean;<br>
+&nbsp;&nbsp;&nbsp; public var hMilkBarn:Boolean;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp; // The rooms of the house<br>
+&nbsp;&nbsp;&nbsp; public var totRooms:Number;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // total current rooms<br>
+&nbsp;&nbsp;&nbsp; public var maxRooms:Number;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // maximum possible rooms after
+upgraded/renovations<br>
+&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp; public var Rooms:Array;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // List of all
+rooms<br>
+&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp; // when a background is shown using ShowBath(),
+ShowBedRoom() etc, these are the selected frames<br>
+&nbsp;&nbsp;&nbsp; // shown for the current house<br>
+&nbsp;&nbsp;&nbsp; public var HomeRoom:Number;<br>
+&nbsp;&nbsp;&nbsp; public var HomeBath:Number;<br>
+&nbsp;&nbsp;&nbsp; public var HomeDungeon:Number;<br>
+&nbsp;&nbsp;&nbsp; public var HomeKitchen:Number;<br>
+}</span></span></span></td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><br>
+<font color="#808080"><font color="#000000"><br>
+<span style="font-size: 12pt;">eg<span style="font-size: 10pt;"><br>
+</span></span></font></font></span></span><span style="font-size: 12pt;">The
+object is accessed in Actionscript</span></span><br
+ style="font-family: Arial;">
+<table
+ style="text-align: left; width: 907px; height: 60px; background-color: rgb(239, 239, 239); font-family: Arial;"
+ border="0" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td
+ style="vertical-align: top; background-color: rgb(244, 244, 244);"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1">if
+(_root.currentCity.Home.HouseType == 1) {<br>
+&nbsp;&nbsp;&nbsp;</font></span></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">_root.SetText("The Abandoned Keep is cold and
+dirty...");</span></span></font></font></span></span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ size="-1">}<br>
+if (_root.currentCity.Home.IsHouse(1)) {<br>
+      </font></span></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><font size="-1">&nbsp;&nbsp; </font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;">_root.SetText("The
+Abandoned Keep is cold and
+dirty...");</span></span></font></font></span></span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ size="-1">}</font></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;">but a reference is provided for backward
+compatibility so you can also use for actionscript<br>
+</span></span>
+<table
+ style="text-align: left; width: 907px; height: 60px; background-color: rgb(239, 239, 239); font-family: Arial;"
+ border="0" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td
+ style="vertical-align: top; background-color: rgb(244, 244, 244);"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1">if
+(_root.Home.HouseType == 1) {<br>
+&nbsp;&nbsp;&nbsp;</font></span></span></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;">_root.SetText("The
+Abandoned Keep is cold and
+dirty...");</span></span></font></font></span></span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ size="-1">}</font></span></span></font></span></span></td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><br>
+In XML<br>
+</span></span></span></font></font></span></span></span>
+<table
+ style="text-align: left; width: 907px; height: 60px; background-color: rgb(239, 239, 239); font-family: Arial;"
+ border="0" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td
+ style="vertical-align: top; background-color: rgb(244, 244, 244);"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1">&lt;if
+house='1'&gt;<br>
+&nbsp;&nbsp; &lt;</font></span></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">SetText&gt;The #housename is cold and
+dirty...&lt;/SetText&gt;</span></span></font></font></span></span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ size="-1">&lt;/if&gt;<br>
+OR<br>
+      </font></span></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><font size="-1">&lt;if house='Abandoned
+Keep"'&gt;<br>
+&nbsp;&nbsp; &lt;</font></span></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">SetText&gt;The #housename is cold and
+dirty...&lt;/SetText&gt;</span></span></font></font></span></span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ size="-1">&lt;/if&gt;</font></span></span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><br>
+</span></span></span></font></font></span></span></span>
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId592033"></a>Member variables</h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><b>HouseType</b>
+- the type of house<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 = Castle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 = Forest<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3 = Farm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4 = Mansion<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5 = Apartment<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6 = Temple<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7 = Onsen<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8 = Brothel<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9 = Eerie<br>
+</span></span></span></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+10 = Galley<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 11+ for custom or newer houses<br>
+</span></span></span></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><b>hKitchen</b>
+- the quality of your kitchen,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 = basic<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 = good<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3 = very good<br>
+<b>hLibrary</b> - the quality of your library<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 = none<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 = good<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 = very good<br>
+<b>hDungeon</b> - the quality of your dungeon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 = none<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 = good<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 = very good<br>
+<b>hWards</b> - are magical wards present<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 = none<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 = present<br>
+<b>hIncome</b> - how much income does the house generate, in GP per day<br>
+</span></span></span></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><b>hUpkeep</b>
+- how much money the house requires for maintenance per day<br>
+<br>
+</span></span></span></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><b>HomeRoom</b>,
+<b>HomeBath</b>, <b>HomeDungeon</b>, <b>HomeKitchen</b> are the frame
+in the backgrounds shown when the rooms are used<br>
+<br>
+<span style="font-weight: bold;">BaseSecurity</span> - the minimum
+security needed for the house<br>
+</span></span></span></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-weight: bold;">BaseHouseWork</span> - the minimum
+housework needed to maintain the house</span></span></span></font></font></span></span></span><br
+ style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><br>
+<span style="font-weight: bold;">ActualSecurity</span> - the allocated
+security based on slaves orders and your assistant<br>
+</span></span></span></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-weight: bold;">ActualHouseWork</span> - the allocated
+housework based on slaves orders and your assistant<br>
+</span></span></span></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-weight: bold;">ActualCooking</span> - the allocated
+security based on slaves orders and your assistant<br>
+</span></span></span></font></font></span></span></span>
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId493976"></a>Notes</h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">The house
+instance is created by the core game when you select a house to live in
+or load a game. The save data for the house is store in the city save
+data in<br>
+smxcities.sol<br>
+<br>
+The member functions of the Housing class are primarily for internal
+use, also note that it is derived fron <a
+ href="Common%20Scripts/Classes/Place.as">Place</a> base class so all
+members and variables of
+that class are available.<br>
+<br>
+A custom house also has an instance of the HouseDetails class.<br>
+</span></span></span></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><br>
+Cooking needed is the total number of people living in the house
+divided by 6<br>
+Housework needed is BaseHousework + (total number of people / 6)<br>
+Security needed is BaseSecurity + (total slaves unsupervsed / 4)<br>
+where a slave is unsupervised if not trained or talked to in a given
+day. Your slave maker counts as 1 point of security and your assistant
+as 2 points.</span></span></span></font></font></span></span></span><br
+ style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><br>
+</span></span></span></font></font></span></span></span>
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId772635"></a>XML Access</h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;">The following
+xml variables can be used to access the current home<br>
+<br>
+</span></span></span></font></font></span></span></span>
+<table
+ style="text-align: left; width: 915px; height: 62px; font-family: Arial;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td
+ style="vertical-align: top; width: 50%; background-color: rgb(244, 244, 244);"><span
+ style="font-weight: bold;">XML variable</span><br>
+      </td>
+      <td
+ style="vertical-align: top; background-color: rgb(244, 244, 244);"><span
+ style="font-weight: bold;">Actionscript
+Variable/Class Member</span><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-weight: bold;">house</span>
+or <span style="font-weight: bold;">home</span></span></span></span></font></font></span></span></span></td>
+      <td style="vertical-align: top; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Home.HouseType</span></span></span></font></font></span></span></span></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-weight: bold;">housekitchen</span></span></span></span></font></font></span></span></span></td>
+      <td style="vertical-align: top; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Home.hKitchen</span></span></span></font></font></span></span></span></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-weight: bold;">houselibrary</span></span></span></span></font></font></span></span></span></td>
+      <td style="vertical-align: top; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Home.hLibrary</span></span></span></font></font></span></span></span></td>
+    </tr>
+    <tr>
+      <td
+ style="vertical-align: top; font-weight: bold; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">housedungeon</span></span></span></font></font></span></span></span></td>
+      <td style="vertical-align: top; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Home.hDungeon</span></span></span></font></font></span></span></span></td>
+    </tr>
+    <tr>
+      <td
+ style="vertical-align: top; font-weight: bold; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">housewards</span></span></span></font></font></span></span></span></td>
+      <td style="vertical-align: top; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Home.hWards</span></span></span></font></font></span></span></span></td>
+    </tr>
+    <tr>
+      <td
+ style="vertical-align: top; font-weight: bold; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">houseincome</span></span></span></font></font></span></span></span></td>
+      <td style="vertical-align: top; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Home.hIncome</span></span></span></font></font></span></span></span></td>
+    </tr>
+    <tr>
+      <td
+ style="vertical-align: top; font-weight: bold; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">houseprice</span></span></span></font></font></span></span></span></td>
+      <td style="vertical-align: top; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Home.Price</span></span></span></font></font></span></span></span></td>
+    </tr>
+    <tr>
+      <td
+ style="vertical-align: top; font-weight: bold; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">houseupkeep</span></span></span></font></font></span></span></span></td>
+      <td style="vertical-align: top; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Home.hUpkeep</span></span></span></font></font></span></span></span></td>
+    </tr>
+    <tr>
+      <td
+ style="vertical-align: top; font-weight: bold; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">housename</span></span></span></font></font></span></span></span></td>
+      <td style="vertical-align: top; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Home.HouseName</span></span></span></font></font></span></span></span></td>
+    </tr>
+    <tr>
+      <td
+ style="vertical-align: top; font-weight: bold; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">housemilkbarn</span></span></span></font></font></span></span></span></td>
+      <td style="vertical-align: top; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Home.hMilkBarn</span></span></span></font></font></span></span></span></td>
+    </tr>
+    <tr>
+      <td
+ style="vertical-align: top; font-weight: bold; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">housestables</span></span></span></font></font></span></span></span></td>
+      <td style="vertical-align: top; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Home.hStables</span></span></span></font></font></span></span></span></td>
+    </tr>
+    <tr>
+      <td
+ style="vertical-align: top; font-weight: bold; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">housecity</span></span></span></font></font></span></span></span></td>
+      <td style="vertical-align: top; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Home.CityName</span></span></span></font></font></span></span></span></td>
+    </tr>
+    <tr>
+      <td
+ style="vertical-align: top; font-weight: bold; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">housetotrooms</span></span></span></font></font></span></span></span></td>
+      <td style="vertical-align: top; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Home.totRooms</span></span></span></font></font></span></span></span></td>
+    </tr>
+    <tr>
+      <td
+ style="vertical-align: top; font-weight: bold; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">housemaxrooms</span></span></span></font></font></span></span></span></td>
+      <td style="vertical-align: top; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Home.maxRooms</span></span></span></font></font></span></span></span></td>
+    </tr>
+    <tr>
+      <td
+ style="vertical-align: top; font-weight: bold; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">housedaysoccupied</span></span></span></font></font></span></span></span></td>
+      <td style="vertical-align: top; background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;">Home.DaysOccupied</span></span></span></font></font></span></span></span></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">housebasesecurity</span><br>
+      </td>
+      <td style="vertical-align: top;">Home.<span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">BaseSecurity</span></span></span></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">housebasehousework</span><br>
+      </td>
+      <td style="vertical-align: top;">Home.BaseHouseWork<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">housesecurity</span><br>
+      </td>
+      <td style="vertical-align: top;">Home.ActualSecurity<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">househousework</span><br>
+      </td>
+      <td style="vertical-align: top;">Home.ActualHouseWork<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">housecooking</span><br>
+      </td>
+      <td style="vertical-align: top;">Home.ActualCooking<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><br>
+<font size="-1">eg</font><br>
+</span></span></span></font></font></span></span></span>
+<table
+ style="text-align: left; width: 907px; height: 60px; background-color: rgb(239, 239, 239); font-family: Arial;"
+ border="0" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td
+ style="vertical-align: top; background-color: rgb(244, 244, 244);"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1">&lt;if
+housewards='1'&gt;<br>
+&nbsp;&nbsp;&nbsp;</font></span></span></font></span></span> <span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;">&lt;SetText&gt;The
+demon cold not enter the
+house&lt;/SetText&gt;</span></span></font></font></span></span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ size="-1"><span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ size="-1">&lt;/if&gt;<br>
+      </font></span></span></font></span></span></td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId42791"
+ id="mozTocId42791"></a>Core Functions</h1>
+<span style="font-weight: bold; font-family: Arial;"></span> <span
+ style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">These
+functions are present in the object <span style="font-weight: bold;">_root.HouseEvents</span><br>
+<br>
+</span></span></span></span></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><br>
+</span></span></span></span></span></span>
+<table
+ style="text-align: left; width: 1449px; height: 226px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h2><a class="mozTocH4" name="mozTocId375962" id="mozTocId375962"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">ChangeHouse</span></b></span></span></span></span></font></font></span></span></span></h2>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">function
+ChangeHouse(house)</span></i></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+            </span></i></span></span></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;">&lt;ChangeHouse&gt;house&lt;/ChangeHouse&gt;<font
+ size="+1"><br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">Change to a
+new house, you may specify for house either the house id or the name of
+the house or the folder name of the house images.</span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      <br>
+      </span></span></span></span> <span style="font-size: 12pt;"><font
+ size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;">_root.HouseEvents.ChangeHouse(9);</span></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      <br>
+      </span></span></span></span></span></span></span></span></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1">&lt;ChangeHouse&gt;Abandoned
+Keep&lt;/ChangeHouse&gt;<br>
+      </font></span></span></span></span></span></span></span></span></span></span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<table
+ style="text-align: left; width: 1449px; height: 408px; font-family: Arial;"
+ border="1" cellpadding="8" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(249, 249, 249);">
+      <h2><a class="mozTocH4" name="mozTocId165559"></a><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><b><span
+ style="font-size: 14pt;">IsHouse</span></b></span></span></span></span></font></font></span></span></span></h2>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">actionscript:</span></span></span></span></span></span></span><br>
+      <table style="text-align: left; width: 66%; height: 32px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;">function IsHouse(id) : Boolean</span></i></span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+            </span></i></span></span></span></span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt; color: rgb(153, 51, 0); font-weight: bold;">XML:<br>
+      </span></span></span></span></span></span></span>
+      <table
+ style="text-align: left; font-style: italic; width: 66%; height: 32px;"
+ border="1" cellpadding="1" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="background-color: white;"><font size="+1">&lt;if
+house='id'&gt;<br>
+            </font></td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><i><span
+ style="font-size: 12pt;"><br>
+      </span></i></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">Returns true
+if the current house is the specified home. You can pass either a
+numeric id or the name of the house</span></span></span></span></font></font></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><br>
+      <br>
+      </span></span></span></span> <span style="font-size: 12pt;"><font
+ size="-1">eg<br>
+      </font></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">actionscript:</span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+      </span></span></span></span></span></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1">if
+(_root.currentCity.Home.IsHouse(1)) {<br>
+      </font></span></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><font size="-1">&nbsp;&nbsp; </font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;">_root.SetText("The
+Abandoned Keep is cold and
+dirty...");</span></span></font></font></span></span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ size="-1">}<br>
+      </font></span></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><font size="-1">if
+(_root.currentCity.Home.IsHouse("Abandoned Keep")) {<br>
+      </font></span></span><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><font size="-1">&nbsp;&nbsp; </font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;">_root.SetText("The
+Abandoned Keep is cold and
+dirty...");</span></span></font></font></span></span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><font
+ size="-1">}</font></span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"> <br>
+      </span></span></span></span></span></span></span></span></span> <span
+ style="font-size: 12pt; font-weight: bold; color: rgb(153, 51, 0);"><span
+ style="font-size: 10pt;">xml:</span></span><br>
+      <span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><font size="-1">&lt;if
+house='1'&gt;<br>
+&lt;/if&gt;<br>
+      </font></span></span></span></span></span></span></span></span></span></span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><br>
+</span></span></span></span></span></span></font></font></span></span></span>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId619002" id="mozTocId619002"></a>Backgrounds</h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">These
+functions show appropriate rooms for your house<br>
+<a href="Core%20-%20Background%20Images.html#mozTocId92097">ShowBedRoom</a><br>
+<a href="Core%20-%20Background%20Images.html#mozTocId676185">ShowBath</a><br>
+<a href="Core%20-%20Background%20Images.html#mozTocId120476">ShowDungeon</a><br>
+<a href="Core%20-%20Background%20Images.html#mozTocId181527">ShowKitchen</a><br>
+<br>
+There is also this function that shows a generic background for your
+home<br>
+<a href="Core%20-%20Background%20Images.html#mozTocId307664">ShowHousing</a><br>
+<br>
+Also show the house exterior<br>
+<a href="Core%20-%20Background%20Images.html#mozTocId702622">ShowHouse</a><br>
+<br>
+</span></span></span></span></span></span></span></font></font></span></span></span><br
+ style="font-family: Arial;">
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1"
+ name="mozTocId895739"></a>Custom Houses and Exploring your Home<span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><u><b><span style="font-size: 14pt;"><br>
+</span></b></u></span></span></span></font></font></span></span></span></h1>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;">Slaves,
+Events, Assistants can add a custom house that can be explored using
+the "Talk A Walk" planning action.&nbsp; These custom houses and also
+your stantdard home can be explored during the 'Talk A Walk' process or
+other events. These are used by some slaves to represent a cave, a bar,
+a sorcerors tower, whatever the developer desires.<br>
+<br>
+For more details on this please see <a
+ href="Core%20-%20House%20Exploration.html">Core - House Exploration.</a><br>
+<span style="font-size: 14pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><br>
+<b><span style="font-size: 14pt;"></span></b></span></span></span></span></span></span></span></span></span></span></font></font></span></span></span><br
+ style="font-family: Arial;">
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<h1 style="font-family: Arial;"><a class="mozTocH1" name="mozTocId66876"></a>Creating
+Houses<span style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><u><b><span style="font-size: 14pt;"><br>
+</span></b></u></span></span></span></font></font></span></span></span></h1>
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId336817"></a><span style="font-weight: bold;"></span>Basics<span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><font color="#808080"><font color="#000000"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"></span></span></span></span></font></font></span></span></span></h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">The game supports an unlimited list of homes
+for the game. These are purely handled using xml. The default file is<br>
+Languages/English/Common Housing.xml for houses that are common to all
+cities, ie generic homes that are present in all cities.<br>
+<br>
+Houses that are specific to a particular city are stored in <br>
+Languages/English/Cities/cityname/Housing.xml<br>
+eg<br>
+</span></span></span></span></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">Languages/English/Cities/Mardukane/Housing.xml</span></span></span></span></font></font></span></span></span><br
+ style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><br>
+Additional houses can be added by editing this xml or using an external
+event or by adding an additional xml and configuration xml. For
+instance see the WeaponsChaoswings.xml mod.<br>
+IMPORTANT: In the city veraion of Housing.xml if you wish to update a
+common house say to alter map positioning or description <span
+ style="font-weight: bold;">you must repeat</span> the &lt;Folder&gt;
+node for the house.<br>
+eg<br>
+</span></span></span></span></font></font></span></span></span>
+<table
+ style="text-align: left; width: 907px; height: 60px; background-color: rgb(239, 239, 239); font-family: Arial;"
+ border="0" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td
+ style="vertical-align: top; background-color: rgb(244, 244, 244);"><font
+ size="-1">&lt;House id='3'&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;Name&gt;Farm House&lt;/Name&gt;<br>
+&nbsp;&nbsp;&nbsp;
+&lt;Folder&gt;Images/Cities/Mardukane/Houses/FarmHouse&lt;/Folder&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;MapPosition type='left' x='14.5' y='92.5'/&gt;<br>
+&lt;/House&gt;</font><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><font size="-1"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><font size="-1"><br>
+      </font></span></span></font></span></span></td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-family: Arial;">
+<h2 style="font-family: Arial;"><a class="mozTocH2"
+ name="mozTocId600026"></a>House XML</h2>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">A house is stored as a child node of
+&lt;Houses&gt;. Each house is a node<br>
+<span style="font-weight: bold;">&lt;House&gt;</span> - base node, with
+an optional id attribute for standard houses with
+pre-defined events. Do not specify for new houses.<br>
+<br>
+</span></span></span></span></font></font></span></span></span>
+<h3 style="font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId533673"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-weight: bold;">Details of
+the House</span></span></span></span></span></font></font></span></span></span></h3>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">&lt;Name&gt; name of the house<br>
+&lt;City&gt; the name of the city this house is in, leave blank for a
+house common to all cities<br>
+&lt;Price&gt; the purchase price for the house, defaults to 10000GP<br>
+&lt;Description&gt; long description of the house<br>
+&lt;Details&gt; specific effects of the house<br>
+&lt;Introduction1&gt; introduction text/images for the house<br>
+&lt;Introduction2&gt; optional second page only (no page 3)<br>
+&lt;Income&gt; number of GP earned per day<br>
+&lt;Upkeep&gt; number of GP per day it costs to live there (default 6GP)<br>
+&lt;BaseSecurity&gt; hours of security needed per day (default 1)<br>
+&lt;BaseHouseWork&gt; hours of cleaning/maintenance needed per day
+(default 1)<br>
+&lt;TotalRooms&gt; available rooms for use in the house (default 6)<br>
+&lt;MaximumRooms&gt; number of rooms in total after house upgrades
+(default 10)<br>
+<br>
+</span></span></span></span></font></font></span></span></span>
+<h3 style="font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId630500"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">Areas</span></span></span></span></font></font></span></span></span></h3>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">&lt;Areas&gt; details facilities in the house
+Each can have a value of <span style="font-weight: bold;">none</span>,
+<span style="font-weight: bold;">standard</span>, <span
+ style="font-weight: bold;">good</span>, <span
+ style="font-weight: bold;">excellent</span><br>
+<span style="font-weight: bold;">Dungeon</span><br
+ style="font-weight: bold;">
+<span style="font-weight: bold;">Library</span><br
+ style="font-weight: bold;">
+<span style="font-weight: bold;">Wards</span><br
+ style="font-weight: bold;">
+<span style="font-weight: bold;">Kitchen</span><br
+ style="font-weight: bold;">
+<span style="font-weight: bold;">Stables</span><br
+ style="font-weight: bold;">
+<span style="font-weight: bold;">Barn</span><br>
+<br>
+eg<br>
+&lt;Areas&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;Dungeon&gt;standard&lt;/Dungeon&gt;<br>
+&lt;/Areas&gt;<br>
+<br>
+</span></span></span></span></font></font></span></span></span>
+<h3 style="font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId775789"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">Images</span></span></span></span></font></font></span></span></span></h3>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></span></span></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">&lt;Folder&gt; base folder for loading images</span></span></span></span></font></font></span></span></span><br
+ style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">&lt;ShowOutside&gt; called to show the
+standard outside image for the
+house<br>
+&lt;ShowInside&gt; called to show a standard inside room<br>
+</span></span></span></span></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">&lt;MapPosition&gt; location of the house on
+the take a walk map.
+&nbsp;&nbsp;&nbsp; type means is the label House X&nbsp; or X House,
+left means the X is on the left<br>
+&nbsp;&nbsp;&nbsp; x, y positions where the map is 800x600 pixels<br>
+</span></span></span></span></font></font></span></span></span><br
+ style="font-family: Arial;">
+<h3 style="font-family: Arial;"><a class="mozTocH3"
+ name="mozTocId556125"></a><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><span style="font-weight: bold;">Events of
+the House</span></span></span></span></span></font></font></span></span></span></h3>
+<span style="font-family: Arial;">&lt;Initialise&gt; called on game
+load or house purchase</span><br style="font-family: Arial;">
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">&lt;StartNewSlave&gt; stat/item effects
+applied
+to the slave at start of
+training<br>
+&lt;UpdateDateAndItems&gt; effects applied every day. the variable
+general is the number of days passed, almost always 1<br>
+</span></span></span></span></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;">&lt;Events&gt; These will be merged with the
+standard &lt;Events&gt; node of the game.<br>
+<br>
+eg<br>
+</span></span></span></span></font></font></span></span></span>
+<table
+ style="text-align: left; width: 907px; height: 60px; background-color: rgb(239, 239, 239); font-family: Arial;"
+ border="0" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td
+ style="vertical-align: top; background-color: rgb(244, 244, 244);"><font
+ size="-1">&lt;House id='3'&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;Name&gt;Farm House&lt;/Name&gt;<br>
+&nbsp;&nbsp;&nbsp;
+&lt;Folder&gt;Images/Cities/Mardukane/Houses/FarmHouse&lt;/Folder&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;MapPosition type='left' x='14.5' y='92.5'/&gt;<br>
+      <br>
+&nbsp;&nbsp;&nbsp; &lt;Description&gt;A small farm house on a small
+parcel of land. Empty for a long time, it seems some odd type of
+farming was done here. Small, even human-sized stalls. A number of odd
+items are left.<br>
+      <br>
+&nbsp;&nbsp;&nbsp; You realise this was a ponygirl farm, run as both a
+working farm and as some sort of brothel.<br>
+      <br>
+&nbsp;&nbsp;&nbsp; Very easy and secure access to the city, with even
+the occasional noble carriage.&lt;/Description&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;Details&gt;Start with Bondage gear and a
+bit-gag. You start with knowledge of ponygirls, and all ponygirl
+actions are easier..&amp;lt;br&amp;gt;-1 Fatigue per day due to easy
+transport. Starting Temperament and Refinement are lower and your slave
+becomes more submissive as time passes.&lt;/Details&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;Introduction1&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;SetText&gt;You move into the
+odd farm house and you can immediately tell that this place was a
+brothel, but of an odd nature. What records remain show the girls were
+kept in the stables in very strict bondage. They were ponygirls,
+treated like human ponies, bound and made to work, be ridden and pull
+small carts. They were kept almost naked and sexually used if the
+customers wanted.<br>
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; The farm is well fitted out with
+plenty of rooms and comfortable stalls for ponygirls. There is some
+left-over gear from the previous occupants, all bondage related. The
+grounds are large, partly set aside for fields for 'ploughing' and
+exercise.&lt;/SetText&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Backgrounds place='farm'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/Introduction1&gt;<br>
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &lt;AffectSlave&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;OwnItem&gt;43&lt;/OwnItem&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;OwnItem&gt;14&lt;/OwnItem&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;ChangeVar
+temperament='-3'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;ChangeVar refinement='-3'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;ChangeVar
+difficulty-bondage='-5'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;ChangeVar
+difficulty-ponygirl='-5'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;SetVar ponygirlaware='1'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/AffectSlave&gt;<br>
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &lt;UpdateDateAndItems&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;SetVar tiredness='tiredness -
+general'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;SetVar
+temperament='temperament - general'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/UpdateDateAndItems&gt;<br>
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &lt;Areas&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;Stables&gt;true&lt;/Stables&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/Areas&gt;<br>
+&nbsp;&nbsp;&nbsp; <br>
+&lt;/House&gt;</font><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><font size="-1"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"><span
+ style="font-size: 12pt;"><span style="font-size: 12pt;"><font size="-1"><br>
+      </font></span></span></font></span></span></td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-size: 12pt; font-family: Arial;"><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"></span></span></span></span></font></font></span></span><span
+ style="font-size: 12pt;"><span style="font-size: 10pt;"><font
+ color="#808080"><font color="#000000"><span style="font-size: 12pt;"><span
+ style="font-size: 10pt;"><span style="font-size: 12pt;"><span
+ style="font-size: 12pt;"><br>
+<br>
+</span></span></span></span></font></font></span></span></span>
+</body>
+</html>

@@ -1,0 +1,432 @@
+﻿<Language>
+	<Slave>
+		<Name>Mai</Name>
+		<Description>Captured Warrior</Description>
+		
+		<Vanilla>true</Vanilla>
+		<Credits>cmacleod</Credits>
+		<Version>1.1</Version>
+		
+		<Folder>./Images/Slaves/Mai</Folder>
+		
+		<Introduction1>
+	
+	
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+Mai is a warrior from Firee, captured in battle and made a slave. She is very resistant to being a slave.</Introduction1>
+	
+		<TrainingTime>50</TrainingTime>
+		<FairyXF>0</FairyXF>
+	
+		<Bust>110</Bust>
+		<Waist>61</Waist>
+		<Hips>96</Hips>
+		<Age>23</Age>
+		<BloodType>B</BloodType>
+		<Weight>55</Weight>
+		<Height>180</Height>
+		<Milkable>true</Milkable>
+		
+		<Dresses>
+			<DressPlain>
+				<Normal>
+					<Count>1</Count>
+				</Normal>
+				<Dickgirl>
+					<Count>1</Count>
+				</Dickgirl>
+				<Pregnant>
+					<Count>1</Count>
+				</Pregnant>
+			</DressPlain>
+			<Dress1>
+				<Name>Black Dress</Name>
+				<StatEffects>0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0</StatEffects>
+			</Dress1>
+			<Dress2>
+				<Name>Casual Dress</Name>
+				<StatEffects>10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0</StatEffects>
+			</Dress2>
+			<Dress3>
+				<Name>Fishnet</Name>
+				<StatEffects Easy='true'>0, 5, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0</StatEffects>
+			</Dress3>
+			<Dress4>
+				<Name>Red Bikini</Name>
+				<StatEffects Swimsuit='true'>10, 10, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0</StatEffects>
+				<Normal>
+					<Count>1</Count>
+				</Normal>
+				<Dickgirl>
+					<Count>1</Count>
+				</Dickgirl>				
+			</Dress4>
+			<Dress5>
+				<Name>Leather Dress</Name>
+				<StatEffects SleazyBar='true'>10, 0, 10, 0, 0, 0, 0, 0, 0, 0, 5, 10, 0, 0, 0, 0, 0</StatEffects>
+			</Dress5>
+			<Dress6>
+				<Name>Topless</Name>
+				<StatEffects Slutty='true' Easy='true'>30, 0, 0, 0, 0, 10, 0, 0, 0, 15, 15, 0, 0, 10, 10, 0, 15</StatEffects>
+			</Dress6>
+	
+		</Dresses>
+	
+		<Statistics>
+			<Charisma>20</Charisma>
+			<Sensibility>5</Sensibility>
+			<Refinement>5</Refinement>
+			<Intelligence>5</Intelligence>
+			<Morality>10</Morality>
+			<Constitution>15</Constitution>
+			<Cooking>0</Cooking>
+			<Cleaning>0</Cleaning>
+			<Conversation>5</Conversation>
+			<Fitness>10</Fitness>
+			<BlowJob>5</BlowJob>
+			<Fuck>5</Fuck>
+			<Temperament>10</Temperament>
+			<Nymphomania>5</Nymphomania>
+			<Obedience>0</Obedience>
+			<Lust>0</Lust>
+			<Reputation>0</Reputation>
+			<Fatigue>0</Fatigue>
+			<Joy>0</Joy>
+			<Special>50</Special>
+		</Statistics>
+	
+		<Difficulties>
+			<Anal>10</Anal>
+			<Blowjob>10</Blowjob>
+			<Bondage>60</Bondage>
+			<Brothel>50</Brothel>
+			<Dildo>44</Dildo>
+			<Expose>30</Expose>
+			<Fuck>5</Fuck>
+			<GangBang>80</GangBang>
+			<LendHer>70</LendHer>
+			<Lesbian>77</Lesbian>
+			<Lick>5</Lick>
+			<Master>150</Master>
+			<Masturbate>0</Masturbate>
+			<Naked>40</Naked>
+			<Plug>55</Plug>
+			<Ponygirl>200</Ponygirl>
+			<SleazyBar>20</SleazyBar>
+			<Spanking>30</Spanking>
+			<Threesome>15</Threesome>
+			<TitsFuck>5</TitsFuck>
+			<Touch>5</Touch>
+			<XXX>40</XXX>
+			<XXXContest>30</XXXContest>
+		</Difficulties>
+	
+		<Images>
+			<SixtyNine>
+				<Normal>3</Normal>
+				<Lesbian>1</Lesbian>
+			</SixtyNine>
+			<Anal>
+				<Normal>5</Normal>
+				<Naked>-2</Naked>
+			</Anal>
+			<BlowJob>
+				<Normal>5</Normal>
+				<Dickgirl>1</Dickgirl>
+				<Lesbian>1</Lesbian>
+			</BlowJob>
+			<Bondage>
+				<Normal>7</Normal>
+				<Dickgirl>2</Dickgirl>
+				<Naked>1</Naked>
+				<Pregnant>1</Pregnant>
+			</Bondage>
+			<CumBath>
+				<Normal>4</Normal>
+				<Dickgirl>1</Dickgirl>			
+			</CumBath>
+			<Dildo>
+				<Normal>4</Normal>
+				<Naked>-3</Naked>
+				<Dickgirl>1</Dickgirl>
+			</Dildo>
+			<Footjob>
+				<Normal>2</Normal>
+			</Footjob>
+			<Fuck>
+				<Normal>16</Normal>
+				<Lesbian>2</Lesbian>
+				<Dickgirl>1</Dickgirl>
+			</Fuck>
+			<GangBang>
+				<Normal>4</Normal>
+				<Dickgirl>1</Dickgirl>
+			</GangBang>
+			<Handjob>
+				<Normal>3</Normal>
+			</Handjob>
+			<KissMale>
+				<Normal>1</Normal>
+			</KissMale>
+			<KissFemale>
+				<Normal>1</Normal>
+			</KissFemale>
+			<Lend>
+				<Normal>2</Normal>
+				<Dickgirl>1</Dickgirl>
+			</Lend>
+			<Lesbian>
+				<Normal>1</Normal>
+				<Dickgirl>3</Dickgirl>
+			</Lesbian>
+			<Lick>
+				<Normal>3</Normal>
+				<Lesbian>1</Lesbian>
+				<Dickgirl>1</Dickgirl>
+			</Lick>
+			<Master>2</Master>
+			<Masturbate>
+				<Normal>4</Normal>
+				<Dickgirl>3</Dickgirl>
+			</Masturbate>
+			<Naked>
+				<Normal>4</Normal>
+				<Dickgirl>1</Dickgirl>
+				<Pregnant>1</Pregnant>
+			</Naked>
+			<Nothing>
+				<Normal>6</Normal>
+				<Dickgirl>1</Dickgirl>			
+			</Nothing>
+			<Orgy>
+				<Normal>3</Normal>
+				<Dickgirl>2</Dickgirl>
+			</Orgy>
+			<Plug>2</Plug>
+			<Ponygirl>1</Ponygirl>
+			<Spanking>2</Spanking>
+			<StripTease>1</StripTease>
+			<Threesome>
+				<Normal>4</Normal>
+				<Lesbian>1</Lesbian>
+				<Dickgirl>1</Dickgirl>
+				<Pregnant>1</Pregnant>				
+			</Threesome>
+			<TitsFuck>
+				<Normal>7</Normal>
+				<Naked>-1</Naked>
+				<Lesbian>1</Lesbian>
+			</TitsFuck>
+			<Touch>
+				<Normal>4</Normal>
+				<Lesbian>2</Lesbian>
+				<Dickgirl>1</Dickgirl>
+			</Touch>
+
+			<Break>
+				<Normal>4</Normal>
+				<Naked>1</Naked>
+				<Dickgirl>1</Dickgirl>
+			</Break>
+			<Cleaning>
+				<Normal>1</Normal>
+				<Naked>1</Naked>
+			</Cleaning>
+			<Cooking>
+				<Normal>2</Normal>
+				<Naked>1</Naked>
+			</Cooking>
+			<Discuss>
+				<Normal>5</Normal>
+				<Naked>3</Naked>
+				<Dickgirl>2</Dickgirl>
+			</Discuss>
+			<Exercise>
+				<Normal>3</Normal>
+				<Naked>5</Naked>
+				<Dickgirl>1</Dickgirl>
+			</Exercise>
+			<Expose>
+				<Normal>4</Normal>
+				<Dickgirl>1</Dickgirl>
+			</Expose>
+			<Makeup>3</Makeup>
+			<Read>
+				<Normal>1</Normal>
+			</Read>
+			
+			<Dance>
+				<Normal>6</Normal>
+				<Naked>3</Naked>
+				<Dickgirl>1</Dickgirl>
+			</Dance>
+			<Refinement>
+				<Normal>7</Normal>
+				<Naked>3</Naked>			
+			</Refinement>
+			<Sciences>1</Sciences>
+			<Theology>1</Theology>
+			<XXX>
+				<Normal>5</Normal>
+				<Dickgirl>1</Dickgirl>			
+			</XXX>
+			
+			<Acolyte>2</Acolyte>
+			<Bar>2</Bar>
+			<Brothel>3</Brothel>
+			<Onsen>1</Onsen>
+			<Restaurant>
+				<Normal>2</Normal>
+				<Naked>1</Naked>
+			</Restaurant>
+			<SleazyBar>
+				<Normal>3</Normal>
+				<Naked>1</Naked>
+			</SleazyBar>
+			<Tired>3</Tired>
+			
+			<ContestXXX>2</ContestXXX>
+			<ContestBeauty>1</ContestBeauty>
+			<ContestHousework>1</ContestHousework>
+			<ContestAdvancedHousework>1</ContestAdvancedHousework>
+			<ContestCourt>2</ContestCourt>
+			<ContestDance>3</ContestDance>
+			<ContestGeneralKnowledge>1</ContestGeneralKnowledge>
+			
+			<ItemBunnySuit>1</ItemBunnySuit>
+
+			<Dating>1</Dating>
+			<Dickgirl>3</Dickgirl>
+			<EventGigaBE>2</EventGigaBE>
+			<EventMilked>4</EventMilked>
+			<EventNakedApron>1</EventNakedApron>
+			<EventRaped>
+				<Normal>2</Normal>
+				<Naked>1</Naked>
+			</EventRaped>
+			<PropostionAccepted>1</PropostionAccepted>
+			<PropostionRefused>1</PropostionRefused>
+			<LoveConfession>3</LoveConfession>
+			<LoveConfessionAccepted>2</LoveConfessionAccepted>
+			<LoveConfessionRefused>1</LoveConfessionRefused>
+			<Refused>3</Refused>
+			<EventSlaveRetrieved>1</EventSlaveRetrieved>
+			<PregnancyReveal>
+				<Normal>2</Normal>
+				<Naked>1</Naked>
+			</PregnancyReveal>
+			<TentacleBirth>2</TentacleBirth>
+			<TentacleSex>
+				<Normal>7</Normal>
+				<Naked>1</Naked>
+			</TentacleSex>
+		</Images>
+		
+	</Slave>
+	
+	<Contests>
+		<CustomContestMA show="true">
+			<Name>Martial Arts</Name>
+			<Hint>#slave will compete in local martial arts contest.</Hint>
+			<StartContest>
+				<SetVar rivalascore='50'/>
+				<SetVar rivalbscore='150'/>
+				<SetVar rivalcscore='75'/>
+				<SetVar rivaldscore='20'/>
+				<SetVar rivalescore='120'/>
+				<SetVar score='(constitution + fitness) * 2 - tiredness'/>
+				<AddText>Martial Arts Contest - a true test of a fighter.</AddText>
+			</StartContest>
+			<ContestNext>
+				<Background place='arena'/>
+				<Choices>
+					<Choice eventtotal='0'>
+						<SetText>This competitor scored: #rivalascore</SetText>
+						<ShowImage image='Images/Contests/Martial Arts/Martial 1.jpg'/>
+					</Choice>
+					<Choice eventtotal='1'>
+						<SetText>This competitor scored: #rivalbscore</SetText>
+						<ShowImage image='Images/Contests/Martial Arts/Martial 7.jpg'/>
+					</Choice>
+					<Choice eventtotal='2'>
+						<SetText>This competitor scored: #rivalcscore</SetText>
+						<ShowImage image='Images/Contests/Martial Arts/Martial 4.jpg'/>
+					</Choice>
+					<Choice eventtotal='3'>
+						<SetText>This competitor scored: #rivaldscore</SetText>
+						<ShowImage image='Images/Contests/Martial Arts/Martial 2.jpg'/>
+					</Choice>
+					<Choice eventtotal='4'>
+						<SetText>This competitor scored: #rivalescore</SetText>
+						<ShowImage image='Images/Contests/Martial Arts/Martial 6.jpg'/>
+					</Choice>
+					<Choice eventtotal='5'>
+						<Choices>
+							<Choice placing='1'>
+								<SetText>Mai scored #score points and won!</SetText>
+								<Money>1125</Money>
+								<SMMoney>375</SMMoney>
+								<Points>
+									<Joy>10</Joy>
+									<Reputation>10</Reputation>
+									<Constitution>5</Constitution>
+								</Points>
+								<ChangeVar wincustom='1'/>
+								<Diary win='1'>#slave won the martial arts contest</Diary>
+							</Choice>
+							<Choice placing='2'>
+								<SetText>Mai scored #score points and came second!</SetText>
+								<Money>600</Money>
+								<SMMoney>300</SMMoney>
+								<Points>
+									<Joy>5</Joy>
+									<Reputation>5</Reputation>
+									<Constitution>2</Constitution>
+								</Points>
+								<Diary win='2'>#slave came second in the martial arts contest</Diary>
+							</Choice>
+							<Choice placing='3'>
+								<SetText>Mai scored #score points and came third!</SetText>
+								<Money>300</Money>
+								<SMMoney>150</SMMoney>
+								<Points>
+									<Joy>2</Joy>
+									<Reputation>2</Reputation>
+									<Constitution>2</Constitution>
+								</Points>
+								<Diary win='3'>#slave came third in the martial arts contest</Diary>
+							</Choice>
+							<Choice placing='4+'>
+								<SetText>Mai scored #score points and came #placing out of 5!</SetText>
+							</Choice>
+						</Choices>
+						<ShowImage image='Images/Slaves/Mai/Chore - Exercise 3.png'/>
+						<SetVar numcontest='1000'/>
+					</Choice>					
+				</Choices>
+			</ContestNext>
+		</CustomContestMA>
+	</Contests>
+	
+	<Assistant>
+		<AssistantDescription>A skilled warrior</AssistantDescription>
+	</Assistant>
+</Language>
