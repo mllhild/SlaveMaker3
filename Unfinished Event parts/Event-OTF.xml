@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Comments
+<SetFlag flagOTF_00="true"/>
+<SetVar savedvar0_OTF="0"/>
+
+savedvar1_OTF   miscelaneous stuff because I don't know which of the vars I can use
+savedvar2_OTF   Elf points
+savedvar3_OTF   Goblin Points
+savedvar4_OTF   Orc Points
+savedvar5_OTF   Tribal points
+savedvar6_OTF   Nara
+
+xpos='0' ypos='408'
+Visit Astrid&apos;s Home <font size='-2'>(shortcut A)</font>
+&lt;b&gt;The Beach&lt;/b&gt;
+it&apos;s
+
+<Background place="forest" frame='1' align='2'/>  has from frame 1 to 17
+-->
+
+
+
+
+<Language>
+
+	<Credits> 
+		last edited 2016/03
+	</Credits>
+
+	<Events>
+		<StartGame>  <!--  called when a slave starts training, so immediately at the start, before the first day of training -->
+		</StartGame>
+
+		<EndGame> <!-- called every time a slave is completed, may cause problems with endings -->
+		</EndGame>
+
+		<Initialise> <!--  called everytime a game is loaded or the slave starts training -->
+		</Initialise>
+		
+
+		<UpdateDateAndItems>
+		</UpdateDateAndItems>
+				
+
+		<EarlyMorning>
+		</EarlyMorning>
+
+
+		<StartMorning>			
+		</StartMorning>
+		
+
+		<Daily>
+		</Daily>
+
+		<StartEvening>
+		</StartEvening>
+
+		<AfterNight>
+			<!-- Be carefull with it, the event have to be terminated with <DoEvent>254</DoEvent> or some weird stuff appear (the clock goes crazy eg 30pm, the morning doesn't appear anymore...it's another dimension -->
+		</AfterNight>
+		
+		
+		<Walk>
+			
+			<Palace>
+			</Palace>
+
+			<TownCenter>
+			</TownCenter>
+
+			<SlaveMarket>
+			</SlaveMarket>
+			
+			<Slums>
+			</Slums>
+
+			<DocksPort>
+			</DocksPort>
+
+			<DocksSlavePens>
+			</DocksSlavePens>
+
+			<Farm>
+			</Farm>
+
+			<RuinedTemple>
+			</RuinedTemple>
+
+			<BeachSwim>
+			</BeachSwim>
+
+			<BeachWalk>
+			</BeachWalk>
+
+			<BeachPrivate>
+			</BeachPrivate>
+
+			<BeachRocks>
+			</BeachRocks>
+
+			<Lake>
+
+				<OFT003 supervise="slavemaker" chance='5'>
+					<SetVar savedvar1_OTF="obedience"/>
+					<ShowImage image='Images/Events/OTF/aki shizuhaaki biko.png' align='2'/>
+					<SetText>
+						You sit on the shore of the lake, languidly putting letting your feet enjoy the cold water after the long walk while ordering slave to massage your<if smbust="90+"> sore</if> shoulders.
+					</SetText>
+					<Choices>
+						<Choice love="20+">
+							<AddText>\r It seems #slave is very happy to massge you and as a result the massage is very relaxing. </AddText>
+						</Choice>
+						<Choice obedience="80-" savedvar1_OTF="30+" temperament="50+">
+							<AddText>\r The relaxing massage done properly, until halfway #slave decides that pushing you into the lake is more fun for them.</AddText>
+						</Choice>
+						<Choice obedience="50+">
+							<AddText>\r The massage done properly and quite relaxing. </AddText>
+						</Choice>
+						<Choice temperament="50+">
+							<AddText>\r But #slave decides that pushing you into the lake is more fun for #slavehimher and you almost end up falling.</AddText>
+						</Choice>
+						<Choice obedience="10+">
+							<AddText>\r The massage is without enthusiam but still a bit relaxing. </AddText>
+						</Choice>
+						<Default>
+							<AddText>\r You wait, but it seems #slave did simply ignore your comand.</AddText>
+						</Default>
+					</Choices>
+					<DoEvent>9999</DoEvent>
+					</OFT003>
+
+			</Lake>
+
+			<Forest>
+
+				<OTF004FairyAndOrc1p0 flagOTF_01='false' chance='5'>
+					<Background place="forest" frame='5' align='2'/>
+					<SetText>You take a comfortable walk on one of the smaller trails of the forest when you witness a peculiar scene...</SetText>
+					<DoEvent>OTF004FairyAndOrc1</DoEvent>
+					</OTF004FairyAndOrc1p0>
+
+				<OTF001MercenaryNaraForestSeen0 chance='2'>
+					<DoEvent now='true'>OTF001MercenaryNaraForestSeen</DoEvent>
+					</OTF001MercenaryNaraForestSeen0>
+
+			</Forest>
+			
+			<DeepForest> <!-- I dont know if this node still exists or if it has been disabled -->
+			</DeepForest>
+
+		</Walk>
+
+
+
+		<OFT002>
+			<ShowImage image='Images/Events/OTF/iri-neko-234560-Captured_by_Twisted_Twins.jpg'/>
+			<SetText>
+				Somewhere in the world of "Tera".
+
+				— Hey sister, I like her hungry ass taking my dick so deep inside! Maybe we should capture her and use as a fucktoy slave?
+				— Meh... You already have three slaves at home and you still want another one? What a greedy slut you are, sis.
+			</SetText>
+			<DoEvent>9999</DoEvent>
+			</OFT002>
+
+
+		<OTF004FairyAndOrc1>
+			<ShowImage image='Images/Events/OTF/FairyAndOrc001.jpg'/>
+			<SetVar savedvar1_OTF="Morality+80"/>
+			<SetText>
+				As you’re walking through the forest on this bright sunny day you happen upon an almost surreal scene. An orc has hold of a fairy who is loudly screaming and flailing about, fluttering frantically to and from as fast as her wings can carry her.
+			</SetText>
+			<if Nymphomania='savedvar1_OTF+'>
+				<Choices>
+					<Choice slavegender='1'>
+						<AddText>#slave is getting an erection and drooling as he watches. He reaches into his pants and starts stroking himself. ((If gay))-He uses his other hand to finger himself while he jerks.</AddText>
+					</Choice>
+					<Choice slavegender='3'>
+						<AddText>#slave is getting aroused at this whole situation and reaches into their pants with both hands, jerking their dick while fingering every hole they have.</AddText>
+					</Choice>
+					<Default>
+						<AddText>#slave is getting wet and drooling as she watches. She reaches into her pants and shoves two fingers into her pussy while rubbing her clit.</AddText>
+					</Default>
+				</Choices>
+			<else>if</else>
+				<AddText>#slave looks like heshethey wants to do something about it, and looks to you with a face full of worry.</AddText>
+			</if>
+			<AskQuestion caption="Time to...">
+				<Question event="OTF004FairyAndOrc1a">be a hero!</Question>
+				<Question event="OTF004FairyAndOrc1b">be a voyeur!</Question>
+				<Question event="OTF004FairyAndOrc1c">admit you aren’t much of a fighter!</Question>
+			</AskQuestion>
+			</OTF004FairyAndOrc1>
+			<OTF004FairyAndOrc1a>
+				<SetText>You ready your weapon. (Combat)</SetText>
+				<AskQuestion caption="Result">
+					<Question event="OTF004FairyAndOrc1aWin">Win</Question>
+					<Question event="OTF004FairyAndOrc1aLoseDamage">Lose Damage</Question>
+					<Question event="OTF004FairyAndOrc1aLoseLust">Lose Lust</Question>
+					<Question event="OTF004FairyAndOrc1aRunAway">Run Away</Question>
+				</AskQuestion>
+			</OTF004FairyAndOrc1a>
+				<OTF004FairyAndOrc1aWin>
+					<!-- add points to weapon skill, cond, attack, def, tired -->
+					<SetFlag flagOTF_01='true'/>
+					<SetVar savedvar4_OTF="savedvar4_OTF+2"/> <!-- Orcs respect the strong -->
+					<SetVar savedvar2_OTF="savedvar2_OTF-1"/> <!-- You spared an Orc -->
+					<SetVar savedvar2_OTF="savedvar2_OTF+0.5"/> <!-- You went to save the Fairy -->
+					<ShowImage image='Images/Events/OTF/testfield.png' align='100'/>
+					<SetText>
+						You stand triumphant over the orc, and ready your weapon for the killing blow, but before you can send this orc to Orcish Valhalla or wherever it is dead orcs go, the fairy lands in front of you. 
+					</SetText>
+					<PersonSpeak person="Saved Fairy">Don’t kill my husband!</PersonSpeak>
+					<AddText>You hold, you and #slave staring in confusion.</AddText>
+					<PersonSpeak person="Almost single Fairy">I’m sorry you got the wrong impression, we just… like to role play. Please spare us, human!</PersonSpeak>
+					<AddText>Blinking, you decide to walk right the hell off.</AddText> 
+					<!-- option to still strike, fight the orc+fairy and then rape fairy -->
+					<DoEvent>9999</DoEvent>
+				</OTF004FairyAndOrc1aWin>
+				<OTF004FairyAndOrc1aLoseLust>
+					<SetVar savedvar4_OTF="savedvar4_OTF+0.5"/> <!-- Orcs like good onahole -->
+					<SetVar savedvar2_OTF="savedvar2_OTF-0.5"/> <!-- Attacked the Fairy's boyfriend -->
+					<SetText>Your eyes keep getting pulled to the orcs standing member. His green, thick, warty cock staying on your mind, distracting you for a moment leading you to be too late to doge. The blunt impact send you flying, turning in the air and face first into the ground. 
+
+						Your conscience feels cloudy as something grabs you from behind,.....something starts pushing against your asshole and still hot from the lust build up during the combat you eagerly push your hips against it. Until...
+					</SetText>
+					<DoEvent>OTF004FairyAndOrc1aLoseLustp2</DoEvent>
+				</OTF004FairyAndOrc1aLoseLust>
+				<OTF004FairyAndOrc1aLoseLustp2>
+					<SetText>
+						Hands are put on your shoulders and what is probably the orcs penis begins to forcefully, slowly, painfully drive his cock into your ass. You think you might die. You see your stomach beginning to buldge with it’s raw girth. Somewhere in the back of your mind you think the orc must have a magic penis. The orc pounds you for a few minutes and while he’s at it the fairy sits on your face and uses your nose as a masturbation aid. 
+					</SetText>
+					<DoEvent>OTF004FairyAndOrc1aLoseDamagep2</DoEvent>
+				</OTF004FairyAndOrc1aLoseLustp2>
+				<OTF004FairyAndOrc1aLoseDamage>
+					<SetText>
+						The orc stands over you, grinning and slobbering. You are suddenly aware that orcs can’t tell males and females apart half the time, considering all other races universally “Pretty.” He puts his hands on your shoulders and begins to forcefully, slowly, painfully drive his cock into your ass. You think you might die. You see your stomach beginning to buldge with it’s raw girth. Somewhere in the back of your mind you think the orc must have a magic penis. The orc pounds you for a few minutes and while he’s at it the fairy sits on your face and uses your nose as a masturbation aid. 
+					</SetText>
+					<DoEvent>OTF004FairyAndOrc1aLoseDamagep2</DoEvent>
+				</OTF004FairyAndOrc1aLoseDamage>
+				<OTF004FairyAndOrc1aLoseDamagep2>
+					<SetVar savedvar4_OTF="savedvar4_OTF-1"/> <!-- Orcs dispise the weak -->
+					<SetVar savedvar2_OTF="savedvar2_OTF-0.5"/> <!-- Attacked the Fairy's boyfriend -->
+					<!-- add something about the fairy and orc leaving together -->
+					<SetText>When it’s over you stumble off, your nose dripping with pussy juice and ass leaking more cum than you thought could ever fit inside you.</SetText>
+					<Choices>
+						<Choice Nymphomania='savedvar1_OTF+'>
+							<AddText>You find #slave in some bushes, covered in their own sex juices. Apparently they masturbated to what was happening to you.</AddText>
+						</Choice>
+						<Choice Morality="Nymphomania+">
+							<AddText>You find #slave huddled in the fetal position, apparently they were crying for you.</AddText>
+						</Choice>
+						<Default>
+							<AddText>You find #slave huddled in some bushes, apparently #slaveheshe was hiding waiting for the orc to exaust his lust on you..</AddText>
+						</Default>
+					</Choices>
+					<DoEvent>9999</DoEvent>
+				</OTF004FairyAndOrc1aLoseDamagep2>
+			<OTF004FairyAndOrc1b>
+				<SetText>You reach for your genitals. (Watch.)</SetText>
+				<DoEvent>OTF004FairyAndOrc1p2</DoEvent>
+			</OTF004FairyAndOrc1b>
+			<OTF004FairyAndOrc1c>
+				<SetText>You hide in some bushes with #slave. (watch, helplessly.)</SetText>
+				<DoEvent>OTF004FairyAndOrc1p2</DoEvent>
+			</OTF004FairyAndOrc1c>
+			<OTF004FairyAndOrc1p2>
+				<ShowImage image='Images/Events/OTF/FairyAndOrc002.jpg'/>
+				<SetText>The orc finally gets ahold of the fairy and begins to forcefully shove his massive cock into her. It’s clearly too big, it must be too big. You can see her stomach distending as it slides in, and yet she doesn’t rip open in clear defiance of physics, and then the orc starts pounding her like a living fleshlight. Her eyes buldge in some mix of terror and pleasure as the orc thrusts away, sloppy wet slapping sounds filling the air. You can’t believe your eyes as the orc’s mushroom slides through her body, pushing the skin of her torso out, and then it all comes to a head as the orc plunges deep and blows his load into her. Excess cum literally squirts out around his cock, dribbling in great gobs on the ground, and then they both fall into an expended mess.</SetText>
+				<AskQuestion caption="">
+					<Question event="OTF004FairyAndOrc1p2a">NOW it’s time to be a hero</Question>
+					<Question event="OTF004FairyAndOrc1p2b">Flee!</Question>
+				</AskQuestion>
+			</OTF004FairyAndOrc1p2>
+			<OTF004FairyAndOrc1p2a>
+				<SetFlag flagOTF_01='true'/>
+				<SetVar savedvar4_OTF="savedvar4_OTF-2"/> <!-- Orcs dispise the cowards and thiefs-->
+				<SetVar savedvar2_OTF="savedvar2_OTF-1"/> <!-- attacked the fairies boyfriend -->
+				<if Attack="50+"><SetVar savedvar2_OTF="savedvar2_OTF+0.5"/> <!-- killed an orc --></if>
+				<ShowImage image='Images/Events/OTF/orc down 1.jpg' align='100'/>
+				<SetText>You drop your weapon on the orc, <if Attack="50+">killing him. By pillaging his corpse you find some coins and a gem<else>if</else>knocking him unconscious. Pillaging his body you find some coins and a gem</if>.  The fairy is unconscious at the moment, but she’ll be okay, and probably it’s best not to wake her so that she doesn’t know anyone was watching her humiliation.</SetText>
+				<SMMoney>200</SMMoney>
+				<!-- add points to tired 
+					if sm char>slave int  = you look like a cool hunter waiting for his prey, ob+ temp- int- joy+ love+
+					else ob- temp+ int+ joy- love-
+			     -->
+
+				<DoEvent>9999</DoEvent>
+			</OTF004FairyAndOrc1p2a>
+			<OTF004FairyAndOrc1p2b>
+				<SetText>
+					Time to go before he wakes up! No orc's gonna fuck YOUR ass.
+					You collect #slave and make a hurried exit.
+				</SetText>
+				<!-- add points to tired+, obed-, temp+, dom- 
+				-->
+				<DoEvent>9999</DoEvent>
+			</OTF004FairyAndOrc1p2b>
+
+
+		<!-- __________________ NARA START ________________________________________________________________________________________________________________ -->
+			<OTF001MercenaryNaraCombatTraining>
+				<SetVar savedvar6_OTF='1'/>
+				<ShowImage image='Images/Events/OTF/Nara/Nara (13).png'/>
+				<SetText>
+					Tired from hitting the target, consisting out of a wooden dummy and some layers of cloths, you look around. In the field next to yours a young woman is brandishing her sword. Her attire combined with the several knifes and multiple swords clearly shows her as a mercenary, always having back up weapons. 
+
+					Compared to the black knight you once met here her sword form seems lacking, 
+					1 its even worse than yours, maybe is she newbie to a mercenary group?
+					2 you two seem on the same level maybe you could ask spar with her
+					3 still its alot better than yours. Maybe she won't mind you asking for a few pointers?
+				</SetText>
+				<Points></Points>
+				<SMPoints></SMPoints>
+				<DoEvent>9999</DoEvent>
+				</OTF001MercenaryNaraCombatTraining>
+			
+			<OTF001MercenaryNaraCombatTraining2>
+				<SetVar savedvar6_OTF='2'/>
+				<ShowImage image='Images/Events/OTF/Nara/Nara (8).png'/>
+				<SetText>
+					Inspecting your hands a dark frown descends on your face. Again, blisters. 
+					Wondering if the apothecary on the way home a rhythmic nocking boors into your ear. Irritated you let you eyes wander, soon to find the penetrator. Its the 
+					1. newbie “ranked on your discretion“ mercenary
+					2. multi sword and dagger mercenary girl
+					3. female mercenary you saw
+					from the last time you came to train.
+					She seems absorbed with tormenting the wooden doll by poking it with a sturdy knife. With all this repetitive hitting won't she be bothered by the blisters later....well, she doesn't look too concerned so maybe its already normal for her.
+				</SetText>
+				<Points></Points>
+				<SMPoints></SMPoints>
+				<DoEvent>9999</DoEvent>
+				</OTF001MercenaryNaraCombatTraining2>
+			
+			<OTF001MercenaryNaraCombatTraining3>
+				<SetVar savedvar6_OTF='3'/>
+				<ShowImage image='Images/Events/OTF/Nara/Nara (14).png'/>
+				<SetText>
+					Walking to your usual corner in the training area, a voice calls from the side.
+				</SetText>
+				<PersonSpeak person="Female mercenary">Hey yer there! Yes, I saw yer looking at me during training last time. Care for a spar or where you only starring at my ass. By the way, name's <b>Nara</b></PersonSpeak>
+				<AddText>
+					You are a bit perplexed and unsure how this could fare, but at least spar would less tedious than the wooden dummy.
+				</AddText>
+				<Points></Points>
+				<SMPoints></SMPoints>
+				<DoEvent>9999</DoEvent>
+				</OTF001MercenaryNaraCombatTraining3>
+				<OTF001MercenaryNaraCombatTraining3Win>
+					<ShowImage image='Images/Events/OTF/Nara/Nara (10).png'/>
+					<SetText></SetText>
+					<PersonSpeak person="Nara">Ughn......I give</PersonSpeak>
+					<AddText>
+						After a few exchanges Nara is on her knees. This certainly gave her a blow, but she still holdingon to combat knife and her firce grin. 
+
+						Probably this wount be the last time she will try to test her mettle against yours.
+					</AddText>
+					<PersonSpeak person="Nara">....for now......</PersonSpeak>
+					<AddText>or rather, certainly</AddText>
+					<Points></Points>
+					<SMPoints></SMPoints>
+					<DoEvent>9999</DoEvent>
+				</OTF001MercenaryNaraCombatTraining3Win>
+				<OTF001MercenaryNaraCombatTraining3Draw>
+					<ShowImage image='Images/Events/OTF/Nara/Nara (16).png'/>
+					<SetText>
+						You keep on clashing without a clear victor arising. Still Nara seems to be enjoying it greatly. Drenched in sweat you end it in a draw and a promise to spar again.
+					</SetText>
+					<PersonSpeak person="Nara">un...til.....next......time</PersonSpeak>
+					<Points></Points>
+					<SMPoints></SMPoints>
+					<DoEvent>9999</DoEvent>
+				</OTF001MercenaryNaraCombatTraining3Draw>
+				<OTF001MercenaryNaraCombatTraining3Lose>
+					<ShowImage image='Images/Events/OTF/Nara/Nara (7).png'/>
+					<SetText></SetText>
+					<PersonSpeak person="Nara">Where you even trying?</PersonSpeak> 
+					<AddText>
+						With this the sole of Nara's boot sends you sprawling. Well, this was to be expected against a mercenary, right? At least its the boot belonged to a pretty woman.
+					</AddText>
+					<PersonSpeak person="Nara">....oh, sorry? It guess I went overboard this time</PersonSpeak>
+					<AddText>Somehow she doesn't look really sorry.</AddText>
+					<Points></Points>
+					<SMPoints></SMPoints>
+					<DoEvent>9999</DoEvent>
+				</OTF001MercenaryNaraCombatTraining3Lose>
+			
+			<OTF001MercenaryNaraCombatTraining4>
+				<SetVar savedvar6_OTF='4'/>
+				<ShowImage image='Images/Events/OTF/WoodenDoll.jpg'/>
+				<SetText>
+					Wanting to train you approach your favorite dummy. After a few swings your weapon gets a bit damaged un hitting something metallic in the wooden doll. 
+					With abit of force you pull out the piece to find a it a part of a familhar knife. Nara's knife. Seems like broke her weapon and just left the piece in there.
+					
+					With an upset expression you look around and soon find the penetrator.
+				</SetText>
+				<Points></Points>
+				<SMPoints></SMPoints>
+				<DoEvent>OTF001MercenaryNaraCombatTraining4p2</DoEvent>
+				</OTF001MercenaryNaraCombatTraining4>
+				<OTF001MercenaryNaraCombatTraining4p2>
+					<ShowImage image='Images/Events/OTF/Nara/Nara (3).png'/>
+					<SetText>
+						Sitting on the ground and somewhat sullen is Nara. Just as you close in she sends you a small smile. Clearly she is still upset about her knife breaking. 
+					</SetText>
+					<AskQuestion>
+						<Question event="OTF001MercenaryNaraCombatTraining4p2p1">ask her if her knife broke</Question>
+						<Question event="OTF001MercenaryNaraCombatTraining4p2p2">leave it as is</Question>
+						<Question event="OTF004FairyAndOrc1c">tell her to pay for repairing your weapon</Question>
+					</AskQuestion>
+					<Points></Points>
+					<SMPoints></SMPoints>
+				</OTF001MercenaryNaraCombatTraining4p2>
+				<OTF001MercenaryNaraCombatTraining4p2p1>
+					<ShowImage image='Images/Events/OTF/Nara/Nara (3).png'/>
+					<SetText></SetText>
+					<PersonSpeak person="Nara">How do you....?  Ah, was there still a piece in the wooden dummy?</PersonSpeak>
+					<AddText>Her eyes dart to your weapon, and after an instant her cheeks twitch</AddText>
+					<PersonSpeak person="Nara">Uwaah....as if my knife breaking wouldn't be bad enought arleady.... Ah, yes yes, I will pay for the repairs, its my fault for leaving the dummy unchecked.</PersonSpeak>
+					<AddText>Happy for not having extra expenses you decide to leave it at that ...or at least wanted to</AddText>
+					<PersonSpeak person="Nara">Come now, on to the blacksmith!</PersonSpeak>
+					<AddText>She seems a bit too eager for someone who will be paying. Maybe this wasn't such a good idea</AddText>
+					<Points></Points>
+					<SMPoints></SMPoints>
+					<DoEvent>OTF001MercenaryNaraCombatTraining4p2p4</DoEvent>
+				</OTF001MercenaryNaraCombatTraining4p2p1>
+				<OTF001MercenaryNaraCombatTraining4p2p2>
+					<SetFlag flagOTF_02='true'/>
+					<SetText>Nothing ventured nothing gained.... is not something to aply to a bad moored mercenary. You decide its better visit the blacksmith right now on your own than to invite trouble by asking for Nara to pay right now.</SetText>
+					
+					<Points></Points>
+					<SMPoints></SMPoints>
+					<DoEvent>OTF001MercenaryNaraCombatTraining4p2p2p2</DoEvent>
+				</OTF001MercenaryNaraCombatTraining4p2p2>
+					<OTF001MercenaryNaraCombatTraining4p2p2p2>
+						<ShowImage image='Images/Events/OTF/Nara/Nara (7).png'/>
+						<SetText></SetText>
+						<PersonSpeak person="Woman">Hyaaaa</PersonSpeak>
+						<PersonSpeak person="slavemaker">Ugh...</PersonSpeak>
+						<AddText>
+							For some reason you are welcomed at the training field with a kick, robbing you of your balance....
+						</AddText>
+						<Points></Points>
+						<SMPoints></SMPoints>
+						<DoEvent>OTF001MercenaryNaraCombatTraining4p2p2p3</DoEvent>
+					</OTF001MercenaryNaraCombatTraining4p2p2p2>
+					<OTF001MercenaryNaraCombatTraining4p2p2p3>
+						<ShowImage image='Images/Events/OTF/Nara/Nara (17).png'/>
+						<SetText>Laying on the ground trying to pull air into your hurting chest.</SetText>
+						<AddText>You see a familiar butt and weapons walking away. Looks like Nara was the one who kicked you</AddText>
+						<PersonSpeak person="Nara">Hmph</PersonSpeak>
+						<AddText>...and she seems angry</AddText>
+						<AddText>You think of getting angry at her, but hearing the surounding people snicker you realize that it would be no good</AddText>
+						<Points></Points>
+						<SMPoints></SMPoints>
+						<DoEvent>9999</DoEvent>
+					</OTF001MercenaryNaraCombatTraining4p2p2p3>
+				<OTF001MercenaryNaraCombatTraining4p2p3>
+					<ShowImage image='Images/Events/OTF/Nara/Nara (1).png'/>
+					<SetText></SetText>
+					<PersonSpeak person="Nara">Hoo? You are saying that its part of my knife? And you want me to pay? Dream on, I will show you just in how good state my knifes are.</PersonSpeak>
+					<AddText>She pulls her knifes and looks battle ready at you. Maybe you should have just let sleeping dogs alone</AddText>
+					<Points></Points>
+					<SMPoints></SMPoints>
+					<AskQuestion>
+						<Question event="OTF001MercenaryNaraCombatTraining4p2p3Win">Win</Question>
+						<Question event="OTF001MercenaryNaraCombatTraining4p2p3Draw">Draw</Question>
+						<Question event="OTF001MercenaryNaraCombatTraining4p2p3Lose">Lose</Question>
+						<Question event="OTF001MercenaryNaraCombatTraining4p2p3LoseLust">Lose Lust</Question>
+					</AskQuestion>
+				</OTF001MercenaryNaraCombatTraining4p2p3>
+				<OTF001MercenaryNaraCombatTraining4p2p3Win>
+					<ShowImage image='Images/Events/OTF/Nara/Nara (10).png'/>
+					<SetText></SetText>
+					<PersonSpeak person="Nara">Ughn......I give</PersonSpeak>
+					<AddText>
+						After a few exchanges Nara is on her knees. This certainly gave her a blow, but she still holding on to combat knife and her fierce grin. 
+
+						Seems like fighting a strong opponent put her back in good mood.
+					</AddText>
+					<PersonSpeak person="Nara">Come on lets go.</PersonSpeak>
+					<AddText>before you know it she is up and quite energeticly leading you into town</AddText>
+					<Points></Points>
+					<SMPoints></SMPoints>
+					<DoEvent>OTF001MercenaryNaraCombatTraining4p2p4</DoEvent>
+				</OTF001MercenaryNaraCombatTraining4p2p3Win>
+				<OTF001MercenaryNaraCombatTraining4p2p3Draw>
+					<ShowImage image='Images/Events/OTF/Nara/Nara (16).png'/>
+					<SetText>
+						You keep on clashing without a clear victor arising. Still Nara seems to be enjoying it greatly. Drenched in sweat you end it in a draw and a promise to spar again.
+					</SetText>
+					<PersonSpeak person="Nara">t....that was....fun</PersonSpeak>
+					<PersonSpeak person="Nara">I...get it....lets go....to the black..smith</PersonSpeak>
+					<AddText>Seems like Nara is fine with paying for your repairs. Looking her weapon it also seems to be in dire needs now after the spar.</AddText>
+					<Points></Points>
+					<SMPoints></SMPoints>
+					<DoEvent>OTF001MercenaryNaraCombatTraining4p2p4</DoEvent>
+				</OTF001MercenaryNaraCombatTraining4p2p3Draw>
+				<OTF001MercenaryNaraCombatTraining4p2p3Lose>
+					<ShowImage image='Images/Events/OTF/Nara/Nara (7).png'/>
+					<SetText></SetText>
+					<PersonSpeak person="Nara">What was that? With such skill I have to pity your weapon. I'm surprised it held if you were hitting the training dolls like this</PersonSpeak> 
+					<AddText>With this Leaving you laying on the ground. You grind your teeth. With how the match went you don't have anything to retort here. Seems like this was a bad idea. Added to your damaged weapon, now you also need to clean your armor of the mud and you need a rest to heal your sore body.</AddText>
+					<money silent="true">-100</money>
+					<Points></Points>
+					<SMPoints></SMPoints>
+					<DoEvent>9999</DoEvent>
+				</OTF001MercenaryNaraCombatTraining4p2p3Lose>
+				<OTF001MercenaryNaraCombatTraining4p2p3LoseLust>
+					<ShowImage image='Images/Events/OTF/Nara/Nara (7).png'/>
+					<SetText>Laying on your back you look up to your opponent.</SetText>
+					<PersonSpeak person="Nara">Thats what you get for fighting me while staring at by breast. How big of a pervert do you have to be to behave like this?</PersonSpeak> 
+					<AddText> With how the match went you don't have anything to retort here. Seems like this was a bad idea. You grind your teeth just hoping that she didn't notice your</AddText>
+					<Choices>
+						<Choice gender='1'>
+							<AddText> raging errection</AddText>
+							<!-- if using armor -->
+							<AddText>luckily you are wearing armor that is constricting your dick</AddText>
+							<!-- else -->
+							<AddText>not that this would be possible with your current position.</AddText>
+							<!-- add version for small dick -->
+						</Choice>
+						<Choice gender='2'>
+							<AddText> drenched groin</AddText>
+						</Choice>
+						<Default>
+							<AddText> raging errectiopn and drenched groin</AddText>
+						</Default>
+					</Choices>
+					<AddText>Added to your damaged weapon, now you also need to clean your armor of the mud and you need urgently to find a place to masturbate to calm your body.</AddText>
+					<money silent="true">-100</money>
+					<Points></Points>
+					<SMPoints></SMPoints>
+					<DoEvent>9999</DoEvent>
+				</OTF001MercenaryNaraCombatTraining4p2p3LoseLust>
+				<OTF001MercenaryNaraCombatTraining4p2p4>
+					<ShowImage image='Images/Events/OTF/blacksmith.jpg'/>
+					<SetText>Nara leads you to a small blacksmith shop while humming non-stop on the way.</SetText>
+					<AddText>The owner was an old dwarf and inspected your weapon/s in no time</AddText>
+					<AddText>
+						1 Nara pays up and while your weapon is being repaired you two spend the time exchanging small talk. In the end its finished just in time for the next training of #slave.
+						2 The dwarf begins the repairs when you realize that Nara still didn't agree to pay for the weapons of both of you. Just when you want to ask her about it the darf has finished and return your weapon.
+					</AddText>
+					<PersonSpeak person="Nara">Thanks Old Man, please put this on my tab.</PersonSpeak>
+					<PersonSpeak person="Old Darwf">Not again. Pay up first or I call the guards</PersonSpeak>
+					<PersonSpeak person="Nara">Aw, no. Ah! I also need a new knife. I'll pay after my next job</PersonSpeak>
+					<PersonSpeak person="Old Darwf">Hmpf. Next to the door in the crate.</PersonSpeak>
+					<PersonSpeak person="Nara">Thanks!</PersonSpeak>
+					<AddText>Seems like this is a usual scene for them. With this you leave the shop while Nara is still rumaging thru the crate with knifes.</AddText>
+					<Points></Points>
+					<SMPoints></SMPoints>
+					<DoEvent>9999</DoEvent>
+				</OTF001MercenaryNaraCombatTraining4p2p4>
+
+			<OTF001MercenaryNaraForestSeen>
+				<ShowImage image='Images/Events/OTF/Forest.jpg'/>
+				<SetText>On your lazy stroll thru the Forest you pass at the foot of a hill. Suddenly faint sound of combat and screams are heard. Not wanting to expose #slave to danger you start to carefully retreat.</SetText>
+
+				<Points></Points>
+				<SMPoints></SMPoints>
+				<DoEvent>OTF001MercenaryNaraForestSeenp2</DoEvent>
+				</OTF001MercenaryNaraForestSeen>
+				<OTF001MercenaryNaraForestSeenp2>
+					<ShowImage image='Images/Events/OTF/Nara/Nara (5).png'/>
+					<SetText>Just then the noise stops and a female figure appears up on the hill.<if savedvar6_OTF="0+"> You recognize her as the mercenary Nara who you sparred some times. It seems that she was on the winning side since there isn't a single injury</if> .</SetText>
+					<AddText>
+						Just when you think that she has noticed you, Nara turns around and returns into the direction of the previous noise.
+					</AddText> 
+					<AddText>
+						Not wanting to push your luck you decide to return to the town.
+					</AddText>
+					<AddText></AddText>
+					<Points></Points>
+					<SMPoints></SMPoints>
+					<DoEvent>9999</DoEvent>
+				</OTF001MercenaryNaraForestSeenp2>
+
+		<!-- __________________ NARA END __________________________________________________________________________________________________________________ -->
+
+
+		<OTF001Base>
+			<SetFlag flagOnTheFly_00="true"/>
+			<SetVar var0="0"/>
+			<SetVar savedvar0_OnTheFly="0"/>
+			<ShowImage image='Images/Events/OTF/Forest.jpg'/>
+			<SetText></SetText>
+
+			<Points></Points>
+			<SMPoints></SMPoints>
+			<DoEvent>9999</DoEvent>
+		</OTF001Base>
+
+		<!-- _________________________________________ Other Races ________________________________________ -->
+			<OTF005>
+				<SetVar savedvar2_OTF="savedvar2_OTF+0"/> <!-- Elf Points -->
+				<SetVar savedvar3_OTF="savedvar3_OTF+0"/> <!-- Goblin Points -->
+				<SetVar savedvar4_OTF="savedvar4_OTF+0"/> <!-- Orc Points -->
+				<Background place="forest" frame='1' align='2'/>
+				<SetText>You walk in the forest and meet</SetText>
+				<AddText> Someone </AddText>
+				<AddText>and do </AddText>
+				<AddText>Something.</AddText>
+				<DoEvent>9999</DoEvent>
+			</OTF005>
+			<OTF006>
+				<SetVar savedvar2_OTF="savedvar2_OTF+0"/> <!-- Elf Points -->
+				<SetVar savedvar3_OTF="savedvar3_OTF+0"/> <!-- Goblin Points -->
+				<SetVar savedvar4_OTF="savedvar4_OTF+0"/> <!-- Orc Points -->
+				<Background place="forest" frame='1' align='2'/>
+				<SetText>You walk in the forest and meet</SetText>
+				<AddText> Someone </AddText>
+				<AddText>and do </AddText>
+				<AddText>Something.</AddText>
+				<DoEvent>9999</DoEvent>
+			</OTF006>
+			<OTF007>
+				<SetVar savedvar2_OTF="savedvar2_OTF+0"/> <!-- Elf Points -->
+				<SetVar savedvar3_OTF="savedvar3_OTF+0"/> <!-- Goblin Points -->
+				<SetVar savedvar4_OTF="savedvar4_OTF+0"/> <!-- Orc Points -->
+				<Background place="forest" frame='1' align='2'/>
+				<SetText>You walk in the forest and meet</SetText>
+				<AddText> Someone </AddText>
+				<AddText>and do </AddText>
+				<AddText>Something.</AddText>
+				<DoEvent>9999</DoEvent>
+			</OTF007>
+			<OTF008>
+				<SetVar savedvar2_OTF="savedvar2_OTF+0"/> <!-- Elf Points -->
+				<SetVar savedvar3_OTF="savedvar3_OTF+0"/> <!-- Goblin Points -->
+				<SetVar savedvar4_OTF="savedvar4_OTF+0"/> <!-- Orc Points -->
+				<Background place="forest" frame='1' align='2'/>
+				<SetText>You walk in the forest and meet</SetText>
+				<AddText> Someone </AddText>
+				<AddText>and do </AddText>
+				<AddText>Something.</AddText>
+				<DoEvent>9999</DoEvent>
+			</OTF008>
+			<OTF009>
+				<SetVar savedvar2_OTF="savedvar2_OTF+0"/> <!-- Elf Points -->
+				<SetVar savedvar3_OTF="savedvar3_OTF+0"/> <!-- Goblin Points -->
+				<SetVar savedvar4_OTF="savedvar4_OTF+0"/> <!-- Orc Points -->
+				<Background place="forest" frame='1' align='2'/>
+				<SetText>You walk in the forest and meet</SetText>
+				<AddText> Someone </AddText>
+				<AddText>and do </AddText>
+				<AddText>Something.</AddText>
+				<DoEvent>9999</DoEvent>
+			</OTF009>
+			<OTF010>
+				<SetVar savedvar2_OTF="savedvar2_OTF+0"/> <!-- Elf Points -->
+				<SetVar savedvar3_OTF="savedvar3_OTF+0"/> <!-- Goblin Points -->
+				<SetVar savedvar4_OTF="savedvar4_OTF+0"/> <!-- Orc Points -->
+				<Background place="forest" frame='1' align='2'/>
+				<SetText>You walk in the forest and meet</SetText>
+				<AddText> Someone </AddText>
+				<AddText>and do </AddText>
+				<AddText>Something.</AddText>
+				<DoEvent>9999</DoEvent>
+			</OTF010>
+			<OTF011>
+				<SetVar savedvar2_OTF="savedvar2_OTF+0"/> <!-- Elf Points -->
+				<SetVar savedvar3_OTF="savedvar3_OTF+0"/> <!-- Goblin Points -->
+				<SetVar savedvar4_OTF="savedvar4_OTF+0"/> <!-- Orc Points -->
+				<Background place="forest" frame='1' align='2'/>
+				<SetText>You walk in the forest and meet</SetText>
+				<AddText> Someone </AddText>
+				<AddText>and do </AddText>
+				<AddText>Something.</AddText>
+				<DoEvent>9999</DoEvent>
+			</OTF011>
+			<OTF012>
+				<SetVar savedvar2_OTF="savedvar2_OTF+0"/> <!-- Elf Points -->
+				<SetVar savedvar3_OTF="savedvar3_OTF+0"/> <!-- Goblin Points -->
+				<SetVar savedvar4_OTF="savedvar4_OTF+0"/> <!-- Orc Points -->
+				<Background place="forest" frame='1' align='2'/>
+				<SetText>You walk in the forest and meet</SetText>
+				<AddText> Someone </AddText>
+				<AddText>and do </AddText>
+				<AddText>Something.</AddText>
+				<DoEvent>9999</DoEvent>
+			</OTF012>
+			<OTF013>
+				<SetVar savedvar2_OTF="savedvar2_OTF+0"/> <!-- Elf Points -->
+				<SetVar savedvar3_OTF="savedvar3_OTF+0"/> <!-- Goblin Points -->
+				<SetVar savedvar4_OTF="savedvar4_OTF+0"/> <!-- Orc Points -->
+				<Background place="forest" frame='1' align='2'/>
+				<SetText>You walk in the forest and meet</SetText>
+				<AddText> Someone </AddText>
+				<AddText>and do </AddText>
+				<AddText>Something.</AddText>
+				<DoEvent>9999</DoEvent>
+			</OTF013>
+			<OTF014>
+				<SetVar savedvar2_OTF="savedvar2_OTF+0"/> <!-- Elf Points -->
+				<SetVar savedvar3_OTF="savedvar3_OTF+0"/> <!-- Goblin Points -->
+				<SetVar savedvar4_OTF="savedvar4_OTF+0"/> <!-- Orc Points -->
+				<Background place="forest" frame='1' align='2'/>
+				<SetText>You walk in the forest and meet</SetText>
+				<AddText> Someone </AddText>
+				<AddText>and do </AddText>
+				<AddText>Something.</AddText>
+				<DoEvent>9999</DoEvent>
+			</OTF014>
+
+
+
+	</Events>
+
+
+	<Visits>
+	</Visits>
+
+
+	<Planning>
+		<Acts>
+			<DoPlanning>
+				<MartialTraining>  <!-- doesnt work as of now -->
+					<!-- __________________ NARA START _________________ -->
+					<Choices>
+						<Choice savedvar6_OTF='0'>
+							<DoEvent now='true'>OTF001MercenaryNaraCombatTraining</DoEvent>
+							<EndEvent/>
+						</Choice>
+						<Choice savedvar6_OTF='1'>
+							<DoEvent now='true'>OTF001MercenaryNaraCombatTraining2</DoEvent>
+							<EndEvent/>
+						</Choice>
+						<Choice savedvar6_OTF='2'>
+							<DoEvent now='true'>OTF001MercenaryNaraCombatTraining3</DoEvent>
+							<EndEvent/>
+						</Choice>
+						<Choice savedvar6_OTF='3'>
+							<DoEvent now='true'>OTF001MercenaryNaraCombatTraining4</DoEvent>
+							<EndEvent/>
+						</Choice>
+						<Default>
+						</Default>
+					</Choices>
+					<!-- __________________ NARA END _________________ -->
+				</MartialTraining>
+			</DoPlanning>
+		</Acts>
+	</Planning>
+
+	<Slaves>
+	</Slaves>
+
+
+</Language>

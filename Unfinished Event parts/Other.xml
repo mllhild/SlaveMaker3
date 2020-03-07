@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Other>
+	<CumslutDeclaration>
+		<SetText>#person approaches you nervously and says,</SetText>
+		<PersonSpeak person='#person'>Since you started training me I have had been tasting cum more and more and have found that I enjoy the taste. It is lovely and I find myself wanting it often.\r\rI am troubled, this desire is distracting me as sometimes I would prefer to taste and drink cum more than anything?</PersonSpeak>
+		<AddText>You feel you should either make #personhimher focus on #personhisher trainings, not just on cum, or you should use this opportunity to have #personhimher change #personhisher life and become a different slave, a Cumslut.</AddText>
+		<AskQuestions caption="How do you respond">
+			<Question event='2500'>Remind #personhimher of #personhisher training</Question>
+			<Question event='2501'>Call #personhimher a cumslut</Question>
+		</AskQuestions>
+	</CumslutDeclaration>
+	
+	<CumslutRefused>
+		<SetText>You talk about not letting #personhisher desire for cum rule #personhisher life. You talk with #personhisher about trying to control #personhisher desire and will assist #personhisher whenever you can..</SetText>
+	</CumslutRefused>		
+	
+	<CumslutAgreed>
+		<SetText>You tell #person that if #personheshe really enjoys cum then why not become a cumslut, a person whose life is centered on obtaining cum and drinking it. You emphasise that #personheshe will still train in other activities, but why not enjoy life and help others enjoy it too? You ask 'So are you a cumslut?' and #personheshe answers,</SetText>
+		<PersonSpeak person='#person'>I am a cumslut!</PersonSpeak>
+		<AddText>You are happy and tell #personhimher that from now on you will call #personhimher 'Cumslut #person'.</AddText>
+		<ifnot gender='female'>
+			<AddText> With that #personheshe reaches for your cock, to accept #personhisher first load of delicious cum.</AddText>
+		</ifnot>
+	</CumslutAgreed>
+	
+	<!-- message when the slave is noticed pregnannt nut not realised they are actually pregnant -->
+	<PregnancyGainingWeight>You notice that #slave appears to be gaining weight. You tell #assistant to be careful about #slavehisher diet.</PregnancyGainingWeight>
+	
+	<!-- report a slave is pregnant
+	notes:
+	  at this point the default Discuss image has been shown for the nurse/midwife slave. A bedroom background is shown
+	  bitflag1-95 has been set to indicate this has been announced
+	  in the following node
+	  #personheshe, #person etc refer to the slave/assistant or your slave maker that is pregnant
+	  #personotherheshe, #personther etc refers to the slave/assistant that is reporting, ie the nurse/midwife
+	-->
+<PregnancyReport>
+		<!-- slave maker is pregnant -->
+		<if currentslave='slavemaker'>
+			<SetText>#personother asks to speak to yourself in private,</SetText>
+			<PersonSpeak person='#personother'>I have recently noticed how you have been feeling and I am quite sure that you are pregnant! Congratulations #master.</PersonSpeak>
+			<AddText>You ask who is the father,</AddText>
+			<if pregnancytype-slavemaker="Human">
+				<PersonSpeak person='#personother'>I am not sure #master.</PersonSpeak>
+			<else>if</else>
+			<if pregnancytype-slavemaker="Goblin">
+			<PersonSpeak person='#personother'>I am not entirely sure. Its sort of human...I think? Could well be that Mar'ek fellow</PersonSpeak>
+				<SetFlags flagSMBrandGoblins-39="true"/>
+			<else>if</else>
+				<PersonSpeak person='Tentacles'>I am not sure its human #master.</PersonSpeak>
+			</if>
+			</if>
+			<EndEvent/>
+		</if>
+		
+		<!-- another slave is pregnant -->
+		<SetText>#personother asks to speak to yourself and #person,</SetText>
+		<PersonSpeak person='#personother'>I have recently noticed how #person has been feeling and I am quite sure that #personheshe is pregnant! Congratulations #person.</PersonSpeak>
+		<AddText>You ask who is the father,</AddText>
+		<if pregnancytype-current='yours'>
+			<PersonSpeak person='#personother'>I am fairly sure it is yours #master.</PersonSpeak>
+		<else>if</else>
+			<if pregnancytype-current='yourstentacle'>
+				<PersonSpeak person='#personother'>I am fairly sure it is yours #master, but I am not sure it is quite humanoid.</PersonSpeak>
+			<else>if</else>
+			<if pregnancytype-current='Goblin'>
+				<PersonSpeak person='#personother'>Mar'eks work no doubt</PersonSpeak>
+				<SetFlags flagSMBrandGoblins-42="true"/>
+			<else>if</else>
+			<PersonSpeak person='#personother'>I am not sure #master.</PersonSpeak>
+			</if>
+			</if>
+		</if>
+	</PregnancyReport>
+	
+	<!-- report that a slave is pregnant herself
+	notes:
+	  at this point the default Discuss image has been shown for the nurse/midwife slave. A bedroom background is shown
+	  bitflag1-95 has been set to indicate this has been announced
+	  in the following node
+	  #personheshe, #person etc refer to the slave that is pregnant
+	-->
+	<PregnancyReportSelf>
+		<SetText>#personother asks to speak to yourself in private,</SetText>
+		<PersonSpeak person='#personother'>I have recently been feeling different and I am quite sure now that I am pregnant!</PersonSpeak>
+		<AddText>You ask who is the father,</AddText>
+		<if pregnancytype-current='yours'>
+			<PersonSpeak person='#personother'>I am fairly sure it is yours #master.</PersonSpeak>
+		<else>if</else>
+			<if pregnancytype-current='yourstentacle'>
+				<PersonSpeak person='#personother'>I am fairly sure it is yours #master, but I am not sure it is quite humanoid.</PersonSpeak>
+			<else>if</else>
+				<PersonSpeak person='#personother'>I am not sure #master.</PersonSpeak>
+			</if>
+		</if>
+	</PregnancyReportSelf>
+				
+				
+	<!-- slavemaker birthing -->
+	
+	<SMTentaclePregnancy>
+		<Backgrounds place="tentacles" frame='1'/>
+		<SetText>Recently your dreams have been haunted by what happened down in the lair of the tentacle monsters. You remember your submission to them, how you gave in and for a brief time became their breeding slave. You masturbate repeatedly to the helplessness and ecstasy of the experience.
+		
+		Soon it becomes clear that your assault in that dark place had been 'productive.' Your belly begins to swell, and occasionally at first but then increasingly you begin feel a pleasant writhing sensation within you. A little dazed, you tell #assistant that you will need to take a short break before training a new slave.
+		
+		More time passes and your belly becomes even more distended. Your full attention is devoted to the monstrous life that you now carry. Each time a tendril moves inside your womb you feel intense pleasure.\r\rFinally, one night you feel a call that you can&apos;t really describe—an urge in your head that drives you to leave the house. You stumble down empty city streets, until finally you come to the entrance of the tentacle lair. With a flash of dark memories, you descend.
+		
+		The underground tunnels are empty now, the soldiers having been very thorough in their eradication of the nest. On the dirty floor of a chamber that used to house dozens of monsters and captives, you lie down and begin to push.
+		
+		An hour later, you climb back outside, your belly normal once more, your thoughts muddled with pleasure. You are only vaguely aware that your 'child' is now loose, free to make a fresh beginning for its kind in the dark places beneath the city.</SetText>
+		<SetFlag flagsm-95='false'/>
+	</SMTentaclePregnancy>
+	
+	<SMHumanPregnancy>
+		<!-- gives birth to a slave child (or unknown person) -->
+		<if pregnancycount-current='2+'>
+			<SetText>In the early hours of the morning you go into labour and give birth to #pregnancycount-current children.</SetText>
+		<else>if</else>
+			<SetText>In the early hours of the morning you go into labour and give birth to a healthy child.</SetText>
+		</if>
+		<ChangeTime>4</ChangeTime>
+		<BlankLine/>
+		<AddText>You are not sure who fathered this child, but most likely one of your other slaves during one evenings training.</AddText>
+		<SetFlag flagsm-95='false'/>
+		<DoEvent>9999</DoEvent>
+	</SMHumanPregnancy>
+	
+	<SMShampooPregnancy>
+		<!-- you give birth to Shampoos child -->
+		<SetText>You go into labour in the early hours of the morning and give birth to a healthy child. Shampoo lovingly holds the child after you, her child with you.</SetText>
+		<ChangeTime>4</ChangeTime>
+		<BlankLine/>
+		<SetFlag flagsm-95='false'/>
+		<DoEvent>9999</DoEvent>
+	</SMShampooPregnancy>
+	
+	<SMGoblinPregnancy>
+		<!-- gives birth to a slave child (or unknown person) -->
+		<if pregnancycount-current='2+'>
+			<SetText>In the early hours of the morning you go into labour and give birth to #pregnancycount-current goblin children.</SetText>
+		<else>if</else>
+					<SetVar var0="random3"/>
+			<SetText>You are worried, you just don't feel right. You feel faint, dizzy, heavy, tired. The baby within you is extreme active; almost as if it where tuning inside you. The cramps started this morning and have been getting worse and worse. With slaves help you go down to the camp to see Mar'ek.\r\r
+			Mar'ek and Anna greet you and sit you down by the fire. Mar'ek tells you to strip so he can check you over. Anna seems very concerned about you. Constantly checking on you, as she helps you out of your clothes. The two of them inspect you, runing their hands across your swollen belly and intensely scrutinizing your pussy. They converse in low ghoblak.</SetText>
+			<PersonSpeak person="Marek">You did well coming to me. Your going into labor; right now. Don't be afraid, we can do this.</PersonSpeak>
+			<AddText>Mar'ek ties cords to your hands and feat. Anna begins brewing some concoction and throwing strong smelling herbs on the fire whilst #slave comforts you. Mar'ek drives wooden pegs into the ground and pulls the cords tight, binding you, staking you out spreadeagled across the furs. He sits down and tucks his lap under your head, stroking you hair and cooing softly.</AddText>			
+			<PersonSpeak person="Marek">This is supposed to prevent your spirit escaping. It also gives you something to brace yourself against. Now I need you to drink this. Its to ease the new life into the world.</PersonSpeak>
+			<AddText>You drink from the wooden cup he holds for you; the liquid is hot, sharp and almost sickly sweet. The effects hit you almost immediately; the convulsions well up inside you, the pain redoubling as it rips through you as you thrash at your bonds.</AddText>	
+			<PersonSpeak person="#slavemakername">Bastard, what have you done to me? I though this was supposed to make things easMmmmhgrphmn??!</PersonSpeak>	
+			<AddText>You protestations are mumbled if not silenced by the ring gag he forces into your mouth.</AddText>	
+			<PersonSpeak person="Anna">so you don't bite your tongue.</PersonSpeak>	
+			<AddText>Mar'ek shoots her a look and holds up five fingers, cocks his head and a moment later increases it to twenty five. Chastised she nods apologetically.\r\r
+			Your attention is pulled inexorably inward as you loose yourself in the waves of pain boiling up from your center. Dimly you hear him commanding you to push over and over again. You want to answer back but you can't; all you can do is moan and dribble. With one almighty heave and a scream of pain you feel the babe leave you body and into Annas waiting arms. A moment of exhaustion passes before the sharp cry of a new life pierces your soul.\r\r
+			Anna wraps the child in a warm fur and hands it to Mar'ek.</AddText>
+			<if var0="1">
+				<if SMSpecialEvent="2" and="true" chance="50%">
+					<PersonSpeak person="Marek">A son my girl a son of the old blood no doubt. He has his grandfathers eyes and Ouch! strong little tentacles to.</PersonSpeak>	
+				<else>if</else>
+					<PersonSpeak person="Marek">A son, a son! #Slavemaker you great wonderful Sha'kesh you. My gods a son, who would have though it; and on the first try too. Little one, little one are you hungry? say hello to your mummy little one</PersonSpeak>	
+				</if>
+			<else>if</else>	
+				<if var0="2">
+					<PersonSpeak person="Marek">A daughter, a fine hale daughter from your #slavemakername. She is beautiful; just like her mother. You can have her now.</PersonSpeak>	
+				<else>if</else>		
+					<PersonSpeak person="Marek">A son, a son and...daughter as well? I never...a little baby futa.</PersonSpeak>	
+				</if>	
+			</if>	
+		<AddText>He snuggles in close; his strong arms encircling you; holding the emerald child to your chest. You look down at the tiny life nestled on you breasts. its dark eyes fix on your nipple and Ma'ek lifts its head to suckle its first drink of your milk. You relax into Mar'eks arms and look up at him as if to say...</AddText>				
+		<PersonSpeak person="#slavemakername">Rrgughunrmunghu...</PersonSpeak>
+		<PersonSpeak person="Marek">Yeah, right...the gag.</PersonSpeak>		
+		<AddText>Mar'ek just smiles down at you and kisses your defenceless mouth, making absolutely no move to free you. It feels like the three of you lie there for hours before you drift off into a restful slumber.</AddText>	
+		</if>		
+		<ChangeTime>4</ChangeTime>
+		<SetFlag flagsm-95='false'/>
+		<SetFlag flagSMBrandGoblins-37='false'/>
+		<SetFlag flagSMBrandGoblins-40='false'/>
+		<SetFlag flagSMBrandGoblins-39='false'/>
+		<SetFlags flagSMBrandGoblins-43="false"/>
+		<DoEvent>9999</DoEvent>
+	</SMGoblinPregnancy>
+	<!-- slave birthing -->
+	
+	<!-- giving birth to tentacle spawn -->
+	<TentaclePregnancy>
+		<Backgrounds place="bedroom"/>
+		<SetText>In the morning you see #person looking deeply distressed, breathing shallowly and gazing around with unfocused eyes. It doesn&apos;t take a master Slave Maker to see why, her belly has grossly swollen, as though she were extremely pregnant. Clearly she is suffering from a dramatic illness of some kind. You place your hand on her belly out of concern, expecting to feel only the rhythmic contractions of her lungs...but beneath your palm, you can feel sudden movement! Alarmed, you summon #assistant to carefully examine her.</SetText>
+		<PersonSpeak person="assistant">About a month ago, #person was sexually assaulted by a tentacle monstrosity. As though that weren&apos;t bad enough, she appears to be pregnant with its spawn. Some of these creatures have gestation periods as short as a month, which (you quickly calculate) would match up perfectly with her symptoms. She needs to be taken to a safe place in order to protect her from the spawn and its parent, and you resolve to do so immediately.</PersonSpeak>
+		<DoEvent>190</DoEvent>
+	</TentaclePregnancy>
+
+	<YoursTentaclePregnancy>
+		<Backgrounds place="bedroom"/>
+		<SetText>In the morning you see #person looking deeply distressed, breathing shallowly and gazing around with unfocused eyes. It doesn&apos;t take a master Slave Maker to see why, her belly has grossly swollen, as though she were extremely pregnant. Clearly she is suffering from a dramatic illness of some kind. You place your hand on her belly out of concern, expecting to feel only the rhythmic contractions of her lungs...but beneath your palm, you can feel sudden movement!
+		
+		You know quite well #person is bearing somoe of your spawn, tentacle beasts of that part of your heritage.</SetText>
+		<DoEvent>191</DoEvent>
+	</YoursTentaclePregnancy>
+
+	<YoursPregnancy>
+		<!-- gives birth to your child -->
+		<if pregnancycount-current='2+'>
+			<SetText>#person goes into labour in the early hours of the morning and gives birth to #pregnancycount-current children.</SetText>
+		<else>if</else>
+			<SetText>#person goes into labour in the early hours of the morning and gives birth to a healthy child.</SetText>
+		</if>
+		<ChangeTime>4</ChangeTime>
+		<BlankLine/>
+		<AddText>Later she wearily smiles and promises to care for your family, and any future children.</AddText>
+		<SetFlag flag1-current-95='false'/>
+		<DoEvent>9999</DoEvent>
+	</YoursPregnancy>
+	
+	<HumanPregnancy>
+		<!-- gives birth to another slaves child -->
+		<if pregnancycount-current='2+'>
+			<SetText>#person goes into labour in the early hours of the morning and gives birth to #pregnancycount-current children.</SetText>
+		<else>if</else>
+			<SetText>#person goes into labour in the early hours of the morning and gives birth to a healthy child.</SetText>
+		</if>
+		<ChangeTime>4</ChangeTime>
+		<BlankLine/>
+		<AddText>You are not sure who fathered this child, but most likely one of your other slaves during one evenings training.</AddText>
+		<SetFlag flag1-current-95='false'/>
+		<DoEvent>9999</DoEvent>
+	</HumanPregnancy>
+	
+	<GoblinPregnancy>
+		<!-- gives birth to another slaves child -->
+		<if pregnancycount-current='2+'>
+			<SetText>#person goes into labour in the early hours of the morning and gives birth to #pregnancycount-current goblin children.</SetText>
+		<else>if</else>
+			<SetText>#person goes into labour in the early hours of the morning and gives birth to a healthy goblin child.</SetText>
+		</if>
+		<ChangeTime>4</ChangeTime>
+		<BlankLine/>
+		<AddText>You are pretty confident that Mar'ek fathered this child.</AddText>
+		<SetFlag flag1-current-95='false'/>
+		<SetFlag flagSMBrandGoblins-42='false'/>
+		<DoEvent>9999</DoEvent>
+	</GoblinPregnancy>
+	<!-- Love
+	If you choose to override any of the following you can omit the appendacttext if statements but should add
+	<SetVar appendacttext='true'/>
+	-->
+	
+	<LoveConfession>
+		<if appendacttext='true'>
+			<if gender='male'>
+				<SetText>#person just said that #personheshe is in love with you.</SetText>
+			<else>if</else>
+				<SetText>#person just said nervously that #personheshe is in love with you. #person seems quite conscious that you are not a man...</SetText>
+			</if>
+		</if>
+	</LoveConfession>
+	
+	<LoveConfessionResponses>
+		<BlankLine/>
+		<AskQuestions caption='How do you respond to #person?'>
+			<Question event='3'>Yes, I love you too</Question>
+			<Question event='3.2'>No, I do not love you</Question>
+			<Question event='3.4'>I am not sure yet</Question>
+		</AskQuestions>
+	</LoveConfessionResponses>
+	
+	<LoveConfessionTooManyLovers>
+		<if appendacttext='true'>
+			<BlankLine/>
+			<AddText>#person blushes and remembers your other lovers and starts crying, realising there is no way you can truly love yet another person.\r\rYou try to convince #personhimher but #personheshe backs away, refusing to discuss it anymore.</AddText>
+			<Diary>#person confessed #personhisher love to you, but you had too many lovers.</Diary>
+			<Points slave='current'>0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -5, 0, 0, 0, -15, -20, 0</Points>
+			<SetVar love-current='-1'/>
+		</if>
+	</LoveConfessionTooManyLovers>
+	
+	<LoveConfessionAccepted>
+		<if appendacttext='true'>
+			<AddText>#person is really happy and swears to work harder now.</AddText>
+			<if currentslave='slave'>
+				<BlankLine/>
+				<AddText>You feel torn, happy with your mutual feelings, but sorry that you are still bound to deliver #slavehimher at the end of #slavehisher training.</AddText>
+			</if>
+		</if>
+	</LoveConfessionAccepted>
+	
+	<LoveConfessionRefused>
+		<if appendacttext='true'>
+			<Points slave='current'>0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -5, 0, 0, 0, -15, -20, 0</Points>
+			<AddText>You tell #person that you do not share #personhisher feelings. #person is very sad but at least you don&apos;t let your personal likes interfere with your job.</AddText>
+		</if>
+	</LoveConfessionRefused>
+	
+	<LoveConfessionUnsure>
+		<if appendacttext='true'>
+			<Points slave='current'>0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, -1, -20, 0, 0</Points>
+			<AddText>You tell #person that you are not sure about your feelings towards #personhimher and ask for more time to decide.</AddText>
+		</if>
+	</LoveConfessionUnsure>
+
+	<LoveConfessionLesbianDG>
+		<AddText>You are happy to hear #personhisher declaration unfortunately this does not mean #person has now decided #personheshe is a lesbian. You accept that you are a woman but even more so you are a hermaphrodite, the third sex. Lesbians love women, they may love hermaphrodites as well but most of all women.\r\rYou will have to encourage #person to seek other women, only women not hermaphrodites, to fully realise #personhisher lesbian nature.\r\rYet still #person says #personheshe loves you...</AddText>
+	</LoveConfessionLesbianDG>
+	
+	<LoveConfessionLesbian>
+		<AddText>You are happy to hear #personhisher declaration as #personheshe has now decided #personheshe is a lesbian!</AddText>
+	</LoveConfessionLesbian>
+	
+	<!-- Noble Love
+	events where a NPV falls in love with the main slave. Not implemented for assistants/minor slaves
+	-->
+	<!-- event when you meet the noble, 
+	noblelove is the number of times met
+	If they ask to buy the slave, ask if you want to, and then use the question <YesNoQuestion>13</YesNoQuestion> to ask 
+	All this logic is in the NobleLove node below
+	-->
+	<NobleLove>
+	</NobleLove>
+	
+	<!-- yes, you decide to sell your slave to them -->
+	<NobleLoveAccepted>
+		<AddText>#person is very happy and 'takes' possession of #slave.</AddText>
+	</NobleLoveAccepted>
+	
+	<!-- no, you refuse to sell your slave to them -->
+	<NobleLoveRefused>
+	</NobleLoveRefused>
+
+</Other>

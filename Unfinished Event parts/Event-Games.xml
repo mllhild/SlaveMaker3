@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Roulette -->
+<!--
+view table
+approach table
+choose what to do
+ - observe 
+     event check
+        return to previous menu
+ - leave 
+     event check
+        return to social area
+ - play
+     intro
+     choose bet, observe or leave
+     choose quantity
+     event check
+     rotate roulette
+     check for cheat
+     verify bet
+     event check
+     change money
+     event check
+     return to item 2 (choose bet, observe or leave)
+-->
+
+
+<!-- Black Jack -->
+<!--
+view table
+approach table
+choose what to do
+ - observe 
+     event check
+        return to previous menu
+ - leave 
+     event check
+        return to social area
+ - play
+     intro
+     shuffle deck
+     place bet
+     give 2 cards to dealer (one open, one hidden)
+     give 2 cards to player (both open)
+     SM draw more
+       -yes
+          give 1 card to player
+             check for busts
+               repeat
+       -no
+          dealer draw more
+            -yes
+              check for cheat
+              give 1 card to dealer
+                 check for busts
+                   repeat
+            -no
+               check wining conditions
+               verify bet
+			   event check
+			   change money
+			   event check
+			   return to item 2 (choose bet, observe or leave)
+	 
+
+ -->
+
+<!-- Slot Machine -->

@@ -1,0 +1,71 @@
+flagIslandEX_0
+
+0   Loli abilitated
+1   Did manage to convince villagers
+2   Did get wed to tribe member
+3   Know where the caves are
+4   
+5   
+6   
+7   
+8   
+9   
+10  
+11  
+12  
+13  
+14  
+15  
+16  
+17  
+18  
+19  
+20  
+
+
+savedvar0_IslandEX = 0 start
+1   did meet Tribe member at beach
+2   did engage with tribe member at beach
+3   did trade with tribe member at beach (able to meet them in the jungle)
+4   did meet them in jungle
+5   discovered trail leading to abandoned resting/fire place
+6   learned about monsters on the island
+7   did meet tribe traders and defeat attacking monster 1(you get invited into the village the next time you visit)
+8   Did get shown the way to the village (start some village sub events)
+    (Maybe I should make a sketch of the village and plan things out there)
+9   Village gets attacked and you helped defend it
+10  Did try to convince Villagers to go against the monsters and liberate the captured ones (verify flag 1 to see if suceeded)
+90  Did fail to rescue the villagers, because did run away
+91  Did fail to rescue the villagers, because too much time passed
+92  Did fail to rescue the villagers, because did lose in combat (bad end off)
+93  Did fail to rescue the villagers, because did lose in combat, and expulsed from village because they lost even more members in the attemp since you convinced them to aid you (bad end off)
+11  Did succeed in saving the villagers (abilitates the exploring of the caves)
+12  Did get a wedding offer from one or more tribes people (figure some fancy way out to get the point sistem workin, but wait until you did write up to this part) (if I have enouth images for a minor loli slave I might make the tribal rules to only apply to already adult members of the tribe)
+
+
+savedvar1_IslandEX = 0 start
+  male points
+savedvar2_IslandEX = 0 start
+  female points
+savedvar3_IslandEX = 0 start
+  futa points
+savedvar4_IslandEX = 0 start
+  Loli points
+savedvar5_IslandEX = 0 start
+  mate gender(1 to 6)
+savedvar6_IslandEX = 0 start
+  back up last visit Bust size
+savedvar7_IslandEX = 0 start
+  back up last visit Cock size
+savedvar8_IslandEX = 0 start
+  back up last visit gender
+savedvar9_IslandEX = 0 start
+  back up tribal mate giving birth date
+
+=1  
+=2  
+=3  
+=4  
+=5  
+=6  
+=7  

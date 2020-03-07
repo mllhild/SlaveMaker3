@@ -1,0 +1,1481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Comments
+
+flagIslandEx_0
+0   Loli abilitated
+1   Did manage to convince villagers
+2   Did get wed to tribe member
+3   did buy clothes
+4   did buy dagger
+5   did buy spear
+
+
+make a house plant for the jungle, deal with the door sound later, or look how Slave Reis file prevents them when fighting the frogs.
+
+savedvar0_IslandEx = 0 start
+1   did meet Tribe member at beach
+2   did engage with tribe member at beach
+3   did trade with tribe member at beach (able to meet them in the jungle)
+4   did meet them in jungle
+5   discovered trail leading to abandoned resting/fire place
+6   learned about monsters on the island
+7   did meet tribe traders and defeat attacking monster 1(you get invited into the village the next time you visit)
+8   Did get shown the way to the village (start some village sub events)  (Maybe I should make a sketch of the village and plan things out there)
+9   Village gets attacked and you helped defend it
+10  Did try to convince Villagers to go against the monsters and liberate the captured ones (verify flag 1 to see if suceeded)
+90  Did fail to rescue the villagers, because did run away
+91  Did fail to rescue the villagers, because too much time passed
+92  Did fail to rescue the villagers, because did lose in combat (bad end off)
+93  Did fail to rescue the villagers, because did lose in combat, and expulsed from village because they lost even more members in the attemp since you convinced them to aid you (bad end off)
+11  Did succeed in saving the villagers (abilitates the exploring of the caves)
+12  Did get a wedding offer from one or more tribes people (figure some fancy way out to get the point sistem workin, but wait until you did write up to this part) (if I have enouth images for a minor loli slave I might make the tribal rules to only apply to already adult members of the tribe) (maybe the rule is that the wives have to stay in the tribe, so if you are female and marry a male, futa or more dominant female you will be forced to stay at the village, and have to try to escape if you want to get away.(Happy Bad End))
+
+
+savedvar1_IslandEx = 0 start
+  male points
+savedvar2_IslandEx = 0 start
+  female points
+savedvar3_IslandEx = 0 start
+  futa points
+savedvar4_IslandEx = 0 start
+  Loli points
+savedvar5_IslandEx = 0 start
+  mate gender(1 to 6)
+savedvar6_IslandEx = 0 start
+  back up last visit Bust size
+savedvar7_IslandEx = 0 start
+  back up last visit Cock size
+savedvar8_IslandEx = 0 start
+  back up last visit gender
+savedvar9_IslandEx = 0 start
+  back up tribal mate giving birth date
+
+
+Tanned Elfen story line start
+
+	1 Meet Leaf Elf
+
+	2 Day 1-4 Search but don’t find elf
+
+	3 Day 5+ Meet Tanned Leaf Elf
+	
+	4 Yao shows you tribal mechant 
+	(time point: before making contact with tribe)
+
+	5 Leads to naked encounters
+
+	6 Find her part timing as maid, help her change after she spills something on her, sex. Or force her to work with only an apron for the rest of the day
+	  
+	7 Role play as slave and master because she finds it interesting
+	  
+	8 In the jungle you meet a real dark elf fleeing from a monster which had captured her.
+	  
+	9 Help defeat the monster, then fuck her
+	  
+	10 ntroduce the dark elf to Yao, and get her to take care of the girl, Yao fucks her
+	  
+	11 Random events of you meeting them on the beach, with a bit of sex.
+	  
+	(time point: after making contact with tribe and saving or not saving villagers)  
+	12 Later when you talk to yao that you are permitted to go to the tribe she begs you to take her with you, if you know the other dark elf girl she will get dragged along. 
+	  
+	13 It look as if you come to the right time for a festival. Maybe of fertility.
+	There is a nice party going on and she/they get drunk and start engaiging to the tribes man. They are about to marry into the tribe when youo get a choice to warn them. If you ignore it a battle between some tribes man starts, you can take part and save them so or just watch. They get married of to the victor of the battle. Unknowing to them, the married woman of the tribe aren’t permitted to leave the tribe. (Put in that one of the girls serving has pale skin with bound marks and is sobbing, looking worried over to the two dark elfes)
+	  
+	14a If they married a tribes man
+		Now the nextt day when they try to leave they aren't permitted and start to realize that they are stuck. In panic they try to appeal to you. Since they are already married you can't do anything, so you can only watch as they are dragged back into the tent.
+
+		On next visits to the tribe you see her/them bond and being trained/fucked to accept the tribal rules.
+
+		After some months you see them pregnant and later with children and pregnant again, having resingned to their new lives.
+	14b If you married them
+	  Since they married under tribal rules they have to abide the tribal costumes, but 
+	     - you can decide to argue(conversation check) that they belong to your tribe and therefore have to leave with you. 
+	     - you can help them escape
+	     - you can live their and train them to accept their new live (Happy end for you, bad end for them)
+	     - you can ask the help of the villagers to train them in the tribal costumes. (bad end for them)
+	           - later if you come again you see them trained, but never pregnant unless you fuck them, since they are your wives and the tribes men respect this
+	     - you can introduce the concept of givting the girls to the whole village for reliev of the youngsters and old. (quite the bad end for them)
+	           - later you can visit, fuck them. They are always pregnant, covert in cum and bound
+	15 if they married noone because you warned them, then you can have another set of thank you sex and random encounters with Yao or both, but you if you did not meet the other elfen girl before going with yao to the tribe, you can meet her anymore and it is assumed that the monster recaptured her. (maybe in one of the cave explorations you can find her, but she will be broken and the girls you find you leave in care of the tribes men, since they are the only society and taking them with home would be problematic since they need care(they are broken in mind) The tribes people accept to take care of them and make their own human livestock with them. You may also end up there if you are defeted by a monster and "if chance" send you there. If bad ends are disabled they will take care of you for a while until you recover making you lose time in the process and having a lot of problems if you get back to mioya)
+Tanned Elfen story line end
+
+
+
+
+
+-->
+
+
+
+
+<Language>
+
+	<Credits> 
+		last edited 2015/09
+	</Credits>
+
+	<Events>
+		<!--   __________________________________________________________________________________________ CUSTOM LOCATION DECLARING START _____________________ -->
+			<CustomHouse-x_Temp_Island name="x_Temp_Island" hint="Island Tribal Events" xpos="800" ypos="30" show="true">
+				<DoEvent now="true">Island</DoEvent>
+			</CustomHouse-x_Temp_Island>
+			<CustomHouse-x_Jungle name="x_Jungle" hint="Get lost and DIE" xpos="800" ypos="60" show="true">
+				<DoEvent now="true">IslandExPx13y06</DoEvent>
+			</CustomHouse-x_Jungle>
+		<!--   __________________________________________________________________________________________ CUSTOM LOCATION DECLARING END _____________________ -->
+		
+
+		<Initialise>
+		</Initialise>
+		
+
+		<UpdateDateAndItems>
+		</UpdateDateAndItems>
+				
+
+		<EarlyMorning>
+		</EarlyMorning>
+
+
+		<StartMorning>			
+		</StartMorning>
+		
+
+		<Daily>
+		</Daily>
+
+		<StartEvening>
+		</StartEvening>
+		
+		
+		<Walk>
+
+			<TownCenter>
+			</TownCenter>
+
+			<Slums>
+			</Slums>
+
+			<BeachWalk>
+			</BeachWalk>
+
+			<BeachPrivate>
+			</BeachPrivate>
+
+			<Farm>
+			</Farm>
+
+		</Walk>
+
+		<!--   __________________________________________________________________________________________ TRIBAL START _____________________ -->
+			<IslandExStart>
+
+				<ShowImage image='Images/Events/IslandEx/Yao/Welcome.jpg'/>
+				<SetText>Welcome to the island, for as long as I don't get told from cmac how to make this appear there we will simulate it at the rocks at the Beach</SetText>
+				<AddText>\r\r You arived at the island, now chose where you will go?</AddText>
+				<AskQuestion>
+					<Question event='IslandExBeach'>Beach</Question>
+					<if savedvar0_IslandEX='3+'>
+						<Question event='IslandExJungle'>Jungle</Question>
+					</if>
+					<if smlust='101'><!-- needs a guide to get to the paths the first time or explore a path(you find paths when taking a stroll on the beach or after knowing your way into the jungle) with random luck -->
+						<Question event='IslandExMountain'>Mountain</Question>
+					</if>
+					<Question event='IslandExSet'>View/Set Vars</Question>
+					<Question event='9999'>Exit</Question>
+				</AskQuestion>
+			</IslandExStart>
+			<IslandExView>
+				<SetText>
+					#savedvar0_IslandEX  Tribal Event index
+					#savedvar1_IslandEX  male points
+					#savedvar2_IslandEX  female points
+					#savedvar3_IslandEX  futa points
+					#savedvar4_IslandEX  Loli points
+					#savedvar5_IslandEX  mate gender
+					#savedvar6_IslandEX  back up last visit Bust size
+					#smbust actual Bust size
+					#savedvar7_IslandEX  back up last visit Cock size
+					#smcock actual cock size
+					#savedvar8_IslandEX  back up last visit gender
+					#gender actual gender
+					#savedvar9_IslandEX  tribal mate giving birth date
+					#savedvar10_IslandEX  genreal use
+					#savedvar11_IslandEX  leaf elf story line
+
+					#flagIslandEX_0  Loli abilitated
+					#flagIslandEX_1  Did manage to convince villagers
+					#flagIslandEX_2  Did get wed to tribe member
+					#flagIslandEX_3
+					#flagIslandEX_4
+					#flagIslandEX_5
+				</SetText>
+				<DoEvent>9999</DoEvent>
+			</IslandExView>
+
+			<IslandExBeach>
+				<SetVar var0='date-savedvar10_IslandEX'/>
+				<if savedvar11_IslandEX='0' savedvar10_IslandEX='0'> <!-- meet Leaf Elf at beach -->
+					<SetVar savedvar10_IslandEX='date'/>
+					<SetVar savedvar11_IslandEX='1'/>
+					<DoEvent now='true'>IslandExElf01</DoEvent>
+					<EndEvent/>
+				</if>
+				<if savedvar11_IslandEX='1' var0='4-'> <!-- meet Leaf Elf at beach -->
+					<DoEvent now='true'>IslandExElf02</DoEvent>
+					<EndEvent/>
+				</if>
+				<if savedvar11_IslandEX='1' var0='5+'> <!-- meet tanned Leaf Elf at beach -->
+					<SetVar savedvar10_IslandEX='date'/>
+					<SetVar savedvar11_IslandEX='2'/>
+					<DoEvent now='true'>IslandExElf03</DoEvent>
+					<EndEvent/>
+				</if>
+				<if savedvar11_IslandEX='2' var0='1+'> <!-- Yao show you the tribal traders at the beach -->
+					<SetVar savedvar0_IslandEX='1'/>
+					<SetVar savedvar11_IslandEX='3'/>
+					<DoEvent now='true'>IslandExElf04</DoEvent>
+					<EndEvent/>
+				</if>
+				<if savedvar11_IslandEX='3+'> <!-- Random Tanned Leaf Elf events -->
+					<SetVar savedvar11_IslandEX='savedvar11_IslandEX+1'/>
+					<DoEvent now='true'>IslandExElf05</DoEvent>
+					<EndEvent/>
+				</if>
+
+				<if savedvar0_IslandEX='1'> <!-- meet Tribe member at beach -->
+					<DoEvent now='true'>IslandExTribe01</DoEvent>
+					<EndEvent/>
+				</if>
+				<if flagIslandEX_5='true' savedvar0_IslandEX='1'> <!-- cosplay at the beach and get side tracket into the jungle until you meet carnivorus plant -->
+					<DoEvent now='true'>IslandExTribe02</DoEvent>
+					<EndEvent/>
+				</if>
+				<if savedvar0_IslandEX='2'> <!-- girl returns your spear and invites you to the village -->
+					<DoEvent now='true'>IslandExTribe03</DoEvent>
+					<EndEvent/>
+				</if>
+				<!-- From here on can the elf at beach part continue -->
+			</IslandExBeach>
+			
+			<IslandExJungle>
+				<if savedvar0_IslandEX='3'> <!-- go to the jungle entarnce -->
+					<DoEvent now='true'>IslandExTribe04</DoEvent>
+					<EndEvent/>
+				</if>
+				<if savedvar0_IslandEX='4'> <!-- meet them in jungle -->
+					<DoEvent now='true'>IslandExPx13y06</DoEvent>
+					<EndEvent/>
+				</if>
+				<!-- discover trail leading to abandoned resting/fire place -->
+				<!-- learned about monsters on the island -->
+				<!-- meet tribe traders and defeat attacking monster 1(you get invited into the village the next time you visit) -->
+				<!-- Did get shown the way to the village (start some village sub events) (Maybe I should make a sketch of the village and plan things out there) -->
+				<!-- Village gets attacked and you helped defend it -->
+				<!-- Try to convince Villagers to go against the monsters and liberate the captured ones (verify flag 1 to see if suceeded) -->
+				<!-- succeed in saving the villagers (abilitates the exploring of the caves) -->
+				<!-- get a wedding offer from one or more tribes people (figure some fancy way out to get the point sistem workin, but wait until you did write up to this part) (if I have enouth images for a minor loli slave I might make the tribal rules to only apply to already adult members of the tribe) -->
+				<!--  -->
+			</IslandExJungle>
+
+			<IslandExElf01>
+				<ShowImage image='Images/Events/IslandEx/Yao/IS - female1 30 no tan.jpg'/>
+				<SetText>
+					While swimming on the beach you spot a beautiful elf wearing a quite risky leaf bikini. You ask yourself how it stays in place. Your stares are noticed by her and seem to make her flustered. Not wasting time to fill your curiosity you try to start a conversation with her.
+
+					After some time she appears quite talkative, introducing herself as <b>Yao Ro Dushi</b>, even if blushing at your question about her swimsuit. 
+					She tells that she got here also only today and did buy it from one of the local tribes people who seem to come to the beach to trade with the turist.
+
+					Later when you part ways, she asks you to come talk to her if you visit the beach again since she will be staying her for quite some while.
+				</SetText>
+				<NoRepeatEvent>IslandExBeach</NoRepeatEvent>
+				<DoEvent>IslandExView</DoEvent>
+			</IslandExElf01>
+			
+			<IslandExElf02>
+				<HideImages/>
+				<Backgrounds place='beach' frame='2'/>
+				<SetText>
+					You head to the beach. There you remember the leaf bikini elf Yao and look around, but can't find her.
+				</SetText>
+				<!-- <DoEvent>RandomBeachEvent</DoEvent> for later if I have some-->
+				<DoEvent>IslandExView</DoEvent>
+			</IslandExElf02>
+			
+			<IslandExElf03>
+				<ShowImage image='Images/Events/IslandEx/Yao/IS - female1 30 swimsuit 3 bikini small.jpg'/>
+				<SetText>The beach is hot and you lay spread out in the shadow as you hear someone calling you name.</SetText>
+				<PersonSpeak person="????">#slavemakername...how long are you going to ignore me?</PersonSpeak>
+				<AddText>A dark elf is standing in front of you wearing a skimpy bikini. The voice seems familiar, but it couldn't be..</AddText>
+				<PersonSpeak person="slavemaker">Yao??</PersonSpeak>
+				<PersonSpeak person="Yao Ro Dushi">Yes, who do yu thought it was? More importantly what do you  think of my new swimsuit!</PersonSpeak>
+				<PersonSpeak person="slavemaker">The part about Dark elfs being sluttier than leaf elfs seems to be true. ;)</PersonSpeak>
+				<AddText>The reply was load of sand which Yao kicked at you before showing you her tunge and running of to the water</AddText>
+				<AddText>Well at least she can joke you think while getting starting to persue her.</AddText>
+				<AddText>Hours later you are both laying exausted in the sand.</AddText>
+				<DoEvent>IslandExView</DoEvent>
+			</IslandExElf03>
+			
+			<IslandExElf04>
+				<ShowImage image='Images/Events/IslandEx/Yao/T-000.jpg'/>
+				<PersonSpeak person="Yao Ro Dushi">Welcome again #slavemakername!</PersonSpeak>
+				<AddText>It seems Yao is in high spirits and has gotten even more tanned, she really looks like a dark elf now.\r Not letting you finish your toughts she pulls you by the arm and drags you away.</AddText>
+				<AddText>You soon see a small crowd and Yao seems to be headed right to it.</AddText>
+				<DoEvent>IslandExElf04pt2</DoEvent>
+			</IslandExElf04>
+				<IslandExElf04pt2>
+					<ShowImage image='Images/Events/IslandEx/Yao/T-000.jpg'/>
+					<SetText>Upon getting there you realize that this seems to be a sort of marked stand. Guessing by their clothes and bodypaint the vendors seem to be native inhabitants of the island. Yao did already rush forward again letting you no time to look more closely.</SetText>
+					<AddText>After some fidling she seems to have found what she wanted and drags you again into the distance. You have to admit she is a lot stronger than she looks.</AddText>
+					<DoEvent>IslandExElf04pt3</DoEvent>
+				</IslandExElf04pt2>
+				<IslandExElf04pt3>
+					<ShowImage image='Images/Events/IslandEx/Yao/IS - female1 30 tribal clothes.jpg'/>
+					<SetText>Reaching some trees Yao vanishes between them in an instant (check if SM not forstelf). You just stay there dumpfolded as how someone can vanish between some palm trees, but not for long as she reapears in what it seems she had just bought.</SetText>
+					<PersonSpeak person="Yao Ro Dushi">And #slavemakername... what do you think?</PersonSpeak>
+					<AddText>\rPut a AskQuestion here and decide if you want to complement her on her figure, swimsuit or mention that it lets her boobs look smaller. And then of course her one line reaction.  On a side note, I should edit her eye color to always stay blue, maybe with light room.\r</AddText>
+					<AddText>Seeing the craftmanship of the swimsuit you decide that you should maybe also get something for you.</AddText>
+					<DoEvent>IslandExView</DoEvent>
+				</IslandExElf04pt3>
+			
+			<IslandExElf05>
+				<SetText>Repository for not finished tanned leaf elf events. Do still need to write the events for the images. Some of these will be romoved from here and used maybe in a later event.\r\r\r</SetText>
+				<Alternatives>
+					<Alternative>
+						<ShowImage image='Images/Events/IslandEx/Yao/IS - female1 30 vines.jpg'/>
+						<AddText>Yao went between the trees to change into her swimsuit. Time passes and you become worried that something might have happened. After a short search you find bound Yao. It seems she rested to close to a plant of the tentacle family, as shown by her pitful state. Much to Yao's anger you stand back and watch the vines teasing her asshole. "The Proud" Yao Ro Dushi didn't seem to like yur treatment, but ends up begging you to free her when the vines start entering her body.</AddText>
+					</Alternative>
+					<Alternative>
+						<ShowImage image='Images/Events/IslandEx/Yao/IS - female1 30 sweat.jpg'/>
+						<AddText>Trying to escape from todays specially strong sun, you both go to the next bar. Yao new clothes seem to have at least 10 times more material than usual, not supporting the heat she pulls them aside trying to expose as much skin as possible. Not minding the gazes her gliserning, Her in sweat covered body with firm exposed breast, spread legs in the air and invitaiting pussy atracts the gazes of the entire bar, but Yao doesn't seem to mind.(Check if exibiscionist you may also strip) You feel as your presence is all that keeps the situation from escalating.(Check Lust if you try to fuck her(may end in orgy), and dominace/charisma if you don't get a "its to hot" answer) (Also you check if you are female or futa and submissive, you can't resist the pressure of the gazes, Intimidated you undress and lay down besides Yao spreading your legs, ends in rape orgy.  If you are male you get frigthened and go back outside into the sun, soon after you her Yao screaming in anger as some men seem to bee holdiing her down and are grabing her all over her body, as you sweat in the sun soon her screams change into moaning and yelps. As the sun is almost setting the sounds of fucking end, you go look for Yao finding her blanked out, her holes gaping and releasing a constant stream of cum. Her tears and sweat have mixed with all the cum covering her body, making for a wonderfull cruel image)</AddText>
+					</Alternative>
+					<!-- no text, after downloading all 1000 images of white haired darkelfes from Sankaku I will have an unlimited supply. Wahahahaha (evil laugth)
+					 Just noticed that I don't have any images of Yao with female or futa
+						IS - female1 30 swimsuit 1
+						IS - female1 30 swimsuit 2 string bikini
+						IS - female1 30 swimsuit 4 bikini mini
+						IS - female1 30 swimsuit 5
+						IS - female1 30 swimsuit 6 lost top
+						IS - female1 30 swimsuit 7 vines
+
+						IS - female1 30 cum on body 1
+						IS - female1 30 cum on body 2
+						IS - female1 30 honey
+
+						IS - female1 30 apron
+						IS - female1 30 clothes to small
+						IS - female1 30 maid
+						IS - female1 30 nacked waiting
+						IS - female1 30 naked catgirl
+						IS - female1 30 naked twintails
+						IS - female1 30 naked water
+						IS - female1 30 wedding
+
+						IS - female1 30 sex 1
+						IS - female1 30 sex 2
+						IS - female1 30 sex 3 orgy
+						IS - female1 30 sex 4 chained
+
+						IS - female1 30 futa
+						IS - female1 30 loli 1
+						IS - female1 30 loli 2
+
+						IS - female1 30 pool
+						IS - female1 30 bed
+						IS - female1 30 close up
+						IS - female1 30 shy
+						
+						IS - female1 31 a twin blowjob
+						IS - female1 31 a twin
+						IS - female1 31 twin armed 1
+						IS - female1 31 twin armed 2
+						IS - female1 31 twin bound
+						IS - female1 31 twin lost top
+						IS - female1 31 twin nacked
+						IS - female1 31 twin titjob
+						IS - female1 31 twin wedding
+
+					-->
+				</Alternatives>
+				<DoEvent>IslandExView</DoEvent>
+			</IslandExElf05>
+			
+			<IslandExTribe01>
+				<ShowImage image='Images/Events/IslandEx/Tribal/T-000.jpg'/>
+				<SetText>Seeing a small crowd in the distance you guess the natives have set up shop again.</SetText>
+				<AskQuestion caption='Will you look what they have to offer?'>
+					<Question event='IslandExTribe01Yes'>Yes</Question>
+					<Question event='IslandExTribe01No'>No intresst in trinkets</Question>
+				</AskQuestion>
+			</IslandExTribe01>
+				<IslandExTribe01No>
+					<ShowImage image='Images/Events/IslandEx/Tribal/T-000.jpg'/>
+					<SetText>Not very interested you go to the beach look at the ocean and relax in the sand.</SetText>
+					<DoEvent>IslandExView</DoEvent>
+				</IslandExTribe01No>
+				<IslandExTribe01Yes>
+					<ShowImage image='Images/Events/IslandEx/Tribal/T-000.jpg'/>
+					<SetText>You appraise the laid out mechandise, it is mostly trinkets, assesories and some 'tribal clothes' even thou the natives themself are nearly wearing anything. It seems they produce it mostly for the tourists.</SetText>
+					<AddText>\r\r Between the rest also lay some stone daggers. They would give a exotic look to your office.</AddText>
+					<if flagIslandEX_3='true' flagIslandEX_4='true'><AddText>\rThe native girl seems to reconhise you because of the clothes and dagger. Pointing at a in leather wrapped packedge. Upon opening it lays a mean looking spear with a stone point. It seems this is also for sale, maybe only for you</AddText></if>
+					<AskQuestion caption='Will you buy anything'>
+						<if flagIslandEX_3='false'>
+							<Question event='IslandExTribe01YesClothes'>150G - Some clothes for you</Question>
+						</if>
+						<if flagIslandEX_4='false'>
+							<Question event='IslandExTribe01YesDagger'>200G - A stone dagger</Question>
+						</if>
+						<if flagIslandEX_5='false' flagIslandEX_4='true' flagIslandEX_3='true'>
+							<Question event='IslandExTribe01YesSpear'>1000G - A spear</Question>
+						</if>
+						<Question event='IslandExTribe01YesAssesory'>50G - Some assesory for #slave</Question>
+						<Question event='IslandExTribe01No'>Not really interested</Question>
+					</AskQuestion>
+				</IslandExTribe01Yes>
+				<IslandExTribe01YesClothes>
+					<SetFlag flagIslandEX_3='true'/>
+					<SMmoney>-150</SMmoney>
+					<ShowImage image='Images/Events/IslandEx/Tribal/T-000.jpg'/>
+					<SetText>They seem to fit you nicely and really add a exotic feel. Thinking a bit, you would probably be the laughting stock if you turned up with them in Mioya, so better only wear them here on the Island</SetText>
+					<DoEvent>IslandExView</DoEvent>
+				</IslandExTribe01YesClothes>
+				<IslandExTribe01YesDagger>
+					<SetFlag flagIslandEX_4='true'/>
+					<SMmoney>-200</SMmoney>
+					<ShowImage image='Images/Events/IslandEx/Tribal/T-000.jpg'/>
+					<SetText>The dagger looks rather ceremonial<if flagIslandEX_3='false'> , maybe it would look good if worn with the cloths</if>.</SetText>
+					<DoEvent>IslandExView</DoEvent>
+				</IslandExTribe01YesDagger>
+				<IslandExTribe01YesSpear><!-- make the wapon file if I get interested -->
+					<SetFlag flagIslandEX_5='true'/>
+					<SMmoney>-1000</SMmoney>
+					<ShowImage image='Images/Events/IslandEx/Tribal/T-000.jpg'/>
+					<SetText>It turns out to be an actual wapon, not only a model to showcase. After a few swings you decide to combine this with the clothes and dagger as your Island outfit</SetText>
+					<DoEvent>IslandExView</DoEvent>
+				</IslandExTribe01YesSpear>
+				<IslandExTribe01YesAssesory>
+					<ShowImage image='Images/Events/IslandEx/Tribal/T-000.jpg'/>
+					<money>-500</money>
+					<SetText>#slave seems to like the present and spinns some turns in the sand while looking at it.</SetText>
+					<DoEvent>IslandExView</DoEvent>
+				</IslandExTribe01YesAssesory>
+				
+			<IslandExTribe02>
+				<ShowImage image='Images/Events/IslandEx/Tribal/T-000.jpg'/>
+				<SetText>Strolling along the beach in your new gear you happily keep humming. Somewhen you notice that you did walk quite some distance away from the port. Before you lays a a small entrance into the jungle. A bit to hyper think of exploring a mabye further.</SetText>
+				<AskQuestion>
+					<Question event='IslandExTribe02Yes'>Lets play native</Question>
+					<Question event='IslandExTribe02No'>I'm thirsty, lets better return.</Question>
+				</AskQuestion>
+			</IslandExTribe02>
+				<IslandExTribe02No>
+					<ShowImage image='Images/Events/IslandEx/Tribal/T-000.jpg'/>
+					<PersonSpeak person='slavemaker'>Its hot and I have to carry all my cosplay(dagger and spear)... let go back!</PersonSpeak>
+					<AddText>On second thought you toss the items  (if exibicionist, and your clothes)to #slave to carry (if exibicionist, enjoing the wind caressing your naked body)</AddText>
+					<DoEvent>IslandExView</DoEvent>
+				</IslandExTribe02No>
+				<IslandExTribe02Yes>
+					<ShowImage image='Images/Events/IslandEx/Tribal/T-000.jpg'/>
+					<SetText>It looks rather fresh inthe shadow of the trees.</SetText>
+					<PersonSpeak person='slavemaker'>Lets roleplay as native!</PersonSpeak>
+					<AddText>Running towards the entrance you leave behind a stunned slave.</AddText>
+					<AddText>\r\rAs you advance deeper the path gets less clear. You hear hear the sound of water and move thowards it.</AddText>
+					<DoEvent>IslandExTribe02Yespt2</DoEvent>
+				</IslandExTribe02Yes>
+				<IslandExTribe02Yespt2>
+					<ShowImage image='Images/Events/IslandEx/Tribal/T-000.jpg'/>
+					<SetText>As you reach the surce it turns out to be a small lake, hidden beneath the surface something big seems to move. You decide that its best not to stay here. But upon turning you can't find the path or #slave. You walk forward hoping to find it again, slowly fear grips you. \r\rAfter some time you are exausted, dirty and still lost.\r\r Just when you are about to lay agains a tree to rest....The plants before you move and show a mean set of teeth.</SetText>
+					<DoEvent>IslandExTribe02Yespt3</DoEvent>
+				</IslandExTribe02Yespt2>
+				<IslandExTribe02Yespt3> <!-- verify how to change health and lust -->
+					<SetVar health='50'/>
+					<SetVar smhealth='50'/>
+					<SetVar smlust='20'/>
+					<Combat resethealth='false' startnow='true'>
+					<StartMessage>Serveral sets of mouth armed with teeth are aproching...
+						</StartMessage>
+						<RunawayEvent>IslandExTribe02Yespt4a</RunawayEvent>
+						<WinEvent>IslandExTribe02Yespt4</WinEvent>
+						<LoseDamageEvent>IslandExTribe02Yespt4</LoseDamageEvent>
+						<LoseLustEvent>IslandExTribe02Yespt4</LoseLustEvent>
+						<Monsters>
+							<Generic attack="80" defence="60" health="500" speed="60" desc="Stange, not very nice, Plant"/>
+						</Monsters>
+			  		</Combat>
+			  		<ShowImage image='Images/Events/IslandEx/Tribal/monster/T-000.jpg'/><AddText>\r\rVerifing coordinate #var0</AddText>
+				</IslandExTribe02Yespt3>
+				<IslandExTribe02Yespt4a>
+					<Combat resethealth='false' startnow='true'>
+					<StartMessage>They don't seem to intend to let you escape, if you could only distract them, long enougth...
+						</StartMessage>
+						<RunawayEvent>IslandExTribe02Yespt4a</RunawayEvent>
+						<WinEvent>IslandExTribe02Yespt4</WinEvent>
+						<LoseDamageEvent>IslandExTribe02Yespt4</LoseDamageEvent>
+						<LoseLustEvent>IslandExTribe02Yespt4</LoseLustEvent>
+						<Monsters>
+							<Generic attack="80" defence="60" health="500" speed="60" desc="Stange, not very nice, Plant"/>
+						</Monsters>
+			  		</Combat>
+			  		<ShowImage image='Images/Events/IslandEx/Tribal/monster/T-000.jpg'/><AddText>\r\rVerifing coordinate #var0</AddText>
+				</IslandExTribe02Yespt4a>
+				<IslandExTribe02Yespt4><!-- get to equip the spear for combat -->
+					<SetVar savedvar0_IslandEX='2'/>
+					<ShowImage image='Images/Events/IslandEx/Tribal/monster/T-000.jpg'/>
+					<SetText>No mather what you do to it is seems not to die. Runnig out of energy you let out a frustrated scream and trow your spear at the plant. Almost as if responding the plants scream. Then you realize that your spear is sticking in at an rather plain looking mount besides the plants. Imediatly they start to retreat towards the mount to shield it. It seems their real body was there in the mount. Taking this chance you run... and run until you end up at the beach, where you just fall into the sand and sleep.</SetText>
+					<DoEvent>IslandExView</DoEvent>
+				</IslandExTribe02Yespt4>
+
+			<IslandExTribe03>
+				<SetVar savedvar0_IslandEX='3'/>
+				<ShowImage image='Images/Events/IslandEx/Tribal/T-000.jpg'/>
+				<SetText>Just as you disembark a girl comes running to you.</SetText>
+				<PersonSpeak person='Native Girl'>This belongs to you.</PersonSpeak>
+				<AddText> And gives you a spear, which you reconhise as yours. You don't konw what is worse, the disapointment that she can talk the comun tungue or that she managed to get to the carnivorus plant and come back unscathed where you struggelt for your live.</AddText>
+				<PersonSpeak person='Native Girl'>We were quite impressed to see an outsider beat one of thes plants.</PersonSpeak>
+				<AddText>You killed it? well, better keep quite and let them think that you did throw the spear into the mount on purpose.</AddText>
+				<PersonSpeak person='Native Girl'>As such you are invited to visit our village.</PersonSpeak>
+				<AskQuestion>
+					<Question event='IslandExTribe03Village'>Village</Question>
+					<Question event='IslandExTribe03Spear'>Spear</Question>
+					<Question event='IslandExTribe03PlantMonster'>Plant Monster</Question>
+					<Question event='IslandExTribe03CommunTongue'>Commun tongue</Question>
+				</AskQuestion>
+			</IslandExTribe03>
+				<IslandExTribe03Village>
+					<ShowImage image='Images/Events/IslandEx/Tribal/T-000.jpg'/>
+					<SetText>While it seems obious that there should be a village somewhere, you have never seen any native besides the vendors who come to the beach.</SetText>
+					<PersonSpeak person='slavemaker'>And where would this village be?</PersonSpeak>
+					<PersonSpeak person='Native Girl'>On the other side of the island. The path to it starts close the place where we set up our shop.</PersonSpeak>
+					<PersonSpeak person='Native Girl'>Getting there is your task, but since you did helped me gathering the ingredients from the plant here an advise:Keep away from the <b>mountains</b> and especially the <b>caves</b>.</PersonSpeak>
+					<AddText>They remind you of those battle crazed amazons, the only thing missing is her to drop a line like "we only respect the strong"</AddText>
+					<AskQuestion caption='Do you have any othre questions?'>
+						<Question event='IslandExTribe03Spear'>Spear</Question>
+						<Question event='IslandExTribe03PlantMonster'>Plant Monster</Question>
+						<Question event='IslandExTribe03CommunTongue'>Commun tongue</Question>
+						<Question event='IslandExTribe03End'>Nothing</Question>
+					</AskQuestion>
+				</IslandExTribe03Village>
+				<IslandExTribe03Spear>
+					<ShowImage image='Images/Events/IslandEx/Tribal/T-000.jpg'/>
+					<SetText>Questioning why she did bring the spear back to you when she could have sold it to someone else did only make her eyes grow big. After a short explanation you realise that she would have been punished by her tribe if she did take the possesions of another hunter. A hunter, has a nice sound to it... but better not let it get to your head.</SetText>
+					<AskQuestion caption='Do you have any othre questions?'>
+						<Question event='IslandExTribe03Village'>Village</Question>
+						<Question event='IslandExTribe03PlantMonster'>Plant Monster</Question>
+						<Question event='IslandExTribe03CommunTongue'>Commun tongue</Question>
+						<Question event='IslandExTribe03End'>Nothing</Question>
+					</AskQuestion>
+				</IslandExTribe03Spear>
+				<IslandExTribe03PlantMonster>
+					<ShowImage image='Images/Events/IslandEx/Tribal/T-000.jpg'/>
+					<PersonSpeak person='slavemaker'>What was this Plant monster? It seemed not to die no matter howmuch I attacked it. Are they commun?</PersonSpeak>
+					<PersonSpeak person='Native Girl'>Commun yes, but they can't move their mouths far from their body, so as long as you stay out of reach they can't do anything. Personally I find the bees far more dangerous.</PersonSpeak>
+					<AddText>Having almost a headache. So this one was weak. You should really gear up before venturing into the jungle.</AddText>
+					<PersonSpeak person='slavemaker'>Do these bees also hard to kill?</PersonSpeak>
+					<PersonSpeak person='Native Girl'>No, but they make a sound that hipnotises you and then they use you to hatch their eggs. We captured one some time ago, even to we lost two members. Later we sold it to a passing ship that was heading to mioya.</PersonSpeak>
+					<AddText>(If you have met the bee slave in the secure pens, what is its flag)So this beelike girl in the dungeon was an monster from this Island, so much for "from a distant land" only disapointments. The captain seems to have made a good trade.</AddText>
+					<AskQuestion caption='Do you have any othre questions?'>
+						<Question event='IslandExTribe03Village'>Village</Question>
+						<Question event='IslandExTribe03Spear'>Spear</Question>
+						<Question event='IslandExTribe03CommunTongue'>Commun tongue</Question>
+						<Question event='IslandExTribe03End'>Nothing</Question>
+					</AskQuestion>
+				</IslandExTribe03PlantMonster>
+				<IslandExTribe03CommunTongue>
+					<ShowImage image='Images/Events/IslandEx/Tribal/T-000.jpg'/>
+					<PersonSpeak person='slavemaker'>How come you can speak the comun tongue, but never talk when selling your assesories?</PersonSpeak>
+					<AddText>She has gotten a bit red in the face, seems like you did catch her</AddText>
+					<PersonSpeak person='Native Girl'>Ah..., well...</PersonSpeak>
+					<AddText>Slumping her shoulders she gives up.</AddText>
+					<PersonSpeak person='Native Girl'>They did sell a lot better when I was to shy to talk than when I started talking. So, um... so I stopped again and sales went up.</PersonSpeak>
+					<AddText>You signal her that you understand, before she breaks any more of your ilusions.</AddText>
+					<AskQuestion caption='Do you have any othre questions?'>
+						<Question event='IslandExTribe03Village'>Village</Question>
+						<Question event='IslandExTribe03Spear'>Spear</Question>
+						<Question event='IslandExTribe03PlantMonster'>Plant Monster</Question>
+						<Question event='IslandExTribe03End'>Nothing</Question>
+					</AskQuestion>
+				</IslandExTribe03CommunTongue>
+				<IslandExTribe03End>
+					<ShowImage image='Images/Events/IslandEx/Tribal/T-000.jpg'/>
+					<SetText>You thank here for returning the spear and promise to soon visit her village.</SetText>
+					<AddText>She takes off towards some other girls, so she didn't come alone. Now with the spear in hand lets first go relax and think carefully before venturing another time into this jungle.</AddText>
+					<PersonSpeak person='slavemaker'>Ahhaa...</PersonSpeak>
+					<AddText>So much for a peaceful Island and the pretty and mute natives.</AddText>
+					<AddText>In the end you even forgot to ask her name.</AddText>
+					<DoEvent>IslandExView</DoEvent>
+				</IslandExTribe03End>
+
+			<IslandExTribe04>
+				<SetVar savedvar0_IslandEX='4+'/>
+				<ShowImage image='Images/Events/IslandEx/Tribal/T-000.jpg'/>
+				<SetText>You head into direction of usual place were the natives set up shop. Around a corner you can see a entrance to a path into the jungle.</SetText>
+				<DoEvent>IslandExPx13y06</DoEvent>
+			</IslandExTribe04>
+
+			<IslandExTribalRescueFail>
+				<if savedvar0_IslandEX='0'> <!-- Fail to rescue the villagers, because did run away -->
+				 <!-- Fail to rescue the villagers, because too much time passed -->
+				 <!-- Fail to rescue the villagers, because did lose in combat (bad end off) -->
+				 <!-- Did fail to rescue the villagers, because did lose in combat, and expulsed from village because they lost even more members in the attemp since you convinced them to aid you (bad end off) -->
+					<DoEvent now='true'>IslandExElf01</DoEvent>
+					<EndEvent/>
+				</if>
+			</IslandExTribalRescueFail>
+		<!--   __________________________________________________________________________________________ TRIBAL END _____________________ -->
+
+		<!--   __________________________________________________________________________________________ PATHS START _____________________ -->
+			
+			<IslandExPx03y15>
+				<SetText>You came from #var0 and are at 0315</SetText>
+				<Choices>
+					<Choice var0='412'>
+						<AskQuestion>
+							<Question event='IslandExPx04y12'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='315'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx03y15>
+			<IslandExPx04y12>
+				<SetText>You came from #var0 and are at 0412</SetText>
+				<Choices>
+					<Choice var0='315'>
+						<AskQuestion>
+							<Question event='IslandExPx06y10'>Forward</Question>
+							<Question event='IslandExPx03y15'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='610'>
+						<AskQuestion>
+							<Question event='IslandExPx03y15'>Forward</Question>
+							<Question event='IslandExPx06y10'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='412'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx04y12>
+			<IslandExPx06y10>
+				<SetText>You came from #var0 and are at 0610</SetText>
+				<Choices>
+					<Choice var0='412'>
+						<AskQuestion>
+							<Question event='IslandExPx11y11'>Forward</Question>
+							<Question event='IslandExPx04y12'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='1111'>
+						<AskQuestion>
+							<Question event='IslandExPx04y12'>Forward</Question>
+							<Question event='IslandExPx11y11'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='610'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx06y10>
+			<IslandExPx07y13>
+				<SetText>You came from #var0 and are at 0713</SetText>
+				<Choices>
+					<Choice var0='717'>
+						<AskQuestion>
+							<Question event='IslandExPx11y11'>Forward</Question>
+							<Question event='IslandExPx11y12'>Left</Question>
+							<Question event='IslandExPx07y17'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='1111'>
+						<AskQuestion>
+							<Question event='IslandExPx07y17'>Forward</Question>
+							<Question event='IslandExPx11y12'>Right</Question>
+							<Question event='IslandExPx11y11'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='1112'>
+						<AskQuestion>
+							<Question event='IslandExPx07y17'>Right</Question>
+							<Question event='IslandExPx11y11'>Left</Question>
+							<Question event='IslandExPx11y12'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='713'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx07y13>
+			<IslandExPx07y17>
+				<SetText>You came from #var0 and are at 0717</SetText>
+				<Choices>
+					<Choice var0='713'>
+						<AskQuestion>
+							<Question event='IslandExPx09y19'>Forward</Question>
+							<Question event='IslandExPx07y13'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='919'>
+						<AskQuestion>
+							<Question event='IslandExPx07y13'>Forward</Question>
+							<Question event='IslandExPx09y19'>Return</Question>
+						</AskQuestion>
+					</Choice>>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='717'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx07y17>
+			<IslandExPx09y19>
+				<SetText>You came from #var0 and are at 0919</SetText>
+				<Choices>
+					<Choice var0='717'>
+						<AskQuestion>
+							<Question event='IslandExPx07y17'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='919'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx09y19>
+			<IslandExPx11y11>
+				<SetText>You came from #var0 and are at 1111</SetText>
+				<Choices>
+					<Choice var0='610'>
+						<AskQuestion>
+							<Question event='IslandExPx14y09'>Right</Question>
+							<Question event='IslandExPx07y13'>Left</Question>
+							<Question event='IslandExPx06y10'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='713'>
+						<AskQuestion>
+							<Question event='IslandExPx14y09'>Forward</Question>
+							<Question event='IslandExPx06y10'>Right</Question>
+							<Question event='IslandExPx07y13'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='1409'>
+						<AskQuestion>
+							<Question event='IslandExPx07y13'>Forward</Question>
+							<Question event='IslandExPx06y10'>Left</Question>
+							<Question event='IslandExPx14090'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='1111'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx11y11>
+			<IslandExPx11y12>
+				<SetText>You came from #var0 and are at 1112</SetText>
+				<Choices>
+					<Choice var0='713'>
+						<AskQuestion>
+							<Question event='IslandExPx12y14'>Forward</Question>
+							<Question event='IslandExPx07y13'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='1214'>
+						<AskQuestion>
+							<Question event='IslandExPx07y13'>Forward</Question>
+							<Question event='IslandExPx12y14'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='1112'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx11y12>
+			<IslandExPx12y14>
+				<SetText>You came from #var0 and are at 1214</SetText>
+				<Choices>
+					<Choice var0='1112'>
+						<AskQuestion>
+							<Question event='IslandExPx11y12'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='1214'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx12y14>
+			<IslandExPx13y06> <!-- entrance from beach -->
+				<SetText>You came from #var0 and are at 1306</SetText>
+				<Choices>
+					<Choice var0='1407'>
+						<AskQuestion>
+							<Question event='IslandExPx14y07'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AskQuestion>
+							<Question event='IslandExPx14y07'>Forward</Question>
+							<Question event='9999'>Return to the Beach</Question>
+						</AskQuestion>
+					</Default>
+				</Choices>
+				<SetVar var0='1306'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx13y06>
+			<IslandExPx13y12>
+				<SetText>You came from #var0 and are at 1312</SetText>
+				<Choices>
+					<Choice var0='1514'>
+						<AskQuestion>
+							<Question event='IslandExPx15y14'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='1312'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx13y12>
+			<IslandExPx13y19>
+				<SetText>You came from #var0 and are at 1319</SetText>
+				<Choices>
+					<Choice var0='1518'>
+						<AskQuestion>
+							<Question event='IslandExPx15y18'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='1319'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx13y19>
+			<IslandExPx14y07>
+				<SetText>You came from #var0 and are at 1407</SetText>
+				<Choices>
+					<Choice var0='1306'>
+						<AskQuestion>
+							<Question event='IslandExPx16y06'>Right</Question>
+							<Question event='IslandExPx14y09'>Left</Question>
+							<Question event='IslandExPx13y06'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='1409'>
+						<AskQuestion>
+							<Question event='IslandExPx13y06'>Right</Question>
+							<Question event='IslandExPx16y06'>Left</Question>
+							<Question event='IslandExPx14y09'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='1606'>
+						<AskQuestion>
+							<Question event='IslandExPx14y09'>Right</Question>
+							<Question event='IslandExPx13y06'>Left</Question>
+							<Question event='IslandExPx16y06'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='1407'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx14y07>
+			<IslandExPx14y09>
+				<SetText>You came from #var0 and are at 1409</SetText>
+				<Choices>
+					<Choice var0='1111'>
+						<AskQuestion>
+							<Question event='IslandExPx14y07'>Right</Question>
+							<Question event='IslandExPx16y12'>Left</Question>
+							<Question event='IslandExPx11y11'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='1407'>
+						<AskQuestion>
+							<Question event='IslandExPx16y12'>Right</Question>
+							<Question event='IslandExPx11y11'>Left</Question>
+							<Question event='IslandExPx14y07'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='1612'>
+						<AskQuestion>
+							<Question event='IslandExPx11y11'>Right</Question>
+							<Question event='IslandExPx14y07'>Left</Question>
+							<Question event='IslandExPx16y12'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='1409'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx14y09>
+			<IslandExPx14y15>
+				<SetText>You came from #var0 and are at 1415</SetText>
+				<Choices>
+					<Choice var0='1514'>
+						<AskQuestion>
+							<Question event='IslandExPx15y14'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='1415'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx14y15>
+			<IslandExPx15y14> <!-- this is a rest place -->
+				<SetText>You came from #var0 and are at 1514</SetText>
+				<Choices>
+					<Choice var0='1312'>
+						<AskQuestion>
+							<Question event='IslandExPx16y16'>Forward</Question>
+							<Question event='IslandExPx16y12'>Right</Question>
+							<Question event='IslandExPx14y15'>Left</Question>
+							<Question event='IslandExPx13y12'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='1415'>
+						<AskQuestion>
+							<Question event='IslandExPx16y12'>Forward</Question>
+							<Question event='IslandExPx13y12'>Right</Question>
+							<Question event='IslandExPx16y16'>Left</Question>
+							<Question event='IslandExPx14y15'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='1612'>
+						<AskQuestion>
+							<Question event='IslandExPx14y15'>Forward</Question>
+							<Question event='IslandExPx13y12'>Right</Question>
+							<Question event='IslandExPx16y16'>Left</Question>
+							<Question event='IslandExPx16y12'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='1616'>
+						<AskQuestion>
+							<Question event='IslandExPx13y12'>Forward</Question>
+							<Question event='IslandExPx14y15'>Right</Question>
+							<Question event='IslandExPx16y12'>Left</Question>
+							<Question event='IslandExPx16y16'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='1514'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx15y14>
+			<IslandExPx15y18>
+				<SetText>You came from #var0 and are at 1518</SetText>
+				<Choices>
+					<Choice var0='1319'>
+						<AskQuestion>
+							<Question event='IslandExPx16y16'>Forward</Question>
+							<Question event='IslandExPx13y19'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='1616'>
+						<AskQuestion>
+							<Question event='IslandExPx13y19'>Forward</Question>
+							<Question event='IslandExPx16y16'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='1518'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx15y18>
+			<IslandExPx16y06>
+				<SetText>You came from #var0 and are at 1606</SetText>
+				<Choices>
+					<Choice var0='1407'>
+						<AskQuestion>
+							<Question event='IslandExPx19y05'>Forward</Question>
+							<Question event='IslandExPx14y07'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='1905'>
+						<AskQuestion>
+							<Question event='IslandExPx14y07'>Forward</Question>
+							<Question event='IslandExPx19y05'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='1606'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx16y06>
+			<IslandExPx16y12>
+				<SetText>You came from #var0 and are at 1612</SetText>
+				<Choices>
+					<Choice var0='1409'>
+						<AskQuestion>
+							<Question event='IslandExPx19y14'>Forward</Question>
+							<Question event='IslandExPx15y14'>Left</Question>
+							<Question event='IslandExPx14y09'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='1514'>
+						<AskQuestion>
+							<Question event='IslandExPx14y09'>Right</Question>
+							<Question event='IslandExPx19y14'>Left</Question>
+							<Question event='IslandExPx15y14'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='1914'>
+						<AskQuestion>
+							<Question event='IslandExPx14y09'>Forward</Question>
+							<Question event='IslandExPx15y14'>Right</Question>
+							<Question event='IslandExPx19y14'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='1612'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx16y12>
+			<IslandExPx16y16>
+				<SetText>You came from #var0 and are at 1616</SetText>
+				<Choices>
+					<Choice var0='1514'>
+						<AskQuestion>
+							<Question event='IslandExPx15y18'>Forward</Question>
+							<Question event='IslandExPx15y14'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='1518'>
+						<AskQuestion>
+							<Question event='IslandExPx15y14'>Forward</Question>
+							<Question event='IslandExPx15y18'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='1616'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx16y16>
+			<IslandExPx19y05>
+				<SetText>You came from #var0 and are at 1905</SetText>
+				<Choices>
+					<Choice var0='1606'>
+						<AskQuestion>
+							<Question event='IslandExPx21y07'>Forward</Question>
+							<Question event='IslandExPx19y07'>Left</Question>
+							<Question event='IslandExPx16y06'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='1907'>
+						<AskQuestion>
+							<Question event='IslandExPx16y06'>Right</Question>
+							<Question event='IslandExPx21y07'>Left</Question>
+							<Question event='IslandExPx19y07'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='2107'>
+						<AskQuestion>
+							<Question event='IslandExPx16y06'>Forward</Question>
+							<Question event='IslandExPx19y07'>Right</Question>
+							<Question event='IslandExPx21y07'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='1905'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx19y05>
+			<IslandExPx19y07>
+				<SetText>You came from #var0 and are at 1907</SetText>
+				<Choices>
+					<Choice var0='1905'>
+						<AskQuestion>
+							<Question event='IslandExPx21y07'>Forward</Question>
+							<Question event='IslandExPx19y05'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='2107'>
+						<AskQuestion>
+							<Question event='IslandExPx19y05'>Forward</Question>
+							<Question event='IslandExPx21y07'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='1907'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx19y07>
+			<IslandExPx19y10>
+				<SetText>You came from #var0 and are at 1910</SetText>
+				<Choices>
+					<Choice var0='2310'>
+						<AskQuestion>
+							<Question event='IslandExPx23y10'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='1910'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx19y10>
+			<IslandExPx19y14>
+				<SetText>You came from #var0 and are at 1914</SetText>
+				<Choices>
+					<Choice var0='1612'>
+						<AskQuestion>
+							<Question event='IslandExPx21y16'>Forward</Question>
+							<Question event='IslandExPx16y12'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='2116'>
+						<AskQuestion>
+							<Question event='IslandExPx16y12'>Forward</Question>
+							<Question event='IslandExPx21y16'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='1914'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx19y14>
+			<IslandExPx21y07>
+				<SetText>You came from #var0 and are at 2107</SetText>
+				<Choices>
+					<Choice var0='1905'>
+						<AskQuestion>
+							<Question event='IslandExPx23y10'>Forward</Question>
+							<Question event='IslandExPx19y07'>Left</Question>
+							<Question event='IslandExPx19y05'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='1907'>
+						<AskQuestion>
+							<Question event='IslandExPx19y05'>Right</Question>
+							<Question event='IslandExPx23y10'>Left</Question>
+							<Question event='IslandExPx19y07'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='2310'>
+						<AskQuestion>
+							<Question event='IslandExPx19y05'>Forward</Question>
+							<Question event='IslandExPx19y07'>Right</Question>
+							<Question event='IslandExPx23y10'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='2107'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx21y07>
+			<IslandExPx21y16>
+				<SetText>You came from #var0 and are at 2116</SetText>
+				<Choices>
+					<Choice var0='1914'>
+						<AskQuestion>
+							<Question event='IslandExPx23y17'>Forward</Question>
+							<Question event='IslandExPx19y14'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='2317'>
+						<AskQuestion>
+							<Question event='IslandExPx19y14'>Forward</Question>
+							<Question event='IslandExPx23y17'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='2116'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx21y16>
+			<IslandExPx21y19><!-- village entrance -->
+				<SetText>You came from #var0 and are at 2119</SetText>
+				<Choices>
+					<Choice var0='2317'>
+						<AskQuestion>
+							<Question event='IslandExEnterVillage'>Enter Village</Question>
+							<Question event='IslandExPx23y17'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='2119'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx21y19>
+			<IslandExPx23y10>
+				<SetText>You came from #var0 and are at 2310</SetText>
+				<Choices>
+					<Choice var0='1910'>
+						<AskQuestion>
+							<Question event='IslandExPx27y10'>Forward</Question>
+							<Question event='IslandExPx21y07'>Right</Question>
+							<Question event='IslandExPx23y13'>Left</Question>
+							<Question event='IslandExPx19y10'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='2107'>
+						<AskQuestion>
+							<Question event='IslandExPx23y13'>Forward</Question>
+							<Question event='IslandExPx27y12'>Right</Question>
+							<Question event='IslandExPx19y10'>Left</Question>
+							<Question event='IslandExPx21y07'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='2313'>
+						<AskQuestion>
+							<Question event='IslandExPx21y07'>Forward</Question>
+							<Question event='IslandExPx19y10'>Right</Question>
+							<Question event='IslandExPx27y10'>Left</Question>
+							<Question event='IslandExPx23y13'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='2710'>
+						<AskQuestion>
+							<Question event='IslandExPx19y10'>Forward</Question>
+							<Question event='IslandExPx23y13'>Right</Question>
+							<Question event='IslandExPx21y07'>Left</Question>
+							<Question event='IslandExPx27y10'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='2310'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx23y10>
+			<IslandExPx23y13>
+				<SetText>You came from #var0 and are at 2313</SetText>
+				<Choices>
+					<Choice var0='2310'>
+						<AskQuestion>
+							<Question event='IslandExPx26y15'>Forward</Question>
+							<Question event='IslandExPx23y10'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='2615'>
+						<AskQuestion>
+							<Question event='IslandExPx23y10'>Forward</Question>
+							<Question event='IslandExPx26y15'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='2313'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx23y13>
+			<IslandExPx23y17>
+				<SetText>You came from #var0 and are at 2317</SetText>
+				<Choices>
+					<Choice var0='2116'>
+						<AskQuestion>
+							<Question event='IslandExPx26y15'>Right</Question>
+							<Question event='IslandExPx21y19'>Left</Question>
+							<Question event='IslandExPx21y16'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='2119'>
+						<AskQuestion>
+							<Question event='IslandExPx26y15'>Forward</Question>
+							<Question event='IslandExPx21y16'>Right</Question>
+							<Question event='IslandExPx21y19'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='2615'>
+						<AskQuestion>
+							<Question event='IslandExPx21y19'>Forward</Question>
+							<Question event='IslandExPx21y16'>Left</Question>
+							<Question event='IslandExPx26y15'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='2317'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx23y17>
+			<IslandExPx25y07>
+				<SetText>You came from #var0 and are at 2507</SetText>
+				<Choices>
+					<Choice var0='2605'>
+						<AskQuestion>
+							<Question event='IslandExPx26y05'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='2507'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx25y07>
+			<IslandExPx26y05>
+				<SetText>You came from #var0 and are at 2605</SetText>
+				<Choices>
+					<Choice var0='2808'>
+						<AskQuestion>
+							<Question event='IslandExPx25y07'>Right</Question>
+							<Question event='IslandExPx28y08'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='2507'>
+						<AskQuestion>
+							<Question event='IslandExPx28y08'>Left</Question>
+							<Question event='IslandExPx25y07'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='2605'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx26y05>
+			<IslandExPx26y15>
+				<SetText>You came from #var0 and are at 2615</SetText>
+				<Choices>
+					<Choice var0='2313'>
+						<AskQuestion>
+							<Question event='IslandExPx27y12'>Right</Question>
+							<Question event='IslandExPx23y17'>Left</Question>
+							<Question event='IslandExPx23y13'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='2317'>
+						<AskQuestion>
+							<Question event='IslandExPx27y12'>Forward</Question>
+							<Question event='IslandExPx23y13'>Right</Question>
+							<Question event='IslandExPx23y17'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='2712'>
+						<AskQuestion>
+							<Question event='IslandExPx23y17'>Forward</Question>
+							<Question event='IslandExPx23y13'>Left</Question>
+							<Question event='IslandExPx27y12'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='2615'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx26y15>
+			<IslandExPx27y12>
+				<SetText>You came from #var0 and are at 2712</SetText>
+				<Choices>
+					<Choice var0='2310'>
+						<AskQuestion>
+							<Question event='IslandExPx29y13'>Forward</Question>
+							<Question event='IslandExPx28y08'>Right</Question>
+							<Question event='IslandExPx26y15'>Left</Question>
+							<Question event='IslandExPx23y10'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='2615'>
+						<AskQuestion>
+							<Question event='IslandExPx28y08'>Forward</Question>
+							<Question event='IslandExPx23y10'>Right</Question>
+							<Question event='IslandExPx29y13'>Left</Question>
+							<Question event='IslandExPx26y15'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='2808'>
+						<AskQuestion>
+							<Question event='IslandExPx26y15'>Forward</Question>
+							<Question event='IslandExPx29y13'>Right</Question>
+							<Question event='IslandExPx23y10'>Left</Question>
+							<Question event='IslandExPx28y08'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='2913'>
+						<AskQuestion>
+							<Question event='IslandExPx23y10'>Forward</Question>
+							<Question event='IslandExPx26y15'>Right</Question>
+							<Question event='IslandExPx28y08'>Left</Question>
+							<Question event='IslandExPx29y13'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='2712'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx27y12>
+			<IslandExPx28y08>
+				<SetText>You came from #var0 and are at 2808</SetText>
+				<Choices>
+					<Choice var0='2605'>
+						<AskQuestion>
+							<Question event='IslandExPx27y12'>Forward</Question>
+							<Question event='IslandExPx26y05'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Choice var0='2712'>
+						<AskQuestion>
+							<Question event='IslandExPx26y05'>Forward</Question>
+							<Question event='IslandExPx27y12'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='2808'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx28y08>
+			<IslandExPx29y13>
+				<SetText>You came from #var0 and are at 2913</SetText>
+				<Choices>
+					<Choice var0='2712'>
+						<AskQuestion>
+							<Question event='IslandExPx27y12'>Return</Question>
+						</AskQuestion>
+					</Choice>
+					<Default>
+						<AddText>\r\r\r Error ocurred you did come from unkonw place (#var0), please check code. You will be teleported back to the beach.</AddText><DoEvent>IslandExPx13y06</DoEvent>
+					</Default>
+				</Choices>
+				<SetVar var0='2913'/><AddText>\r\rVerifing coordinate #var0</AddText>
+			</IslandExPx29y13>
+
+		<!--   __________________________________________________________________________________________ PATHS END _____________________ -->
+
+
+	</Events>
+
+
+	<Visits>
+	</Visits>
+
+	<Planning>
+		<Acts>
+			<DoPlanning>
+			</DoPlanning>
+		</Acts>
+	</Planning>
+
+	<Slaves>
+		<Slave>
+		</Slave>
+		<SpecialParticipants>
+			<Participant enable='false'>
+			</Participant>
+		</SpecialParticipants>
+	</Slaves>
+
+
+</Language>
+

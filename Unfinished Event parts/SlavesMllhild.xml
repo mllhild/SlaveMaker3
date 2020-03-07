@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Slaves append='true'>
+	
+	<Slave>  <!-- look for Arak in slave.xml for a complete and complex slave -->
+		<Name>Adisa</Name>
+		<Image>Images/Minor Slaves/Adisa/Slave-Adisa.png</Image>
+		<Folder>Images/Minor Slaves/Adisa</Folder>
+		<DescriptionDetailed>A Ex-Cowslave which you saved from being re-captured. Since in the process her house burned down she is now living with you.</DescriptionDetailed>
+		<Description>Overly happy Ex-Cowslave</Description>
+		<Price>100</Price>
+		<Gender>female</Gender>
+		<Bust>145</Bust>
+		<Waist>75</Waist>
+		<Hips>92</Hips>
+		<Age>24</Age>
+		<BloodType>A</BloodType>
+		<Weight>62</Weight>
+		<Height>164</Height>
+		<Sexuality>45</Sexuality>
+		<Slutiness>7</Slutiness>
+	  	<!--	<Attitude>Extroverted</Attitude>
+		<Perception>Sensing</Perception>
+		<Judgment>Feeling</Judgment>
+		<Lifestyle>Judgment</Lifestyle>  -->
+		<Fertility>40</Fertility>
+		<Statistics>
+			<Charisma>145</Charisma>
+			<Sensibility>125</Sensibility>
+			<Refinement>20</Refinement>
+			<Intelligence>15</Intelligence>
+			<Morality>40</Morality>
+			<Constitution>80</Constitution>
+			<Cooking>0</Cooking>
+			<Cleaning>1</Cleaning>
+			<Conversation>45</Conversation>
+			<Fitness>40</Fitness>
+			<BlowJob>80</BlowJob>
+			<Fuck>60</Fuck>
+			<Temperament>10</Temperament>
+			<Nymphomania>70</Nymphomania>
+			<Obedience>55</Obedience>
+			<Lust>80</Lust>
+			<Reputation>5</Reputation>
+			<Fatigue>0</Fatigue>
+			<Joy>100</Joy>
+		</Statistics>
+		<Skills>
+			<Swimming>1</Swimming>
+			<Dancing>1</Dancing>
+			<Singing>0</Singing>
+		</Skills>
+		<Difficulties>
+			<Anal>25</Anal>
+			<Blowjob>20</Blowjob>
+			<Bondage>50</Bondage>
+			<Brothel>70</Brothel>
+			<Dildo>15</Dildo>
+			<Expose>30</Expose>
+			<Fuck>15</Fuck>
+			<GangBang>70</GangBang>
+			<LendHer>100</LendHer>
+			<Lesbian>10</Lesbian>
+			<Lick>20</Lick>
+			<Master>150</Master>
+			<Masturbate>0</Masturbate>
+			<Naked>35</Naked>
+			<Plug>20</Plug>
+			<Ponygirl>200</Ponygirl>
+			<SleazyBar>40</SleazyBar>
+			<Spanking>40</Spanking>
+			<Threesome>50</Threesome>
+			<TitsFuck>45</TitsFuck>
+			<Touch>0</Touch>
+		</Difficulties>
+		<SlaveBonus>
+			<SetVar Charisma='Charisma + 20'/>
+            <SetVar Sensibility='Sensibility + 30'/>
+            <SetVar Temperament='Temperament - 10'/>
+            <SetVar difficulty-titsfuck='difficulty_titsfuck + 5'/>
+		</SlaveBonus>
+		<Images>
+			<Break>
+				<Normal>
+					<PickActImage act='kiss'/>
+				</Normal>
+			</Break>
+			<Discuss>
+				<Normal>44</Normal>
+				<Lesbian>43</Lesbian>
+			</Discuss>
+			<SixtyNine>
+				<Normal>1</Normal>
+				<Lesbian>1</Lesbian>
+			</SixtyNine>
+			<Anal>
+				<Normal>8</Normal>
+				<Lesbian>9</Lesbian>
+			</Anal>
+			<Blowjob>
+				<Normal>3</Normal>
+				<Lesbian>5</Lesbian>
+			</Blowjob>
+			<CumBath>1</CumBath>
+			<KissMale>1</KissMale>
+			<Fuck>
+				<Normal>4</Normal>
+				<Lesbian>3</Lesbian>
+			</Fuck>
+			<Lick>
+				<Normal>2</Normal>
+				<Lesbian>2</Lesbian>
+			</Lick>
+			<LoveConfessionAccepted>1</LoveConfessionAccepted>
+			<LoveConfession>1</LoveConfession>
+			<LoveConfessionRefused>1</LoveConfessionRefused>
+		</Images>
+		<Introduction>
+            <SetText>You overhear that she was apparently sold by her father along with her mother. That she seems to be forced to have a ton of sex because she was causing trouble.   
+				Most people seem to not believe this claim and one guard walks up to you saying, "Watch out for her tongue, she bites hard. But she is a great fuck." 
+				Between you and me I suggest, just keep a gag in her mouth unless you want to relieve yourself which she is pretty damn good at." 
+				She looks at you tears in her eyes, defiantly and furious as you remove her gag. Her malnurished body just smells like semen and it make you sick</SetText>
+                <PersonSpeak person="Severa"> Damn you and damn everyone, get the fuck away from me! I'll kill you and everyone else! Mother where are you?! Mom! Mom!</PersonSpeak>
+				<AddText>You replace the gag and make sure she stays tied up for, you hope to find some sort of use for her eventually.</AddText>
+			<ShowImage image="Images/Minor Slaves/Adisa/intro.jpg" place="4" align="0"/>
+		</Introduction>
+		<Other>
+			<LoveConfession>
+				<SetText>Ringo has just enthusiastically and forcefully confessed his love to you.
+				
+				Will you accept his love?</SetText>
+				<SetVar appendacttext='false'/>
+				<Backgrounds colour='0'/>
+			</LoveConfession>
+			<LoveConfessionAccepted>
+				<SetText>Ringo is very, very happy, and promises you every blessing.</SetText>
+				<ShowSlave person='Ringo'/>
+				<HideImages/>
+				<if gender='1'>
+					<ShowImage image="Images/Minor Slaves/Ringo/Love Confession Accepted (Lesbian 1).jpg" place="main" align="center"/>
+				<else>if</else>
+					<ShowImage image="Images/Minor Slaves/Ringo/Love Confession Accepted 1.jpg" place="main" align="center"/>
+				</if>
+				<Backgrounds colour='0'/>
+			</LoveConfessionAccepted>
+			<LoveConfessionTooManyLovers>
+				<HideImages/>
+				<ShowImage image="Images/Minor Slaves/Ringo/Love Confession 1.jpg" place="main" align="center"/>
+				<SetText>You can trigger an event chain if you wish here, but please end with an event 9999</SetText>
+				<SetVar appendacttext='false'/>
+				<AskQuestions caption='Will you accept his love?'>
+					<Question event='3'>Yes, I love you too</Question>
+					<Question event='3.2'>No, I do not love you</Question>
+					<Question event='3.4'>I am not sure yet</Question>
+				</AskQuestions>
+			</LoveConfessionTooManyLovers>
+
+		<!-- 
+			<TentaclePregnancy></TentaclePregnancy>
+			<YoursPregnancy></YoursPregnancy>
+			<YoursTentaclePregnancy></YoursTentaclePregnancy>
+			<HumanPregnancy></HumanPregnancy>
+			Each of these have default versions in Languages/English/Other.xml and if you implement here you will replace those standard events. Ideally please copy the standard one and update, taking note of the terminating event. You can do a multistage event but make sure it ends with the save event as the standard (mostly 9999 but the tentacle ones differ)
+			<PregnancyReport>xml statements</PregnancyReport>
+			Slaves that have the trainings "Nurse" or "Midwife" will give reports when a slave is recognised as pregnant. There is a default event in
+			 Language/English/Other.xml
+			This node can be customised to personalise to the minor slave or add additional information or effects.
+
+			You can trigger an event chain if you wish here, but please end with an event 9999  
+		-->
+
+		<Events>
+			<UpdateDateAndItems>
+				<Adisa>
+				</Adisa>
+			</UpdateDateAndItems>
+
+			<EarlyMorning>
+				<AdisaEvent>
+				</AdisaEvent>
+			</EarlyMorning>
+		</Events>
+    		<!--<Planning>
+        		<Acts>
+            			<DoPlanning>
+					<RelaxAtBar append='true'>
+						<if flag2-Ringo-8='false'>
+							<AddText>Stuf Happens</AddText>
+						<else>if</else>
+							<ChangeVar total-slavemaker-relaxatbar='1'/>
+							<Background place='Bar'/>
+							<ShowMovie module='GenericActions' submovie='SMTrainingBar' frame='1' place='main' align='left'/>
+							<AddText>You visit a bar and relax, drinking and chatting with the other patrons.</AddText>
+							<SMPoints>0, 0, 0, 0, 0.5, -1, 0, 0, 0, 0, 0, 0, -2</SMPoints>
+							<SMMoney>-10</SMMoney>
+						</if>
+					</RelaxAtBar>
+            			</DoPlanning>
+        		</Acts>
+    		</Planning>-->
+		</Other>
+	</Slave>
+
+	
+</Slaves>

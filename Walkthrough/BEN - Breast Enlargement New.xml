@@ -1,0 +1,409 @@
+BEN - Breast Enlargement New
+
+orignal development thread
+https://www.futanaripalace.com/showthread.php?34889-New-Event-BE-in-the-Forest/page83
+
+Version 0.8 beta		 
+last edited 2015/09	
+
+text hasori  			 
+code mllhild 			 
+special thanks for all the help
+	cmacleod
+	dark lilith
+	campeonkid
+	Aximili
+	ElPresidente
+
+
+
+this is the walkthrou which gives the idea of what happens>
+
+1. Say yes to do you wnat BE an Cowgirls [BEdoyouwantit]
+2. Visit the Sleazy Bar with your SM until the Count invites you to visit him
+you need carisma of of at least 50 acording to the wiki for him to invite you
+3. Visit Count and agree to drink the potion
+he will only talk to you if one of these apply: (slave bust > 90) or (slave refinement > 60) or (slave maker is at least minor noble)
+4. Again Visit Count after some days and agree to drink the potion
+5. Lend slave to the Count
+6. Take a walk in the forest
+7. Run away (not nescessary, but story makes more sense this way)
+
+now there is a split of into to separate arcs
+
+arc Count (if the count says you have visited him enougth you need to use a new slave)
+8. visit count [BEevent4]
+9. visit count again, and chose yes or haggle [BEevent5]
+10. lend slave to count [BEevent6]
+11. visit count, athoer dose [BEevent7]
+12. lend slave to the count 3 days later [BEevent7Yes3]
+13. visit count (only for females) [BEevent7]
+14. visit count 3 days later after 8pm [BEevent7SM2]
+
+arc Adisa (most of the events require the SM to be present)
+8. Morning event happens [BEstoryD1]
+9. Morning event happens again, say yes. [BEstoryD1repeat]
+10. Walk on the beach until you meet a busty cat-slave [BEstoryD3random]
+11. go to the slums, meet the dealer [BEstoryD2]
+12. back to the beach until you meet the catgirl again (read her dialoge) [BEstoryD3] [BEstoryD3repeat]
+13. keep going to the beach between 12h and 18h, until you meet cow slave Adisa. Chose 1 and then 1 again. Somewhat obvious from the dialog. [BEstoryD4]
+14. next day, again to the beach between 12 and 18. Try all options of the dialoge(up to 5 depending on your background) [BEstoryD5]
+15. Next day, go on a walk. You will see a custom location in the upper right corner of the map. (1) [BEstoryE1]
+16. again go to custom location (2) [BEstoryE2]
+17. again go to custom location (3) [BEstoryE3]
+18. again go to custom location, and win the fight (4) (first custom night action activates, Feed fruit (this is why the story makes more sense if you run from the bandts in part 7 and end up at the strange tree to eat the fruits)) [BEstoryE4]
+19. again go to custom location (5) (first custom night action gets second sub action) [BEstoryE5]
+20. again go to custom location (6) (second custom night action activates) [BEstoryE6]
+21. go to "beach-private area" at 16h. (first and second custom night action get additional sub action) [BEstoryE7]
+22. go again to "beach-private area" at 16h. (first custom night action gets additional sub action) [BEstoryE8]
+23. again go to custom location (7)
+24. again go to custom location or go to beach private, chose 1 or 2 then 1. I don't remember if 3 works [BEstoryE10]
+25. go to "beach-private area" at during daytime [BEstoryE11]
+26. go to the new custom location x_Search, also in the upper right corner, also during daytime [BEstoryE12]
+27. go to the new custom location x_Hideout after 10pm in the night, in the upper left corner of the map. [BEstoryE13]
+Win, Win, explore, don't sell or if you have cruel advantage or corruption over 50, sell but fight anyway.
+End arc Adisa
+You should now get a new resident in your house(Adisa) the next day. resident has special option for Intimacy and a statistics option to show event vars.
+also second custom night action get additional sub action
+
+Answers:
+- Alright now there is be a morning event where you don't have milk at your house at the breakfeast and Adisa goes into the kitchen and comes back with a cup of milk.
+From there on you can order her in the talk to slave menu to provide milk for the house.
+- as for the intro, I did write it breaking the 4th wall, don't know if this is good or if you should put this as thoughts of the slavemaker. Do what you find better for the game flow, the idea is to sum up the events and give the player a idea of where he stands after a 20+eventnodes.
+- she did teach you your breast handling skill (Breast Expert lvl 1 of 1)(if you don't save her you are stuck at 0.9, but already have most of the night actions, only not the milking with device since you don't have a milking device)(you will be able to get the device later in the counts milking barn event)
+- you had to win 4 fights +boss fight, run around searching for her and know you have given her a roof over her head because her house burned down. So yes, she better be very grateful.
+
+
+
+
+
+
+
+
+Some notes:
+
+1.
+The hard coded limit is 160cm for breast. There is also one for dick size (66cm) and clitoris size (2cm).
+For slaves it is in the configuration.xml
+		<Measurements>
+            <!-- this is the limit for their clit for a female
+            for a male multiply this by 33 (so a value of 2 means 66cm) -->
+            <ClitCock>2</ClitCock>
+            
+            <!-- this is the limit for a female bust measurements, in centimeters -->
+            <Bust>160</Bust>
+        </Measurements>
+For the SM there was no limit, but for uniformitys sake I limit it also to 160 in the event code. But then image relation is rather like
+if 50 -> AAA
+if 100 -> 100 to 140 size in image
+if 160 -> 200 to 250 probably.
+any larger than this I think I used only in the bad ends. aka: you can't move any more.
+
+2.
+no your breast doent change in the images. it would be an insane amount of work to edit all those images. so use your imagination
+
+3.
+The events at the farm revolving around the pill and stolen cowgirl ending AREN'T part of this event. They've been hardcoded into the game for several releases now. This event, and the prompt for "do you want cowgirls" covers the Adisa storyline, which picks up after finding the purple fruits in the forest (which you can do after the first successful breast expansion session with the Count).
+
+If you're having trouble avoiding the stolen cowgirl ending, just have your slave avoid the farm for a week or so after milking, then either hit the farmhand at the prompt, or go to the Lord. Do not agree to wait. I believe the stolen cowgirl ending is achieved after 6 milking sessions at the farm (or in Akane's case, if you keep sending her for "treatment". Again, wait a week or so after sending her for treatment and there'll be an event where she figures out they're just using her. If you don't do this by the time her training ends, you'll get stolen cowgirl)
+
+4.
+core game: I don't know if this repeats for every new slave, but I think it doesn't.
+-for first visit he offers a breast expansion which fails (countflag-1)
+-if you visit 3 or more days later, agree to lend the slave and then lend the slave to him you get the succesfull breast expansion (countflag-2)
+
+eventfile: need to finish the core game events first (countflag 1 to 3), repeats for every slave
+-visit count to introduce the slave and agree to price of potion (is missing a version for the case that the slave has already visited the count, but this can only be implemented if cmac removes the part from the core game and lets me add it into the xml event file)visit count BEevent4
+-visit count again, and chose yes or haggle for potion price BEevent5
+-lend slave to count BEevent6 breast increase
+-visit count, another dose BEevent7
+-lend slave to the count 3 days later BEevent7Yes3 breast increase
+
+
+5.
+Slave Maker: #slavemakername
+#savedvar16_BEN SM Breast fixation
+#savedvar17_BEN SM Lactation
+#savedvar18_BEN SM CowGirlTraining
+#savedvar19_BEN SM Milkbuild up
+#savedvar20_BEN SM Breastincrease (in %)
+#smbust SM Breastsize
+#savedvar22_BEN SM number of times milked
+#savedvar23_BEN SM desire to be milked
+
+Slave: #slave
+#flagBEN_33 did visit Count gossem for BE
+#savedvar24_BEN Count visits event var
+#savedvar25_BEN Count visits date var
+#savedvar1_BEN Breast fixation
+#savedvar2_BEN Lactation
+#savedvar3_BEN CowGirlTraining
+#savedvar4_BEN Milkbuild up
+#savedvar5_BEN Breastincrease (in %)
+#bust Breastsize
+#savedvar8_BEN did act Milk by Hand
+#savedvar9_BEN did act Milk with device
+#savedvar10_BEN did act Feed her Milk
+#savedvar11_BEN did act Touch #slave’s Breast
+#savedvar12_BEN did act Touch #slave’a nipples
+#savedvar13_BEN did act Use Nipple Toys
+#savedvar14_BEN did act Feed #slave a fruit
+#savedvar15_BEN did act Used nippleclamps
+
+
+Assistant: #assistant
+none
+
+
+event char: Adisa
+#special-adisa Special (Milkbuild up)
+
+
+some event flags
+#flag1-0 seen cowgirls
+#flag1-1 visited farmer and allowed to see cowgirls
+#flag1-6 First Milk Event
+#flag1-7 Milk Accident
+#flag1-11 Milk Drug offered
+#flag1-25 Count owns farm
+#flag1-26 cowgirls removed from farm
+#flagBEN_21 naked
+#flagBEN_22 nipple clamps owned
+#flagBEN_23 nipple clamps on
+#flagBEN_24 nipple toys owned
+#flagBEN_25 milking machine owned
+#flagBEN_26 evil milking machine owned
+#flagBEN_27 good milking machine owned
+#savedvar24_BEN Count visits event var
+#savedvar25_BEN Count visits date var
+#savedvar26_BEN Milk bottles full
+
+
+
+6. Draft for some story continuation ideas
+Dear player, I will start by telling the latest developments.
+
+After fighting the Milk baron, you rescued your teacher Adisa from being returned into slavery as a cowslave in Fierne. The scene gathered quite some attention because of the involvement of the city guard. Certainly, interested parties are to appear.
+In the mean time you finished the “Breast Expert” training under Adisa. Herself, having her house burned down by the barons minions, now lives with you. Out of gratitude she is likely to obey most of your demands, not that she would need persuasion to fuck in her ever horny state caused by her overly sensible breast. Only the trauma of being milked for profit may imped her from letting you sell her milk… for now.
+
+Arc One: The Milk café
+Part 01
+TalktoSlave - Adisa
+- Provide milk for the house
+Part 02
+EarlyMorning
+- Drink milk by Adisa
+Part 03
+DoWalk – TownCenter
+- Visit café, see big breasted maid.
+- Upon being asked for beverage replay “milk” by accident, while looking at the maids breast.
+- She giggles “Understood”, pulling of her shirt and massaging her breast to fill a glass with milk.
+- Surprised you accept it. The taste is a bit different from Adisas, less full and a bit less mature.
+- You leave thinking of returning again soon
+Part 04
+DoWalk – TownCenter
+- You visit the café again, hoping to taste more of their special drink.
+- This time the maid tending to you has small breast. You ask for milk , she makes a note and returns shortly with a glass of normal milk.
+- What do you do
+o Drink and Leave (op1)
+o Request big breasted maid (op2)
+o Ask for special milk (op3)
+- Op1: do event 9999 (resume planning)
+- Op2: she is not on shift
+- Op3: The maid blushes understanding the request and bows deeply apologizing for her mistake. She opens her uniform and starts with insecure strokes to milk herself. After some time she still has to fill even half of the glass.
+o Wait (op1)
+o Help her (op2)
+- Op1: After some time she is still getting nowhere close to fill the glass. Even worse, after trying franticly to press out milk she started sobbing. Probably afraid of being punished for her uselessness.
+o Help her (op2)
+- Op2: You get up and stand behind the maid. With firm hands you grab her breast and start milking her with precise strokes. Her first scream changes soon into a mixture of moaning and panting. When your glass is finally full you let go of her breast. The maid, unable to control her legs, sinks to the ground gasping for air.
+
+Part 05
+EarlyMorning
+- You comment about the café to Adisa. She looks interested, if a bit scared.
+- To reaffirm her you pinch her nipples, pulling them down. Then start sucking your daily milk directly from the source. Soon Adisa is going “Muuh” and you start playing around a bit more with her udders, which results in a white table and some milk covered slaves.
+
+Part 06
+DoWalk – TownCenter
+- Again your stroll takes you to the café. As you try to enter, an angry customer storms out of the café.
+- Upon entering you are greeted by a troubled looking manager of the café. After sitting down you soon see why. There seems to be a shortage of maids[reminder to self, the missing ones could have been abducted by the farm hand, this would be why only the small chested remained], with the remaining struggling to provide service and milk.
+o Lay back and watch their struggle (op1)
+o Offer help (op2)
+- Op1: repeat event once, then put on normal visit and chance to advance on small random chance
+- Op2: You talk to the manager, who is skeptic at first, but then remembers your performance at your last visit and agrees.
+- You order #slave to serve the customers, while you help the maids to produce their share of milk.
+- A lot of tit grabbing, squeezing and moaning later the customers are served and happy. Especially delighted if a maid came while being milked. For the maids, they are wet with their own milk and juices flowing down their legs. Their flushed faces look adorable and you made sure that each of them came at least a few times.
+- Having lost sense of time you continue home.
+
+Part 07
+EarlyMorning
+- Some one knocks on your door. It’s the manager of the café.
+- Thank you for your help yesterday.
+- You invite him/her in and let #slave serve some milk.
+- After some talks about how they are still short on milk at the moment #slave returns with the milk. Upon taking the first sip his/her eyes shine
+- Delicious, where does this milk come from?
+- Upon learning that it is home made he begs you to let him meet the slave who produced it.
+- As Adisa enters the room his eyes seem to jump out onto her enormous breast. Once the manager regained composure, he asks you to let her work for him at the café.
+o Decline (op1)
+o Offer to sell her milk (op2)
+o Agree (op3)
+- Op1: end event chain
+- Op2: The manager says that the customers like to be served directly from the source, so only the milk would not work.
+- Op3: You agree and start negotiating about work hours and price. A bit later the manager leaves smiling.
+- Adisa while this looks a bit scared and hurt that you did not consult her first. Pouting she runs out of the room.
+- Maybe talking to her may help her accept to work at the café.
+
+Part 08
+TalktoSlave – Adisa
+- Talk about working at the café
+o Persuation (Ob+SMChar+SMJoy+SMRepu+50*Noble) vs (Temp + Int)*2
+o Dominance(Ob+SMDom+SMCons+SMRep+50*Noble)vs (Temp+Const)*2
+- Now you get custom order, “work at the café”
+
+Arc Two: Starting a business
+Part 01
+Evening
+- Adisa comes to you with a pretty packed bottle.
+- A regular at the café asked for a bottle my milk to take home, but this is forbidden by the café. But I really enjoy it when people appreciate my milk. So if you could deliver it for me I would be grate full.
+o Decline (op1)
+o Agree (op2)
+- Op1: She looks dejected, but understands that you are to busy to play errand boy.
+- Op2: She looks overjoyed and gives you the bottle with a small piece of paper. The meeting place seems to be in the palace garden. But to get there she would have to pass the palace gates and she was no noble. You smile, seems like she made a influential customer.
+
+Part 02
+DoWalk – Palace
+- You arrive at the marked spot in the palace garden. Soon Adisas customer is to appears. Not to surprised you see Count Gossem torn around a corner and going in your direction until he suddenly stops. He on the other hand looks a bit surprised.
+- Well if I isn’t #slavemakername. What a surprise to meet you here.
+- You explain the situation and hand the count the bottle of milk. He looks quite disappointed.
+- It seems you have quite a hand for slaves, all the wonderFull ladys end up in your hands.
+- Afraid of having him turned against you, you suggest to him that you could visit him with Adisa
+- The conversation ends with him urging you to visit him soon
+- Now you have to return home and convince Adisa to meet with the Titfanatic Count.
+
+Part 03
+TalktoSlave – Adisa
+- Talk about count
+- He is a breast fetishist who loves milking and to make matters worse, a high noble
+- Adisa tells you that more people have asked for her milk
+- [Adisa gets now the custom order, to sell milk from home]
+
+Part 04
+Visit – count
+- Welcome #salvemakername
+- If slave breast<130 He completely ignores #slave
+- And #slave
+- Oh, miss Adisa how wonderful you look.
+- During all the talk his eyes stay on Adisas breast. Adisa looks quite a bit scarred. Showing his human knowledge, he doesn’t invite her in again, only asking to buy her milk.
+- [Price of milk goes up, as does the amount sold. Probably the count buys it all up. Remind your self to change this in the custom order]
+
+Arc Three: Building a farm
+Part 01
+DoWalk – TownCenter
+- You visit once again the café. The manager comes to greet you personally. You talk for some time. About
+o Milk demand (op1)
+o Adisa time here (op2)
+o How hard it is to get new maids (op3)
+o How he gets them to lactate (op4)
+o Rumors about a Alquemist who may know how to make a potion to increase lactation (op5)
+- Op1:
+- Op2: …
+- Op3: …
+- Op4: …
+- Op5: …
+
+Part 02
+DoWalk – TownCenter
+- You visit once again the café. The manager comes to greet you personally. You talk for some time. About
+o Milk demand (op1)
+o Adisa time here (op2)
+o How hard it is to get new maids (op3)
+o How he gets them to lactate (op4)
+o Rumors about a Alquemist who may know how to make a potion to increase lactation (op5)
+o Suggest starting a farm (op6)
+- Op6: You need a more adequate space if you want to increase production. This reminds you of the abandoned farm where you fought the milkbaron.
+
+Part 03
+DoQWalk – Farm
+- The building looks now even worse than last time you were here. It would take a lot of investment only to start to get it back operational.
+- But first you would have to buy it from the previous owner, if you can find him.
+o Ask neighbors (op1)
+o Ask the guard office (op2)
+- Op1: They say the owner did vanish long ago and don’t know were she could be fond.
+- Op2: The owner has been marked as missing, but the case has been long been dropped, he gets a missing poster from the archives of a pretty short woman woman with big breast.
+- The building is free to be bought from the city. The Palace holds the office regarding this.
+
+Part 04
+DoWalk – Palace
+- You arrive at the office and are informed that the price will be 2000 gold and 500 gold legal fee.
+o Pay
+o Don’t pay
+o (conversation)Try to bribe the official to just change the name on the documents (1000 gold)
+- The paper work is quite fast.
+- You may now visit your building and reform it.
+
+
+Part 05
+DoWalk – CustomLocation Farm
+- Acess yard
+- Construction is under way or What would you like to restore
+o Yard 1 500
+§ Yard 2 (need Yard 1) 1000
+o House 1 (need Yard 1) 2000
+§ House 2 (need House 1) 4000
+o Small Barn 1 (need House 1) 1500
+§ Small Barn 2 (need Small Barn 1) 3000
+o Big Barn 1 (need House 2) 3000
+§ Big Barn 2 (need Big Barn 1) 6000
+· Big Barn 3 (need Big Barn 2) 12000
+- It will be soon ready
+
+Part 06
+DoWalk – CustomLocation Farm
+- Acess yard
+- Now explore your new property.
+
+
+
+
+7. Text somebody sent me
+Hello again and welcome back player.
+
+After fighting the Milk baron, you rescued your teacher Adisa from being returned into slavery as a cowslave in Fierne. The scene gathered quite some attention because of the involvement of the city guard. Certainly, interested parties are to appear.
+In the mean time you finished the “Breast Expert” training under Adisa herself. Having her house burned down by the barons minions she now lives with you. Out of gratitude she is likely to obey most of your demands, not that she would need persuasion to fuck in her ever horny state caused by her overly sensible breasts so she will do almost anything for you. The only thing you must never do is selling her milk for profit... at least for now.
+---> I might need some backstory that I do not have to be able to fix this accordingly. for example, what is the deal with the guard? Did he just try to stop them or is there anything else behind it?
+
+
+Arc One: The Milk café
+Part 01
+TalktoSlave - Adisa
+- Provide milk for the house
+--->So you are milking Adisa to provide for the slavemaker and his/her slaves?
+Part 02
+EarlyMorning
+- When you wake up and head for the kitchen you see Adisa already preparing breakfest for you and your slaves. To your delight you manage to see Adisa as she is finishing squezing her right breast firmly moaning in the prosess. You watch as Adisa slowly leaks milk in a glass which is getting full. You feel aroused and watch as Adisa cleans her nipple from her dripping milk with her fingers, taking each finger and licking it fully clean. Adisa turns around and sees you as you stand there smiling to her. She smiles back and without saying anything she starts walking towards you with the glass in her hand and gives it to you. You take the glass and gladly lift it to your lips as you first smell the milk. There is nothing better than the smell of a freshly milked milk. You take a sip and the milk slowly runns down your throat with a cream like thickness. You finish the glass enjoying each sip and leave Adisa so proud as you head into the day fully fed from the milk.
+Part 03
+DoWalk – TownCenter
+- You decide to take a break at a café in the Town Center. To your surprise the maid serving you has big breasts. Not just big but so big that you are surprised that the top she is wearing is capable of holding them inside. It is clear that these breasts are full of delicious milk and you quickly get the taste back from Adisa's milk into your mouth.
+- The maid takes your order and once she asks what you want drink all you are thinking about is how much you wish you could taste her milk. You start to imagine how her milk would taste compared to Adisa's milk. The maid interupts your thoughts by asking you again what you want to drink and without thinking you say "Fresh milk please". Realising that you had just stared at her breasts while you said that you start to flush.
+- The maid smiles broadly and giggles while saying "Coming right up" and as soon as she sais that, she puts down her notebook and pencil, pulls up her shirt so her breasts bounce free from the unneeded clothing, reaches for your glass and starts rubbing her breasts right infront of you until her milk, her white delicious thick milk, starts pouring out of her nipples into your glass. Slowly the glass fills up and you can hear her moan while she is rubbing her breast, squesing the milk out. After the glass is full she puts the glass of milk infront of you, picks up a towel, cleans herself up and fixes her shirt back to hide these large breasts of hers.
+- You are quite surprised by the maids reaction but yet glad to be able to taste her milk. As you smell the milk before you drink it you realize that this milk smells fresher than Adisa's milk. As you take a sip you can taste the milk, creamy but not as creamy as Adisa's and while it is really good you can't stop but notice that it is not as satisfying as a whole meal itself, seems more watery than you are used to from Adisa. This maid is clearly not as experienced as Adisa but you definantly see a talent there.
+- You leave thinking of returning again soon
+- After finishing the milk you pay the bill and think about returning soon. This milk may not be the best you have tasted but there is certainly the potential to become the best and you do not want to miss that out.
+Part 04
+DoWalk – TownCenter
+- You decide to visit the café again hoping to taste more of that delicious milk you had before.
+- This time the maid tending to you has small breast. You ask for milk , she makes a note and returns shortly with a glass of normal milk.
+- You are quite sad once you realize that the maid serving you today has small breasts. You still ask for milk like before but this one only writes it down in the book and leaves. Less than a minute later she returns with a glass of milk to you. You taste it and realize that this is just normal milk.
+- What do you do?
+o Drink the milk infront of you and Leave (op1)
+o Ask about the Big breated maid(op2)
+o Ask for "special" milk (op3)
+- Op1: You drink the milk, disapointed to only have had normal milk instead of the "special" milk.(resume planning)
+- Op2: You ask about the big breasted maid from before but to your sadness she replays with "I'm sorry but it is her day off today"
+- Op3: The maid blushes and understands the request you made. She bows deeply, apologizing for her mistake as she unbuttons her uniform. With a clean glass in hand starts stroking her breasts insecurly trying to milk herself. After watching her do this for a few minutes the glass is not even half.
+You decide to:
+o Wait (op1)
+o Help her (op2)
+- Op1: You decide to wait another five minutes to see weather or not she will get the hang of this but not only did it slow her down as she became more insecure, but she started sobbing, clearly afraid of being punished for not being able to satisfy her client better.
+o Help her (op2)
+- Op2: You get up and stand behind the maid. With firm hands you grab her breast and start milking her with precise strokes. She screams painfully at first but soon her pain changes into a mixture of moaning and panting clearly starting to enjoy this method. It also works as you manage to squeze more milk out than she was able to deliver so you fill your glass eventually after a few minutes of stroking her breast. The maid, unable to control her legs from exchaustion and orgasm, collapses to the ground gasping for air with a smile on her face.
+---> Out of time for now. I can continue on this if this is something that is in your liking. I managed to come up with this in one and a half hour so there might be some spelling errors. Feel free to use it if you want to or discard it.

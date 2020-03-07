@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- CUSTOM MAP TUTORIAL EXAMPLE -->
+
+<Language>
+
+	<Credits> 
+		last edited 2016/10
+	</Credits>
+
+	<Events>
+		<!--   __________________________________________________________________________________________ CUSTOM LOCATION DECLARING START _____________________ -->
+
+			<CustomHouse-x_Entrance name="x_Entrance" hint="Entrance's events" xpos="40" ypos="50" show="true">
+				<DoEvent now="true">Entrance</DoEvent>
+			</CustomHouse-x_Entrance>
+			<CustomHouse-x_Exit name="x_Exit" hint="Exit's events" xpos="40" ypos="100" show="true">
+				<DoEvent now="true">Exit</DoEvent>
+			</CustomHouse-x_Exit>
+
+		<!--   __________________________________________________________________________________________ CUSTOM LOCATION DECLARING END _____________________ -->
+		
+		<StartGame>  <!--  called when a slave starts training, so immediately at the start, before the first day of training -->
+		</StartGame>
+
+		<EndGame> <!-- called every time a slave is copleted, may cause problems with endings -->
+		</EndGame>
+
+		<Initialise> <!--  called everytime a game is loaded or the slave starts training -->
+		</Initialise>
+		
+
+		<UpdateDateAndItems>
+		</UpdateDateAndItems>
+				
+
+		<EarlyMorning>
+		</EarlyMorning>
+
+
+		<StartMorning>			
+		</StartMorning>
+		
+
+		<Daily>
+		</Daily>
+
+		<StartEvening>
+		</StartEvening>
+		
+		
+		<Walk>
+			
+			<Palace>
+			</Palace>
+
+			<TownCenter>
+			</TownCenter>
+
+			<SlaveMarket>
+			</SlaveMarket>
+			
+			<Slums>
+			</Slums>
+
+			<DocksPort>
+			</DocksPort>
+
+			<DocksSlavePens>
+			</DocksSlavePens>
+
+			<Farm>
+			</Farm>
+
+			<RuinedTemple>
+			</RuinedTemple>
+
+			<BeachSwim>
+			</BeachSwim>
+
+			<BeachWalk>
+			</BeachWalk>
+
+			<BeachPrivate>
+			</BeachPrivate>
+
+			<BeachRocks>
+			</BeachRocks>
+
+			<Lake>
+			</Lake>
+
+			<Forest>
+			</Forest>
+			
+			<DeepForest> <!-- I dont know if this node still exists or if it has been disabled -->
+			</DeepForest>
+
+			<Map1Beach>
+			</Map1Beach>
+
+			<Map1Jungle>
+			</Map1Jungle>
+
+
+		</Walk>
+
+	</Events>
+
+
+	<Visits>
+	</Visits>
+
+
+	<Planning>
+		<Acts>
+			<DoPlanning>
+			</DoPlanning>
+		</Acts>
+	</Planning> 
+
+	<Slaves>
+		<Slave enable='false'>
+		</Slave>
+
+		<SpecialParticipants>
+			<Participant enable='false'>
+			</Participant>
+		</SpecialParticipants>
+	</Slaves>
+
+	<Areas>
+		<Area start='false'>
+			<Name>Map1</Name>
+			
+			<Places>
+				<!-- a list of places for this city. nodeid is a unique identifier for the place and must match the xml nodes used for it -->
+				<TravelTo>
+					<Map1TravelTo chance='6%'>
+						<SetText>#slave and #super board the boat for the Map1. One the way your ship is expertly intercepted by a pirate vessel and all passengers are made to pay some money as a 'toll'</SetText>
+						<ShowImage image='Images/Cities/Mardukane/Events/Sailing - Pirate Attack 1.jpg' place='wide' align='center'/>
+						<Money>-50</Money>
+					</Map1TravelTo>
+				</TravelTo>
+				
+				<Place nodeid='Map1Beach' wingquest='false'>		
+					<Name>Beach</Name>
+					<Background>Beach</Background>
+					<WalkButton xpos='391' ypos='197' width='165' height='186' shortcut='B'>Images/Cities/Mardukane/Areas/Map1/Places/Map1 Beach.png</WalkButton>
+					<CloseUpImage align='left' xpos='20' ypos='20'>Images/Cities/Mardukane/Areas/Map1/Places/Map - Map1 Beach.jpg</CloseUpImage>
+					<Description>A pleasant beach on Susanoo&apos;s Map1, commonly used for recreation.</Description>
+					<Locations>
+						<Location elapsed='0+'>
+							<ShowList>false</ShowList>
+							<ShowCityMap xpos='420' ypos='220'/>
+							<Name>Return to the City</Name>
+							<Description>Get the return boat to the city</Description>
+							<Event>/ReturnFromMap1</Event>
+						</Location>
+					</Locations>
+					
+					<Walk>
+						<!-- Default action if nothing else happens -->
+						<Nothing chance='100%'>
+							<AddText>#slave has a pleasant walk on the Map1 beach.</AddText>
+							<Points>0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 4, 0, 0, 0</Points>
+						</Nothing>
+					</Walk>
+				</Place>
+				
+				<Place nodeid='Map1Jungle' wingquest='false'>		
+					<Name>Jungle</Name>
+					<Background>DeepForest</Background>
+					<WalkButton xpos='566' ypos='223' width='275' height='188' shortcut='J'>Images/Cities/Mardukane/Areas/Map1/Places/Map1 Jungle.png</WalkButton>
+					<CloseUpImage align='left' xpos='20' ypos='20'>Images/Cities/Mardukane/Areas/Map1/Places/Map - Map1 Jungle.jpg</CloseUpImage>
+					<Description>A dense jungle like forest in the heart of the Map1.</Description>
+					
+					<Walk>
+						<!-- Default action if nothing else happens -->
+						<Nothing chance='100%'>
+							<AddText>#slave has a difficult walk in the jungle.</AddText>
+							<Points>0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 4, 0, 0, 0</Points>
+						</Nothing>
+					</Walk>
+				</Place>
+				
+			</Places>
+			
+		</Area>
+	</Areas>
+
+
+</Language>

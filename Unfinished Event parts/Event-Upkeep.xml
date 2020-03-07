@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8"?>
+Upkeep
+do I see assistants with the isslave="owned"?
+is the centaur included in the minor slaves?
+slaveowned="name" does not work for current main slave 
+slaveowned="name name" does disregard the empty space
+Game doesn't distinguish between children races.
+Upkeep is only calculated for the adult slaves at a rate of 0.1 gold per day
+Subsections
+Slaves Main
+Minor Slaves
+Assistants
+Children
+Weapons and Armor
+<!-- MAIN SLAVES -->
+
+	<if slaveowned="Akane"></if>
+	<if slaveowned="Ami"></if>
+	<if slaveowned="Ariel"></if>
+	<if slaveowned="Asuka"></if>
+	<if slaveowned="Aya Shameimaru"></if>
+	<if slaveowned="Aya"></if>
+	<if slaveowned="AyanamiRei"></if>
+	<if slaveowned="Ayane"></if>
+	<if slaveowned="Belldandy"></if>
+	<if slaveowned="BoaHancock"></if>
+	<if slaveowned="Bulma"></if>
+	<if slaveowned="Charlotte"></if>
+	<if slaveowned="Chie"></if>
+	<if slaveowned="Chunli"></if>
+	<if slaveowned="Daisy"></if>
+	<if slaveowned="Dark Magician Girl"></if>
+	<if slaveowned="Elesa"></if>
+	<if slaveowned="Eri"></if>
+	<if slaveowned="ErzaScarlet"></if>
+	<if slaveowned="Felicia"></if>
+	<if slaveowned="Flannery"></if>
+	<if slaveowned="Gardevoir"></if>
+	<if slaveowned="Haruka"></if>
+	<if slaveowned="Heather"></if>
+	<if slaveowned="Hinata"></if>
+	<if slaveowned="Holo"></if>
+	<if slaveowned="Imari"></if>
+	<if slaveowned="Ino"></if>
+	<if slaveowned="Juliet"></if>
+	<if slaveowned="Kairi"></if>
+	<if slaveowned="KallenStadtfeld"></if>
+	<if slaveowned="KanuUnchou"></if>
+	<if slaveowned="Kasumi"></if>
+	<if slaveowned="Katara"></if>
+	<if slaveowned="Kei"></if>
+	<if slaveowned="Kida"></if>
+	<if slaveowned="Kim possible"></if>
+	<if slaveowned="Kirino"></if>
+	<if slaveowned="Krystal"></if>
+	<if slaveowned="Kyon"></if>
+	<if slaveowned="Lamia"></if>
+	<if slaveowned="Leela"></if>
+	<if slaveowned="Leona"></if>
+	<if slaveowned="Lightning"></if>
+	<if slaveowned="Lois Griffin"></if>
+	<if slaveowned="Lola"></if>
+	<if slaveowned="Mai"></if>
+	<if slaveowned="Makoto"></if>
+	<if slaveowned="Mariya"></if>
+	<if slaveowned="Matsumoto"></if>
+	<if slaveowned="Mei"></if>
+	<if slaveowned="Melisandra"></if>
+	<if slaveowned="Menace"></if>
+	<if slaveowned="Mercury"></if>
+	<if slaveowned="Midna"></if>
+	<if slaveowned="Mihoshi"></if>
+	<if slaveowned="Mikhaila"></if>
+	<if slaveowned="Miku"></if>
+	<if slaveowned="Minako"></if>
+	<if slaveowned="Misako"></if>
+	<if slaveowned="Misty"></if>
+	<if slaveowned="Moka"></if>
+	<if slaveowned="Momo"></if>
+	<if slaveowned="Morrigan"></if>
+	<if slaveowned="Motoko"></if>
+	<if slaveowned="Musashi"></if>
+	<if slaveowned="Nami"></if>
+	<if slaveowned="Nao"></if>
+	<if slaveowned="Naoto"></if>
+	<if slaveowned="Naru"></if>
+	<if slaveowned="Nina"></if>
+	<if slaveowned="Orihime"></if>
+	<if slaveowned="pantyAndStocking"></if>
+	<if slaveowned="peach"></if>
+	<if slaveowned="pinkie pie"></if>
+	<if slaveowned="Quistis"></if>
+	<if slaveowned="Ran"></if>
+	<if slaveowned="Ranma"></if>
+	<if slaveowned="Rei"></if>
+	<if slaveowned="Reimu"></if>
+	<if slaveowned="Renamon"></if>
+	<if slaveowned="Riesz"></if>
+	<if slaveowned="Rikku"></if>
+	<if slaveowned="Ritsuko"></if>
+	<if slaveowned="Rogue"></if>
+	<if slaveowned="Rouge"></if>
+	<if slaveowned="Ryo"></if>
+	<if slaveowned="Ryomou"></if>
+	<if slaveowned="SaekoBusujima"></if>
+	<if slaveowned="Sakura"></if>
+	<if slaveowned="Sakuya"></if>
+	<if slaveowned="Samus Aran"></if>
+	<if slaveowned="Saori"></if>
+	<if slaveowned="Saphire"></if>
+	<if slaveowned="Senjougahara"></if>
+	<if slaveowned="Shampoo"></if>
+	<if slaveowned="Sheena"></if>
+	<if slaveowned="Shinji"></if>
+	<if slaveowned="Skyla"></if>
+	<if slaveowned="Snow White"></if>
+	<if slaveowned="Sona"></if>
+	<if slaveowned="Sophitia"></if>
+	<if slaveowned="SuperSonico"></if>
+	<if slaveowned="Taiga"></if>
+	<if slaveowned="Tayuya"></if>
+	<if slaveowned="Temari"></if>
+	<if slaveowned="Tifa"></if>
+	<if slaveowned="Tohsaka"></if>
+	<if slaveowned="Twilight Sparkle"></if>
+	<if slaveowned="UnohanaRetsu"></if>
+	<if slaveowned="Urd"></if>
+	<if slaveowned="Usagi"></if>
+	<if slaveowned="Videl"></if>
+	<if slaveowned="Yoruichi"></if>
+	<if slaveowned="Youmu"></if>
+	<if slaveowned="Yuna"></if>
+	<if slaveowned="Yurika"></if>
+	<if slaveowned="Zelda"></if>
+
+<!-- MINOR SLAVES -->
+	<if slaveowned="Ada"></if>
+	<if slaveowned="Adisa"></if>
+	<if slaveowned="Aki"></if>
+	<if slaveowned="Alice and Bria"></if>
+	<if slaveowned="Allura"></if>
+	<if slaveowned="Anesthesia"></if>
+	<if slaveowned="April"></if>
+	<if slaveowned="Arak"></if>
+	<if slaveowned="Ardala"></if>
+	<if slaveowned="Beatrix"></if>
+	<if slaveowned="Beautifly"></if>
+	<if slaveowned="Blair"></if>
+	<if slaveowned="Caeda"></if>
+	<if slaveowned="Carrera"></if>
+	<if slaveowned="Celsius"></if>
+	<if slaveowned="Cerebella"></if>
+	<if slaveowned="Chai"></if>
+	<if slaveowned="Chii"></if>
+	<if slaveowned="Christie"></if>
+	<if slaveowned="Christie Monteiro"></if>
+	<if slaveowned="Cora"></if>
+	<if slaveowned="Cynthia"></if>
+	<if slaveowned="Deala"></if>
+	<if slaveowned="Deborah"></if>
+	<if slaveowned="Dixie"></if>
+	<if slaveowned="Eclair"></if>
+	<if slaveowned="Elena"></if>
+	<if slaveowned="Elincia"></if>
+	<if slaveowned="Ella"></if>
+	<if slaveowned="Erina"></if>
+	<if slaveowned="Evangelyne"></if>
+	<if slaveowned="Faerie Butterfly"></if>
+	<if slaveowned="Faerie Titania"></if>
+	<if slaveowned="Fatina"></if>
+	<if slaveowned="Fuu"></if>
+	<if slaveowned="Garnet"></if>
+	<if slaveowned="Grimhilde"></if>
+	<if slaveowned="Grimro"></if>
+	<if slaveowned="Haelry"></if>
+	<if slaveowned="Hanon"></if>
+	<if slaveowned="Haro"></if>
+	<if slaveowned="Harpie Lady"></if>
+	<if slaveowned="Henrietta"></if>
+	<if slaveowned="Ilyana"></if>
+	<if slaveowned="Imari"></if>
+	<if slaveowned="Jessica"></if>
+	<if slaveowned="Jill"></if>
+	<if slaveowned="Julietto"></if>
+	<if slaveowned="Karin"></if>
+	<if slaveowned="Konan"></if>
+	<if slaveowned="Kooh"></if>
+	<if slaveowned="KosMos"></if>
+	<if slaveowned="Laan"></if>
+	<if slaveowned="Lalum"></if>
+	<if slaveowned="Lance"></if>
+	<if slaveowned="Lara Croft"></if>
+	<if slaveowned="Latala"></if>
+	<if slaveowned="Leanne"></if>
+	<if slaveowned="Lian and Dian"></if>
+	<if slaveowned="Lilim"></if>
+	<if slaveowned="Linde"></if>
+	<if slaveowned="Louise"></if>
+	<if slaveowned="Lucia"></if>
+	<if slaveowned="Maid Tara"></if>
+	<if slaveowned="Mao"></if>
+	<if slaveowned="Maran"></if>
+	<if slaveowned="Marcia"></if>
+	<if slaveowned="Marisa"></if>
+	<if slaveowned="Mei Terumi"></if>
+	<if slaveowned="Mia Wayu"></if>
+	<if slaveowned="Mileena"></if>
+	<if slaveowned="Millenia"></if>
+	<if slaveowned="Nadia"></if>
+	<if slaveowned="Nadia Fortune"></if>
+	<if slaveowned="Narry"></if>
+	<if slaveowned="Natsumi"></if>
+	<if slaveowned="Nina Wang"></if>
+	<if slaveowned="Nodoka"></if>
+	<if slaveowned="parasoul"></if>
+	<if slaveowned="parvati"></if>
+	<if slaveowned="passel"></if>
+	<if slaveowned="ponygirl 1"></if>
+	<if slaveowned="priscilla"></if>
+	<if slaveowned="Quistis"></if>
+	<if slaveowned="Ringo"></if>
+	<if slaveowned="Rosalina"></if>
+	<if slaveowned="Roxanne"></if>
+	<if slaveowned="Rukia"></if>
+	<if slaveowned="Ruto"></if>
+	<if slaveowned="Ryah"></if>
+	<if slaveowned="Ryoga"></if>
+	<if slaveowned="Saber"></if>
+	<if slaveowned="Sana"></if>
+	<if slaveowned="Sheva"></if>
+	<if slaveowned="Shizune"></if>
+	<if slaveowned="Shizuru"></if>
+	<if slaveowned="Sigrun"></if>
+	<if slaveowned="Soifon"></if>
+	<if slaveowned="Soma"></if>
+	<if slaveowned="Supergirl"></if>
+	<if slaveowned="Tana"></if>
+	<if slaveowned="Tanith"></if>
+	<if slaveowned="Temari"></if>
+	<if slaveowned="Thoth"></if>
+	<if slaveowned="Tia"></if>
+	<if slaveowned="Tiki"></if>
+	<if slaveowned="Titania Tiamat"></if>
+	<if slaveowned="Ulala"></if>
+	<if slaveowned="Ulvida"></if>
+	<if slaveowned="Valentine"></if>
+	<if slaveowned="Velvet"></if>
+	<if slaveowned="Vika"></if>
+	<if slaveowned="Villetta Nu"></if>
+	<if slaveowned="Winry"></if>
+	<if slaveowned="Wonder Woman"></if>
+	<if slaveowned="Yggdra"></if>
+	<if slaveowned="Yukiko"></if>
+	<if slaveowned="Zange"></if>
+	<if slaveowned="Zoey"></if>
+	<if slaveowned="Zorua"></if>
+
+<!-- ASSISTANTS -->
+	<if slaveowned="Aeka"></if>
+	<if slaveowned="Alena"></if>
+	<if slaveowned="Alice"></if>
+	<if slaveowned="AliceElliot"></if>
+	<if slaveowned="Amu"></if>
+	<if slaveowned="AndrAIa"></if>
+	<if slaveowned="AngelDaisy"></if>
+	<if slaveowned="AngelLily"></if>
+	<if slaveowned="AngelSalvia"></if>
+	<if slaveowned="Angewomon"></if>
+	<if slaveowned="Arcueid"></if>
+	<if slaveowned="AyaBrea"></if>
+	<if slaveowned="Bob"></if>
+	<if slaveowned="BrainSlug"></if>
+	<if slaveowned="Bridget"></if>
+	<if slaveowned="Cammy"></if>
+	<if slaveowned="Carrie"></if>
+	<if slaveowned="Catherine"></if>
+	<if slaveowned="CecileCroomy"></if>
+	<if slaveowned="Cirno"></if>
+	<if slaveowned="Colette"></if>
+	<if slaveowned="Cube"></if>
+	<if slaveowned="CureAqua"></if>
+	<if slaveowned="CureBeat"></if>
+	<if slaveowned="CureBeauty"></if>
+	<if slaveowned="CureBerry"></if>
+	<if slaveowned="CureBlossomandCureMarine"></if>
+	<if slaveowned="CureDream"></if>
+	<if slaveowned="CureEcho"></if>
+	<if slaveowned="CureHappy"></if>
+	<if slaveowned="CureLemonade"></if>
+	<if slaveowned="CureMarch"></if>
+	<if slaveowned="CureMelodyandCureRhythm"></if>
+	<if slaveowned="CureMint"></if>
+	<if slaveowned="CureMoonlight"></if>
+	<if slaveowned="CureMuse"></if>
+	<if slaveowned="Curepassion"></if>
+	<if slaveowned="Curepeace"></if>
+	<if slaveowned="Curepeach"></if>
+	<if slaveowned="Curepine"></if>
+	<if slaveowned="CureRouge"></if>
+	<if slaveowned="CureSunny"></if>
+	<if slaveowned="CureSunshine"></if>
+	<if slaveowned="Cyan"></if>
+	<if slaveowned="Deedlit"></if>
+	<if slaveowned="DotMatrix"></if>
+	<if slaveowned="Eirika"></if>
+	<if slaveowned="Elizabeth"></if>
+	<if slaveowned="Emma"></if>
+	<if slaveowned="FionaBelli"></if>
+	<if slaveowned="Franziska"></if>
+	<if slaveowned="Fuuka"></if>
+	<if slaveowned="Genma"></if>
+	<if slaveowned="Genma"></if>
+	<if slaveowned="Hestia"></if>
+	<if slaveowned="Hild"></if>
+	<if slaveowned="HolliWould"></if>
+	<if slaveowned="Hsien-Ko"></if>
+	<if slaveowned="Jade"></if>
+	<if slaveowned="Jem"></if>
+	<if slaveowned="JessicaRabbit"></if>
+	<if slaveowned="Jura"></if>
+	<if slaveowned="KaitouJeanne"></if>
+	<if slaveowned="Kanako"></if>
+	<if slaveowned="Kimberly"></if>
+	<if slaveowned="Kitana"></if>
+	<if slaveowned="Koudelka"></if>
+	<if slaveowned="Kurenai"></if>
+	<if slaveowned="Lena"></if>
+	<if slaveowned="Lethe"></if>
+	<if slaveowned="Lillymon"></if>
+	<if slaveowned="LuciaFlorence"></if>
+	<if slaveowned="LuciaNanami"></if>
+	<if slaveowned="Luka"></if>
+	<if slaveowned="Lulu"></if>
+	<if slaveowned="Lyndis"></if>
+	<if slaveowned="MaiTokiha"></if>
+	<if slaveowned="Maleficent"></if>
+	<if slaveowned="Mami"></if>
+	<if slaveowned="ManyaMinea"></if>
+	<if slaveowned="Marta"></if>
+	<if slaveowned="Meowth"></if>
+	<if slaveowned="Mia"></if>
+	<if slaveowned="Micaiah"></if>
+	<if slaveowned="MikuHinasaki"></if>
+	<if slaveowned="MilkyRose"></if>
+	<if slaveowned="Mint"></if>
+	<if slaveowned="MioandMayu"></if>
+	<if slaveowned="Misaka"></if>
+	<if slaveowned="Mouse"></if>
+	<if slaveowned="Mugi"></if>
+	<if slaveowned="Ninian"></if>
+	<if slaveowned="paine"></if>
+	<if slaveowned="patchouli"></if>
+	<if slaveowned="peorth"></if>
+	<if slaveowned="peorth"></if>
+	<if slaveowned="pizzazz"></if>
+	<if slaveowned="powerGirl"></if>
+	<if slaveowned="Ragyo"></if>
+	<if slaveowned="Rebecca"></if>
+	<if slaveowned="ReiKurosawa"></if>
+	<if slaveowned="Revy"></if>
+	<if slaveowned="Rhia"></if>
+	<if slaveowned="Rhia"></if>
+	<if slaveowned="Rise"></if>
+	<if slaveowned="Roshi"></if>
+	<if slaveowned="RukaMinazuki"></if>
+	<if slaveowned="Rydia"></if>
+	<if slaveowned="Samui"></if>
+	<if slaveowned="Saria"></if>
+	<if slaveowned="Selvaria"></if>
+	<if slaveowned="Sena"></if>
+	<if slaveowned="Serra"></if>
+	<if slaveowned="Shena"></if>
+	<if slaveowned="Sora"></if>
+	<if slaveowned="Sugimoto"></if>
+	<if slaveowned="Taki"></if>
+	<if slaveowned="Tsunade"></if>
+	<if slaveowned="Walter"></if>
+	<if slaveowned="WCC"></if>
+	<if slaveowned="Weddingpeach"></if>
+	<if slaveowned="Yoko"></if>
+	<if slaveowned="Yosuke"></if>
+	<if slaveowned="Yukari"></if>
+	<if slaveowned="Yuria"></if>
+
+
+<RacesStupidGoblinE1>
+	<AskQuestions>
+		<Question event='RacesStupidGoblinE0p1'>Rope</Question>
+		<Question event='RacesStupidGoblinE0p2'>Metal</Question>
+	</AskQuestions>
+</RacesStupidGoblinE1>
+
+	<RacesStupidGoblinE0p1>
+		<DoEvent>9999</DoEvent>
+	</RacesStupidGoblinE0p1>
+
+	<RacesStupidGoblinE0p2>
+		<DoEvent>9999</DoEvent>
+	</RacesStupidGoblinE0p2>
+
+<RacesStupidGoblinE1p1>
+	<AskQuestions>
+		<Question event='RacesStupidGoblinE1p1'>Run</Question>
+		<Question event='RacesStupidGoblinE1p2'>Sneak</Question>
+		<Question event='RacesStupidGoblinE1p3'>Keep on</Question>
+		<Question event='RacesStupidGoblinE1p4'>Escape</Question>
+	</AskQuestions>
+</RacesStupidGoblinE1p1>
+
+	<RacesStupidGoblinE1p4>
+		<DoEvent>9999</DoEvent>
+	</RacesStupidGoblinE1p4>
+
+	<RacesStupidGoblinE1p3>
+		<AskQuestions>
+			<Question event='RacesStupidGoblinE1p3p1'>Fight</Question>
+			<Question event='RacesStupidGoblinE1p3p2'>Help</Question>
+			<Question event='RacesStupidGoblinE1p3p3'>Ignore</Question>
+		</AskQuestions>
+	</RacesStupidGoblinE1p3>
+
+		<RacesStupidGoblinE1p3p1>
+			<DoEvent>9999</DoEvent>
+		</RacesStupidGoblinE1p3p1>
+
+		<RacesStupidGoblinE1p3p2>
+			<DoEvent>9999</DoEvent>
+		</RacesStupidGoblinE1p3p2>
+
+		<RacesStupidGoblinE1p3p3>
+			<DoEvent>9999</DoEvent>
+		</RacesStupidGoblinE1p3p3>
+
+	<RacesStupidGoblinE1p2>
+		<AskQuestions>
+			<Question event='RacesStupidGoblinE1p2p1'>Confront</Question>
+			<Question event='RacesStupidGoblinE1p2p2'>Show Yourself </Question>
+			<Question event='RacesStupidGoblinE1p2p3'>Escape</Question>
+		</AskQuestions>
+	</RacesStupidGoblinE1p2>
+
+		<RacesStupidGoblinE1p2p3>
+			<DoEvent>9999</DoEvent>
+		</RacesStupidGoblinE1p2p3>
+
+		<RacesStupidGoblinE1p2p2>
+			<AskQuestions>
+				<Question event='RacesStupidGoblinE1p3p1'>Fight</Question>
+				<Question event='RacesStupidGoblinE1p3p2'>Help</Question>
+				<Question event='RacesStupidGoblinE1p3p3'>Ignore</Question>
+			</AskQuestions>
+		</RacesStupidGoblinE1p2p2>
+
+		<RacesStupidGoblinE1p2p1>
+			<AskQuestions>
+				<Question event='RacesStupidGoblinE1p2p1p2'>Let Go</Question>
+				<Question event='RacesStupidGoblinE1p2p1p2'>Fight</Question>
+			</AskQuestions>
+		</RacesStupidGoblinE1p2p1>
+
+			<RacesStupidGoblinE1p2p1p2>
+				<AskQuestions>
+					<Question event='RacesStupidGoblinE1p2p1p2p1'>take for you</Question>
+					<Question event='RacesStupidGoblinE1p2p1p2p2'>help them</Question>
+					<Question event='RacesStupidGoblinE1p2p1p2p3'>bring back to town for punishment for killing their owner</Question>
+				</AskQuestions>
+			</RacesStupidGoblinE1p2p1p2>
+
+				<RacesStupidGoblinE1p2p1p2p1>
+					<DoEvent>9999</DoEvent>
+				</RacesStupidGoblinE1p2p1p2p1>
+
+				<RacesStupidGoblinE1p2p1p2p2>
+					<DoEvent>9999</DoEvent>
+				</RacesStupidGoblinE1p2p1p2p2>
+
+				<RacesStupidGoblinE1p2p1p2p3>
+					<DoEvent>9999</DoEvent>
+				</RacesStupidGoblinE1p2p1p2p3>
+
+		
+
+	<RacesStupidGoblinE1p1>
+		<AskQuestions>
+			<Question event='RacesStupidGoblinE1p1p1'>help slaves</Question>
+			<Question event='RacesStupidGoblinE1p1p2'>help goblin</Question>
+			<Question event='RacesStupidGoblinE1p1p3'>Pretend not to notice</Question>
+			<Question event='RacesStupidGoblinE1p1p4'>Keep on running</Question>
+		</AskQuestions>
+	</RacesStupidGoblinE1p1>
+
+		<RacesStupidGoblinE1p1p4>
+			<DoEvent>9999</DoEvent>
+		</RacesStupidGoblinE1p1p4>
+
+		<RacesStupidGoblinE1p1p3>
+			<DoEvent>9999</DoEvent>
+		</RacesStupidGoblinE1p1p3>
+
+		<RacesStupidGoblinE1p1p2>
+			<DoEvent>9999</DoEvent>
+		</RacesStupidGoblinE1p1p2>
+
+		<RacesStupidGoblinE1p1p1>
+			<AskQuestions>
+				<Question event='RacesStupidGoblinE1p1p1p1'>take for you</Question>
+				<Question event='RacesStupidGoblinE1p1p1p2'>help them</Question>
+				<Question event='RacesStupidGoblinE1p1p1p2'>Pretend not to notice that they are slaves</Question>
+			</AskQuestions>
+		</RacesStupidGoblinE1p1p1>
+
+			<RacesStupidGoblinE1p1p1p1>
+				<DoEvent>9999</DoEvent>
+			</RacesStupidGoblinE1p1p1p1>
+
+			<RacesStupidGoblinE1p1p1p2>
+				<DoEvent>9999</DoEvent>
+			</RacesStupidGoblinE1p1p1p2>
+
+			<RacesStupidGoblinE1p1p1p3>
+				<DoEvent>9999</DoEvent>
+			</RacesStupidGoblinE1p1p1p3>

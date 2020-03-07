@@ -1,0 +1,1233 @@
+<Language>
+Regarding the suggestion to make the various SM outfits have an effect, if I remember correctly someone already did this for SlaveMaker 3.5\Images\Appearances\Human\Female 8. It's in the avatar.xml file. Below is a copy of what's there, which I think I modified a bit from stock, but it should be pretty similar.
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Avatar>
+<Statistics>
+<Dominance>10</Dominance>
+<Attack>10</Attack>
+<Defence>10</Defence>
+<Constitution>10</Constitution>
+</Statistics>
+
+<Images>
+<Appearance>13</Appearance>
+<DressPlain>1</DressPlain>
+<DressCourt>
+<Count>1</Count>
+<StatEffects>
+<Refinement>15</Refinement>
+<Conversation>15</Conversation>
+</StatEffects>
+</DressCourt>
+<DressDance>
+<Count>1</Count>
+<StatEffects>
+<Charisma>15</Charisma>
+<Constitution>15</Constitution>
+</StatEffects>
+</DressDance>
+<DressBDSM>
+<Count>1</Count>
+<StatEffects>
+<Dominance>10</Dominance>
+<Lust>20</Lust>
+<Corruption>10</Corruption>
+</StatEffects>
+</DressBDSM>
+<DressMiko>
+<Count>1</Count>
+<StatEffects>
+<Attack>10</Attack>
+<Defence>10</Defence>
+<Constitution>10</Constitution>
+</StatEffects>
+</DressMiko>
+<Naked>3</Naked>
+
+<ItemLingerie>1</ItemLingerie>
+<ItemSwimsuit>1</ItemSwimsuit>
+<ItemBunnySuit>2</ItemBunnySuit>
+<ItemMaidUniform>2</ItemMaidUniform>
+
+<TentacleSex>0</TentacleSex>
+<EventRaped>7</EventRaped>
+<PregnancyReveal>1</PregnancyReveal>
+<EventWet>1</EventWet>
+<SMRelaxSleazyBar>1</SMRelaxSleazyBar>
+<RelaxInABar>1</RelaxInABar>
+<SMJobWorkGuild>1</SMJobWorkGuild>
+<SMJobCockMilk>0</SMJobCockMilk>
+<SMJobBrothel>14</SMJobBrothel>
+<SMJobTradeGoods>3</SMJobTradeGoods>
+<SMJobDom>1</SMJobDom>
+<SMJobPotions>3</SMJobPotions>
+<SMJobPreach>3</SMJobPreach>
+<SMJobMilitia>2</SMJobMilitia>
+<SMJobSleazyBar>5</SMJobSleazyBar>
+<AttendCourt>2</AttendCourt>
+</Images>
+</Avatar>
+
+There might be more in here than just the clothing modifiers, I didn't write the whole thing. Hope this helps those interested though.
+	<Credits> 
+		Version 0.1 alfa		 \r
+		code mllhild 			 \r    
+	</Credits>
+	<Events>
+		<!--   __________________________________________________________________________________________ CUSTOM LOCATION DECLARING START _____________________ -->
+		<CustomHouse-x_Galeon name="x_Galeon" hint="The Galeon where you can live." xpos="20" ypos="250" show="true">
+			<DoEvent now="true">HouseGaleon</DoEvent>
+		</CustomHouse-x_Galeon>
+		<CustomHouse-x_Keep name="x_Keep" hint="The Galeon where you can live." xpos="20" ypos="300" show="true">
+			<DoEvent now="true">HouseKeep</DoEvent>
+		</CustomHouse-x_Keep>
+		<CustomHouse-x_Your_Farm name="x_Your_Farm" hint="Your very own milking Farm." xpos="20" ypos="350" show="true">
+			<DoEvent now="true">TMBYourFarm</DoEvent>
+		</CustomHouse-x_Your_Farm>
+		<!--   __________________________________________________________________________________________ CUSTOM LOCATION DECLARING END _____________________ -->
+
+		<Initialise>
+			<if Obedience="0+">
+					<ShowCustomHouse>x_Galeon</ShowCustomHouse>
+			</if>
+		</Initialise>
+
+		<UpdateDateAndItems>
+			<Need>
+				<if SMLust="1+">
+					<ShowAct>SMCustomTrainingHE</ShowAct>
+					<else>if</else>
+						<HideAct>SMCustomTrainingHE</HideAct>
+				</if>
+				<if Obedience="0+">
+					<ShowCustomHouse>x_Galeon</ShowCustomHouse>
+				</if>
+				<if Obedience="0+">
+					<ShowCustomHouse>x_Keep</ShowCustomHouse>
+				</if>
+			</Need>
+		</UpdateDateAndItems>
+
+		<EarlyMorning>
+			<!--
+				<Test5 chance="100%">
+					<SetText>EarlyMorning Test 5</SetText>
+				<DoEvent>4080</DoEvent> first milking event
+					<AddText>
+						 It did print
+						 #flagBEN-00       flagBEN-00
+						 #flagBEN-01       flagBEN-01
+						 #flagBEN-02       flagBEN-02
+						 #flagBEN-03       flagBEN-03
+						 #flagBEN-04       flagBEN-04
+						 #savedvar0-BEN 		 for things like SMCharisma+SMLust="100+" 
+						 #savedvar1-BEN			 Breast fixation 
+						 #savedvar4-BEN			 Lactation 
+						 #savedvar3-BEN			 CowGirlTraining 
+						 #savedvar4-BEN			 Milkbuild up 
+						 #savedvar5-BEN			 Breastincrease (in %) 
+						 #savedvar6-BEN			 SMskill Breast Expert 
+						 #savedvar7-BEN			 SMskill CowGirl trainer 
+						 #savedvar40-BEN		 number of household members 
+					</AddText>
+				
+				</Test5>
+
+				<Test6 chance="100%">
+					<SetText>EarlyMorning Test 6</SetText>
+					<DoEvent>9999</DoEvent>
+				</Test6>
+			-->
+		</EarlyMorning>
+		<Walk>
+			<Farm>
+				<Testing chance="100%">
+
+					<Exploration>
+					         <!-- 0 --><Room type='2' desc='Reception' event='HouseGaleonF2R0'        xpos='75' ypos='75' width='50' height='50' rotate='0' explored='false'/>
+					         <!-- 1 --><Room type='2' desc='Staffroom' event='HouseGaleonF2R0'        xpos='130' ypos='75' width='25' height='50' rotate='0' explored='false'/>
+					         <!-- 2 --><Room type='2' desc='Lab' event='HouseGaleonF2R0'              xpos='160' ypos='75' width='50' height='50' rotate='0' explored='false'/>
+					         <!-- 3 --><Room type='2' desc='corridor' event='HouseGaleonF2R0'         xpos='215' ypos='75' width='25' height='50' rotate='0' explored='false'/>
+					         <!-- 4 --><Room type='2' desc='Special Guests' event='HouseGaleonF2R0'   xpos='245' ypos='75' width='100' height='50' rotate='0' explored='false'/>
+					         <!-- 5 --><Room type='2' desc='Field' event='HouseGaleonF2R0'            xpos='350' ypos='75' width='100' height='210' rotate='0' explored='false'/>
+					         <!-- 6 --><Room type='2' desc='Storage' event='HouseGaleonF2R0'          xpos='75' ypos='130' width='50' height='100' rotate='0' explored='false'/>
+					         <!-- 7 --><Room type='2' desc='Barn' event='HouseGaleonF2R0'             xpos='130' ypos='130' width='225' height='100' rotate='0' explored='false'/>
+					         <!-- 8 --><Room type='2' desc='VIP lounge' event='HouseGaleonF2R0'       xpos='155' ypos='235' width='195' height='50' rotate='0' explored='false'/>
+					         <!--
+						         unction AddRoomAndPosition(type:Number, desc:String, eventno:Number, xpos:Number, ypos:Number, rwidth:Number, rheight:Number, rrotate:Number, explored:Boolean)
+		         				 type              - type of room
+		                           0        = plain room
+		                           1        = corridor. no ends
+		                           1.1      = corridor, dead end at top
+		                           1.2      = corridor, dead end at bottom
+		                           2        = room, rough walls
+		                           3        = corridor, rough walls
+		                           3.1      = corridor, rough walls, dead end at top
+		                           3.2      = corridor, rough walls, dead end at bottom
+		                           4.1, 4.2 = a trapdoor
+								   5, 5.1, 5,2 = stairs
+						         desc              - short description of the area
+						         eventno          - event via DoNextEvent called when you enter the room
+						         xpos              - x position the room is drawn on screen
+						         ypos              - y position of room
+						         rwidth            - width of room
+						         rheight          - hright of room
+						         rrotate          - rotation of the room, careful positions are awkward, but game automatically handles 90 properly
+						         explored         - true and it is visible 
+					     	 -->
+					    	 <Door from='0' to='1' dpos='1' width='8' height='15'/>
+					    	 <Door from='0' to='6' dpos='1' width='8' height='15'/>
+					    	 <Door from='6' to='7' dpos='1' width='8' height='15'/>
+					    	 
+					    	 <Door from='1' to='2' dpos='1' width='8' height='15'/>
+					    	 <Door from='2' to='3' dpos='1' width='8' height='15'/>
+					    	 <Door from='3' to='4' dpos='1' width='8' height='15'/>
+					    	 <Door from='3' to='7' dpos='1' width='8' height='15'/>
+					    	 <Door from='7' to='5' dpos='1' width='8' height='15'/>
+					    	 <Door from='5' to='8' dpos='1' width='8' height='15'/>
+         			    
+					         <!--
+						         function AddDoorAndPosition(room1:Number, room2:Number, hidden:Boolean, xpos:Number, ypos:Number, rwidth:Number, rheight:Number, rrotate:Number, locked:Boolean, eventno:Number)
+						         room1    - room the door connects from
+						         room2    - room the door connects to
+						         hidden   - true and the door is invisible
+						         xpos              - x position of the door
+						         ypos              - y position of the door
+						         rwidth            - width of the door (default 25)
+						         rheight          - hieght of the door (default 14)
+						         rrotate          - rotation of the door, 90 is handled well, others can cause strange positioning
+						         locked   - the door is locked preventing passage
+						         eventno          - event called when you pass through the door 
+					     	 -->
+					</Exploration>
+					<EnterRoom>1</EnterRoom>
+					<SetRoomExplored>4</SetRoomExplored>
+					<ShowCurrentFloor/>
+					
+					<!--
+						<Backgrounds place='housing'/>
+						<ChangeTime>1.5</ChangeTime>
+						<ShowCurrentFloor/>
+						<HideCurrentFloor/>
+						<UnlockDoor from='number' to='number'/>
+						<LockDoor from='number' to='number'/>
+						<EnterRoom>expression</EnterRoom>
+						<EnterRoom>expression</EnterRoom>
+						<SetRoomExplored>expression</SetRoomExplored>
+						<StopExploring/>
+					-->
+				</Testing>
+				<Test8 chance="0%">
+					<HideImages>hide</HideImages>
+					<Backgrounds place='potions' frame='2'/>
+					<ShowImage image='Images/Events/CA/drugged' frame='random3'/>
+					<SetVar savedvar1_Test="0.3"/>
+					<SetText>savedvar1_Test #savedvar1_Test \r</SetText>
+					<if savedvar1_Test="0.1"><AddText>0.1 </AddText></if>
+					<if savedvar1_Test="0.3"><AddText>0.3 </AddText></if>
+					<if savedvar1_Test="0.3+"><AddText>0.3+ </AddText></if>
+					<if savedvar1_Test="0.3-"><AddText>0.3- </AddText></if>
+					<if savedvar1_Test="0.3"><AddText>0.3 do event 9999</AddText></if>
+					<if savedvar1_Test="0.3"><AddText>0.3 #time\r\r</AddText></if>
+						<AskQuestion>
+							<Question event="ShowMilkFall">ShowMilkFall</Question>
+							<Question event="4080">First Milking</Question>
+							<Question event="4081">End ofFirst Milking </Question>
+							<Question event="ShowMilkEnd">ShowMilkEnd</Question>
+							<Question event="ShowMilkAccident">ShowMilkAccident</Question>
+							<Question event="ShowMilking">ShowMilking</Question>
+						</AskQuestion>
+				</Test8>
+			</Farm>
+			<Slums>
+				<Test7 chance="100%">
+					<SetText>
+						time 			#time \r
+						\r
+						smattack		#smattack \r
+						smdefence		#smdefence \r
+						corruption		#corruption \r
+						smmincorruption	#smmincorruption \r
+						smconstitution	#smconstitution \r
+						smconversation	#smconversation \r
+						smreputation	#smreputation \r
+						smlust 			#smlust \r
+						smminlust 		#smminlust \r
+						smdominance		#smdominance \r
+						smcharisma 		#smcharisma \r
+						smrefinement 	#smrefinement \r
+						smnymphomania	#smnymphomania \r
+						smtiredness 	#smtiredness \r
+						smbust			#smbust \r
+						smclit			#smclit \r
+						smcock			#smcock \r
+						smtotalchildren	#smtotalchildren \r
+						smfertility		#smfertility \r
+						smsexualenergy	#smsexualenergy \r
+						faith			#faith \r
+						smhealth		#smhealth \r
+						smpregnancygestation	#smpregnancygestation \r
+						smpregnancycount	#smpregnancycount \r
+						smpregnancytype	#smpregnancytype \r
+						\r
+						milkinfluence	#milkinfluence \r
+						breastfixation 	#breastfixation \r
+						lactation		#lactation \r
+						\r
+						money			#money \r
+						smmoney			#smmoney \r
+						hascock			#hascock \r
+						isfairy			#isfairy \r
+						iscatgirl		#iscatgirl \r
+						isponygirl		#isponygirl \r
+						isdickgirl		#isdickgirl \r
+						\r
+						smspecialEvent	#smspecialEvent \r
+						SMAdvantages.Bitflag2 #SMAdvantages.Bitflag2 \r
+						SMAdvantages.Bitflag9 #SMAdvantages.Bitflag9 \r
+						SMAdvantages.Bitflag10 #SMAdvantages.Bitflag10 \r
+						SMAdvantages.Bitflag24 #SMAdvantages.Bitflag24 \r
+						SMAdvantages.CheckBitFlag(24)	\r
+						#SMAdvantages.CheckBitFlag(24)	\r
+						#SMAdvantages.CheckBitFlag24	\r
+						\r
+						TotalMilked		#TotalMilked \r
+						BreastFixation 	#BreastFixation \r
+						MilkBuildUp 	#MilkBuildUp \r
+						RulesMilkHerself	#RulesMilkHerself \r
+						RulesMasturbade	#RulesMasturbade \r
+						BitFlag6 		#BitFlag6 \r
+						BitFlag7 		#BitFlag7 \r
+						BitFlag11 		#BitFlag11 \r
+						BitFlag25 		#BitFlag25 \r
+						BitFlag26 		#BitFlag26 \r
+					</SetText>
+				</Test7>
+			</Slums>
+			<Palace>
+				<Testing chance="100%">
+					<DoEvent now='true'>StartHouse</DoEvent>
+				</Testing>
+			</Palace>
+			<TownCenter>
+				<Testing2 chance="100%">
+					<Exploration>
+					    <Room type='0' desc='0 Living Area' event='HouseGaleonF2R0' xpos='90' ypos='180' width='200' height='150' rotate='0' explored='false'/>
+					    <Room type='0' desc='1 Kitchen'     event='HouseGaleonF2R0' xpos='90' ypos='80' width='150' height='100' rotate='0' explored='false'/>
+					    <Room type='0' desc='2 Bath Room'   event='HouseGaleonF2R0' xpos='240' ypos='80' width='50' height='100' rotate='0' explored='false'/>
+					    <Room type='0' desc='3 Bed Room'    event='HouseGaleonF2R0' xpos='290' ypos='205' width='100' height='125' rotate='0' explored='false'/>
+					    <Room type='0' desc='4 Bed Room'    event='HouseGaleonF2R0' xpos='290' ypos='80' width='100' height='125' rotate='0' explored='false'/>
+					    <Room type='0' desc='5 Trapdoor 4.1' event='HouseGaleonF2R0' xpos='40' ypos='200' width='50' height='50' rotate='0' explored='false'/>
+					    <Room type='0' desc='6 Trapdoor 4.2' event='HouseGaleonF2R0' xpos='40' ypos='250' width='50' height='50' rotate='0' explored='false'/>
+					    <Room type='0' desc='7 Stairs 5'    event='HouseGaleonF2R0' xpos='110' ypos='30' width='40' height='50' rotate='0' explored='false'/>
+					    <Room type='0' desc='8 Stairs 5.1' event='HouseGaleonF2R0' xpos='150' ypos='30' width='40' height='50' rotate='0' explored='false'/>
+					    <Room type='0' desc='9 Stairs 5.2' event='HouseGaleonF2R0' xpos='190' ypos='30' width='40' height='50' rotate='0' explored='false'/>
+					    <Door from='0' to='-1' dpos='8' width='50'/>
+					    <Door from='0' to='1' dpos='2' width='8' height='15'/>
+					    <Door from='1' to='2' dpos='5' width='8' height='15'/>
+					    <Door from='2' to='4' dpos='5' width='8' height='15'/>
+					    <Door from='0' to='3' dpos='5' width='8' height='15'/>
+					    <Door from='0' to='4' dpos='4' width='8' height='15'/>
+					    <Door from='5' to='0' dpos='4' width='8' height='15'/>
+					    <Door from='6' to='0' dpos='4' width='8' height='15'/>
+					    <Door from='7' to='1' dpos='8' width='8' height='15'/>
+					    <Door from='8' to='1' dpos='8' width='8' height='15'/>
+					    <Door from='9' to='1' dpos='8' width='8' height='15'/>
+					</Exploration>
+					<LockDoor from='0' to='4'/>
+					<EnterRoom>1</EnterRoom>
+
+					<HideImages/>
+					<Backgrounds place='housing'/>
+					<ShowCurrentFloor/>
+					<!--
+						 _root.HouseEvents.InitialiseExploration("Expensive Apartment", "Hallway");
+				         _root.HouseEvents.AddRoomAndPosition(0, "Living Area", 423, 90, 180, 200, 150);
+				         _root.HouseEvents.AddRoomAndPosition(0, "Kitchen", 424, 90, 80, 150, 100);
+				         _root.HouseEvents.AddRoomAndPosition(0, "Bath Room", 0, 240, 80, 50, 100);
+				         _root.HouseEvents.AddRoomAndPosition(0, "Bed Room", 436, 290, 205, 100, 125,0);
+				         _root.HouseEvents.AddRoomAndPosition(0, "Bed Room", 0, 290, 80, 100, 125);
+				         _root.HouseEvents.AddDoorToRoom(0, 1, 2);
+				         _root.HouseEvents.AddDoorToRoom(1, 2, 5);
+				         _root.HouseEvents.AddDoorToRoom(2, 4, 5);
+				         _root.HouseEvents.AddDoorToRoom(0, 3, 5);
+				         _root.HouseEvents.AddDoorToRoom(0, 4, 4, undefined, undefined, undefined, true);
+				         _root.HouseEvents.AddDoorToRoom(0, -1, 8, 50);
+				         _root.HouseEvents.ShowCurrentFloor();-->
+				</Testing2>
+			</TownCenter>
+		</Walk>
+		<StartHouse>
+			<Blankline/>
+			<DoEvent now='true'>TMBYourFarm</DoEvent>
+			<!--
+					<AskQuestion caption='which house do you want to visit?'>
+						<Question event='HouseApartment'>Apartment</Question>
+						<Question event='HouseBalge'>Balge</Question>
+						<Question event='HouseFarm'>Farm House</Question>
+						<Question event='HouseForest'>Forest House</Question>
+						<Question event='HouseGaleon'>Galeon</Question>
+						<Question event='HouseHouse'>City House</Question>
+						<Question event='HouseKeep'>Old Keep</Question>
+						<Question event='HouseMansion'>Mansion</Question>
+						<Question event='HouseOnsen'>Onsen</Question>
+						<Question event='HouseTemple'>Temple</Question>
+					</AskQuestion>-->
+		</StartHouse>
+		<HouseApartment>
+		</HouseApartment>
+		<HouseBalge></HouseBalge>
+		<HouseFarm></HouseFarm>
+		<HouseForest></HouseForest>
+		<!--   __________________________________________________________________________________________ GALEON START _____________________ -->
+			<HouseGaleon>
+				<SetText>You enter the Main deck of the Galeon</SetText>
+				<DoEvent>HouseGaleonF2</DoEvent>
+			</HouseGaleon>
+				<HouseGaleonExit>
+					<YesNoQuestion event='HouseGaleonExit'>Do you want to exit the Galeon?</YesNoQuestion>
+				</HouseGaleonExit>
+				<HouseGaleonExitYES>
+					<SetText>You exit the Galeon.</SetText>
+					<HideCurrentFloor/>
+					<StopExploring/>
+					<DoEvent now='true'>9999</DoEvent>
+				</HouseGaleonExitYES>
+				<HouseGaleonExitNO>
+					<SetText>You change your mind, turning around...</SetText>
+				</HouseGaleonExitNO>
+				<HouseGaleonF1>
+					<SetVar var0='50'/> <!-- X offset (to the right) -->
+					<SetVar var1='90'/> <!-- Y offset (down wards) -->
+					<SetVar var2='0'/> <!-- Y width  -->
+					<SetVar var3='0'/> <!-- X height -->
+					<Exploration>
+						<Room type='0' description='0 Stern Castle' event='HouseGaleonF1R0' xpos='var0+var2*0+50' ypos='var1+var3*0+50' height='var3*120' width='var2*140' explored='false'/>
+						<Room type='0' description='1 Forecastle' event='HouseGaleonF1R1' xpos='var0+var2*0+400' ypos='var1+var3*0+50' height='var3*120' width='var2*60' explored='false'/>
+						<Room type='0' description='2 to Main Deck' event='HouseGaleonF1R2' xpos='var0+var2*0+380' ypos='var1+var3*0+50' height='var3*40' width='var2*20' explored='false'/>
+						<Room type='0' description='3 to Main Deck' event='HouseGaleonF1R3' xpos='var0+var2*0+190' ypos='var1+var3*0+50' height='var3*40' width='var2*20' explored='false'/>
+						<Room type='0' description='4 to Main Deck' event='HouseGaleonF1R3' xpos='var0+var2*0+190' ypos='var1+var3*0+130' height='var3*40' width='var2*20' explored='false'/>
+						<Door from='3' to='0' dpos='11' height='var3*1' width='var2*1'/>
+						<Door from='4' to='0' dpos='11' height='var3*1' width='var2*1'/>
+						<Door from='2' to='1' dpos='5' height='var3*1' width='var2*1'/>
+					</Exploration>
+					<if var4='0'>
+						<EnterRoom>0</EnterRoom>
+					</if>
+					<if var4='1'>
+						<EnterRoom>1</EnterRoom>
+					</if>
+					<HideImages/>
+					<Backgrounds place='housing'/>
+					<ShowCurrentFloor/>
+				</HouseGaleonF1>
+					<HouseGaleonF1R0></HouseGaleonF1R0>
+					<HouseGaleonF1R1></HouseGaleonF1R1>
+					<HouseGaleonF1R2><DoEvent now='true'>HouseGaleonF2</DoEvent></HouseGaleonF1R2>
+					<HouseGaleonF1R3><DoEvent now='true'>HouseGaleonF2</DoEvent></HouseGaleonF1R3>
+				<HouseGaleonF2>
+					<SetVar var0='50'/> <!-- X offset (to the right) -->
+					<SetVar var1='90'/> <!-- Y offset (down wards) -->
+					<SetVar var2='0'/> <!-- Y width  -->
+					<SetVar var3='0'/> <!-- X height -->
+					<Exploration>
+						<Room type='0' description='0 Main Deck' event='HouseGaleonF2R0' xpos='var0+var2*0+170' ypos='var1+var3*0+50' height='var3*120' width='var2*210' explored='false'/>
+						<Room type='0' description='1 Corridor' event='HouseGaleonF2R1' xpos='var0+var2*0+90' ypos='var1+var3*0+90' height='var3*40' width='var2*80' explored='false'/>
+						<Room type='0' description='2 Middle up' event='HouseGaleonF2R2' xpos='var0+var2*0+90' ypos='var1+var3*0+50' height='var3*40' width='var2*60' explored='false'/>
+						<Room type='0' description='3 Middle down' event='HouseGaleonF2R3' xpos='var0+var2*0+90' ypos='var1+var3*0+130' height='var3*40' width='var2*60' explored='false'/>
+						<Room type='0' description='4 Left up' event='HouseGaleonF2R4' xpos='var0+var2*0+50' ypos='var1+var3*0+50' height='var3*60' width='var2*40' explored='false'/>
+						<Room type='0' description='5 Left down' event='HouseGaleonF2R5' xpos='var0+var2*0+50' ypos='var1+var3*0+110' height='var3*60' width='var2*40' explored='false'/>
+						<Room type='0' description='6 Right Middle' event='HouseGaleonF2R6' xpos='var0+var2*0+380' ypos='var1+var3*0+90' height='var3*40' width='var2*60' explored='false'/>
+						<Room type='0' description='7 to Forecastle' event='HouseGaleonF2R7' xpos='var0+var2*0+380' ypos='var1+var3*0+50' height='var3*40' width='var2*20' explored='false'/>
+						<Room type='0' description='8 to Cargo Deck' event='HouseGaleonF2R8' xpos='var0+var2*0+380' ypos='var1+var3*0+130' height='var3*40' width='var2*20' explored='false'/>
+						<Room type='0' description='9 to Land' event='HouseGaleonExit' xpos='var0+var2*0+250' ypos='var1+var3*0+170' height='var3*60' width='var2*20' explored='false'/>
+						<Room type='0' description='10 to Stern Castle' event='HouseGaleonF2R9' xpos='var0+var2*0+150' ypos='var1+var3*0+50' height='var3*40' width='var2*20' explored='false'/>
+						<Room type='0' description='11 to Stern Castle' event='HouseGaleonF2R9' xpos='var0+var2*0+150' ypos='var1+var3*0+130' height='var3*40' width='var2*20' explored='false'/>
+						<Door from='1' to='0' dpos='5' height='var3*10' width='var2*10'/>
+						<Door from='1' to='2' dpos='2' height='var3*10' width='var2*10'/>
+						<Door from='1' to='3' dpos='8' height='var3*10' width='var2*10'/>
+						<Door from='2' to='4' dpos='11' height='var3*10' width='var2*10'/>
+						<Door from='3' to='5' dpos='11' height='var3*10' width='var2*10'/>
+						<Door from='6' to='0' dpos='11' height='var3*10' width='var2*10'/>
+						<Door from='7' to='0' dpos='11' height='var3*1' width='var2*1'/>
+						<Door from='8' to='0' dpos='11' height='var3*1' width='var2*1'/>
+						<Door from='9' to='0' dpos='2' height='var3*1' width='var2*1'/>
+						<Door from='10' to='0' dpos='5' height='var3*1' width='var2*1'/>
+						<Door from='11' to='0' dpos='5' height='var3*1' width='var2*1'/>
+					</Exploration>
+					<EnterRoom>0</EnterRoom>
+					<HideImages/>
+					<Backgrounds place='housing'/>
+					<ShowCurrentFloor/>
+				</HouseGaleonF2>
+					<HouseGaleonF2R0></HouseGaleonF2R0>
+					<HouseGaleonF2R1></HouseGaleonF2R1>
+					<HouseGaleonF2R2></HouseGaleonF2R2>
+					<HouseGaleonF2R3></HouseGaleonF2R3>
+					<HouseGaleonF2R4></HouseGaleonF2R4>
+					<HouseGaleonF2R5></HouseGaleonF2R5>
+					<HouseGaleonF2R6></HouseGaleonF2R6>
+					<HouseGaleonF2R7><SetVar var4='1'/><DoEvent now='true'>HouseGaleonF1</DoEvent></HouseGaleonF2R7>
+					<HouseGaleonF2R8><DoEvent now='true'>HouseGaleonF3</DoEvent></HouseGaleonF2R8>
+					<HouseGaleonF2R9><SetVar var4='0'/><DoEvent now='true'>HouseGaleonF1</DoEvent></HouseGaleonF2R9>
+				<HouseGaleonF3>
+					<SetVar var0='50'/> <!-- X offset (to the right) -->
+					<SetVar var1='90'/> <!-- Y offset (down wards) -->
+					<SetVar var2='0'/> <!-- Y width  -->
+					<SetVar var3='0'/> <!-- X height -->
+					<Exploration>
+						<Room type='0' description='0 Cargo Deck' event='HouseGaleonF3R0' xpos='var0+var2*0+210' ypos='var1+var3*0+70' height='var3*100' width='var2*140' explored='false'/>
+						<Room type='0' description='1 Corridor' event='HouseGaleonF3R1' xpos='var0+var2*0+170' ypos='var1+var3*0+110' height='var3*20' width='var2*40' explored='false'/>
+						<Room type='0' description='2 Left up' event='HouseGaleonF3R2' xpos='var0+var2*0+90' ypos='var1+var3*0+70' height='var3*50' width='var2*40' explored='false'/>
+						<Room type='0' description='3 Left down' event='HouseGaleonF3R3' xpos='var0+var2*0+90' ypos='var1+var3*0+120' height='var3*50' width='var2*40' explored='false'/>
+						<Room type='0' description='4 Middle' event='HouseGaleonF3R4' xpos='var0+var2*0+130' ypos='var1+var3*0+70' height='var3*100' width='var2*40' explored='false'/>
+						<Room type='0' description='5 Middle up' event='HouseGaleonF3R5' xpos='var0+var2*0+170' ypos='var1+var3*0+70' height='var3*40' width='var2*40' explored='false'/>
+						<Room type='0' description='6 Middle down' event='HouseGaleonF3R6' xpos='var0+var2*0+170' ypos='var1+var3*0+130' height='var3*40' width='var2*40' explored='false'/>
+						<Room type='0' description='7 Right middle' event='HouseGaleonF3R7' xpos='var0+var2*0+350' ypos='var1+var3*0+100' height='var3*40' width='var2*40' explored='false'/>
+						<Room type='0' description='8 to Main Deckk' event='HouseGaleonF3R8' xpos='var0+var2*0+350' ypos='var1+var3*0+140' height='var3*30' width='var2*20' explored='false'/>
+						<Room type='0' description='9 to Balast Chamber' event='HouseGaleonF3R9' xpos='var0+var2*0+350' ypos='var1+var3*0+70' height='var3*30' width='var2*20' explored='false'/>
+						<Door from='0' to='1' dpos='11' height='var3*10' width='var2*10'/>
+						<Door from='1' to='4' dpos='11' height='var3*10' width='var2*10'/>
+						<Door from='1' to='5' dpos='2' height='var3*10' width='var2*10'/>
+						<Door from='1' to='6' dpos='8' height='var3*10' width='var2*10'/>
+						<Door from='2' to='4' dpos='5' height='var3*10' width='var2*10'/>
+						<Door from='3' to='4' dpos='5' height='var3*10' width='var2*10'/>
+						<Door from='7' to='0' dpos='11' height='var3*10' width='var2*10'/>
+						<Door from='8' to='0' dpos='11' height='var3*1' width='var2*1'/>
+						<Door from='9' to='0' dpos='11' height='var3*1' width='var2*1'/>
+					</Exploration>
+					<EnterRoom>0</EnterRoom>
+					<HideImages/>
+					<Backgrounds place='housing'/>
+					<ShowCurrentFloor/>
+				</HouseGaleonF3>
+					<HouseGaleonF3R0></HouseGaleonF3R0>
+					<HouseGaleonF3R1></HouseGaleonF3R1>
+					<HouseGaleonF3R2></HouseGaleonF3R2>
+					<HouseGaleonF3R3></HouseGaleonF3R3>
+					<HouseGaleonF3R4></HouseGaleonF3R4>
+					<HouseGaleonF3R5></HouseGaleonF3R5>
+					<HouseGaleonF3R6></HouseGaleonF3R6>
+					<HouseGaleonF3R7></HouseGaleonF3R7>
+					<HouseGaleonF3R8><DoEvent now='true'>HouseGaleonF2</DoEvent></HouseGaleonF3R8>
+					<HouseGaleonF3R9><DoEvent now='true'>HouseGaleonF4</DoEvent></HouseGaleonF3R9>
+				<HouseGaleonF4>
+					<SetVar var0='50'/> <!-- X offset (to the right) -->
+					<SetVar var1='90'/> <!-- Y offset (down wards) -->
+					<SetVar var2='0'/> <!-- Y width  -->
+					<SetVar var3='0'/> <!-- X height -->
+					<Exploration>
+						<Room type='0' description='0 Middle' event='HouseGaleonF4R0' xpos='var0+var2*0+170' ypos='var1+var3*0+70' height='var3*80' width='var2*200' explored='false'/>
+						<Room type='0' description='1 Left up' event='HouseGaleonF4R1' xpos='var0+var2*0+110' ypos='var1+var3*0+70' height='var3*40' width='var2*60' explored='false'/>
+						<Room type='0' description='2 Left down' event='HouseGaleonF4R2' xpos='var0+var2*0+110' ypos='var1+var3*0+110' height='var3*40' width='var2*60' explored='false'/>
+						<Room type='0' description='3 to Cargo Deck' event='HouseGaleonF4R3' xpos='var0+var2*0+370' ypos='var1+var3*0+90' height='var3*40' width='var2*20' explored='false'/>
+						<Door from='1' to='0' dpos='5' height='var3*10' width='var2*10'/>
+						<Door from='2' to='0' dpos='5' height='var3*10' width='var2*10'/>
+						<Door from='3' to='0' dpos='11' height='var3*1' width='var2*1'/>
+					</Exploration>
+					<EnterRoom>0</EnterRoom>
+					<HideImages/>
+					<Backgrounds place='housing'/>
+					<ShowCurrentFloor/>
+				</HouseGaleonF4>
+					<HouseGaleonF4R0></HouseGaleonF4R0>
+					<HouseGaleonF4R1></HouseGaleonF4R1>
+					<HouseGaleonF4R2></HouseGaleonF4R2>
+					<HouseGaleonF4R3><DoEvent now='true'>HouseGaleonF3</DoEvent></HouseGaleonF4R3>
+		<!--   __________________________________________________________________________________________ GALEON END _____________________ -->
+		<HouseHouse></HouseHouse>
+		<!--   __________________________________________________________________________________________ KEEP END _____________________ -->
+			<HouseKeep>
+				<SetText>You enter the gates of your Keep</SetText>
+					<DoEvent>HouseKeepEx1</DoEvent>
+			</HouseKeep>
+			<HouseKeepEx1>
+				<SetVar var0='50'/> <!-- X offset (to the right) -->
+				<SetVar var1='50'/> <!-- Y offset (down wards) -->
+				<SetVar var2='40'/> <!-- Y width  -->
+				<SetVar var3='20'/> <!-- X height -->
+				<Exploration>
+					<Room type='0' description='0 Entrance' event='HouseKeepEx1R0' xpos='var0+var2*4' ypos='var1+var3*11' height='var3*1' width='var2*2' explored='false'/>
+					<Room type='0' description='1 Front Yard' event='HouseKeepEx1R1' xpos='var0+var2*0' ypos='var1+var3*7' height='var3*4' width='var2*10' explored='false'/>
+					<Room type='0' description='2 Tower 2' event='HouseKeepEx1R2' xpos='var0+var2*8' ypos='var1+var3*11' height='var3*1' width='var2*2' explored='false'/>
+					<Room type='0' description='3 Tower 1' event='HouseKeepEx1R3' xpos='var0+var2*0' ypos='var1+var3*11' height='var3*1' width='var2*2' explored='false'/>
+					<Room type='0' description='4 Left Yard' event='HouseKeepEx1R4' xpos='var0+var2*0' ypos='var1+var3*3' height='var3*4' width='var2*2' explored='false'/>
+					<Room type='0' description='5 Back Yard' event='HouseKeepEx1R5' xpos='var0+var2*0' ypos='var1+var3*0' height='var3*3' width='var2*10' explored='false'/>
+					<Room type='0' description='6 Right Yard' event='HouseKeepEx1R6' xpos='var0+var2*8' ypos='var1+var3*3' height='var3*4' width='var2*2' explored='false'/>
+					<Room type='0' description='7 Main Building' event='HouseKeepEx1R7' xpos='var0+var2*2' ypos='var1+var3*3' height='var3*4' width='var2*6' explored='false'/>
+					<Room type='0' description='8 black block' event='HouseKeepEx1R8' xpos='var0+var2*0' ypos='var1+var3*12' height='var3*1' width='var2*1' explored='false'/>
+					<Room type='0' description='9 Tower 1 stairs up' event='HouseKeepEx1R9' xpos='var0+var2*1' ypos='var1+var3*12' height='var3*1' width='var2*1' explored='false'/>
+					<Room type='0' description='10 black block' event='HouseKeepEx1R10' xpos='var0+var2*8' ypos='var1+var3*12' height='var3*1' width='var2*1' explored='false'/>
+					<Room type='0' description='11 Tower 2 stairs up' event='HouseKeepEx1R11' xpos='var0+var2*9' ypos='var1+var3*12' height='var3*1' width='var2*1' explored='false'/>
+					<Door from='0' to='1' dpos='2' height='10' width='30'/>
+					<Door from='2' to='1' dpos='2' height='1' width='1'/>
+					<Door from='3' to='1' dpos='2' height='1' width='1'/>
+					<Door from='4' to='1' dpos='8' height='1' width='1'/>
+					<Door from='6' to='1' dpos='8' height='1' width='1'/>
+					<Door from='7' to='1' dpos='8' height='10' width='20'/>
+					<Door from='4' to='5' dpos='2' height='1' width='1'/>
+					<Door from='6' to='5' dpos='2' height='1' width='1'/>
+					<Door from='11' to='2' dpos='2' height='1' width='1'/>
+					<Door from='9' to='3' dpos='2' height='1' width='1'/>
+				</Exploration>
+				<if var4='0'>
+					<EnterRoom>1</EnterRoom>
+				</if>
+				<if var4='1'>
+					<EnterRoom>2</EnterRoom>
+				</if>
+				<if var4='2'>
+					<EnterRoom>3</EnterRoom>
+				</if>
+				<HideImages/>
+				<Backgrounds place='housing'/>
+				<ShowCurrentFloor/>
+			</HouseKeepEx1>
+				<HouseKeepEx1R0><DoEvent now='true'>HouseKeepExit</DoEvent></HouseKeepEx1R0>
+					<HouseKeepExit>
+						<YesNoQuestion event='HouseKeepExit'>Do you want to exit the Keep?</YesNoQuestion>
+					</HouseKeepExit>
+					<HouseKeepExitYES>
+						<SetText>You exit the Keep.</SetText>
+						<HideCurrentFloor/>
+						<StopExploring/>
+						<DoEvent now='true'>9999</DoEvent>
+					</HouseKeepExitYES>
+					<HouseKeepExitNO>
+						<SetText>You change your mind, turning around...</SetText>
+					</HouseKeepExitNO>
+				<HouseKeepEx1R1></HouseKeepEx1R1>
+				<HouseKeepEx1R2></HouseKeepEx1R2>
+				<HouseKeepEx1R3></HouseKeepEx1R3>
+				<HouseKeepEx1R4></HouseKeepEx1R4>
+				<HouseKeepEx1R5></HouseKeepEx1R5>
+				<HouseKeepEx1R6></HouseKeepEx1R6>
+				<HouseKeepEx1R7><SetVar var4='0'/><DoEvent now='true'>HouseKeepF1</DoEvent></HouseKeepEx1R7>
+				<HouseKeepEx1R8></HouseKeepEx1R8>
+				<HouseKeepEx1R9><SetVar var4='1'/><DoEvent now='true'>HouseKeepEx2</DoEvent></HouseKeepEx1R9>
+				<HouseKeepEx1R10></HouseKeepEx1R10>
+				<HouseKeepEx1R11><SetVar var4='2'/><DoEvent now='true'>HouseKeepEx2</DoEvent></HouseKeepEx1R11>
+			<HouseKeepEx2>
+				<SetVar var0='50'/> <!-- X offset (to the right) -->
+				<SetVar var1='50'/> <!-- Y offset (down wards) -->
+				<SetVar var2='40'/> <!-- Y width  -->
+				<SetVar var3='20'/> <!-- X height -->
+				<Exploration>
+					<Room type='0' description='0 Tower 1' event='HouseKeepEx2R0' xpos='var0+var2*0' ypos='var1+var3*11' height='var3*1' width='var2*2' explored='false'/>
+					<Room type='0' description='1 Tower 2' event='HouseKeepEx2R1' xpos='var0+var2*8' ypos='var1+var3*11' height='var3*1' width='var2*2' explored='false'/>
+					<Room type='0' description='2 Wall front' event='HouseKeepEx2R2' xpos='var0+var2*2' ypos='var1+var3*11' height='var3*1' width='var2*6' explored='false'/>
+					<Room type='0' description='3 Wall right' event='HouseKeepEx2R3' xpos='var0+var2*9.5' ypos='var1+var3*0' height='var3*11' width='var2*0.5' explored='false'/>
+					<Room type='0' description='4 Wall back' event='HouseKeepEx2R4' xpos='var0+var2*(-1)' ypos='var1+var3*2' height='var3*1' width='var2*8' explored='false'/>
+					<Room type='0' description='5 Wall left' event='HouseKeepEx2R5' xpos='var0+var2*0.5' ypos='var1+var3*0' height='var3*11' width='var2*0.5' explored='false'/>
+					<Room type='0' description='6 Tower 1 Stairs down' event='HouseKeepEx2R6' xpos='var0+var2*0' ypos='var1+var3*12' height='var3*1' width='var2*1' explored='false'/>
+					<Room type='0' description='7 Tower 1 Stairs up' event='HouseKeepEx2R7' xpos='var0+var2*1' ypos='var1+var3*12' height='var3*1' width='var2*1' explored='false'/>
+					<Room type='0' description='8 Tower 2 Stairs down' event='HouseKeepEx2R8' xpos='var0+var2*8' ypos='var1+var3*12' height='var3*1' width='var2*1' explored='false'/>
+					<Room type='0' description='9 Tower 2 Stairs up' event='HouseKeepEx2R9' xpos='var0+var2*9' ypos='var1+var3*12' height='var3*1' width='var2*1' explored='false'/>
+					
+					<Door from='7' to='0' dpos='2' height='1' width='1'/>
+					<Door from='6' to='0' dpos='2' height='1' width='1'/>
+					<Door from='5' to='0' dpos='8' height='10' width='10'/>
+					<Door from='4' to='5' dpos='11' height='1' width='1'/>
+					<Door from='4' to='3' dpos='5' height='1' width='1'/>
+					<Door from='3' to='1' dpos='8' height='10' width='10'/>
+					<Door from='1' to='2' dpos='5' height='10' width='10'/>
+					<Door from='8' to='1' dpos='2' height='1' width='1'/>
+					<Door from='9' to='1' dpos='2' height='1' width='1'/>
+					<Door from='2' to='0' dpos='11' height='10' width='10'/>
+				</Exploration>
+				<if var4='1'>
+					<EnterRoom>0</EnterRoom>
+				</if>
+				<if var4='2'>
+					<EnterRoom>1</EnterRoom>
+				</if>
+				<HideImages/>
+				<Backgrounds place='housing'/>
+				<ShowCurrentFloor/>
+			</HouseKeepEx2>
+				<HouseKeepEx2R0></HouseKeepEx2R0>
+				<HouseKeepEx2R1></HouseKeepEx2R1>
+				<HouseKeepEx2R2></HouseKeepEx2R2>
+				<HouseKeepEx2R3></HouseKeepEx2R3>
+				<HouseKeepEx2R4></HouseKeepEx2R4>
+				<HouseKeepEx2R5></HouseKeepEx2R5>
+				<HouseKeepEx2R6><SetVar var4='2'/><DoEvent now='true'>HouseKeepEx1</DoEvent></HouseKeepEx2R6>
+				<HouseKeepEx2R7><SetVar var4='1'/><DoEvent now='true'>HouseKeepEx3</DoEvent></HouseKeepEx2R7>
+				<HouseKeepEx2R8><SetVar var4='1'/><DoEvent now='true'>HouseKeepEx1</DoEvent></HouseKeepEx2R8>
+				<HouseKeepEx2R9><SetVar var4='2'/><DoEvent now='true'>HouseKeepEx3</DoEvent></HouseKeepEx2R9>
+			<HouseKeepEx3>
+				<SetVar var0='50'/> <!-- X offset (to the right) -->
+				<SetVar var1='50'/> <!-- Y offset (down wards) -->
+				<SetVar var2='40'/> <!-- Y width  -->
+				<SetVar var3='20'/> <!-- X height -->
+				<Exploration>
+					<Room type='0' description='0 Tower 1 Floor 3' event='HouseKeepEx3R0' xpos='var0+var2*0' ypos='var1+var3*11' height='var3*1' width='var2*2' explored='false'/>
+					<Room type='0' description='1 Tower 2 Floor 3' event='HouseKeepEx3R1' xpos='var0+var2*8' ypos='var1+var3*11' height='var3*1' width='var2*2' explored='false'/>
+					<Room type='0' description='2 Tower 1 Stairs down' event='HouseKeepEx3R2' xpos='var0+var2*0' ypos='var1+var3*12' height='var3*1' width='var2*1' explored='false'/>
+					<Room type='0' description='3 Tower 2 Stairs down' event='HouseKeepEx3R3' xpos='var0+var2*8' ypos='var1+var3*12' height='var3*1' width='var2*1' explored='false'/>
+					<Room type='0' description='4 black block' event='HouseKeepEx3R4' xpos='var0+var2*1' ypos='var1+var3*12' height='var3*1' width='var2*1' explored='false'/>
+					<Room type='0' description='5 black block' event='HouseKeepEx3R5' xpos='var0+var2*9' ypos='var1+var3*12' height='var3*1' width='var2*1' explored='false'/>
+					<Door from='0' to='2' dpos='8' height='1' width='1'/>
+					<Door from='1' to='3' dpos='8' height='1' width='1'/>
+				</Exploration>
+				<if var4='1'>
+					<EnterRoom>0</EnterRoom>
+				</if>
+				<if var4='2'>
+					<EnterRoom>1</EnterRoom>
+				</if>
+				<HideImages/>
+				<Backgrounds place='housing'/>
+				<ShowCurrentFloor/>
+			</HouseKeepEx3>
+				<HouseKeepEx3R0></HouseKeepEx3R0>
+				<HouseKeepEx3R1></HouseKeepEx3R1>
+				<HouseKeepEx3R2><SetVar var4='1'/><DoEvent now='true'>HouseKeepEx2</DoEvent></HouseKeepEx3R2>
+				<HouseKeepEx3R3><SetVar var4='2'/><DoEvent now='true'>HouseKeepEx2</DoEvent></HouseKeepEx3R3>
+				<HouseKeepEx3R4></HouseKeepEx3R4>
+				<HouseKeepEx3R5></HouseKeepEx3R5>
+			<HouseKeepF1>
+				<SetVar var0='60'/> <!-- X offset (to the right) -->
+				<SetVar var1='55'/> <!-- Y offset (down wards) -->
+				<SetVar var2='20'/> <!-- X height -->
+				<SetVar var3='20'/> <!-- Y width  -->
+				<Exploration>
+					<Room type='0' description='0 Entrance' event='HouseKeepF1R0' xpos='var0+var2*8' ypos='var1+var3*11' height='var3*1' width='var2*2' explored='false'/>
+					<Room type='0' description='1 Forum' event='HouseKeepF1R1' xpos='var0+var2*6' ypos='var1+var3*7' height='var3*4' width='var2*6' explored='false'/>
+					<Room type='0' description='2 Room 1' event='HouseKeepF1R2' xpos='var0+var2*2' ypos='var1+var3*7' height='var3*4' width='var2*4' explored='false'/>
+					<Room type='0' description='3 Stairs to Floor 2' event='HouseKeepF1R3' xpos='var0+var2*6' ypos='var1+var3*7' height='var3*1' width='var2*6' explored='false'/>
+					<Room type='0' description='4 Kitchen' event='HouseKeepF1R4' xpos='var0+var2*0' ypos='var1+var3*4' height='var3*3' width='var2*4' explored='false'/>
+					<Room type='0' description='5 Storage' event='HouseKeepF1R5' xpos='var0+var2*0' ypos='var1+var3*2' height='var3*2' width='var2*4' explored='false'/>
+					<Room type='0' description='6 Small Storage' event='HouseKeepF1R6' xpos='var0+var2*2' ypos='var1+var3*0' height='var3*2' width='var2*2' explored='false'/>
+					<Room type='0' description='7 Small Storage' event='HouseKeepF1R7' xpos='var0+var2*0' ypos='var1+var3*0' height='var3*2' width='var2*2' explored='false'/>
+					<Room type='0' description='8 Stairs to Cellar' event='HouseKeepF1R8' xpos='var0+var2*4' ypos='var1+var3*2' height='var3*1' width='var2*2' explored='false'/>
+					<Room type='0' description='9 Room 2' event='HouseKeepF1R9' xpos='var0+var2*12' ypos='var1+var3*8' height='var3*3' width='var2*4' explored='false'/>
+					<Room type='0' description='10 Secret vent' event='HouseKeepF1R10' xpos='var0+var2*12' ypos='var1+var3*7' height='var3*1' width='var2*1' explored='false'/>
+					<Room type='0' description='11 Messhall' event='HouseKeepF1R11' xpos='var0+var2*4' ypos='var1+var3*3' height='var3*4' width='var2*9' explored='false'/>
+					<Room type='0' description='12 Quarters Corridor' event='HouseKeepF1R12' xpos='var0+var2*6' ypos='var1+var3*2' height='var3*1' width='var2*7' explored='false'/>
+					<Room type='0' description='13 Quarter 1' event='HouseKeepF1R13' xpos='var0+var2*6' ypos='var1+var3*0' height='var3*2' width='var2*2' explored='false'/>
+					<Room type='0' description='14 Quarter 2' event='HouseKeepF1R14' xpos='var0+var2*8' ypos='var1+var3*0' height='var3*2' width='var2*2' explored='false'/>
+					<Room type='0' description='15 Quarter 3' event='HouseKeepF1R15' xpos='var0+var2*10' ypos='var1+var3*0' height='var3*2' width='var2*2' explored='false'/>
+					<Room type='0' description='16 Corridor' event='HouseKeepF1R16' xpos='var0+var2*13' ypos='var1+var3*2' height='var3*6' width='var2*1' explored='false'/>
+					<Room type='0' description='17 Weapon Storage' event='HouseKeepF1R17' xpos='var0+var2*14' ypos='var1+var3*0' height='var3*4' width='var2*3' explored='false'/>
+					<Room type='0' description='18 Armor Storage' event='HouseKeepF1R18' xpos='var0+var2*14' ypos='var1+var3*4' height='var3*4' width='var2*3' explored='false'/>
+
+					<Door from='7' to='5' dpos='8' height='10' width='10'/>
+					<Door from='6' to='5' dpos='8' height='10' width='10'/>
+					<Door from='5' to='4' dpos='8' height='10' width='10'/>
+					<Door from='4' to='2' dpos='7' height='10' width='10'/>
+					<Door from='2' to='1' dpos='5' height='10' width='10'/>
+					<Door from='1' to='0' dpos='8' height='10' width='10'/>
+					<Door from='3' to='1' dpos='8' height='1' width='1'/>
+					<Door from='9' to='1' dpos='11' height='10' width='10'/>
+					<Door from='16' to='9' dpos='8' height='10' width='10'/>
+					<Door from='18' to='16' dpos='11' height='10' width='10'/>
+					<Door from='17' to='16' dpos='11' height='10' width='10'/>
+					<Door from='16' to='11' dpos='11' height='10' width='10'/>
+					<Door from='11' to='4' dpos='11' height='10' width='10'/>
+					<Door from='12' to='11' dpos='8' height='10' width='10'/>
+					<Door from='13' to='12' dpos='8' height='10' width='10'/>
+					<Door from='14' to='12' dpos='8' height='10' width='10'/>
+					<Door from='15' to='12' dpos='8' height='10' width='10'/>
+					<Door from='10' to='16' dpos='5' height='1' width='1'/>
+					<Door from='8' to='5' dpos='11' height='10' width='10'/>
+					<Door from='12' to='16' dpos='5' height='10' width='10'/>
+				</Exploration>
+				<if var4='0'>
+					<EnterRoom>1</EnterRoom>
+				</if>
+				<if var4='1'>
+					<EnterRoom>5</EnterRoom>
+				</if>
+				<if var4='2'>
+					<EnterRoom>1</EnterRoom>
+				</if>
+				<HideImages/>
+				<Backgrounds place='housing'/>
+				<ShowCurrentFloor/>
+			</HouseKeepF1>
+				<HouseKeepF1R0><SetVar var4='0'/><DoEvent now='true'>HouseKeepEx1</DoEvent></HouseKeepF1R0>
+				<HouseKeepF1R1></HouseKeepF1R1>
+				<HouseKeepF1R2></HouseKeepF1R2>
+				<HouseKeepF1R3><SetVar var4='0'/><DoEvent now='true'>HouseKeepF2</DoEvent></HouseKeepF1R3>
+				<HouseKeepF1R4></HouseKeepF1R4>
+				<HouseKeepF1R5></HouseKeepF1R5>
+				<HouseKeepF1R6></HouseKeepF1R6>
+				<HouseKeepF1R7></HouseKeepF1R7>
+				<HouseKeepF1R8><SetVar var4='1'/><DoEvent now='true'>HouseKeepCellar</DoEvent></HouseKeepF1R8>
+				<HouseKeepF1R9></HouseKeepF1R9>
+				<HouseKeepF1R10>
+					<AskQuestion caption='do you try to climb up or slide down?'>
+						<Question event='HouseKeepF1R10up'>try to climb up</Question>
+						<Question event='HouseKeepF1R10down'>slide down</Question>
+					</AskQuestion>
+				</HouseKeepF1R10>
+					<HouseKeepF1R10up><SetVar var4='1'/><DoEvent now='true'>HouseKeepF2</DoEvent></HouseKeepF1R10up>
+					<HouseKeepF1R10down><SetVar var4='1'/><DoEvent now='true'>HouseKeepCellar</DoEvent></HouseKeepF1R10down>
+				<HouseKeepF1R11></HouseKeepF1R11>
+				<HouseKeepF1R12></HouseKeepF1R12>
+				<HouseKeepF1R13></HouseKeepF1R13>
+				<HouseKeepF1R14></HouseKeepF1R14>
+				<HouseKeepF1R15></HouseKeepF1R15>
+				<HouseKeepF1R16></HouseKeepF1R16>
+				<HouseKeepF1R17></HouseKeepF1R17>
+				<HouseKeepF1R18></HouseKeepF1R18>
+			<HouseKeepF2>
+				<SetVar var0='60'/> <!-- X offset (to the right) -->
+				<SetVar var1='55'/> <!-- Y offset (down wards) -->
+				<SetVar var2='20'/> <!-- X height -->
+				<SetVar var3='20'/> <!-- Y width  -->
+				<Exploration>
+					<Room type='0' description='0 Stairs to first Floor' event='HouseKeepF2R0' xpos='var0+var2*8' ypos='var1+var3*7' height='var3*1' width='var2*2' explored='false'/>
+					<Room type='0' description='1 Corridor' event='HouseKeepF2R1' xpos='var0+var2*8' ypos='var1+var3*2' height='var3*5' width='var2*2' explored='false'/>
+					<Room type='0' description='2 Rhias Room' event='HouseKeepF2R2' xpos='var0+var2*5' ypos='var1+var3*5' height='var3*2' width='var2*3' explored='false'/>
+					<Room type='0' description='3 Stairs to the Attic' event='HouseKeepF2R3' xpos='var0+var2*5' ypos='var1+var3*4' height='var3*1' width='var2*3' explored='false'/>
+					<Room type='0' description='4 Assistant Room' event='HouseKeepF2R4' xpos='var0+var2*5' ypos='var1+var3*2' height='var3*2' width='var2*3' explored='false'/>
+					<Room type='0' description='5 Guest Room' event='HouseKeepF2R5' xpos='var0+var2*10' ypos='var1+var3*2' height='var3*5' width='var2*3' explored='false'/>
+					<Room type='0' description='6 Secret Vent' event='HouseKeepF2R6' xpos='var0+var2*12' ypos='var1+var3*7' height='var3*1' width='var2*1' explored='false'/>
+					<Room type='0' description='7 Master Room' event='HouseKeepF2R7' xpos='var0+var2*6' ypos='var1+var3*(-1)' height='var3*3' width='var2*6' explored='false'/>
+					<Room type='0' description='8 Secret Passage' event='HouseKeepF2R8' xpos='var0+var2*5' ypos='var1+var3*0' height='var3*1' width='var2*1' explored='false'/>
+					
+					<Door from='0' to='1' dpos='2' height='10' width='10'/>
+					<Door from='2' to='1' dpos='5' height='10' width='10'/>
+					<Door from='3' to='1' dpos='5' height='10' width='10'/>
+					<Door from='4' to='1' dpos='5' height='10' width='10'/>
+					<Door from='7' to='1' dpos='8' height='10' width='10'/>
+					<Door from='5' to='1' dpos='11' height='10' width='10'/>
+					<Door from='8' to='7' dpos='5' height='1' width='1'/>
+					<Door from='6' to='5' dpos='2' height='1' width='1'/>
+				</Exploration>
+				<if var4='0'>
+					<EnterRoom>1</EnterRoom>
+				</if>
+				<if var4='1'>
+					<EnterRoom>5</EnterRoom>
+				</if>
+				<if var4='2'>
+					<EnterRoom>1</EnterRoom>
+				</if>
+				<if var4='3'>
+					<EnterRoom>7</EnterRoom>
+				</if>
+				<HideImages/>
+				<Backgrounds place='housing'/>
+				<ShowCurrentFloor/>
+			</HouseKeepF2>
+				<HouseKeepF2R0><SetVar var4='0'/><DoEvent now='true'>HouseKeepF1</DoEvent></HouseKeepF2R0>
+				<HouseKeepF2R1></HouseKeepF2R1>
+				<HouseKeepF2R2></HouseKeepF2R2>
+				<HouseKeepF2R3><SetVar var4='0'/><DoEvent now='true'>HouseKeepF3</DoEvent></HouseKeepF2R3>
+				<HouseKeepF2R4></HouseKeepF2R4>
+				<HouseKeepF2R5></HouseKeepF2R5>
+				<HouseKeepF2R6>
+					<AskQuestion caption='do you to slide down?'>
+						<Question event='HouseKeepF2R6down'>slide down</Question>
+						<Question event='HouseKeepF2R6NO'>don't descent</Question>
+					</AskQuestion>
+				</HouseKeepF2R6>
+					<HouseKeepF2R6down><SetVar var4='2'/><DoEvent now='true'>HouseKeepCellar</DoEvent></HouseKeepF2R6down>
+					<HouseKeepF2R6NO><SetText>You decide that its best not to.</SetText><EnterRoom>5</EnterRoom></HouseKeepF2R6NO>
+				<HouseKeepF2R7></HouseKeepF2R7>
+				<HouseKeepF2R8>
+					<AskQuestion caption='You look at the secret passage?'>
+						<Question event='HouseKeepF2R8up'>go up</Question>
+						<Question event='HouseKeepF2R8down'>go down</Question>
+						<Question event='HouseKeepF2R8NO'>ignore</Question>
+					</AskQuestion>
+				</HouseKeepF2R8>
+					<HouseKeepF2R8up><SetVar var4='1'/><DoEvent now='true'>HouseKeepF3</DoEvent></HouseKeepF2R8up>
+					<HouseKeepF2R8down><SetVar var4='1'/><DoEvent now='true'>HouseKeepCellar</DoEvent></HouseKeepF2R8down>
+					<HouseKeepF2R8NO><SetText>You decide that its best not to.</SetText><EnterRoom>7</EnterRoom></HouseKeepF2R8NO>
+			<HouseKeepF3>
+				<SetVar var0='60'/> <!-- X offset (to the right) -->
+				<SetVar var1='55'/> <!-- Y offset (down wards) -->
+				<SetVar var2='20'/> <!-- X height -->
+				<SetVar var3='20'/> <!-- Y width  -->
+				<Exploration>
+					<Room type='0' description='0 Stairs to Floor 2' event='HouseKeepF3R0' xpos='var0+var2*6' ypos='var1+var3*3' height='var3*1' width='var2*2' explored='false'/>
+					<Room type='0' description='1 Attic' event='HouseKeepF3R1' xpos='var0+var2*8' ypos='var1+var3*1' height='var3*5' width='var2*2' explored='false'/>
+					<Room type='0' description='2 small room left' event='HouseKeepF3R2' xpos='var0+var2*6' ypos='var1+var3*5' height='var3*2' width='var2*2' explored='false'/>
+					<Room type='0' description='3 small room right' event='HouseKeepF3R3' xpos='var0+var2*10' ypos='var1+var3*5' height='var3*2' width='var2*2' explored='false'/>
+					<Room type='0' description='4 Back Room' event='HouseKeepF3R4' xpos='var0+var2*7' ypos='var1+var3*(-1)' height='var3*2' width='var2*4' explored='false'/>
+					<Room type='0' description='5 Secret Passage' event='HouseKeepF3R5' xpos='var0+var2*6' ypos='var1+var3*0' height='var3*1' width='var2*1' explored='false'/>
+
+					<Door from='0' to='1' dpos='5' height='10' width='10'/>
+					<Door from='2' to='1' dpos='4' height='10' width='10'/>
+					<Door from='3' to='1' dpos='10' height='10' width='10'/>
+					<Door from='4' to='1' dpos='8' height='10' width='10'/>
+					<Door from='5' to='4' dpos='5' height='1' width='1'/>
+					
+				</Exploration>
+				<if var4='0'>
+					<EnterRoom>1</EnterRoom>
+				</if>
+				<if var4='1'>
+					<EnterRoom>4</EnterRoom>
+				</if>
+				<HideImages/>
+				<Backgrounds place='housing'/>
+				<ShowCurrentFloor/>
+			</HouseKeepF3>
+			<HouseKeepF3R0><SetVar var4='0'/><DoEvent now='true'>HouseKeepF2</DoEvent></HouseKeepF3R0>
+			<HouseKeepF3R1></HouseKeepF3R1>
+			<HouseKeepF3R2></HouseKeepF3R2>
+			<HouseKeepF3R3></HouseKeepF3R3>
+			<HouseKeepF3R4></HouseKeepF3R4>
+				<HouseKeepF3R5>
+					<AskQuestion caption='You look at the secret passage?'>
+						<Question event='HouseKeepF3R5B'>go down</Question>
+						<Question event='HouseKeepF3R8NO'>ignore</Question>
+					</AskQuestion>
+				</HouseKeepF3R5>
+				<HouseKeepF3R5B>
+					<SetText>You look reach a door, but the stairs still continue downwarts?</SetText>
+					<AskQuestion caption='What do you do?'>
+						<Question event='HouseKeepF3R8down2'>go further down</Question>
+						<Question event='HouseKeepF3R8down1'>open the door</Question>
+						<Question event='HouseKeepF3R8NO'>go back up</Question>
+					</AskQuestion>
+				</HouseKeepF3R5B>
+				<HouseKeepF3R8down1><SetVar var4='3'/><DoEvent now='true'>HouseKeepF2</DoEvent></HouseKeepF3R8down1>
+				<HouseKeepF3R8down2><SetVar var4='1'/><DoEvent now='true'>HouseKeepCellar</DoEvent></HouseKeepF3R8down2>
+				<HouseKeepF3R8NO><SetText>You decide that its best not to.</SetText><EnterRoom>7</EnterRoom></HouseKeepF3R8NO>
+			<HouseKeepCellar>
+				<SetVar var0='60'/> <!-- X offset (to the right) -->
+				<SetVar var1='55'/> <!-- Y offset (down wards) -->
+				<SetVar var2='20'/> <!-- X height -->
+				<SetVar var3='20'/> <!-- Y width  -->
+				<Exploration>
+					<Room type='0' description='0 Stairs up' event='HouseKeepCellarR0' xpos='var0+var2*4' ypos='var1+var3*2' height='var3*1' width='var2*2' explored='false'/>
+					<Room type='0' description='1 Storage' event='HouseKeepCellarR1' xpos='var0+var2*3' ypos='var1+var3*3' height='var3*5' width='var2*5' explored='false'/>
+					<Room type='0' description='2 Cell' event='HouseKeepCellarR2' xpos='var0+var2*3' ypos='var1+var3*8' height='var3*3' width='var2*2' explored='false'/>
+					<Room type='0' description='3 Winecellar' event='HouseKeepCellarR3' xpos='var0+var2*8' ypos='var1+var3*3' height='var3*2' width='var2*4' explored='false'/>
+					<Room type='0' description='4 Entrance to Dungeon' event='HouseKeepCellarR4' xpos='var0+var2*8' ypos='var1+var3*5' height='var3*2' width='var2*4' explored='false'/>
+					<Room type='0' description='5 Secret vent' event='HouseKeepCellarR5' xpos='var0+var2*13' ypos='var1+var3*10' height='var3*1' width='var2*1' explored='false'/>
+					<Room type='0' description='6 Secret Room' event='HouseKeepCellarR6' xpos='var0+var2*10' ypos='var1+var3*8' height='var3*2' width='var2*4' explored='false'/>
+					<Room type='0' description='7 Connection to the Sewers' event='HouseKeepCellarR7' xpos='var0+var2*14' ypos='var1+var3*8' height='var3*1' width='var2*4' explored='false'/>
+					<Room type='0' description='8 Secret Passage' event='HouseKeepCellarR8' xpos='var0+var2*9' ypos='var1+var3*1' height='var3*2' width='var2*1' explored='false'/>
+
+					<Door from='0' to='1' dpos='8' height='10' width='10'/>
+					<Door from='2' to='1' dpos='2' height='10' width='10'/>
+					<Door from='3' to='1' dpos='11' height='10' width='10'/>
+					<Door from='4' to='1' dpos='11' height='10' width='10'/>
+					<Door from='8' to='3' dpos='2' height='10' width='10'/>
+					<Door from='7' to='6' dpos='11' height='10' width='10'/>
+					<Door from='5' to='6' dpos='2' height='10' width='10'/>
+				</Exploration>
+				<if var4='0'>
+					<EnterRoom>1</EnterRoom>
+				</if>
+				<if var4='1'>
+					<LockDoor from='8' to='3'/>
+					<EnterRoom>3</EnterRoom>
+				</if>
+				<if var4='2'>
+					<EnterRoom>6</EnterRoom>
+				</if>
+				<HideImages/>
+				<Backgrounds place='housing'/>
+				<ShowCurrentFloor/>
+			</HouseKeepCellar>
+				<HouseKeepCellarR0><SetVar var4='1'/><DoEvent now='true'>HouseKeepF1</DoEvent></HouseKeepCellarR0>
+				<HouseKeepCellarR1></HouseKeepCellarR1>
+				<HouseKeepCellarR2></HouseKeepCellarR2>
+				<HouseKeepCellarR3></HouseKeepCellarR3>
+				<HouseKeepCellarR4></HouseKeepCellarR4>
+				<HouseKeepCellarR5><SetText>You try but don't manage to climbback up. \r I seems as if you can only venture forward...</SetText></HouseKeepCellarR5>
+				<HouseKeepCellarR6></HouseKeepCellarR6>
+				<HouseKeepCellarR7><SetText>The small corridor vanishes into the darkness. From the smell it seem to lead to the citys sewers. \r\r\r more to be added</SetText></HouseKeepCellarR7>
+				<HouseKeepCellarR8><SetText>You cant seem to open the passage from this side.</SetText></HouseKeepCellarR8>
+		<!--   __________________________________________________________________________________________ KEEP END _____________________ -->
+		<HouseMansion></HouseMansion>
+		<HouseOnsen></HouseOnsen>
+		<HouseTemple></HouseTemple>
+		<!--   __________________________________________________________________________________________ YOUR FARM START _____________________ -->
+			<TMBYourFarm>
+				<SetVar var4='0'/>
+				<DoEvent now='true'>YourFarm</DoEvent>
+			</TMBYourFarm>
+			<YourFarm>
+				<SetVar var0='70'/> <!-- X offset (to the right) -->
+				<SetVar var1='90'/> <!-- Y offset (down wards) -->
+				<SetVar var2='20'/> <!-- X height -->
+				<SetVar var3='20'/> <!-- Y width  -->
+				<Exploration>
+					<Room type='0' description='0 Gate' event='YourFarmExR0' xpos='var0+var2*0' ypos='var1+var3*6' height='var3*2' width='var2*1' explored='false'/>
+					<Room type='0' description='1 Yard' event='YourFarmExR1' xpos='var0+var2*1' ypos='var1+var3*5' height='var3*4' width='var2*9' explored='false'/>
+					<Room type='0' description='2 House' event='YourFarmExR2' xpos='var0+var2*4' ypos='var1+var3*2' height='var3*3' width='var2*4' explored='false'/>
+					<Room type='0' description='3 Small Barn' event='YourFarmExR3' xpos='var0+var2*1' ypos='var1+var3*0' height='var3*5' width='var2*3' explored='false'/>
+					<Room type='0' description='4 way' event='YourFarmExR4' xpos='var0+var2*9' ypos='var1+var3*2' height='var3*3' width='var2*1' explored='false'/>
+					<Room type='0' description='5 Silo' event='YourFarmExR5' xpos='var0+var2*9' ypos='var1+var3*0' height='var3*2' width='var2*2' explored='false'/>
+					<Room type='0' description='6 Big Barn' event='YourFarmExR6' xpos='var0+var2*10' ypos='var1+var3*3' height='var3*6' width='var2*7' explored='false'/>
+					<Door from='0' to='1' dpos='4' height='20' width='35'/>
+					<Door from='2' to='1' dpos='8' height='10' width='10'/>
+					<Door from='3' to='1' dpos='8' height='10' width='10'/>
+					<Door from='4' to='1' dpos='8' height='1' width='1'/>
+					<Door from='4' to='5' dpos='2' height='10' width='10'/>
+					<Door from='1' to='6' dpos='5' height='10' width='10'/>
+				</Exploration>
+				<EnterRoom>1</EnterRoom>
+				<HideImages/>
+				<Backgrounds place='housing'/>
+				<ShowCurrentFloor/>
+			</YourFarm>
+				<YourFarmExR0><DoEvent now='true'>YourFarmExit</DoEvent></YourFarmExR0>
+				<YourFarmExR1></YourFarmExR1>
+				<YourFarmExR2><SetVar var4='0'/><DoEvent now='true'>YourFarmHouse</DoEvent></YourFarmExR2>
+				<YourFarmExR3><SetVar var4='1'/><DoEvent now='true'>YourFarmHouse</DoEvent></YourFarmExR3>
+				<YourFarmExR4></YourFarmExR4>
+				<YourFarmExR5></YourFarmExR5>
+				<YourFarmExR6><DoEvent now='true'>YourFarmBigBarn</DoEvent></YourFarmExR6>
+			<YourFarmExit>
+				<YesNoQuestion event='YourFarmExit'>Do you want to leave your Farm?</YesNoQuestion>
+			</YourFarmExit>
+			<YourFarmExitYES>
+				<SetText>You leave the Farm.</SetText>
+				<StopExploring/>
+				<DoEvent now='true'>9999</DoEvent>
+			</YourFarmExitYES>
+			<YourFarmExitNO>
+				<SetText>You change your mind, turning around...</SetText>
+			</YourFarmExitNO>
+
+			<YourFarmHouse>
+				<SetVar var0='90'/> <!-- X offset (to the right) -->
+				<SetVar var1='70'/> <!-- Y offset (down wards) -->
+				<SetVar var2='20'/> <!-- X height -->
+				<SetVar var3='20'/> <!-- Y width  -->
+				<Exploration>
+					<Room type='0' description='0 Barn Corridor' event='YourFarmH1R0' xpos='var0+var2*2' ypos='var1+var3*3' height='var3*7' width='var2*2' explored='false'/>
+					<Room type='0' description='1 Left Stalls' event='YourFarmH1R1' xpos='var0+var2*0' ypos='var1+var3*3' height='var3*7' width='var2*2' explored='false'/>
+					<Room type='0' description='2 Right Stalls' event='YourFarmH1R2' xpos='var0+var2*4' ypos='var1+var3*6' height='var3*4' width='var2*2' explored='false'/>
+					<Room type='0' description='3 Storage' event='YourFarmH1R3' xpos='var0+var2*0' ypos='var1+var3*0' height='var3*3' width='var2*4' explored='false'/>
+					<Room type='0' description='4 Backroom' event='YourFarmH1R4' xpos='var0+var2*4' ypos='var1+var3*0' height='var3*6' width='var2*2' explored='false'/>
+					<Room type='0' description='5 Small Corridor' event='YourFarmH1R5' xpos='var0+var2*6' ypos='var1+var3*4' height='var3*1' width='var2*4' explored='false'/>
+					<Room type='0' description='6 Corridor' event='YourFarmH1R6' xpos='var0+var2*10' ypos='var1+var3*4' height='var3*3' width='var2*1' explored='false'/>
+					<Room type='0' description='7 Stairs up' event='YourFarmH1R7' xpos='var0+var2*11' ypos='var1+var3*4' height='var3*1' width='var2*3' explored='false'/>
+					<Room type='0' description='8 Room 1' event='YourFarmH1R8' xpos='var0+var2*6' ypos='var1+var3*5' height='var3*2' width='var2*4' explored='false'/>
+					<Room type='0' description='9 Reception' event='YourFarmH1R9' xpos='var0+var2*6' ypos='var1+var3*7' height='var3*3' width='var2*5' explored='false'/>
+					<Room type='0' description='10 Room 2' event='YourFarmH1R10' xpos='var0+var2*11' ypos='var1+var3*5' height='var3*5' width='var2*3' explored='false'/>
+					<Room type='0' description='11 Entrance House' event='YourFarmH1R11' xpos='var0+var2*9' ypos='var1+var3*10' height='var3*1' width='var2*2' explored='false'/>
+					<Room type='0' description='12 Entrance Barn' event='YourFarmH1R12' xpos='var0+var2*2' ypos='var1+var3*10' height='var3*1' width='var2*2' explored='false'/>
+					
+					<Door from='12' to='0' dpos='2' height='10' width='20'/>
+					<Door from='0' to='1' dpos='11' height='1' width='1'/>
+					<Door from='0' to='2' dpos='5' height='1' width='1'/>
+					<Door from='0' to='3' dpos='2' height='10' width='10'/>
+					<Door from='3' to='4' dpos='5' height='10' width='10'/>
+					<Door from='5' to='4' dpos='11' height='10' width='10'/>
+					<Door from='5' to='6' dpos='5' height='10' width='10'/>
+					<Door from='7' to='6' dpos='11' height='10' width='10'/>
+					<Door from='8' to='6' dpos='4' height='10' width='10'/>
+					<Door from='10' to='6' dpos='12' height='10' width='10'/>
+					<Door from='6' to='9' dpos='8' height='10' width='10'/>
+					<Door from='8' to='9' dpos='9' height='10' width='10'/>
+					<Door from='11' to='9' dpos='2' height='10' width='20'/>
+				</Exploration>
+				<if var4='0'>
+					<EnterRoom>9</EnterRoom>
+				</if>
+				<if var4='1'>
+					<EnterRoom>0</EnterRoom>
+				</if>
+				<if var4='2'>
+					<EnterRoom>6</EnterRoom>
+				</if>
+				<HideImages/>
+				<Backgrounds place='housing'/>
+				<ShowCurrentFloor/>
+			</YourFarmHouse>
+				<YourFarmH1R0></YourFarmH1R0>
+				<YourFarmH1R1></YourFarmH1R1>
+				<YourFarmH1R2></YourFarmH1R2>
+				<YourFarmH1R3></YourFarmH1R3>
+				<YourFarmH1R4></YourFarmH1R4>
+				<YourFarmH1R5></YourFarmH1R5>
+				<YourFarmH1R6></YourFarmH1R6>
+				<YourFarmH1R7><DoEvent now='true'>YourFarmHouseH2</DoEvent></YourFarmH1R7>
+				<YourFarmH1R8></YourFarmH1R8>
+				<YourFarmH1R9></YourFarmH1R9>
+				<YourFarmH1R10></YourFarmH1R10>
+				<YourFarmH1R11><DoEvent now='true'>YourFarmHouseExitA</DoEvent></YourFarmH1R11>
+				<YourFarmH1R12><DoEvent now='true'>YourFarmHouseExitB</DoEvent></YourFarmH1R12>
+				<YourFarmHouseExitA>
+					<YesNoQuestion event='YourFarmHouseExitA'>Do you want to go to the Yard?</YesNoQuestion>
+				</YourFarmHouseExitA>
+					<YourFarmHouseExitAYES>
+						<SetText>You leave the House.</SetText>
+						<StopExploring/>
+						<SetVar var4='0'/>
+						<DoEvent now='true'>YourFarm</DoEvent>
+					</YourFarmHouseExitAYES>
+					<YourFarmHouseExitANO>
+						<SetText>You change your mind, turning around...</SetText>
+					</YourFarmHouseExitANO>
+				<YourFarmHouseExitB>
+					<YesNoQuestion event='YourFarmHouseExitB'>Do you want to go to the Yard?</YesNoQuestion>
+				</YourFarmHouseExitB>
+					<YourFarmHouseExitBYES>
+						<SetText>You leave the Small Barn. Closing the large doors behind you.</SetText>
+						<StopExploring/>
+						<SetVar var4='0'/>
+						<DoEvent now='true'>YourFarm</DoEvent>
+					</YourFarmHouseExitBYES>
+					<YourFarmHouseExitBNO>
+						<SetText>You change your mind, turning around...</SetText>
+					</YourFarmHouseExitBNO>
+			<YourFarmHouseH2>
+				<SetVar var0='90'/> <!-- X offset (to the right) -->
+				<SetVar var1='70'/> <!-- Y offset (down wards) -->
+				<SetVar var2='20'/> <!-- X height -->
+				<SetVar var3='20'/> <!-- Y width  -->
+				<Exploration>
+					<Room type='0' description='0 Stairs down' event='YourFarmH2R0' xpos='var0+var2*11' ypos='var1+var3*4' height='var3*1' width='var2*3' explored='false'/>
+					<Room type='0' description='1 Corridor' event='YourFarmH2R1' xpos='var0+var2*6' ypos='var1+var3*5' height='var3*1' width='var2*8' explored='false'/>
+					<Room type='0' description='2 Room right' event='YourFarmH2R2' xpos='var0+var2*6' ypos='var1+var3*6' height='var3*4' width='var2*4' explored='false'/>
+					<Room type='0' description='3 Room left' event='YourFarmH2R3' xpos='var0+var2*10' ypos='var1+var3*6' height='var3*4' width='var2*4' explored='false'/>
+					<Room type='0' description='4 Balcony' event='YourFarmH2R4' xpos='var0+var2*7' ypos='var1+var3*10' height='var3*1' width='var2*6' explored='false'/>
+					<Room type='0' description='5 Barn upper floor' event='YourFarmH2R5' xpos='var0+var2*2' ypos='var1+var3*5' height='var3*1' width='var2*4' explored='false'/>
+					<Room type='0' description='6 Attic up' event='YourFarmH2R6' xpos='var0+var2*2' ypos='var1+var3*2' height='var3*3' width='var2*2' explored='false'/>
+					<Room type='0' description='7 Attic down' event='YourFarmH2R7' xpos='var0+var2*2' ypos='var1+var3*6' height='var3*3' width='var2*2' explored='false'/>
+
+					<Door from='0' to='1' dpos='7' height='10' width='10'/>
+					<Door from='2' to='1' dpos='2' height='10' width='10'/>
+					<Door from='3' to='1' dpos='2' height='10' width='10'/>
+					<Door from='2' to='4' dpos='8' height='10' width='10'/>
+					<Door from='3' to='4' dpos='8' height='10' width='10'/>
+					<Door from='1' to='5' dpos='5' height='10' width='10'/>
+					<Door from='6' to='5' dpos='8' height='10' width='10'/>
+					<Door from='7' to='5' dpos='2' height='10' width='10'/>
+				</Exploration>
+				<EnterRoom>1</EnterRoom>
+				<HideImages/>
+				<Backgrounds place='housing'/>
+				<ShowCurrentFloor/>
+			</YourFarmHouseH2>
+				<YourFarmH2R0><SetVar var4='2'/><DoEvent now='true'>YourFarmHouse</DoEvent></YourFarmH2R0>
+				<YourFarmH2R1></YourFarmH2R1>
+				<YourFarmH2R2></YourFarmH2R2>
+				<YourFarmH2R3></YourFarmH2R3>
+				<YourFarmH2R4></YourFarmH2R4>
+				<YourFarmH2R5></YourFarmH2R5>
+				<YourFarmH2R6></YourFarmH2R6>
+				<YourFarmH2R7></YourFarmH2R7>
+			<YourFarmBigBarn>
+				<SetVar var0='70'/> <!-- X offset (to the right) -->
+				<SetVar var1='60'/> <!-- Y offset (down wards) -->
+				<SetVar var2='20'/> <!-- X height -->
+				<SetVar var3='20'/> <!-- Y width  -->
+				<Exploration>
+					<Room type='0' description='0 Entrance' event='YourFarmB1R0' xpos='var0+var2*0' ypos='var1+var3*6' height='var3*3' width='var2*1' explored='false'/>
+					<Room type='0' description='1 Test Area' event='YourFarmB1R1' xpos='var0+var2*1' ypos='var1+var3*0' height='var3*4' width='var2*5' explored='false'/>
+					<Room type='0' description='2 Small Storage' event='YourFarmB1R2' xpos='var0+var2*6' ypos='var1+var3*0' height='var3*4' width='var2*2' explored='false'/>
+					<Room type='0' description='3 Stairs to Cellar' event='YourFarmB1R3' xpos='var0+var2*8' ypos='var1+var3*1' height='var3*3' width='var2*1' explored='false'/>
+					<Room type='0' description='4 Laboratory' event='YourFarmB1R4' xpos='var0+var2*9' ypos='var1+var3*0' height='var3*4' width='var2*6' explored='false'/>
+					<Room type='0' description='5 Barn' event='YourFarmB1R5' xpos='var0+var2*1' ypos='var1+var3*4' height='var3*6' width='var2*11' explored='false'/>
+					<Room type='0' description='6 Milk Tank' event='YourFarmB1R6' xpos='var0+var2*12' ypos='var1+var3*4' height='var3*3' width='var2*3' explored='false'/>
+					<Room type='0' description='7 Stall right' event='YourFarmB1R7' xpos='var0+var2*12' ypos='var1+var3*7' height='var3*5' width='var2*2' explored='false'/>
+					<Room type='0' description='8 Stall left' event='YourFarmB1R8' xpos='var0+var2*2' ypos='var1+var3*10' height='var3*2' width='var2*5' explored='false'/>
+					<Room type='0' description='9 Stall middle' event='YourFarmB1R9' xpos='var0+var2*7' ypos='var1+var3*10' height='var3*2' width='var2*5' explored='false'/>
+					<Room type='0' description='10 Secret Passage' event='YourFarmB1R10' xpos='var0+var2*8' ypos='var1+var3*0' height='var3*1' width='var2*1' explored='false'/>
+
+					<Door from='0' to='5' dpos='7' height='10' width='10'/>
+					<Door from='1' to='5' dpos='7' height='10' width='10'/>
+					<Door from='2' to='5' dpos='8' height='10' width='10'/>
+					<Door from='4' to='5' dpos='9' height='10' width='10'/>
+					<Door from='6' to='5' dpos='11' height='1' width='1'/>
+					<Door from='7' to='5' dpos='11' height='1' width='1'/>
+					<Door from='8' to='5' dpos='2' height='1' width='1'/>
+					<Door from='9' to='5' dpos='2' height='1' width='1'/>
+					<Door from='10' to='2' dpos='11' height='1' width='1'/>
+					<Door from='10' to='3' dpos='2' height='10' width='10'/>
+				</Exploration>
+				<if var4='0'>
+					<EnterRoom>5</EnterRoom>
+				</if>
+				<if var4='1'>
+					<EnterRoom>10</EnterRoom>
+				</if>
+				<HideImages/>
+				<Backgrounds place='housing'/>
+				<ShowCurrentFloor/>
+			</YourFarmBigBarn>
+				<YourFarmB1R0></YourFarmB1R0>
+				<YourFarmB1R1></YourFarmB1R1>
+				<YourFarmB1R2></YourFarmB1R2>
+				<YourFarmB1R3><SetVar var4='0'/><DoEvent now='true'>YourFarmBigBarnCellar</DoEvent></YourFarmB1R3>
+				<YourFarmB1R4></YourFarmB1R4>
+				<YourFarmB1R5></YourFarmB1R5>
+				<YourFarmB1R6></YourFarmB1R6>
+				<YourFarmB1R7></YourFarmB1R7>
+				<YourFarmB1R8></YourFarmB1R8>
+				<YourFarmB1R9></YourFarmB1R9>
+				<YourFarmB1R10></YourFarmB1R10>
+				<YourFarmBigBarnExit>
+					<YesNoQuestion event='YourFarmBigBarnExit'>Do you want to go to the Yard?</YesNoQuestion>
+				</YourFarmBigBarnExit>
+					<YourFarmBigBarnExitYES>
+						<SetText>You leave the Barn.</SetText>
+						<StopExploring/>
+						<SetVar var4='0'/>
+						<DoEvent now='true'>YourFarm</DoEvent>
+					</YourFarmBigBarnExitYES>
+					<YourFarmBigBarnExitNO>
+						<SetText>You change your mind, turning around...</SetText>
+					</YourFarmBigBarnExitNO>
+			<YourFarmBigBarnCellar>
+				<SetVar var0='50'/> <!-- X offset (to the right) -->
+				<SetVar var1='40'/> <!-- Y offset (down wards) -->
+				<SetVar var2='20'/> <!-- X height -->
+				<SetVar var3='20'/> <!-- Y width  -->
+				<Exploration>
+					<Room type='0' description='0 Stairs up' event='YourFarmB0R0' xpos='var0+var2*11' ypos='var1+var3*4' height='var3*3' width='var2*1' explored='false'/>
+					<Room type='0' description='1 Corridor' event='YourFarmB0R1' xpos='var0+var2*6' ypos='var1+var3*7' height='var3*1' width='var2*6' explored='false'/>
+					<Room type='0' description='2 Training room' event='YourFarmB0R2' xpos='var0+var2*3' ypos='var1+var3*6' height='var3*3' width='var2*3' explored='false'/>
+					<Room type='0' description='3 Cell up right' event='YourFarmB0R3' xpos='var0+var2*9' ypos='var1+var3*6' height='var3*1' width='var2*1' explored='false'/>
+					<Room type='0' description='4 Cell down right' event='YourFarmB0R4' xpos='var0+var2*9' ypos='var1+var3*8' height='var3*1' width='var2*1' explored='false'/>
+					<Room type='0' description='5 Cell up left' event='YourFarmB0R5' xpos='var0+var2*7' ypos='var1+var3*6' height='var3*1' width='var2*1' explored='false'/>
+					<Room type='0' description='6 Cell down left' event='YourFarmB0R6' xpos='var0+var2*7' ypos='var1+var3*8' height='var3*1' width='var2*1' explored='false'/>
+					<Room type='0' description='7 black block' event='YourFarmB0R7' xpos='var0+var2*6' ypos='var1+var3*6' height='var3*1' width='var2*1' explored='false'/>
+					<Room type='0' description='8 black block' event='YourFarmB0R8' xpos='var0+var2*8' ypos='var1+var3*6' height='var3*1' width='var2*1' explored='false'/>
+					<Room type='0' description='9 black block' event='YourFarmB0R9' xpos='var0+var2*10' ypos='var1+var3*6' height='var3*1' width='var2*1' explored='false'/>
+					<Room type='0' description='10 black block' event='YourFarmB0R10' xpos='var0+var2*6' ypos='var1+var3*8' height='var3*1' width='var2*1' explored='false'/>
+					<Room type='0' description='11 black block' event='YourFarmB0R11' xpos='var0+var2*8' ypos='var1+var3*8' height='var3*1' width='var2*1' explored='false'/>
+					<Room type='0' description='12 black block' event='YourFarmB0R12' xpos='var0+var2*10' ypos='var1+var3*8' height='var3*1' width='var2*2' explored='false'/>
+					<Room type='0' description='13 black block' event='YourFarmB0R13' xpos='var0+var2*3' ypos='var1+var3*4' height='var3*2' width='var2*8' explored='false'/>
+					<Room type='0' description='14 black block' event='YourFarmB0R14' xpos='var0+var2*3' ypos='var1+var3*9' height='var3*5' width='var2*9' explored='false'/>
+					<Room type='0' description='15 black block' event='YourFarmB0R15' xpos='var0+var2*12' ypos='var1+var3*1' height='var3*13' width='var2*5' explored='false'/>
+					<Room type='0' description='16 black block' event='YourFarmB0R16' xpos='var0+var2*0' ypos='var1+var3*1' height='var3*13' width='var2*3' explored='false'/>
+					<Room type='0' description='17 black block' event='YourFarmB0R17' xpos='var0+var2*3' ypos='var1+var3*1' height='var3*3' width='var2*9' explored='false'/>
+					
+					<Door from='0' to='1' dpos='8' height='10' width='10'/>
+					<Door from='1' to='2' dpos='11' height='10' width='10'/>
+					<Door from='3' to='1' dpos='8' height='10' width='10'/>
+					<Door from='4' to='1' dpos='2' height='10' width='10'/>
+					<Door from='5' to='1' dpos='8' height='10' width='10'/>
+					<Door from='6' to='1' dpos='2' height='10' width='10'/>
+				</Exploration>
+				<EnterRoom>1</EnterRoom>
+				<HideImages/>
+				<Backgrounds place='housing'/>
+				<ShowCurrentFloor/>
+			</YourFarmBigBarnCellar>
+				<YourFarmB0R0><SetVar var4='1'/><DoEvent now='true'>YourFarmBigBarn</DoEvent></YourFarmB0R0>
+				<YourFarmB0R1></YourFarmB0R1>
+				<YourFarmB0R2></YourFarmB0R2>
+				<YourFarmB0R3></YourFarmB0R3>
+				<YourFarmB0R4></YourFarmB0R4>
+				<YourFarmB0R5></YourFarmB0R5>
+				<YourFarmB0R6></YourFarmB0R6>
+		<!--   __________________________________________________________________________________________ YOUR FARM END _____________________ -->
+	</Events>
+	<Planning>
+		<Acts>
+			<DoPlanning>
+			<!--   __________________________________________________________________________________________ SM TRAINING START _____________________ -->
+				<SMCustomTrainingHE  name='Explore House' description='You will go explore your House' aduration='2' show='false'>
+					<DoEvent now="true">HouseGaleon</DoEvent>
+				</SMCustomTrainingHE>
+			</DoPlanning>
+		</Acts>
+	</Planning>
+</Language>

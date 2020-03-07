@@ -1,0 +1,1690 @@
+﻿<Language>
+
+<Credits> Version 0.35 - created by bananaman </Credits>
+<!-- Explanation - this 'event' adds content for allowing the SM to be submissive -->
+<!-- 
+Cheat list of custom flags used for SMSubmission Event:
+flagsmsubmission-1 Accepts slave's offer (required for content to load)
+flagsmsubmission-2 Accepts to truly submit to slave (unlocking further options)
+flagsmsubmission-3 Rejects slave's offer
+flagsmsubmission-4 
+flagsmsubmission-5 Slave has given her offer (one-time event)
+flagsmsubmission-6
+flagsmsubmission-7 
+flagsmsubmission-8 
+flagsmsubmission-9 
+flagsmsubmission-10
+flagsmsubmission-11 
+flagsmsubmission-12 
+flagsmsubmission-13
+flagsmsubmission-14
+flagsmsubmission-15 
+flagsmsubmission-16 
+flagsmsubmission-17 
+flagsmsubmission-18 
+flagsmsubmission-19 
+flagsmsubmission-20 
+flagsmsubmission-21 
+flagsmsubmission-22
+flagsmsubmission-23 
+flagsmsubmission-24 
+flagsmsubmission-25 
+flagsmsubmission-26 
+flagsmsubmission-27 
+flagsmsubmission-28 
+flagsmsubmission-29
+flagsmsubmission-30 
+flagsmsubmission-31 
+flagsmsubmission-32 
+flagsmsubmission-33 
+flagsmsubmission-34 
+flagsmsubmission-35
+flagsmsubmission-36 
+flagsmsubmission-37 
+flagsmsubmission-38 
+flagsmsubmission-39 
+flagsmsubmission-40 
+flagsmsubmission-41 
+flagsmsubmission-42 
+flagsmsubmission-43 
+flagsmsubmission-44
+flagsmsubmission-45 
+flagsmsubmission-46 
+flagsmsubmission-47 
+flagsmsubmission-48
+flagsmsubmission-49
+flagsmsubmission-50 
+flagsmsubmission-51  
+flagsmsubmission-52 
+flagsmsubmission-53
+flagsmsubmission-54 
+flagsmsubmission-55 
+flagsmsubmission-56 
+flagsmsubmission-57 
+flagsmsubmission-58 
+flagsmsubmission-59 
+flagsmsubmission-60 
+flagsmsubmission-61 
+flagsmsubmission-62 
+flagsmsubmission-63 
+flagsmsubmission-64
+flagsmsubmission-65
+
+flagsmsubmission-70
+flagsmsubmission-71 
+flagsmsubmission-73 
+flagsmsubmission-74 
+flagsmsubmission-75 
+flagsmsubmission-76 
+flagsmsubmission-77 
+flagsmsubmission-78 
+flagsmsubmission-79 
+flagsmsubmission-80 
+flagsmsubmission-81
+-->
+
+<!-- Actual events? What path? -->
+
+<!--SMPoints><Lust>-7</Lust><Corrupt>1</Corrupt><Dominance>1.5</Dominance><Tiredness>3</Tiredness></SMPoints-->
+
+<Events>
+
+<EarlyMorning>	
+	<SMmorningsession flagsmsubmission-1="true" chance='Temperament/3'>
+		<Backgrounds place='dungeon'/>
+		<ShowImage image="Images/Events/Submission/sex5.jpg"/>
+		<SetText>You wake up to find yourself tied up, #slave standing over you, running a hand along her <if slavegender='2'>strap-on</if><if slavegender='3'>cock</if>. Grinning, she said &quot;To celebrate that you are now my slave...I think I shall give you a good fuck with this thing...been itching to use it for some time now.&quot; </SetText>
+		<Blankline/>
+		<AddText>With that, she proceeds to fuck you with her <if slavegender='2'>strap-on</if><if slavegender='3'>cock</if> until you both cum, several times.</AddText>
+		<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+		<Points>0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, -1, 0, -2, 0, 0, 0</Points>
+		<SetVar Joy='Joy + 2'/>
+		<if chance="Temperament - 40">
+			<AddText>..</AddText>
+			<DoEvent>SMmorningbondage</DoEvent>
+		</if>
+	</SMmorningsession>
+	
+	<SMmorningbondage>
+		<ShowImage image="Images/Events/Submission/morningrope.jpg"/>
+		<AddText>\r\r...before she re-ties you, in a different manner, and seats you by the table, ready for breakfast, teasing you and humiliating you as she feeds you breakfast, her toes occasionally teasing your clit, but not enough to come.</AddText>
+		<Blankline />
+		<AddText><if SMdominance="30-">You feel comfortable and at ease in these bonds, and ask if you can finish off breakfast with some dessert...#slave happily obliges, and lets you lick her pussy until she comes.</if></AddText>
+		<SMPoints>0, 0, 0, 0, 0, -1, 0, 0, 5, 0, 0, 0, -1</SMPoints>
+		<Points>0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 0</Points>
+		<DoEvent>250</DoEvent>
+	</SMmorningbondage>
+	
+	<SMmorningsession2 flagsmsubmission-1="true" chance='Temperament/3'>
+		<Backgrounds place='dungeon'/>
+		<ShowImage image="Images/Events/Submission/tease.jpg"/>
+		<SetText>You wake up to find #slave naked in front of you, teasing you with her smile as she presents herself to you, but as you attempt to take advantage of this, you feel your wrists restrained, attached to the bed, ankles likewise. Grinning at your surprise, she said &quot;To celebrate that you are now my slave...I think you will <if slavegender='2'>lick my clit</if><if slavegender ='3'>suck my cock</if> until I come.&quot; </SetText>
+		<Blankline/>
+		<AddText>With little choice, restrained as you are, you can only obey as she lowers <if slavegender='2'>her pussy</if><if slavegender='3'>her cock</if> towards your lips.</AddText>
+		<Blankline/>
+		<AddText>You reluctantly give in, and start to <if slavegender='2'>lick her pussy, letting your tongue penetrate her lips, and circle round her clit, up and down, until she eventually comes</if><if slavegender='3'>suck her cock, up and down, licking when you get a chance, teasing the tip, until she cums in your mouth, not pulling out until you have swallowed her load</if>.</AddText>
+		<SetVar Joy='Joy + 2'/>
+		<if chance="Temperament - 40">
+			<AddText>..</AddText>
+			<DoEvent>SMmorningbondage2</DoEvent>
+		</if>
+	</SMmorningsession2>
+	
+	<SMmorningbondage2>
+		<ShowImage image="Images/Events/Submission/morning2.jpg"/>
+		<AddText>\r\r...before she gags you, and says &quot;Ooh, you are a well-behaved pet, so I think I shall give you a reward. What do you say?&quot; Eagerly nodding in anticipation, she then attaches a collar round your neck, and, massaging your nipples until they are erect, attach nipple-clamps to them.</AddText>
+		<Blankline />
+		<AddText>With that, #slave smiles teasingly, and runs her fingers up and down your pussy, teasing you, before she pulls the lips apart long enough to force a dildo in, filling you up, moving it in and out, slowly at first, but picking up speed, until her motions are furious...and you come. Pleased with that, #slave strokes your hair, kisses your forehead, and leaves you there.</AddText>
+		<BlankLine />
+		<AddText><if SMdominance="20-">You moan, doing your best to expose your ass, until #slave eventually returns, and says &quot;Was that not enough for you, my pet? Oh well...&quot; before she fills your ass with a butt-plug, and fucks you with the dildo again, until you collapse from orgasm.</if></AddText>
+		<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+		<Points>0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, -1, 0, 0, 0</Points>
+		<DoEvent>250</DoEvent>
+	</SMmorningbondage2>
+	
+	<SMmorningsession3 flagsmsubmission-1="true" chance='Temperament/3'>
+		<Backgrounds place='dungeon'/>
+		<ShowImage image="Images/Events/Submission/morningtease2.jpg"/>
+		<SetText>You wake up to find your hands tied above your head, and #slave cuddling up to you, naked. Sensing you stir, she smiles and starts to move her hand down your stomach, parting your legs eventually, fingering your clit, inserting two fingers in your pussy as she kisses you, and teases you, and teases you, and teases you...until you squirm, unable to contain the orgasm.</SetText>
+		<Blankline/>
+		<AddText>#slave smiled, and kissed you again, then said &quot;My turn now...&quot; before she moved up, stradding your chest, and moving her pussy towards your mouth. With little choice, restrained as you are, you obey.</AddText>
+		<Blankline/>
+		<AddText>You reluctantly give in, and start to <if slavegender='2'>lick her pussy, letting your tongue penetrate her lips, and circle round her clit, up and down, until she eventually comes</if><if slavegender='3'>suck her cock, up and down, licking when you get a chance, teasing the tip, until she cums in your mouth, not pulling out until you have swallowed her load</if>.</AddText>
+		<SetVar Joy='Joy + 2'/>
+		<if chance="Temperament - 40">
+			<AddText>..</AddText>
+			<DoEvent>SMmorningbondage3</DoEvent>
+		</if>
+	</SMmorningsession3>
+	
+	<SMmorningbondage3>
+		<ShowImage image="Images/Events/Submission/morningsex3.jpg"/>
+		<AddText>\r\r...before she turns you round on the bed, unties your wrists, then quickly moves your hands behind your back and ties them together there. #slave says &quot;As you are such a well-behaved pet, I think I shall give you a reward. What do you say?&quot; Eagerly nodding in anticipation, she smiles as she picks up the double-ended dildo on the bed, grabs you by the hair, and commands &quot;Lick!&quot; as she moves it towards your mouth.</AddText>
+		<Blankline />
+		<AddText>With no option but to comply, you start to suck the dildo slowly, lubricating it, moaning occasionally, making #slave smile, before she pulls the dildo away, and inserts it into her pussy. Pulling you up, she seats herself upright on the bed, and points to the dildo, indicating you to get on it. Doing your best to crawl from your face-down position, you slowly raise yourself up, and on your knees, walk over to #slave.</AddText>
+		<BlankLine />
+		<AddText><if SMdominance="10-">You wriggle your arse as you do so, though, and look over at the buttplugs longingly, causing #slave to follow your gaze, then grin wide as she reaches over to pick up the largest one. Applying a bit of lube, she worked it into your bottom with little gentleness.</if></AddText>
+		<BlankLine />
+		<AddText>Pulling you closer, #slave positioned you over the other end of the dildo, and commanded you to lower yourself on it. Doing so, you felt it slide in, and when you were fully on it, she started to move her hips, grinding the dildo into you as your clit was rubbed by hers<if SMdominance="10-">, and the dildo rubbing against the buttplug with an intensity you rarely felt before</if>. She kept going past your first orgasm, kissing you, twisting your nipples with her free hand, moving her hips faster and faster until, at last, she also came, as you did for the third time. Collapsing backwards onto the bed, she held you close and kissed you, content to like like that for a while before pulling out and untying you.</AddText>
+		<SMPoints>0, 0, 0, 0, 0, -2, 0, 0, 5, 0, 0, 0, -2</SMPoints>
+		<Points>0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0</Points>
+		<DoEvent>250</DoEvent>
+	</SMmorningbondage3>
+	
+	<TruthorDare flagsmsubmission-1="true" chance='Temperament/3'>
+		<ShowImage image="Images/Events/Submission/truth.jpg" place="1" align="1"/>
+		<AddText>#slave smiles towards you as she strokes your cheek. "Morning, my dear. I thought we'd play a little bit of Truth or Dare before we get started with the day...what do you say?"</AddText>
+		<AskQuestions caption='Which dare?'>
+            		<Question eventno="Truth1">1</Question>
+					<Question eventno="Truth2">2</Question>
+					<Question eventno="Truth3">3</Question>
+					<Question eventno="Truth4">4</Question>
+		</AskQuestions>
+	</TruthorDare>
+	
+	<Truth1>
+		<ShowImage image="Images/Events/Submission/dare 1.jpg"/>
+		<AddText>The dare is simple: You will be a pet for the day.</AddText>
+		<Blankline />
+		<AddText></AddText>
+		<BlankLine />
+		<AddText><if SMdominance="10-">You absolutely love this, the sensation of being #slave's pet.</if></AddText>
+		<BlankLine />
+		<AddText></AddText>
+		<SMPoints>0, 0, 0, 0, 0, -2, 0, 0, 5, 0, 0, 0, -2</SMPoints>
+		<Points>0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0</Points>
+		<DoEvent>250</DoEvent>
+	</Truth1>
+	
+	<Truth2>
+		<ShowImage image="Images/Events/Submission/dare 2.jpg"/>
+		<AddText>The dare is simple: Can you manage to not orgasm for ten minutes, whilst tied up and plugged?</AddText>
+		<Blankline />
+		<AddText></AddText>
+		<BlankLine />
+		<AddText><if SMdominance="10-">You don't last longer than three minutes before screaming in orgasm...and then again, and again.</if></AddText>
+		<BlankLine />
+		<AddText></AddText>
+		<SMPoints>0, 0, 0, 0, 0, -2, 0, 0, 5, 0, 0, 0, -2</SMPoints>
+		<Points>0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0</Points>
+		<DoEvent>250</DoEvent>
+	</Truth2>
+	
+	<Truth3>
+		<ShowImage image="Images/Events/Submission/dare 3.png"/>
+		<AddText>Your slave...you mean, Mistress #slave, wants to ride today, and you are the steed.</AddText>
+		<Blankline />
+		<AddText></AddText>
+		<BlankLine />
+		<AddText><if SMdominance="10-">Imagine if life was this simple all the time. It would surely be heaven...</if></AddText>
+		<BlankLine />
+		<AddText></AddText>
+		<SMPoints>0, 0, 0, 0, 0, -2, 0, 0, 5, 0, 0, 0, -2</SMPoints>
+		<Points>0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0</Points>
+		<DoEvent>250</DoEvent>
+	</Truth3>
+	
+	<Truth4>
+		<ShowImage image="Images/Events/Submission/dare 4.jpg"/>
+		<AddText>The task is simple: Just walk from one end of the room to the other. That you'll be tied up, and walking along a rope riddled with knots is just a bonus.</AddText>
+		<Blankline />
+		<AddText></AddText>
+		<BlankLine />
+		<AddText><if SMdominance="10-">It is only by biting your tongue you stop short of calling #slave "Mistress" when she helps you climb away off the rope.</if></AddText>
+		<BlankLine />
+		<AddText></AddText>
+		<SMPoints>0, 0, 0, 0, 0, -2, 0, 0, 5, 0, 0, 0, -2</SMPoints>
+		<Points>0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0</Points>
+		<DoEvent>250</DoEvent>
+	</Truth4>
+	
+</EarlyMorning>
+
+<Daily>
+	<SMDominationStart SMdominance="50-" flagsmsubmission-5="false">
+		<Backgrounds place='bedroom'/>
+		<SetFlags flagsmsubmission-5="true" />
+		<ShowImage image="Images/Events/Submission/SubStart.jpg" place="1" align="1"/>
+		<SetText>You awake, drowsily, and try to rub the sleep out of your eyes...only to find you can't, your arms restrained, and a cool sensation around your wrists and ankles.</SetText>
+		<BlankLine />
+		<AddText>Standing above you, admiring your naked form, is #slave, smiling faintly.</AddText>
+		<DoEvent>SlaveDom</DoEvent>
+	</SMDominationStart>
+	
+	<SlaveDom>
+		<Backgrounds place='dungeon'/>
+		<if slavegender='3'>
+			<ShowImage image="Images/Events/Submission/3/slavedom.jpg" place="1" align="1" />
+		<else>if</else>
+			<ShowImage image="Images/Events/Submission/SlaveDom.jpg" place="1" align="1" />
+		</if>
+		<SetText>Looking down upon you, clearly dressed up for the situation, she runs one hand up your stomach, then strokes your cheek, mirth in her voice as she says &quot;Oh, look at you...you look stunning, tied up like that.&quot;</SetText>
+		<BlankLine />
+		<AddText>Running a hand down your stomach again, she lets two fingers run along your nether lips, her smile widening as she continues. &quot;...and it would seem you like it, too...as excited as you are.&quot;</AddText>
+		<BlankLine />
+		<AddText>Cracking her whip once, she then says &quot;You probably wonder what this is all about, my dear...and I have a proposal for you. How about, once in a while, I take charge? Let you work out some stress, and let me play.&quot;</AddText>
+		<AskQuestions caption="What do you say?">
+			<Question event='SlaveDomAccept'>Yes, mistress.</Question>
+			<Question event='SlaveDomRefuse'>No way!</Question>
+		</AskQuestions>
+	</SlaveDom>
+	
+	<SlaveDomAccept>
+	<ShowImage image="Images/Events/Submission/SMsex1.jpg" place="1" align="1"/>
+		<SetText>Looking slightly surprised, #slave stutters out &quot;Y-you do?&quot;, before composing herself, and trying again, in a more authoritative voice, &quot;Then, from now on, we will switch, and both have fun.&quot;</SetText>
+		<BlankLine />
+		<AddText>Running a hand along her <if slavegender='2'>strap-on</if><if slavegender='3'>cock</if>, she grinned as she said &quot;To celebrate...I think I shall give you a good fuck with this thing...been itching to use it for some time now.&quot;</AddText>
+		<Blankline />
+		<AddText>With that, she untied you briefly, then tied your arms behind your back, laid down on the bed, and forced you to ride her <if slavegender='2'>strap-on</if><if slavegender='3'>cock</if>, until you both came.</AddText>
+		<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, 0, 0, 0, 0, 0</SMPoints>
+		<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+		<Points>0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 3, 5, 0, -1, -2, 0, 0, 10, 5, 0</Points>
+		<SetFlags flagsmsubmission-1="true" />
+		<DoEvent>250</DoEvent>
+	</SlaveDomAccept>
+	
+	<SlaveDomRefuse>
+	<ShowImage image="Images/Events/Submission/Refuse.jpg" place="1" align="1"/>
+		<SetText>You refuse her offer with a definite shake of the head, before you say &quot;Untie me now, and face your punishment.&quot;</SetText>
+		<BlankLine />
+		<AddText>Chastened, #slave looks at you sadly, her head hanging in shame, and she mumbles out &quot;I'm sorry...&quot; before untying you, at which point you pull the covers over you, before you say &quot;I will let you off for this this once...but never again!&quot;</AddText>
+		<SMPoints>0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0</SMPoints>
+		<Points>0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -5, 0, 10, 0, 0, 0, 0, 0, 0</Points>
+		<SetFlags flagsmsubmission-3="true" />
+		<DoEvent now="true">250</DoEvent>
+	</SlaveDomRefuse>
+</Daily>
+
+	<Walk>
+		<TownCenter>
+		
+		<SMsubWalkingThePet chance='30%' supervise='slavemaker' flagsmsubmission-1="true">
+			<ShowImage image="Images/Events/Submission/market.jpg" place="1" align="1"/>
+			<SetText>You decide to go to the market, and browse the wares, when #slave suggests a different idea.</SetText>
+			<AddText>&quot;How about we go for a little walk, my pet...where I lead you round the market?&quot;, she suggested innocently. Gesturing towards a bag of clothes, #slave commanded you to put on what was inside...all bar the arm-binders, which she helped you with. Then, ready to walk out, she tugged on the leash, attached to your collar, and you set off.</AddText>
+			<Points>0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -5, 0, 10, 0, 0, 0, 0, 0, 0</Points>
+				<if chance="Lust">
+					<AddText>..</AddText>
+					<DoEvent>Marketsex</DoEvent>
+				</if>
+		</SMsubWalkingThePet>
+		
+		<SMsubMarketsex>
+			<ShowImage image="Images/Events/Submission/market sex.jpg"/>
+			<AddText>\r\r...before slowing down, your legs almost buckling from ill-contained lust.</AddText>
+			<Blankline />
+			<AddText>#slave smirks, and pulls on the leash, dragging you into an alleyway. There, she loops the leash around a nearby post, before she pushes you up against the wall, pressing her breasts into your back as she reaches round to pinch your exposed nipples.</AddText>
+			<BlankLine />
+			<AddText>You feel her pull away your lower clothing, and <if slavegender='2'>a hidden strap-on</if><if slavegender='3'>her cock</if> press against your wet pussy. Proceeding to fuck you unceremoniously, all you could do was emit faint noises of pleasure through the gag, until #slave had sated herself...and you.</AddText>
+			<SMPoints>0, 0, 0, 0, 0, -2, 0, 0, 5, 0, 0, 0, -2</SMPoints>
+			<Points>0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1, 3, -1, 1, -3, 0, -1, 0.5, 0, 2</Points>
+			<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+		</SMsubMarketsex>
+		
+		</TownCenter>
+
+		<Palace>
+		
+		<SMsubParading chance='30%' supervise='slavemaker' flagsmsubmission-1="true">
+			<ShowImage image="Images/Events/Submission/parade" frame="random3" place="1" align="1"/>
+			<SetText>You decide to go to the palace, and socialise with members of the court, when #slave suggests a different idea.</SetText>
+			<Blankline/>
+			<AddText>&quot;I have something else for you to wear, my dear...what do you say?&quot;, she suggested innocently. Holding up a harness and a collar, she smiled towards you, and feeling yourself go weak at the knees, happily obliged.</AddText>
+			<Blankline/>
+			<AddText>Putting the collar on, #slave then restrained your arms behind your back, and attached a leash to the collar, before giving it a small tug. With that, you set off towards the castle, where you got many approving looks, and whispers of how courageous you were. Certainly it has done your reputation good.</AddText>
+			<Points>0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 3, 0, 0, 0, 0, 0, 0</Points>
+			<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+		</SMsubParading>
+		
+		</Palace>
+		
+		<Slums>
+		
+		<SMsubWalktheCat chance='30%' supervise='slavemaker' flagsmsubmission-1="true">
+			<ShowImage image="Images/Events/Submission/catsex" frame="random1" place="1" align="1"/>
+			<SetText>As you approach the slums, #slave pulls out a collar and leash, orders you to strip, and then places the collar round your neck.</SetText>
+			<Blankline/>
+			<AddText>Down on all four, you walk the streets behind #slave, unable to still your lust...until you meet a matching pair.</AddText>
+			<Blankline/>
+			<AddText>The other cat approached you, and grinned, looking between her mistress and #slave. The mistress exchanged a few words with #slave, before pulling out a strap-on from her bag, and affixing it to her pet. Seeing this, you got weak in the knees, and was already bending down to receive her cock. Mounding you, she fucked you over and over again, until you were both so exhausted you could barely walk on four legs, let alone two.</AddText>
+			<Points>0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -5, 0, 10, 0, 0, 0, 0, 0, 0</Points>
+			<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+		</SMsubWalktheCat>
+		
+		</Slums>
+		
+		<Lake>
+		
+		<SMsubPicnic chance='30%' supervise='slavemaker' flagsmsubmission-1="true">
+			<ShowImage image="Images/Events/Submission/lake.jpg" place="1" align="1"/>
+			<SetText>Going for a picnic to the lake, #slave pulls out a few odd items from the picnic basket; a lot of rope and a ball gag, in addition to some food and a blanket.</SetText>
+			<Blankline/>
+			<AddText>Smiling towards you, she ordered you to strip, as she walked round and started to tie the rope into a harness, making sure you were comfortable, but restrained.</AddText>
+			<Blankline/>
+			<AddText></AddText>
+			<Points>0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0</Points>
+			<SMPoints>0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+		</SMsubPicnic>
+		
+		</Lake>
+	</Walk>
+	
+	<SMplay2>
+		<ShowImage image="Images/Events/Submission/event_171.jpg"/>
+		<AddText>\r\r...before you feel her inserting something large and round into your pussy, letting it settle in before it starts to vibrate.</AddText>
+		<Blankline />
+		<AddText></AddText>
+		<BlankLine />
+		<AddText><if SMdominance="10-">Gagged and with a dildo inside you, teasing you, you still doesn't feel full, and your body starts to wriggle the arse as good as it can.</if></AddText>
+		<SMPoints>0, 0, 0, 0, 0, -2, 0, 0, 5, 0, 0, 0, -2</SMPoints>
+		<Points>0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0</Points>
+		<DoEvent>SMplay3</DoEvent>
+	</SMplay2>
+	
+	<SMplay3>
+		<ShowImage image="Images/Events/Submission/event_172.png"/>
+		<AddText>All holes filled, you feel good, moaning with pleasure, wriggling in your bonds, and feel a hand stroke your cheek.</AddText>
+		<Blankline />
+		<AddText></AddText>
+		<BlankLine />
+		<SMPoints>0, 0, 0, 0, 0, -2, 0, 0, 5, 0, 0, 0, -2</SMPoints>
+		<Points>0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0</Points>
+		<DoEvent>9999</DoEvent>
+	</SMplay3>
+	
+	
+
+</Events>
+
+
+
+	
+<Planning>
+	<Acts>
+	<DoPlanning>
+	
+		<Exercise>
+			<GenderVersions participant='true'>
+            <Female>
+                <Choices>
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/walk" frame="random3" place="1" align="1"/>
+						<SetText>As you prepare to set out and lead #slave through some exercises, she has another idea...she will instead go for a refreshing walk with her pet.</SetText>
+						<Blankline/>
+						<AddText>She affixed a collar around your neck, and ordered you to strip. Down on all fours, she then led you outside, to the bewilderment and accolades of the crowds.</AddText>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.5, 0, -5, 0, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+                    </Choice>
+
+                </Choices>
+            </Female>
+            <Other>
+                <Choices>                 
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/3/walk" frame="random1" place="1" align="1"/>
+						<SetText>As you prepare to set out and lead #slave through some exercises, she has another idea...she will instead go for a refreshing walk with her pet.</SetText>
+						<Blankline/>
+						<AddText>She affixed a collar around your neck, and ordered you to strip. Down on all fours, she then led you outside, to the bewilderment and accolades of the crowds.</AddText>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.5, 0, -5, 0, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+                    </Choice>
+				</Choices>
+			</Other>
+			</GenderVersions>	
+		</Exercise>
+		
+		<Expose>
+			<GenderVersions participant='true'>
+            <Female>
+                <Choices>
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/SMexpo" frame="random3" place="1" align="1"/>
+						<SetText>As you prepare to set out and expose #slave in all her glory to the world, she instead grins as she commands you to expose yourself.</SetText>
+						<Blankline/>
+						<AddText></AddText>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.5, 0, -5, 0, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+                    </Choice>
+
+                </Choices>
+            </Female>
+            <Other>
+                <Choices>                 
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/3/SMexpo" frame="random1" place="1" align="1"/>
+						<SetText>As you prepare to set out and lead #slave through some exercises, she has another idea...she will instead go for a refreshing walk with her pet.</SetText>
+						<Blankline/>
+						<AddText>She affixed a collar around your neck, and ordered you to strip. Down on all fours, she then led you outside, to the bewilderment and accolades of the crowds.</AddText>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.5, 0, -5, 0, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+                    </Choice>
+				</Choices>
+			</Other>
+			</GenderVersions>	
+		</Expose>
+	
+	
+		<SlaveChore1 name="Dominate" label="Dominate" show="true">
+		<Cost>0</Cost>
+		<ShowImage image="Images/Events/Submission/dominate" place="1" align="1" frame="random3"/>
+		<AddText>You have #slave tie you up and ask her to whip you, make the ropes tighter, and completely dominate you.</AddText>
+		<Points>0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0.5, 1, 0, 0.5, -2, 1, 0, 1, 1, 2</Points>
+		<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+		</SlaveChore1>
+
+		<SlaveJob2 name="Dominatrix" label="She will work at the Brothel as a Dominatrix." show="true">
+			<ShowImage image="Images/Events/Submission/dom" place="1" align="1" frame="random3"/>
+			<SetText>#slave enjoys whipping, and completely dominating others. She ties others up with joy, and make sure they have a good time. Customers seem to LIKE being dominated by her.</SetText>
+			<Points>
+				<Nymphomania>2</Nymphomania>
+				<Lust>-2</Lust>
+				<Joy>2</Joy>
+				<Tiredness>0.5</Tiredness>
+				<Reputation>1</Reputation>
+				<Temperament>1</Temperament>
+				<Special>3</Special>
+			</Points>
+			<Money quiet="true">100*(temperament + joy + obedience)</Money>
+		</SlaveJob2>
+		
+		<SlaveJob3 name="Play" label="#slave will 'play' with you." show="true">
+			
+			<if flagsmsubmission-2="true">
+				<ShowImage image="Images/Events/Submission/event_170.png" place="1" align="1" />
+				<SetText>#slave leads you outside, and orders you to strip. She blindfolds you, then ties your arms above your head. Helping you down onto the grass, she then gags you, restrains your legs and starts to tease your nipples.</SetText>
+				<Blankline/>
+				<SetText>#slave teases your nipples, pinching them, making you squirm, before attaching vibrating balls to them...</SetText>
+				<Points>
+					<Nymphomania>2</Nymphomania>
+					<Lust>-2</Lust>
+					<Joy>2</Joy>
+					<Tiredness>0.5</Tiredness>
+					<Reputation>2</Reputation>
+					<Temperament>2</Temperament>
+					<Special>3</Special>
+				</Points>
+				<Money quiet="true">temperament + joy + obedience</Money>
+				<DoEvent>SMplay2</DoEvent>
+			</if>
+		</SlaveJob3>
+	
+		<SlaveChore2 name="Magical potion!" label="Extreme make-over" show="true">
+			<ShowImage image="Images/Events/Submission/truth.jpg" place="1" align="1"/>
+			<AddText>#slave smiles towards you as she strokes your cheek. "Morning, my dear. How about I drink this magical potion...or you?"</AddText>
+			<AskQuestions caption='Who will drink what potion?'>
+            		<Question event='SlaveBlue'>#slave will drink the blue potion.</Question>
+					<Question event='SlavePurple'>#slave will drink the purple potion.</Question>
+					<Question event='SlaveGreen'>#slave will drink the green potion.</Question>
+					<Question event='SlavemakerBlue'>You will drink the blue potion.</Question>
+					<Question event='SlavemakerPurple'>You will drink the purple potion.</Question>
+					<Question event='SlavemakerGreen'>You will drink the green potion.</Question>
+			</AskQuestions>
+			<Cost>0</Cost>
+		</SlaveChore2>
+		
+	<SlaveBlue>
+		<ShowImage image="Images/Events/Submission/truth.jpg" place="1" align="1"/>
+		<SetVar slavegender='1' />
+		<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+	</SlaveBlue>
+	
+	<SlavePurple>
+		<ShowImage image="Images/Events/Submission/SlavePurple.jpg" place="1" align="1"/>
+		<SetVar slavegender='2' />
+		<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+	</SlavePurple>
+	
+	<SlaveGreen>
+		<ShowImage image="Images/Events/Submission/3/SlaveGreen.jpg" place="1" align="1"/>
+		<SetVar slavegender='3' />
+		<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+	</SlaveGreen>
+	
+	<SlavemakerBlue>
+		<ShowImage image="Images/Appearances/True Catgirl/Male 1/Appearance 1.jpg" place="1" align="1"/>
+		<SetVar Gender='1' />
+		<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+	</SlavemakerBlue>
+	
+	<SlavemakerPurple>
+		<ShowImage image="Images/Events/Submission/SMpurple.jpg" place="1" align="1"/>
+		<SetVar Gender='2' />
+		<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+	</SlavemakerPurple>
+	
+	<SlavemakerGreen>
+		<ShowImage image="Images/Events/Submission/3/SMgreen.jpg" place="1" align="1"/>
+		<SetVar Gender='3' />
+		<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+	</SlavemakerGreen>
+	
+		
+		
+	<SixtyNine>
+		<GenderVersions participant='true'>
+            <Female>
+                <Choices>
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/69" frame="random3" place="1" align="1"/>
+						<SetText></SetText>
+						<Blankline/>
+						<AddText></AddText>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.5, 0, -5, 0, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+                    </Choice>
+
+                </Choices>
+            </Female>
+            <Other>
+                <Choices>                 
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/3/69.jpg" place="1" align="1"/>
+						<SetText>You approach #slave, smiling, ready to make love to her, when she quickly pounces on you, tying your wrists together with a piece of rope she hid behind her back.</SetText>
+						<Blankline/>
+						<AddText>Restrained as you were, she fucked you with great vigour.</AddText>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.5, 0, -5, 0, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+                    </Choice>
+				</Choices>
+			</Other>
+		</GenderVersions>
+	</SixtyNine>
+	
+	<Anal>
+		<GenderVersions participant='true'>
+            <Female>
+                <Choices>
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/anal" frame="random3" place="1" align="1"/>
+						<SetText>You approach #slave, wearing a large strap-on as you smile, ready to make love to her, when she quickly pounces on you, tying your wrists together with a piece of rope she hid behind her back.</SetText>
+						<Blankline/>
+						<AddText>She quickly strips you of the strap-on, and, grinning, puts it on herself. Gently restraining you further, she moved so that she could easily enter you, and soon, you felt the strap-on penetrate your ass. She fucked you until you came, unable to do anything but scream her name, before she pulled out and left you there.</AddText>
+						<SetVar appendacttext='false'/>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.5, 0, -5, 0, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+						<if chance="Temperament - 40">
+							<AddText>..</AddText>
+							<DoEvent>AnalFinish</DoEvent>
+						</if>
+                    </Choice>
+
+                </Choices>
+            </Female>
+            <Other>
+                <Choices>                 
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/3/anal 1.jpg" place="1" align="1"/>
+						<SetText>You approach #slave, smiling, ready to make love to her, when she quickly pounces on you, tying your wrists together with a piece of rope she hid behind her back.</SetText>
+						<Blankline/>
+						<AddText>Restrained as you were, she fucked you with great vigour.</AddText>
+						<SetVar appendacttext='false'/>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.5, 0, -5, 0, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+                    </Choice>
+                    <Choice chance='50%' flagsmsubmission-1="true">
+                        <ShowImage image="Images/Events/Submission/3/lesbian 2.gif" place="1" align="1"/>
+						<SetText>Smiling towards you, #slave proposes a slight variant this time; one where you are tied up during the act.</SetText>
+						<Blankline/>
+						<AddText>Nodding in agreement, you lie down on the bed, and let #slave tie your ankles to your wrists, before she strips and reveals her erect cock.</AddText>
+						<Blankline/>
+						<AddText>Once done, she proceeds to fuck you in your pussy and ass, many times, cumming deep inside you.</AddText>
+						<SetVar appendacttext='false'/>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0.5, 0, 1, -5, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+                    </Choice>
+				</Choices>
+			</Other>
+		</GenderVersions>
+	</Anal>
+	
+	<AnalFinish>
+			<ShowImage image="Images/Events/Submission/anal finish.jpg" place="1" align="1"/>
+			<AddText>\r\r...before she returned, a few minutes later, and got you up on your knees.</AddText>
+			<Blankline/>
+			<AddText>Once you were in position, she pulled you back by your arms, more or less pulling you onto the strap-on, before she began to thrust, with renewed vigour. Barely recovered from last time, you could only emit faint noises of pleasure.</AddText>
+			<Blankline/>
+			<AddText>#slave held you firmly as she fucked you, reaching round to pinch your nipple, before she came. Undeterred, she kept going, slower at first, then picking up speed, and eventually, came again, just as you did, falling forward onto the bed, spent.</AddText>
+			<Points>0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0</Points>
+			<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+			<SMPoints>0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+	</AnalFinish>
+	
+	<BlowJob>
+		<GenderVersions participant='true'>
+            <Female>
+                <Choices>
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/lick" frame="random3" place="1" align="1"/>
+						<SetText></SetText>
+						<Blankline/>
+						<AddText>Restrained as you were, she teased and licked you, but stopped short of letting you come.</AddText>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.5, 0, -5, 0, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+                    </Choice>
+                </Choices>
+            </Female>
+            <Other>
+                <Choices>                 
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/3/bondage bj.jpg" place="1" align="1"/>
+						<SetText>You look at #slave, and point towards your erect cock, ordering her to suck it.</SetText>
+						<Blankline/>
+						<AddText>Shaking her head slightly, #slave says &quot;I have another suggestion...how about I tie you up, and then show you what I can do?&quot;</AddText>
+						<Blankline/>
+						<AddText>Nodding in agreement, you let her restrain you, leaving you unable to wriggle free, before she starts to lick your cock and work a finger into your anus, sucking and teasing until you come in her mouth.</AddText>
+						<SetVar appendacttext='false'/>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0.5, 0, 1, 0, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+						<clear></clear>
+                    </Choice>
+				</Choices>
+			</Other>
+		</GenderVersions>
+	 	<Choices>
+		
+		</Choices>
+	</BlowJob>
+	
+	<Bondage>
+	</Bondage>
+	
+	<CumBath>
+	</CumBath>
+	
+	<Dildo>
+		<GenderVersions participant='true'>
+            <Female>
+                <Choices>
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/dildo" frame="random3" place="1" align="1"/>
+						<SetText>#slave asks, coyly, if you'd not rather she used the dildo on you...and you concur.</SetText>
+						<Blankline/>
+						<AddText>She smiles wickedly as you do, and quickly restrain you, before teasing your pussy first with her fingers, then the dildo, running it up and down your lips before seductively sucking on it...</AddText>
+						<Blankline/>
+						<AddText>Feeling your wetness, she then inserts the dildo into your pussy, and skilfully fucks you to orgasm several times.</AddText>
+						<SetVar appendacttext='false'/>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.5, 0, -5, 0, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+                    </Choice>
+
+                </Choices>
+            </Female>
+            <Other>
+                <Choices>                 
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/3/dildo" frame="random3" place="1" align="1"/>
+						<SetText>#slave asks, coyly, if you'd not rather she used the dildo on you...and you concur.</SetText>
+						<Blankline/>
+						<AddText></AddText>
+						<SetVar appendacttext='false'/>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.5, 0, -5, 0, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+                    </Choice>
+				</Choices>
+			</Other>
+		</GenderVersions>
+	</Dildo>
+	
+	<FootJobSlaveMaker>
+	</FootJobSlaveMaker>
+	
+	<FootJobSlave>	
+	</FootJobSlave>
+		
+	<Fuck>
+		<GenderVersions participant='true'>
+            <Female>
+                <Choices>
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/straponsex 1.jpg" place="1" align="1"/>
+						<SetText>You approach #slave, wearing a large strap-on as you smile, ready to make love to her, when she quickly pounces on you, tying your wrists together with a piece of rope she hid behind her back.</SetText>
+						<Blankline/>
+						<AddText>She then commands you to fuck her, positioning herself so that you can better enter her, and you proceed to fuck her as best you can.</AddText>
+						<SetVar appendacttext='false'/>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.5, 0, -5, 0, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+                    </Choice>
+                </Choices>
+            </Female>
+            <Other>
+                <Choices>                 
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/3/lesbian 1.jpg" place="1" align="1"/>
+						<SetText>You approach #slave, smiling, ready to make love to her, when she quickly pounces on you, tying your wrists together with a piece of rope she hid behind her back.</SetText>
+						<Blankline/>
+						<AddText>Restrained as you were, she fucked you with great vigour.</AddText>
+						<SetVar appendacttext='false'/>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.5, 0, -5, 0, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+                    </Choice>
+                    <Choice chance='50%' flagsmsubmission-1="true">
+                        <ShowImage image="Images/Events/Submission/3/lesbian 2.gif" place="1" align="1"/>
+						<SetText>Smiling towards you, #slave proposes a slight variant this time; one where you are tied up during the act.</SetText>
+						<Blankline/>
+						<AddText>Nodding in agreement, you lie down on the bed, and let #slave tie your ankles to your wrists, before she strips and reveals her erect cock.</AddText>
+						<Blankline/>
+						<AddText>Once done, she proceeds to fuck you in your pussy and ass, many times, cumming deep inside you.</AddText>
+						<SetVar appendacttext='false'/>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0.5, 0, 1, -5, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+                    </Choice>
+				</Choices>
+			</Other>
+		</GenderVersions>
+	</Fuck>
+	
+	<GangBang>
+	</GangBang>
+	
+	<HandJobSlaveMaker>
+    </HandJobSlaveMaker>
+    
+    <HandJobSlave>
+	</HandJobSlave>
+
+	<KissFemale>
+		<GenderVersions participant='true'>
+            <Female>
+				<Choices>                 
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/kiss" frame="random3" place="1" align="1"/>
+						<SetText>#slave ties your hands behind your back, then leans in to passionately kiss you.</SetText>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0.5, 0, 1, -5, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+						</Choice>
+				</Choices>
+            </Female>
+            <Other>
+                <Choices>                 
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/kiss" frame="random3" place="1" align="1"/>
+						<SetText>#slave ties your hands behind your back, then leans in to passionately kiss you.</SetText>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0.5, 0, 1, -5, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+						</Choice>
+				</Choices>
+			</Other>
+		</GenderVersions>
+	</KissFemale>
+	
+	<KissMale>
+	</KissMale>
+	
+	<Lesbian>
+		<GenderVersions participant='true'>
+            <Male>
+                <Choices>
+                    <Choice flagsmsubmission-1="true">
+                        <AddText>This is not an act for you.</AddText>
+					</Choice>
+                </Choices>
+            </Male>
+            <Female>
+                <Choices>
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/3/lesbian 1.jpg" place="1" align="1"/>
+						<SetText>You approach #slave, smiling, ready to make love to her, when she quickly pounces on you, tying your wrists together with a piece of rope she hid behind her back.</SetText>
+						<Blankline/>
+						<AddText>Restrained as you were, she fucked you with great vigour.</AddText>
+						<SetVar appendacttext='false'/>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.5, 0, -5, 0, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+                    </Choice>
+					
+                    <Choice chance='50%' flagsmsubmission-1="true">
+                        <ShowImage image="Images/Events/Submission/3/lesbian 2.gif" place="1" align="1"/>
+						<SetText>Smiling towards you, #slave proposes a slight variant this time; one where you are tied up during the act.</SetText>
+						<Blankline/>
+						<AddText>Nodding in agreement, you lie down on the bed, and let #slave tie your ankles to your wrists, before she slips on her strap-on.</AddText>
+						<Blankline/>
+						<AddText>Once done, she proceeds to fuck you in your pussy and ass, many times.</AddText>
+						<SetVar appendacttext='false'/>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0.5, 0, 1, -5, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+                    </Choice>
+                </Choices>
+            </Female>
+            <Other>
+                <Choices>                 
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/3/lesbian 1.jpg" place="1" align="1"/>
+						<SetText>You approach #slave, smiling, ready to make love to her, when she quickly pounces on you, tying your wrists together with a piece of rope she hid behind her back.</SetText>
+						<Blankline/>
+						<AddText>Restrained as you were, she fucked you with great vigour.</AddText>
+						<SetVar appendacttext='false'/>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.5, 0, -5, 0, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+                    </Choice>
+                    <Choice chance='50%' flagsmsubmission-1="true">
+                        <ShowImage image="Images/Events/Submission/3/lesbian 2.gif" place="1" align="1"/>
+						<SetText>Smiling towards you, #slave proposes a slight variant this time; one where you are tied up during the act.</SetText>
+						<Blankline/>
+						<AddText>Nodding in agreement, you lie down on the bed, and let #slave tie your ankles to your wrists, before she strips and reveals her erect cock.</AddText>
+						<Blankline/>
+						<AddText>Once done, she proceeds to fuck you in your pussy and ass, many times, cumming deep inside you.</AddText>
+						<SetVar appendacttext='false'/>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0.5, 0, 1, -5, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+                    </Choice>
+				</Choices>
+			</Other>
+		</GenderVersions>
+	</Lesbian>
+	
+	<Lick>
+		<GenderVersions participant='true'>
+            <Female>
+                <Choices>
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/lickher 1.jpg" place="1" align="1"/>
+						<SetText></SetText>
+						<Blankline/>
+						<AddText>Restrained as you were, you could do nothing but lick her.</AddText>
+						<SetVar appendacttext='false'/>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.5, 0, -5, 0, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+                    </Choice>
+                </Choices>
+            </Female>
+            <Other>
+                <Choices>                 
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/lickher 1.jpg" place="1" align="1"/>
+						<SetText></SetText>
+						<Blankline/>
+						<AddText>Restrained as you were, you could do nothing but lick her.</AddText>
+						<SetVar appendacttext='false'/>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.5, 0, -5, 0, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+                    </Choice>
+				</Choices>
+			</Other>
+		</GenderVersions>
+	</Lick>
+	
+	<Master>
+	</Master>
+	
+	<Masturbate>
+	</Masturbate>
+	
+	<Naked>
+	</Naked>
+	
+	<Orgy>
+	</Orgy>
+	
+	<Plug>
+	</Plug>
+	
+	<Ponygirl>
+	</Ponygirl>
+	
+	<Spanking>
+		<GenderVersions participant='true'>
+            <Female>
+                <Choices>
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/whip" frame="random2" place="1" align="1"/>
+						<SetText>#slave suggests that maybe she is not the one in need of a spanking, but rather you, and you feel your knees weaken, your pussy start to drip in anticipation.</SetText>
+						<Blankline/>
+						<AddText>She ties you up and gives you a solid whipping.</AddText>
+						<SetVar appendacttext='false'/>
+                    </Choice>
+
+                </Choices>
+            </Female>
+            <Other>
+                <Choices>                 
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/whip" frame="random2" place="1" align="1"/>
+						<SetText>#slave suggests that maybe she is not the one in need of a spanking, but rather you, and you feel your knees weaken, your pussy start to drip in anticipation.</SetText>
+						<Blankline/>
+						<AddText>She ties you up and gives you a solid whipping.</AddText>
+						<SetVar appendacttext='false'/>
+                    </Choice>
+					
+				</Choices>
+			</Other>
+		</GenderVersions>
+	</Spanking>
+	
+	<StripTease>
+	</StripTease>
+	
+	<Threesome>
+		<GenderVersions participant='true'>
+            <Female>
+                <Choices>
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/threesome" frame="random2" place="1" align="1"/>
+						<SetText></SetText>
+						<Blankline/>
+						<AddText></AddText>
+                    </Choice>
+
+                </Choices>
+            </Female>
+            <Other>
+                <Choices>                 
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/3/threesome" frame="random3" place="1" align="1"/>
+						<SetText></SetText>
+						<Blankline/>
+						<AddText></AddText>
+                    </Choice>
+					
+				</Choices>
+			</Other>
+		</GenderVersions>
+	</Threesome>
+	
+	<TitsFuck>
+		<GenderVersions participant='true'>
+            <Female>
+                <Choices>
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/touch" frame="random4" place="1" align="1"/>
+						<SetText>#slave ties you up before she continues.</SetText>
+						<Blankline/>
+						<AddText></AddText>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.5, 0, -5, 0, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+                    </Choice>
+
+                </Choices>
+            </Female>
+            <Other>
+                <Choices>                 
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/3/lesbian 1.jpg" place="1" align="1"/>
+						<SetText>#slave ties you up before she continues.</SetText>
+						<Blankline/>
+						<AddText></AddText>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.5, 0, -5, 0, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+                    </Choice>
+					
+				</Choices>
+			</Other>
+		</GenderVersions>
+	</TitsFuck>
+	
+	<Touch>
+		<GenderVersions participant='true'>
+            <Female>
+                <Choices>
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/touch" frame="random4" place="1" align="1"/>
+						<SetText>#slave </SetText>
+						<Blankline/>
+						<AddText></AddText>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.5, 0, -5, 0, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+                    </Choice>
+
+                </Choices>
+            </Female>
+            <Other>
+                <Choices>                 
+                    <Choice chance='50%' flagsmsubmission-1="true">
+						<ShowImage image="Images/Events/Submission/3/lesbian 1.jpg" place="1" align="1"/>
+						<SetText></SetText>
+						<Blankline/>
+						<AddText></AddText>
+						<Points>0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.5, 0, -5, 0, 0, 0, 0, 0, 0</Points>
+						<SMPoints>0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.1, 0</SMPoints>
+                    </Choice>
+					
+				</Choices>
+			</Other>
+		</GenderVersions>
+	</Touch>
+		
+		
+	</DoPlanning>
+	
+	
+	
+	<SlaveSex2 name="Dominate you" label="She will do whatever she wants with you." show="true" flagsmsubmission-1="true">
+		<Choices>
+			<Choice gender='1'> <!-- No content for males -->
+				<SetText>You do not accept the offer from #slave. Instead, you decide to tie her up for her impertinence.</SetText>
+				<DoAct>Bondage</DoAct>
+ 			</Choice>
+			<Default> <!-- for female or futa SMs -->
+				<ShowImage image="Images/Events/Submission/strip" place="1" align="1" frame="random3"/>
+				<SetText>Having accepted the offer by #slave to tie you up, and do whatever she wants with you, she asks you to strip for her. </SetText>
+				<BlankLine/>
+				<AddText>#slave seems to enjoy watching your sensuous strip-tease, and asks you to turn round so she can observe you. Smiling wickedly, she orders you to walk over to the wooden horse in the corner, and bend over.</AddText>
+				<BlankLine/>
+				<AddText>You do as she asks, and as you lie face-down, she quickly ties your wrists to the horse, then your ankles. Running her hands up and down your thighs and back, she plants a kiss on your lower back and then blindfolds you. #slave commands sternly "Open", and you comply, opening your mouth, and you soon feel a ball gag inserted between your lips and fastened behind your head.</AddText>
+				<BlankLine/>
+				<AddText>#slave lets out a content noise, and says &quot;Mm, what a delicious sight...where to start?&quot; as she gently slaps your bottom.</AddText>
+					<Choices>
+						<Choice SMLust='80+'>
+							<AddText>Consumed by your libido, you aren't really thinking clearly, and focus only on your lust, your desire for sexual pleasure...</AddText>
+							<AskQuestions caption="Where to start?">
+								<Question eventno="SMtiredofthis">Fuck me!</Question>
+								<Question eventno="SMAnal">My ass! Fuck my aaaassssss!</Question>
+								<Question eventno="SMThreesome">DP!</Question>
+									<if gender='3'>
+										<Question eventno="SMMilkingH">Milk me!</Question>
+									</if>
+									<if slavegender='3'>
+										<Question eventno="SMbj">I want to suck your cock!</Question>
+									</if>
+									<if Temperament="50+">
+										<Question eventno="Smeghead">Latex!</Question>
+										<Question eventno="SMpet">Mjau!</Question>
+											<if SMdominance="20-">
+												<Question eventno="SMdildo">Let me cum!</Question>
+												<Question eventno="SMexpose">In the streets</Question>
+												<Question eventno="SMsubmit">Mistress! Make me yours. Take me!</Question>
+											</if>
+									</if>
+							</AskQuestions>
+						</Choice>
+						<Default>
+							<AskQuestions caption="Where to start?">
+								<Question eventno="SMtiredofthis">A soft spot</Question>
+								<Question eventno="SMAnal">The bottom</Question>
+								<Question eventno="SMThreesome">How about you fetch a friend?</Question>
+									<if gender='3'>
+										<Question eventno="SMMilkingH">My cock</Question>
+									</if>
+									<if slavegender='3'>
+										<Question eventno="SMbj">Let me show you what my tongue can do...</Question>
+									</if>
+									<if Temperament="50+">
+										<Question eventno="Smeghead">Maybe I should turn you into a rubber slut</Question>
+										<Question eventno="SMpet">I have always wanted a cat...</Question>
+											<if SMdominance="20-">
+												<Question eventno="SMdildo">You know, I will tie you up and make you cum over and over again</Question>
+												<Question eventno="SMexpose">I think the world needs to see you as I do</Question>
+												<Question eventno="SMsubmit">Do you wish to...*truly*...submit to me?</Question>
+											</if>
+									</if>
+							</AskQuestions>		
+						</Default>
+					</Choices>
+ 			</Default>
+		</Choices>
+	</SlaveSex2>
+	
+	<SMsubmit>
+		<Backgrounds place='dungeon'/>
+		<if slavegender='3'>
+			<ShowImage image="Images/Events/Submission/3/submit.jpg" place="1" align="1" />
+		<else>if</else>
+			<ShowImage image="Images/Events/Submission/submit.jpg" place="1" align="1" />
+		</if>
+		<SetText>#slave positively grins as she looks at you, the grin growing more wicked by the second.</SetText>
+		<BlankLine />
+		<AddText>With mock concern, she plays coy as she says &quot;You do realise you can tell me again, and we'll go back...but until then, you are mine, yes?&quot;</AddText>
+		<AskQuestions caption="What do you say?">
+			<Question event='SMsubmitAccept'>*nod*</Question>
+			<Question event='SMsubmitRefuse'>*shake your head*</Question>
+		</AskQuestions>
+	</SMsubmit>
+	
+	<SMsubmitAccept>
+		<ShowImage image="Images/Events/Submission/3/submit2.jpg" place="1" align="1" />
+		<SetText>&quot;Great!&quot;, she exclaims, teasing you before continuing. &quot;Now, where were we...&quot;</SetText>
+		<SetFlags flagsmsubmission-2="true" />
+		<DoEvent>SlaveSex2</DoEvent>
+	</SMsubmitAccept>
+	
+	<SMsubmitRefuse>
+		<ShowImage image="Images/Events/Submission/3/submit3.jpg" place="1" align="1" />
+		<SetText>#slave shrugs, and says &quot;Oh well, at least I get to play with you the usual way...Now, where were we...&quot;</SetText>
+		<SetFlags flagsmsubmission-2="false" />
+		<DoEvent>SlaveSex2</DoEvent>
+	</SMsubmitRefuse>
+			
+		
+	<SMAnal>
+		<GenderVersions participant='true'>
+            <Female>
+				<Choices>
+					<Choice slavegender='2'>
+						<ShowImage image="Images/Events/Submission/anal2.jpg" place="1" align="1"/>
+						<SetText>She nods appreciatively, and soon enough you can feel a cold sensation running down your back, shortly followed by a finger between your buttcheeks, spreading the cool sensation, teasing the rim of your arse...before slipping the finger inside, filling you up with lube.</SetText>
+						<Blankline/>
+						<AddText>&quot;You good there?&quot;, #slave asked, not expecting a response from her gagged pet, before you felt a sensation of something large pressing against your arse, and soon enough, a strap-on being worked in, filling you up completely.</AddText>
+						<BlankLine/>
+						<AddText>With that, she started to thrust, in and out, not seemingly caring for your discomfort, in and out, quite fast, and just increasing the pace until, many minutes of burning pain later, she came, collapsing on top of you and stroking your hair.</AddText>
+						<Blankline/>
+						<PersonSpeak person='#slave' start='true' end='true'>Let us do that again sometime, my pet, hmm?</PersonSpeak>
+						<BlankLine/>
+						<AddText>Pulling out, she pats your bottom, and eventually starts to untie you, then embraces you in a hug.</AddText> 
+						<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, -4, 0, 0, 0, -50</SMPoints>
+						<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+						<Points>0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 3, 5, 0, -1, -5, 1, 0, 2, 1, 2</Points>	
+					</Choice>
+					<Choice slavegender='3'>
+						<ShowImage image="Images/Events/Submission/anal1.jpg" place="1" align="1"/>
+						<SetText>She nods appreciatively, and soon enough you can feel a cold sensation running down your back, shortly followed by a finger between your buttcheeks, spreading the cool sensation, teasing the rim of your arse...before slipping the finger inside, filling you up with lube.</SetText>
+						<Blankline/>
+						<AddText>&quot;You good there?&quot;, #slave asked, not expecting a response from her gagged pet, before you felt a sensation of something large pressing against your arse, and soon enough, you felt her cock working its way in, filling you up completely.</AddText>
+						<BlankLine/>
+						<AddText>With that, she started to thrust, in and out, not seemingly caring for your discomfort, in and out, quite fast, and just increasing the pace until, many minutes of burning pain later, she came, filling your ass with her cum, before collapsing on top of you and stroking your hair.</AddText>
+						<Blankline/>
+						<PersonSpeak person='#slave' start='true' end='true'>Let us do that again sometime, my pet, hmm?</PersonSpeak>
+						<BlankLine/>
+						<AddText> With that, she pulls out, and eventually starts to untie you, then embraces you in a hug.</AddText> 
+						<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, -4, 0, 0, 0, -50</SMPoints>
+						<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+						<Points>0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 3, 5, 0, -1, -5, 1, 0, 2, 1, 2</Points>	
+					</Choice>
+				</Choices>
+            </Female>
+            <Other>
+				<Choices>
+					<Choice slavegender='2'>
+						<ShowImage image="Images/Events/Submission/anal3.jpg" place="1" align="1"/>
+						<SetText>She nods appreciatively, and soon enough you can feel a cold sensation running down your back, shortly followed by a finger between your buttcheeks, spreading the cool sensation, teasing the rim of your arse...before slipping the finger inside, filling you up with lube, before she ran her hands up and down your cock, teasingly, and attached a cockring, keeping you hard.</SetText>
+						<Blankline/>
+						<AddText>&quot;You good there?&quot;, #slave asked, not expecting a response from her gagged pet, before you felt a sensation of something large pressing against your arse, and soon enough, a strap-on being worked in, filling you up completely.</AddText>
+						<BlankLine/>
+						<AddText>With that, she started to thrust, in and out, not seemingly caring for your discomfort, in and out, quite fast, and just increasing the pace until, many minutes of burning pain later, she came, collapsing on top of you and stroking your hair.</AddText>
+						<Blankline/>
+						<PersonSpeak person='#slave' start='true' end='true'>Let us do that again sometime, my pet, hmm?</PersonSpeak>
+						<BlankLine/>
+						<AddText> With that, she pulls out, and eventually starts to untie you, then embraces you in a hug.</AddText> 
+						<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, -4, 0, 0, 0, -50</SMPoints>
+						<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+						<Points>0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 3, 5, 0, -1, -5, 1, 0, 2, 1, 2</Points>
+					</Choice>
+					<Choice slavegender='3'>
+						<ShowImage image="Images/Events/Submission/anal1.jpg" place="1" align="1"/>
+						<SetText>She nods appreciatively, and soon enough you can feel a cold sensation running down your back, shortly followed by a finger between your buttcheeks, spreading the cool sensation, teasing the rim of your arse...before slipping the finger inside, filling you up with lube, before she ran her hands up and down your cock, teasingly, and attached a cockring, keeping you hard.</SetText>
+						<Blankline/>
+						<AddText>&quot;You good there?&quot;, #slave asked, not expecting a response from her gagged pet, before you felt a sensation of something large pressing against your arse, and soon enough, you felt her cock working its way in, filling you up completely.</AddText>
+						<BlankLine/>
+						<AddText>With that, she started to thrust, in and out, not seemingly caring for your discomfort, in and out, quite fast, and just increasing the pace until, many minutes of burning pain later, she came, filling your ass with her cum, before collapsing on top of you and stroking your hair.</AddText>
+						<Blankline/>
+						<PersonSpeak person='#slave' start='true' end='true'>Let us do that again sometime, my pet, hmm?</PersonSpeak>
+						<BlankLine/>
+						<AddText> With that, she pulls out, and eventually starts to untie you, then embraces you in a hug.</AddText> 
+						<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, -4, 0, 0, 0, -50</SMPoints>
+						<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+						<Points>0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 3, 5, 0, -1, -5, 1, 0, 2, 1, 2</Points>	
+					</Choice>
+				</Choices>
+			</Other>
+		</GenderVersions>		
+	</SMAnal>
+			
+	<SMtiredofthis>
+		<GenderVersions participant='true'>
+            <Female>
+				<Choices>
+					<Choice slavegender='2'>
+						<ShowImage image="Images/Events/Submission/sub3.jpg" place="1" align="1"/>
+						<AddText>She kneeled behind you, and soon enough you could feel her tongue, running up and down your lips, before parting them with two fingers. Her tongue found your clit, and started to lap slowly at it, up and down, round and round, driving you wild with sensation, shivering, restrained, your screams of passion muffled by the gag.</AddText>
+						<Blankline/>
+						<AddText>#slave kept going, not relenting until you shivered with orgasm, before slowly getting up and disappearing briefly. Returning, she carried with her some rope of varying lengths, and maneouvered you out of the position you were in, managing to get you standing. Soon enough, she was tying you up until your upper body resembled the pattern of a turtle-shell, the harness attached to the ceiling. She kept going, working on your legs next, eventually suspending you from the ceiling wholesale.</AddText>
+						<BlankLine/>
+						<AddText>Restrained, suspended from the ceiling, there was little you could do but hang there as #slave appeared behind you, her breasts pressing against your back, and a thick shaft rubbing your lips, between your legs.</AddText>
+						<Blankline/>
+						<AddText>Without further ado, #slave thrust the strap-on inside you, filling you up, her hands reaching from behind to pinch your nipples as she did so, and you could only squirm with the sensation. Setting a slow pace at first, driving you to distraction, soon enough she picked up the pace, and you could feel the second orgasm building, released soon after when she pinched your clit between two fingers, then a third...and a fourth, before #slave pulled out and collapsed on the bed, leaving you hanging for some time before she slowly untied you.</AddText>
+						<PersonSpeak person='#slave' start='true' end='true'>Let us do that again sometime, my pet, hmm?</PersonSpeak>
+						<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, -2, 0, 0, 0, -50</SMPoints>
+						<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+						<Points>0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 3, 5, 0, -1, -5, 1, 0, 2, 1, 1</Points>
+					</Choice>
+					<Choice slavegender='3'>
+						<ShowImage image="Images/Events/Submission/sexfuta1.jpg" place="1" align="1"/>
+						<AddText>She kneeled behind you, and soon enough you could feel her tongue, running up and down your lips, before parting them with two fingers. Her tongue found your clit, and started to lap slowly at it, up and down, round and round, driving you wild with sensation, shivering, restrained, your screams of passion muffled by the gag.</AddText>
+						<Blankline/>
+						<AddText>#slave kept going, not relenting until you shivered with orgasm, before slowly getting up and disappearing briefly.</AddText>
+						<BlankLine/>
+						<AddText>Returning to untie you from the horse, she led you, still blindfolded, over to the bed. Commanding you to get on the bed on all fours, she then affixed your ankles and wrists to the bedposts, before you could feel her erect cock running along your buttcheecks, slowly lowering until the tip pressed against your lips.</AddText>
+						<Blankline/>
+						<AddText>Without further ado, #slave thrust her cock inside you, filling you up, her hands reaching from behind to pinch your nipples as she did so, and you could only squirm with the sensation. Setting a slow pace at first, driving you to distraction, soon enough she picked up the pace, and you could feel the second orgasm building, released soon after when she pinched your clit between two fingers, then a third...and a fourth, before #slave came inside you and pulled out, collapsed on the bed, leaving you standing there, pussy dripping cum, for some time before she slowly untied you.</AddText>
+						<PersonSpeak person='#slave' start='true' end='true'>Let us do that again sometime, my pet, hmm?</PersonSpeak>
+						<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, -2, 0, 0, 0, -50</SMPoints>
+						<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+						<Points>0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 3, 5, 0, -1, -5, 1, 0, 2, 1, 1</Points>		
+					</Choice>
+				</Choices>
+            </Female>
+            <Other>
+				<Choices>
+					<Choice slavegender='2'>
+						<ShowImage image="Images/Events/Submission/sub3.jpg" place="1" align="1"/>
+						<AddText>Your cock held in her hand still, she grabbed a piece of string and tied it round your shaft and balls, keeping you erect, before she knelt behind you, and soon enough you could feel her tongue, running up and down your lips, before parting them with two fingers. Her tongue found your clit, and started to lap slowly at it, up and down, round and round, driving you wild with sensation, shivering, restrained, your screams of passion muffled by the gag.</AddText>
+						<Blankline/>
+						<AddText>#slave kept going, her hand rubbing up and down your shaft as her tongue worked your clit, not relenting until you shivered with orgasm, before slowly getting up and disappearing briefly. Returning, she carried with her some rope of varying lengths, and maneouvered you out of the position you were in, managing to get you standing. Soon enough, she was tying you up until your upper body resembled the pattern of a turtle-shell, the harness attached to the ceiling. She kept going, working on your legs next, eventually suspending you from the ceiling wholesale.</AddText>
+						<BlankLine/>
+						<AddText>Restrained, suspended from the ceiling, there was little you could do but hang there as #slave appeared behind you, her breasts pressing against your back, and a thick shaft rubbing your lips, between your legs.</AddText>
+						<Blankline/>
+						<AddText>Without further ado, #slave thrust the strap-on inside you, filling you up, her hands reaching from behind to pinch your nipples as she did so, then moved down to grab your shaft in one hand, pulling the string off, and moving her hand up and down your shaft, faster and faster in tune with the strapon. You could only squirm with the sensation, moving from side to side as you tried.</AddText>
+						<Blankline/>
+						<AddText>Setting a slow pace at first, driving you to distraction, soon enough she picked up the pace, and you could feel the second orgasm building, released soon after when she stroked your shaft, teasing the very tip, before you shot your load out...then a third...and a fourth, as #slave kept going, before #slave pulled out and collapsed on the bed, leaving you hanging for some time before she slowly untied you.</AddText>
+						<PersonSpeak person='#slave' start='true' end='true'>Let us do that again sometime, my pet, hmm?</PersonSpeak>
+						<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, -2, 0, 0, 0, -50</SMPoints>
+						<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+						<Points>0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 3, 5, 0, -1, -5, 1, 0, 2, 1, 1</Points>
+					</Choice>
+					<Choice slavegender='3'>
+						<ShowImage image="Images/Events/Submission/sub3.jpg" place="1" align="1"/>
+						<AddText>Your cock held in her hand still, she grabbed a piece of string and tied it round your shaft and balls, keeping you erect, before she knelt behind you, and soon enough you could feel her tongue, running up and down your lips, before parting them with two fingers. Her tongue found your clit, and started to lap slowly at it, up and down, round and round, driving you wild with sensation, shivering, restrained, your screams of passion muffled by the gag.</AddText>
+						<Blankline/>
+						<AddText>#slave kept going, her hand rubbing up and down your shaft as her tongue worked your clit, not relenting until you shivered with orgasm, before slowly getting up and disappearing briefly. Returning, she carried with her some rope of varying lengths, and maneouvered you out of the position you were in, managing to get you standing. Soon enough, she was tying you up until your upper body resembled the pattern of a turtle-shell, the harness attached to the ceiling. She kept going, working on your legs next, eventually suspending you from the ceiling wholesale.</AddText>
+						<BlankLine/>
+						<AddText>Restrained, suspended from the ceiling, there was little you could do but hang there as #slave appeared behind you, her breasts pressing against your back, and a thick shaft rubbing your lips, between your legs.</AddText>
+						<Blankline/>
+						<AddText>Without further ado, #slave thrust the strap-on inside you, filling you up, her hands reaching from behind to pinch your nipples as she did so, then moved down to grab your shaft in one hand, pulling the string off, and moving her hand up and down your shaft, faster and faster in tune with the strapon. You could only squirm with the sensation, moving from side to side as you tried.</AddText>
+						<Blankline/>
+						<AddText>Setting a slow pace at first, driving you to distraction, soon enough she picked up the pace, and you could feel the second orgasm building, released soon after when she stroked your shaft, teasing the very tip, before you shot your load out...then a third...and a fourth, as #slave kept going, before #slave pulled out and collapsed on the bed, leaving you hanging for some time before she slowly untied you.</AddText>
+						<PersonSpeak person='#slave' start='true' end='true'>Let us do that again sometime, my pet, hmm?</PersonSpeak>
+						<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, -2, 0, 0, 0, -50</SMPoints>
+						<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+						<Points>0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 3, 5, 0, -1, -5, 1, 0, 2, 1, 1</Points>
+					</Choice>
+				</Choices>
+			</Other>
+		</GenderVersions>
+	</SMtiredofthis>
+
+	<Smeghead>
+		<GenderVersions participant='true'>
+            <Female>
+				<Choices>
+					<Choice slavegender='2'>
+						<ShowImage image="Images/Events/Submission/sub2.jpg" place="1" align="1"/>
+						<AddText>Disappearing briefly, #slave returned with something she dragged across your skin...the feel of rubber. From the voice you heard, it seems she also brought a companion.</AddText>
+						<Blankline/>
+						<AddText>#slave started to work some anal beads into your exposed bottom, clearly enjoying your moans as they went in, one after the other. You could hear her companion giggle, and run a hand over your hair, before she started to put on her own rubbersuit. Zipping it up, with the help of her friend, she undid your legs, and started to thread on a suit onto you.</AddText>
+						<BlankLine/>
+						<AddText>Pulling the suit up, her friend untied your wrists, but not before attaching a collar round your neck, and a chain to the collar. Pulling you upright, #slave finished pulling the suit up over your breasts, and zipped it up, confining you in it, leaving only your head, and your groin exposed. Driven to distraction by the anal beads, #slave then cuffed your hands behind your back, with in-built rings on the suit, and ran a hand up and down your body, before reaching down to part your lips and slip inside you with two fingers, saying more to herself than anyone else &quot;Oh my...look at how wet you are...you do really love this, do you not, pet?&quot;</AddText>
+						<Blankline/>
+						<AddText>With that, her friend started to suck on one of your nipples through the suit, filling you with such sensation as to drive you crazy...shortly before #slave pulled her fingers out again, only to replace them with a massive dildo, filling you up completely, then zipped up the suit, making sure it remained firmly in place. With that, #slave smacked your bottom, and said &quot;Be a good girl now, and don't trip&quot;, as her friend pulled on the leash attached to the collar, guiding you round the room.</AddText>
+						<Blankline/>
+						<AddText>Filled completely, the walk proved to be very distracting. Collapsing after a few minutes, rubbing your pussy on the floor, trying to make yourself cum with the dildo, #slave chided you and smacked your bottom again, before saying &quot;I guess we'll have to give you what you so desperately need...&quot;.</AddText>
+						<Blankline/>
+						<AddText>Helping you up, #slave and her friend guided you over to a harness, from which they quickly suspended you from the ceiling, legs drawn up, before unzipping the bottom half of the suit, and pulling out both the dildo and the anal beads...but relief was short, as you could feel something else pressing against both your pussy and ass soon after, both #slave and her friend having slipped on a strap-on...which they promptly proceeded to fuck you with, mercilessly, filling you up in both holes, faster and faster, until you came...once, twice...even thrice, before they both let out content sighs, and pulled out of you.</AddText>
+						<PersonSpeak person='#slave' start='true' end='true'>Let us do that again sometime, my pet, hmm?</PersonSpeak>
+						<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, -5, 0, 0, 0, -50</SMPoints>
+						<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+						<Points>0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 3, 5, 0, -1, -5, 1, 0, 2, 1, 0</Points>	
+					</Choice>
+					<Choice slavegender='3'>
+						<ShowImage image="Images/Events/Submission/sub2.jpg" place="1" align="1"/>
+						<AddText>Disappearing briefly, #slave returned with something she dragged across your skin...the feel of rubber. From the voice you heard, it seems she also brought a companion.</AddText>
+						<Blankline/>
+						<AddText>#slave started to work some anal beads into your exposed bottom, clearly enjoying your moans as they went in, one after the other. You could hear her companion giggle, and run a hand over your hair, before she started to put on her own rubbersuit. Zipping it up, with the help of her friend, she undid your legs, and started to thread on a suit onto you.</AddText>
+						<BlankLine/>
+						<AddText>Pulling the suit up, her friend untied your wrists, but not before attaching a collar round your neck, and a chain to the collar. Pulling you upright, #slave finished pulling the suit up over your breasts, and zipped it up, confining you in it, leaving only your head, and your groin exposed. Driven to distraction by the anal beads, #slave then cuffed your hands behind your back, with in-built rings on the suit, and ran a hand up and down your body, before reaching down to part your lips and slip inside you with two fingers, saying more to herself than anyone else &quot;Oh my...look at how wet you are...you do really love this, do you not, pet?&quot;</AddText>
+						<Blankline/>
+						<AddText>With that, her friend started to suck on one of your nipples through the suit, filling you with such sensation as to drive you crazy...shortly before #slave pulled her fingers out again, only to replace them with a massive dildo, filling you up completely, then zipped up the suit, making sure it remained firmly in place. With that, #slave smacked your bottom, and said &quot;Be a good girl now, and don't trip&quot;, as her friend pulled on the leash attached to the collar, guiding you round the room.</AddText>
+						<Blankline/>
+						<AddText>Filled completely, the walk proved to be very distracting. Collapsing after a few minutes, rubbing your pussy on the floor, trying to make yourself cum with the dildo, #slave chided you and smacked your bottom again, before saying &quot;I guess we'll have to give you what you so desperately need...&quot;.</AddText>
+						<Blankline/>
+						<AddText>Helping you up, #slave and her friend guided you over to a harness, from which they quickly suspended you from the ceiling, legs drawn up, before unzipping the bottom half of the suit, and pulling out both the dildo and the anal beads...but relief was short, as you could feel something else pressing against both your pussy and ass soon after, sticky with...pre-cum, as it turns out they were both rather erect. They promptly proceeded to fuck you mercilessly, filling you up in both holes, faster and faster, until you came...once, twice...even thrice, before they both let out content sighs, spilling their own seeds inside you.</AddText>
+						<PersonSpeak person='#slave' start='true' end='true'>You were a good sport, pet. I'm going to leave you here, stewing in our cum for a bit...</PersonSpeak>
+						<AddText>With that, she zips the suit back up again, true to her word, leaving you on the floor, filled with cum in both arse and pussy.</AddText>
+						<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, -5, 0, 0, 0, -50</SMPoints>
+						<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+						<Points>0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 3, 5, 0, -1, -5, 1, 0, 2, 1, 0</Points>		
+					</Choice>
+				</Choices>
+            </Female>
+            <Other>
+				<Choices>
+					<Choice slavegender='2'>
+						<ShowImage image="Images/Events/Submission/sub2.jpg" place="1" align="1"/>
+						<AddText>Disappearing briefly, #slave returned with something she dragged across your skin...the feel of rubber. From the voice you heard, it seems she also brought a companion.</AddText>
+						<Blankline/>
+						<AddText>#slave started to work some anal beads into your exposed bottom, clearly enjoying your moans as they went in, one after the other. You could hear her companion giggle, and run a hand over your hair, before she started to put on her own rubbersuit. Zipping it up, with the help of her friend, she undid your legs, and started to thread on a suit onto you.</AddText>
+						<BlankLine/>
+						<AddText>Pulling the suit up, her friend untied your wrists, but not before attaching a collar round your neck, and a chain to the collar. Pulling you upright, #slave finished pulling the suit up over your breasts, and zipped it up, confining you in it, leaving only your head, and your groin exposed, your throbbing cock held in place by the suit. Driven to distraction by the anal beads, #slave then cuffed your hands behind your back, with in-built rings on the suit, and ran a hand up and down your body, before reaching down to part your lips and slip inside you with two fingers, saying more to herself than anyone else &quot;Oh my...look at how wet you are...you do really love this, do you not, pet?&quot;</AddText>
+						<Blankline/>
+						<AddText>With that, her friend started to suck on one of your nipples through the suit, filling you with such sensation as to drive you crazy...shortly before #slave pulled her fingers out again, only to replace them with a massive dildo, filling you up completely, then zipped up the suit, making sure it remained firmly in place. With that, #slave smacked your bottom, and said &quot;Be a good girl now, and don't trip&quot;, as her friend pulled on the leash attached to the collar, guiding you round the room.</AddText>
+						<Blankline/>
+						<AddText>Filled completely, the walk proved to be very distracting. Collapsing after a few minutes, rubbing your pussy on the floor, trying to make yourself cum with the dildo, #slave chided you and smacked your bottom again, before saying &quot;I guess we'll have to give you what you so desperately need...&quot;.</AddText>
+						<Blankline/>
+						<AddText>Helping you up, #slave and her friend guided you over to a harness, from which they quickly suspended you from the ceiling, legs drawn up, before unzipping the bottom half of the suit, and pulling out both the dildo and the anal beads...but relief was short, as you could feel something else pressing against both your pussy and ass soon after, both #slave and her friend having slipped on a strap-on...which they promptly proceeded to fuck you with, mercilessly, filling you up in both holes, faster and faster, until you came...once, twice...even thrice, before they both let out content sighs, and pulled out of you.</AddText>
+						<PersonSpeak person='#slave' start='true' end='true'>Let us do that again sometime, my pet, hmm?</PersonSpeak>
+						<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, -5, 0, 0, 0, -50</SMPoints>
+						<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+						<Points>0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 3, 5, 0, -1, -5, 1, 0, 2, 1, 0</Points>	
+					</Choice>
+					<Choice slavegender='3'>
+						<ShowImage image="Images/Events/Submission/sub2.jpg" place="1" align="1"/>
+						<AddText>Disappearing briefly, #slave returned with something she dragged across your skin...the feel of rubber. From the voice you heard, it seems she also brought a companion.</AddText>
+						<Blankline/>
+						<AddText>#slave started to work some anal beads into your exposed bottom, clearly enjoying your moans as they went in, one after the other. You could hear her companion giggle, and run a hand over your hair, before she started to put on her own rubbersuit. Zipping it up, with the help of her friend, she undid your legs, and started to thread on a suit onto you.</AddText>
+						<BlankLine/>
+						<AddText>Pulling the suit up, her friend untied your wrists, but not before attaching a collar round your neck, and a chain to the collar. Pulling you upright, #slave finished pulling the suit up over your breasts, and zipped it up, confining you in it, leaving only your head, and your groin exposed, your throbbing cock held in place by the suit. Driven to distraction by the anal beads, #slave then cuffed your hands behind your back, with in-built rings on the suit, and ran a hand up and down your body, before reaching down to part your lips and slip inside you with two fingers, saying more to herself than anyone else &quot;Oh my...look at how wet you are...you do really love this, do you not, pet?&quot;</AddText>
+						<Blankline/>
+						<AddText>With that, her friend started to suck on one of your nipples through the suit, filling you with such sensation as to drive you crazy...shortly before #slave pulled her fingers out again, only to replace them with a massive dildo, filling you up completely, then zipped up the suit, making sure it remained firmly in place. With that, #slave smacked your bottom, and said &quot;Be a good girl now, and don't trip&quot;, as her friend pulled on the leash attached to the collar, guiding you round the room.</AddText>
+						<Blankline/>
+						<AddText>Filled completely, the walk proved to be very distracting. Collapsing after a few minutes, rubbing your pussy on the floor, trying to make yourself cum with the dildo, #slave chided you and smacked your bottom again, before saying &quot;I guess we'll have to give you what you so desperately need...&quot;.</AddText>
+						<Blankline/>
+						<AddText>Helping you up, #slave and her friend guided you over to a harness, from which they quickly suspended you from the ceiling, legs drawn up, before unzipping the bottom half of the suit, and pulling out both the dildo and the anal beads...but relief was short, as you could feel something else pressing against both your pussy and ass soon after, sticky with...pre-cum, as it turns out they were both rather erect. They promptly proceeded to fuck you mercilessly, filling you up in both holes, faster and faster, until you came...once, twice...even thrice, before they both let out content sighs, spilling their own seeds inside you.</AddText>
+						<PersonSpeak person='#slave' start='true' end='true'>You were a good sport, pet. I'm going to leave you here, stewing in our cum for a bit...</PersonSpeak>
+						<AddText>With that, she zips the suit back up again, true to her word, leaving you on the floor, filled with cum in both arse and pussy.</AddText>
+						<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, -5, 0, 0, 0, -50</SMPoints>
+						<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+						<Points>0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 3, 5, 0, -1, -5, 1, 0, 2, 1, 0</Points>		
+					</Choice>
+				</Choices>
+			</Other>
+		</GenderVersions>
+	</Smeghead>
+
+	
+	<SMpet>
+		<GenderVersions participant='true'>
+            <Female>
+				<Choices>
+					<Choice slavegender='2'>
+						<ShowImage image="Images/Events/Submission/petgirl.jpg" place="1" align="1"/>
+						<SetText>She nods appreciatively, and soon enough you can feel a cold sensation running down your back, shortly followed by a finger between your buttcheeks, spreading the cool sensation, teasing the rim of your arse...before slipping the finger inside, filling you up with lube.</SetText>
+						<Blankline/>
+						<AddText>&quot;You good there?&quot;, #slave asked, not expecting a response from her gagged pet, before you felt a sensation of something cold pressing against your arse, and soon enough, a a buttplug was worked in...and as soon as it was, you could feel the softness of the attached tail against your legs.</AddText>
+						<BlankLine/>
+						<AddText>Working a vibrator into your pussy, she then attached a collar around your neck, and a leash to the collar, before she removed the blindfold and untied you from the wooden horse. With a tug on the leash, she commanded you down onto the floor, and said &quot;Walk, my pet...walk round the room.&quot;</AddText>
+						<Blankline/>
+						<AddText>Watching you walk on all fours, turning up the vibrator with the remote once or twice, #slave smiled and said &quot;Good pet...&quot; before giving the leash a tug, and pulled you closer, to where she was now sitting in a chair, naked. Smiling, she just pulled on the leash until you were between her legs, and with one hand, she stroked your hair, before forcing your head down towards her clit.</AddText>
+						<Blankline/>
+						<AddText>&quot;Lick!&quot;, #slave commanded, and turned the vibrator up one step. Distracted by the sensations, you did your best to lick her, parting her lips with your tongue, then running it up and down, sensing from the way she squirmed her satisfaction, up and down, round and round, until she came.</AddText>
+							<if CatslaveTraining='51+' chance='CatslaveTraining/3'>
+								<DoEvent>SMcatgirl</DoEvent>
+							</if>
+					</Choice>
+					<Choice slavegender='3'>
+						<ShowImage image="Images/Events/Submission/petsex.jpg" place="1" align="1"/>
+						<SetText>Grinning, #slave quickly applied lube to your bottom, working in a buttplug with attached tail into your bottom.</SetText>
+						<Blankline/>
+						<AddText>&quot;You good there?&quot;, #slave asked, not expecting a response from her gagged pet, before you felt a collar wrapped round your neck, and locked tight. Attaching a leash to it, she untied you from the wooden horse, and dragged you down on the floor.</AddText>
+						<BlankLine/>
+						<AddText>Pulling you after her for a while, you had to do what you could to keep up with her, until, seeing you were tired, she attached the leash to the horse, moved behind you, and teased your clit with her cock for a few seconds, her hands gripping your arse firmly. Working her cock inside you, she started to thrust, with one hand pulling your hair and commanding you to meow for her.</AddText>
+						<Blankline/>
+						<PersonSpeak person='#slavemakername' start='true' end='true'>Meow. Meow!</PersonSpeak>
+						<BlankLine/>
+						<AddText>You try to do as she says, and she growls in appreciation, fucking you harder and harder, reaching round to pinch your nipples as she comes, and you with her. Pulling out, she leaves you there, attached to the horse.</AddText>
+						<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, -4, 0, 0, 0, -50</SMPoints>
+						<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+						<Points>0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 3, 5, 0, -1, -5, 1, 0, 2, 1, 0</Points>	
+							<if chance="Lust">
+								<AddText>..</AddText>
+								<DoEvent>SMbjpet</DoEvent>
+							</if>				
+					</Choice>
+				</Choices>
+            </Female>
+            <Other>
+				<Choices>
+					<Choice slavegender='2'>
+						<ShowImage image="Images/Events/Submission/petride.jpg" place="1" align="1"/>
+						<SetText>She nods appreciatively, and soon enough you can feel a cold sensation running down your back, shortly followed by a finger between your buttcheeks, spreading the cool sensation, teasing the rim of your arse...before slipping the finger inside, filling you up with lube, before she ran her hands up and down your cock, teasingly, and attached a cockring, keeping you hard.</SetText>
+						<Blankline/>
+						<AddText>&quot;You good there?&quot;, #slave asked, not expecting a response from her gagged pet, before you felt a sensation of something large pressing against your arse, and soon enough, a buttplug tail, filling you up completely, snugly sitting in place.</AddText>
+						<BlankLine/>
+						<AddText>The feel of cold steel around your neck, enclosing it, was a collar that she locked, attaching a leash. Removing the blindfold and the gag, she slowly untied you from the horse, and sternly commanded you to get down on the floor, on all four.</AddText>
+						<Blankline/>
+						<AddText>Complying, she slowly mounted you, whip in hand, and commanded you to move, whipping your buttocks with her riding crop when you did not, until you had completed a circuit of the dungeon. Then she attached the leash to a pole in the corner, leaving you unable to move away, as she sat down in a nearby chair and commanded you to lick her to orgasm.</AddText> 
+						<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, -4, 0, 0, 0, -50</SMPoints>
+						<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+						<Points>0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 3, 5, 0, -1, -5, 1, 0, 2, 1, 0</Points>	
+					</Choice>
+					<Choice slavegender='3'>
+						<ShowImage image="Images/Events/Submission/petplay.jpg" place="1" align="1"/>
+						<SetText>She started by attaching a cockring, keeping you hard, before </SetText>
+						<Blankline/>
+						<AddText></AddText>
+						<BlankLine/>
+						<AddText></AddText>
+						<Blankline/>
+						<PersonSpeak person='#slave' start='true' end='true'></PersonSpeak>
+						<BlankLine/>
+						<AddText></AddText>	
+						<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, -4, 0, 0, 0, -50</SMPoints>
+						<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+						<Points>0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 3, 5, 0, -1, -5, 1, 0, 2, 1, 0</Points>	
+							<if chance="Lust">
+								<AddText>..</AddText>
+								<DoEvent>SMbjpet</DoEvent>
+							</if>		
+					</Choice>
+				</Choices>
+			</Other>
+		</GenderVersions>
+			<if iscatgirl='true'>
+				<ChangeCattraining>1</ChangeCattraining>
+			</if>
+	</SMpet>
+	
+	<SMcatgirl>
+		<ShowImage image="Images/Events/Submission/SMcatgirl.jpg" place="1" align="1"/>
+		<SetText>Having embraced the true catgirl inside her, #slave wishes to show you how you can also be free to truly be the catgirl you always wanted to be.</SetText>
+		<Blankline/>
+		<AddText></AddText>
+		<BlankLine/>
+		<AddText></AddText>
+		<Blankline/>
+		<AddText></AddText>
+		<Blankline/>
+		<AddText></AddText>
+		<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, -4, 0, 0, 0, -50</SMPoints>
+		<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+		<Points>0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 3, 5, 0, -1, -5, 1, 0, 2, 1, 0</Points>	
+		<ChangeCattraining>1</ChangeCattraining>
+	</SMcatgirl>
+
+	<SMbjpet>
+		<ShowImage image="Images/Events/Submission/bj.jpg" place="1" align="1"/>
+		<SetText>\r\r...before #slave said &quot;Oh, we are not done yet, pet...&quot;, smiling as she ran a hand along her erect cock, and gave the leash a tug. &quot;First, you will serve my cock.&quot;</SetText>
+		<Blankline/>
+		<AddText></AddText>
+		<BlankLine/>
+		<AddText>With that, she started to thrust, in and out, your mouth just used for her to fill with cum.</AddText>
+		<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, -4, 0, 0, 0, -50</SMPoints>
+		<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+		<Points>0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 3, 5, 0, -1, -20, 0, 0, 2, 1, 0</Points>	
+	</SMbjpet>	
+	
+	<SMThreesome>
+		<GenderVersions participant='true'>
+            <Female>
+				<Choices>
+					<Choice slavegender='2'>
+						<ShowImage image="Images/Events/Submission/SMThreesome.jpg" place="1" align="1"/>
+						<AddText>Smiling happily, #slave nods and says "I will be right back", before disappearing briefly, a friend in tow. </AddText>
+						<Blankline/>
+						<AddText>Together, they untied you, and #slave commands you to stand up, arms outstretched. Obliging, you can feel the soft sensation of rope dragging across your skin, before #slave's friend starts to tie your arms and upper body into a harness, the ropes running under your breasts and driving you to distraction.</AddText>
+						<BlankLine/>
+						<AddText>Once completed, #slave led you over to the bed, and together they helped you down on it, before #slave used another few pieces of rope to tie your legs together, folded, and pulled off the blindfold as she planted a kiss on your lips.</AddText>
+						<Blankline/>
+						<AddText>With that, you could see #slave had slipped on a strap-on, which she was edging closer and closer to your exposed pussy, working it in between your lips as she started to rub it up and down, pressing against your clit. Still gagged, your only response a muffled &quot;Mmmmm!&quot; as her friend ran her hands up and down your chest, feeling your breasts in her hands.</AddText>
+						<Blankline/>
+						<AddText>As #slave worked the strap-on into your wet pussy, her friend grabbed your nipples between her fingertips and squeezed, overwhelming you with sensation. #slave started to move faster, grunting in pleasure, as her friend let go of your nipples with a final twist, then undid the gag and pulled it out of your mouth before she let you down to rest on the bed.</AddText>
+						<Blankline/>
+						<AddText>Readjusting her position, as #slave started to move faster, she straddled your face, her pussy lowered onto your face, as she commanded &quot;Lick!&quot;. Obliging her, your tongue darting out to run over her lips, then slowly between them, only momentarily distracted as #slave, having come, pulled out of your pussy and pressed the strap-on against you anus.</AddText>
+						<BlankLine/>
+						<AddText>Your anus filled, your tongue hard at work on the friend's clit, then moving into her pussy, the friend reached down to twist your nipples again as an added incentive, forcing you to lick her harder. Building up to her orgasm, your bottom filled with a strap-on, and #slave using her fingers to tease your clit, eventually you all came together, #slave and her friend kissing before going off to fuck each other in private, leaving you tied up for another hour.</AddText>
+						<PersonSpeak person='#slave' start='true' end='true'>Let us do that again sometime, my pet, hmm?</PersonSpeak>
+						<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, -5, 0, 0, 0, -50</SMPoints>
+						<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+						<Points>0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 3, 5, 0, -1, -5, 1, 0, 2, 1, 0</Points>
+					</Choice>
+					<Choice slavegender='3'>
+						<ShowImage image="Images/Events/Submission/3/threesome 1.jpg" place="1" align="1"/>
+						<AddText>Smiling happily, #slave nods and says "I will be right back", before disappearing briefly, a friend in tow. You notice she is also rather...well-endowed, and her cock stiffens upon seeing you. </AddText>
+						<Blankline/>
+						<AddText>Together, they untied you, and #slave commands you to get down on all fours on the floor. Obliging, her friend sat down in front of you, nodding towards her erect cock and saying &quot;Suck!&quot;, before #slave inserted her cock in your ass and started ramming you hard.</AddText>
+						<BlankLine/>
+						<AddText>You licking #slave's friend, and #slave pounding your ass, it is not long before you come, but despite wanting to collapse on the floor, you have to keep sucking, licking and pleasing her friend as #slave says &quot;Oh, we are not done yet!&quot;, and pounds into you harder, until they both come, filling both your mouth and ass.</AddText>
+						<PersonSpeak person='#slave' start='true' end='true'>Let us do that again sometime, my pet, hmm?</PersonSpeak>
+						<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, -5, 0, 0, 0, -50</SMPoints>
+						<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+						<Points>0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 3, 5, 0, -1, -5, 1, 0, 2, 1, 0</Points>
+					</Choice>
+				</Choices>
+            </Female>
+            <Other>
+				<Choices>
+					<Choice slavegender='2'>
+						<ShowImage image="Images/Events/Submission/threesome 3.jpg" place="1" align="1"/>
+						<AddText>#slave brings a friend...</AddText>
+						<Blankline/>
+						<AddText></AddText>
+						<BlankLine/>
+						<AddText></AddText>
+						<PersonSpeak person='#slave' start='true' end='true'>Let us do that again sometime, my pet, hmm?</PersonSpeak>
+						<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, -5, 0, 0, 0, -50</SMPoints>
+						<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+						<Points>0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 3, 5, 0, -1, -5, 1, 0, 2, 1, 0</Points>
+					</Choice>
+					<Choice slavegender='3'>
+						<ShowImage image="Images/Events/Submission/3/threesome 2.jpg" place="1" align="1"/>
+						<AddText>#slave brings a friend...</AddText>
+						<Blankline/>
+						<AddText></AddText>
+						<BlankLine/>
+						<AddText></AddText>
+						<PersonSpeak person='#slave' start='true' end='true'>Let us do that again sometime, my pet, hmm?</PersonSpeak>
+						<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, -5, 0, 0, 0, -50</SMPoints>
+						<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+						<Points>0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 3, 5, 0, -1, -5, 1, 0, 2, 1, 0</Points>
+					</Choice>
+				</Choices>
+			</Other>
+		</GenderVersions>
+	</SMThreesome>	
+	
+	<SMMilkingH>
+		<ShowImage image="Images/Events/Submission/3/SMmilking1.jpg" place="1" align="1"/>
+		<SetText>She nods appreciatively, and soon enough you can feel a cold sensation running down your back, shortly followed by a finger between your buttcheeks, spreading the cool sensation, teasing the rim of your arse...before slipping the finger inside, filling you up with lube.</SetText>
+		<Blankline/>
+		<AddText>&quot;You good there?&quot;, #slave asked, not expecting a response from her gagged pet, before you felt a sensation of something large pressing against your arse, and soon enough, a large buttplug being worked in, filling you up completely.</AddText>
+		<BlankLine/>
+		<AddText>Removing the gag, she then grabbed some new rope, and affixed them in such a way as to make you stand up when she undid your wrists from the horse, leaving you upright, arms outstretched, cock erect. Smiling towards you, she then crawled on top of the horse herself, before she bent down to start licking your shaft, teasing you, enjoying your screams of pleasure as she moved her head up and down, stopping occasionally to lick your shaft and the tip of your cock again.</AddText>
+		<Blankline/>
+		<AddText>Stopping before you cum, she works a vibrator into your pussy, and sits back, smiling towards you wickedly. Rubbing her hand up and down your shaft, teasing you even more, she asks a question.</AddText> 
+			<AskQuestions caption="Would you like to come?">
+				<Question eventno="SMMilkingHaccept">Yes, please, mistress!</Question>
+				<Question eventno="SMMilkingHrefuse">No, tease me!</Question>
+			</AskQuestions> 	
+	</SMMilkingH>
+	
+	<SMMilkingHaccept>
+		<ShowImage image="Images/Events/Submission/3/SMmilking3.jpg" place="1" align="1"/>
+		<SetText>Smiling appreciatively, she says &quot;Good girl&quot;, before she sets the vibrator to max, teasing you with her hands, until you explode all over her chest.</SetText>
+		<SMPoints>0, 0, 0, 0, 0, -4, 0, 0, -10, 0, 0, 0, -10</SMPoints>
+		<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+		<Points>0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 3, 5, 0, -1, -5, 1, 0, 2, 1, 0</Points>
+	</SMMilkingHaccept>
+	
+	<SMMilkingHrefuse>
+		<ShowImage image="Images/Events/Submission/3/SMmilking2.jpg" place="1" align="1"/>
+		<SetText>Raising an eyebrow, she smiles again, and attaches a cock-ring to your shaft, making sure you're hard and good, before slowly increasing the speed of the vibrator, working your cock with her hands, occasionally reaching round to poke the plug in your ass further in, teasing and teasing and teasing until you feel something give, and a bit of cum trickle out of your cock, still hard, but unable to actually cum you grit your teeth and bear it.</SetText>
+		<SMPoints>0, 0, 0, 0, 0, 5, 0, 0, -1, 0, 0, 0, -2</SMPoints>
+		<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+		<Points>0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 3, 5, 0, -1, -5, 1, 0, 2, 1, 0</Points>
+	</SMMilkingHrefuse>
+	
+	<SMbj>
+		<ShowImage image="Images/Events/Submission/3/BJ" place="1" align="1" frame="random3"/>
+		<SetText>She nods appreciatively, saying &quot;I like the way you think, pet&quot;, before she slapped your ass and worked a buttplug in.</SetText>
+		<Blankline/>
+		<AddText>Removing the gag from your mouth, she pulled her panties down, and pressed the head of her cock towards your lips, until you let it in. &quot;Suck!&quot; was all she said, as she pressed her cock further inside, almost gagging you, and you started to lick and suck, as much as you were able.</AddText>
+		<BlankLine/>
+		<AddText>With that, she started to thrust, in and out, not seemingly caring for your discomfort, but expecting you to suck as best you could. Obliging as best you could, you sucked and licked, running your lips along her cock, taking it all in, until, minutes later, she came, filling your mouth up, then, as you look about to spit it out, forced your mouth shut, making you swallow, before re-affixing the gag, then stroking your hair. &quot;Good pet&quot;, she said, then left you there, shamed.</AddText>
+		<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, 1, 0, 0, 0, -50</SMPoints>
+		<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+		<Points>0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 3, 5, 0, -1, -5, 1, 0, 2, 1, 0</Points>	
+	</SMbj>
+	
+	<SMdildo>
+		<ShowImage image="Images/Events/Submission/forced orgasm" place="1" align="1" frame="random4"/>
+		<SetText>&quot;You will love this, pet&quot;, #slave said, before loosening your bonds sufficient to let you stand up. Leading you away from the bench, she tied your arms behind your back and kissed your lips, smiling faintly as she then tied you to a pillar. &quot;Be right back, dear&quot;, she said, winking, before disappearing briefly.</SetText>
+		<Blankline/>
+		<AddText>Returning, you found yourself restrained in short order, unable to move. Spreading your legs, she started by rubbing a dildo up and down between your legs, teasing you. As she saw you slowly start to move your hips in tune with her motions, edging to take the dildo inside you, she pulled back, making a chiding noise. &quot;No, no, dear...you are not in charge tonight. Be patient, or maybe I'll forget...&quot;. Obeying, you slowed down, and tried to endure her merciless teasing. </AddText>
+		<BlankLine/>
+		<AddText>Eventually, #slave let the dildo penetrate inside you, working it in with practised ease, letting it fill you. Patting your cheek gently, she smiled and said &quot;That is not all I have in store...&quot;, before working in a set of anal beads, one after the other, clearly cherishing your gasps of pleasure.</AddText>
+		<BlankLine/>
+		<AddText>That completed, she spoke a word, and the dildo started to move inside you, as of its own volition, and you could feel your excitement build, your body clearly responding well to these vibrations. As they continue, you feel good, your body clearly enjoying this more and more, and starting to shake slightly, you cannot hold back your first orgasm, leaving you trashing and writhing, simultaneously attempting to get away from the dildo, and trying to impale you more and more on it.</AddText>
+		<BlankLine/>
+		<AddText>Soon enough, another orgasm hits you, leaving you squirming, trying to roll over, sitting up, to push down on the dildo. Unable to complete the task in time, a third orgasm hits, and you can do little but lie there, content in your bonds, exhausted but also well-rested.</AddText>
+		<BlankLine/>
+		<AddText><if SMdominance="10-">Exhausted, you lie there, purring softly, thinking about how much you love #slave, and would do anything for her...you even beg her to let you lick her, to return the favour, but she only smiles and kisses your lips once, lovingly.</if></AddText>
+		<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, 1, 0, 0, 0, -50</SMPoints>
+		<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+		<Points>0, 0, 0, 0.5, 2, 1, 0, 0, 0, 2, 1, 5, 0, -0.5, -5, 0, -1, 2, 1, 0</Points>	
+	</SMdildo>
+	
+	<SMexpose>
+		<ShowImage image="Images/Events/Submission/expose" place="1" align="1" frame="random3"/>
+		<SetText>Deciding to take you outside, naked to the world bar some ropes and, of course, a collar, #slave smiles as she attached a leash to the collar before letting you up, and pulling you with her outside.</SetText>
+		<Blankline/>
+		<AddText></AddText>
+		<BlankLine/>
+		<AddText></AddText>
+		<BlankLine/>
+		<AddText></AddText>
+		<BlankLine/>
+		<AddText><if SMdominance="10-">You even ask her to fuck you whilst outside, not caring about the location...just focusing on your lust.</if></AddText>
+			<if chance="Lust">
+				<AddText>..</AddText>
+				<DoEvent>SMexposesex</DoEvent>
+			</if>		
+		<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, 1, 0, 0, 0, -50</SMPoints>
+		<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+		<Points>0, 0, 0, 0.5, 2, 1, 0, 0, 0, 2, 1, 5, 0, -0.5, -5, 0, -1, 2, 1, 0</Points>	
+	</SMexpose>
+	
+	<SMexposesex>
+		<ShowImage image="Images/Events/Submission/exposesex" place="1" align="1" frame="random2"/>
+		<SetText>\r\r...to which #slave quite happily agrees, chaining you up in the middle of a square, and fucking you vigorously with her <if slavegender='2'>strap-on</if><if slavegender='3'>cock</if> until you both come, and to great cheers from the onlookers.</SetText>
+		<Blankline/>
+		<AddText></AddText>
+		<BlankLine/>
+		<AddText></AddText>
+		<SMPoints>0, 0, 0, 0, 0, -5, 0, 0, -4, 0, 0, 0, -50</SMPoints>
+		<!-- Points: Charisma, Sensibility, Refinement, Intelligence, Morality, Constitution, Cooking, Cleaning, Conversation, BlowJob, Fuck, Temperament, Nymphomania, Obedience, Lust, Reputation, Fatigue, Joy, Love, Special -->
+		<Points>0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 3, 5, 0, -1, -20, 0, 0, 2, 1, 0</Points>	
+		<Money quiet="true">temperament + joy + fuck</Money>
+	</SMexposesex>	
+	
+	</Acts>	
+
+</Planning>	
+
+		<EndGame>
+			<NumCustomEndings>50</NumCustomEndings>
+			<EndingStart>
+				<if flagsmsubmission-11='true'>
+					<HideImages>hide</HideImages> 
+					<Background place="sky"/>
+					<SetEnding num="50">Dominated!</SetEnding>
+					<!-- <ShowImage image="Images/Events/Submission/Slaveend.png" place="1" align="1"/> -->
+					<ShowImage image="Images/Events/Submission/Slaveend.png" place="1" align="1"/>
+				</if>
+			</EndingStart>
+			<EndingFinish>
+				<!-- Dominated! -->
+				<if ending="50">
+					<SetText> Training for #slave was set to end today, you remember as you slowly wake up, and try to sit up, but fail to do so, due to your restraints.</SetText>
+					<BlankLine/>
+					<AddText> &quot;What? Why am I tied up?&quot;, you think, as comprehension slowly dawns...</AddText>
+					<BlankLine/>
+					<AddText> You had agreed, after letting #slave take care of you for so many times, tying you up and using you as her personal sex slave...to be hers, now and forever, donating everything you own and letting #slave take your position as Slavemaker. </AddText>
+					<BlankLine/>
+					<AddText> Feeling a sudden sting on your buttcheek, you recognise it as the feeling of a whip striking you, and you can hear a voice say &quot;Ah, my dear pet has just woken up...what am I to do with you now, I wonder...&quot; </AddText>
+					<BlankLine/>
+					<AddText> Crawling closer to her, to feel her touch, she scritches you between the ears, and the last thing you can remember before she thrusts her wet pussy towards your face is that you are truly happy. </AddText>
+					<SetEnding num="9002"> Dominated! </SetEnding>
+				</if>
+			</EndingFinish>
+			<CustomEnding1> To get ending &quot;Dominated!&quot;, have #slave use action &quot;Dominate you&quot; until your Dominance reaches 0. </CustomEnding1>
+		</EndGame>
+
+</Language>
+
+
+	

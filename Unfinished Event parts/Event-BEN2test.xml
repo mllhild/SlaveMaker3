@@ -1,0 +1,1419 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Comments<AddText>#savedvar1_BEN2test</AddText>
+savedvars
+1  -  progress along the farm story line
+2  -  ?????
+flags
+1  -  you own the farm
+2  -  Reformed Yard 1
+3  -  Reformed Yard 2
+4  -  Reformed House 1
+5  -  Reformed House 2
+6  -  Reformed Small Barn 1
+7  -  Reformed Small Barn 2
+8  -  Reformed Big Barn 1
+9  -  Reformed Big Barn 2
+10 -  Reformed Big Barn 3
+<AddText>    #savedvar0_BEN2test</AddText>
+<SetFlag flagBEN2test_1='true'/>
+<SetFlag flagBEN2test_2='true'/>
+<SetFlag flagBEN2test_3='true'/>
+<SetFlag flagBEN2test_4='true'/>
+<SetFlag flagBEN2test_5='true'/>
+<SetFlag flagBEN2test_6='true'/>
+<SetFlag flagBEN2test_7='true'/>
+<SetFlag flagBEN2test_8='true'/>
+<SetFlag flagBEN2test_9='true'/>
+<SetFlag flagBEN2test_10='true'/>-->
+<!--
+Ideas for new character.
+NPC Flat chested woman
+She likes to abuse bigh breasted woman. You meet her somewhere if you have a big breasted slave.
+She is a cruel dominatrix filled with envy.
+You can sell a slave to her, if done so the slave will suffer and you get to know her better. 
+If you visit her you can try to gain knowlead of her, but will be tortured and dominated in return. If you fall to low you can get a bad end.
+After knowing enouth, you can propose a breast enlargement treatment to her. She suggest a time limit in which you have to reach her desired breast size or she will claim that you are a fraud in front of the court. If accepted you have to start her treatment.
+During treat ment sessions she keeps tormenting you and reducing your dominance. The treatment also reduces her dominance. When the treat ment gets toward the end, you start dominating her and your dominance rises.
+On a certain size the treatment gets stuck and you need to start drugging her(secretly) as to achive the result in the timeframe. From this point on she gets a milder temprament.
+If you start BDSM training and humiliation on her then you can get her to become submissive. Ending with her selling herself into becomming a public slave to be as much tormentd and tortured as possible(the max M). If you drug her a lot she becomes dumm enouth to be unable to think properly, there you can make her sign a disfarced slavery contract as if she where selling some stuff and was actually selling herself. This will lead her to become a cow in your barn. Maybe I should write this as an extension of the SMencounter event.
+
+Event number
+1  - jumped the number
+2  - early morning: adisa serves her own milk at breakfest
+3  - town center: enter cafe by chance
+4  - town center: you visit cafe again and are served by a small breasted waitress. (make her the black sheep of the family cafe?)
+5  - early morning: you decide to take adisa to the cafe
+6  - town center: you visit the cafe and notice a shortage of milk, do you help them
+7  - early morning: manager of ccafe comes to thank you and meets adisa
+8  - jumped the number
+9  - evening: adisas request to deliver bottle
+10 - palace: deliver bottle to count gossem
+11 - jumped the number
+12 - visit count: you deliver a bottle of milk to the count, adisa comes with you
+13 - town center: visit cafe and talk to manager about the milk, maids and adisa
+14 - town center: visit cafe and talk to manager about the milk, maids and adisa and starting a farm
+15 - farm: you visit the abandoned farm, then talk to guards and neihgbors 
+16 - pallace: visit office to get the permit for the farm and the owning rights.
+to make
+17 - 
+
+a line can hold 50 to 70 characters.
+window 1: 17 lines =  850 to 1190 characters
+window 2: 34 lines = 1700 to 2380 characters
+    -->
+<Language>    
+	<Credits> 
+        last edited 2015/10
+    </Credits>    
+    <Events>
+        <!--   __________________________________________________________________________________________ CUSTOM LOCATION DECLARING START _____________________ -->
+            <CustomHouse-x_Your_Farm name="x_Your_Farm" hint="Your very own milking Farm." xpos="100" ypos="5" show="false">
+            <DoEvent now="true">TMBYourFarm</DoEvent>
+            </CustomHouse-x_Your_Farm>
+        <!--   __________________________________________________________________________________________ CUSTOM LOCATION DECLARING END _____________________ -->
+                
+        <Initialise>
+        </Initialise>
+
+        <UpdateDateAndItems>
+            <BEN2>
+                <if flagBEN2test_1='true'>
+                    <ShowCustomHouse>x_Your_Farm</ShowCustomHouse>
+                </if>
+                <if slaveowned="mllhild">
+                    <else>if</else>
+                    <ChangeParticipant name="mllhild" enable="true" owned="true">enable</ChangeParticipant>
+                </if>
+            </BEN2>
+        </UpdateDateAndItems>
+
+
+        <EarlyMorning>
+
+            <BEN2Event2 savedvar1_BEN2test="1">
+                <SetVar savedvar1_BEN2test="2"/>    
+                <ShowImage image='Images/Events/BEN/storylineF/Im0002'  frame='random2'/>
+                <SetText>
+                    When you wake up and head for the kitchen, you see Adisa already preparing breakfast for you and your slaves. 
+                    To your delight, you manage to see Adisa as she is finishing squeezing her right breast firmly moaning in the process. You watch as she slowly leaks milk in a glass that is getting full. \r
+                    You feel aroused as Adisa cleans her nipple from her dripping milk with her fingers, taking each finger and licking it fully clean. Adisa turns around and sees you as you stand there smiling to her. She smiles back and without saying anything she starts walking towards you with the glass in her hand and gives it to you.\r
+                    You take the glass and gladly lift it to your lips, as you first smell the milk. There is nothing better than the smell of freshly milked milk. You take a sip and the milk slowly runs down your throat with a cream like thickness. \r
+                    You finish the glass enjoying each sip and leave Adisa so proud, as you head into the day fully fed from her milk.
+                </SetText>
+            </BEN2Event2>            
+
+            <BEN2Event5 savedvar1_BEN2test="4">
+                <SetVar savedvar1_BEN2test="5"/>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0005'  frame='random2'/>
+                <SetText>
+                    You decide to talk to Adisa about the café and she seems to be quite interested in it but a little scared as well due to former days from when she was a slave.
+                    While lost in thought about the café you start rubbing Adisa's breasts until her nipples are hard once again so you can work on pinching her nipples and pulling them down. After a little milk starts dripping you change to sucking her nipples to get your daily milk directly from the source. Soon Adisa goes "moohing" and you start to play around a bit with her udders, squeezing more and more her big firm breasts until without a warning she hits orgasm. This results in milk pouring out of her breasts all over the floor and table and some slaves that were in the way, accidentally got covered in thick delicious milk as well.
+                </SetText>
+                <DoEvent>9999</DoEvent>
+            </BEN2Event5>
+            
+            <BEN2Event7 savedvar1_BEN2test="6">
+                <ShowImage image='Images/Events/BEN/storylineF/Im0007.jpg'/>
+                <SetText>
+                    Once you wake up you hear a knock on your door. To your surprise, it is the manager of the café you have been visiting.                    He thanks you for the help you provided yesterday and tells you that the maids and customers really appreciated what you did for them. You invite him in and order #slave to bring some milk for both of you. The manager talks about the milk and maid shortage for a while before #slave brings the milk you ordered. He takes a sip and immediately looks up with a surprise on his face.                    The manager asks you where this delicious milk comes from and you tell the manager about Adisa. He asks to see Adisa and you decide to allow him to meet her and ask #slave to send in Adisa.
+                    
+                    As Adisa enters the room, his eyes seem to jump out of his skull onto her enormous breast. Once the manager regained composure, he asks you to let her work for him at the café.
+                </SetText>
+                <AskQuestions>
+                    <Question event='BEN2Event7a'>Decline</Question>
+                    <Question event='BEN2Event7b'>Offer to sell her milk</Question>
+                    <Question event='BEN2Event7c'>Agree</Question>
+                </AskQuestions>
+            </BEN2Event7>
+
+        </EarlyMorning>
+
+        <StartMorning>            
+        </StartMorning>
+
+
+        <Daily>
+        </Daily>   
+        <StartEvening>
+            <BEN2Event9 savedvar1_BEN2test="8">
+                    <ShowImage image='Images/Events/BEN/storylineF/Im0009.jpg'/>
+                    <SetText>Adisa comes to you with a pretty packed bottle.</SetText>
+                    <PersonSpeak person='Adisa'>A regular at the café asked for a bottle of my milk to take home today. This however is not allowed in the café, so I had to turn him down. However I really do like it when people appreciate my milk so it would mean quite much for me if you would be kind enough to bring this milk to him.</PersonSpeak>
+                    <AskQuestion>
+                        <Question event='BEN2Event9a'>Decline</Question>
+                        <Question event='BEN2Event9b'>Agree</Question>
+                    </AskQuestion>
+            </BEN2Event9>
+        </StartEvening>
+        
+        
+        <Walk>            
+        	<TownCenter>                
+        		<BEN2Event3 supervise="slavemaker" savedvar1_BEN2test="2">
+                    <SetVar savedvar1_BEN2test="3"/>    
+                    <ShowImage image='Images/Events/BEN/storylineF/Im0003'  frame='random2'/>
+                    <SetText>
+                    You decide to take a break at a café in the Town Center. To your surprise, the maid serving you has big breasts. Not just big but so big that you are surprised that the top she is wearing is capable of holding them inside. It is clear that these breasts are full of delicious milk and you quickly get the taste back from Adisa's milk into your mouth. \r
+                    The maid takes your order and once she asks what you want drink all you are thinking about is how much you wish you could taste her milk. You start to imagine how her milk would taste compared to Adisa's milk. \r
+                    The maid interrupts your thoughts by asking you again what you want to drink and without thinking you say "Fresh milk please". Realizing that you had just stared at her breasts the entire time, while you said that you immediately start to flush.
+                    </SetText>
+                    <DoEvent>BEN2Event3p1</DoEvent>
+                </BEN2Event3>
+                
+                <BEN2Event4 supervise="slavemaker" savedvar1_BEN2test="3">
+                    <ShowImage image='Images/Events/BEN/storylineF/Im0004.jpg'/>
+                    <SetText>
+                        You decide to visit the café again hoping to taste more of that delicious milk you had before.\r
+                        You are quite sad once you realize that the maid serving you today has small breasts. You still ask for milk like before but this one only writes it down in the book and leaves. Less than a minute later, she returns with a glass of milk to you. You taste it and realize that this is just normal milk.
+                    </SetText>
+                    <AskQuestion caption='What do you do?\r'>
+                        <Question event="BEN2Event4a">Drink the milk infront of you and Leave</Question>
+                        <Question event="BEN2Event4b">Ask about the Big breasted maid</Question>
+                        <Question event="BEN2Event4c">Ask for "special" milk</Question>
+                    </AskQuestion>
+                </BEN2Event4>                
+
+                <BEN2Event6 supervise="slavemaker" savedvar1_BEN2test="5">
+                    <ShowImage image='Images/Events/BEN/storylineF/Im0006.jpg'/>
+                    <SetText>
+                        You take a stroll yet again to the café like you are beginning to become addicted to that café. However, once you try to get inside the café an angry customer storms out of the café.
+                        Once inside the café the manager greets you. He looks somewhat troubled and a little scared. After you get to your seat, you begin to realize why. There seems to be a shortage of big breasted maids and the remaining once struggle to cope with the demand for milk.
+                    </SetText>
+                    <AskQuestion caption='You decide to'>
+                        <Question event='BEN2Event6a'>Lay back and watch their struggle (Not your problem)</Question>
+                        <Question event='BEN2Event6b'>Offer help</Question>
+                    </AskQuestion>
+                </BEN2Event6>                
+
+                <BEN2Event13 supervise="slavemaker" savedvar1_BEN2test="12">
+                    <SetVar savedvar1_BEN2test="13"/>
+                    <if day='true'>
+                    	<ShowImage image='Images/Events/BEN/storylineF/Welcome'  frame='random3'/>
+                    	<else>if</else>
+                    	<ShowImage image='Images/Events/BEN/storylineF/Welcome Night 1.jpg'/>
+                    </if>
+                    <SetText>As usually when you go to the Town Center you decide to visit the café once more. The manager comes to you and greets you personally so the two of you talk for some time.</SetText>
+                    <AskQuestion caption='The subject is:'>
+                        <Question event='BEN2Event13a'>Milk demand</Question>
+                        <Question event='BEN2Event13b'>Adisa time here</Question>
+                        <Question event='BEN2Event13c'>How hard it is to get new maids</Question>
+                        <Question event='BEN2Event13d'>How he gets them to lactate</Question>
+                        <Question event='BEN2Event13e'>Rumors about an Alchemist</Question>
+                    </AskQuestion>
+                </BEN2Event13>                
+
+                <BEN2Event14 supervise="slavemaker" savedvar1_BEN2test="13+">
+                    <if day='true'>
+                    	<ShowImage image='Images/Events/BEN/storylineF/Welcome'  frame='random3'/>
+                    	<else>if</else>
+                    	<ShowImage image='Images/Events/BEN/storylineF/Welcome Night 1.jpg'/>
+                    </if>
+                    <SetText>As usually when you go to the Town Center you decide to visit the café once more. The manager comes to you and greets you personally so the two of you talk for some time.</SetText>
+                    <AskQuestion caption='The subject is:'>
+                        <Question event='BEN2Event13a'>Milk demand</Question>
+                        <Question event='BEN2Event13b'>Adisa time here</Question>
+                        <Question event='BEN2Event13c'>How hard it is to get new maids</Question>
+                        <Question event='BEN2Event13d'>How he gets them to lactate</Question>
+                        <Question event='BEN2Event13e'>Rumors about an Alquemist</Question>
+                        <if flagBEN2test_1='false'>
+                            <Question event='BEN2Event14a'>Suggest starting a farm</Question>
+                        </if>
+                    </AskQuestion>
+                </BEN2Event14>
+
+            </TownCenter>            
+
+            <Slums>
+            </Slums>            
+
+            <BeachWalk>
+            </BeachWalk>            
+
+            <BeachPrivate>
+            </BeachPrivate>            
+
+            <Farm>
+                <BEN2Event15 supervise="slavemaker" savedvar1_BEN2test="14">
+                    <DoEvent now='true'>BEN2Event15a</DoEvent>
+                </BEN2Event15>
+            </Farm>            
+
+            <Palace>
+
+                <BEN2Event10 supervise="slavemaker" savedvar1_BEN2test="9">
+                    <SetVar savedvar1_BEN2test="10"/>
+                    <ShowImage image='Images/Events/BEN/storylineF/Im0010.jpg'/>
+                    <SetText>You arrive at the marked spot in the palace garden. Soon Adisa's customer appears. Not to surprised you see Count Gossem torn around a corner and going in your direction until he suddenly stops. Gossem on the other hand looks a bit surprised.</SetText>
+                    <PersonSpeak person='count'>Well if it isn’t #slavemakername. What a surprise to meet you here.</PersonSpeak>
+                    <PersonSpeak person='#slavemakername'>Adisa said that you wanted some of her milk to take away from the café but the rules there forbid you to do so. She asked me to come and deliver the milk for you to enjoy.</PersonSpeak>
+                    <PersonSpeak person='count'>It seems you have quite a hand for slaves, all the wonderful ladies end up in your hands.</PersonSpeak>
+                    <PersonSpeak person='#slavemakername'>Well why do I not just visit you then having Adisa with me?</PersonSpeak>
+                    <AddText>You say kinda afraid of what he might do since he did not seem pleased in his last comment.</AddText>
+                    <PersonSpeak person='count'>Please do that as soon as you can and have the time to do so. I will be happy to have her... and you visit me.</PersonSpeak>
+                    <AddText>You curse the position you are in at the moment and now need to convince Adisa to meet this horny Count.</AddText>
+                    <DoEvent>9999</DoEvent>
+                </BEN2Event10>                
+
+                <BEN2Event16 supervise="slavemaker" savedvar1_BEN2test="15">
+                    <DoEvent now='true'>BEN2Event16a</DoEvent>
+                </BEN2Event16>
+
+            </Palace>        
+
+        </Walk>        
+
+
+        <!--   __________________________________________________________________________________________ BEN CONT START _____________________ -->
+            
+            <BEN2Event3p1>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0003a'  frame='random3'/>
+                <SetText>
+                    The maid smiles broadly and giggles while saying "Coming right up" and as soon as she says that, she puts down her notebook and pencil, pulls down her shirt so her breasts bounce free from the unneeded clothing. She then reaches for your glass and starts rubbing her breasts right in front of you, until her milk, her white delicious thick milk, starts pouring out of her nipples into your glass.                     Slowly the glass fills up and you can hear her moan while she is rubbing her breast, squeezing the milk out. After the glass is full, she puts it in front of you, picks up a towel, cleans herself up and fixes her shirt back to hide these large breasts of hers.\r
+                    You are quite surprised by the maids reaction but yet glad to be able to taste her milk. 
+                    As you smell the milk before you drink it, you realize that the milk smells less mature than Adisa's milk. With the first sip, you can taste the milk. It is creamy but not as much as Adisa's and while it is incredibly good, you can't stop but notice that it is not as satisfying as a whole meal itself.
+                    Also it seems more watery than you are used to from Adisa. This maid is clearly not as experienced as Adisa, but you definitely see a talent there.\r\r
+                    After finishing the milk you pay the bill, while thinking about returning soon. This milk may not be the best you have tasted but there is certainly the potential and you do not want to miss that.
+                </SetText>
+                <DoEvent>9999</DoEvent>
+            </BEN2Event3p1>
+            
+            <BEN2Event4a>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0004a.jpg'/>
+                <SetText>You drink the milk, disappointed to only have had normal milk instead of the "special" milk.</SetText>
+                <DoEvent>9999</DoEvent>
+            </BEN2Event4a>
+            <BEN2Event4b>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0004b.jpg'/>
+                <SetText>You ask about the big breasted maid from before but to your sadness she replays with "I'm sorry but it is her day off today"</SetText>
+                <AskQuestion caption='What do you do?'>
+                    <Question event="BEN2Event4a">Drink the milk in front of you and Leave</Question>
+                    <Question event="BEN2Event4c">Ask for "special" milk</Question>
+                </AskQuestion>
+            </BEN2Event4b>
+            <BEN2Event4c>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0004c.jpg'/>
+                <SetText>The maid blushes and understands the request you made. She bows deeply, apologizing for her mistake as she unbuttons her uniform. With a clean glass in hand, she starts stroking her breasts insecurely trying to milk herself. After watching her do this for a few minutes the glass is not even half.</SetText>
+                <AskQuestion caption='You decide to:'>
+                    <Question event="BEN2Event4cp2a">Wait</Question>
+                    <Question event="BEN2Event4cp2b">Help her</Question>
+                </AskQuestion>
+            </BEN2Event4c>
+                <BEN2Event4cp2a>
+                    <ShowImage image='Images/Events/BEN/storylineF/Im0004cp2a.jpg'/>
+                    <SetText>You decide to wait another five minutes to see whether or not she will get the hang of this but not only did it slow her down as she became more insecure, but she started sobbing, clearly afraid of being punished for not being able to satisfy her client better.</SetText>
+                    <AskQuestion caption='You decide to:'>
+                    <Question event="BEN2Event4cp2b">Help her</Question>
+                </AskQuestion>
+                </BEN2Event4cp2a>
+                <BEN2Event4cp2b>
+                    <ShowImage image='Images/Events/BEN/storylineF/Im0004cp2b'  frame='random3'/>
+                    <SetVar savedvar1_BEN2test="4"/>
+                    <SetText>You get up and stand behind the maid. With firm hands, you grab her breasts and start milking her with precise strokes. She screams painfully at first, but soon her pain changes into a mixture of moaning and panting clearly starting to enjoy this method. \r
+                    It also works as you manage to squeeze more milk out than she was able to deliver so you fill your glass eventually after a few minutes of stroking her breasts. The maid, unable to control her legs from exhaustion and orgasm, collapses to the ground gasping for air with a smile on her face. She clearly enjoyed this treatment of yours and most likely had orgasm even though you cannot see any proof of it.</SetText>
+                    <DoEvent>9999</DoEvent>
+                </BEN2Event4cp2b>
+            
+            <BEN2Event6a>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0006a.jpg'/>
+                <SetText>You lean back in the chair watching how the maids struggle to get any milk out of their nipples. </SetText>
+                    <if smcorrupt="30+">
+                        <AddText>You take joy at seeing them suffer like this and can't help but to get a little aroused in the process.</AddText>
+                        <else>if</else>
+                        <AddText>You kinda feel sorry for the maids but there is little you can do to actually help them.</AddText>
+                    </if>
+                <DoEvent>9999</DoEvent>
+            </BEN2Event6a>
+            <BEN2Event6b>
+                <SetVar savedvar1_BEN2test="6"/>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0006b'  frame='random6'/>
+                <SetText>
+                    You talk to the manager, who is skeptic at first, but then remembers your performance on your last visit and agrees. You order #slave to serve the customers while you help the maids to produce milk required. 
+                    
+                    You get lost in time by all the breasts squeezing as you are kind of enjoying yourself, touching every maids breasts, fondling with their nipples and squeezing hard to get as much milk out as you can. You also take the opportunity to put your hand in the panties of the maids touching their pussy and rubbing it as well to stimulate them even further. Lost in passion they do not mind this at all and due to your skill, each maid cums at least 3 times in the process, leaving each maid tired and having trouble standing after your treatment as well as every customer quite happy both for the milk and the show you put up with the maids.                    Having lost sense of time, you continue home.
+                </SetText>
+                <DoEvent>9999</DoEvent>
+            </BEN2Event6b>            
+
+            <BEN2Event7a>
+                <SetVar savedvar1_BEN2test="-1"/>
+                <if smcorrupt="50+">
+                	<ShowImage image='Images/Events/BEN/storylineF/Im0007a1.jpg'/>
+                	<else>if</else>
+                	<ShowImage image='Images/Events/BEN/storylineF/Im0007a2.jpg'/>
+                </if>
+                <SetText>You tell the manager that Adisa's milk is yours and you are not happy with selling her milk outside the house. The manager understands and leaves with hanging head and sobs a little on the way out.</SetText>
+                <DoEvent>9999</DoEvent>
+            </BEN2Event7a>
+            <BEN2Event7b>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0007b.jpg'/>
+                <SetText>The manager says that the customers like to be served directly from the source, so only the milk would not work.</SetText>
+                <AskQuestions>
+                    <Question event='BEN2Event7a'>Decline</Question>
+                    <Question event='BEN2Event7c'>Agree</Question>
+                </AskQuestions>
+            </BEN2Event7b>
+            <BEN2Event7c>
+                <SetVar savedvar1_BEN2test="7"/>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0007c'  frame='random2'/>
+                <SetText>You agree and start negotiating about work hours and price. A bit later, the manager leaves with a big smile. As you turn to Adisa you see her scared and sad. Once she notices that you are watching her she turns around and runs to her room.
+                
+                Maybe talking to her may help her accept to work at the café.</SetText>
+                <DoEvent>9999</DoEvent>
+            </BEN2Event7c>            
+
+            <BEN2Event9a>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0009a.jpg'/>
+                <SetText>She looks sad, but understands that you are too busy to play errand boy.</SetText>
+                <DoEvent>9999</DoEvent>
+            </BEN2Event9a>
+            <BEN2Event9b>
+                <SetVar savedvar1_BEN2test="9"/>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0009b.jpg'/>
+                <SetText>She looks overjoyed and gives you the bottle with a small piece of paper where you can meet this customer. The meeting place seems to be in the palace garden. However, to get there Adisa would have to pass the palace gates and she is no noble. You smile, seems like she made an influential customer.</SetText>
+                <DoEvent>9999</DoEvent>
+            </BEN2Event9b>            
+
+            <BEN2Event12>
+                <SetVar savedvar1_BEN2test="12"/>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0012.jpg'/>
+                <PersonSpeak person='count'>Welcome #salvemakername</PersonSpeak>
+                <if bust="130-">
+                    <AddText>. The Count completely ignores #slave</AddText>
+                    <else>if</else>
+                    <AddText> And #slave nice to meet you too.</AddText>
+                </if>
+                <AddText> Oh, Miss Adisa you look wonderful as always</AddText>
+                <AddText>You and the Count talk for awhile but you notice that his eyes are stuck on Adisa's breasts. Adisa seems to be quite uncomfortable with the stare from Count Gossem and the Count seems to realize that since he suddenly asks for the milk and how much Adisa provides.                 You managed to get better pay for the milk then usually and Adisa seems to be making more milk than when you started.</AddText>
+                <AddText>\r\r[Price of milk goes up, as does the amount sold. Probably the count buys it all up. Remind yourself to change this in the custom order], need to use a flag for this, no problem</AddText>
+                <DoEvent>9999</DoEvent>
+            </BEN2Event12>           
+
+            <BEN2Event13a>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0013a'  frame='random5'/>
+                <SetText>You talk a little about the milk demand and how demand stills seems to be more then he can handle even though Adisa seems to be working and milking hard.</SetText>
+                <DoEvent>9999</DoEvent>
+            </BEN2Event13a>
+            <BEN2Event13b>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0013b'  frame='random2'/>
+                <SetText>You ask the manager about Adisa's time here and he tells you that he is pleased with her hard work. Customers usually stay in line just to get her milk.</SetText>
+                <DoEvent>9999</DoEvent>
+            </BEN2Event13b>
+            <BEN2Event13c>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0013c'  frame='random9'/>
+                <SetText>The manager tells you how hard it seems to be getting new maids into this business. Not only is it hard to get girls working but also hard to get big-breasted women to work. All the manager seems to be able to get are small breasted girls with little to no experience.</SetText>
+                <DoEvent>9999</DoEvent>
+            </BEN2Event13c>
+            <BEN2Event13d>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0013d'  frame='random8'/>
+                <SetText>The manager tells you how he gets the girls already working to lactate more and more to meet demand. He even encourages some of the maids to get pregnant for the entire purpose of getting as much milk as possible from them.</SetText>
+                <DoEvent>9999</DoEvent>
+            </BEN2Event13d>
+            <BEN2Event13e>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0013e'  frame='random6'/>
+                <SetText>The manager tells you about a rumor he heard about an Alchemist making potions to increase lactation in girls, both small and big breasted.</SetText>
+                <DoEvent>9999</DoEvent>
+            </BEN2Event13e>            
+
+            <BEN2Event14a>
+                <SetVar savedvar1_BEN2test="14"/>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0014a.jpg'/>
+                <SetText>A crapped face stares at you.</SetText>
+                <PersonSpeak person='Cafe Manager'>Y-You would need a lot lot bigger space, t-to hold c-cows to prod-duce more milk.</PersonSpeak>
+                <AddText>Holding cows? Ah, cowslaves. Indeed this was an option but your thoughs were rather to have free persons milked inexange for money. Also a slave could escape like Adisa which would be a huge loss.</AddText>
+                <PersonSpeak person='slavemkaer'>Keeping cowslaves seems like a hassel. Is milking free persons while paing them not productive enouth?</PersonSpeak>
+                <PersonSpeak person='Cafe Manager'>Free persons? Well, no, not really, I think. Then again with your skills you may be able to have a small scale production with some effort. Oh! Yes, yes this is a good idea (...so it woun't conflict)</PersonSpeak>
+                <AddText>The manager makes a strange 180 degree change pressing towards your idea. What was he muttering about "conflict"</AddText>
+                <AddText>
+                    Conflict! Still not knowing whathe ment, anyway it brought you an idea for a place the rundown farm where you fought the milk baron! Perhaps you could purchase the farm to start your own there. You thank the still rambeling manager with a smile and leave the cafe with a new goal.</AddText>
+                <DoEvent>9999</DoEvent>
+            </BEN2Event14a>            
+
+            <BEN2Event15a>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0015.jpg'/>
+                   <SetText>Passing the Towncenter you approach the location of the farm. Retraicing your steps during day light you reach a conclusion: 
+                       its a total ruin. 
+                       The farm looks even worse in daylight compared to the last time you were here under the cover of the night. The yard is filled withdebris and the floor creaks on every step. You must been mad to run and fight here without a second though. At least from this you knowthat the buildings are not completly rotten.                     
+                   </SetText>
+                   <if BitGagWorn='0'>
+                        <PersonSpeak person='slave'>Is it really secure to walk inside?</PersonSpeak>
+                        <AddText>Pondering #slave's question you send her to walk in front of you.</AddText>
+                        <PersonSpeak person='slave'>Gu- kyaaa</PersonSpeak>
+                   </if>
+                   <if BitGagWorn='1'>
+                        <PersonSpeak person='slave'>Mmmh?</PersonSpeak>
+                        <AddText>It seem's #slave is reluctant to walk into the barn. Pondering you decide to motivate her with a sharp sounding slap on her butt until it's a bit red and she is tear eyed walking in front of you.</AddText>
+                        <PersonSpeak person='slave'>mh- MMMMH</PersonSpeak>
+                   </if>
+                   <if PonyBootsWorn='0'>
+                        <AddText>After a few steps her foot vanished in the floor, wordless you pull #slave up. Lets reconcider the not completly rotten part.</AddText>
+                    </if>
+                    <if PonyBootsWorn='1'>
+                        <AddText>After a few steps her hoofs(PonyBoots) vanished in the floor, wordless you pull #slave up. Lets reconcider the not completly rotten part.</AddText>
+                    </if>
+                   <AddText>It would take a lot of investment to just getting it operational again. That being said, you first need to find the current owner of thefarm, if the is one.</AddText>
+                   <AskQuestion caption='Where do you start your search for the owner?'>
+                       <Question event='BEN2Event15a1'>Ask the neighbors</Question>
+                       <Question event='BEN2Event15a2'>Ask the guard office</Question>
+                   </AskQuestion>
+            </BEN2Event15a>
+            <BEN2Event15a1>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0015a.jpg'/>
+                <SetText>An old man sits on their veranda, at his feet snuggles a mature dogslave.</SetText>
+                <PersonSpeak person='Old Man'>Ah! Betty, she stopped coming long ago. How sad, she was great to observe while working and the taste...</PersonSpeak>
+                <AddText>It seems that your next stop has to be the gurad office. You thank the man and leave.</AddText>
+                <AddText>As you make your way to the gate suddently a shadow runs past. The dog-slave runs to an old woman being pulled by a pony-slave. Amused you notice that the pony seems to be the dogs daughter, what a nice fate(warped smile).</AddText>
+                <DoEvent>9999</DoEvent>
+            </BEN2Event15a1>
+            <BEN2Event15a2>
+                <SetVar savedvar1_BEN2test="15"/>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0015b.jpg'/>
+                <SetText>You can't seem to find the guard house.
+
+                    After some time #slave spotts a guard running after a girl. Taking this chance you catch the girl as she passes by</SetText>
+                <PersonSpeak peson='escaping girl'>Ah! NO! LET GO!</PersonSpeak>
+                <AddText>Strugling you call #slave to help and bind them both together, preventing the girl from moving by the time the guard catches up panting</AddText>
+                <PersonSpeak person='Guard'>Ah, thank you for the help</PersonSpeak>
+                <PersonSpeak peson='escaping girl'>Noo, I don't want to, let me free</PersonSpeak>
+                <AddText>Annoyed you gag her, upon which she tries to bite you only to end up with a fist to the face by the angry guard</AddText>
+                <AddText>You notice that #slave has become pale at the guard striking the girl next to her. Not minding you offer the guard to carry the girl along to the post since you anyway wanted to go there</AddText>
+                <PersonSpeak peson='escaping girl'>Mmmm, nnmmhh</PersonSpeak>
+                <AddText>So you moved while #slave was draging the girl bound to her along.</AddText>
+                <DoEvent>BEN2Event15a3</DoEvent>
+            </BEN2Event15a2>
+            <BEN2Event15a3>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0015b.jpg'/>
+                <SetText>Reaching the small guard post at a corner of a street you enter following the guard. There you inquire about the owner of the abandoned farm. The guard informs you, that the owner has been marked as missing. However, the owner has been missing for so long that the case has been dropped long time ago. He gets you a poster of a woman that seems to be pretty short but has massive breasts.</SetText>
+                <AddText>They tell youthe farm is ready to be purchased from the city. The Palace holds the office regarding the papers needed.</AddText>
+                <AddText>Just as you want to leave you remember to unbind #slave from the now only sobbing girl and hand her over to the guard who just drags her by her breast into a cell while grinning</AddText>
+                <PersonSpeak person='Grinning Guard'>You got me out of breath before, now its my turn.</PersonSpeak>
+            </BEN2Event15a3>          
+
+            <BEN2Event16a>
+                <SetVar savedvar1_BEN2test="16"/>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0016.jpg'/>
+                <SetText>Stepping into a unknown area in the palace you arrive at an small office, behind the counters is a single booring looking office worker. Its quiet and suffocating, bearing the grim room you advance to the counter prepared for a long stay. Hoping to get to the point fast you start talking.</SetText>
+                <PersonSpeak person='#slavemakername'>I would like to inquire about obtaining the rights to a specific piece of land.</PersonSpeak>
+                <AddText>Slowly the dead looking worker made eye contact</AddText>
+                <PersonSpeak person='dead looking office worker'>next door....</PersonSpeak>
+                <AddText>and goes back to sleep</AddText>
+                <AddText>Dumbfolded you gaze at him, then make quitly your way to the next room</AddText>
+                <DoEvent>BEN2Event16b</DoEvent>
+            </BEN2Event16a>
+            <BEN2Event16b>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0016.jpg'/>
+                <SetText>Entering the next room around the corner you see a golden plate above the door. Somehow this didn't made a good impression, but was still far better than the fatty with small pig like eyes gaping at you like a piece of meat and weighting your purse in his mind.</SetText>
+                <PersonSpeak person='pig like man'>Welcome, would you like to purchase a loot of land? No or maybe announce one for selling? Please be mindsome of the taxes assosiated.</PersonSpeak>
+                <AddText>Somehow the dead looking office worker seems suddently very inviting.</AddText>
+                <PersonSpeak person='#slavemakername'>I would like to buy a abandoned farm at the northern part of the town since the owner has been missing for years.</PersonSpeak>
+                <PersonSpeak person='pig like man'>Abandoned, but it has an owner? That next door.</PersonSpeak>
+                <AddText>Knowing that he wouldn't get money from you the pig mans atitude changed. Happily you leave the room and retun to the previous room while carressing your purse</AddText>
+                <DoEvent>BEN2Event16c</DoEvent>
+            </BEN2Event16b>
+            <BEN2Event16c>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0016.jpg'/>
+                <SetText>This time mentioning the fact that it was abandoned and the owner is missing you are able to obtain the attention of the old office working.</SetText>
+                <PersonSpeak person='dead looking office worker'>Then here are the legal files of .... the last owner. The fees for the land and the late taxes will have to be cleared before obtaining the rights to the land.</PersonSpeak>
+                <AddText>The fees for the land are 2000 gold with additional 500 gold in legal fees.</AddText>
+                <AskQuestion>
+                    <Question event='BEN2Event16b1'>Pay</Question>
+                    <Question event='BEN2Event16b2'>Don’t pay</Question>
+                    <Question event='BEN2Event16b3'>Bribe (1000g)</Question>
+                </AskQuestion>
+            </BEN2Event16c>
+            <BEN2Event16b1>
+                <SetVar savedvar1_BEN2test="16"/>
+                <SetVar savedvar2_BEN2test="0"/>
+                <smmoney>-2000</smmoney>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0016a.jpg'/>
+                <SetText>
+                    You pay up and get the documents, seems like the last owner was called <b>Hakufu Sonsaku</b>. You hope she doesn't turn up anytime soon. other wise it will become a head ache.
+                    Tired you leave the palace and order #slave to massage your temples
+                </SetText>
+                <DoEvent>9999</DoEvent>
+            </BEN2Event16b1>
+            <BEN2Event16b2>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0016b.jpg'/>
+                <SetText>Text?</SetText>
+                <DoEvent>9999</DoEvent>
+            </BEN2Event16b2>
+            <BEN2Event16b3>
+                <if smconversation="70+">
+                    <SetVar savedvar1_BEN2test="16"/>
+                    <SetVar savedvar2_BEN2test="0"/>
+                    <SetFlag flagBEN2test_1='true'/>
+                    <smmoney>-1000</smmoney>
+                    <ShowImage image='Images/Events/BEN/storylineF/Im0016csuccess.jpg'/>
+                    <SetText>You try to bribe the office to only change the name of the papers. With long drawn conversations, you finally get to an understanding.
+                    You pay up and get the documents, seems like the last owner was called <b>Hakufu Sonsaku</b>. You hope she doesn't turn up anytime soon. other wise it will become a danger if she can prove that she was the real owner.
+                    </SetText> 
+                <else>if</else>
+                    <SetVar savedvar1_BEN2test="16"/>
+                    <SetVar savedvar2_BEN2test="0"/>
+                    <SetFlag flagBEN2test_1='true'/>
+                    <smmoney>-2000</smmoney>
+                    <ShowImage image='Images/Events/BEN/storylineF/Im0016cfail.jpg'/>
+                    <SetText>You try to bribe the office to only change the name of the papers. After a long drawn conversations you realize that this is a waste of time and just decide to pay the whole prize anyway.
+                        You pay up and get the documents, seems like the last owner was called <b>Hakufu Sonsaku</b>. You hope she doesn't turn up anytime soon. other wise it will become a head ache.
+                        Tired you leave the palace and order #slave to massage your temples
+                    </SetText>
+                </if>
+                <ShowCustomHouse>x_Your_Farm</ShowCustomHouse>
+                <DoEvent>9999</DoEvent>
+            </BEN2Event16b3>
+
+            <BEN2Event17a>
+                <SetVar savedvar0_BEN2test="0"/>
+                <SetFlag flagBEN2test_0='true'/>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0000.jpg'/>
+                <SetText>In need of workers to build your farm you go in search at the</SetText>
+                <AskQuestion>
+                    <Question event='BEN2Event17a1'>Town Center</Question>
+                    <Question event='BEN2Event17a2'>Farm</Question>
+                    <Question event='BEN2Event17a3'>Slums</Question>
+                </AskQuestion>
+            </BEN2Event17a> 
+            <BEN2Event17a1>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0000.jpg'/>
+                <SetText>Expectant you rush forward, certain towards the first firm you find.</SetText>
+                <PersonSpeak person='Worker'>A farm? We only do houses or apartments here.</PersonSpeak>
+                <AddText>and rush out of the first firm</AddText>
+                <AddText>/r.../r.../r.../r...</AddText>
+                <AddText>and drag your noddle like legs and squichi feet out of the seventh firm. #slave's image of you certainly did worsen.</AddText>
+                <DoEvent>9999</DoEvent>
+            </BEN2Event17a1>     
+            <BEN2Event17a2>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0000.jpg'/>
+                <SetText>After a long time walking you have seen a lot of sturdy farms, with strangly far more securety than you would think they needed.</SetText>
+                <if BitGagWorn='0'>
+                    <PersonSpeak person='slave'>Whaa, just how heavy are they?</PersonSpeak>
+                </if>
+                <PersonSpeak person='cowslave'>Muuh!</PersonSpeak>
+                <AddText>It seems #slave is occupied playing with the breast of a resting cowslave. Disapointed at todays results you call her back and decide to just consider it a excercise and joy training for #slave</AddText>
+                <DoEvent>9999</DoEvent>
+            </BEN2Event17a2>
+            <BEN2Event17a3>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0000.jpg'/>
+                <SetText>Since a farm doesn't need much of a pretty build and cheap is best you decide to walk to the slums.</SetText>
+                <AddText>Finding a bunch of workers you quikly find your way to a building "firm". Surprisingly the boss is a dwarve. This is the first time you see one in Midonia, but their smithting and building abilities are famous.</AddText>
+                <PersonSpeak person='dwarven boss'>Soya, whad de ya wand?</PersonSpeak>
+                <AddText>Not very convinced you try to explain what you want, but always some guys come in and interrupt you to talk to the dwarver boss.\r\r After some time you are getting no where. \rThen you have a idea.</AddText>
+                <AskQuestion caption='execute it? #slave is not gonna like it(probably)'>
+                    <Question event='BEN2Event17a3a'>a good idea</Question>
+                </AskQuestion>
+            </BEN2Event17a3>
+            <BEN2Event17a3a>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0000.jpg'/>
+                <SetText>Decided to get some quiet you go forward</SetText>
+                <PersonSpeak person='#slavemakername'>Please one moment only</PersonSpeak>
+                <PersonSpeak person='dwarven boss'>Hmpf</PersonSpeak>
+                <AddText>With this you get with #slave out in front of the office. Quickly you bind #slave spread wide on a stool, gag her and drag her infront of the door. As finishing touch you undress part of her dress as not to damage it and hang a shield round her neck. Now you go back in to negociate</AddText>
+                <PersonSpeak person='Shield'>Free to use.</PersonSpeak>
+                <PersonSpeak person='slave'>Mmmh! G-</PersonSpeak>
+                <DoEvent>9999</DoEvent>
+            </BEN2Event17a3a>
+            <BEN2Event17a3b>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0000.jpg'/>
+                <SetText>Finished your negotiation in success, thanks to the calm earned by #slave's hard work, you leave the office.</SetText>
+                <PersonSpeak person='#slavemakername'>Seems they did take quite a liking to you slave.</PersonSpeak>
+                <AddText>The workers where still going strong at #slave, who was by now slimy, sweat glicerned on the skin and gushing cum from her holes on every trust. Her gag was long been replaced by one made of meat raveging her troat.</AddText>
+                Options:
+                slave likes it
+                slave is barely awake
+
+                male, drag her away(if not enouth dom you get scared of and slave is delivered at the evening cumcovered at your doorstep), keep watching, fuck her also
+                female/futa drag her away(if not enouth dom you get sisterbound with your slave and fucked along till evening where you get trown infront of your houses door), keep watching, join in
+            </BEN2Event17a3b>
+
+            <BEN2Event18a>
+                <SetVar savedvar0_BEN2test="0"/>
+                <SetFlag flagBEN2test_0='true'/>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0000.jpg'/>
+                <SetText>
+                    You receive a message informing you of the completion of the house at your farm. It would be good to inspect it....
+
+
+                    Opposed to their looks and behaviour the building firm turned out better than expected. You are quite satisfied and it would be good to contract them for building expansions of your farm, as long as the visits work out better than the last. 
+
+                    You need someone to take care of the farm, produce milk and guard the location. At first the production could be handled by employing Adisa and maybe some of your slaves, but you would need to get more persons/udders/cows to increase the production if you want to see any profit from here. (Adisa will be leaving your home and become more tempramental and less obedient)
+                    Second a caretaker who knows of farms would be good and could spare you headaches. Where to find one? There should be some one to find when asking for contacts at the Daiary cafe.
+                    Lastly a guard. Providing a slave with weapons is forbitten, but since they wouldn't be leaving your property it should be possible. At least it will be better than having some hoolums who can easely be bribed.
+
+                    For guard - look at the slave marked and buy any female knight class with big breast. (the unstopping muuhing will keep in her head and at last she will succumb to tentation, maybe by the bull, and end up unusable for guard duty or anything at all because of her huge and very sensitive chest)
+                    For a farm-hand - having no luck at the farm you turn to the slums and the slave marked. At a comotion at the slave marked you see a struggeling girl. It seems she got a debt and can't settle it, so its off to the slavemarked and work at a borthel until she has paid it off. You hear its only 50 gold, this shoud be only a 5 months wage at worst. How about you offer to assume her debt and get her to work for a year without rest in exachange for housing and food during this time. Seemingly reluctant at such bad terms she isn't quite happy but after you mention that its just taking care of a small farm with cows, without land she accepts since the other look out are the brothels.
+                    For Adisa - she is reluctant to agree to work as a milk producing cow, but after you mention that she can provide milk to far more people and can help better the treatment of cowslaves by setting a good example she gets animated. Now she is ready to move to the farm. This means she will no longer be aviable to talk to at your home, only at the farm.
+                    mllhild: so stupid, does she really belive she is more than a pair of profitable breast? Well, sorry but I like my stories and characters dark, and my basement sprinkled in white and red.
+
+                    So now you can have your farm become active. Some minor slaves may be fitting to be put to work there.
+                    Maybe also some free presons may be willing to work there.
+
+                    Welcome to the world of milking.
+
+                    You visit your farm, go to the acount book, for now Adisa is being milked in the side room.
+                    To employ any more you need to have the Small barn build.
+
+
+
+
+                </SetText>
+                <DoEvent>9999</DoEvent>
+            </BEN2Event18a> 
+
+            <BEN2Event19a>
+                <SetVar savedvar0_BEN2test="0"/>
+                <SetFlag flagBEN2test_0='true'/>
+                <ShowImage image='Images/Events/BEN/storylineF/Im0000.jpg'/>
+                <SetText></SetText>
+                <DoEvent>9999</DoEvent>
+            </BEN2Event19a>   
+
+
+        <!--   _________________________________________________________________________ BEN CONT END _____________________ -->        
+
+
+        <!--   _________________________________________________________________________ YOUR FARM START _____________________ -->
+            <TMBYourFarm>
+                <SetVar var4='0'/>
+                <DoEvent now='true'>YourFarm</DoEvent>
+            </TMBYourFarm>
+            <YourFarm>
+                <SetVar var0='70'/> <!-- X offset (to the right) -->
+                <SetVar var1='90'/> <!-- Y offset (down wards) -->
+                <SetVar var2='20'/> <!-- X height -->
+                <SetVar var3='20'/> <!-- Y width  -->
+                <Exploration>
+                    <Room type='0' description='0 Gate' event='YourFarmExR0' xpos='var0+var2*0' ypos='var1+var3*6' height='var3*2' width='var2*1' explored='false'/>
+                    <Room type='0' description='1 Yard' event='YourFarmExR1' xpos='var0+var2*1' ypos='var1+var3*5' height='var3*4' width='var2*9' explored='false'/>
+                    <Room type='0' description='2 House' event='YourFarmExR2' xpos='var0+var2*4' ypos='var1+var3*2' height='var3*3' width='var2*4' explored='false'/>
+                    <Room type='0' description='3 Small Barn' event='YourFarmExR3' xpos='var0+var2*1' ypos='var1+var3*0' height='var3*5' width='var2*3' explored='false'/>
+                    <Room type='0' description='4 way' event='YourFarmExR4' xpos='var0+var2*9' ypos='var1+var3*2' height='var3*3' width='var2*1' explored='false'/>
+                    <Room type='0' description='5 Silo' event='YourFarmExR5' xpos='var0+var2*9' ypos='var1+var3*0' height='var3*2' width='var2*2' explored='false'/>
+                    <Room type='0' description='6 Big Barn' event='YourFarmExR6' xpos='var0+var2*10' ypos='var1+var3*3' height='var3*6' width='var2*7' explored='false'/>                    <Door from='0' to='1' dpos='4' height='20' width='35'/>
+                    <Door from='2' to='1' dpos='8' height='10' width='10'/>
+                    <Door from='3' to='1' dpos='8' height='10' width='10'/>
+                    <Door from='4' to='1' dpos='8' height='1' width='1'/>
+                    <Door from='4' to='5' dpos='2' height='10' width='10'/>
+                    <Door from='1' to='6' dpos='5' height='10' width='10'/>
+                </Exploration>
+                <EnterRoom>1</EnterRoom>
+                <HideImages/>
+                <ShowImage image='Images/Events/BEN/storylineF/Im-yard-00.jpg'/>
+                <ShowCurrentFloor/>
+            </YourFarm>
+                <YourFarmExR0><DoEvent now='true'>YourFarmExit</DoEvent></YourFarmExR0>
+                <YourFarmExR1></YourFarmExR1>
+                <YourFarmExR2><SetVar var4='0'/><DoEvent now='true'>YourFarmHouse</DoEvent></YourFarmExR2>
+                <YourFarmExR3><SetVar var4='1'/><DoEvent now='true'>YourFarmHouse</DoEvent></YourFarmExR3>
+                <YourFarmExR4></YourFarmExR4>
+                <YourFarmExR5></YourFarmExR5>
+                <YourFarmExR6><DoEvent now='true'>YourFarmBigBarn</DoEvent></YourFarmExR6>
+            <YourFarmExit>
+                <YesNoQuestion event='YourFarmExit'>Do you want to leave your Farm?</YesNoQuestion>
+            </YourFarmExit>
+            <YourFarmExitYES>
+                <SetText>You leave the Farm.</SetText>
+                <HideCurrentFloor/><StopExploring/>
+                <DoEvent now='true'>9999</DoEvent>
+            </YourFarmExitYES>
+            <YourFarmExitNO>
+                <SetText>You change your mind, turning around...</SetText>
+            </YourFarmExitNO>            <YourFarmHouse>
+                <SetVar var0='90'/> <!-- X offset (to the right) -->
+                <SetVar var1='70'/> <!-- Y offset (down wards) -->
+                <SetVar var2='20'/> <!-- X height -->
+                <SetVar var3='20'/> <!-- Y width  -->
+                <Exploration>
+                    <Room type='0' description='0 Barn Corridor' event='YourFarmH1R0' xpos='var0+var2*2' ypos='var1+var3*3' height='var3*7' width='var2*2' explored='false'/>
+                    <Room type='0' description='1 Left Stalls' event='YourFarmH1R1' xpos='var0+var2*0' ypos='var1+var3*3' height='var3*7' width='var2*2' explored='false'/>
+                    <Room type='0' description='2 Right Stalls' event='YourFarmH1R2' xpos='var0+var2*4' ypos='var1+var3*6' height='var3*4' width='var2*2' explored='false'/>
+                    <Room type='0' description='3 Storage' event='YourFarmH1R3' xpos='var0+var2*0' ypos='var1+var3*0' height='var3*3' width='var2*4' explored='false'/>
+                    <Room type='0' description='4 Backroom' event='YourFarmH1R4' xpos='var0+var2*4' ypos='var1+var3*0' height='var3*6' width='var2*2' explored='false'/>
+                    <Room type='0' description='5 Small Corridor' event='YourFarmH1R5' xpos='var0+var2*6' ypos='var1+var3*4' height='var3*1' width='var2*4' explored='false'/>
+                    <Room type='0' description='6 Corridor' event='YourFarmH1R6' xpos='var0+var2*10' ypos='var1+var3*4' height='var3*3' width='var2*1' explored='false'/>
+                    <Room type='0' description='7 Stairs up' event='YourFarmH1R7' xpos='var0+var2*11' ypos='var1+var3*4' height='var3*1' width='var2*3' explored='false'/>
+                    <Room type='0' description='8 Room 1' event='YourFarmH1R8' xpos='var0+var2*6' ypos='var1+var3*5' height='var3*2' width='var2*4' explored='false'/>
+                    <Room type='0' description='9 Reception' event='YourFarmH1R9' xpos='var0+var2*6' ypos='var1+var3*7' height='var3*3' width='var2*5' explored='false'/>
+                    <Room type='0' description='10 Room 2' event='YourFarmH1R10' xpos='var0+var2*11' ypos='var1+var3*5' height='var3*5' width='var2*3' explored='false'/>
+                    <Room type='0' description='11 Entrance House' event='YourFarmH1R11' xpos='var0+var2*9' ypos='var1+var3*10' height='var3*1' width='var2*2' explored='false'/>
+                    <Room type='0' description='12 Entrance Barn' event='YourFarmH1R12' xpos='var0+var2*2' ypos='var1+var3*10' height='var3*1' width='var2*2' explored='false'/>                    <Door from='12' to='0' dpos='2' height='10' width='20'/>
+                    <Door from='0' to='1' dpos='11' height='1' width='1'/>
+                    <Door from='0' to='2' dpos='5' height='1' width='1'/>
+                    <Door from='0' to='3' dpos='2' height='10' width='10'/>
+                    <Door from='3' to='4' dpos='5' height='10' width='10'/>
+                    <Door from='5' to='4' dpos='11' height='10' width='10'/>
+                    <Door from='5' to='6' dpos='5' height='10' width='10'/>
+                    <Door from='7' to='6' dpos='11' height='10' width='10'/>
+                    <Door from='8' to='6' dpos='4' height='10' width='10'/>
+                    <Door from='10' to='6' dpos='12' height='10' width='10'/>
+                    <Door from='6' to='9' dpos='8' height='10' width='10'/>
+                    <Door from='8' to='9' dpos='9' height='10' width='10'/>
+                    <Door from='11' to='9' dpos='2' height='10' width='20'/>
+                </Exploration>
+                <if var4='0'>
+                    <EnterRoom>9</EnterRoom>
+                </if>
+                <if var4='1'>
+                    <EnterRoom>0</EnterRoom>
+                </if>
+                <if var4='2'>
+                    <EnterRoom>6</EnterRoom>
+                </if>
+                <HideImages/>
+                <ShowCurrentFloor/>
+            </YourFarmHouse>
+                <YourFarmH1R0><ShowImage image='Images/Events/BEN/storylineF/Im-smallbarn-00.jpg'/></YourFarmH1R0>
+                <YourFarmH1R1></YourFarmH1R1>
+                <YourFarmH1R2></YourFarmH1R2>
+                <YourFarmH1R3></YourFarmH1R3>
+                <YourFarmH1R4></YourFarmH1R4>
+                <YourFarmH1R5></YourFarmH1R5>
+                <YourFarmH1R6><ShowImage image='Images/Events/BEN/storylineF/Im-house-00.jpg'/></YourFarmH1R6>
+                <YourFarmH1R7><if flagBEN2test_5='true'><DoEvent now='true'>YourFarmHouseH2</DoEvent></if></YourFarmH1R7>
+                <YourFarmH1R8></YourFarmH1R8>
+                <YourFarmH1R9><ShowImage image='Images/Events/BEN/storylineF/Im-house-00.jpg'/></YourFarmH1R9>
+                <YourFarmH1R10></YourFarmH1R10>
+                <YourFarmH1R11><DoEvent now='true'>YourFarmHouseExitA</DoEvent></YourFarmH1R11>
+                <YourFarmH1R12><DoEvent now='true'>YourFarmHouseExitB</DoEvent></YourFarmH1R12>
+                <YourFarmHouseExitA>
+                    <YesNoQuestion event='YourFarmHouseExitA'>Do you want to go to the Yard?</YesNoQuestion>
+                </YourFarmHouseExitA>
+                    <YourFarmHouseExitAYES>
+                        <SetText>You leave the House.</SetText>
+                        <HideCurrentFloor/><StopExploring/>
+                        <SetVar var4='0'/>
+                        <DoEvent now='true'>YourFarm</DoEvent>
+                    </YourFarmHouseExitAYES>
+                    <YourFarmHouseExitANO>
+                        <SetText>You change your mind, turning around...</SetText>
+                    </YourFarmHouseExitANO>
+                <YourFarmHouseExitB>
+                    <YesNoQuestion event='YourFarmHouseExitB'>Do you want to go to the Yard?</YesNoQuestion>
+                </YourFarmHouseExitB>
+                    <YourFarmHouseExitBYES>
+                        <SetText>You leave the Small Barn. Closing the large doors behind you.</SetText>
+                        <HideCurrentFloor/><StopExploring/>
+                        <SetVar var4='0'/>
+                        <DoEvent now='true'>YourFarm</DoEvent>
+                    </YourFarmHouseExitBYES>
+                    <YourFarmHouseExitBNO>
+                        <SetText>You change your mind, turning around...</SetText>
+                    </YourFarmHouseExitBNO>
+            <YourFarmHouseH2>
+                <SetVar var0='90'/> <!-- X offset (to the right) -->
+                <SetVar var1='70'/> <!-- Y offset (down wards) -->
+                <SetVar var2='20'/> <!-- X height -->
+                <SetVar var3='20'/> <!-- Y width  -->
+                <Exploration>
+                    <Room type='0' description='0 Stairs down' event='YourFarmH2R0' xpos='var0+var2*11' ypos='var1+var3*4' height='var3*1' width='var2*3' explored='false'/>
+                    <Room type='0' description='1 Corridor' event='YourFarmH2R1' xpos='var0+var2*6' ypos='var1+var3*5' height='var3*1' width='var2*8' explored='false'/>
+                    <Room type='0' description='2 Room right' event='YourFarmH2R2' xpos='var0+var2*6' ypos='var1+var3*6' height='var3*4' width='var2*4' explored='false'/>
+                    <Room type='0' description='3 Room left' event='YourFarmH2R3' xpos='var0+var2*10' ypos='var1+var3*6' height='var3*4' width='var2*4' explored='false'/>
+                    <Room type='0' description='4 Balcony' event='YourFarmH2R4' xpos='var0+var2*7' ypos='var1+var3*10' height='var3*1' width='var2*6' explored='false'/>
+                    <Room type='0' description='5 Barn upper floor' event='YourFarmH2R5' xpos='var0+var2*2' ypos='var1+var3*5' height='var3*1' width='var2*4' explored='false'/>
+                    <Room type='0' description='6 Attic up' event='YourFarmH2R6' xpos='var0+var2*2' ypos='var1+var3*2' height='var3*3' width='var2*2' explored='false'/>
+                    <Room type='0' description='7 Attic down' event='YourFarmH2R7' xpos='var0+var2*2' ypos='var1+var3*6' height='var3*3' width='var2*2' explored='false'/>                    <Door from='0' to='1' dpos='7' height='10' width='10'/>
+                    <Door from='2' to='1' dpos='2' height='10' width='10'/>
+                    <Door from='3' to='1' dpos='2' height='10' width='10'/>
+                    <Door from='2' to='4' dpos='8' height='10' width='10'/>
+                    <Door from='3' to='4' dpos='8' height='10' width='10'/>
+                    <Door from='1' to='5' dpos='5' height='10' width='10'/>
+                    <Door from='6' to='5' dpos='8' height='10' width='10'/>
+                    <Door from='7' to='5' dpos='2' height='10' width='10'/>
+                </Exploration>
+                <EnterRoom>1</EnterRoom>
+                <HideImages/>
+                <ShowCurrentFloor/>
+            </YourFarmHouseH2>
+                <YourFarmH2R0><SetVar var4='2'/><DoEvent now='true'>YourFarmHouse</DoEvent></YourFarmH2R0>
+                <YourFarmH2R1><ShowImage image='Images/Events/BEN/storylineF/Im-house-00.jpg'/></YourFarmH2R1>
+                <YourFarmH2R2></YourFarmH2R2>
+                <YourFarmH2R3></YourFarmH2R3>
+                <YourFarmH2R4></YourFarmH2R4>
+                <YourFarmH2R5></YourFarmH2R5>
+                <YourFarmH2R6></YourFarmH2R6>
+                <YourFarmH2R7></YourFarmH2R7>
+            <YourFarmBigBarn>
+                <SetVar var0='70'/> <!-- X offset (to the right) -->
+                <SetVar var1='60'/> <!-- Y offset (down wards) -->
+                <SetVar var2='20'/> <!-- X height -->
+                <SetVar var3='20'/> <!-- Y width  -->
+                <Exploration>
+                    <Room type='0' description='0 Entrance' event='YourFarmB1R0' xpos='var0+var2*0' ypos='var1+var3*6' height='var3*3' width='var2*1' explored='false'/>
+                    <Room type='0' description='1 Test Area' event='YourFarmB1R1' xpos='var0+var2*1' ypos='var1+var3*0' height='var3*4' width='var2*5' explored='false'/>
+                    <Room type='0' description='2 Small Storage' event='YourFarmB1R2' xpos='var0+var2*6' ypos='var1+var3*0' height='var3*4' width='var2*2' explored='false'/>
+                    <Room type='0' description='3 Stairs to Cellar' event='YourFarmB1R3' xpos='var0+var2*8' ypos='var1+var3*1' height='var3*3' width='var2*1' explored='false'/>
+                    <Room type='0' description='4 Laboratory' event='YourFarmB1R4' xpos='var0+var2*9' ypos='var1+var3*0' height='var3*4' width='var2*6' explored='false'/>
+                    <Room type='0' description='5 Barn' event='YourFarmB1R5' xpos='var0+var2*1' ypos='var1+var3*4' height='var3*6' width='var2*11' explored='false'/>
+                    <Room type='0' description='6 Milk Tank' event='YourFarmB1R6' xpos='var0+var2*12' ypos='var1+var3*4' height='var3*3' width='var2*3' explored='false'/>
+                    <Room type='0' description='7 Stall right' event='YourFarmB1R7' xpos='var0+var2*12' ypos='var1+var3*7' height='var3*5' width='var2*2' explored='false'/>
+                    <Room type='0' description='8 Stall left' event='YourFarmB1R8' xpos='var0+var2*2' ypos='var1+var3*10' height='var3*2' width='var2*5' explored='false'/>
+                    <Room type='0' description='9 Stall middle' event='YourFarmB1R9' xpos='var0+var2*7' ypos='var1+var3*10' height='var3*2' width='var2*5' explored='false'/>
+                    <Room type='0' description='10 Secret Passage' event='YourFarmB1R10' xpos='var0+var2*8' ypos='var1+var3*0' height='var3*1' width='var2*1' explored='false'/>                    <Door from='0' to='5' dpos='7' height='10' width='10'/>
+                    <Door from='1' to='5' dpos='7' height='10' width='10'/>
+                    <Door from='2' to='5' dpos='8' height='10' width='10'/>
+                    <Door from='4' to='5' dpos='9' height='10' width='10'/>
+                    <Door from='6' to='5' dpos='11' height='1' width='1'/>
+                    <Door from='7' to='5' dpos='11' height='1' width='1'/>
+                    <Door from='8' to='5' dpos='2' height='1' width='1'/>
+                    <Door from='9' to='5' dpos='2' height='1' width='1'/>
+                    <Door from='10' to='2' dpos='11' height='1' width='1'/>
+                    <Door from='10' to='3' dpos='2' height='10' width='10'/>
+                </Exploration>
+                <if var4='0'>
+                    <EnterRoom>5</EnterRoom>
+                </if>
+                <if var4='1'>
+                    <EnterRoom>10</EnterRoom>
+                </if>
+                <HideImages/>
+                <Backgrounds place='housing'/>
+                <ShowCurrentFloor/>
+            </YourFarmBigBarn>
+                <YourFarmB1R0><DoEvent now='true'>YourFarmBigBarnExit</DoEvent></YourFarmB1R0>
+                <YourFarmB1R1><ShowImage image='Images/Events/BEN/storylineF/Im-testarea-00.jpg'/></YourFarmB1R1>
+                <YourFarmB1R2><ShowImage image='Images/Events/BEN/storylineF/Im-smallstorage-00.jpg'/></YourFarmB1R2>
+                <YourFarmB1R3><SetVar var4='0'/><DoEvent now='true'>YourFarmBigBarnCellar</DoEvent></YourFarmB1R3>
+                <YourFarmB1R4><ShowImage image='Images/Events/BEN/storylineF/Im-lab-00.jpg'/></YourFarmB1R4>
+                <YourFarmB1R5><ShowImage image='Images/Events/BEN/storylineF/Im-bigbarn-00.jpg'/></YourFarmB1R5>
+                <YourFarmB1R6></YourFarmB1R6>
+                <YourFarmB1R7></YourFarmB1R7>
+                <YourFarmB1R8></YourFarmB1R8>
+                <YourFarmB1R9></YourFarmB1R9>
+                <YourFarmB1R10><ShowImage image='Images/Events/BEN/storylineF/Im-secretpassage-00.jpg'/></YourFarmB1R10>
+                <YourFarmBigBarnExit>
+                    <YesNoQuestion event='YourFarmBigBarnExit'>Do you want to go to the Yard?</YesNoQuestion>
+                </YourFarmBigBarnExit>
+                    <YourFarmBigBarnExitYES>
+                        <SetText>You leave the Barn.</SetText>
+                        <HideCurrentFloor/><StopExploring/>
+                        <SetVar var4='0'/>
+                        <DoEvent now='true'>YourFarm</DoEvent>
+                    </YourFarmBigBarnExitYES>
+                    <YourFarmBigBarnExitNO>
+                        <SetText>You change your mind, turning around...</SetText>
+                    </YourFarmBigBarnExitNO>
+            <YourFarmBigBarnCellar>
+                <SetVar var0='50'/> <!-- X offset (to the right) -->
+                <SetVar var1='40'/> <!-- Y offset (down wards) -->
+                <SetVar var2='20'/> <!-- X height -->
+                <SetVar var3='20'/> <!-- Y width  -->
+                <Exploration>
+                    <Room type='0' description='0 Stairs up' event='YourFarmB0R0' xpos='var0+var2*11' ypos='var1+var3*4' height='var3*3' width='var2*1' explored='false'/>
+                    <Room type='0' description='1 Corridor' event='YourFarmB0R1' xpos='var0+var2*6' ypos='var1+var3*7' height='var3*1' width='var2*6' explored='false'/>
+                    <Room type='0' description='2 Training room' event='YourFarmB0R2' xpos='var0+var2*3' ypos='var1+var3*6' height='var3*3' width='var2*3' explored='false'/>
+                    <Room type='0' description='3 Cell up right' event='YourFarmB0R3' xpos='var0+var2*9' ypos='var1+var3*6' height='var3*1' width='var2*1' explored='false'/>
+                    <Room type='0' description='4 Cell down right' event='YourFarmB0R4' xpos='var0+var2*9' ypos='var1+var3*8' height='var3*1' width='var2*1' explored='false'/>
+                    <Room type='0' description='5 Cell up left' event='YourFarmB0R5' xpos='var0+var2*7' ypos='var1+var3*6' height='var3*1' width='var2*1' explored='false'/>
+                    <Room type='0' description='6 Cell down left' event='YourFarmB0R6' xpos='var0+var2*7' ypos='var1+var3*8' height='var3*1' width='var2*1' explored='false'/>
+                    <Room type='0' description='7 black block' event='YourFarmB0R7' xpos='var0+var2*6' ypos='var1+var3*6' height='var3*1' width='var2*1' explored='false'/>
+                    <Room type='0' description='8 black block' event='YourFarmB0R8' xpos='var0+var2*8' ypos='var1+var3*6' height='var3*1' width='var2*1' explored='false'/>
+                    <Room type='0' description='9 black block' event='YourFarmB0R9' xpos='var0+var2*10' ypos='var1+var3*6' height='var3*1' width='var2*1' explored='false'/>
+                    <Room type='0' description='10 black block' event='YourFarmB0R10' xpos='var0+var2*6' ypos='var1+var3*8' height='var3*1' width='var2*1' explored='false'/>
+                    <Room type='0' description='11 black block' event='YourFarmB0R11' xpos='var0+var2*8' ypos='var1+var3*8' height='var3*1' width='var2*1' explored='false'/>
+                    <Room type='0' description='12 black block' event='YourFarmB0R12' xpos='var0+var2*10' ypos='var1+var3*8' height='var3*1' width='var2*2' explored='false'/>
+                    <Room type='0' description='13 black block' event='YourFarmB0R13' xpos='var0+var2*3' ypos='var1+var3*4' height='var3*2' width='var2*8' explored='false'/>
+                    <Room type='0' description='14 black block' event='YourFarmB0R14' xpos='var0+var2*3' ypos='var1+var3*9' height='var3*5' width='var2*9' explored='false'/>
+                    <Room type='0' description='15 black block' event='YourFarmB0R15' xpos='var0+var2*12' ypos='var1+var3*1' height='var3*13' width='var2*5' explored='false'/>
+                    <Room type='0' description='16 black block' event='YourFarmB0R16' xpos='var0+var2*0' ypos='var1+var3*1' height='var3*13' width='var2*3' explored='false'/>
+                    <Room type='0' description='17 black block' event='YourFarmB0R17' xpos='var0+var2*3' ypos='var1+var3*1' height='var3*3' width='var2*9' explored='false'/>
+                    
+                    <Door from='0' to='1' dpos='8' height='10' width='10'/>
+                    <Door from='1' to='2' dpos='11' height='10' width='10'/>
+                    <Door from='3' to='1' dpos='8' height='10' width='10'/>
+                    <Door from='4' to='1' dpos='2' height='10' width='10'/>
+                    <Door from='5' to='1' dpos='8' height='10' width='10'/>
+                    <Door from='6' to='1' dpos='2' height='10' width='10'/>
+                </Exploration>
+                <EnterRoom>1</EnterRoom>
+                <HideImages/>
+                <Backgrounds place='housing'/>
+                <ShowCurrentFloor/>
+            </YourFarmBigBarnCellar>
+                <YourFarmB0R0><SetVar var4='1'/><DoEvent now='true'>YourFarmBigBarn</DoEvent></YourFarmB0R0>
+                <YourFarmB0R1><ShowImage image='Images/Events/BEN/storylineF/Im-cellar-00.jpg'/></YourFarmB0R1>
+                <YourFarmB0R2><ShowImage image='Images/Events/BEN/storylineF/Im-training-00.jpg'/></YourFarmB0R2>
+                <YourFarmB0R3><ShowImage image='Images/Events/BEN/storylineF/Im-cell1-00.jpg'/></YourFarmB0R3>
+                <YourFarmB0R4><ShowImage image='Images/Events/BEN/storylineF/Im-cell2-00.jpg'/></YourFarmB0R4>
+                <YourFarmB0R5><ShowImage image='Images/Events/BEN/storylineF/Im-cell3-00.jpg'/></YourFarmB0R5>
+                <YourFarmB0R6><ShowImage image='Images/Events/BEN/storylineF/Im-cell4-00.jpg'/></YourFarmB0R6>
+        <!--   _________________________________________________________________________ YOUR FARM END _____________________ -->        
+
+
+        <!--   _________________________________________________________________________ COUNT GOSSEM VISITS INITIATOR START _____________________ -->
+            <DoVisit>
+                <if visitperson='7'>
+                    <if savedvar1_BEN2test="11">
+                         <SetPersonDetails person="count" visited='true'/>
+                        <DoEvent now="true">BEN2Event12</DoEvent>
+                        <EndEvent/>
+                    </if>
+                </if>
+            </DoVisit>
+        <!--   __________________________________________________________________________ COUNT GOSSEM VISITS INITIATOR END _____________________ -->    
+
+
+    </Events>
+
+    <Visits>
+    </Visits>
+
+    <Planning>
+        <Acts>
+            <DoPlanning>
+            </DoPlanning>
+        </Acts>
+    </Planning>    
+
+    <Slaves>
+        <Slave enable='false'>
+            <!--   __________________________________________________________________________________________ ADISA START _____________________ -->
+                    <Credits>aaaa</Credits>
+                    <Version>0.1</Version>
+                    <Name>mllhild</Name>
+                        <Image>Images/Events/BEN/generic/BEN-Gen0003.jpg</Image>
+                        <Folder>Images/Events/BEN/TestCow</Folder>
+                        <DescriptionDetailed>Being curios to a point where it is strange, she is now living with you waiting to be trained.</DescriptionDetailed>
+                        <Description>Overly happy expecting to become a future Cow slave</Description>
+                        <Price>0</Price>
+                        <Gender>female</Gender>
+                        <Bust>145</Bust>
+                        <Waist>75</Waist>
+                        <Hips>92</Hips>
+                        <Age>24</Age>
+                        <BloodType>A</BloodType>
+                        <Weight>62</Weight>
+                        <Height>164</Height>
+                        <Loyalty>40</Loyalty>
+                        <Sexuality>100</Sexuality>
+                        <Slutiness>7</Slutiness>
+                        <VirginVaginal>False</VirginVaginal>
+                        <VirginAnal>False</VirginAnal>
+                        <VirginOral>False</VirginOral>
+                        <Race>Human</Race>
+                          <!--    <Attitude>Extroverted</Attitude>
+                        <Perception>Sensing</Perception>
+                        <Judgment>Feeling</Judgment>
+                        <Lifestyle>Judgment</Lifestyle>  -->
+                        <Fertility>40</Fertility>
+                    
+                    <Statistics>
+                        <Charisma>145</Charisma>
+                        <Sensibility>125</Sensibility>
+                        <Refinement>20</Refinement>
+                        <Intelligence>15</Intelligence>
+                        <Morality>40</Morality>
+                        <Constitution>80</Constitution>
+                        <Cooking>0</Cooking>
+                        <Cleaning>1</Cleaning>
+                        <Conversation>45</Conversation>
+                        <Fitness>40</Fitness>
+                        <BlowJob>80</BlowJob>
+                        <Fuck>60</Fuck>
+                        <Temperament>10</Temperament>
+                        <Nymphomania>70</Nymphomania>
+                        <Obedience>55</Obedience>
+                        <Lust>80</Lust>
+                        <Reputation>5</Reputation>
+                        <Fatigue>0</Fatigue>
+                        <Joy>80</Joy>
+                        <MaxSpecial>100</MaxSpecial>
+                        <Special>20</Special>
+                    </Statistics>                    
+                    <StatisticsDetails>
+                        <Special show="true">
+                            <Name>Milk :</Name>
+                            <Description>How much Milk she has built up in her breasts.</Description>
+                            <Hint0-24>feeling little desire for milking.</Hint0-24>
+                            <Hint25-50>wanting to get milked.</Hint25-50>
+                            <Hint51-75>needing to get milked.</Hint51-75>
+                            <Hint76-100>is leaving a trail of milk where ever she goes.</Hint76-100>
+                        </Special>        
+                    </StatisticsDetails>
+                    
+                    <Skills>
+                        <Swimming>1</Swimming>
+                        <Dancing>0</Dancing>
+                        <Singing>0</Singing>
+                    </Skills>
+                    
+                    <Difficulties>
+                        <Anal>25</Anal>
+                        <Blowjob>20</Blowjob>
+                        <Bondage>50</Bondage>
+                        <Brothel>70</Brothel>
+                        <Dildo>15</Dildo>
+                        <Expose>30</Expose>
+                        <Fuck>15</Fuck>
+                        <GangBang>70</GangBang>
+                        <LendHer>150</LendHer>
+                        <Lesbian>10</Lesbian>
+                        <Lick>20</Lick>
+                        <Master>170</Master>
+                        <Masturbate>0</Masturbate>
+                        <Naked>35</Naked>
+                        <Plug>20</Plug>
+                        <Ponygirl>200</Ponygirl>
+                        <SleazyBar>40</SleazyBar>
+                        <Spanking>40</Spanking>
+                        <Threesome>50</Threesome>
+                        <TitsFuck>45</TitsFuck>
+                        <Touch>0</Touch>
+                    </Difficulties>
+                    
+                    <SlaveBonus>
+                        <SetVar Charisma='Charisma + 20'/>
+                        <SetVar Sensibility='Sensibility + 30'/>
+                        <SetVar Temperament='Temperament - 10'/>
+                        <SetVar difficulty-titsfuck='difficulty_titsfuck + 5'/>
+                    </SlaveBonus>
+                    
+                    <Images>
+                        <Discuss>
+                            <Normal>10</Normal>
+                            <Lesbian>1</Lesbian>
+                        </Discuss>                        
+                        <Fuck>
+                            <Normal>2</Normal>
+                            <Lesbian>1</Lesbian>
+                        </Fuck>
+                        <KissMale>0</KissMale>
+                        <KissFemale>0</KissFemale>
+                        <Anal>
+                            <Normal>0</Normal>
+                            <Lesbian>0</Lesbian>
+                        </Anal>
+                        <Blowjob>
+                            <Normal>0</Normal>
+                            <Lesbian>0</Lesbian>
+                        </Blowjob>
+                        <TitsFuck>
+                            <Normal>0</Normal>
+                            <Lesbian>0</Lesbian>
+                        </TitsFuck>
+                        <SixtyNine>
+                            <Normal>0</Normal>
+                            <Lesbian>0</Lesbian>
+                        </SixtyNine>
+                        <Lick>
+                            <Normal>0</Normal>
+                            <Lesbian>0</Lesbian>
+                        </Lick>
+                        <LoveConfessionAccepted>1</LoveConfessionAccepted>
+                        <LoveConfession>1</LoveConfession>
+                        <LoveConfessionRefused>1</LoveConfessionRefused>
+                    </Images>                    
+                    <Introduction>
+                        <SetText>Text that will never appear</SetText>
+                            <PersonSpeak person="Adisa">Text</PersonSpeak>
+                            <AddText>Text</AddText>
+                        <ShowImage image="Images/Minor Slaves/Adisa/intro.jpg" place="4" align="0"/>
+                    </Introduction>                    
+                    <Planning>
+                        <DoPlanning>
+
+                            <SlaveReview>
+                                <ShowImage image="Images/Events/BEN/generic/BEN-Gen0003.jpg" place='main' align='left'/>
+                            </SlaveReview>
+
+                            <!-- Custom Talk -->
+                            <SlaveTalk>
+                                <if savedvar1_BEN2test='0'>
+                                    <HideImages/>
+                                    <SetVar savedvar1_BEN2test="1"/>    
+                                    <ShowImage image='Images/Events/BEN/storylineF/Im0001'  frame='random2'/>
+                                    <SetText>
+                                        You talk to Adisa about providing milk for you and your slaves in exchange for a roof over her head. She gladly accepts the offer, grabs some buckets and heads for the toilet. 
+
+                                        You can hear her moaning through the door and once she is finished you tell her that she does not have to be so shy about her milking. 
+                                        She thanks you and gives you a bottle of her newly milked milk.
+                                    </SetText>
+                                    <ChangeTime>0.5</ChangeTime>
+                                    <DoEvent>9750</DoEvent>
+                                    <EndEvent/>
+                                </if>
+                                <if savedvar1_BEN2test='7'>
+                                    <HideImages/>
+                                    <SetVar var0="smcharisma+smconversation"/>    
+                                    <Topics caption="Talk about working at the café(text missing)">                                        
+                                    	<if var0='100+'>
+                                            <Topic>
+                                                <Question>Persuation</Question>
+                                                <Event>
+                                                    <SetVar savedvar1_BEN2test="8"/>
+                                                    <HideImages/>
+                                                    <ShowImage image='Images/Events/BEN/storylineF/Im0008a'  frame='random2'/>
+                                                    <Backgrounds place='bedroom'/>
+                                                    <ChangeTime>0.5</ChangeTime>
+                                                    <SetText>You can now start sending #slave to the café to work (that is, once the coding is complete).</SetText>
+                                                    <DoEvent>9750</DoEvent>
+                                                </Event>
+                                            </Topic>
+                                        </if>
+                                        <if smdominance='50+'>
+                                            <Topic>
+                                                <Question>Dominance</Question>
+                                                <Event>
+                                                    <SetVar savedvar1_BEN2test="8"/>
+                                                    <HideImages/>
+                                                    <ShowImage image='Images/Events/BEN/storylineF/Im0008b.jpg'/>
+                                                    <Backgrounds place='bedroom'/>
+                                                    <ChangeTime>0.5</ChangeTime>
+                                                    <SetText> You can now start sending #slave to the café to work (that is, once the coding is complete) pt 2.</SetText>
+                                                    <DoEvent>9750</DoEvent>
+                                                </Event>
+                                            </Topic>
+                                        </if>
+                                        <Topic>
+                                            <Question>Give up</Question>
+                                            <Event>
+                                                <HideImages/>
+                                                <ShowImage image='Images/Events/BEN/storylineF/Im0008c.jpg'/>
+                                                <Backgrounds place='bedroom'/>
+                                                <ChangeTime>0.5</ChangeTime>
+                                                <SetText>You are neither dominant or persuasive enough to get Adisa to listen.</SetText>
+                                                <DoEvent>9750</DoEvent>
+                                            </Event>
+                                        </Topic>
+                                    </Topics>
+                                    <EndEvent/>
+                                </if>
+                                <if savedvar1_BEN2test='10'>
+                                    <HideImages/>
+                                    <SetVar savedvar1_BEN2test="11"/>    
+                                    <ShowImage image='Images/Events/BEN/storylineF/Im0011'  frame='random2'/>
+                                    <SetText>You take the time to explain to Adisa about the situation that came up delivering the milk.</SetText>
+                                    <PersonSpeak person='#slavemakername'>He is a breast fetishist who loves milking others, and to make matters worse he is in fact a high noble.</PersonSpeak>
+                                    <PersonSpeak person='Adisa'>More and more people have in fact asked me about the milk I produce so I could sell my milk to others as well.</PersonSpeak>
+                                    <AddText>\r After some thinking and discussions you agree that it is perhaps time to allow Adisa to sell her milk away from home.</AddText>
+                                    <AddText>\r\r\r[Adisa gets now the custom order, to sell milk from home].</AddText>
+                                    <ChangeTime>0.5</ChangeTime>
+                                    <DoEvent>9750</DoEvent>
+                                    <EndEvent/>
+                                </if>
+                                <if savedvar1_BEN2test='16'>
+                                    <ShowImage image='Images/Events/BEN/generic/BEN-Gen0003.jpg'/>
+                                    <SetText>
+                                        Yes, I plan to do loli slave or event some day. Also, expect a lot of fun events for the newly introduced island, as long as I get cmac to change the island image, because I didn't take care and did make the events for a different island shape. However, expect the beta only in January.
+                                    </SetText>
+                                    <DoEvent>9750</DoEvent>
+                                    <EndEvent/>
+                                </if>
+                            </SlaveTalk>                            
+
+
+                            <!-- Intimacy Acts Start-->
+                            <IntimacyQuestions>
+                                <AddText>You decide to spend some private time with Adisa, so what would you would like to do?</AddText>
+                                <AddQuestion event="9750">Back</AddQuestion>
+                            </IntimacyQuestions>                                
+
+                            <SlaveIntimacyFuck>
+                                    <HideImages/>
+                                    <if day="true">
+                                        <ShowImage image="Images/Events/BEN/background/bed 21 day.jpg"/>
+                                    </if>
+                                    <if day="false">
+                                        <ShowImage image="Images/Events/BEN/background/bed 21 night.jpg"/>
+                                    </if>
+                                    <if gender="2">
+                                        <ShowImage image="Images/Events/BEN/Adisa/Sex Act - Fuck (Lesbian 1).png"/>
+                                        <else>if</else>
+                                            <ShowImage image="Images/Events/BEN/Adisa/Sex Act - Fuck 2.png"/>
+                                    </if>
+                                    <AddText>You spend some private, intimate time with #person.</AddText>
+                                    <ifnot gender='female'>
+                                        <ChangeCumslut person='current'>0.5</ChangeCumslut>
+                                    </ifnot>
+                                    <SMPoints>0, 0, 0, 0.5, 0, -1, 0, 0, 0, 0, 0, 1, 5, 0</SMPoints>
+                                    <Points slave='current'>0, 0, 0, 0, 0, 0.25, 0, 0, 0, 0.2, 0.2, 0, 0.25, 0.2, -1, 0, 2, 0, 0.1, 0</Points>
+                                    <if smadvantages-unusualcum='true'>
+                                        <SetVar dickgirlrate_current='dickgirlrate_current + 0.5'/>
+                                    </if>                                   
+                                    <ChangeTime>0.5</ChangeTime>
+                                    <!-- check if slave is now pregnant -->
+                                    <if canimpregnate-current="yours">
+                                        <!-- slave is impregnated your child -->
+                                        <impregnate person='current' type='Yours'/>
+                                        <BlankLine/>
+                                        <AddText>#person has an unusually strong orgasm and after #personheshe looks at you very happily.</AddText>
+                                    </if>
+                                    <!-- check if slavemaker is now pregnant-->
+                                    <if slavegender-current='masculine' canimpregnate-slavemaker="#racename">
+                                        <!-- slave maker is impregnated with the others child -->
+                                        <impregnate person='#slavemakername' type='Human'/>
+                                        <BlankLine/>
+                                        <AddText>#person cums really hard, flooding your womb with #personhisher cum and after #personheshe looks at you very happily.</AddText>
+                                    </if>
+                                    <DoEvent>9750</DoEvent>    
+                            </SlaveIntimacyFuck>
+                            <!-- Intimacy Acts End-->                            
+
+
+                            <!-- Custom order -->
+                            <CustomOrdernr1 name='nr1' description='nr1' show='true'></CustomOrdernr1>
+                            <CustomOrdernr2 name='nr2' description='nr2' show='true'></CustomOrdernr2>
+                            <CustomOrdernr3 name='nr3' description='nr3' show='true'></CustomOrdernr3>
+                                                            
+
+                        </DoPlanning>
+                    </Planning>
+                    
+                    <Other>
+                        <LoveConfession>
+                            <ShowImage image="Images/Minor Slaves/Adisa/Love Confession 1.jpg" place="main" align="center"/>
+                            <SetText>Adisa has just enthusiastically and forcefully, confessed her love to you.
+                            
+                            Will you accept her love?</SetText>
+                            <SetVar appendacttext='false'/>
+                            <Backgrounds colour='0'/>
+                        </LoveConfession>
+                        
+                        <LoveConfessionAccepted>
+                            <SetText>Adisa is happy and her breasts are spilling. It seems you will have more milk than you could ever drink.</SetText>
+                            <ShowSlave person='Adisa'/>
+                            <HideImages/>
+                            <ShowImage image="Images/Minor Slaves/Adisa/Love Confession Accepted 1.jpg" place="main" align="center"/>
+                            <Backgrounds colour='0'/>
+                        </LoveConfessionAccepted>
+                        
+                        <LoveConfessionTooManyLovers>
+                            <HideImages/>
+                            <ShowImage image="Images/Minor Slaves/Adisa/Love Confession 1.jpg" place="main" align="center"/>
+                            <SetText>Adisa has just enthusiastically and forcefully, confessed her love to you.
+                            
+                            Will you accept her love?</SetText>
+                            <SetVar appendacttext='false'/>
+                            <AskQuestions caption='Will you accept his love?'>
+                                <Question event='3'>Yes, I love you too</Question>
+                                <Question event='3.2'>No, I do not love you</Question>
+                                <Question event='3.4'>I am not sure yet</Question>
+                            </AskQuestions>
+                        </LoveConfessionTooManyLovers>
+                    </Other>
+            <!--   __________________________________________________________________________________________ ADISA END _____________________ -->
+        </Slave>
+    </Slaves>
+
+</Language>
+
+Make the farm a area with its own map. THis is now possible. Look at the turorial thread.
+
+How do I get a care taker for the farm? Well, it should be Adisa. Then she will leave your home. And start working for you. THe best part is that she already knows how to take care. She will administer(at first) and produce.
+
+
+<!-- "basic" planning
+
+Building part 1: Farm House
+need:
+    - care taker
+    - guard
+    - Adisa
+can work there:
+    - Adisa
+    - main slave
+    - sm
+events:
+    - invite manager of the daiary cafe
+    - be  visited by the ccount
+    - meet the neighboor's pony and dog "playing" in your yard, since its so tidy and pretty 
+    - talk to:
+        - Adisa
+        - Guard
+        - Caretaker
+
+Building part 2: Small Barn
+need:
+can work there: (this is acumulative, so the one from building one are included)
+    - minor slaves?
+    - free persons
+events:
+    - farm:
+        - meet free people while talking or being milked, short fun
+        - pony and dog entertain the free people by playing with them and looking nice and happy. Some think how nice succh a live on the farm may be. (Some imagine themselfs as the dog, the pony or a cow)
+    - outside the farm
+        - meet big breasted woman at a beach, massage, fun invite
+        - meet pregnant woman in slums and offer job
+        - meet pregnant woman in town and offer relief from her painfully build up full breast
+        - meet lactating aristrocrat. since a wetnurse is feeding her child she has been overflowing and leaving stains on her clothes and during parties, damaging her social life. You offer to milk her breast. Impressed with your skill she sshe comes. Afterwards you present her with some nipple clamps and tell her to come to the farm if she needs. Little knows she that your massage was aimed at making her lactated even more, just as the constant milking in the ffarm will do. Also the clamps will keep stimulating her nipples while being moved around under the dress, pulling and streching and twisting, making her aroused and lactate even more, but she can't remove them or milk will start errupting from her breast. So she is trapt at comming to you regulary. (as all the others)
+        - meet poor girl selling her milk at the street corner in the slums. Because it looks dirty around her nobody wants to buy it. Its a simple matter to get her to the farm to be milked, especially since she will make serveral times the amount she is asking for. Since she lives in the slums she may be a good one to experiment on, nobody will reclaim if she breaks or vanishes.
+        - meet exibisionist and put on a show milking her on the street, offering her milk to the passing people. Make her promise to come to the farm to be milked again in front of all the other cows, and if she produces enouth you say you could use her for advertising, driving her around on top of a chariot while strapped to a milking machine offerning free samples. Only describing it brought to orgasm incapable of standing she slumps to the ground quivering. It seems that she will do whatever you want as long as she gets exposed. Since her exibisionism works well to get the crowd its best to preserve her mind, no doub that she will agree to be enslaved once she tasted the mixxed pleasure of milking and exposing herself.
+        - meet a slave owner who wants to get money out of his pregnant slave since she is having dificcultys at work. Good that she is already lactating, but you should not increase her breast too much or he may reclaime lowering your reputation.
+        - when working at the brothel, meet pregnant whores who are getting less custumers, so you offer a side job. They are lactating already and probably wont make a fuss about larger breast, anyway they are cheap so they don't matter. Feel free to play with them as you like, the brothel owner will find certainly uses for huge breasted stupid woman. (especially since they have become to dumb to count he can get all their profit. If they become unable to live on their own, which they will, all they can do is become slaves since they can't pay the expenses he will put in front of them because they have to live at the brothel)
+    special event: 
+        - after 5 invites you will become unable to invite anymore, you need more space. Also production is far to low to make profit, so you need an alquemist to make you a special potion out of the fruits you are using right now to make them lactate.
+        - at the building company you give order for the expansion of the farm. During the construction the workers keep assaulting the vunarable cows/free people, some cows are not very happy and struggle in vain as they are bound to the machine while otherws are delighted by real dicks instead of dildos still due to the arousement of the milking and the dildos eventually all succumb to the pleasure saving you some headache, but all start to produce more and this brings you on the idea for a bull or minotaur
+        - first you need a recipe made by a very experienced alquemist. In exange for the secred to the lactation you offer Astrid to make a recipe. You need to return a few times to try the recipe until she masters it. Either main slave or you have to drink it and expirience the effects. She first discovers the potion with the side effect of making you dumb, but two days later finds the better version which does not deteriorate the mind.
+        - the alquemist you employ seems to be an evil sadistic witch who loves to torment the cows. While not good right now, she will certainly aid you if you wish to train these woman into masochistic cows and enslave them. (including you of course)
+
+Building part 3: Big Barn
+can do: 
+    - You can decide for the differnt people which drug to use, the mind numbening or not
+    - after the guard falls to her breast you become able to brand your cow slaves. It makes them more obedient and reduces temprament because off the pain. But leaves marks reducing their charisma, beauty, constitution and scarring even the mind reducing their inteligence, also in case that they aren't masochists they can aquire the trait or if they are they have increased nymph and lust, else they lose nymph and lust. It also causes a spike in tiredness because of the shock, fear and pain.
+    - some woman may want to become your slaves(cow and ob high, temp low, int high or low) and work on the farm as cow for a extended perioud of time as contracted slaves or even premanently. A inexperienced slave maker would have jumped at the idea, but you see it only as trouble to have so many fresh slaves at once. You need desperatly room to train them into adequate cowslaves since their lives will be very different from when they where free persons and still most returned home every day/night. This requires separed rooms, to remove them from the outside influences and imprint the masochistic nature of a cowslave on them, needed to keep them good in the barn and hooked to the machine at all times is not all. It would be bad if they after their stay left and reported that you weren't skill full at treating them, hurting your reputation. Well, you anyway don't want them to be able to leave and stay so milking and torture as carrot and stick tactic, mixxing them so that when broght into the stall from yard with some strikes form the cane or whip on their exposed breast or behinds and they already get wet enouth to insert the didlos. Maybe you could try to apliy electricity to the dildos to increase the stimulation also some additional claps should be put on the clitoris to keep them motivated by an alternating current.
+    - you call the building firm and order a training area. The cows are delighted at the extra dicks. This time, thanks to the drugs, none have any reclaims.
+events in farm:
+    - start harrasment from the milking mafia (defend some attacks from sequestrators(having the woman kippnaped while in your care would be very bad) or assasins sent from the count)
+    - the guard finally gets addicted to milking because of the alquemist  helping by putting something into her drinks. Since the beginning during each talk with her she started to become more contiounes of her breast after seeing Adisa beeing milked. Not having much to do she got close to Adisa who them started working on the girls breast, binging them to lactate and teaching her to cum only from her breast. Since then she was alway kept aroused by the armour rubbing and pressing her by now larger(to large for the armor) breast. Later with all the woman being milked and muuhing from the pleasure mixxed with the dildos in them, while she was stationed in front of the barn or farm house made her go mad with excitement. Starting to masturbade uncontrollably against her weapon, ripping of her armour and milking herself in long strokes, covering the yard in milk. Since this incident she is strapped every two hours to the milking machine, as to keep her working. But even this has now progressed to the stage of her being unable to fight, so she was degraded to a milking slave after you training the use of a branding iron on her. She wasted a lot of money for the armour you did buy for her after all. On the same day you go to the slave marked in search of a less breasted slave and find some wild looking minotaur beast men. After checking their genitals from close up.(they make a show of the minotaur(abubu) or you test their genitals first hand, stroking their cocks, licking the pulsating shaft, the stink of their cock overwhelms you, a beastly stench entering your nose and penetrating your mind, reaching the dripping tip where the precum trikels down on your nose. Then spreading your mouth trying to insert the tip while grabing his testicles in your hands and pulling them towards you, streching them in your desperate effort to get you mouth further over his dick. Then the minotaur with a simple gesture packs your head and pushes his thick cock past your screaming jaw joints, down your throat. With each push your throut gets ravenged and sore. Fuming from your mouths corner, nearly blacking out from suffocation his member now starts pulsating strongly, each pulse streches you painfully. Desperate you try to get away but don't have any strength left. In a exlposion his cum gushes into your stomach, filling it painfully. When he pulls out his member cum rushes upwards your throat, into your mouth and nose and flowing out from bouth onto the floor where you lay couthing. All that seeps into your nose is the smell of thick cum, while your mouth is flowing in the squishy texture of it.) So beloved custummer, was the minotaur to your liking, says the slave dealer.  It seems the customer is not comlpetly convinced, slave keep it up. If despair you look at the shadow of the aproaching minotaur, trying to crawl away, but you get grabbed by the leg pulled up. Now another minotaur grabs your arm, keeping you suspended between them. A hard large cock is toching your belly while another one is rubbed on your face and hair to mark you as his possetion. Them both pull back and impale you at once from your pussy and your mouth again. Rocking forth and back you pass out as many times as you come. Which is a lot. Cum covered you hand there moution lessy supported by teh cock which are impaling you. Since you seem to have enjoyed the display alot slave decides to bring the purchase of the two forward since you don't seem able to continue for today.
+events outside:
+    - meet slaver who wants to increase breast size of his slave, he will pay you and any milk produced is your profit.
+    - meet woman who wants bigger breast, one because she likes to have big breast and want more pleasure from them, the perfect cow slave mentality
+    - meet woman who wants bigger breast, since her breast are small she feels inferior, the feeling to be less than the others was ingraved in her when she lost her lover to a bigbreasted woman. Now she craves for bigger breast, and will pay you and agree to any doubfull treatment and exercise as long as it will bring her to surpass the other woman. She feel even more disinhearted after seeing Adisa, but you can use her sense of inferiority to spur her on to seek always bigger breast, making her bask in false fullfillment. In the end she may lose something far more worthfull than a mere lover, her freedom and mind.
+    - meets husband who want his wife to get bigger breast. You can make him into a follower, and he will start milking his wife at home bringing her to the farm for ever larger breast until she can't walk anymore and he invites you home to show her to you, saying that they will keep on on increasing her breast since its the most wonderfull feeling in her life.
+    - meets girlfriend who wants to surprise boyfriend, ask for a treatment for bigger breast. Will she go to the date or forget it and prefer to go to the farm instead. Later the boyfriend find her at the farm and is shoked at her transformation. Since you are nice you show in the bull and keeb the boy around as to see his ex-girlfriend get fucked by the bull/minotaur. Then you offer him a post as farm hand, crying he accepts while the girl is still flushing minotaur cum out of her pussy with a stupid expression on her face and her tounge hanging out. Later you see that he has taking a liking into spanking his ex-girlfriend who seems to welcome it. Also watching and masturbating while the minotaur fucks the cows, especially his girlfriend has become his joy. Maybe you should put him to be mated with the minotaur too, just for the fun of it(his pitiful image).
+    - on the slave marked you find female cow beast people. Should you bit for them? It seem that every bet is always covered by a misterious man. It seems impossible to compete. Later you see the count walking in company of one of these female cow beast people, strangely their breast seem far larger now.
+    
+Building part 4:
+need: 
+    - some womans approaching the level of desirering to be a cow slave
+can do:
+    - sequestrate womans
+    - torture cows who singinged the tempoary slavery contracts (aka speciall training for unruly cows)
+    - put the womans who singed the temporary slavery contracts into the basement and put special training on them
+    - also you don't need to care if the drugs numb their mind, or maybe you even want it to since this would make them maybe easier to convince to singn a definite slavery contract
+    - you can decide to make a public branding of the ones who decide to become a permanent slave. If done infront of the other cows it may incentive them also to become cows if the branded cow looks happy and beggs to be branded. Also if they are masochist, specially if the branded one is also, they will become excited at the sight of the cow being branded and imagine the pain on themselfs, all cumming together with the cow. The branded cow screams from pain and pleasure and after multiple orgasms nearly faints and is light headed dragged to the milking machine where she is bound to it her mark showing the end of her live as human and the beginning of her live as cow.
+    If the sm is a masochist you get dripping wet everytime the farmhand shows you the glowing iron asking if you think its already hot enought. Having the glowing iron pointed at you your crotch starts dripping this very moment and yous struggle to replay "y Y y-Yes..s.." after some times the farm hand notices and keeps dangling the brand iron infront of your body. Each time he passes close you feel the heat tingeling your skin. You legs growing week you drop down to your knees while spreading them appart. Slowly the farmhand lowers the iron, hovering it in front of your face. Your eyes are fixxed on the red whiteish glow as the heat makes you sweat. Slowly he lowers the iron tracing the conturn of your breast, stopping above your uterus, then starting again ever so slowly decending further passing over the clitoris until staying in front of your wet pussy. With a small sign he orders you to lift your waist into the air as to aline your pussy with the branding iron. While you sustain you body bend backward on the ground, the farm hand moved closer, looks you in the eyes and trusts in a single stroke with the branding iron. The movement, the impact, the heat, the pain it all merges and sends you over the top and you faint from the orgasm.
+    Later you wake up in the barn laid on the ground. Besides you lays the branding iron. The intant you see this black piece which burned you your body tightens and you cum again from your memory of it. Still dripping wet and with a twiching pussy you raise yourself and look at your neather region. The clothes have a black hole, pain runs throu your crotch, your hair there is burnt away, you labida are red and pulsing. Starngely the thing you have been looking for is not there. There is no brandmark. It seems the time the farmhand did take to play around made the iron lose enouth heat to be stopped for the most part by your clothes soaked in your pussy juices.
+    
+
+    Alright I'm certain that I will write more branding, this and the rape by the minotaur slaves did really turn me on. I really want to be reborn as a succubus, or at least as a girl in modern times. Strangely in RL I'm still am only interested in girls and tendo to be mostly a bit sadic, seems like my mind keeps me from beeing to auto destructive.
+
+    
+events:
+    - other free woman may ask for the special training since the returning cows seem so happy. Part of the training(finishing touches to becomen a livelong slave) is branding and the signing of a false(real) livelong slavery contract.
+    - to prove mistreatment of the free woman and slaves (remember the group the noble woman who dragged your slave all around belonged to?) some activist invades undercover and asks to be milked and the special training. You accept.
+    - she reveals herself during the training saying that she has now prove of your mistreatment and that you should liberate her now. You receive a morning message from the farmhand excecuting the training that you should hurry to the farm. There you repley that you have no obligation to since she singed an agreement. Angry she retorts that she was forced and so its not valid. Annoythed at the behaviour of was is obviously a noble woman you decide to show her what really rules the world/ how nice the world is/how powerful she really is. But you better hurry and supervise the training yourself as much as possible since you only have less than one month/week to break her in before the contracts expires and someone may come searching for her. With the contract in hand you can send any visitor away under the alegation that it interfers with the special training. If you don't make her submit into wanting to be a dumb cow, or a livelong slave, the group will have you cornered (in slave - Quint, you sell yourself for one week, so I think that this is something maybe fitting for a curious woman who wan'ts to be a slave. Then again one week is rather short to break a strong willed person in, but she is no strong willed person)
+    - Otherwise if she decides to become your slave you can use her to lure in her comarades, betray them and make them sign the slavecontract while they are thinking that they are signing a witness report that they confirm everything their comarade saw. Have fun taming them all in your basement, use them all in a group room, have them sisterbound, a group pregnancy, or pit one against the other.
+    - The count visits you. Since his small messages seem to have gone unheard he came personally as a last warning. Catching him off guard you tell him that you don't plan on increasing the farm anymore and are willing to sell sureplus cowslaves to his farm. Surprised that you ended up knowing of his farm he considers your offer. To finish the deal you tell him that he may visit the farm anytime and play with any slave he likes. This finishes the deal for him. You shake hands with the count while your back is drenched in could sweat, knowing you escaped by a hairs width.
+    - alright with this the count story part ends. Now what remains is to see what to do with Adisa. I mean she is watching you first turning a lot of woman into cowgirls(which she aproves of), but then enslave then and turn them into a pair of breasts, so at one point you will have to deal with her by either stop using the mind numbening drug or inprison, tame and enslave her.
+    - The alquemist may try to get you to drink to much of the potion, making you incapable of moving, or making you drink mind numbening poition instead of the other poition making you tamer and submissive. 
+    - Lastly when you are being milked the farmhand stuffes the feeder into your mouth when you are being milked and are submissive since you like to be abused. (add spanking and whiping for maso)
+    - If after this you are too tired or are low on dom then you get carried / ordered to the cellar where your special training begins.
+    - you are put in front of a slavery contract desined for you where you give everything, including yourself, to the alquemist. Do you sign it?
+    - a few events later you get the maso and sub perks if you still didn't had it. Now you are put infront of the document again. After being whiped and forced to cum for hours your will breaks and you sign it.
+    - Now this needs a collar scene and then a branding in public in front of all the cows, afterwards you get dragged of to your new life bound to the milking machine and as welcome before conecting the feeder and dildos the two minotaurs and bull will fill all your holes till overflowing with cum.
+    - now you spend your days as a dumb cow right besides Adisa
+
+
+    - Adisa's anger. the minotaurs attacks you and fucks you into submission. At the border of your conscience you notice Adisa standing there observing. As you wake up you are bound to the milking machine and the alquemist is just putting in a potion into your mouth."Hello, how nice of you to wake up. Next time we see eachother I doub you will be able to remember me." You strugle desperatly trying not to swallow but the tube gag in your mouth slowly roll drop after drop into your throat. Your mind growing hazy as you feel the succing start...
+    (question: how do they take over the farm in this version?)
+
+    - as you are being milked the farmhand brings the bull/minotaur over and puts it to start fucking you as a surprise. Each time this reduces your dominance and increases your desire to become a cow. If you get completly dominated by the disire you start always calling over the bull/minotaur if you get milked and make them fuck you in turns the entire time. You start want to have bigger breast and produce more milk so you keep drinking the potion. After some time you are unable to move around properly and have become addicted to the minotaurs dick. Not wanting anything else than being a cow you entrust Adisa with all your belongings and sign a contract to be kept as a cowslave by her.
+    - as the best cow girl Adisa is the favorite of the Bulls and minotaurs, which makes you a bit unhappy, but else wise its a happy farmending where the cows are treated well by Adisa. While keeping the already dumb cows-slaves, no new ones are given the mind numbening potion. Since you and Adisa came to become the Counts favorites you somehow escaped further complictions with the milking mafia.
+
+    
+    - after enslaveing Adisa you can play around torturing the cows, making them into masochists
+    - selling some of to the count(adisa crying while a girl with a dumb look and overly huge breast gets carried of on a carrige)
+    - sell milk and cows to the goblins/orcs/dairy cafe/ dark elfs (it would be fun to make Adisa see the other cows hold by the the goblins and orcs like animals)
+    - make a breedery, maybe of tentakles or monsters.
+    - train specific person/slave as cowslaves for an owner.(basicly train a cowslave as a job, just like you do with the main slave) 
+    - finally make and ending for cowslaves
+    - ending one 
+    - 
+
+
+
+
+
+    Transported to the minotaur race lands:
+    Now you start of as human ending up in an unkonwn land. A cowbeastwoman takes interesst in you and brings you to the herd. He minotaur are less than impreesed by the pressence of a human and only throu the cows protection you don't get devored.
+    The cows play with you while the minotaurs hunt. You get to watch as the minotaur mates with the cows. The cows faces in extasy are completly different from their gentle smiles when you fuck them. At one point you start masturbating more and more to the minotaur mating the cows. You start dreaming of how it would feel to be penetrated like those cows. Before you know it you started rubbing your chest and fingering your anus while your stroke your dick. A minotaur has mated a cow and you being close after he pulls out his dick he slaps you with it spreading cum all over you. He then sits down and pulls you over starting to clean his dick with your head. Realizing you should clean his dick you start stroking the long black shaft carefully. Luckily the minotaur lets go of your head once you start stroking him of yur own volition. Tentavly you wipe his cumsmired shaft. Getting his approval you proceed to massage his testicles. The stench on the is enormous maiking your head fuzzy. Going upwards licking the back of his cock you reach now his gland. Pulling backthe foreskin with both hands you start licking the back of his gland, cleaning his disgusting stegma with your tongue. His now fully erect shaft starts dripping pre-cum on your face, using this slippery you rub your face over the tip of the dick, slowly incerting your tongue into his uretra and licking the inside. This stimulates him too much, he packs your head and presses your mouth against his cockhead. You are struggeling as your jaw is creaking, desperatly you insert your tongue further and start moving franaticly. Just as your jaw almost snaps and the tip is almost inserted the minotaur dick starts convulsing, the cum forcing its way down your throat, invading your nose and flowing out of it. Dropping the now limp you onto the floor the minotaur leaves satisfied. Twiching you lay on the ground cum flowing out of your mouth and nose, but this are not all the places cum is flowing. You dick is rock hard and twiching a trikle of fluid flowing down from it. From now on you are the dickcleaner of the minotaurs. You always reak of their dicks and cum. The female cows get exited being close to you and you have to satisfy them too. You start to finger them, soon fisting their asses. Returning the favor your ass starts getting assaulted whenever you are close to them. Soon they are able to oush their arms elbow deep into you at any moment. By now you are espectacly waiting for the minotaur to use you to clean their dicks, always having a hard on when bing close to them. Each time you see them mating the cows your ass keeps contracting in the rithm of their strokes while you keep pushing your own hand in and out of your ass. While cleaning their dicks you also started pushing up your waist and playing with your behind while cleaning them. One of them rests his hand on your behind and you stiffen, trembeling in antecipation. Slowly he starts carressing your behind. Each time his finger pass your anus a spike of electrecy runs throu your body, making you moan. Your asshole starts contracting and expanding trying to get the finger into it. The minotaur notices your moaning and with a sinlge flexing of a finger inserts its deep into you. His finger being as thick as your wrist starts moving around making your legs givve out. While you cling spassiming to his dick he keeps stiring up your insides with his fingers. Your dick is spurting all your cum on the ground, a new load every time the minotaur finger presses your prostata causing your to orgasm again and again. After having enouth of playing with you the minotaur pulls out his finger dropping you to the ground. Not being able do move or think you just lay there. Deciding that his dick isn't cleaned well enouth the minotaur lifts you up and impales your ass onto his dick. A shock runs throu your body as he strches your rectrum and pushes out the contents of your stomach and lungs, with each push forcing his dick always further up until he manages to insert it till the base. Fuming from the mout a message arives, "Congratulations, you have become a minotaur cocksleeve". With this you faint. Later you wake up hurting all over and unable to stand. Your asshole i gaping wide open. After a while you manage to move and close your asshole a little, still you can easely fit both your hand into it at any moment. Your diet is since long only cum from the minotaurs cock, milk from the cows breast and all the cum you clean from the cows cunts, bodies and floor after they have mated with the minotaur. Latly you have noticed that you started to have breast and your cock was getting larger, it seems you are slowly becoming a mixture of cow and bull, now at least you can mate the cows and they show a bit more than gentle smiles, even thou you are still serveral sizes below the minotaur. Anyway the cows and minotaurs have become more vicious with you, thecows enjoing to force ther feet into your ass while you fuck another cow, stomping your prostata with all their might again and again making blank out each time and spurting cum into the cow in front of you. Now they even do this when you aren't fucking another cow, and just keep tormenting you whenever they see the chance. The minotaurs seeing this came onto the idea of streching you to the limit by trying to fit their fist into you while you scream from the ripping sensation of your ass. This is now your new live as cock sleeve and submissive masochist slave.
+
+    

@@ -1,0 +1,1544 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Comments
+
+RF-Im0001
+RF-Im0002
+RF-Im0002a
+RF-Im0003
+RF-Im0003a
+RF-Im0003b
+RF-Im0003c
+RF-Im0003cp2a
+RF-Im0003cp2b
+RF-ImReset
+
+
+<SetFlag flagRandomFun_00="true"/>
+<SetVar savedvar0_RandomFun="0"/>
+
+
+-->
+
+
+
+
+<Language>
+
+	<Credits> 
+		last edited 2016/03
+	</Credits>
+
+	<Events>
+		<!--   __________________________________________________________________________________________ CUSTOM LOCATION DECLARING START _____________________ -->
+
+			<CustomHouse-x_FIREJETHRO name="x_FIREJETHRO" hint="FireJethro's events" xpos="40" ypos="50" show="true">
+				<DoEvent now="true">FIREJETHRO</DoEvent>
+			</CustomHouse-x_FIREJETHRO>
+			<CustomHouse-x_UpperTown name="x_UpperTown" hint="Rich part of the town, you may see some very specific fetishes of the rich." xpos="40" ypos="100" show="true">
+				<DoEvent now="true">UpperTown</DoEvent>
+			</CustomHouse-x_UpperTown>
+			<CustomHouse-x_Island name="x_Island" hint="How about a holiday on a lonely island or getting raped by pirates" xpos="40" ypos="150" show="true">
+				<DoEvent now="true">Island</DoEvent>
+			</CustomHouse-x_Island>
+			<CustomHouse-x_Market name="x_Market" hint="a market in the slums, filled with vitality and pocket thiefs" xpos="40" ypos="200" show="true">
+				<DoEvent now="true">Market</DoEvent>
+			</CustomHouse-x_Market>
+			<CustomHouse-x_Mountains name="x_Mountains" hint="Take a refreshing trip up the mountain range, just stay away from the caves." xpos="40" ypos="250" show="true">
+				<DoEvent now="true">Mountains</DoEvent>
+			</CustomHouse-x_Mountains>
+			<CustomHouse-x_Plains name="x_Plains" hint="A lot of traders, travelers and other people camp here, many are here to buy slaves or sell their captures" xpos="40" ypos="300" show="true">
+				<DoEvent now="true">Plains</DoEvent>
+			</CustomHouse-x_Plains>
+			<CustomHouse-x_Coliseum name="x_Coliseum" hint="The fighting arena" xpos="40" ypos="350" show="true">
+				<DoEvent now="true">Coliseum</DoEvent>
+			</CustomHouse-x_Coliseum>
+			<CustomHouse-x_Deep_ForestCL name="x_Deep_Forest" hint="the darker parts of the forest, evil(aka perverted) with more monsters" xpos="40" ypos="400" show="true">
+				<DoEvent now="true">DeepForestCL</DoEvent>
+			</CustomHouse-x_Deep_ForestCL>
+			
+			
+		<!--   __________________________________________________________________________________________ CUSTOM LOCATION DECLARING END _____________________ -->
+		
+		<StartGame>  <!--  called when a slave starts training, so immediately at the start, before the first day of training -->
+		</StartGame>
+
+		<EndGame> <!-- called every time a slave is copleted, may cause problems with endings -->
+		</EndGame>
+
+		<Initialise> <!--  called everytime a game is loaded or the slave starts training -->
+		</Initialise>
+		
+
+		<UpdateDateAndItems>
+		</UpdateDateAndItems>
+				
+
+		<EarlyMorning>
+		</EarlyMorning>
+
+
+		<StartMorning>			
+		</StartMorning>
+		
+
+		<Daily>
+		</Daily>
+
+		<StartEvening>
+		</StartEvening>
+
+		<AfterNight>
+			<!-- Be carefull with it, the event have to be terminated with <DoEvent>254</DoEvent> or some weird stuff appear (the clock goes crazy eg 30pm, the morning doesn't appear anymore...it's another dimension -->
+		</AfterNight>
+		
+		
+		<Walk>
+			
+			<Palace>
+			</Palace>
+
+			<TownCenter>
+			</TownCenter>
+
+			<SlaveMarket>
+			</SlaveMarket>
+			
+			<Slums>
+			</Slums>
+
+			<DocksPort>
+			</DocksPort>
+
+			<DocksSlavePens>
+			</DocksSlavePens>
+
+			<Farm>
+			</Farm>
+
+			<RuinedTemple>
+			</RuinedTemple>
+
+			<BeachSwim>
+			</BeachSwim>
+
+			<BeachWalk>
+			</BeachWalk>
+
+			<BeachPrivate>
+			</BeachPrivate>
+
+			<BeachRocks>
+			</BeachRocks>
+
+			<Lake>
+			</Lake>
+
+			<Forest>
+			</Forest>
+			
+			<DeepForest> <!-- I dont know if this node still exists or if it has been disabled -->
+			</DeepForest>
+
+		</Walk>
+		
+
+		<!--   __________________________________________________________________________________________ FIREJETHRO START _____________________ -->
+			<FIREJETHRO>
+				<ShowImage image='Images/Events/RandomFun/RF-DF00.jpg'/>
+				<SetText>Here are your events firejethro</SetText>
+				<AskQuestion caption="which event do you want to see?">
+					<Question event="RFEvent36">Shop owner</Question>
+					<Question event="RFEvent37">meet Milk Baron at Party</Question>
+					<Question event="RFEvent38">meet Count G. at party</Question>
+					<Question event="RFEvent39">Event 39</Question>
+					<Question event="RFEvent40">Event 40</Question>
+				</AskQuestion>
+			</FIREJETHRO>
+			<RFEvent36>
+				<DoEvent now='true'>RFEvent36a</DoEvent>
+			</RFEvent36>
+				<RFEvent36a>
+					<ShowImage image='Images/Events/RandomFun/Bdsm and guro pictures 3_052.jpg'/>
+					<SetText>You are on another evening party with miss no name. This is a good evening and you are enjoying the relaxation. As you sip your drink and go over the activities of your day, you think, as you ponder that some slight body enhancements on your slave would be nice. 
+
+						Just as this thought works its way through your increasing haze you see Mr. Williams the owner of the shop who sells just what you would need. You get up only a little unsteady on your feet. Then you begin to follow Mr. Williams down an uncrowded hallway and watch as he enters a doorway. 
+
+						As you enter the same doorway you grin as you see that the room is filled with S&M gear. You turn lock the door, drop your dress and put on a good leather outfit. You grab a whip and advance on Mr. Williams clearing your throat and thinking that you just might get quite a discount on your potion.</SetText>
+					<DoEvent>RFEvent36b</DoEvent>
+				</RFEvent36a>
+				<RFEvent36b>
+					<ShowImage image='Images/Events/RandomFun/Fresh punishment.jpeg'/>
+					<SetText>You advance on Mr. Williams whip at ready. As you see the fear in his eyes you quickly raise the whip so you can both enjoy the sound of the crack. But you misjudge the speed of the whip and with a loud slap it raises several welts on your back. 
+
+					You bite your lip as the pain screams through your body flipping you from the S to the M. With pure desire in your eyes you hand the whip to the frightened Mr. Williams and turn your back to him. 
+
+					He makes a sloppy ineffectual attempt at whipping you. You look at him, disappointed, and slap him, hard. As he recovers he looks angrily at you. He brings up the whip again and again sloppily swings it but it hits much more effectively. You groan as the wonderful pain wracks your body. </SetText>
+					<DoEvent>RFEvent36c</DoEvent>
+				</RFEvent36b>
+				<RFEvent36c>
+					<ShowImage image='Images/Events/RandomFun/16344796_p0.jpg'/>
+					<SetText>You lean over a table pushing your ass up in the air as an offering. Mr Williams takes his anger out on your quickly reddening ass. As his anger slowly wanes other parts of his body wax full. 
+
+					He takes some clamps from the wall and walks up to you. He puts his cock against your ass as you push against him till you can feel his hairs rubbing against the fresh cuts he put in your ass. As he slams into you over and over the pain and the pleasure adds together. 
+
+					You push your back against him as he roughly gropes your breasts. He puts one of his clamps on a breast and works the other one a bit lower. As soon as the clamp bites into your “lip” you begin cumming over his hand drenching it with your liquid. When that happens he also begins cumming filling your bowels. </SetText>
+					<DoEvent>RFEvent36d</DoEvent>
+				</RFEvent36c>
+				<RFEvent36d>
+					<ShowImage image='Images/Events/RandomFun/1427097617432.png'/>
+					<SetText>He grabs you turns you and pushes you down till your lips are inches from his cock. You lick suck and clean his cock till it begins to respond to your attention. You begin going deeper onto his manhood till he once again takes control. He grabs your hair and begins to fuck your throat. 
+
+					As he continues and you enjoy being used you begin to black out as you are deprived of oxygen for too long. Just before you pass out he pulls out far enough that you can take a couple ragged gasps for air. As your second breath enters your body Mr. Williams shoots his second load his jizz shoots around your lips and out your nose as you try to gasp for air. He wipes the cum from his stomach that came from your nose and rubs it into your hair. 
+
+					He tells you to stop by for a free potion of your choosing. When you regain your breath you walk home to tend your wounds and get a little sleep.</SetText>
+					<DoEvent>9999</DoEvent>
+				</RFEvent36d>
+			<RFEvent37>
+				<ShowImage image='Images/Events/RandomFun/RF-DF00.jpg'/>
+				<SetText>Conditions:
+					none?
+				</SetText>
+				<AddText>
+					You attend the party with miss no name, while walking around enjoying yourself, knowing that your slave is being well taken care of you run across a guy who you think you recognize. He introduces himself as the Baron and you two chat for a while. During the chat your submissive behavior becomes more pronounced, which in turn makes him become bolder and more aggressive. He then tells you how beautiful your breasts are and almost reverently tells you that he just must see them. You are after all at miss n’s party so this doesn’t seem unreasonable. You pull the shoulders off of your dress baring yourself for him to see. You smile gently at him and right out of the blue he pulls some lotion out of his pocket, pulls his cock out and begins to rub it. WOW it is a really nice one. The Baron quickly grabs you by the hair and pushes your head closer to his cock. Not seeing an option plus kind of enjoying being manhandled like this you begin to lick and suck his cock using all the skill you can muster. 
+				</AddText>
+				<AddText>
+					As you work his cock you begin feeling a burning sensation in your breasts. You realize that the lotion may have contained more than just lotion. You stop and stare at him for a second. You gather yourself to ask him why he would do this when you glance down to realize that your breasts are almost twice the size they were a minute ago. Your pussy is dripping with desire. You look angrily at him.
+				</AddText>
+				<PersonSpeak person='#slavemakername'>what have you done to mooo</PersonSpeak>
+				<AddText>You stop to think about what you just said and all you can think of is that wonderful placid sound that is echoing in your head.</AddText>
+				<PersonSpeak person='#slavemakername'>NO this will not do. You must give me the antidote to this moooo. Why can’t I stop that sound.</PersonSpeak>
+				<AddText>
+					At this point the Baron pulls out a riding crop and slaps your ass and tells you to get up on an ottoman near him. 
+				</AddText>
+				<PersonSpeak person='#slavemakername'>I am not moooo. Not moooooo.</PersonSpeak>
+				<AddText>
+					He snaps his crop at your breast. It connects. The pain electrifies your body and sends you into an orgasm. Your legs give out and your front hooves land on the ottoman, no arms, I think they are arms. You look at your arms to be sure and you see a steady stream of milk coming from your breasts. This excites you knowing that it makes you a good cow. You also notice your cock rubbing against your pendulous breasts. As you see this you shudder as your cock adds to the milky white puddle forming on the ottoman. You are unaware of the crowd that has gathered to watch you mooo. You are unaware that the Baron has ripped you dress and panties from you. All you know is that placid sound and Baron’s crop. You climb the rest of the way onto the ottoman.
+				</AddText>
+				<PersonSpeak person='#slavemakername'>mooooooooooooooooooooo, moooooooooooooooooooooo</PersonSpeak>
+				<AddText>
+					You look directly at Baron.
+				</AddText>
+				<PersonSpeak person='#slavemakername'> fill me, fuck me, breed me, milk me, I am yours mooooaster.</PersonSpeak>
+				<AddText>
+					As the night wears on you fulfill your promise to the mooaster and to everyone in the crowd as well.
+				</AddText>
+				<AddText>
+					At some point you are taken home and deposited on your bed. When you wake in the morning you are covered in dried milk and cum. You stagger tired and dehydrated into the shower. As the water begins to clean your hair you drink some of it. You taste some of what is being washed from you and it makes your knees wobble as you recall the endless orgasms of last night. You pull some of your hair through your lips that had a sizeable glob in it. As you roll it on your tongue savoring its salty goodness you put your face into the water and let out a long moooooooo before you begin your day
+				</AddText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent37>
+			<RFEvent38>
+				<ShowImage image='Images/Events/RandomFun/RF-DF00.jpg'/>
+				<!-- 
+					this is of course just a rough draft but if there are those that are interested I would be happy to create a couple dozen events that could be randomly chosen. 
+					I could also create some high dominance events that would happen at these parties, possibly after getting to know some of the girls from the bar.
+					I have noticed that during the evening event with miss no name that the SM gets lonely. Could you please add an action that would happen for the SM during this time. As a suggestion let me proffer this option. 
+				-->
+				<SetText>Conditions:
+					IF dominance less than 40 or smadvantage-submissive=true 
+					and SM = dickgirl
+				</SetText>
+				<AddText>
+					While walking around enjoying the party you notice the count walking towards you with 2 large breasted women. He nods towards you and you nod back trying to appear friendly but your anger about his treatment of some of your slaves shows through. You look in a mirror to make sure that your dress is still in place. You see that the count is whispering to his slaves and they hurry over to either side of you. As you turn towards the count to ask “what is the meaning of this,” his slaves clasp leather straps to both of your wrists. The count steps up and pushes the rope that ties the straps together into a hook on the wall then pulls the rope taught. This pulls your arms over your head and effectively immobilizes you.
+				</AddText>
+				<AddText>
+					The count then pulls a greenish flask out of his robe and orders you to drink it. You clasp your mouth shut. He puts his finger into the fluid and rubs some of the fluid against your gums and teeth. You feel your breasts getting hot and swell a little, your dick becomes so hard that it pushes uncomfortably against your panties. You can feel heat in your pussy as it begins to drip and you notice that the pressure against your panties is relieved. You think about how turned on you are and realize that your dick didn’t become flaccid but that it is completely gone, you are now completely female.
+				</AddText>
+				<AddText>
+					The count rips the top off your dress and roughly tweaks, rubs and gropes your breasts with his right hand. You gasp at the pleasure you receive from this rough treatment. When you do, the count puts the flask firmly into your mouth and pours a little in. You choke it down. The heat in your breasts catches fire and the passion in your body takes over. Your lips clasp onto the flask and you suck the remaining fluid out of it. The count grins evilly and takes you down from the hook places your body onto a table. He rips your panties off and continues to roughly rub your breasts. One of his girls takes his cock out and puts it at the entrance of your pussy. He continues groping your breasts. You come hard enough that some of your juices spray onto his erect cock.
+				</AddText>
+				<AddText>
+					The count takes this as a sign and plunges his moistened cock into your soaking pussy. You immediately start into your second orgasm. This orgasm is so intense that you almost pass out and lose control of your bowels. The count comes quickly. The count tells you that as a good slut you must clean his cock and walks around the table so that you can. You look at his cock and see the brown tinge and realize that some of your own shit is on it. As you lay there with your mouth shut but your pussy splayed out another partygoer takes advantage of the situation. You gasp as he begins to fuck you. The count smiles and pushes his half erect cock into your mouth. You can taste his wonderful semen, your juices and everything else. At this point you relinquish yourself to your intense feelings and begin to lick and suck and clean his beautiful cock to the best of your ability. 
+				</AddText>
+				<AddText>
+					The count tells you that you are such a good whore that you will not wear any panties tomorrow and that you will put your panties out for the world to see so that everyone knows his dominance over you. His girls begin kissing and suckling your breasts, while you clean his cock while getting fucked by some stranger. This begins you third and most powerful orgasm. As you lose consciousness you realize that while this is the end of the evening for you it is not for your body....
+
+
+				</AddText>
+				<AddText>
+					As you wake you realize that you are back in your bed. While thinking about the events of last night your dick rubs sweetly against your sheets. Your DICK is back. With a finger of your right hand you push your sheets off then begin to finger your ass as you watch a drop of precum form on the head of your cock. You stop and begin to rub the drop gently. You watch as it turns from milky white to dirty brown. Your hand, seemingly of its own accord wipes your dirty come up and moves towards your mouth. As you lick and suck your finger clean the tastes bring back all of the things done to you last night and you come just from those memories. As you begin to relax you realize how late the day is becoming. You jump out of bed and throw a dress over your head. You grab a pair of panties, then just stare dazedly at them. You think that this is a small price to pay for the pleasure you have received.
+				</AddText>
+					You hang your panties on the outside of your window and head out to start your day. As your door slams shut you realize that you have done everything that master count told you to do. While walking towards the breakfast table your hand rubs against your raging hard on. With that you realize that while you are having a difficult time deciding how you should react to what the master did to you last night, your body is completely ready to give itself over.
+				<AddText>
+					Wait, THE MASTER, where the hell did that come from. You will have to be more careful about this in the future.
+				</AddText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent38>
+			<RFEvent39>
+				<ShowImage image='Images/Events/RandomFun/RF-DF00.jpg'/>
+				<SetText></SetText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent39>
+			<RFEvent40>
+				<ShowImage image='Images/Events/RandomFun/RF-DF00.jpg'/>
+				<SetText></SetText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent40>
+		<!--   __________________________________________________________________________________________ FIREJETHRO END _____________________ -->
+		
+		
+		<!--   __________________________________________________________________________________________ UPPER TOWN START _____________________ -->
+			<UpperTown>
+				<SetText>Waiting for someone to write an event...lets do it myself</SetText>
+				<AskQuestion caption="which event do you wnat to see?">
+					<Question event="RFEvent01">Event 01</Question>
+					<Question event="RFEvent02">Event 02</Question>
+					<Question event="RFEvent03">Event 03</Question>
+					<Question event="RFEvent04">Event 04</Question>
+					<Question event="RFEvent05">Event 05</Question>
+				</AskQuestion>
+			</UpperTown>
+
+			<RFEvent01>
+				<ShowImage image='Images/Events/RandomFun/RF-UT01.jpg'/>
+				<SetText>As she pulled the crop back, you whimpered and whined, then uttered one word.</SetText>
+				<PersonSpeak person="slavemaker">E-Elfenlied!</PersonSpeak>
+				<AddText>Then the young futa giggled, drew back the crop and struck again.</AddText>
+				<PersonSpeak person="slavemaker">AGGGRRHH! Didn't you hear me! I said-</PersonSpeak>
+				<PersonSpeak person="young futa mistress">Elfenlied. I know...but really, telling you there was a safe word was the only way I was going to get tied down to that woodenrack.</PersonSpeak>
+				<PersonSpeak person="young futa mistress">Now you got a choice...I can flag you all night, till you pass out and then ravage your asshole with my pretty cock until it breaks...orr you can sign this contract and donate lets say 2000 gold to our holy foundaition.</PersonSpeak>
+				<DoEvent>9999</DoEvent>
+			</RFEvent01>
+			<RFEvent02>
+				<ShowImage image='Images/Events/RandomFun/RF-UT02.jpg'/>
+				<SetText></SetText>
+				<PersonSpeak person="slavemaker">#slave! Get in here! Look at what You've Done!</PersonSpeak>
+				<PersonSpeak person="slavemaker">I just woke up th this, my cock dripping CUM from the sexy dream I was just haaving. This is all your fault for not getting me off often enough. I shouldn't have to have a wet dream just to have my balls emptied. We're going to have to make some changes around here to make sure this kind of thing doesn't happen any more. Go ahead and start slurping up my cun while I decide how to handle this.</PersonSpeak>
+				<AddText>#slave hurrys over to you dick and starts to clean it up with #herhis tunge</AddText>
+				<PersonSpeak person="slavemaker">Let's see, I think that from now on I should wake up with my cock buried, up to the hilt, in your mouth....Hey try a little harder, lick up all that spunk that dripped down under my balls!
+				Anyways, that way if I feel like cumming as soon as I wake up, you 'll always be ready, or if I want to shove it in your ass first thing in the morning, it'll already be lubed up with your spit.
+				That should empty me out for the morning. Now for Night...</PersonSpeak>
+				<DoEvent>9999</DoEvent>
+			</RFEvent02>
+			<RFEvent03>
+				<ShowImage image='Images/Events/RandomFun/RF-UT03.jpg'/>
+				<SetText>You lay on your back the girl you meet at the bar rubbing her giant cock on yours.</SetText>
+				<PersonSpeak person="Girl">So. You need to just stop arguing about it and give up on the subject.
+
+				Once you've come to terms with the fact that your going to be the bitch in this relationship, it's time for you to roll over and put your ass up in the air. The first time will be a little tight, but eventually you'll ge used to taking my massive cock inside of you</PersonSpeak>
+				<AddText> You want to protest but she cuts you off</AddText>
+				<PersonSpeak person="Girl">I mean, honestly, just look at the size difference. No offence hunnie, but your little cocklette doesn't even come close to the size of my dick</PersonSpeak>
+				<AddText>To prove her point she presses her cock again onto yours, demonstrating the truth of her words</AddText>
+				<PersonSpeak person="Girl">It only makes sense that whoever has the bigger penis gets to use it. That way the other person gets the most pleasure out of it. You know what they say, bigger is always better</PersonSpeak>
+				<AddText>Humiliated you slowly turn over, while the girl starts probing your ass. Your dick now hanging downwards between your legs, she pushes forwart and you feel her dick entering you.</AddText>
+				<AddText>Serveral hours later you stagger out of the room cum runnig down your legs</AddText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent03>
+			<RFEvent04>
+				<!-- pre event, a redhaired cutie comes talk to you in the sleazy bar, getting you a drink -->
+				<ShowImage image='Images/Events/RandomFun/RF-UT04.jpg'/>
+				<SetText>It is some how bright and you shake your head to try to regain your senses, but can't seem to focus. Also your ass seems to hurt quite a bit.</SetText>
+				<AddText>A red head enters your vison</AddText>
+				<PersonSpeak person="red haired woman">Good morning sleepy-head! You don't remember last night? Yeah, seems to be a usual side effect...does your asshole hurt? It seemed extremely thight last night. But I'm sure we'll able to get it streched out.</PersonSpeak>
+				<AddText>Shocked you try to get up, only to the chains conected to the wall and the ring gag in your mouth. 
+
+				The girl makes a crooked smile.</AddText>
+				<PersonSpeak person="red haired woman">See, I'm in town for a whle and then I'm moving on. During the duration I need some sort of outlet, that would be you. Most guys end up having a hard time, so I have to change regualy.</PersonSpeak>
+
+				<AddText>With this she goes on to stuff your mouth with her cock until you are almost suffocating, just to reanimate you with a kick to your testicals</AddText>
+				<AddText> Over the next days she keeps tormenting your testicals and ramming her cock down your throat whenever she feel like it, which is quite often</AddText>
+				<AddText>After what you supose is a week she binds you completly and puts you in a sack and closes it</AddText>
+				<PersonSpeak person="red haired woman">By my toy, maybe I when I come again to this town we will find some time to play again.</PersonSpeak>
+				<AddText>Later you are found by #assistant on your front door.</AddText>
+				<AddText>When you want to go to the guards, #assistant reminds you that it won't be good for your reputation if you anounce that you have been captured and subjugated</AddText>
+
+				<DoEvent>9999</DoEvent>
+			</RFEvent04>
+			<RFEvent05>
+				<ShowImage image='Images/Events/RandomFun/RF-UT05.jpg'/>
+				<SetText></SetText>
+				<PersonSpeak person='Bully'>In a moment, I'm going to remove that ball-gag from your mouth. If you speak a word, it goes back in and we spank your ass raw. If you refuse to do what we ask you to do afterwards, it goes back  in and we beat your ass raw. Do you understand?</PersonSpeak>
+				<PersonSpeak person='Bully'>Goo. Now, you're going to spend the rest of the day right here, on your knees over the toilet. We'll secure your nice new collar and cuffs to it so you can't leave. And you will service any girl who walks into this stall.</PersonSpeak>
+				<PersonSpeak person='Bully'>That service could include absolutely anything, from licking her pussy to drinking her piss or swalloing her shit(shall I remove this last part?). If at any point you refuse we'll be back, and will beat your ass raw.</PersonSpeak>
+				<DoEvent>9999</DoEvent>
+			</RFEvent05>
+		<!--   __________________________________________________________________________________________ UPPER TOWN END _____________________ -->
+
+		<!--   __________________________________________________________________________________________ ISLAND START _____________________ -->
+			<Island>
+				<SetText>Waiting for someone to write an event...lets do it myself</SetText>
+				<AskQuestion caption="which event do you wnat to see?">
+					<Question event="RFEvent06">Event 06</Question>
+					<Question event="RFEvent07">Event 07</Question>
+					<Question event="RFEvent08">Event 08</Question>
+					<Question event="RFEvent09">Event 09</Question>
+					<Question event="RFEvent10">Event 10</Question>
+				</AskQuestion>
+			</Island>
+			
+			<RFEvent06>
+				<!-- maybe exange vibrator by small tentacle monster, or some insect/slime/slug  -->
+				<ShowImage image='Images/Events/RandomFun/RF-IS01.jpg'/>
+				<SetText>He tied you to a chair and banded your eyes. He started licking your pussy. After 2 min of tasting he stopped and moved away. An instant later you feel a something limp pressing agains your cunt.</SetText>
+				<PersonSpeak person='#slavemakername'>Hmpf, can get it up...</PersonSpeak>
+				<PersonSpeak person='????'>Insolent!</PersonSpeak>
+				<AddText>Responding to your taunt he suddently slamms the limp thing in. To your surprise it starts wiggiling.  but you don't have time to wonder as he puts in already another one. After 3 other you feel full and try to press them out, but he seems to has other plans as you feel something metalic on your groin. A Chastity Belt! It clicks in place.</AddText>
+				<PersonSpeak person='????'>See you tomorrow slut.</PersonSpeak>
+				<PersonSpeak person='#slavemakername'>Hey, what is this?!</PersonSpeak>
+				<!--<PersonSpeak person='#slavemakername'>Mmmmh! Mmmm! Mmm...</PersonSpeak>-->
+				<PersonSpeak person='????'>Ups almost forgot...</PersonSpeak>
+				<AddText>A ball gag is forcerd into your mouth, silenceing your protests. You hear him walking away and try to get the things you of your panties by mooving fast from left to right, but only succeding in giving you waves of pleasure and agitating those things. They are also trying to get out but can't and are starting to panic, squirming strongly inside you.</AddText>
+				<AddText>After minutes you are panting and begging in your mind for ???? to return</AddText>
+				<AddText>The things seem to secrete some sort of afrodisiac and what is worse, are now trying to escape into your womb.</AddText>
+				<PersonSpeak person='#slavemakername'>MMMMMMMMMM!!!!!!!!!!.....</PersonSpeak>
+				<AddText>The first one made it into your womb, nearly making you faint from the orgasm.</AddText>
+				<AddText>And a long night awaits</AddText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent06>
+			<RFEvent07>
+				<ShowImage image='Images/Events/RandomFun/RF-IS02.jpg'/>
+				<SetText>You hear some noble woman discussing their latest entertainment.</SetText>
+				<PersonSpeak person='noble woman'>Did you try out the new energy treatment? Their 12h course is heavenly!</PersonSpeak>
+				<AddText>You notice her hiped tone of voice and good looking complexion, maybe it is worth looking into this.</AddText>
+				<AddText>\r\rNEXT EVENT\r\r</AddText>
+				<AddText>You find the location after asking around a bit.</AddText>
+				<AddText>Arriving there it was a beautiful! place, almost feeling like in the future.</AddText>
+				<PersonSpeak person='woman'>You're here for an energetic treatement miss?</PersonSpeak>
+				<AddText>Upon confirming she hands you a catalog with all possible treatments. Not really in the mood for reading you just selct the 12h one.</AddText>
+				<AddText>A man who seemed very friendly guided you into that clear gray room with a beautiful! pink chair. He asks you to get nude and sit. Feeling nothing odd you comply. Next you are asked to put your arms in those side holes. Just as you did it grabbed your hands preventing you from moving, at the same time pink cylinders closed on your legs leving you totaly stuck on that chair. You started to panic a bit, unknowing what was going on. </AddText>
+				<AddText>
+					A wheel started to got up right inbetween your legs to arrive in front of your beauty. The men spreaded your pussy then the wheel got right inbetween your big lips, latching your sensible parts. The men said "Alraight we're gonna start now", he got out of the room and you heared a beep sound. The wheel started rolling inbetween your legs faster and faster. At that moment you though the point was to make me cum. The questions like, why am you here appeared? you do not need that, you can just order one of my slaves to do make me cum, but as the feeling of a first orgasms started to rise, the wheel started to slow down at the same time. 
+				</AddText>
+				<AddText>
+				   The closer you was to orgasms , the slower the wheel was going. Until you was at your peak, at the moment you felt you needen only 1 spark of movement, the wheel stopped. You though it was broken and it just missed your orgasms first, but as your feeling started to downlift, the wheel started to roll again. 
+				   It was synchronized with your feelings! Letting you on a constant peak. A steady stade of extremely near orgasms. The first 20 minutes was awesome. It made you realize that when you have sex, its not only for orgasms but its for this state too. 
+				</AddText>
+				<AddText>
+				   You didn't realize it earlyer because normally it rise for about 10 to 20 seconds then stop at the orgasms. Now its been 30 minutes with that feeling. The frustration for the moment is everytime the wheel start turning, it always feel like its gonna bring you to cum but it only maintain you on that steady state of intenceness. 
+				</AddText>
+				<AddText>
+				   After about an hour or 2. You were still enjoying yourself a lot, the feeling started to intencify and to extend all over your body. It even got to your head, thinking straight became impossible. The only things comming to your mind were how bad you now want to cum and imagining some men fucking you and women licking you. 
+				</AddText>
+				<AddText>
+				   The men of the begining got into the room.
+				</AddText>
+				   <PersonSpeak person='men'>Is everything allright here miss?</PersonSpeak>
+				   <PersonSpeak person='#slavemakername'>WIt When will I.. you be able t.. t.. to cum mmm?</PersonSpeak>
+				   <PersonSpeak person='men'>Like the treatment sais, 12 hours, you have now 9 left, you have'nt even saw the best of it, for now its only the beginning miss.</PersonSpeak>
+				<AddText>
+				   Then he got out. You could not believe your ears! The beginning? How could it? you want to cum now so badly that 10 seconds is too long to handle, 9 hours? 
+				</AddText>
+				<AddText>
+				   you had no other choices besides to endure and surrendered to it. Instead of staring at your vagina thinking about being tucked and cumming hard. You layed your head on the chair and let the feeling get over you. 
+				</AddText>
+				<AddText>
+				   From that moment, it was the best part. you started feeling new sensations. First you felt waves of tickling pleasure starting from your vagina everytime the wheel was mooving, you always was on a full body extasy state it was incredible. After a while you started to feel your body becoming liquid or something, The hardest thing at that point was to keep calm. 
+				</AddText>
+				<AddText>
+				   Sometimes you was comming back in that resistance stance and the feeling were so intence that you was crying of pleasure. After the clock showed 11h58, you think you had all sort of pleasure possible, the man got into the room 
+				</AddText>
+				   <PersonSpeak peson='man'>Its over miss, 2 min and you'll know what this treatement is all about</PersonSpeak>
+				<AddText>
+				   you could not answer, you could barely see him. The pleasure was controlling you completly. 
+				   The same beep of the beginning sounded. The wheel stopped completely. The only thing in your mind was that once your hands are free, you'll only tutch your vagina and cum! can't wait! 
+				</AddText>
+				<AddText>
+				   Then another beep played and the wheel started to turn extremely fast, it took a split second for you to start cumming, you squirted and it splashed all over the wheel still rolling on your vagina. You could not stop cumming, shaking in all directions. Highest pleasure state you ever had in your life, and it stayed for at least 20 min straight. The wheel stopped after 10 minutes but it was like you were still feeling it mooving even if it was not. The feeling of this orgasms was in every little part of your body, from your toes to the tip of your ears, from the inside of your body to your tongue, your nose and even your eyes were shivering of pleasure... 
+				</AddText>
+				<AddText>
+				   They liberated me of that chair. you could barely walk. Literary, you fell about 2 or 3 times. They put you in a room were you could sleep. After that very deep sleep time, you were energised fully. Just as you had been plugged in a electrical device to recharge me at your highest capacity. 
+				</AddText>
+				<AddText>
+				   (Did you like it, make a test with variables) 
+				   Yes: This is could become your favourite place to go. A shame they are overbooked and don't allow people more than once a month. You remember to go there on the first of the next month. Wasn't there listed something like 24h hours treatement. Should you try it?  
+				   No: It did feel great, but you wasted too much time. In the future you should stay away from here. Even if it feels so good...
+				   </AddText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent07>
+			<RFEvent08>
+				<ShowImage image='Images/Events/RandomFun/RF-IS03.jpg'/>
+				<SetText>She tied and blindfolded you. Not knowing her intentions you (submissive test) submitted. At the moment you were completly tied up her atitude changed.</SetText>
+				<PersonSpeak person='woman'>ON YOUR KNEES</PersonSpeak>
+				<AddText>Then she started kissing you. At the same time she was tutching your dick with her fee, this new feeling was starnge but interesting. The moovements were not coordinated like it would with her hands, you could not anticipate the up and downs or the left and rights. The more you were close to orgasms, the more she was doing her best to kiss you and to move her feet on your dick. </AddText>
+
+				<AddText> At that point you started understanding her plan. It was to kiss you until your orgasms. it was kinda hard because the closer you was to orgasms, the harder it was to resist moaning and focus on kissing and mooving your tongue against hers.</AddText>
+				<AddText> As you were close to orgasms, she felt it throu your moovements and the way you were kissing so she got on her knees with you and started masturbating you with her hands(how about starting to kick your penis/balls instead like in VictimGirls19), while kissing you with even more intencity. Finally you arrived to orgasms and started moaning out loud. </AddText>
+				<AddText> She didn't care and kissedme all over your moaning mouth. What an orgasms! She removed the headband from your eyes letting you tied.</AddText>
+
+				<PersonSpeak person='woman'>Now get on the bed on your back!</PersonSpeak>
+
+				<AddText> WHat was she going to do?</AddText>
+				
+				<DoEvent>9999</DoEvent>
+			</RFEvent08>
+			<RFEvent09>
+				<ShowImage image='Images/Events/RandomFun/RF-IS04.jpg'/>
+				<SetText>You had this planned since a little while now. It was a idea of yours. Have the men you love tied up and blinded and make him come while kissing him. Since you always loved kissing and wanted to see how it feelt like during his orgasms.</SetText>
+				<AddText>The reason you wanted him tied and blinded was to prevent him from taking the lead, change position or just resist and ruining it.</AddText> 
+				<AddText> You needed to be able to choose what's happening over him. You told him to get on his knees and not to move. You sat down on the bed while he was kneeling in front of you and so you started kissing him at first. Then you gently put your feet on his penis and started pleasing him.</AddText>
+				<AddText> The way he kissed changed at this moment, and this is what you was looking for. When you were moving your feets faster, he was slowing down in kissing, like he was struggling to do it. Before he got spoiled you slowed down, letting him recover his capacity to kiss.</AddText>
+				<AddText> It ws fun, you could almost feel what he was feeling inside. Sometimes you stopped completely for a brief moment to let him kiss you fully, then tutching the tip of his penis, this is what was making him struggle the most.</AddText>
+				<AddText> You loved that feeling of him unable to kiss properly so you could just rub your tongue agains his while he feels all that pleasure. At that point he started moaning inside of your mouth and moving from left to right so you knew he was close.</AddText>
+				<AddText>Smiling you got on your knees and started masturbating him without stopping to kiss him. It was amazing on how the speed and the way you was masturbating him was affecting the way he kissed. It was becoming your fetish! Knowing he was close to cum you started going faster and faster until he moaned out loud and came. You could not resist rubbing your tongue all over his moaning mouth, it was almost like you felt his orgasms inside of you.</AddText>
+				<AddText>\r\r After that you told him to get on the bed. you had your second fantasy to try! </AddText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent09>
+			<RFEvent10>
+				<ShowImage image='Images/Events/RandomFun/RF-IS05.jpg'/>
+				<SetText>You gave a whimper as the Orc FINALLY started to soften, getting ready to pull out...after your capture and tape, you barly managed to keep from spurting in a faggot assgasm.</SetText>
+				<!-- make variant for female -->
+				<PersonSpeak person='Orc'>Alrgiht boy, here's the deal. I'm gonna pull out, but unless you want me to repleace all of it, you better clench your ass and hold all of my seed in you, you fucking understand? If you let my cum ozze out, I'm going to take it as a sign you want me to replace it.."</PersonSpeak>
+				<AddText>All you can manage is a whimper tho show that you understood.. and as the Orc's cock slid out, you clench as hard as you can, but your poor destroeyd ass couldn't do anything.. and cum ooozed out.</AddText>
+				<PersonSpeak person='Orc'><b>Bitch</b> I told you to <b>clench!</b></PersonSpeak>
+				<PersonSpeak person='#slavemakername'>I'm trying! I'm really trying!</PersonSpeak>
+				<PersonSpeak person='Orc'>Yeah right! I bet you're fucking (get SM race(human,furry,vampire)) cunt just wants more of my cock! Well, alright, who am I to arrgue with a willing (Race) faggot?</PersonSpeak>
+				<AddText>Lauthing at your sobbing pleas the orc slammed his cock back into your ass, making scream and heavily orgasm. Your ass ironicly NOW choses to clench around the cock.</AddText>
+				<PersonSpeak person='Orc'>I knew you weren't trying...</PersonSpeak>
+				<AddText>This was the last thing your heard, before your mind gave into to pleasure.</AddText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent10>
+		<!--   __________________________________________________________________________________________ ISLAND END _____________________ -->
+
+		<!--   __________________________________________________________________________________________ MARKET START _____________________ -->
+			<Market>
+				<SetText>Waiting for someone to write an event...lets do it myself</SetText>
+				<AskQuestion caption="which event do you wnat to see?">
+					<Question event="RFEvent11">Event 11</Question>
+					<Question event="RFEvent12">Event 12</Question>
+					<Question event="RFEvent13">Event 13</Question>
+					<Question event="RFEvent14">Event 14</Question>
+					<Question event="RFEvent15">Event 15</Question>
+				</AskQuestion>
+			</Market>
+			<RFEvent11> <!-- maybe if you are working at the red lily --> <!-- add in how you are about fearing or desiering the punishment from the custumers -->
+				<ShowImage image='Images/Events/RandomFun/RF-MA01.jpg'/>
+				<SetText>As you are serving drinks you get called out by a custumer. The woman seems to be a highranking custumer, better not anger her.</SetText>
+				<PersonSpeak person='woman'>How about beeing my pet? At least for some time. I really wanted to try oout having a little kitty. All you have to do is obeying every of my comands fot, lets say 1 month.</PersonSpeak>
+				<AddText>(Submissive check) You didn't dislike the idea, but 1 month would be way too mutch. Not wanting to upset her with your refusal</AddText>
+				<PersonSpeak person='#slavemakername'>I would be pleased to serve you today. If this is to your liking</PersonSpeak>
+				<AddText>Clicking her tonge she leaves. Half relieved, half worried you look after her.</AddText>
+				<AddText>The rest of the time passes without incident. At the end of your shift the bartender gives you a drink saying that it was paid for by a custumer.</AddText>
+				<AddText>Question Drink Yes/No</AddText>
+				<AddText>IF YES -> NEXT EVENT </AddText>
+				<AddText> Feeling a bit dizzy, probably because of the alcohol and the exaustion, you lean on the counter, slowly fading into comfortable darkness.</AddText>
+				<AddText>NEXT EVENT</AddText>
+				<AddText>You open your eyes and find yourself tied up in a bed with metallic panties locked at key. </AddText>
+				<AddText>The woman from before was there all nude, looking you in the eyes with a lithe devil smile</AddText>
+				<PersonSpeak person='woman'>Are you sure you still don't want to be my pet?</PersonSpeak>
+				<PersonSpeak person='#slavemakername'>No, what are you doing?</PersonSpeak>
+				<AddText>She tarted to ask her in a more sensual way, getting closer to you and starting to tutch your body.</AddText>
+				<PersonSpeak person='woman'>Alraight, you just won't be able to cum until you accept it.</PersonSpeak>
+				<AddText>She continued to tease you, opening your legs and startingd to stroke her vagina on your leg. Feling the hot vagina mooving on your leg. Your mind sliping to imagining that it could be yours right now. You started to realise that you were very horny and started to get wet. You try resisting thinking about other things. C
+					Course this barkee..per and h..his .Mmmm..drinks.
+				Maybe if you could prevent from her from noticing your honey driping out she would lose intrest.
+				But the woman rather started to lick over her panties. The image of her licking was making you imagine her licking you, you weren't even telling her to stop being too focused on what was happening. Your wettnes got to a point that it was runnig down you thights and driping out onto the bed.</AddText>
+				<AddText>Smiling to you she kept caressing you</AddText>
+				<PersonSpeak person='woman'>So, I won't unlock your panties until you accept. Im not only talking about tonight. You'll have no other choice but to go to work with it, and this, every single day until you do.</PersonSpeak>
+				<PersonSpeak person='woman'>I've arranged with the owner of the RedLily(Has name?) to have you deliverd every (time you work there/every day). So I will also tease you every night like I do right now. Do you accept?</PersonSpeak>
+				<AddText>(Submisse Check, need text)</AddText>
+				<AddText> You refuse, thinking that you would find a way to remove those panties, but Its not that easy. She teased her until late into the night. Ending by masturbating on top of your face, letting her cum/juices (slide gently and fall on your lips/splurt vionlently over your face). </AddText>
+				<PersonSpeak person='woman'>Good night, see you tomorrow.</PersonSpeak>
+				<AddText>Later two servants untied you and delivered you at home. \r\r Sleeping with wet panties, being very near orgasms and unable to think bout something else than orgasms, knowing that its gonna be like this everyday until you accept, is very hard. </AddText>
+				<AddText>Edit Notes: 
+					- You can order slaves to try to have you orgasm from your tits(possible if SM has been milked enouth, or has enouth breast fixation)
+					- You can cum from being beaten if you have a masochist advantage
+					- find other image, this one is ugly
+				</AddText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent11>
+			<RFEvent12>
+				<ShowImage image='Images/Events/RandomFun/RF-MA02.jpg'/>
+				<SetText>The girl pushes you to the ground, being restrained you can't keep balance and fall on your back. Using your indend moment she just puts two vibrators, one inside your vagina, one taped on your clitoris and locked that with the chastity panties.</SetText>
+				<AddText>Then she pulls you up by the chain of your collar.</AddText>
+				<PersonSpeak person='girl'>Lets see if you can make me cum before you do.</PersonSpeak>
+				<AddText>With these words she pushes your mouth onto her pussy telling you to lick her.</AddText>
+				<AddText>You start to do as told, but the vibrators start bringing you to the verge of orgasm, perventing you from focusing on pleasuring her.</AddText>
+				<AddText>Just as you are almost orgasmning she you feel a sudden pain as she strikes you with her whip. The vibrators are turned off as the girl screams.(Add modification for masochist advantage)</AddText>
+				<PersonSpeak person='girl'>Who told you you could come before me?!</PersonSpeak>
+				<AddText>With your mind now clearer you start again to lick her, but she already recovering and you had to start from the beginning again.</AddText>
+				<AddText>After the third time being close to orgasm, only to be hit by the whip, you start trying to rub yourself, but the only thing you can tutch are the castity panties, making you feel unable to choose the senstions happening to your vagina. </AddText>
+				<AddText>Your efforts to try touch yourself were rewarded with more whip strikes. Making you unable to unable come and interrupting your efforts at making her cum</AddText>
+				<AddText>Serveral times later a poddle formed beneath you, while the girl keeps whipping you constantly, trying to keep you from orgasm, but you seem to get ever closer even with the vibrators already turned off. In a deperade last attemp to keep you from orgasm she kicks you into you stomach. Effectively sending you over the edge. Squirming and squirting you convulse on the floor while the girl angryly keeps kicking you, but this only pushes you to greater orgasms.</AddText>
+				<AddText>\r\rEditor Note: I think you guessed it. This event gives you masochisadvantage. Idealy should be one in a line of events.</AddText>
+
+				<DoEvent>9999</DoEvent>
+			</RFEvent12>
+			<RFEvent13>
+				<ShowImage image='Images/Events/RandomFun/RF-MA03.jpg'/>
+				<SetText>Rough Idea
+					She didn't seem to happy about having to relive all the sailors. (check if sex addict) you decide to help her out since your mouth seems thirsty.
+					(If submissive) seeing her beeing merciless pounded you get wet. Indulge? Yes. You rip of your clothes and aproach the sailors fucking her on your knees, displaying your submission.
+					Making her company and so the sailors, you reach the Island already well fucked.</SetText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent13>
+			<RFEvent14>
+				<ShowImage image='Images/Events/RandomFun/RF-MA04.jpg'/>
+				<SetText>
+					Shipwrecked Hell
+						Take a Walk - Island
+						Ship sinks and of the survivors who come ashore are a few black slaves and a white oujou-sama, probably the slave owners daughter. Now away from guards the slaves rebell and take the girl as slave.
+							You meet them by chance
+						Free girl
+						Treat girl as slave and get to fuck her
+						If you are unarmed or to attractive the slaves will attack and fuck you too
+						Persuade slaves to surrender(High charisma and conversation skill and dominance)
+						If win
+							If cruel – can sell all as slaves
+							If cruel – can sell all as slaves, but keep the girl as minor slave
+							Else help girl at guard office, girl got her parents estates – more events
+						If lose, slaves try to sell you at slave market (after some mean fucking)
+							If noble or renown high  rescued by guards, girl restored to her estate – more events
+							Else be sold as slave
+
+				</SetText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent14>
+			<RFEvent15>
+				<ShowImage image='Images/Events/RandomFun/RF-MA05.jpg'/>
+				<SetText>
+					The elfen wedding
+						If combat skills are high, you get offered to be the personal guard of an high elf lady until her wedding tomorrow. 
+						When you come to to the meeting place you see her being attacked by goblins
+							If lose, she gets abducted and you fail your mission. Later you her that her fiancé has gone of to get her back and is missing ever since.
+							If win, you spend the day as her guard while she walks goes shopping throu the town center. She meets the noble elf who works as a slave in the restaurant. She is quite mean to the enslaved elf, teasing her a lot.
+						On to the wedding the next day at the lake. You meet her fiancé, a well endowed futa elf. At the high of the wedding screams are heard and a bunch of orcs attack. (May change the fiancé to a reverse trap, and the high elves don’t like lesbian weddings since they don’t produce offspring. This is a problem since the high elves are few and reproduce very slowly.)
+							If win, her beloved has been taken, you have to save her – go to cave 1
+						CAVE 1, Upon finding the orc hideout you find her being used as a cocksleave
+						Choice give up on them / attack
+						If win,
+						If male, fight and save elf – good end
+						Else elf has a chance to backstab you if she is already loyal to her masters orc cock – go to bad end
+						If lose, 
+						If male, get milked by female orc
+						Else – go to bad end
+							If lose
+						If male – go to cave 1 (as if you had won the fight)
+						Else, , you and the bride has been taken – go to cave 2
+						CAVE 2, you get saved by the bethroed
+						Choice 
+						Remain here to serve the orc cock
+						Backstab him so that all 3 of you may serve your orcish masters, and that they wil understand the superiority of the orcish race
+						Go back home
+						Bad End: serve as orc breeding sow
+						A chance to escape will appear
+						If bad end on, will fail
+						If bad end of can choose between submit/one last time(fail)/resist
+
+				</SetText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent15>
+		<!--   __________________________________________________________________________________________ MARKET END _____________________ -->
+		
+		<!--   __________________________________________________________________________________________ MOUNTAINS START _____________________ -->
+			<Mountains>
+				<SetText>Waiting for someone to write an event...lets do it myself</SetText>
+				<AskQuestion caption="which event do you wnat to see?">
+					<Question event="RFEvent16">Event 16</Question>
+					<Question event="RFEvent17">Event 17</Question>
+					<Question event="RFEvent18">Event 18</Question>
+					<Question event="RFEvent19">Event 19</Question>
+					<Question event="RFEvent20">Event 20</Question>
+				</AskQuestion>
+			</Mountains>
+			<RFEvent16>
+				<ShowImage image='Images/Events/RandomFun/RF-MT01.jpg'/>
+				<SetText>Escaped Cow
+					On your walk you see a crying cow-slave sitting in an dark corner of a wall. The girl notices you and stretches her hand trying to grasp in your direction.
+					What do you do?
+					Help her (op1)
+					Ignore her (op2)
+					Op2: You ignore the girl, you don’t have time for stupid cows.
+					Op1: You get closer and try to talk to her. At first she only says ”Muuh”. After a while she finally manages to speak Girl:”name Not slave Muuh…. Name Free Muuuh!”. Not sure if she is trying to say that she wants to be free or that she is a free person. But you would prefer to stay out of trouble.
+					What do you do?
+					Leave her
+					She starts Muuhing louder as you go away, it is anoything.
+					Ignore it
+					Bind her – go to bindher 
+					Bind her so that her owner can find he
+					You decide that this girl should be a cow-slave from one of the surrounding farms. So you bind her in place that her owner may find her and recapture her.
+					Looking at the bound up girl, she looks delishious
+					Fuck her
+					Fill her juicy pussy with something hard
+					You look around and decide that she would look nice on the fence. If she gets damaged it’s the fault of the owner that let her escape.
+					Fuck her and leave her there
+					Bring her to the guards office (if you visit later the milk farm you will find her in strickt bondage)
+					Bring her to the closest farm (if you know of farm)</SetText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent16>
+			<RFEvent17>
+				<ShowImage image='Images/Events/RandomFun/RF-MT02.jpg'/>
+				<SetText>If Illya lives with you
+							Add event with Kuro and Mio
+						If Illya lives with you
+							If your main is Tosaka Rin
+								Add event where Tosaka will try to deceive Illya to take over her slave contract, but is punished by Ruby.
+							If you already trained Tosaka you may meet her being displayed by Blondie
+						Else you see Tosaka and Blondie fighting
+				</SetText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent17>
+			<RFEvent18>
+				<ShowImage image='Images/Events/RandomFun/RF-MT03.jpg'/>
+				<SetText></SetText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent18>
+			<RFEvent19>
+				<ShowImage image='Images/Events/RandomFun/RF-MT04.jpg'/>
+				<SetText></SetText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent19>
+			<RFEvent20>
+				<ShowImage image='Images/Events/RandomFun/RF-MT05.jpg'/>
+				<SetText></SetText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent20>
+		<!--   __________________________________________________________________________________________ MOUNTAINS END _____________________ -->
+
+		<!--   __________________________________________________________________________________________ PLAINS START _____________________ -->
+			<Plains>
+				<SetText>Waiting for someone to write an event...lets do it myself</SetText>
+				<AskQuestion caption="which event do you wnat to see?">
+					<Question event="RFEvent21">Event 21</Question>
+					<Question event="RFEvent22">Event 22</Question>
+					<Question event="RFEvent23">Event 23</Question>
+					<Question event="RFEvent24">Event 24</Question>
+					<Question event="RFEvent25">Event 25</Question>
+				</AskQuestion>
+			</Plains>
+			<RFEvent21>
+				<ShowImage image='Images/Events/RandomFun/RF-PL00.jpg'/>
+				<SetText></SetText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent21>
+			<RFEvent22>
+				<ShowImage image='Images/Events/RandomFun/RF-PL00.jpg'/>
+				<SetText></SetText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent22>
+			<RFEvent23>
+				<ShowImage image='Images/Events/RandomFun/RF-PL00.jpg'/>
+				<SetText></SetText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent23>
+			<RFEvent24>
+				<ShowImage image='Images/Events/RandomFun/RF-PL00.jpg'/>
+				<SetText></SetText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent24>
+			<RFEvent25>
+				<ShowImage image='Images/Events/RandomFun/RF-PL00.jpg'/>
+				<SetText></SetText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent25>
+		<!--   __________________________________________________________________________________________ PLAINS END _____________________ -->
+
+		<!--   __________________________________________________________________________________________ COLISEUM START _____________________ -->
+			<Coliseum>
+				<SetText>Waiting for someone to write an event...lets do it myself</SetText>
+				<AskQuestion caption="which event do you wnat to see?">
+					<Question event="RFEvent26">Event 26</Question>
+					<Question event="RFEvent27">Event 27</Question>
+					<Question event="RFEvent28">Event 28</Question>
+					<Question event="RFEvent29">Event 29</Question>
+					<Question event="RFEvent30">Event 30</Question>
+				</AskQuestion>
+			</Coliseum>
+			<RFEvent26>
+				<ShowImage image='Images/Events/RandomFun/RF-CL00.jpg'/>
+				<SetText></SetText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent26>
+			<RFEvent27>
+				<ShowImage image='Images/Events/RandomFun/RF-CL00.jpg'/>
+				<SetText></SetText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent27>
+			<RFEvent28>
+				<ShowImage image='Images/Events/RandomFun/RF-CL00.jpg'/>
+				<SetText></SetText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent28>
+			<RFEvent29>
+				<ShowImage image='Images/Events/RandomFun/RF-CL00.jpg'/>
+				<SetText></SetText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent29>
+			<RFEvent30>
+				<ShowImage image='Images/Events/RandomFun/RF-CL00.jpg'/>
+				<SetText></SetText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent30>
+		<!--   __________________________________________________________________________________________ COLISEUM END _____________________ -->
+
+		<!--   __________________________________________________________________________________________ DEEPFOREST START _____________________ -->
+			<DeepForestCL>
+				<SetText>Waiting for someone to write an event...lets do it myself</SetText>
+				<AskQuestion caption="which event do you wnat to see?">
+					<Question event="RFEvent31">Event 31</Question>
+					<Question event="RFEvent32">Event 32</Question>
+					<Question event="RFEvent33">Event 33</Question>
+					<Question event="RFEvent34">Event 34</Question>
+					<Question event="RFEvent35">Event 35</Question>
+				</AskQuestion>
+			</DeepForestCL>
+			<RFEvent31>
+				<ShowImage image='Images/Events/RandomFun/RF-DF00.jpg'/>
+				<SetText></SetText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent31>    
+			<RFEvent32>
+				<ShowImage image='Images/Events/RandomFun/RF-DF00.jpg'/>
+				<SetText></SetText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent32>
+			<RFEvent33>
+				<ShowImage image='Images/Events/RandomFun/RF-DF00.jpg'/>
+				<SetText></SetText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent33>
+			<RFEvent34>
+				<ShowImage image='Images/Events/RandomFun/RF-DF00.jpg'/>
+				<SetText></SetText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent34>
+			<RFEvent35>
+				<ShowImage image='Images/Events/RandomFun/RF-DF00.jpg'/>
+				<SetText></SetText>
+				<DoEvent>9999</DoEvent>
+			</RFEvent35>
+		<!--   __________________________________________________________________________________________ DEEPFOREST END _____________________ -->
+
+
+	</Events>
+
+
+	<Visits>
+	</Visits>
+
+
+	<Planning>
+		<Acts>
+			<DoPlanning>
+			</DoPlanning>
+		</Acts>
+	</Planning>
+
+	<Slaves>
+		<Slave enable='false'>
+				<!--   __________________________________________________________________________________________ Rhia2 START _____________________ -->
+					<Credits>mllhild</Credits>
+					<Version>0.1</Version>
+					<Name>Rhia2</Name>
+						<Image>Images/Events/BEN/Rhia2/Slave-Rhia2.png</Image>
+						<Folder>Images/Events/BEN/Rhia2</Folder>
+						<DescriptionDetailed>Your little sister. She came to help you train your slaves and now lives with you.</DescriptionDetailed>
+						<Description>Your little sister</Description>
+						<Price>0</Price>
+						<Gender>female</Gender>
+						<Bust>61</Bust>
+						<Waist>47</Waist>
+						<Hips>62</Hips>
+						<Age>10</Age>
+						<BloodType>A</BloodType>
+						<Weight>34</Weight>
+						<Height>133</Height>
+						<Loyalty>100</Loyalty>
+						<Sexuality>100</Sexuality>
+						<Slutiness>3</Slutiness>
+						<VirginVaginal>True</VirginVaginal>
+						<VirginAnal>True</VirginAnal>
+						<VirginOral>True</VirginOral>
+						<Race>Human</Race>
+					  	<!--	<Attitude>Extroverted</Attitude>
+						<Perception>Sensing</Perception>
+						<Judgment>Feeling</Judgment>
+						<Lifestyle>Judgment</Lifestyle>  -->
+						<Fertility>30</Fertility>
+					
+					<Statistics>
+						<Charisma>0</Charisma>
+						<Sensibility>0</Sensibility>
+						<Refinement>0</Refinement>
+						<Intelligence>0</Intelligence>
+						<Morality>0</Morality>
+						<Constitution>0</Constitution>
+						<Cooking>0</Cooking>
+						<Cleaning>0</Cleaning>
+						<Conversation>0</Conversation>
+						<Fitness>0</Fitness>
+						<BlowJob>0</BlowJob>
+						<Fuck>0</Fuck>
+						<Temperament>0</Temperament>
+						<Nymphomania>0</Nymphomania>
+						<Obedience>0</Obedience>
+						<Lust>0</Lust>
+						<Reputation>0</Reputation>
+						<Fatigue>0</Fatigue>
+						<Joy>0</Joy>
+						<MaxSpecial>0</MaxSpecial>
+						<Special>0</Special>
+					</Statistics>
+
+					<StatisticsDetails>
+						<Special show="true">
+							<Name>Milk :</Name>
+							<Description>How much Milk she has built up in her breast.</Description>
+							<Hint0-24>feeling little desire for milking.</Hint0-24>
+							<Hint25-50>wanting to get milked.</Hint25-50>
+							<Hint51-75>needing to get milked.</Hint51-75>
+							<Hint76-100>is leaving a trail of milk were ever she goes.</Hint76-100>
+						</Special>		
+					</StatisticsDetails>
+					
+					<Skills>
+						<Swimming>0</Swimming>
+						<Dancing>0</Dancing>
+						<Singing>0</Singing>
+					</Skills>
+					
+					<Difficulties>
+						<Anal>0</Anal>
+						<Blowjob>0</Blowjob>
+						<Bondage>0</Bondage>
+						<Brothel>0</Brothel>
+						<Dildo>0</Dildo>
+						<Expose>0</Expose>
+						<Fuck>0</Fuck>
+						<GangBang>0</GangBang>
+						<LendHer>00</LendHer>
+						<Lesbian>0</Lesbian>
+						<Lick>0</Lick>
+						<Master>0</Master>
+						<Masturbate>0</Masturbate>
+						<Naked>0</Naked>
+						<Plug>0</Plug>
+						<Ponygirl>0</Ponygirl>
+						<SleazyBar>0</SleazyBar>
+						<Spanking>0</Spanking>
+						<Threesome>0</Threesome>
+						<TitsFuck>0</TitsFuck>
+						<Touch>0</Touch>
+					</Difficulties>
+					
+					<SlaveBonus>
+						<SetVar Charisma='Charisma + 0'/>
+			            <SetVar Sensibility='Sensibility + 0'/>
+			            <SetVar Temperament='Temperament - 0'/>
+			            <SetVar difficulty-titsfuck='difficulty_titsfuck + 0'/>
+					</SlaveBonus>
+					
+					<Images>
+						<Discuss>
+							<Normal>10</Normal>
+							<Lesbian>1</Lesbian>
+						</Discuss>
+
+						<Fuck>
+							<Normal>2</Normal>
+							<Lesbian>1</Lesbian>
+						</Fuck>
+						<KissMale>0</KissMale>
+						<KissFemale>0</KissFemale>
+						<Anal>
+							<Normal>0</Normal>
+							<Lesbian>0</Lesbian>
+						</Anal>
+						<Blowjob>
+							<Normal>0</Normal>
+							<Lesbian>0</Lesbian>
+						</Blowjob>
+						<TitsFuck>
+							<Normal>0</Normal>
+							<Lesbian>0</Lesbian>
+						</TitsFuck>
+						<SixtyNine>
+							<Normal>0</Normal>
+							<Lesbian>0</Lesbian>
+						</SixtyNine>
+						<Lick>
+							<Normal>0</Normal>
+							<Lesbian>0</Lesbian>
+						</Lick>
+						<LoveConfessionAccepted>1</LoveConfessionAccepted>
+						<LoveConfession>1</LoveConfession>
+						<LoveConfessionRefused>1</LoveConfessionRefused>
+					</Images>
+
+					<Introduction>
+			            <SetText>Text which will never appear</SetText>
+			                <PersonSpeak person="Rhia2">Text</PersonSpeak>
+							<AddText>Text</AddText>
+						<ShowImage image="Images/Minor Slaves/Rhia2/intro.jpg" place="4" align="0"/>
+					</Introduction>
+
+					<Planning>
+						<DoPlanning>
+							<SlaveReview>
+								<ShowImage image="Images/Events/BEN/Rhia2/Slave Review.png" place='main' align='left'/>
+							</SlaveReview>
+
+							<!-- Intimacy Acts Start-->
+								<IntimacyQuestions>
+									<AddText>You decide to spend some private time with Rhia2, so what would you would like to do?</AddText>
+									<AddQuestion event="Rhia2MilkHand">Milk Rhia2 by hand
+									<AddQuestion event="9750">Back</AddQuestion>
+								</IntimacyQuestions>
+
+								<SlaveIntimacyFuck>
+									<HideImages/>
+									<if day="true">
+										<ShowImage image="Images/Events/BEN/background/bed 21 day.jpg"/>
+									</if>
+									<if day="false">
+										<ShowImage image="Images/Events/BEN/background/bed 21 night.jpg"/>
+									</if>
+									<if gender="2">
+										<ShowImage image="Images/Events/BEN/Rhia2/Sex Act - Fuck (Lesbian 1).png"/>
+										<else>if</else>
+											<ShowImage image="Images/Events/BEN/Rhia2/Sex Act - Fuck 2.png"/>
+									</if>
+									<AddText>You spend some private, intimate time with #person.</AddText>
+									<ifnot gender='female'>
+										<ChangeCumslut person='current'>0.5</ChangeCumslut>
+									</ifnot>
+									<SMPoints>0, 0, 0, 0.5, 0, -1, 0, 0, 0, 0, 0, 1, 5, 0</SMPoints>
+									<Points slave='current'>0, 0, 0, 0, 0, 0.25, 0, 0, 0, 0.2, 0.2, 0, 0.25, 0.2, -1, 0, 2, 0, 0.1, 0</Points>
+									<if smadvantages-unusualcum='true'>
+										<SetVar dickgirlrate_current='dickgirlrate_current + 0.5'/>
+									</if>
+
+									<ChangeTime>0.5</ChangeTime>
+									<!-- check if slave is now pregnant -->
+									<if canimpregnate-current="yours">
+										<!-- slave is impregnated your child -->
+										<impregnate person='current' type='Yours'/>
+										<BlankLine/>
+										<AddText>#person has an unusually strong orgasm and after #personheshe looks at you very happily.</AddText>
+									</if>
+									<!-- check if slavemaker is now pregnant-->
+									<if slavegender-current='masculine' canimpregnate-slavemaker="#racename">
+										<!-- slave maker is impregnated with the others child -->
+										<impregnate person='slavemaker' type='Human'/>
+										<BlankLine/>
+										<AddText>#person cums really hard, flooding your womb with #personhisher cum and after #personheshe looks at you very happily.</AddText>
+									</if>
+									<DoEvent>9750</DoEvent>	
+								</SlaveIntimacyFuck>
+							<!-- Intimacy Acts End-->
+
+							<!-- Custom Talk Start-->
+								<CustomTalk name='Statistics' description='For now the stats of every Char' show='true'>
+									<SetText>
+										Slave Maker: #slavemakername
+										#savedvar16_BEN SM Breast fixation  
+										#savedvar17_BEN SM Lactation  
+										#savedvar18_BEN SM CowGirlTraining  
+										#savedvar19_BEN SM Milkbuild up  
+										#savedvar20_BEN SM Breastincrease (in %) 
+										#smbust SM Breastsize 
+										#savedvar22_BEN SM number of times milked 
+										#savedvar23_BEN SM desire to be milked 
+										#savedvar6_BEN Breast expert skill
+			
+										Slave: #slave
+										#flagBEN_33 did visit Count gossem for BE
+										#savedvar24_BEN	Count visits event var
+										#savedvar25_BEN	Count visits date var  
+										#savedvar1_BEN Breast fixation 
+										#savedvar2_BEN Lactation 
+										#savedvar3_BEN CowGirlTraining 
+										#savedvar4_BEN Milkbuild up 
+										#savedvar5_BEN Breastincrease (in %)
+										#bust Breastsize 
+										#savedvar8_BEN did act Milk by Hand 
+										#savedvar9_BEN did act Milk with device 
+										#savedvar10_BEN did act Feed her Milk 
+										#savedvar11_BEN did act Touch #slave’s Breast 
+										#savedvar12_BEN did act Touch #slave’a nipples 
+										#savedvar13_BEN did act Use Nipple Toys 
+										#savedvar14_BEN did act Feed #slave a fruit 
+										#savedvar15_BEN did act Used nippleclamps 
+
+										Assistant: #assistant
+										none
+
+										event char: Rhia2
+										#special-Rhia2 Special (Milkbuild up)
+
+										some event flags
+										#flag1-0  seen cowgirls
+										#flag1-1  visited farmer and allowed to see cowgirls
+										#flag1-6  First Milk Event
+										#flag1-7  Milk Accident
+										#flag1-11  Milk Drug offered
+										#flag1-25  Count owns farm
+										#flag1-26  cowgirls removed from farm
+										#flagBEN_21 naked	 
+										#flagBEN_22 nipple clamps owned 
+										#flagBEN_23 nipple clamps on 
+										#flagBEN_24 nipple toys   owned 
+										#flagBEN_25 milking machine owned 
+										#flagBEN_26 evil milking machine owned 
+										#flagBEN_27 good milking machine owned 
+										#savedvar24_BEN	Count visits event var  
+										#savedvar25_BEN	Count visits date var  
+										#savedvar26_BEN	Milk bottles full  
+									</SetText>
+							
+									<SetVar savedvar0_BEN="elapsed-savedvar25_BEN-3"/>
+									<AddText>/r
+										#savedvar0_BEN savedvar0_BEN
+										#savedvar24_BEN savedvar24_BEN
+									</AddText>
+									<if isslaveavailable="Rhia2">
+										<AddText> 
+											Slave Rhia2 Enablet
+										</AddText>
+										<else>if</else>
+										<AddText> 
+											Slave Rhia2 not Enablet
+										</AddText>
+									</if>
+
+									<if slaveowned="Rhia2">
+										<AddText> 
+											Slave Rhia2 owned
+										</AddText>
+										<else>if</else>
+										<AddText> 
+											Slave Rhia2 not owned
+										</AddText>
+									</if>
+									<!--
+									<Setvar var0="(constitution_Rhia2+lust_Rhia2+sensibility_Rhia2-tiredness_Rhia2)/15"/>
+									<Points slave='Rhia2'>
+										<Special>var0</Special>
+									</Points>
+									-->
+
+									<DoEvent>9750</DoEvent>									
+								</CustomTalk>
+							<!-- Custom Talk End-->	
+								
+							<!-- Custom Order Start   only the first appears and only half of it works-->
+								<CustomOrderMilk name='Supply Milk for House' description='Rhia2 will restock your milk supply if it is low' show='true'>
+									<!-- fills milk bottles if  stock is under 5 -->
+									<if obedience="50+" savedvar26_BEN="5-">
+										<SetVar var0='5 - savedvar26_BEN'/>
+										<SetVar savedvar26_BEN="5"/>
+										<Points slave='current'>
+											<Special>-var0</Special>
+											<Obedience>0.1</Obedience>
+											<Love>0.1</Love>
+										</Points>
+										<Setflag flagBEN_38="true"/>		<!-- Rhia2 produces milk for the house -->
+									</if>
+								</CustomOrderMilk>
+								<CustomOrderMilk02 name='Supply Milk for sale' description='Rhia2 will keep producing milk' show='true'>
+									<!-- fills milk bottles at a continuos rate -->
+									<if obedience="150+">
+										<if flagsmadvantages_9="true">
+											<SetVar var0='30 + corruption/10'/>
+										</if>
+										<if flagsmadvantages_9="false">
+											<SetVar var0='20 + corruption/10'/>
+										</if>
+										<SetVar savedvar26_BEN="savedvar26_BEN+var0"/>
+										<SetVar var0='var/6'/>
+										<Points slave='current'>
+											<Special>-var0</Special>
+											<Obedience>0.2</Obedience>
+										</Points>
+			 							<Setflag flagBEN_39="true"/>		<!-- Rhia2 produces milk for sale -->
+										<else>if</else>
+											<Points slave='current'>
+												<Special>+1</Special>
+												<Obedience>-1</Obedience>
+												<Temperament>1</Temperament>
+												<Love>-3</Love>
+											</Points>
+									</if>
+								</CustomOrderMilk02>			
+							<!-- Custom Order End-->	
+
+						</DoPlanning>
+					</Planning>
+					
+					<Other>
+						<LoveConfession>
+							<ShowImage image="Images/Minor Slaves/Rhia2/Love Confession 1.jpg" place="main" align="center"/>
+							<SetText>Rhia2 has just enthusiastically and forcefully confessed her love to you.
+							
+							Will you accept her love?</SetText>
+							<SetVar appendacttext='false'/>
+							<Backgrounds colour='0'/>
+						</LoveConfession>
+						
+						<LoveConfessionAccepted>
+							<SetText>Rhia2 happy and her breast are spilling. It seems you will have more milk than you could ever drink.</SetText>
+							<ShowSlave person='Rhia2'/>
+							<HideImages/>
+							<ShowImage image="Images/Minor Slaves/Rhia2/Love Confession Accepted 1.jpg" place="main" align="center"/>
+							<Backgrounds colour='0'/>
+						</LoveConfessionAccepted>
+						
+						<LoveConfessionTooManyLovers>
+							<HideImages/>
+							<ShowImage image="Images/Minor Slaves/Rhia2/Love Confession 1.jpg" place="main" align="center"/>
+							<SetText>Rhia2 has just enthusiastically and forcefully confessed her love to you.
+							
+							Will you accept her love?</SetText>
+							<SetVar appendacttext='false'/>
+							<AskQuestions caption='Will you accept his love?'>
+								<Question event='3'>Yes, I love you too</Question>
+								<Question event='3.2'>No, I do not love you</Question>
+								<Question event='3.4'>I am not sure yet</Question>
+							</AskQuestions>
+						</LoveConfessionTooManyLovers>
+					</Other>
+				<!--   __________________________________________________________________________________________ Rhia2 END _____________________ -->
+
+		</Slave>
+
+		<SpecialParticipants>
+			<Participant enable='false'>
+			</Participant>
+		</SpecialParticipants>
+	</Slaves>
+
+
+</Language>
+
+image: slopy slave
+Streching and jawnig you move your lead like body to the table for break feast. #slave comes over an serves you a bit sluggish, this will need a stern hand.
+	now?
+		Irritated with her lacking posture you wait until she set down the tea, grabbing her thin wrist and pulling her over your knees while @slave gives a surprised shriek from her sleepy face. Quickly you expose her behind, and beffore she can come to terms with the situation, you drop your palm onto her butt causing the first huge sound. This continues until you find that her butt now has the same tone as your strawberry gelly. Satisfied you pull her head up by the hair apreaciating her teary eyes.
+	later?
+		image: tasty breakfeast
+		to tired from last night you decide for later.
+		With the tasty smell of eggs you move the fork to your mouth.... when you notice that your sleepy hat of a sister is still not there. Your feet seem glued to chair you consider sending #slave to get her.
+			send slave
+				image: 000 bed sleepy (2).jpg
+				To lazy to get up yourself, you send #slave instead to wake your sister Rhia2. Some time later sleepy head comes down still with bed hair and rubbing her half closed eyes. You decide that any hope is wasted on her, but at least she looks good in her nightgroom so maybe someone will take a liking to her. But seeing that she is still carring her pillow you can't get your hopes up.
+				"..or..ing" and with this Rhia2 puts her pillow onto the table and goes back to sleep.
+				No hope at all.
+			go yourself
+				image: door
+				a sting of guilt sends you to heave your ass from the stool. since she came til her to help you for free and letting everything behind you should at least take care of her. In front of the door you know but nobody answers.
+				Image: 000 bed sleeping (1).jpg
+				Letting yourself in you find an idilic image of Rhia2 sleeping. 
+					Wake her?
+					Let her sleep?
+						image: 000 bed sleeping (1).jpg
+						Maybe you and #slave where to loud last night and she had trouble sleeping. Well its good for her so you just let her keep on sleeping, return to your breakfest and order for a breakfest to be hold ready for her when she wakes up.
+						image: 000 bed sleeping (1).gif
+						She should really get it together. Softly you shake her until she starts to stir. Turning around and looks you in the eyes.
+						SM"Good morning sleepy head"
+						Rhia2"..or..ing"
+						and back she snuggles into her plush bear.
+						Finding it too sweet you decide to let her sleep in a bit more.
+
+
+
+Passing throu the hall of your home you see #Slave is standing there waiting. Not sure as to why she is still here the answer you get leads to your useless sister. Maybe it wasn't such a good idea to let her be your assistant in exchange for living here. 
+Hoping that she is at least not slacking off you go to her room.
+image: 000 its too large.jpg
+Not so much slacking of as just unable to even wear her own clothes. With a sign you help her dress and send her off. Hopefull she is better at training #slave than this or she might just be undoing your work.
+
+
+image:000 bored.jpg
+As you get home Rhia2 is looking boored out of the window. Maybe you should talk to her a bit more, after all she came here for your sake.
+
+image: empty house
+Remembering Rhia2s boored face at the window you decide to ask her directly. You decide to look for her but strangely can't find her.
+Just as you where about to get worried you hear the door open and a chearfull voice, quickly you run towards it.
+image: groupholiday-jin64167623ddcaa5bf067dc3994990e3ac.jpg
+There in front of the door is Rhia2. She seems alive and well. But
+"Yay ... look look doesn't it looks great on me, ne?!"
+in some sort of strange pink costune. Well, as long as this is all there is only one thing to do.
+image: 000 bound.gif
+Punishment.
+Instead of dinner there, Rhia2 will pass the time hanging from a tree in the garden.
+
+change to use the talk to her option and so skip all the problem with slacves
+image: 000 happy jump.jpg
+Seeing Rhia2 jumping around on the bed you decide that maybe she should have a bit more playtime so you propose to take her along some times if she promisses not to do interfere with the training.
+Later you would ask yourself just what brought this terrible idea to your head
+
+image: 000 happy.jpg
+Decided to take a walk at the beach you just moved your feet over the door step when you remember your promise with your sister.  You decide the beach to be a good start and call her. She seems quite happy about it and runs after you in a happy mood.
+image: 000 non-h (26).jpg
+Until you reach the beach and get barred from entering because Rhia2 has no swimsuit. So you have to change your direction to the tailor shop.
+image:
+"welcome, what would you like today?"
+After some short words you ask the tailor for a fitting swimsuit for your sister. When you push her forward the tailor mutters a "Ah!". It seems that the day when you where searching for her, Rhia2 was in fact here trying on clothes. Also she left the bill for her costume for you....
+You wanted to ask how the shop keeper knew last time that she was your sister and let her put things on tap even thou she doesn't lets you do this, but the two are already chatting about swimsuits.
+image:
+Driven in a corner you await Rhia2 to try on her new swimsuit. 
+after some moments
+image:000 bikini (5).jpg
+"Look Onii-chan, how about these"
+before you can answer she vanishes again, wasn't this a school 
+image:000 bikini (3).jpg
+"Or maybe are thes better" 
+	a swimsuit would be better
+	looks good
+	the flower is nice
+image: 	000 bikini (9).jpg
+"does this look to plain?"
+	no, its good
+	a bit maybe
+	it apropiate
+immage: 000 beach (2).jpg
+"this one is nice, right!"
+	yeah
+	yeah?
+image: 000 beach (3).jpg
+"or maybe this one Onii-chan?"
+	...
+	...
+imaeg: 000 angry.jpg
+"alright, fine, if its this booring for you just choose one for me then and over"
+image:
+aviable swimsuits
+     image, do you want this one, yes no? 
+     varities
+     000 beach (2)
+     000 bikini (1)
+     000 bikini (5)
+     000 bikini (6)
+     000 bikini (2)
+     000 bikini (9)
+ 	 000 bikini (11)
+image:
+"Thank you for your purchase and please come again"
+"Thank you Onii-chan for the swimsuit!"
+As you leave the tailor shop a happy Rhia2 is jumping up and down besides you.
+The detour did take too much and now the time for the beach trip is already over.
+So you end up returning home, but even so have a sense of acomplishment.
+
+image:
+agian you decide to go to the beach and Rhia2 goes along, this time with the swimsuit you bought her.
+image: take a beach image and add illya onto it.
+
+
+image: ....
+beach event2
+
+image:
+beach event 3
+
+image: 000 beach showing dress.jpg
+
+image:
+beach event where Rhia2 meet Kuro and kuro starts playing tricks onto her
+
+
+Talk to her events:
+talk to her about the beach 
+	you can visit the beach throu her beach related events
+	leads to new dialogs
+talk to her about the costume she bought
+    leads to her talking about cosplying and will start appearing in cosplays if you premit it
+talk about school and she will suggest going to school
+	leads to sometimes she going to school and not being aviable for training
+		if you go with slave to school and Rhia2 is there then you get an event of Rhia2 at school
+	leads to Kuro and Muyo appearing at home some times
+	leads to new dialogs and delusions oof Rhia2
+	leads to friends at beach
+	leads to friends with costumes at home
+
+
+Talk
+"Rhia2, when you came here you didn't bring much luggade, are you sure you have all the things you need?"
+"Yes, I've got no problem!"
+"got no problem" This sounded not very convincing. You remember her been all happy when she came back in those black clothes, at least before you hang her from a tree as punishment for going out without telling you.
+"What was about this black suit and mantle you bought?"
+A bit embarresed Rhia2 looks at you and starts fiddeling
+"Ah.. this.. is just for...cosplay.."
+	permit her to buy them 
+		"If it makes you so happy you can buy them, just keep a limit to it"
+		With glittering eyes Rhia2 stares at you, not beliving her ears before
+		"Waaaaaaaai"
+		jumping strait at you
+		"THANK YOU ONII-CHAN"
+		Somehow you think that your purse will regret this.
+	dont permit
+		"dont waste money like this" "Sorry Onii-chan" some how you feel bad seeing you sister now downhearted and sniffling
+
+You enter Rhia2 room 
+	and find a...
+	are welcomened by
+	are surprised
+
+
+Talk
+You are somewhat worried about Rhia2 isolating herself to much in her room. Sadly you own noone her age to make company to her. 
+Sitting in front of her you start "Rhia2, how about going to school?" 
+"wah?..." Dumbfolded she looks at you 
+"You should study properly"
+"ah.." somewhat panicing now
+"and there will be girls of your age"
+"Wait, but what about the training?" 
+"going to school 3 times a week will be enougth"
+"B-Bu ..ut"
+Its seem Rhia2 is somewhat unwilling
+"Ah yes, the money. It would cost money for the tutution so it would be a waste, right?"
+Maybe you should have brought the whip? // alternative:
+It seems she maybe doesn't want to but you squash her only hope
+"Don't be lazy, from next week on you will be going to school"
+"Waaaa....sniff"
+Now you just have to go and set the papers at the school in order.
+
+You have to visit the school now(the one for science)
+just put 2 lines of dialoge and a happy teacher there. (the english teacher the text book)
+
+Talk
+
+image: 000 she and her caretakers
+Somehow you find it mean that your sister gets 2 personal attendants. Maybe its time to change this.
+if corruption 75+ contact bandidts to abduct attendants.
+
+
+Towncenter
+If Rhia goes to school today possible to meet her at 8 in towncenter
+image: 000 school (5).png
+Get some images of her walking to school with friends from the anime
+000 school (15).jpg you see RHia siting on the ground waiting and looking boored. Do you aproach her? 000 school (14).jpg Yes: She looks surprised to see you here. After a short talk it comes out that she is waiting for some friends from school.
+No: you leave her be, when looking back again she is running towards some girls, it seems they are her friends from school.
+groupanonymous211dd20dd7fe7515109c6bd54adb2055
+groupushijima nozomie0c15ba9f0913ecbd00ea5b8a6fde549.jpg
+groupanonymous86b1992f368f8c1138554bc1d96c37a8.jpg
+groupanonymous968cb06d8c97d237c31f2d98bef092d7.png
+groupanonymouscfe35ce7e8352168115019bb11fac736.jpg
+groupanonymousf270532e2b949c080da93635d282b2c3.jpg
+grouphoriguchi hiroshifb50f08b4f3bc67b0e51a188046aaed7.jpg
+groupkamanatsu2ecaf942b1e121e73fa03a93d83be938.jpg
+groupkiminitokimekiee591f43c2028ef2be40517941572db0.png
+
+Visiting the school with slave
+You bring slave to the science school and find Rhia there
+images:
+000 school (5).jpg - doing some sport excercises in the yard
+000 school (6).png - fidling with her bloomers to hide her showing panties
+000 school.jpg - looking far to serious for the game she is playing with the other kids
+000 school (3).jpg - you marvel of how nicly the bloomer fits and grips into her along with the fluttering shirt. It was good to order a small size
+000 school (2).jpg - sadly today RHia seems to be wearing a long T-shirt. Devastated you decide to order #slave to wash all of Rhias Tshirts with very hot water next time.
+000 school (2).png - you hear from the nurse that Rhia got hurt during Kendo classes and is resting in the nurce office. NEXT She seems to be "resting" quite well and also having takeen a liking into kendo. Surprised she looks at you smiling. What do you do? Help her out, leave, spank her wit the bambo sword for slavcking off.
+000 school (10).jpg - you see Rhia leave home with w very peculiar set of clothes. Seems like she doesn't want to change nto sports attire at scchool. Well, children can get away with this type of fashion sense.
+000 school (12).jpg -  while waiting for #slave to finish her lesson Rhia comes by in her sports attire and says hi to you.
+000 school (1).jpg  -  while waiting for #slave to finish her lesson Rhia comes by in her sports attire and says hi to you.
+000 school (13).jpg - You meet Rhia in the hall way, but before you can call out to her she makes you a sign to remain silent and becons you to follow her. Curious you comply. She guides you throu the school until reaching her aim. NEXT make her show you a display of a schoolgirl being trained. You notice that Rhia is watching attently. Maybe you should let her watch you training #slave sometimes. 
+Images of school from anime
+image: groupanonymousa7cc3045f86aa62cb3af3cd4790e6b4a.jpg
+You look out of a window and see Rhia chatting along with some girls, probably her friends. You happily watch until they get up and leave, shortly after #slave comes out from her class and you have to keep going. "Slave:Did something good happen?"
+
+
+
+
+
+At home
+000 school (3).png - Rhia is walking around half dressed in her swimsuit. The dark part gets really nicely enfatised by all the white around. Some white streaks on the dark part an dripping out of it also would be nice. Somehow you feel like squeesing and twisting her vaginal lips would be fun. You have to restrain yourself to not give in to your curiosity of what faces she would make while you are kneeting her lower lips.
+000 chibi (7).jpg - You knock on Rhias door, but no response. After waiting you carefully open the door. You find RHia sleeping on her desk, spraled on her homework. Will this sleepy head ever be able to stay up late and help out?
+
+groupushijima nozomid939da9692d600da8cbb59ff6140d6d2.jpg 
+groupkamanatsu2ecaf942b1e121e73fa03a93d83be938.jpg
+groupanonymous9c7b7579c1e925493b44a9345cb1c08f.jpg
+You hear the door open and go welcome Rhia. Surprising it seems that she has brought some friends back home.
+
+You hear the door open and go welcome Rhia.
+Options
+she appears in a new cosplay
+She happily jumps at you.
+
+Playing at home images
+While training #slave you hear a scream upstairs and run up to see what happened slamming the door open
+"bed (1).jpg" you find Rhia, only in panties, pinning down her friend who is for some reason dressed as maid. Not really sure what to make out of this you decide that as long as Rhia is doing the pinnig she doesn't seem to be in danger. Still, you didn't know she had something for cute helpless maids.
+
+Walking past Rhias door you her two low voices worried you look inside 
+bed (8).jpg but its only her maid fetish in action again
+
+You went to talk to your sister, but ....
+"bed (3).jpg" find her occupied with her friend eating ice cream on the bed. Maybe you should scold her for it later.
+"bed (7).jpg" find her being patted on the head by hr friend already in their pijamas. You decide that what ever you had to ask can wait until tomorrow.
+"bed (5).jpg" find Rhia already sleeping, Miyu on the other hand looks excited for some reason. Being so jung and easyly excited must be nice.
+"bed (2).jpg" encounter her and her friend half undressed on the bed. They don't seem very embarassed from you walking in on them. Maybe scarring them a bit would be fun?
+"bed (1).png" hear her calling you before you are able to reach the door. Surprised you find Rhia and her friend laying naked on the bed semingly waiting for you in anticipation. It seems they enjoed last time a lot and want more. As her older brother you can't diapoint her.
+
+groupsoukai (lemonmaiden)1bb7390040fd72c5f92689e21df45bca.jpg Rhia and Miyu are expecting you with longing faces. This tentacle clothes you bought for Rhia really were worth it.
+
+groupsoukai (lemonmaiden)72a3b843ea6bff0d3096e953dcd76443.jpg Following Rhia into a restroom at the school you find her and Miyu both posing in bloomers. Miyus embarresed face from showing of her belly is just to arousing to resist.
+
+grouptekku (07201115)582cdb04cf4999a09b4cbcc9998affd9.jpgJust telling them that there was no changing room for their new cosplay clothes was enouth to convince them to change in the middle of the store. You have to try really hard to hold your laughter. 
+groupushijima nozomi98586c871c980ab58c93077b9a8f44a8.jpg Now walking along the town in their new dresses they are blushing all the time. You should have know that these traditional closes are worn without underware.
+
+Searching and searching but nowhere to be found. It seems you lost the new pill thats was given to you by astrid for testing. Hopefully nobody did mistaken it for candy....NEXT
+"groupmusouzuki665900ff95c8c1dd8078cbb786db1a4e.jpg" well, what different was to expect with the airhead of a sister of yours. Hopefully it goes away soon or you will have to explain some things to your parents.
+
+"groupmultiple artists6cc798f917dd0304a94d904af83facf0.jpg" The new costummes seem to be a hit with your sister. But probably her fetishes have gone up in number now.
+
+"groupmotsu (kk 3)2d17cd9148ffe3fc97134184ca9f3c56.jpg" The new bathing suits really reflect the Mioyan style of beach clothes. Well you bougt it for them so now you can take your time apreciating their jung bodies. But soon you want these two on your lap rubbing their small buts against you. Pulling the swimsiuts a bit to the side will be enouth and looks great.
+
+"groupmultiple artistsbf3979b4c8ff900bd32ad62778f2a107.jpg" You see Rhia among a lot of girls. Probably from her school. Withthis number you can let them play alone and keep wallking with #slave.
+
+"groupramble6e3a62f2c5f6e84064341432bfa3c3ae.jpg" Seems like the new school swimsuits are there. "You really should try to lock the door of the bath before changing"
+
+"groupnukonu-ko2e49747ce747e7e4d8c09e4e3ce05714.jpg" #slave says she saw Rhia and her friend kissing. It seems Rhias love for girls has bloomed. You decide not to intrude and go to the garden. But it seems they had the same idea. "groupsenya fuurin16926cc6c1ce0bbaed8accc12a40a72d.jpg" "...good taste in maids..." you are impressed
+
+"groupkishimen6b1d6c142984b3ba737d651bfd438ffb.jpg" You hear giggling from the bath. A quick peek shows you that your sisters relation ships seem to be progressing well.
+
+"groupmirai (macharge)94e3ecdebbe7e4e3593fb188e9a5c1d7.jpg" Miyu came over again for cosplaying as it seems. Checking up on them you find that they had progressed a bit in their play.
+"groupkishimen7c34a509e4df56d507da97cd26532477.jpg" and their costumes half off. and
+"groupkousaka junf775cd2e437f3d5a9b13c769d0cf19cb.jpg" It does not take long until they are completly off and Miyu is completly focused on Rhia. Strangely Rhia sends some glances to the door, maybe she noticed you and hoped for you to join?
+
+"groupkannuki hisui2cbfa7a3166a50c39d527efefac55624.png" Before rushing out for the festival at the temple Rhia makes sure to show of to you in her new Kimono. Along site her is Miyu.
+
+"groupkiminitokimekiee591f43c2028ef2be40517941572db0.png" You see Rhia at school and want to call out to her, but restrain yourself as she seems to be quite clinging to a friend of hers.
+"grouphoriguchi hiroshifb50f08b4f3bc67b0e51a188046aaed7.jpg" "groupanonymouscfe35ce7e8352168115019bb11fac736.jpg" You see Rhia at school and want to call out to her, but restrain yourself as Miyu seems to be quite clinging to Rhia, maybe too much?
+
+"grouphoriguchi hiroshi1b51c644b529a1037ec6bff639efe58d.jpg" While relaxing you arecciate how lively your sister and her friend are in the fresh water. At first you thought that they wouldn't want to go to the beach since they had only their school swim suit with them. but it seems they forgot it as soon as they started playing in the water, besides they still look great in them, maybe even better than in a bikini.
+
+"groupanonymous428df426e4aaa4e59ac8267b2d79c3de.jpg" Rhia and her friend are taking it easy on the beach. Maybe you should warn her not to stay too long
+Yes
+	It may seem like you are only bodering her but still its  for her best. 
+	NEXT
+	later when you are going into the showers before leaving the beach you catch a glimpse of the two running around naked"groupanonymousbab39217a4fa86fd20625c60b48f05ee.jpg" in the locker room. It seem that they did take your words to heart.
+No
+	Its their problem if they get sun burns, maybe so they will remember next time on their own.
+	NEXT
+	later when you are going into the showers before leaving the beach you catch a glimpse of the two running around naked "groupanonymousd2f6e0b8498fd530112a64770c75d4f6.jpg" in the locker room. It seem that they had luck in not getting burnt and this bikini marks are enfaticing their youthful mounds greatly.
+
+"groupanonymousd45240ec4f8c074a31a952be5c67ff14.png" Upon entering the onsen you are welcomed by a surprised Rhia and an angry Miyu. It seems like they did not know that this bath is mixed.
+
+"groupanonymousb9c404a9b0a624797e1d572125f518b4.jpg" It seems that the island feeling has washed over the two girls as they left all clothes behind and started playing on the empty beach. The laces on their legs make them look even sexier, just like a present to be opened and taken.
+
+Beach (when you go with slave, Rhia tags along)
+Add on text: Seeing you go to the beach Rhia decides to tag along promising not to hinder your training.
+000 beach (4).jpg While you take #slave along the beach Rhia finds the first place to lay down and bath in the sun. Looking at her eating her popsickle and the spilled sun lotion you think that she has some natural talent.
+000 beach showing dress.jpg Rhia is running up to you and lifts her dress. You are surprised by her action and even more so that she is going comando. The beach is definetly having a liberating influence on her which shows in her already brilhant sassy smile.
+You wait at the
+
+
+
+
+Use new area mechanice to search a room and find they girls in the locker
+
+
+You meet Rhia new part time teacher (Rider)
+she says she works part time at school and part time at a bar.
+The owner of the bar is really nice. 
+For a teacher you find her choice of clothes a bit dark, but maybe she want to be taken serious by her students or even feared.
+Now lets see how Kuro and Rhia make her show her maso slut side
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Your slave brought your tea. But uppon drinking it you almost burned your tongue. Irritated for her having serverd the tea too hot you put her in front of you and start pooring the hot tea over her nipples. Relinquishing in #slaves anguish you decide to take it a step further. After all the tea is spend on her now bright red breasts you start massaging and rubbing the red parts causing her further anguish. With tears streaming down her face she begs you to stop, only for you to start pinching and twisting her sensitive nipples. For the next minutes you keep enyoing her screams until letting go of her breasts upon which she collpses drowling and with empty eyes wet by tears. This was fun, maybe you could take it a step further.
+
+The kettle with steaming water dangles in your hand while #slave squirms in her bindings. You spread carefully  open her vagina and expose her clit. Now so ever slowly the ketttle gets closer to her and she keeps trying to srceam into her gag, but to no avail. A fin trickel of very hot water hits her clit sending a jolt throu her body. Swinging lightly the kettle the water keeps hittting alternating her vagina, urethera, anus and clit. Enjoying the different reactions you keep on until all the water has been used. #slave seems to have fainted, what a pity you still wanted to start spanking her now pulsating red genitals. In the end you decide to do it anyway and see if she will wake up from it. Already on the first strike you see her jerking and screaming, it seems to be a sucsses. So you decide to continue for the next half hour with the spanking and rubbing letting #slave expirience more excreturting pain mixxed with the pleasure from each hit on her sensitive area which was just now even more sensible due to the burning.
+
+You did buy a new afrodisiac potion and decide to test it on #slave. As you open the bottle it smells strangly like pfeffer, not really caring you start smearing it over and into #slave's vagina. The effect is imediate with #slave gasping for air. Soon this changes into screaming and klenching her legs while desperately trying to rub vagina as if to rip it off. Liquids eroupt from #slave's body all over, be it tears, sweat or droll. Especially down her lgs it's flowing like a river. #slave starts to climax but funnily keeps on rubbing and then suddenly peeing. After half a hour she is utterly exausted and look terrible covered in sweat with eyes red from crying. Around her is a pool of pussy juce mixxed with her pee. Currios you slowly insert a finger into the bottle and lick a bit off the potion of your finger. At the same moment your tongue starts burning and you run for a glass of water. It seems they accidentally sold you a flask with tabasko instead of a afrodisiak. Well, you liked this one better even if #slave may be of other opinion.
+
+

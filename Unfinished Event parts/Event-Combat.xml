@@ -1,0 +1,1463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Outline
+	Now here is a new combat module just for fun because combat in the 3.403beta version does only return intant win or lose acording to the event
+	
+	base outline
+		  separate Holy and physic damge
+		  wappon and Holy types
+		  circle of advantage
+		  critical chance dependant uppon wapon
+		  critical multiplyer dependant on wapon
+		  surprise element for first strike in combat
+		  bonus effects
+		  		<if smcorruption='0'>                    
+					<SetValue>1.2</SetValue>          
+				<else>if</else>                     
+					<SetValue>1.0</SetValue>       
+				</if>  
+				<MonsterHit>
+					<SetText>You move the #weapon in an arc, bathing the enemy in holy fire</SetText>
+					<ChangeVar smhealth='+1'/>
+					<ChangeVar smlust='-3'/>						
+				</MonsterHit>
+
+	
+	Damage Types
+	Physical
+	Magic
+	Fire
+	Lust
+
+
+
+#ArmorType #Armor 		defense 	speed penality	tiredness factor
+
+0	none				0			0				1
+1	Leather Armour		20			20				1.1
+    adds lust damage to SM if dominatrix
+    adds lust damage to monster if using whip
+2	Chain Mail			20			10				1
+    adds lust damage to enemy
+    adds lust damage to SM if naked
+    adds lust damage to SM if exibicionist 
+3	Scale Mail			30			40				1.3
+4	Plate Armour		60			80				2
+5	N7 Armor			60			60				1.5
+6	Blood Dragon Armor 	55			70				1.6
+7	Holy Armor			80			120				3
+	reduced protection if corrupted
+
+#WeaponType #Weapon #WeaponClass	damage 	speed penality	tiredness factor
+
+0	none			snarmed			0		0				
+1	Sword			sword			30		10				
+2	bow				bow				25		30				
+3	Whip 			whip			5		15				
+4	A wooden Hammer	hammer			nan 	nan				
+5	Nagitana		nagitane		30		20				
+6	Dagger			dagger			10		5				
+7	crossbow		crossbow		55		50				
+8	Axe 			nagitana		30		20				
+9	Quartet			nagitana		20		20				
+10	SteelWhip		whip			25		15				
+11	Blue Storm		dagger			20		5				
+12	Red Sword 		sword			28		10				
+13	Katana 			sword			35		10				
+14	Throwing Knife	thrown			23		20				
+15	Tri-Blade		thrown			30		10				
+16	Artic Blizzard 	sword			40		15				
+17	Autumn Hills 	sword			40		15				
+18	Etching Tears 	sword			40		15				
+19	Fire Flower 	sword			40		15				
+20	Ivy Blossom 	sword			40		15				
+21	Jade Storm 		sword			40		15				
+22	Lilly Koi 		sword			40		15				
+23	Black Orchid 	sword			40		15				
+24	Chakram			thrown			25		15				
+25	Magical Chakram	thrown			30		10				
+26	Steel Blue Fan	thrown			15		3				
+27	Sharp Boomerang	thrown			20		45				
+28	Heavens Fury	sword			80		20
+	reduced damage if corrupted			
+29	Bow of Vigor	bow				35		20				
+30	Yew Bow 		bow				40		15				
+31	Elfen Bow 		bow				55		20				
+32 Black Flame		nagitana 		35		20				
+33 Vampiric Axe 	hnagitana		40 		20				
+34 Chrozium Arcanum nagitana		40		20				
+35 Staff of the forest nagitana		50		15				
+36 Demonic Staff 	nagitana		50		15				
+37 Holy hammer 		hammer 			40		15				
+38 Morning Glory 	hammer 			30		15				
+39 Morningstar 		hammer 			30		15				
+40 Star of Sacrifice hammer 		30		15		
+
+
+still excluding profiency
+ 		            max and mins
+speedpenality 		170		0
+tiredness factor	3		1
+damage unarmed		100		0
+damage best weapon	160		60
+damage average		110		60
+
+-->
+
+<!-- math operators found until now
+var1='round(50/3)'
+sqrt(100)
+3^4
+???
+-->
+<Language>
+
+	<Events>
+		<CustomHouse-x_Coliseum name="x_Coliseum" hint="The testing place for this combat module" xpos="40" ypos="80" show="true">
+			<DoEvent now="true">ColiseumWelcome</DoEvent>
+		</CustomHouse-x_Coliseum>
+
+	<!-- Combat Engine Start _______________________________________________________________________________________________________________________________   -->
+
+		<CombatStart>
+			<AddText>CombatStart Node\r\r</AddText>
+			<DoEvent>CheckEnemy</DoEvent>
+		</CombatStart>
+
+		<CheckEnemy>
+			<AddText>CheckEnemy Node\r\r</AddText>
+			<if flagCombat_15='true'>
+				<Choices>
+					<Choice savedvar5_combat='2'>
+						<SetVar savedvar6_Combat="3"/> <!-- monster attack -->
+						<SetVar savedvar7_Combat="40"/> <!-- monster reload time -->
+						<SetVar savedvar8_Combat="4"/> <!-- monster defense -->
+						<SetVar savedvar9_Combat="50"/> <!-- monster HP -->
+					</Choice>
+					<Choice savedvar5_combat='1'>
+						<SetVar savedvar6_Combat="4"/> <!-- monster attack -->
+						<SetVar savedvar7_Combat="30"/> <!-- monster reload time -->
+						<SetVar savedvar8_Combat="2"/> <!-- monster defense -->
+						<SetVar savedvar9_Combat="50"/> <!-- monster HP -->
+					</Choice>
+					<Default>
+						<!-- Let the event maker decide from outside the event file -->	
+					</Default>
+				</Choices>
+			</if>
+			<if flagCombat_16='true'>
+				<Choices>
+					<Choice savedvar16_combat='2'>
+						<SetVar savedvar17_Combat="3"/> <!-- monster attack -->
+						<SetVar savedvar18_Combat="40"/> <!-- monster reload time -->
+						<SetVar savedvar19_Combat="4"/> <!-- monster defense -->
+						<SetVar savedvar20_Combat="50"/> <!-- monster HP -->
+					</Choice>
+					<Choice savedvar16_combat='1'>
+						<SetVar savedvar17_Combat="3"/> <!-- monster attack -->
+						<SetVar savedvar18_Combat="40"/> <!-- monster reload time -->
+						<SetVar savedvar19_Combat="4"/> <!-- monster defense -->
+						<SetVar savedvar20_Combat="50"/> <!-- monster HP -->
+					</Choice>
+					<Default>
+						<!-- Let the event maker decide from outside the event file -->	
+					</Default>
+				</Choices>
+			</if>
+			<if flagCombat_17='true'>
+				<Choices>
+					<Choice savedvar27_combat='2'>
+						<SetVar savedvar21_Combat="3"/> <!-- monster attack -->
+						<SetVar savedvar22_Combat="40"/> <!-- monster reload time -->
+						<SetVar savedvar23_Combat="4"/> <!-- monster defense -->
+						<SetVar savedvar24_Combat="50"/> <!-- monster HP -->
+					</Choice>
+					<Choice savedvar27_combat='1'>
+						<SetVar savedvar21_Combat="3"/> <!-- monster attack -->
+						<SetVar savedvar22_Combat="40"/> <!-- monster reload time -->
+						<SetVar savedvar23_Combat="4"/> <!-- monster defense -->
+						<SetVar savedvar24_Combat="50"/> <!-- monster HP -->
+					</Choice>
+					<Default>
+						<!-- Let the event maker decide from outside the event file -->	
+					</Default>
+				</Choices>
+			</if>
+			<DoEvent>CheckSM</DoEvent>
+		</CheckEnemy>
+
+		<CheckSM>
+			<AddText>Check SM Node\r\r</AddText>
+			<Choices>
+				<Choice WeaponType='0'>
+					<SetVar savedvar1_Combat="0+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+0"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='1'>
+					<SetVar savedvar1_Combat="30+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+10"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='2'>
+					<SetVar savedvar1_Combat="25+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+30"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='3'>
+					<SetVar savedvar1_Combat="5+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+15"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='4'>
+					<SetVar savedvar1_Combat="150+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+50"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='5'>
+					<SetVar savedvar1_Combat="30+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+20"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='6'>
+					<SetVar savedvar1_Combat="10+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+5"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='7'>
+					<SetVar savedvar1_Combat="55+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+50"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='8'>
+					<SetVar savedvar1_Combat="30+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+20"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='9'>
+					<SetVar savedvar1_Combat="20+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+20"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='10'>
+					<SetVar savedvar1_Combat="25+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+15"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='11'>
+					<SetVar savedvar1_Combat="20+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+5"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='12'>
+					<SetVar savedvar1_Combat="28+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+10"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='13'>
+					<SetVar savedvar1_Combat="35+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+10"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='14'>
+					<SetVar savedvar1_Combat="23+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+20"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='15'>
+					<SetVar savedvar1_Combat="30+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+10"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='16'>
+					<SetVar savedvar1_Combat="40+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+15"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='17'>
+					<SetVar savedvar1_Combat="40+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+15"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='18'>
+					<SetVar savedvar1_Combat="40+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+15"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='19'>
+					<SetVar savedvar1_Combat="40+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+15"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='20'>
+					<SetVar savedvar1_Combat="40+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+15"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='21'>
+					<SetVar savedvar1_Combat="40+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+15"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='22'>
+					<SetVar savedvar1_Combat="40+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+15"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='23'>
+					<SetVar savedvar1_Combat="40+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+15"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='24'>
+					<SetVar savedvar1_Combat="25+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+15"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='25'>
+					<SetVar savedvar1_Combat="30+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+10"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='26'>
+					<SetVar savedvar1_Combat="15+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+3"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='27'>
+					<SetVar savedvar1_Combat="20+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+45"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='28'>
+					<SetVar savedvar1_Combat="80+smattack-corruption"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+20"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='29'>
+					<SetVar savedvar1_Combat="35+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+20"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='30'>
+					<SetVar savedvar1_Combat="40+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+15"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='31'>
+					<SetVar savedvar1_Combat="55+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+20"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='32'>
+					<SetVar savedvar1_Combat="35+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+20"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='33'>
+					<SetVar savedvar1_Combat="40+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+20"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='34'>
+					<SetVar savedvar1_Combat="10+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+20"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='35'>
+					<SetVar savedvar1_Combat="50+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+15"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='36'>
+					<SetVar savedvar1_Combat="50+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+15"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='37'>
+					<SetVar savedvar1_Combat="40+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+15"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='38'>
+					<SetVar savedvar1_Combat="30+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+15"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='39'>
+					<SetVar savedvar1_Combat="30+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+15"/> <!-- reload time -->
+				</Choice>
+				<Choice WeaponType='40'>
+					<SetVar savedvar1_Combat="30+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+15"/> <!-- reload time -->
+				</Choice>
+				<Default>
+					<SetVar savedvar1_Combat="2+smattack"/> <!-- attack -->
+					<SetVar savedvar2_Combat="20+20"/> <!-- reload time -->
+				</Default>
+			</Choices>
+
+			<Choices>
+				<Choice ArmorType='7'>
+					<SetVar savedvar3_Combat="80-corruption"/> <!-- defense -->
+					<SetVar savedvar4_Combat="120"/> <!-- reload time penalty -->
+					<SetVar savedvar15_combat='3'/> <!-- tiredness factor -->
+				</Choice>
+				<Choice ArmorType='6'>
+					<SetVar savedvar3_Combat="55"/> <!-- defense -->
+					<SetVar savedvar4_Combat="70"/> <!-- reload time penalty -->
+					<SetVar savedvar15_combat='1.6'/> <!-- tiredness factor -->
+				</Choice>
+				<Choice ArmorType='5'>
+					<SetVar savedvar3_Combat="60"/> <!-- defense -->
+					<SetVar savedvar4_Combat="60"/> <!-- reload time penalty -->
+					<SetVar savedvar15_combat='1.5'/> <!-- tiredness factor -->
+				</Choice>
+				<Choice ArmorType='4'>
+					<SetVar savedvar3_Combat="60"/> <!-- defense -->
+					<SetVar savedvar4_Combat="80"/> <!-- reload time penalty -->
+					<SetVar savedvar15_combat='2'/> <!-- tiredness factor -->
+				</Choice>
+				<Choice ArmorType='3'>
+					<SetVar savedvar3_Combat="30"/> <!-- defense -->
+					<SetVar savedvar4_Combat="30"/> <!-- reload time penalty -->
+					<SetVar savedvar15_combat='1.3'/> <!-- tiredness factor -->
+				</Choice>
+				<Choice ArmorType='2'>
+					<SetVar savedvar3_Combat="20"/> <!-- defense -->
+					<SetVar savedvar4_Combat="10"/> <!-- reload time penalty -->
+					<SetVar savedvar15_combat='1'/> <!-- tiredness factor -->
+				</Choice>
+				<Choice ArmorType='1'>
+					<SetVar savedvar3_Combat="20"/> <!-- defense -->
+					<SetVar savedvar4_Combat="20"/> <!-- reload time penalty -->
+					<SetVar savedvar15_combat='1.1'/> <!-- tiredness factor -->
+				</Choice>
+				<Default>
+					<SetVar savedvar3_Combat="0"/> <!-- defense -->
+					<SetVar savedvar4_Combat="0"/> <!-- reload time penalty -->
+					<SetVar savedvar15_combat='1'/> <!-- tiredness factor -->
+				</Default>
+			</Choices>
+			<if flagCombat_02='true'>
+				<SetVar savedvar10_Combat="smconstitution*2-smtiredness/10"/> <!-- HP -->
+				<SetVar savedvar14_Combat="smconstitution/2+conversation/2+corruption"/> <!-- MP -->
+			</if>
+			<if savedvar10_Combat='1-'>
+				<SetVar savedvar10_Combat="1"/> <!-- how the hell did get your constitutionso low? -->
+			</if>
+			<DoEvent>IniciateCounters</DoEvent>
+		</CheckSM>
+
+		<IniciateCounters>
+			<AddText>Iniciate Counters Node\r\r</AddText>
+			<SetFlag flagCombat_04='false'/> <!-- you don't start defending -->
+			<SetVar savedvar11_Combat="1"/> <!-- main time -->
+			<SetVar savedvar12_Combat="0"/> <!-- sm reload time -->
+			<SetVar savedvar13_Combat="0"/> <!-- monster1 reload time -->
+			<SetVar savedvar25_Combat="0"/> <!-- monster2 reload time -->
+			<SetVar savedvar26_Combat="0"/> <!-- monster3 reload time -->
+			<SetVar savedvar15_Combat="100"/> <!-- status effect reload time -->
+			<if flagCombat_01='true'>
+				<SetFlag flagCombat_01='false'/>
+				<DoEvent>SurpriseAttack</DoEvent>
+				<EndEvent/>
+			</if>
+			<DoEvent>UpdateHPMPLUST</DoEvent>
+		</IniciateCounters>
+
+		<SurpriseAttack>
+			<AddText>Suprise Attack Node\r\r</AddText>
+			<AddText>It took you by surprise and you received the first hit!\r</AddText>
+			<SetVar var1="(savedvar6_Combat-savedvar3_Combat)"/> <!-- damage SM -->
+			<if flagCombat_16='true'>
+				<SetVar var1="var1+(savedvar17_Combat-savedvar3_Combat)"/> <!-- damage SM -->
+			</if>
+			<if flagCombat_17='true'>
+				<SetVar var1="var1+(savedvar21_Combat-savedvar3_Combat)"/> <!-- damage SM -->
+			</if>
+			<SetVar savedvar12_Combat="savedvar12_Combat+10"/> <!-- sm reload time -->
+			<SetVar savedvar13_Combat="savedvar13_Combat+savedvar7_Combat/2"/> <!-- monster1 reload time -->
+			<SetVar savedvar25_Combat="savedvar25_Combat+savedvar18_Combat/2"/> <!-- monster2 reload time -->
+			<SetVar savedvar26_Combat="savedvar26_Combat+savedvar22_Combat/2"/> <!-- monster3 reload time -->
+			<DoEvent>UpdateHPMPLUST</DoEvent>
+		</SurpriseAttack>
+
+		<!--	<RunTime>
+			<SetText>clc\r</SetText>
+			<AddText>RunTime Node\r\r</AddText>
+			<for start="0" end="12">
+	 			<if savedvar12_Combat='0-'>
+	 				<DoEvent>TurnSM</DoEvent>
+	 				<EndEvent/>
+	 			</if>
+	 			<if savedvar13_Combat='0-'>
+	 				<DoEvent>TurnMonster</DoEvent>
+	 				<EndEvent/>
+	 			</if>
+	 			<SetVar savedvar12_Combat="savedvar12_Combat-10"/>
+	 			<SetVar savedvar13_Combat="savedvar13_Combat-10"/>
+	 			<if loop='10'>
+	 				<DoEvent>StatusEffects</DoEvent>
+	 				<EndEvent/>
+	 			</if>
+	 		</for>
+		</RunTime> -->
+		<RunTime>
+			<if savedvar13_Combat="savedvar25_Combat-">
+				<if savedvar13_Combat="savedvar26_Combat-">
+					<SetVar var1='1'/>
+					<SetVar var2='savedvar13_Combat'/>
+				<else>if</else>
+					<SetVar var1='3'/>
+					<SetVar var2='savedvar26_Combat'/>
+				</if>
+			<else>if</else>
+				<if savedvar25_Combat='savedvar26_Combat-'>
+					<SetVar var1='2'/>
+					<SetVar var2='savedvar25_Combat'/>
+				<else>if</else>
+					<SetVar var1='3'/>
+					<SetVar var2='savedvar26_Combat'/>
+				</if>
+			</if>
+
+			<if savedvar15_Combat="savedvar12_Combat-">
+				<if savedvar15_Combat="var2-">
+					<SetVar savedvar12_Combat='savedvar12_Combat-savedvar15_Combat'/>
+					<SetVar savedvar13_Combat='savedvar13_Combat-savedvar15_Combat'/>
+					<SetVar savedvar25_Combat='savedvar25_Combat-savedvar15_Combat'/>
+					<SetVar savedvar26_Combat='savedvar26_Combat-savedvar15_Combat'/>
+					<SetVar savedvar15_Combat="100"/> <!-- reset status effect reload time -->
+					<DoEvent>StatusEffects</DoEvent>
+	 				<EndEvent/>
+	 			<else>if</else>
+	 				<SetVar savedvar12_Combat='savedvar12_Combat-var2='/>
+					<SetVar savedvar15_Combat='savedvar15_Combat-var2='/>
+					<SetVar savedvar13_Combat='savedvar13_Combat-var2='/> <!-- reset monster reload time without having to know for which-->
+					<SetVar savedvar25_Combat='savedvar25_Combat-var2='/> <!-- reset monster reload time without having to know for which-->
+					<SetVar savedvar26_Combat='savedvar26_Combat-var2='/> <!-- reset monster reload time without having to know for which-->
+					<DoEvent>TurnMonster</DoEvent>
+	 				<EndEvent/>
+	 			</if>
+	 		<else>if</else>
+	 			<if savedvar12_Combat="var2-">
+					<SetVar savedvar13_Combat='savedvar13_Combat-savedvar12_Combat'/>
+					<SetVar savedvar25_Combat='savedvar25_Combat-savedvar12_Combat'/>
+					<SetVar savedvar26_Combat='savedvar26_Combat-savedvar12_Combat'/>
+	 				<SetVar savedvar15_Combat='savedvar15_Combat-savedvar12_Combat'/>
+	 				<SetVar savedvar12_Combat='0'/> <!-- reset SM reload time -->
+					<DoEvent>TurnSM</DoEvent>
+	 				<EndEvent/>
+	 			<else>if</else>
+	 				<SetVar savedvar12_Combat='savedvar12_Combat-var2='/>
+					<SetVar savedvar15_Combat='savedvar15_Combat-var2='/>
+					<SetVar savedvar13_Combat='savedvar13_Combat-var2='/> <!-- reset monster reload time without having to know for which-->
+					<SetVar savedvar25_Combat='savedvar25_Combat-var2='/> <!-- reset monster reload time without having to know for which-->
+					<SetVar savedvar26_Combat='savedvar26_Combat-var2='/> <!-- reset monster reload time without having to know for which-->
+					<DoEvent>TurnMonster</DoEvent>
+	 				<EndEvent/>
+	 			</if>
+	 		</if>
+	 	</RunTime>
+
+		<UpdateHPMPLUST>
+			<Choices>
+				<Choice var3='1'>
+					<SetVar savedvar9_Combat="savedvar9_Combat-var2"/> <!-- monster HP -->
+				</Choice>
+				<Choice var3='2'>
+					<SetVar savedvar20_Combat="savedvar20_Combat-var2"/> <!-- monster HP -->
+				</Choice>
+				<Choice var3='3'>
+					<SetVar savedvar24_Combat="savedvar24_Combat-var2"/> <!-- monster HP -->
+				</Choice>
+			</Choices>
+
+			<SetVar savedvar10_Combat="savedvar10_Combat-var1*(1-smdefence/100)"/> <!-- SM HP -->
+			<if flagsmadvantages-25='true'>
+				<SetVar smlust="smlust+var1/(smconstitution*2.5)"/> <!-- Masochist lust damage -->
+			</if>
+			<if flagsmadvantages-9='true'>
+				<SetVar smlust="smlust+var2/(20)"/> <!-- Cruel Master lust damage -->
+			</if>
+			<SetVar var1='0'/>
+			<SetVar var2='0'/>
+
+			<SetText>
+				SM    <b>HP:</b> #savedvar10_combat  <b>MP:</b> #savedvar14_combat 
+				      <b>Lust:</b> #smlust <b>Tiredness:</b> #smtiredness
+
+				Monster1 <b>HP:</b> #savedvar10_combat 
+				Monster2 <b>HP:</b> #savedvar20_combat 
+				Monster3 <b>HP:</b> #savedvar24_combat 
+			</SetText>
+
+			<if savedvar10_Combat='0-'>
+				<DoEvent>SMLoseDamage</DoEvent>
+				<EndEvent/>
+			</if>
+			<if flagCombat_15='true' savedvar9_Combat='0-'>
+				<AddText>Monster 1 collapsed.\r</AddText>
+				<SetFlag flagCombat_15='false'/>
+			</if>
+			<if flagCombat_16='true' savedvar20_Combat='0-'>
+				<AddText>Monster 2 collapsed.\r</AddText>
+				<SetFlag flagCombat_16='false'/>
+			</if>
+			<if flagCombat_17='true' savedvar24_Combat='0-'>
+				<AddText>Monster 3 collapsed.\r</AddText>
+				<SetFlag flagCombat_17='false'/>
+			</if>
+			<if flagCombat_15='false' flagCombat_16='false' flagCombat_17='false'>
+				<DoEvent>MonsterLoseDamage</DoEvent>
+				<EndEvent/>
+			</if>
+			<DoEvent>RunTime</DoEvent>
+		</UpdateHPMPLUST>
+
+		<StatusEffects>
+			<AddText>StatusEffect Node\r\r</AddText>
+			<if flagCombat_03='true'>
+				<SetVar savedvar10_Combat="savedvar10_Combat-10"/> <!-- SM HP -->
+				<AddText>You are poisened, thus take 10 points of poison damage.\r</AddText>
+			</if>
+			<if flagCombat_05='true'>
+				<AddText>StatusEffect 2 Lust 1</AddText>
+			</if>
+			<if flagCombat_06='true'>
+				<AddText>StatusEffect 2 Lust 2</AddText>
+			</if>
+			<if flagCombat_07='true'>
+				<AddText>StatusEffect 2 Lust 3</AddText>
+			</if>
+			<if flagCombat_08='true'>
+				<AddText>StatusEffect 2 Paralized</AddText>
+			</if>
+			<if flagCombat_09='true'>
+				<AddText>StatusEffect 2 Stunned</AddText>
+			</if>
+			<if flagCombat_10='true'>
+				<AddText>StatusEffect 2 Bound</AddText>
+			</if>
+			<if flagCombat_11='true'>
+				<AddText>StatusEffect 2 </AddText>
+			</if>
+			<if flagCombat_12='true'>
+				<AddText>StatusEffect 2</AddText>
+			</if>
+			<if flagCombat_13='true'>
+				<AddText>StatusEffect 2</AddText>
+			</if>
+			<DoEvent>UpdateHPMPLUST</DoEvent>
+		</StatusEffects>
+
+		<TurnSM>
+			<AddText>TurnSM Node\r\r</AddText>
+			<SetFlag flagCombat_04='false'/>  <!-- your turn so you stop defending -->
+			<SetVar savedvar28_Combat='1'/> <!-- you stop sidestepping -->
+			<AskQuestion caption="Time to...">
+				<Question event="TurnSMAttackChooseAttack">Attack</Question>
+				<Question event="TurnSMMagic">Magic</Question>
+				<Question event="TurnSMDefend">Defend</Question>
+				<Question event="TurnSMItem">Item</Question>
+				<Question event="TurnSMRun">Run</Question>
+			</AskQuestion>
+		</TurnSM>
+			<TurnSMAttackChooseAttack>
+				<AskQuestion caption="AttacktType">
+					<Question event="TurnSMAttack1">Light</Question>
+					<Question event="TurnSMAttack2">Heavy</Question>
+					<Question event="TurnSMAttack3">Special</Question>
+					<Question event="TurnSM">Return</Question>
+				</AskQuestion>
+			</TurnSMAttackChooseAttack>
+				<TurnSMAttack1>
+				<SetVar var4='1'/>
+				<DoEvent now='true'>TurnSMAttackChooseTarget</DoEvent>
+			</TurnSMAttack1>
+			<TurnSMAttack2>
+				<SetVar var4='2'/>
+				<DoEvent now='true'>TurnSMAttackChooseTarget</DoEvent>
+			</TurnSMAttack2>
+			<TurnSMAttack3>
+				<SetVar var4='3'/>
+				<DoEvent now='true'>TurnSMAttackChooseTarget</DoEvent>
+			</TurnSMAttack3>
+			<TurnSMAttackChooseTarget>
+				<if flagCombat_15='false' flagCombat_16='false'>
+					<SetVar var3='3'/>
+					<DoEvent now='true'>TurnSMAttack</DoEvent>
+					<EndEvent/>
+				</if>
+				<if flagCombat_15='false' flagCombat_17='false'>
+					<SetVar var3='2'/>
+					<DoEvent now='true'>TurnSMAttack</DoEvent>
+					<EndEvent/>
+				</if>
+				<if flagCombat_16='false' flagCombat_17='false'>
+					<SetVar var3='1'/>
+					<DoEvent now='true'>TurnSMAttack</DoEvent>
+					<EndEvent/>
+				</if>
+				<AskQuestion caption="Attackt">
+					<if flagCombat_15='true'>
+						<Question event="TurnSMAttackM1">Moster 1</Question>
+					</if>
+					<if flagCombat_16='true'>
+						<Question event="TurnSMAttackM2">Moster 2</Question>
+					</if>
+					<if flagCombat_17='true'>
+						<Question event="TurnSMAttackM3">Moster 3</Question>
+					</if>
+					<Question event="TurnSMAttackChooseAttack">Return</Question>
+				</AskQuestion>
+			</TurnSMAttackChooseTarget>
+			<TurnSMAttackM1>
+				<SetVar var3='1'/>
+				<DoEvent now='true'>TurnSMAttack</DoEvent>
+			</TurnSMAttackM1>
+			<TurnSMAttackM2>
+				<SetVar var3='2'/>
+				<DoEvent now='true'>TurnSMAttack</DoEvent>
+			</TurnSMAttackM2>
+			<TurnSMAttackM3>
+				<SetVar var3='3'/>
+				<DoEvent now='true'>TurnSMAttack</DoEvent>
+			</TurnSMAttackM3>
+			<TurnSMAttack>
+				<if smtiredness='99+'>
+					<AddText>You try to attack but are to exausted to attack.\r</AddText>
+					<DoEvent>TurnSM</DoEvent>
+					<EndEvent/>
+				</if>
+				<Choices>
+
+					<Choice var3='3'>
+						<Choices>
+							<Choice  var4='1'>
+								<SetVar smtiredness='smtiredness+0.3*savedvar15_combat'/>
+								<if chance='50'>
+									<AddText>You attack and hit.\r</AddText>
+									<SetVar savedvar12_Combat="savedvar12_Combat+savedvar2_Combat+savedvar4_Combat"/> <!-- sm reload time -->
+									<SetVar savedvar13_Combat="savedvar13_Combat+savedvar1_Combat/10"/> <!-- monster reload time -->
+									<SetVar var2='savedvar1_Combat-savedvar8_Combat'/>
+									<if var2='0-'>
+										<SetVar var2='0'/>
+										<AddText>But your #Weapon doesn't manage to injure it.\r</AddText>
+									</if>
+								<else>if</else>
+									<AddText>You attack and miss.\r</AddText>
+									<SetVar savedvar12_Combat="savedvar12_Combat+savedvar2_Combat*1.5+savedvar4_Combat"/> <!-- sm reload time -->
+								</if>
+							</Choice>
+							<Choice  var4='2'>
+								<SetVar smtiredness='smtiredness+0.5*savedvar15_combat'/>
+								<if chance='50'>
+									<AddText>You attack and hit.\r</AddText>
+									<SetVar savedvar12_Combat="savedvar12_Combat+savedvar2_Combat+savedvar4_Combat"/> <!-- sm reload time -->
+									<SetVar savedvar13_Combat="savedvar13_Combat+savedvar1_Combat/5"/> <!-- monster reload time -->
+									<SetVar var2='savedvar1_Combat-savedvar8_Combat'/>
+									<if var2='0-'>
+										<SetVar var2='0'/>
+										<AddText>But your #Weapon doesn't manage to injure it.\r</AddText>
+									</if>
+								<else>if</else>
+									<AddText>You attack and miss.\r</AddText>
+									<SetVar savedvar12_Combat="savedvar12_Combat+savedvar2_Combat*1.5+savedvar4_Combat"/> <!-- sm reload time -->
+								</if>
+							</Choice>
+							<Default>
+								<SetVar smtiredness='smtiredness+1*savedvar15_combat'/>
+								<if chance='50'>
+									<AddText>You attack and hit.\r</AddText>
+									<SetVar savedvar12_Combat="savedvar12_Combat+savedvar2_Combat+savedvar4_Combat"/> <!-- sm reload time -->
+									<SetVar savedvar13_Combat="savedvar13_Combat+savedvar1_Combat/3"/> <!-- monster reload time -->
+									<SetVar var2='savedvar1_Combat-savedvar8_Combat'/>
+									<if var2='0-'>
+										<SetVar var2='0'/>
+										<AddText>But your #Weapon doesn't manage to injure it.\r</AddText>
+									</if>
+								<else>if</else>
+									<AddText>You attack and miss.\r</AddText>
+									<SetVar savedvar12_Combat="savedvar12_Combat+savedvar2_Combat*1.5+savedvar4_Combat"/> <!-- sm reload time -->
+								</if>
+							</Default>
+						</Choices>
+					</Choice>
+
+					<Choice var3='2'>
+						<Choices>
+							<Choice  var4='1'>
+								<SetVar smtiredness='smtiredness+0.3*savedvar15_combat'/>
+								<if chance='50'>
+									<AddText>You attack and hit.\r</AddText>
+									<SetVar savedvar12_Combat="savedvar12_Combat+savedvar2_Combat+savedvar4_Combat"/> <!-- sm reload time -->
+									<SetVar savedvar13_Combat="savedvar13_Combat+savedvar1_Combat/10"/> <!-- monster reload time -->
+									<SetVar var2='savedvar1_Combat-savedvar19_Combat'/>
+									<if var2='0-'>
+										<SetVar var2='0'/>
+										<AddText>But your #Weapon doesn't manage to injure it.\r</AddText>
+									</if>
+								<else>if</else>
+									<AddText>You attack and miss.\r</AddText>
+									<SetVar savedvar12_Combat="savedvar12_Combat+savedvar2_Combat*1.5+savedvar4_Combat"/> <!-- sm reload time -->
+								</if>
+							</Choice>
+							<Choice  var4='2'>
+								<SetVar smtiredness='smtiredness+0.5*savedvar15_combat'/>
+								<if chance='50'>
+									<AddText>You attack and hit.\r</AddText>
+									<SetVar savedvar12_Combat="savedvar12_Combat+savedvar2_Combat+savedvar4_Combat"/> <!-- sm reload time -->
+									<SetVar savedvar13_Combat="savedvar13_Combat+savedvar1_Combat/5"/> <!-- monster reload time -->
+									<SetVar var2='savedvar1_Combat-savedvar19_Combat'/>
+									<if var2='0-'>
+										<SetVar var2='0'/>
+										<AddText>But your #Weapon doesn't manage to injure it.\r</AddText>
+									</if>
+								<else>if</else>
+									<AddText>You attack and miss.\r</AddText>
+									<SetVar savedvar12_Combat="savedvar12_Combat+savedvar2_Combat*1.5+savedvar4_Combat"/> <!-- sm reload time -->
+								</if>
+							</Choice>
+							<Default>
+								<SetVar smtiredness='smtiredness+1*savedvar15_combat'/>
+								<if chance='50'>
+									<AddText>You attack and hit.\r</AddText>
+									<SetVar savedvar12_Combat="savedvar12_Combat+savedvar2_Combat+savedvar4_Combat"/> <!-- sm reload time -->
+									<SetVar savedvar13_Combat="savedvar13_Combat+savedvar1_Combat/3"/> <!-- monster reload time -->
+									<SetVar var2='savedvar1_Combat-savedvar19_Combat'/>
+									<if var2='0-'>
+										<SetVar var2='0'/>
+										<AddText>But your #Weapon doesn't manage to injure it.\r</AddText>
+									</if>
+								<else>if</else>
+									<AddText>You attack and miss.\r</AddText>
+									<SetVar savedvar12_Combat="savedvar12_Combat+savedvar2_Combat*1.5+savedvar4_Combat"/> <!-- sm reload time -->
+								</if>
+							</Default>
+						</Choices>
+						
+					</Choice>
+
+					<Default>
+						<Choices>
+							<Choice  var4='1'>
+								<SetVar smtiredness='smtiredness+0.3*savedvar15_combat'/>
+								<if chance='50'>
+									<AddText>You attack and hit.\r</AddText>
+									<SetVar savedvar12_Combat="savedvar12_Combat+savedvar2_Combat+savedvar4_Combat"/> <!-- sm reload time -->
+									<SetVar savedvar13_Combat="savedvar13_Combat+savedvar1_Combat/10"/> <!-- monster reload time -->
+									<SetVar var2='savedvar1_Combat-savedvar23_Combat'/>
+									<if var2='0-'>
+										<SetVar var2='0'/>
+										<AddText>But your #Weapon doesn't manage to injure it.\r</AddText>
+									</if>
+								<else>if</else>
+									<AddText>You attack and miss.\r</AddText>
+									<SetVar savedvar12_Combat="savedvar12_Combat+savedvar2_Combat*1.5+savedvar4_Combat"/> <!-- sm reload time -->
+								</if>
+							</Choice>
+							<Choice  var4='2'>
+								<SetVar smtiredness='smtiredness+0.5*savedvar15_combat'/>
+								<if chance='50'>
+									<AddText>You attack and hit.\r</AddText>
+									<SetVar savedvar12_Combat="savedvar12_Combat+savedvar2_Combat+savedvar4_Combat"/> <!-- sm reload time -->
+									<SetVar savedvar13_Combat="savedvar13_Combat+savedvar1_Combat/5"/> <!-- monster reload time -->
+									<SetVar var2='savedvar1_Combat-savedvar23_Combat'/>
+									<if var2='0-'>
+										<SetVar var2='0'/>
+										<AddText>But your #Weapon doesn't manage to injure it.\r</AddText>
+									</if>
+								<else>if</else>
+									<AddText>You attack and miss.\r</AddText>
+									<SetVar savedvar12_Combat="savedvar12_Combat+savedvar2_Combat*1.5+savedvar4_Combat"/> <!-- sm reload time -->
+								</if>
+							</Choice>
+							<Default>
+								<SetVar smtiredness='smtiredness+1*savedvar15_combat'/>
+								<if chance='50'>
+									<AddText>You attack and hit.\r</AddText>
+									<SetVar savedvar12_Combat="savedvar12_Combat+savedvar2_Combat+savedvar4_Combat"/> <!-- sm reload time -->
+									<SetVar savedvar13_Combat="savedvar13_Combat+savedvar1_Combat/3"/> <!-- monster reload time -->
+									<SetVar var2='savedvar1_Combat-savedvar23_Combat'/>
+									<if var2='0-'>
+										<SetVar var2='0'/>
+										<AddText>But your #Weapon doesn't manage to injure it.\r</AddText>
+									</if>
+								<else>if</else>
+									<AddText>You attack and miss.\r</AddText>
+									<SetVar savedvar12_Combat="savedvar12_Combat+savedvar2_Combat*1.5+savedvar4_Combat"/> <!-- sm reload time -->
+								</if>
+							</Default>
+						</Choices>
+					</Default>
+				</Choices>
+				<DoEvent>UpdateHPMPLUST</DoEvent>
+			</TurnSMAttack>
+
+			<TurnSMMagic>
+			</TurnSMMagic>
+
+			<TurnSMDefend>
+				<AskQuestion caption="Defend by...">
+					<Question event="TurnSMDefendStatic">Defensive position</Question>
+					<Question event="TurnSMDefendSideStep">SideStep</Question>
+					<Question event="TurnSM">Return</Question>
+				</AskQuestion>
+				</TurnSMDefend>
+				<TurnSMDefendStatic>
+					<AddText>You take a defensive position</AddText>
+					<SetFlag flagCombat_04='true'/> <!-- SM is defensive position -->
+					<SetVar savedvar12_Combat="savedvar12_Combat+savedvar2_Combat/2+savedvar4_Combat/2"/> <!-- sm reload time -->
+					<SetVar smtiredness='smtiredness-0.5'/>
+					<DoEvent>UpdateHPMPLUST</DoEvent>
+				</TurnSMDefendStatic>
+				<TurnSMDefendSideStep>
+					<AddText>You prepare to side step the attacks</AddText>
+					<SetVar savedvar28_Combat='2'/> <!-- SM is in side step position -->
+					<SetVar savedvar12_Combat="savedvar12_Combat+savedvar2_Combat/2+savedvar4_Combat/2"/> <!-- sm reload time -->
+					<SetVar smtiredness='smtiredness+0.5'/>
+					<DoEvent>UpdateHPMPLUST</DoEvent>
+				</TurnSMDefendSideStep>
+			
+			<TurnSMItem>
+				<AskQuestion caption="Time to...">
+					<Question event="TurnSMItemPotions">Potions</Question>
+					<Question event="TurnSMItemUrns">Urns</Question>
+					<Question event="TurnSMItemMisc">Misc</Question>
+					<Question event="TurnSM">Return</Question>
+				</AskQuestion>
+			</TurnSMItem>
+				<TurnSMItemPotions>
+					<AskQuestion caption="...">
+						<Question event="TurnSMItemPotion1">HP potion</Question>
+						<Question event="TurnSMItemPotion2">Antidote</Question>
+						<Question event="TurnSMItemPotion3">Potion 3</Question>
+						<Question event="TurnSMItemPotion4">Potion 4</Question>
+						<Question event="TurnSMItem">Return</Question>
+					</AskQuestion>
+				</TurnSMItemPotions>
+					<TurnSMItemPotion1>
+						<AddText>You take a HP potion.\r</AddText>
+						<SetVar savedvar12_Combat="savedvar12_Combat+10+savedvar4_Combat/2"/> <!-- sm reload time -->
+						<SetVar savedvar10_Combat="savedvar10_Combat+50"/> <!-- HP -->
+						<SetVar smtiredness='smtiredness-10'/>
+						<SetVar var1='smconstitution*2-smtiredness/10'/>
+						<if savedvar10_Combat='var1+'>
+							<SetVar savedvar10_Combat="var1"/> <!-- HP -->
+						</if>
+						<DoEvent>UpdateHPMPLUST</DoEvent>
+					</TurnSMItemPotion1>
+					<TurnSMItemPotion2>
+						<SetFlag flagCombat_03='false'/>
+						<AddText>You take an antidote to counter act the poison.\r</AddText>
+						<DoEvent>UpdateHPMPLUST</DoEvent>
+					</TurnSMItemPotion2>
+					<TurnSMItemPotion3>
+						<AddText>Empty.\r</AddText>
+						<DoEvent>UpdateHPMPLUST</DoEvent>
+					</TurnSMItemPotion3>
+					<TurnSMItemPotion4>
+						<AddText>Empty.\r</AddText>
+						<DoEvent>UpdateHPMPLUST</DoEvent>
+					</TurnSMItemPotion4>
+				<TurnSMItemUrns>
+					<AskQuestion caption="...">
+						<Question event="TurnSMItemUrn1">Firebomb</Question>
+						<Question event="TurnSMItemUrn2">Exorcist Charm</Question>
+						<Question event="TurnSMItemUrn3">Urn 3</Question>
+						<Question event="TurnSMItemUrn4">Urn 4</Question>
+						<Question event="TurnSMItem">Return</Question>
+					</AskQuestion>
+				</TurnSMItemUrns>
+					<TurnSMItemUrn1>
+						<AddText>You trow a firebomb hurting multiple enemies\r</AddText>
+							<SetVar savedvar9_Combat="savedvar9_Combat-50"/> 		<!-- monster 1 HP -->
+							<SetVar savedvar20_Combat="savedvar20_Combat-50"/> 	<!-- monster 2 HP -->
+							<SetVar savedvar24_Combat="savedvar24_Combat-50"/> 	<!-- monster 3 HP -->
+						<DoEvent>UpdateHPMPLUST</DoEvent>
+					</TurnSMItemUrn1>
+					<TurnSMItemUrn2>
+						<AddText>Empty.\r</AddText>
+						<DoEvent>UpdateHPMPLUST</DoEvent>
+					</TurnSMItemUrn2>
+					<TurnSMItemUrn3>
+						<AddText>Empty.\r</AddText>
+						<DoEvent>UpdateHPMPLUST</DoEvent>
+					</TurnSMItemUrn3>
+					<TurnSMItemUrn4>
+						<AddText>Empty.\r</AddText>
+						<DoEvent>UpdateHPMPLUST</DoEvent>
+					</TurnSMItemUrn4>
+				<TurnSMItemMisc>
+					<AskQuestion caption="...">
+						<Question event="TurnSMItemMisc1">Heal All</Question>
+						<Question event="TurnSMItemMisc2">Power Drug</Question>
+						<Question event="TurnSMItemMisc3">Misc 3</Question>
+						<Question event="TurnSMItemMisc4">Misc 4</Question>
+						<Question event="TurnSMItem">Return</Question>
+					</AskQuestion>
+				</TurnSMItemMisc>
+					<TurnSMItemMisc1>
+						<AddText>Empty.\r</AddText>
+						<DoEvent>UpdateHPMPLUST</DoEvent>
+					</TurnSMItemMisc1>
+					<TurnSMItemMisc2>
+						<AddText>Empty.\r</AddText>
+						<DoEvent>UpdateHPMPLUST</DoEvent>
+					</TurnSMItemMisc2>
+					<TurnSMItemMisc3>
+						<AddText>Empty.\r</AddText>
+						<DoEvent>UpdateHPMPLUST</DoEvent>
+					</TurnSMItemMisc3>
+					<TurnSMItemMisc4>
+						<AddText>Empty.\r</AddText>
+						<DoEvent>UpdateHPMPLUST</DoEvent>
+					</TurnSMItemMisc4>
+
+			<TurnSMRun>
+				<AddText>You run away.\r</AddText>
+				<DoEvent>SMRunAway</DoEvent>
+			</TurnSMRun>
+
+		<TurnMonster>
+			<AddText>TurnMonster Node\r\r</AddText>
+			<if var1='1'>
+				<!-- put paralize and other checks here -->
+				<Set var5='savedvar6_Combat'/>
+				<Set var6='savedvar7_Combat'/>
+				<Set var7='savedvar13_Combat'/>
+				<Choices>
+					<Choice savedvar5_combat='2'>
+						<DoEvent>Monstertype2</DoEvent>
+					</Choice>
+					<Choice savedvar5_combat='1'>
+						<DoEvent>Monstertype1</DoEvent>
+					</Choice>
+					<Default>
+						<DoEvent>MonstertypeDefault</DoEvent>
+					</Default>
+				</Choices>
+			</if>
+			<if var1='2'>
+				<Set var5='savedvar17_Combat'/>
+				<Set var6='savedvar18_Combat'/>
+				<Set var7='savedvar25_Combat'/>
+				<Choices>
+					<Choice savedvar16_combat='2'>
+						<DoEvent>Monstertype2</DoEvent>
+					</Choice>
+					<Choice savedvar16_combat='1'>
+						<DoEvent>Monstertype1</DoEvent>
+					</Choice>
+					<Default>
+						<DoEvent>MonstertypeDefault</DoEvent>
+					</Default>
+				</Choices>
+			</if>
+			<if var1='3'>
+				<Set var5='savedvar21_Combat'/>
+				<Set var6='savedvar22_Combat'/>
+				<Set var7='savedvar26_Combat'/>
+				<Choices>
+					<Choice savedvar27_combat='2'>
+						<DoEvent>Monstertype2</DoEvent>
+					</Choice>
+					<Choice savedvar27_combat='1'>
+						<DoEvent>Monstertype1</DoEvent>
+					</Choice>
+					<Default>
+						<DoEvent>MonstertypeDefault</DoEvent>
+					</Default>
+				</Choices>
+			</if>
+		</TurnMonster>
+
+			<MonstertypeDefault>
+				<Choices>
+
+					<Choice flagCombat_05='true'>
+						<AddText>The moster atttacks you with a heavy blow\r</AddText>							
+						<SetVar var7="var7+var6"/> <!-- monster reload time -->
+						<if flagCombat_04='false'>
+							<SetVar savedvar12_Combat="savedvar12_Combat+var5/2"/> <!-- sm reload time -->
+							<SetVar var1='var5*3-savedvar3_Combat'/>
+							<if var1='0-'>
+								<SetVar var1='0'/>
+								<if ArmorType='0'>
+									<AddText>But you manage to deflect the blow, taking no damage.</AddText>
+								<else>if</else>
+									<AddText>But it can't pirce your #Armor.\r</AddText>
+								</if>
+							</if>
+							<SetVar var1="var1"/> <!-- damage SM -->
+							<SetVar smtiredness='smtiredness+0.2'/>
+						<else>if</else>
+							<SetVar savedvar12_Combat="savedvar12_Combat+var5/4"/> <!-- sm reload time -->
+							<SetVar var1='var5*3-savedvar3_Combat'/>
+							<if var1='0-'>
+								<SetVar var1='0'/>
+								<if ArmorType='0'>
+									<AddText>But you manage to deflect the blow, taking no damage.</AddText>
+								<else>if</else>
+									<AddText>But it can't pirce your #Armor.\r</AddText>
+								</if>
+							</if>
+							<SetVar var1="var1/2"/> <!-- damage SM -->
+							<SetVar smtiredness='smtiredness+0.1'/>
+						</if>
+					</Choice>
+
+					<Choice chance='50/savedvar28_Combat'>
+						<AddText>The moster atttacks you\r</AddText>							
+						<SetVar var7="var7+var6"/> <!-- monster reload time -->
+						<if flagCombat_04='false'>
+							<SetVar savedvar12_Combat="savedvar12_Combat+var5/4"/> <!-- sm reload time -->
+							<SetVar var1='var5-savedvar3_Combat'/>
+							<if var1='0-'>
+								<SetVar var1='0'/>
+								<if ArmorType='0'>
+									<AddText>But you manage to deflect the blow, taking no damage.</AddText>
+								<else>if</else>
+									<AddText>But it can't pirce your #Armor.\r</AddText>
+								</if>
+							</if>
+							<SetVar var1="var1"/> <!-- damage SM -->
+							<SetVar smtiredness='smtiredness+0.2'/>
+							<if savedvar28_Combat='1.1+'>
+								<SetVar var1="var1*savedvar28_Combat"/> <!-- damage SM -->
+								<SetVar smtiredness='smtiredness+savedvar28_Combat'/>
+							</if>
+						<else>if</else>
+							<SetVar savedvar12_Combat="savedvar12_Combat+var5/8"/> <!-- sm reload time -->
+							<SetVar var1='var5-savedvar3_Combat'/>
+							<if var1='0-'>
+								<SetVar var1='0'/>
+								<if ArmorType='0'>
+									<AddText>But you manage to deflect the blow, taking no damage.</AddText>
+								<else>if</else>
+									<AddText>But it can't pirce your #Armor.\r</AddText>
+								</if>
+							</if>
+							<SetVar var1="var1/2"/> <!-- damage SM -->
+							<SetVar smtiredness='smtiredness+0.1'/>
+						</if>
+						<if var1='1+'>
+							<SetFlag flagCombat_03='true'/>
+						</if>
+					</Choice>
+
+					<Choice chance='50'>
+						<AddText>The moster attacks you, but misses.\\r</AddText>
+						<SetVar var7="var7+var6"/> <!-- monster reload time -->
+						<if savedvar28_Combat='1.1+'>
+							<SetVar smtiredness='smtiredness+1'/> <!-- Side step is tiresome -->
+						</if>
+					</Choice>
+
+					<Choice chance='50'>
+						<AddText>The moster gathers it strength.\\r</AddText>
+						<SetVar var7="var7+var6*2"/> <!-- monster reload time -->
+						<SetFlag flagCombat_05='true'/>
+					</Choice>
+
+					<Default>
+						<AddText>The moster looks agry at you\\r</AddText>
+						<SetVar var7="var7+var6/2"/> <!-- monster reload time -->
+					</Default>
+				</Choices>
+				<DoEvent>UpdateHPMPLUST</DoEvent>
+			</MonstertypeDefault>
+			<Monstertype1>
+			</Monstertype1>
+			<Monstertype2>
+			</Monstertype2>
+					
+
+		<SMLoseDamage>
+			<SetText>Your HP has run out. You lose due to damage.</SetText>
+			<DoEvent>EndCombat</DoEvent>
+		</SMLoseDamage>
+
+		<SMRunAway>
+			<SetText>You turned tail and ran.</SetText>
+			<DoEvent>EndCombat</DoEvent>
+		</SMRunAway>
+
+		<MonsterLoseDamage>
+			<SetText>The monsters HP has run out. It loses due to damage.</SetText>
+			<DoEvent>EndCombat</DoEvent>
+		</MonsterLoseDamage>
+
+		<MonsterFlees>
+			<SetText>The Monster turned tail and ran.</SetText>
+			<DoEvent>EndCombat</DoEvent>
+		</MonsterFlees>
+
+		<EndCombat>
+			<!-- Cleaning vars and flags -->
+				<SetVar savedvar1_Combat='0'/>
+				<SetVar savedvar2_Combat='0'/>
+				<SetVar savedvar3_Combat='0'/>
+				<SetVar savedvar4_Combat='0'/>
+				<SetVar savedvar5_Combat='0'/>
+				<SetVar savedvar6_Combat='0'/>
+				<SetVar savedvar7_Combat='0'/>
+				<SetVar savedvar8_Combat='0'/>
+				<SetVar savedvar9_Combat='0'/>
+				<!-- <SetVar savedvar10_Combat='0'/> the SM HP -->
+				<SetVar savedvar11_Combat='0'/>
+				<SetVar savedvar11_Combat='0'/>
+				<SetVar savedvar12_Combat='0'/>
+				<SetVar savedvar13_Combat='0'/>
+				<SetVar savedvar14_Combat='0'/>
+				<SetVar savedvar15_Combat='0'/>
+				<SetVar savedvar16_Combat='0'/>
+				<SetVar savedvar17_Combat='0'/>
+				<SetVar savedvar18_Combat='0'/>
+				<SetVar savedvar19_Combat='0'/>
+				<SetVar savedvar20_Combat='0'/>
+				<SetVar savedvar21_Combat='0'/>
+				<SetVar savedvar22_Combat='0'/>
+				<SetVar savedvar23_Combat='0'/>
+				<SetVar savedvar24_Combat='0'/>
+				<SetVar savedvar25_Combat='0'/>
+				<SetVar savedvar26_Combat='0'/>
+				<SetVar savedvar27_Combat='0'/>
+				<SetVar savedvar28_Combat='0'/>
+				<SetVar savedvar29_Combat='0'/>
+				<SetVar savedvar30_Combat='0'/>
+				<SetFlag flagCombat_01='false'/>
+				<SetFlag flagCombat_02='false'/>
+				<SetFlag flagCombat_03='false'/>
+				<SetFlag flagCombat_04='false'/>
+				<SetFlag flagCombat_05='false'/>
+				<SetFlag flagCombat_06='false'/>
+				<SetFlag flagCombat_07='false'/>
+				<SetFlag flagCombat_08='false'/>
+				<SetFlag flagCombat_09='false'/>
+				<SetFlag flagCombat_10='false'/>
+				<SetFlag flagCombat_11='false'/>
+				<SetFlag flagCombat_12='false'/>
+				<SetFlag flagCombat_13='false'/>
+				<SetFlag flagCombat_14='false'/>
+				<SetFlag flagCombat_15='false'/>
+				<SetFlag flagCombat_16='false'/>
+				<SetFlag flagCombat_17='false'/>
+				<SetFlag flagCombat_18='false'/>
+				<SetFlag flagCombat_19='false'/>
+				<SetFlag flagCombat_20='false'/>
+
+			<!-- sending back to the original event -->
+			<Choices>
+				<Choice savedvar0='0'>
+					<DoEvent now='true'>MyEventName0</DoEvent>
+				</Choice>
+				<Choice savedvar0='1'>
+					<DoEvent now='true'>MyEventName1</DoEvent>
+				</Choice>
+				<Choice savedvar0='2'>
+					<DoEvent now='true'>MyEventName2</DoEvent>
+				</Choice>
+				<Choice savedvar0='3'>
+					<DoEvent now='true'>MyEventName3</DoEvent>
+				</Choice>
+				<Choice savedvar0='4'>
+					<DoEvent now='true'>MyEventName4</DoEvent>
+				</Choice>
+				<Choice savedvar0='5'>
+					<DoEvent now='true'>MyEventName5</DoEvent>
+				</Choice>
+				<Choice savedvar0='6'>
+					<DoEvent now='true'>MyEventName6</DoEvent>
+				</Choice>
+				<Choice savedvar0='7'>
+					<DoEvent now='true'>MyEventName7</DoEvent>
+				</Choice>
+				<Choice savedvar0='8'>
+					<DoEvent now='true'>MyEventName8</DoEvent>
+				</Choice>
+				<Choice savedvar0='9'>
+					<DoEvent now='true'>MyEventName9</DoEvent>
+				</Choice>
+				<Choice savedvar0='10'>
+					<DoEvent now='true'>MyEventName10</DoEvent>
+				</Choice>
+				<Default>
+					<DoEvent>9999</DoEvent>
+				</Default>
+			</Choices>
+
+		</EndCombat>
+	<!-- Combat Engine End _________________________________________________________________________________________________________________________________   -->
+
+
+	<ColiseumWelcome>
+		<ShowImage image='Images/Events/Combat/ColiseumWelcome.jpg'/>
+		<SetText></SetText>
+		<for start='1' end='20'>
+			<AddText>      <b>Welcome to the coliseum!\r</b></AddText>
+		</for>
+		<AddText>
+			PlaySoundFile look up by Mirjane 
+
+			Ladies and Gentleman Welcome to the Coliseum once again
+			do you wish to battle
+			do you wish to bet
+			or just enjoy the show
+			you are welcome as long as you have something to be taken
+			be it your money, your body or your freedom
+			everything be put to wager here!
+
+			We are still in the middle of rebuilding it to its former glory and much of it is still in ruins
+			but feared not, our slaves work tireless on it day and night to secure your enjoyment
+
+			and now let me present to you our new arena.
+			Large enough for 1 vs 3 fights
+			we are still deciding if the fighters prefer a cue line informing them of who attacks
+			M1 M2 SM M3
+			or if they prefer making fights up to 2 vs 5 possible
+
+			Stun attacks against the enemies are still not possible.
+			Also they are immune to all status effects as of now
+
+			But don't let this discourage you from throwing firebombs at them. Even if burn status can’t be dealt.
+
+			Looking back I realize that all this options and commands and effects would have been so easy if I had understood and made the stuff in AS. Having Arrays would make my life so much easier.
+
+			Well, at least this can serve as base for cmacleod to make a more expansive combat system than the current one.
+
+		</AddText>
+		<DoEvent>ColiseumEntrance</DoEvent>
+	</ColiseumWelcome>
+	<ColiseumEntrance>
+		<ShowImage image='Images/Events/Combat/ColiseumEntrance.jpg'/>
+		<AskQuestion caption="What do you wish to do?">
+			<Question event="ColiseumWatchAMatch">Watch a match</Question>
+			<Question event="ColiseumFoodStalls">Food Stalls</Question>
+			<Question event="ColiseumInfoDesk">Information Desk</Question>
+			<Question event="ColiseumCompetitorReception">Competitor Reception</Question>
+			<Question event="ColiseumJustLeave">Just Leave</Question>
+		</AskQuestion>
+	</ColiseumEntrance>
+	<ColiseumWatchAMatch>
+		<ShowImage image='Images/Events/Combat/ColiseumWatchAMatch.jpg'/>
+		<SetText>You decide to watch a match, lets see what we can expect today</SetText>
+		<DoEvent>ColiseumWatchAMatchPart1</DoEvent>
+		</ColiseumWatchAMatch>
+		<ColiseumWatchAMatchPart1>
+			<Alternatives>
+				<Alternative>
+					<SetVar var1='1'/>
+					<SetVar var2='0'/>
+					<SetVar var3='0'/>
+					<ShowImage image='Images/Events/Combat/ColiseumEntrance.jpg'/>
+					<SetText>Seems like a human fighter vs 2 midgets\r the last bets are being taken \r human fighter 1/1.5\r midgeds 1/3</SetText>
+					<AskQuestion caption="Do you want to bet?">
+						<Question event="ColiseumWatchAMatchPart1BetYes1">Yes, on the human fighter</Question>
+						<Question event="ColiseumWatchAMatchPart1BetYes2">Yes, on the 2 midgeds</Question>
+						<Question event="ColiseumWatchAMatchPart1BetNo">Better not</Question>
+					</AskQuestion>
+				</Alternative>
+			</Alternatives>
+		</ColiseumWatchAMatchPart1>
+		<ColiseumWatchAMatchPart1BetNo>
+			<SetVar var2='0'/>
+			<DoEvent now='true'>ColiseumWatchAMatchPart2</DoEvent>
+		</ColiseumWatchAMatchPart1BetNo>
+		<ColiseumWatchAMatchPart1BetYes1>
+			<SetVar var2='1'/>
+			<DoEvent now='true'>ColiseumWatchAMatchPart1Bet</DoEvent>
+		</ColiseumWatchAMatchPart1BetYes1>
+		<ColiseumWatchAMatchPart1BetYes2>
+			<SetVar var2='2'/>
+			<DoEvent now='true'>ColiseumWatchAMatchPart1Bet</DoEvent>
+		</ColiseumWatchAMatchPart1BetYes2>
+		<ColiseumWatchAMatchPart1BetYes3>
+			<SetVar var2='3'/>
+			<DoEvent now='true'>ColiseumWatchAMatchPart1Bet</DoEvent>
+		</ColiseumWatchAMatchPart1BetYes3>
+		<ColiseumWatchAMatchPart1BetYes4>
+			<SetVar var2='4'/>
+			<DoEvent now='true'>ColiseumWatchAMatchPart1Bet</DoEvent>
+		</ColiseumWatchAMatchPart1BetYes4>
+		<ColiseumWatchAMatchPart1BetYes5>
+			<SetVar var2='5'/>
+			<DoEvent now='true'>ColiseumWatchAMatchPart1Bet</DoEvent>
+		</ColiseumWatchAMatchPart1BetYes5>
+		<ColiseumWatchAMatchPart1Bet>
+			<AskQuestion caption="How much do you want to bet?">
+				<Question event="ColiseumWatchAMatchPart1Bet10">10 Gold</Question>
+				<Question event="ColiseumWatchAMatchPart1Bet100">100 Gold</Question>
+				<Question event="ColiseumWatchAMatchPart1Bet1000">1000 Gold</Question>
+			</AskQuestion>
+		</ColiseumWatchAMatchPart1Bet>
+		<ColiseumWatchAMatchPart1Bet10>
+			<SetVar var3='10'/>
+			<SMMoney>-var3</SMMoney>
+			<DoEvent now='true'>ColiseumWatchAMatchPart2</DoEvent>
+		</ColiseumWatchAMatchPart1Bet10>
+		<ColiseumWatchAMatchPart1Bet100>
+			<SetVar var3='100'/>
+			<SMMoney>-var3</SMMoney>
+			<DoEvent now='true'>ColiseumWatchAMatchPart2</DoEvent>
+		</ColiseumWatchAMatchPart1Bet100>
+		<ColiseumWatchAMatchPart1Bet1000>
+			<SetVar var3='1000'/>
+			<SMMoney>-var3</SMMoney>
+			<DoEvent now='true'>ColiseumWatchAMatchPart2</DoEvent>
+		</ColiseumWatchAMatchPart1Bet1000>
+
+		<ColiseumWatchAMatchPart2>
+			<Choices>
+				<Choice var1='1'>
+					<ShowImage image='Images/Events/Combat/PlaceHolder.jpg'/>
+					<SetText>Blablabla the fight</SetText>
+				</Choice>
+				<Default>
+				</Default>
+			</Choices>
+			<DoEvent>ColiseumWatchAMatchPart3</DoEvent>
+		</ColiseumWatchAMatchPart2>
+
+		<ColiseumWatchAMatchPart3>
+			<Choices>
+				<Choice var1='1'>
+					<SetText>Blablabla the fight</SetText>
+					<if chance='80'>
+						<ShowImage image='Images/Events/Combat/PlaceHolder.jpg'/>
+						<AddText>Human wins</AddText>
+						<if var2='1+'>
+							<if var2='1'>
+								<SetVar var3='var3*1.5'/>
+								<AddText>And you win #var3 gold coins</AddText>
+								<SMMoney>var3</SMMoney>
+							</if>
+							<if var2='2'>
+								<SetVar var3='0'/>
+								<AddText>And you lose your bet</AddText>
+							</if>
+						</if>
+					<else>if</else>
+						<ShowImage image='Images/Events/Combat/PlaceHolder.jpg'/>
+						<AddText>Midged wins</AddText>
+						<if var2='1+'>
+							<if var2='1'>
+								<SetVar var3='0'/>
+								<AddText>And you lose your bet</AddText>
+							</if>
+							<if var2='2'>
+								<SetVar var3='var3*3'/>
+								<AddText>And you win #var3 gold coins</AddText>
+								<SMMoney>var3</SMMoney>
+							</if>
+						</if>
+					</if>
+				</Choice>
+				<Default>
+				</Default>
+			</Choices>
+			<DoEvent>ColiseumWatchAMatchPart4</DoEvent>
+		</ColiseumWatchAMatchPart3>
+
+		<ColiseumWatchAMatchPart4>
+			<if var2='1+' var3='1+'>
+				<SetText>You leave the Coliseum happy with your gains from the bet weighting in your coin purse.</SetText>
+				<if Debt='1+'>
+					<AddText>\rBut your steps get heavier when you remember of your still existing debt of #Debt gold coins.</AddText>
+				</if>
+			</if>
+			<if var2='1+' var3='0'>
+				<SetText>You leave the Coliseum with a lighter purse, but decide better not to think about it and focus on #slave’s training.</SetText>
+				<if Debt='1+'>
+					<AddText>\rBut your steps only get heavier when you are reminded of your again grown debt of #Debt gold coins.</AddText>
+				</if>
+			</if>
+			<if var2='0'>
+				<SetText>You leave the Coliseum happy having seen a nice fight.</SetText>
+			</if>
+			<DoEvent>9999</DoEvent>
+		</ColiseumWatchAMatchPart4>
+
+	<ColiseumFoodStalls>
+	</ColiseumFoodStalls>
+
+	<ColiseumInfoDesk>
+	</ColiseumInfoDesk>
+
+	<ColiseumCompetitorReception>
+	</ColiseumCompetitorReception>
+
+	<ColiseumJustLeave>
+		<SetText>Somehow you aren't in the mood for it today and decide its better to leave and spend the remaining time on a slow and confortable walk home.</SetText>
+		<DoEvent>9999</DoEvent>
+	</ColiseumJustLeave>
+
+
+
+
+
+	</Events>
+</Language>
